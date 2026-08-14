@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
-  "publicationId": "GH-PUB-182451b569d6bab2277c07478cb81895",
+  "publicationId": "GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac",
   "role": "executor",
-  "milestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.CONTROL.ACTIVATION.1A",
   "workerOutcome": "PASS",
-  "classification": "RELAY_CONTROL_DURABILITY_STATE_TESTED_RECONCILED_AND_PRESERVED",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-182451b569d6bab2277c07478cb81895/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-182451b569d6bab2277c07478cb81895/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-182451b569d6bab2277c07478cb81895/receipt.json",
+  "classification": "ARCHITECT_SESSION_CONTROL_ACTIVE_READY_FOR_ONE_SHOT_RELAY_QUALIFICATION",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac/receipt.json",
   "requiresArchitectDecision": true
 }
