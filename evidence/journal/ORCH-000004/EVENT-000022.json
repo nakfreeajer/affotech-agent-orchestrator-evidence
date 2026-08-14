@@ -1,0 +1,8 @@
+{
+  "eventId": "EVENT-000022",
+  "eventType": "DISPATCH_CREATED",
+  "messageId": "ORCH-000004",
+  "dispatchId": "DISPATCH-000004",
+  "canonicalPromptSha256": "3c5a5cb19e1649d65bc73ecde43b1d629be706f57cee782946d64ede966cfb02",
+  "createdAt": "2026-08-14T07:22:00Z"
+}
