@@ -3,10 +3,10 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "EXECUTOR_ACCEPTED",
   "pointerState": "ACCEPTED",
-  "publicationId": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f",
+  "publicationId": "GH-PUB-182451b569d6bab2277c07478cb81895",
   "accepted": true,
-  "architectDecisionId": "GH-DEC-2f6a91c4d8e73b1055a9f4c7b2d6e318",
-  "acceptedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
-  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
+  "architectDecisionId": "GH-DEC-8f24c0a61d3e4b57a9c2e6f103bd7845",
+  "acceptedMilestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
   "requiresArchitectDecision": false
 }
