@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000010",
+  "messageId": "ORCH-000010",
+  "parentMessageId": "ORCH-000009",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-EVIDENCE-REPAIR",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1B.CONTROL.EVIDENCE.REPAIR.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000010.md",
+  "canonicalPromptSha256": "2601a281515f8f82a5c3ef090510a3f0b05781e8c8f9c3486edb1f4117c399fe",
+  "baselineIdentity": {
+    "acceptedPublicationId": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f",
+    "acceptedDecisionId": "GH-DEC-2f6a91c4d8e73b1055a9f4c7b2d6e318",
+    "authorityModel": "IMMUTABLE_GIT_OBJECTS_PLUS_ANCESTRY_AND_SUPERSESSION_GATE"
+  },
+  "mutationEnvelope": {
+    "authorityRecordMutation": 0,
+    "registrationRecordMutation": 0,
+    "browserRelaySourceMutationExpected": 0,
+    "canonicalOrchestratorMutation": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0,
+    "liveTriggerSendMax": 0
+  },
+  "createdAt": "2026-08-14T15:45:00Z",
+  "dispatchState": "READY",
+  "authority": "CANONICAL",
+  "issueIsObservabilityOnly": true
+}
