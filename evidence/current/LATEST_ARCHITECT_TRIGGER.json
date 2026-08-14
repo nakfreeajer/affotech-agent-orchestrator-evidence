@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "pointerKind": "ARCHITECT_TRIGGER",
+  "pointerState": "CURRENT",
+  "triggerId": "ARCH-TRIGGER-9333-000001",
+  "triggerState": "SENT",
+  "intentPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000001/intent.json",
+  "intentSha256": "a1fd78c94a8f6e540d5f3dcc508cc7c0a39698a3cf297defe1f7b609f72b4c92",
+  "resultPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000001/result.json",
+  "resultSha256": "f49bd1eaa55d6783a39533fae0c16586415c190d5f9633abea33e08f91f3afc8",
+  "attemptedSendCount": 1,
+  "confirmedSendCount": 1,
+  "outcome": "SENT"
+}
