@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-406f81e9be484fc792f60fd0ce7319ac",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A.PUBLICATION.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-1943483eb175b0a6539f0eb176b47fa50ee4fa2d764856800c503cfa3294466d",
+  "blocker": "UNPUBLISHED_REPAIR_OBJECT_UNAVAILABLE",
+  "reason": "The previously completed relay-control durability repair was never pushed and its unpublished Git object is no longer available locally or remotely. No partial repair publication or live send occurred. Rebuild the same bounded repair from the canonical specification on a fresh current remote base.",
+  "nextCanonicalMessageId": "ORCH-000013"
+}
