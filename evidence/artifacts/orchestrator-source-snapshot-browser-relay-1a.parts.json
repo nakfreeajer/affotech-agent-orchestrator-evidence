@@ -1,0 +1,29 @@
+{
+    "schemaVersion":  "1.0",
+    "format":  "AFFOTECH_ORCH_SOURCE_SNAPSHOT_PARTS_V1",
+    "snapshotName":  "orchestrator-source-snapshot-browser-relay-1a.tar.gz",
+    "snapshotSize":  35764,
+    "snapshotSha256":  "b15bc8e18f900ce2eb765d38609029f5e44d5324a3744268778638ec7cb6250d",
+    "fileCount":  63,
+    "manifest":  "ab29c04b97d0e45c606157ae06158dfed2410c6bf637bff97b8c5dac7e360277",
+    "parts":  [
+                  {
+                      "part":  1,
+                      "path":  "orchestrator-source-snapshot-browser-relay-1a.part-01.br",
+                      "size":  11922,
+                      "sha256":  "4a524106545ff3a0427965ec25019c39eea26ffec0ea1d06633fe158e8355585"
+                  },
+                  {
+                      "part":  2,
+                      "path":  "orchestrator-source-snapshot-browser-relay-1a.part-02.br",
+                      "size":  11922,
+                      "sha256":  "e3604c16213c44b62604c2087af3b6c767deadd4c8cc6ff76df066f9c0b55994"
+                  },
+                  {
+                      "part":  3,
+                      "path":  "orchestrator-source-snapshot-browser-relay-1a.part-03.br",
+                      "size":  11920,
+                      "sha256":  "2ef6c360f7e3ecbcab0195a5f9fb06f03f88b73be31748353ce877410448aa71"
+                  }
+              ]
+}
