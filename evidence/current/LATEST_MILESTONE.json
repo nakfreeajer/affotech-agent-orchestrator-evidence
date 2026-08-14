@@ -1,1 +1,12 @@
-{"schemaVersion":"1.0","evidenceProject":"affotech-agent-orchestrator","pointerKind":"MILESTONE","pointerState":"TERMINAL_AWAITING_ARCHITECT","milestone":"ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B.STATE.RECONCILIATION.1A","role":"executor","publicationId":"GH-PUB-7e2e10e0121780fcb0c7032493c293190d26767b0debbb042da681b3214df83c","workerOutcome":"BLOCKED","classification":"ACCEPTED_BROWSER_RELAY_BASELINE_RECONSTRUCTION_FAILED","requiresArchitectDecision":true}
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "MILESTONE",
+  "pointerState": "TERMINAL_AWAITING_ARCHITECT",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "role": "executor",
+  "publicationId": "GH-PUB-ddee1b43af325c59ad188ba9bcbe4fe4",
+  "workerOutcome": "PASS",
+  "classification": "RELAY_CONTROL_DURABILITY_STATE_TESTED_RECONCILED_AND_PRESERVED",
+  "requiresArchitectDecision": true
+}
