@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-eb17fc7e5e724293a1311b06f773584d",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B",
+  "reviewedPublicationId": "GH-PUB-2dc2155616b1103099f389235e27c3f64b8cf812c361eea1969816e22dbedcaa",
+  "reason": "ORCH-000013 passed 202 tests but omitted the required durable preserved source snapshot file count, manifest SHA-256, and snapshot SHA-256/size; the tested repaired state is therefore not yet independently preservable/verifiable from GitHub evidence.",
+  "nextCanonicalMessageId": "ORCH-000014"
+}
