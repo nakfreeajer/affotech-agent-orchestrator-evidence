@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000016",
+  "parentMessageId": "ORCH-000015",
+  "missionId": "MISSION-BROWSER-RELAY-ACCEPTED-BASELINE-MANIFEST-CORRECTION-STATE-TEST",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000016.md",
+  "promptSha256": "3d7d8c99eb7740e36ef72e2ee50c4e3237fbb0f14178f8f46bd81d9142c30096",
+  "architectDecisionId": "GH-DEC-05933e6b54ea45ffd9ee3d41983fc6ad",
+  "dispatchState": "READY",
+  "issueIsObservabilityOnly": true
+}
