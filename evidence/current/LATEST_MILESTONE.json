@@ -1,15 +1,1 @@
-{
-  "schemaVersion": "1.0",
-  "evidenceProject": "affotech-agent-orchestrator",
-  "pointerKind": "MILESTONE",
-  "pointerState": "ARCHITECT_ACCEPTED",
-  "acceptedFoundation": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A",
-  "acceptedPublicationId": "GH-PUB-6d966931fb4828b92d5d8d978febe345",
-  "architectDecisionId": "GH-DEC-6c0d2ce590e13412f14347e5d6dd0a3c",
-  "milestone": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A.EVIDENCE.COMPLETION.REPAIR.1A",
-  "role": "executor",
-  "workerOutcome": "PASS",
-  "classification": "ACCEPTED",
-  "requiresArchitectDecision": false,
-  "driveCutoverAuthorized": false
-}
+{"schemaVersion":"1.0","evidenceProject":"affotech-agent-orchestrator","pointerKind":"MILESTONE","pointerState":"TERMINAL_AWAITING_ARCHITECT","milestone":"ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A","role":"executor","publicationId":"GH-PUB-a9020071bbb624f534914388ec7586bc","workerOutcome":"PASS","classification":"PUBLISHED","requiresArchitectDecision":true}
