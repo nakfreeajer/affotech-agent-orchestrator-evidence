@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-05933e6b54ea45ffd9ee3d41983fc6ad",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B.STATE.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-7e2e10e0121780fcb0c7032493c293190d26767b0debbb042da681b3214df83c",
+  "blocker": "ACCEPTED_BROWSER_RELAY_MANIFEST_METADATA_DEFECT",
+  "rationale": "The corrected four-part accepted snapshot reconstructs exactly to the authoritative size, SHA-256, and 64-file count, but its stored accepted manifest cannot be reproduced using the established manifest algorithm. The snapshot bytes remain usable baseline authority; the manifest metadata must be corrected immutably before final state acceptance.",
+  "nextCanonicalMessageId": "ORCH-000016",
+  "nextMilestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "liveSendAuthorized": false
+}
