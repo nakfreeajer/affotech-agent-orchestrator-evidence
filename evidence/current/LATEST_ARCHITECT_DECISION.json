@@ -2,12 +2,12 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "BLOCKED",
-  "decisionId": "GH-DEC-406f81e9be484fc792f60fd0ce7319ac",
-  "decision": "BLOCKED",
-  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A.PUBLICATION.RECONCILIATION.1A",
-  "reviewedPublicationId": "GH-PUB-1943483eb175b0a6539f0eb176b47fa50ee4fa2d764856800c503cfa3294466d",
-  "blocker": "UNPUBLISHED_REPAIR_OBJECT_UNAVAILABLE",
-  "nextCanonicalMessageId": "ORCH-000013",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-406f81e9be484fc792f60fd0ce7319ac/decision.json"
+  "pointerState": "INCONCLUSIVE",
+  "decisionId": "GH-DEC-eb17fc7e5e724293a1311b06f773584d",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B",
+  "reviewedPublicationId": "GH-PUB-2dc2155616b1103099f389235e27c3f64b8cf812c361eea1969816e22dbedcaa",
+  "reason": "ORCH-000013 passed 202 tests but omitted required durable preserved source snapshot evidence needed to independently verify the repaired state.",
+  "nextCanonicalMessageId": "ORCH-000014",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-eb17fc7e5e724293a1311b06f773584d/decision.json"
 }
