@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000015",
+  "parentMessageId": "ORCH-000014",
+  "promptPath": "evidence/prompts/ORCH-000015.md",
+  "promptSha256": "8788ad81f3080a499b6fbb33542df2842f20369f934aca023557292b33d7c2b7",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-STATE-RECONCILIATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B.STATE.RECONCILIATION.1A",
+  "targetRole": "executor"
+}
