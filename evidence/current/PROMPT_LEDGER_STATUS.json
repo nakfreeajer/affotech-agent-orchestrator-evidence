@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "status": "CANONICAL_READY_MIRROR_PENDING",
+  "messageId": "ORCH-000001",
+  "dispatchId": "DISPATCH-000001",
+  "ledgerMirrorState": "PENDING",
+  "issueIsObservabilityOnly": true,
+  "executionAuthority": "CANONICAL_PROMPT_ARTIFACT_ONLY"
+}

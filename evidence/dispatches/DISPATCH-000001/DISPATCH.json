@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000001",
+  "messageId": "ORCH-000001",
+  "parentMessageId": null,
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000001.md",
+  "canonicalPromptSha256": "14506007adf86d646d32f8c21e49e7d4427bfc28a55878f02ebf90a6a3749381",
+  "baselineIdentity": {
+    "evidenceRepository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+    "evidenceParent": "59d55bce2fa3c4f6dcd9c4560c59363940c495e4",
+    "implementationWorkspace": "C:/tmp/affotech-agent-orchestrator-github-evidence-transport-1a"
+  },
+  "mutationEnvelope": {
+    "canonicalOrchestratorMutation": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0
+  },
+  "createdAt": "2026-08-14T04:01:00Z",
+  "dispatchState": "READY",
+  "authority": "CANONICAL"
+}

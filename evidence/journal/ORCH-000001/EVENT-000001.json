@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0",
+  "eventId": "EVENT-000001",
+  "eventType": "ARCHITECT_PROMPT_CREATED",
+  "occurredAt": "2026-08-14T04:02:00Z",
+  "messageId": "ORCH-000001"
+}

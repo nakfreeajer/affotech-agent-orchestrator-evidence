@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "ARCHITECT_PROMPT",
+  "pointerState": "CANONICAL",
+  "messageId": "ORCH-000001",
+  "parentMessageId": null,
+  "promptPath": "evidence/prompts/ORCH-000001.md",
+  "promptSha256": "14506007adf86d646d32f8c21e49e7d4427bfc28a55878f02ebf90a6a3749381",
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "targetRole": "executor",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "READY",
+  "issueNumber": 1,
+  "issueIsObservabilityOnly": true
+}

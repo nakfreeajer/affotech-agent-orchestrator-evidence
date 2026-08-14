@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "eventId": "EVENT-000003",
+  "eventType": "LEDGER_MIRROR_ATTEMPTED",
+  "occurredAt": "2026-08-14T04:02:00Z",
+  "messageId": "ORCH-000001",
+  "details": {
+    "issueTitle": "[ARCHITECT LOG] Agent Prompt Ledger",
+    "issueNumber": 1
+  }
+}
