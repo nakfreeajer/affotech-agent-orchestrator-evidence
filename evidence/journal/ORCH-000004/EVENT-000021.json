@@ -1,0 +1,9 @@
+{
+  "eventId": "EVENT-000021",
+  "eventType": "LEDGER_MIRROR_SUCCEEDED",
+  "messageId": "ORCH-000004",
+  "issueNumber": 1,
+  "issueCommentId": 5290704997,
+  "representation": "MIRROR_REPRESENTATION_NOT_BYTE_IDENTICAL",
+  "createdAt": "2026-08-14T07:22:00Z"
+}
