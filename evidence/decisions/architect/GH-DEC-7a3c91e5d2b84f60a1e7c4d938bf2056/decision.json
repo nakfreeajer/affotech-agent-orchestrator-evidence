@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-7a3c91e5d2b84f60a1e7c4d938bf2056",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.CONTROL.ACTIVATION.1A",
+  "reviewedPublicationId": "GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac",
+  "reason": "Immutable RELAY-CONTROL-9333-000001 is durably materialized and resolves ACTIVE with exact pointer/hash equality; Architect authority and registration identities remain unchanged; the registered conversation on port 9333 has exactly one visible enabled composer; send count is 0 and no trigger record exists.",
+  "accepted": true,
+  "acceptedPublicationId": "GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac",
+  "nextCanonicalMessageId": "ORCH-000018",
+  "nextDispatchId": "DISPATCH-000018"
+}
