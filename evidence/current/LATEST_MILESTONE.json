@@ -1,9 +1,1 @@
-{
-  "schemaVersion": "1.0",
-  "evidenceProject": "affotech-agent-orchestrator",
-  "pointerKind": "MILESTONE",
-  "pointerState": "EMPTY",
-  "publicationId": null,
-  "accepted": false,
-  "requiresArchitectDecision": false
-}
+{"schemaVersion":"1.0","evidenceProject":"affotech-agent-orchestrator","pointerKind":"MILESTONE","pointerState":"TERMINAL_AWAITING_ARCHITECT","milestone":"ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A.EVIDENCE.COMPLETION.REPAIR.1A","role":"executor","publicationId":"GH-PUB-2b6f0374750b89195b3e6abf1a3594ef","workerOutcome":"PASS","classification":"PUBLISHED","requiresArchitectDecision":true}
