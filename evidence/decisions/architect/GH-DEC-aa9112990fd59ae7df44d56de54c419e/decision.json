@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-aa9112990fd59ae7df44d56de54c419e",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1B.CONTROL.EVIDENCE.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-7a1c3e5f9b2d4f6a8c0e1b3d5f7a9c2e",
+  "blocker": "RELAY_CONTROL_DURABILITY_CONTRACT_DEFECT",
+  "reason": "The accepted BrowserRelay registration contract defines a relay-control pointer but no immutable relay-control record directory/path, so ACTIVE control cannot be independently resolved and verified from durable GitHub evidence.",
+  "nextCanonicalMessageId": "ORCH-000011",
+  "nextMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A",
+  "acceptedExecutorPointerRemains": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f"
+}
