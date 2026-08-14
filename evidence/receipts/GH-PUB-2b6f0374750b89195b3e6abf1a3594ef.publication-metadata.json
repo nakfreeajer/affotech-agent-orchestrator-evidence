@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-2b6f0374750b89195b3e6abf1a3594ef",
+  "observedPublicationCommit": "642e7f970dc59302491931f1b874cae278f47b1a",
+  "previousEvidenceCommit": "f5ab983fb8505f5b3312e9681af68b9b32fb1b9d",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-2b6f0374750b89195b3e6abf1a3594ef/receipt.json",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-2b6f0374750b89195b3e6abf1a3594ef/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-2b6f0374750b89195b3e6abf1a3594ef/report.md",
+  "observedPublicationCommitVerified": true
+}
