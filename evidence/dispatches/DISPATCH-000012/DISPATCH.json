@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000012",
+  "messageId": "ORCH-000012",
+  "parentMessageId": "ORCH-000011",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000012.md",
+  "canonicalPromptSha256": "07da670f5bcdffe130c001f015efe5f9621bf686151bb9f3261d0f825c074eeb",
+  "targetRole": "executor",
+  "dispatchState": "READY",
+  "authorityDecisionId": "GH-DEC-4a8e17c2b6d94f03a1c5e7b9d2f60418",
+  "reviewedPublicationId": "GH-PUB-9d3f5a7b1c2e4d6f8a0c1b3e5d7f9a2c"
+}
