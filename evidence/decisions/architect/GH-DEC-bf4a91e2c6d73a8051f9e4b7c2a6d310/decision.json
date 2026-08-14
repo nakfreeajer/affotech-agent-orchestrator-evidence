@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-bf4a91e2c6d73a8051f9e4b7c2a6d310",
+  "decision": "BLOCKED",
+  "project": "affotech-agent-orchestrator",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1A",
+  "reviewedPublicationId": "GH-PUB-7d2f4b6a8c1e3f5a9b0d2c4e6f8a1b3c",
+  "reviewedRole": "executor",
+  "reviewedWorkerOutcome": "BLOCKED",
+  "architectClassification": "BLOCKED",
+  "blocker": "ARCHITECT_REGISTRATION_CONTRACT_REQUIRED",
+  "nextCanonicalMessageId": "ORCH-000008",
+  "nextPlannedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
+  "decisionStatement": "ORCH-000007 correctly failed closed because the qualified BrowserRelay defines no durable Architect session/generation registration or control evidence contract. The next bounded milestone is contract implementation in the isolated BrowserRelay only.",
+  "scopeStatement": "No live Architect registration, no ChatGPT message send, no canonical Orchestrator mutation, no AFFOTECH mutation, no Drive mutation, no Curator work, and no P0.1C/P0.1D work are authorized."
+}
