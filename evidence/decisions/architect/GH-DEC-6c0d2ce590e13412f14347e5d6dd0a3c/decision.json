@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-6c0d2ce590e13412f14347e5d6dd0a3c",
+  "decision": "ACCEPTED",
+  "project": "affotech-agent-orchestrator",
+  "acceptedFoundation": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A",
+  "reviewedMilestone": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A.EVIDENCE.COMPLETION.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-6d966931fb4828b92d5d8d978febe345",
+  "reviewedRole": "executor",
+  "reviewedWorkerOutcome": "PASS",
+  "architectClassification": "ACCEPTED",
+  "evidenceRepository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "requiresFurtherFoundationRepair": false,
+  "driveCutoverAuthorized": false,
+  "promptLedgerAuthorizedAsNextPlannedMilestone": true,
+  "nextPlannedMilestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "decisionStatement": "This Architect acceptance closes the GitHub evidence transport FOUNDATION technically.",
+  "scopeStatement": "It does NOT itself perform the Drive-to-GitHub authority cutover. It does NOT resume P0.1C. It does NOT authorize P0.1D. It does NOT authorize AFFOTECH mutation."
+}
