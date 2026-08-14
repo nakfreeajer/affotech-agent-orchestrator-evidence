@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-c3e64bbafc2989da0ddfbcea6a13d6c2",
+  "decision": "BLOCKED",
+  "project": "affotech-agent-orchestrator",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.TRIGGER.1A.LIVE.QUALIFICATION.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-5f7a9c2e4b6d8f1a3c5e7b9d0f2a4c6e",
+  "reviewedRole": "executor",
+  "reviewedWorkerOutcome": "BLOCKED",
+  "architectClassification": "BLOCKED",
+  "blocker": "RONY_MANUAL_ARCHITECT_CHAT_REGISTRATION_REQUIRED",
+  "nextCanonicalMessageId": "ORCH-000007",
+  "nextPlannedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1A",
+  "decisionStatement": "BrowserRelay live trigger qualification cannot advance until durable conversation-registration and Architect-generation authority are established through the existing relay contract.",
+  "scopeStatement": "No live ChatGPT send is authorized by this decision. No canonical Orchestrator, AFFOTECH, Drive, Curator, P0.1C, or P0.1D mutation is authorized."
+}
