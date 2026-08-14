@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000011",
+  "messageId": "ORCH-000011",
+  "parentMessageId": "ORCH-000010",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-DURABILITY-CONTRACT-REPAIR",
+  "milestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000011.md",
+  "canonicalPromptSha256": "f44d330a03e271d46593a85a51631de14658f2796a9598ca8f440d25adcb965e",
+  "baselineIdentity": {
+    "acceptedPublicationId": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f",
+    "reviewedBlockedPublicationId": "GH-PUB-7a1c3e5f9b2d4f6a8c0e1b3d5f7a9c2e",
+    "architectDecisionId": "GH-DEC-aa9112990fd59ae7df44d56de54c419e"
+  },
+  "mutationEnvelope": {
+    "isolatedBrowserRelaySourceMutation": "BOUNDED_CONTRACT_REPAIR_ONLY",
+    "canonicalOrchestratorMutation": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0,
+    "liveTriggerSendMax": 0,
+    "liveRelayControlEvidenceMutation": 0
+  },
+  "dispatchState": "READY",
+  "authority": "CANONICAL",
+  "issueIsObservabilityOnly": true
+}
