@@ -1,0 +1,8 @@
+{
+  "eventId": "EVENT-000014",
+  "eventType": "ARCHITECT_PROMPT_CREATED",
+  "messageId": "ORCH-000003",
+  "parentMessageId": "ORCH-000002",
+  "promptSha256": "603f5edb1462c5b36b0bbf0d71803f863dfee6cf822e14e9e767b16a6702f164",
+  "createdAt": "2026-08-14T06:00:00Z"
+}

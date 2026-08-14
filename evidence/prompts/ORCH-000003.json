@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000003",
+  "parentMessageId": "ORCH-000002",
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.ARCHITECT.ACCEPTANCE.RECORD.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000003.md",
+  "promptSha256": "603f5edb1462c5b36b0bbf0d71803f863dfee6cf822e14e9e767b16a6702f164",
+  "encoding": "UTF-8",
+  "createdAt": "2026-08-14T06:00:00Z",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "MIRROR_REPRESENTATION_NOT_BYTE_IDENTICAL",
+  "dispatchState": "READY",
+  "representationBoundary": "Executor-received reconstruction; raw client transport bytes are not independently exposed."
+}

@@ -2,11 +2,14 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "MILESTONE",
-  "pointerState": "TERMINAL_AWAITING_ARCHITECT",
-  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A",
-  "role": "executor",
-  "publicationId": "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
-  "workerOutcome": "PASS",
-  "classification": "PUBLISHED",
-  "requiresArchitectDecision": true
+  "pointerState": "ARCHITECT_ACCEPTED",
+  "acceptedFoundation": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "acceptedPublicationId": "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
+  "architectDecisionId": "GH-DEC-8b7e1d4c2a6f9031b5e7c8d4a1f6e2b9",
+  "nextPlannedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.TRIGGER.1A",
+  "browserRelayImplementationAuthorized": false,
+  "driveCutoverAuthorized": false,
+  "p01cResumeAuthorized": false,
+  "p01dAuthorized": false,
+  "affotechMutationAuthorized": false
 }

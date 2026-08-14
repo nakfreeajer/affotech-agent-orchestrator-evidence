@@ -3,12 +3,9 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-6c0d2ce590e13412f14347e5d6dd0a3c",
+  "decisionId": "GH-DEC-8b7e1d4c2a6f9031b5e7c8d4a1f6e2b9",
   "decision": "ACCEPTED",
-  "reviewedPublicationId": "GH-PUB-6d966931fb4828b92d5d8d978febe345",
-  "reviewedMilestone": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A.EVIDENCE.COMPLETION.REPAIR.1A",
-  "architectClassification": "ACCEPTED",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-6c0d2ce590e13412f14347e5d6dd0a3c/decision.json",
-  "requiresFurtherFoundationRepair": false,
-  "driveCutoverAuthorized": false
+  "acceptedMilestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "reviewedPublicationId": "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-8b7e1d4c2a6f9031b5e7c8d4a1f6e2b9/decision.json"
 }

@@ -3,10 +3,10 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "EXECUTOR_ACCEPTED",
   "pointerState": "ACCEPTED",
-  "publicationId": "GH-PUB-6d966931fb4828b92d5d8d978febe345",
+  "publicationId": "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
   "accepted": true,
-  "architectDecisionId": "GH-DEC-6c0d2ce590e13412f14347e5d6dd0a3c",
-  "acceptedMilestone": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A",
-  "reviewedMilestone": "ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A.EVIDENCE.COMPLETION.REPAIR.1A",
+  "architectDecisionId": "GH-DEC-8b7e1d4c2a6f9031b5e7c8d4a1f6e2b9",
+  "acceptedMilestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "reviewedMilestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A",
   "requiresArchitectDecision": false
 }

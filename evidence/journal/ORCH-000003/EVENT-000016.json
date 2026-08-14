@@ -1,0 +1,7 @@
+{
+  "eventId": "EVENT-000016",
+  "eventType": "LEDGER_MIRROR_ATTEMPTED",
+  "messageId": "ORCH-000003",
+  "issueNumber": 1,
+  "createdAt": "2026-08-14T06:00:00Z"
+}
