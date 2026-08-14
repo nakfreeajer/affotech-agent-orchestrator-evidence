@@ -11,7 +11,10 @@
   "createdAt": "2026-08-14T12:04:00Z",
   "createdByRole": "architect",
   "authority": "CANONICAL",
-  "ledgerMirrorState": "PENDING",
+  "ledgerMirrorState": "MIRROR_REPRESENTATION_NOT_BYTE_IDENTICAL",
   "dispatchState": "READY",
+  "issueNumber": 1,
+  "issueCommentId": 5293099482,
+  "issueIsObservabilityOnly": true,
   "representationBoundary": "Architect-authored canonical Git artifact."
 }
