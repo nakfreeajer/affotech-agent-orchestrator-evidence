@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-1523df677bcea85f743d9f51e67c4f52",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.ONE.SHOT.RAW.CDP.QUALIFICATION.1A",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "RAW_CDP_ARCHITECT_ONE_SHOT_RELAY_QUALIFIED",
+  "terminalSha256": "eb23c2ca5f486fe2be4716362ba2dfd2e6550a6f1f6b58addfa28a2dec745f1f",
+  "reportSha256": "93df39bbffff15e3dc35dffd0cd53540eb75d5f8685f86e4598e37498a52088b",
+  "previousEvidenceCommit": "911ce2ead48374a2b1a34d4da2afb696dff52416",
+  "requiresArchitectDecision": true,
+  "triggerId": "ARCH-TRIGGER-9333-000001",
+  "intentSha256": "a1fd78c94a8f6e540d5f3dcc508cc7c0a39698a3cf297defe1f7b609f72b4c92",
+  "resultSha256": "f49bd1eaa55d6783a39533fae0c16586415c190d5f9633abea33e08f91f3afc8",
+  "attemptedSendCount": 1,
+  "confirmedSendCount": 1
+}
