@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "artifactType": "SANITIZED_SOURCE_SNAPSHOT",
+  "filename": "orchestrator-source-snapshot-browser-relay-repair-1b-state-test-1a.tar.gz",
+  "size": 39677,
+  "sha256": "092ae17dbc2757711d1a191ef83b50b8f8a722392c0f00ef7a9d7bbbe2b971bc",
+  "fileCount": 64,
+  "manifestSha256": "53817712818029b83bbf8bdbcf94146fce58d47af92ba8e3ec897a3f304228ec",
+  "encoding": "base64-per-file-chunk",
+  "chunkSize": 12000,
+  "parts": [
+    {
+      "path": "evidence/artifacts/browser-relay-repair-1b-state-test-1a-corrected/part-01.b64",
+      "decodedSize": 12000
+    },
+    {
+      "path": "evidence/artifacts/browser-relay-repair-1b-state-test-1a-corrected/part-02.b64",
+      "decodedSize": 12000
+    },
+    {
+      "path": "evidence/artifacts/browser-relay-repair-1b-state-test-1a-corrected/part-03.b64",
+      "decodedSize": 3677
+    }
+  ]
+}
