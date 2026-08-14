@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000005",
+  "messageId": "ORCH-000005",
+  "parentMessageId": "ORCH-000004",
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.TRIGGER.1A.AUTHORITY.BASELINE.REPAIR.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000005.md",
+  "canonicalPromptSha256": "809941e0b299d548264b07cc402b33dc3bf26cfa09e153b11b7521472ba85a85",
+  "authorityAnchorCommit": "bdb8726aa19ef9fdc7f16d389ba2e8bbb951c907",
+  "authorityRule": "VERIFY_IMMUTABLE_GIT_OBJECTS_AND_ANCESTRY_NOT_EXACT_MUTABLE_HEAD",
+  "createdAt": "2026-08-14T10:49:00Z",
+  "dispatchState": "READY",
+  "authority": "CANONICAL",
+  "issueIsObservabilityOnly": true
+}
