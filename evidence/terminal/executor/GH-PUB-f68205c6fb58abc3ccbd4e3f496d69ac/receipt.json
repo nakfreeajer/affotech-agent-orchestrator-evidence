@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-f68205c6fb58abc3ccbd4e3f496d69ac",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.CONTROL.ACTIVATION.1A",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "ARCHITECT_SESSION_CONTROL_ACTIVE_READY_FOR_ONE_SHOT_RELAY_QUALIFICATION",
+  "terminalSha256": "17d6f482d06e118d8a587b139c98873c2a82aaec97da7f73d7a25e16128ef0d0",
+  "reportSha256": "cdc5f4fe2112741d4053b1e701a5da38597c903c2be452b57fcc7a718a16382e",
+  "previousEvidenceCommit": "a1cf872f4f85faabc3b729068c8d65e6c00a8865",
+  "requiresArchitectDecision": true,
+  "controlPath": "evidence/architect-sessions/controls/RELAY-CONTROL-9333-000001.json",
+  "controlSha256": "c30d5c3156cd45d2761fcd7a34c64418c8f4d338ecf26c5c5e3b9455f5a4975a",
+  "liveSendCount": 0
+}
