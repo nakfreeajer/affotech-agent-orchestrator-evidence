@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "pointerState": "EMPTY",
+  "publicationId": null,
+  "accepted": false,
+  "requiresArchitectDecision": false
+}
