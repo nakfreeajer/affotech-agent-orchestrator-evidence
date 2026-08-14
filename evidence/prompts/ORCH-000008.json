@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000008",
+  "parentMessageId": "ORCH-000007",
+  "missionId": "MISSION-BROWSER-RELAY-ARCHITECT-REGISTRATION-CONTRACT",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000008.md",
+  "promptSha256": "a361d452add5e74f2d3f1649556e39ce196af7989e0b1dba939457891490ba83",
+  "encoding": "UTF-8",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "READY",
+  "representationBoundary": "Architect-authored canonical Git artifact."
+}
