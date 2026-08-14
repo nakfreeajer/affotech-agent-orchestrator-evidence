@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-7c1e4a9b2d6f8035a1c7e9b4d2f6a810",
+  "decision": "BLOCKED",
+  "project": "affotech-agent-orchestrator",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1B",
+  "reviewedPublicationId": "GH-PUB-4f8a2c6e0b1d3f5a7c9e1b2d4f6a8c0e",
+  "reviewedRole": "executor",
+  "reviewedWorkerOutcome": "PASS",
+  "architectClassification": "BLOCKED",
+  "blocker": "RELAY_CONTROL_IMMUTABLE_RECORD_MISSING",
+  "verifiedAuthorityId": "ARCH-AUTH-9333-000001",
+  "verifiedRegistrationId": "ARCH-REG-9333-000001",
+  "relayControlPointerRecordId": "RELAY-CONTROL-9333-000001",
+  "relayControlPointerSha256": "71743d0412070b7d92c5bf852d1ce7db5c02f254a773d9d6659d19c17b9cae11",
+  "nextCanonicalMessageId": "ORCH-000010",
+  "decisionStatement": "Authority and registration evidence are durable, but the current RELAY_CONTROL pointer references an immutable control record that is absent from the authoritative GitHub tree; ACTIVE control state therefore cannot be independently read back.",
+  "scopeStatement": "Do not authorize any ChatGPT send until the missing contract-defined control evidence is repaired and reverified."
+}
