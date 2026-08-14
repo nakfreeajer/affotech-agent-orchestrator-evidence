@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000011",
+  "parentMessageId": "ORCH-000010",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-DURABILITY-CONTRACT-REPAIR",
+  "milestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000011.md",
+  "promptSha256": "f44d330a03e271d46593a85a51631de14658f2796a9598ca8f440d25adcb965e",
+  "encoding": "UTF-8",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "READY",
+  "representationBoundary": "Architect-authored canonical Git artifact."
+}
