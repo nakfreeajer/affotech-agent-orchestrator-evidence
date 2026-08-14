@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-1523df677bcea85f743d9f51e67c4f52",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.ONE.SHOT.RAW.CDP.QUALIFICATION.1A",
+  "dispatchId": "DISPATCH-000018",
+  "messageId": "ORCH-000018",
+  "parentMessageId": "ORCH-000017",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "RAW_CDP_ARCHITECT_ONE_SHOT_RELAY_QUALIFIED",
+  "reportPath": "evidence/terminal/executor/GH-PUB-1523df677bcea85f743d9f51e67c4f52/report.md",
+  "reportSha256": "93df39bbffff15e3dc35dffd0cd53540eb75d5f8685f86e4598e37498a52088b",
+  "requiresArchitectDecision": true
+}
