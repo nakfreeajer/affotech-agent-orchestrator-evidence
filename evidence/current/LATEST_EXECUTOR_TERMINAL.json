@@ -1,9 +1,1 @@
-{
-  "schemaVersion": "1.0",
-  "evidenceProject": "affotech-agent-orchestrator",
-  "pointerKind": "EXECUTOR_TERMINAL",
-  "pointerState": "EMPTY",
-  "publicationId": null,
-  "accepted": false,
-  "requiresArchitectDecision": false
-}
+{"schemaVersion":"1.0","publicationId":"GH-PUB-452813b6efc0c1a137b88e5ebb2003fa","role":"executor","milestone":"ORCH.P0.EVIDENCE.TRANSPORT.GITHUB.FOUNDATION.1A","workerOutcome":"PASS","classification":"GITHUB_TRANSPORT_FOUNDATION_QUALIFICATION","terminalPath":"evidence/terminal/executor/GH-PUB-452813b6efc0c1a137b88e5ebb2003fa/terminal.json","reportPath":"evidence/terminal/executor/GH-PUB-452813b6efc0c1a137b88e5ebb2003fa/report.md","receiptPath":"evidence/terminal/executor/GH-PUB-452813b6efc0c1a137b88e5ebb2003fa/receipt.json","requiresArchitectDecision":true}
