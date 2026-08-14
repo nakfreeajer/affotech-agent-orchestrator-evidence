@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000010",
+  "parentMessageId": "ORCH-000009",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-EVIDENCE-REPAIR",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1B.CONTROL.EVIDENCE.REPAIR.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000010.md",
+  "promptSha256": "2601a281515f8f82a5c3ef090510a3f0b05781e8c8f9c3486edb1f4117c399fe",
+  "encoding": "UTF-8",
+  "createdAt": "2026-08-14T15:45:00Z",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "READY",
+  "representationBoundary": "Architect-authored canonical Git artifact."
+}
