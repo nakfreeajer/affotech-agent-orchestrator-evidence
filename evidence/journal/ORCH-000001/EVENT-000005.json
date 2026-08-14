@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "eventId": "EVENT-000005",
+  "eventType": "DISPATCH_CREATED",
+  "occurredAt": "2026-08-14T04:03:00Z",
+  "messageId": "ORCH-000001",
+  "dispatchId": "DISPATCH-000001"
+}

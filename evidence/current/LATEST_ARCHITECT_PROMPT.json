@@ -10,8 +10,9 @@
   "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
   "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
   "targetRole": "executor",
-  "ledgerMirrorState": "PENDING",
+  "ledgerMirrorState": "MIRRORED",
   "dispatchState": "READY",
   "issueNumber": 1,
+  "issueCommentId": 5289296214,
   "issueIsObservabilityOnly": true
 }
