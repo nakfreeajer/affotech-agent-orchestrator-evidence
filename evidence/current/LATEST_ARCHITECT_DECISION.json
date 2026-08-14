@@ -2,12 +2,11 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "BLOCKED",
-  "decisionId": "GH-DEC-bf4a91e2c6d73a8051f9e4b7c2a6d310",
-  "decision": "BLOCKED",
-  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1A",
-  "reviewedPublicationId": "GH-PUB-7d2f4b6a8c1e3f5a9b0d2c4e6f8a1b3c",
-  "blocker": "ARCHITECT_REGISTRATION_CONTRACT_REQUIRED",
-  "nextCanonicalMessageId": "ORCH-000008",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-bf4a91e2c6d73a8051f9e4b7c2a6d310/decision.json"
+  "pointerState": "ACCEPTED",
+  "decisionId": "GH-DEC-2f6a91c4d8e73b1055a9f4c7b2d6e318",
+  "decision": "ACCEPTED",
+  "acceptedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
+  "reviewedPublicationId": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f",
+  "nextCanonicalMessageId": "ORCH-000009",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-2f6a91c4d8e73b1055a9f4c7b2d6e318/decision.json"
 }
