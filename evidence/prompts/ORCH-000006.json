@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000006",
+  "parentMessageId": "ORCH-000005",
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.TRIGGER.1A.LIVE.QUALIFICATION.REPAIR.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000006.md",
+  "promptSha256": "52b4fc1e2d1b8c4c8562fe510872de17c289a4b53f863577c6cd36a3f4342ef6",
+  "encoding": "UTF-8",
+  "createdAt": "2026-08-14T12:04:00Z",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "READY",
+  "representationBoundary": "Architect-authored canonical Git artifact."
+}
