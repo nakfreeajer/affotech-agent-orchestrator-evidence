@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "dispatchId": "DISPATCH-000017",
+  "messageId": "ORCH-000017",
+  "parentMessageId": "ORCH-000016",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000017.md",
+  "canonicalPromptSha256": "c0c54ac36b452ae29f8fcb6028accee1c8e84ad4f6c446c184e7ffd1bef01f4f",
+  "missionId": "MISSION-BROWSER-RELAY-ACTIVE-CONTROL-MATERIALIZATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.CONTROL.ACTIVATION.1A",
+  "targetRole": "executor",
+  "dispatchState": "READY",
+  "liveSendAuthorized": false
+}
