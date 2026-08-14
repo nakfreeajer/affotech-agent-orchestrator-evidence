@@ -1,0 +1,24 @@
+{
+    "schemaVersion":  "1.0",
+    "publicationId":  "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
+    "role":  "executor",
+    "milestone":  "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A",
+    "workerLifecycle":  "COMPLETED",
+    "workerOutcome":  "PASS",
+    "classification":  "ARCHITECT_PROMPT_LEDGER_EVIDENCE_COMPLETE_READY_FOR_ARCHITECT_REVIEW",
+    "terminal":  {
+                     "qualification":  "prompt-ledger-full-qualification-corrected-snapshot",
+                     "priorPublication":  "GH-PUB-5893ba35499df460c35b8d3ebbb1da74",
+                     "promptA":  "ORCH-000001",
+                     "promptB":  "ORCH-000002",
+                     "issueNumber":  1,
+                     "testsPassed":  165,
+                     "canonicalOrchestratorMutation":  0,
+                     "affotechMutation":  0,
+                     "driveMutation":  0,
+                     "p01cResumed":  false,
+                     "p01dStarted":  false,
+                     "curatorStarted":  false
+                 },
+    "requiresArchitectDecision":  true
+}

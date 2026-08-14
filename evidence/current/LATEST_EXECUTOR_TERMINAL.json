@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
-  "publicationId": "GH-PUB-5893ba35499df460c35b8d3ebbb1da74",
+  "publicationId": "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
   "role": "executor",
   "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A",
   "workerOutcome": "PASS",
   "classification": "ARCHITECT_PROMPT_LEDGER_EVIDENCE_COMPLETE_READY_FOR_ARCHITECT_REVIEW",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-5893ba35499df460c35b8d3ebbb1da74/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-5893ba35499df460c35b8d3ebbb1da74/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-5893ba35499df460c35b8d3ebbb1da74/receipt.json",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72/receipt.json",
   "requiresArchitectDecision": true
 }
