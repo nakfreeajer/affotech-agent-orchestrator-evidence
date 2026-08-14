@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000009",
+  "messageId": "ORCH-000009",
+  "parentMessageId": "ORCH-000008",
+  "missionId": "MISSION-BROWSER-RELAY-ARCHITECT-SESSION-REGISTRATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1B",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000009.md",
+  "canonicalPromptSha256": "a92f6753b974e1f03ffe99edfc02ac022c3bf60934188ad508c57fadc52eb178",
+  "baselineIdentity": {
+    "acceptedPublicationId": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f",
+    "acceptedDecisionId": "GH-DEC-2f6a91c4d8e73b1055a9f4c7b2d6e318",
+    "authorityModel": "IMMUTABLE_GIT_OBJECTS_PLUS_REGISTRATION_CONTRACT"
+  },
+  "mutationEnvelope": {
+    "canonicalOrchestratorMutation": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0,
+    "sourceMutationExpected": 0,
+    "liveTriggerSendMax": 0
+  },
+  "dispatchState": "READY",
+  "authority": "CANONICAL"
+}
