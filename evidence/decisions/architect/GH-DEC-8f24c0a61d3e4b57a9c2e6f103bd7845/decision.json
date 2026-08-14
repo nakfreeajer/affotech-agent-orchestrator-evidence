@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "role": "architect",
+  "decisionId": "GH-DEC-8f24c0a61d3e4b57a9c2e6f103bd7845",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "reviewedPublicationId": "GH-PUB-182451b569d6bab2277c07478cb81895",
+  "classification": "RELAY_CONTROL_DURABILITY_STATE_TESTED_RECONCILED_AND_PRESERVED",
+  "rationale": "Verified exact two-file canonical repair delta, 202/202 passing tests, corrected reproducible accepted manifest evidence, and durable 64-file tested-state snapshot with GitHub read-back. No source mutation, live control mutation, trigger, or ChatGPT send occurred in ORCH-000016.",
+  "accepted": true,
+  "acceptedPublicationId": "GH-PUB-182451b569d6bab2277c07478cb81895",
+  "nextCanonicalMessageId": "ORCH-000017",
+  "liveSendAuthorized": false
+}
