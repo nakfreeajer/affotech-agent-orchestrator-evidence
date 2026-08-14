@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-5893ba35499df460c35b8d3ebbb1da74",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "role": "executor",
+  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "ARCHITECT_PROMPT_LEDGER_EVIDENCE_COMPLETE_READY_FOR_ARCHITECT_REVIEW",
+  "terminalSha256": "acd602a269280a1e03896cf13f2ac1bea383405a6756a6b7f7f1828c68cabac0",
+  "reportSha256": "0710caa922591d9df8d8e67e225d813493b91c38e00647864a3e2fb3216c71b4",
+  "previousEvidenceCommit": "3b12d537453862010e7315e9c78172d1242fb1fc",
+  "resultingEvidenceCommit": null,
+  "requiresArchitectDecision": true,
+  "artifactSet": {
+    "format": "AFFOTECH_ORCH_SOURCE_SNAPSHOT_PARTS_V1",
+    "indexPath": "evidence/artifacts/orchestrator-source-snapshot-prompt-ledger-1a-repair-1a.parts.json",
+    "logicalSnapshotSha256": "b8b7da59948ff1eb353681730888e1792541c516ae5ce3cbf663f8199f4aae86",
+    "logicalSnapshotSize": 26600,
+    "fileCount": 60,
+    "manifest": "7cf3df488e7ee30dd1c59a88400c00b7fc2270b2f7afb752f04a65a306cb59cb"
+  }
+}

@@ -1,1 +1,12 @@
-{"schemaVersion":"1.0","evidenceProject":"affotech-agent-orchestrator","pointerKind":"MILESTONE","pointerState":"TERMINAL_AWAITING_ARCHITECT","milestone":"ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A","role":"executor","publicationId":"GH-PUB-59614110ca4bcf42738e1eef7368dcea","workerOutcome":"PASS","classification":"PUBLISHED","requiresArchitectDecision":true}
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "MILESTONE",
+  "pointerState": "TERMINAL_AWAITING_ARCHITECT",
+  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A.EVIDENCE.COMPLETION.REPAIR.1A",
+  "role": "executor",
+  "publicationId": "GH-PUB-5893ba35499df460c35b8d3ebbb1da74",
+  "workerOutcome": "PASS",
+  "classification": "PUBLISHED",
+  "requiresArchitectDecision": true
+}

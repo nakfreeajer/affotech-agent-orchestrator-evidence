@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "format": "AFFOTECH_ORCH_SOURCE_SNAPSHOT_PARTS_V1",
+  "snapshotName": "orchestrator-source-snapshot-prompt-ledger-1a-repair-1a.snapshot.br",
+  "snapshotSize": 26600,
+  "snapshotSha256": "b8b7da59948ff1eb353681730888e1792541c516ae5ce3cbf663f8199f4aae86",
+  "fileCount": 60,
+  "manifest": "7cf3df488e7ee30dd1c59a88400c00b7fc2270b2f7afb752f04a65a306cb59cb",
+  "parts": [
+    {
+      "part": 1,
+      "path": "orchestrator-source-snapshot-prompt-ledger-1a-repair-1a.part-01.br",
+      "size": 13300,
+      "sha256": "4e82c827abe68eb0f4f7823539f8ef95478f317ba28d9904632160fe5890af50"
+    },
+    {
+      "part": 2,
+      "path": "orchestrator-source-snapshot-prompt-ledger-1a-repair-1a.part-02.br",
+      "size": 13300,
+      "sha256": "1aba7492e8c8243b6a5cc875f1750ef97eefa46d052d8cc870ce0754dfa8cd19"
+    }
+  ]
+}
