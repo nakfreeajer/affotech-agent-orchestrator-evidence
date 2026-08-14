@@ -1,13 +1,16 @@
 {
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
-  "status": "CANONICAL_READY_MIRRORED",
-  "messageId": "ORCH-000001",
-  "dispatchId": "DISPATCH-000001",
+  "status": "LINEAGE_A_TO_RESULT_TO_DECISION_TO_B",
+  "messageId": "ORCH-000002",
+  "parentMessageId": "ORCH-000001",
+  "dispatchId": "DISPATCH-000002",
   "ledgerMirrorState": "MIRRORED",
   "issueNumber": 1,
-  "issueCommentId": 5289296214,
+  "issueCommentId": 5289738534,
   "issueIsObservabilityOnly": true,
   "executionAuthority": "CANONICAL_PROMPT_ARTIFACT_ONLY",
-  "mirrorDegradation": false
+  "mirrorDegradation": false,
+  "workerTerminalPublicationId": "SYNTH-TERM-000001",
+  "architectDecisionId": "SYNTH-DECISION-000001"
 }

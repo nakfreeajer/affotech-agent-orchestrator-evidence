@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "SYNTH-TERM-000001",
+  "role": "executor",
+  "messageId": "ORCH-000001",
+  "dispatchId": "DISPATCH-000001",
+  "workerOutcome": "PASS",
+  "classification": "SYNTHETIC_WORKER_TERMINAL",
+  "promptSha256": "14506007adf86d646d32f8c21e49e7d4427bfc28a55878f02ebf90a6a3749381",
+  "projectMutation": 0,
+  "sourceMutation": 0
+}

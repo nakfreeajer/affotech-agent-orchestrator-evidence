@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "eventId": "EVENT-000007",
+  "eventType": "ARCHITECT_PROMPT_HASHED",
+  "occurredAt": "2026-08-14T05:03:00Z",
+  "messageId": "ORCH-000002",
+  "promptSha256": "bae631a64c413acb22ce1e8be5b7614b53aa21ba7474e7fe8ca9a3fd0aed417a"
+}

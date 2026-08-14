@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000002",
+  "parentMessageId": "ORCH-000001",
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.OBSERVABILITY.ARCHITECT.PROMPT.LEDGER.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000002.md",
+  "promptSha256": "bae631a64c413acb22ce1e8be5b7614b53aa21ba7474e7fe8ca9a3fd0aed417a",
+  "encoding": "UTF-8",
+  "createdAt": "2026-08-14T05:00:00Z",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "NOT_DISPATCHED"
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "eventId": "EVENT-000011",
+  "eventType": "ARCHITECT_DECISION_RECORDED",
+  "occurredAt": "2026-08-14T05:03:00Z",
+  "messageId": "ORCH-000002",
+  "publicationId": "SYNTH-TERM-000001",
+  "details": {
+    "decisionId": "SYNTH-DECISION-000001",
+    "nextMessageId": "ORCH-000002"
+  }
+}

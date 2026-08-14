@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "eventId": "EVENT-000008",
+  "eventType": "LEDGER_MIRROR_ATTEMPTED",
+  "occurredAt": "2026-08-14T05:03:00Z",
+  "messageId": "ORCH-000002",
+  "details": {
+    "issueNumber": 1,
+    "commentSequence": 2
+  }
+}

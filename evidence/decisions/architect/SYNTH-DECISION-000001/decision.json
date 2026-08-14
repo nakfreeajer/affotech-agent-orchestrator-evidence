@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "SYNTH-DECISION-000001",
+  "decision": "RECORDED",
+  "project": "affotech-agent-orchestrator",
+  "reviewedMessageId": "ORCH-000001",
+  "reviewedDispatchId": "DISPATCH-000001",
+  "reviewedPublicationId": "SYNTH-TERM-000001",
+  "reviewedWorkerOutcome": "PASS",
+  "nextMessageId": "ORCH-000002",
+  "authority": "ARCHITECT_DECISION_FIXTURE",
+  "issueAuthority": false
+}
