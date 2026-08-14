@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-182451b569d6bab2277c07478cb81895",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "RELAY_CONTROL_DURABILITY_STATE_TESTED_RECONCILED_AND_PRESERVED",
+  "terminalSha256": "37caf71ad8c7a22382d33b1babb5935c178866177b0e30ff66982d12eac66987",
+  "reportSha256": "b2b421d3e70b3c7b9dc42e116128b110076ac8435d74b6177477e117d8ed84b0",
+  "previousEvidenceCommit": "94481f9115ddaa8ba6b68216771a2a18eaee0392",
+  "requiresArchitectDecision": true,
+  "sourceSnapshotPath": "evidence/artifacts/browser-relay-repair-1b-state-test-1a-corrected/parts.json",
+  "snapshotSha256": "092ae17dbc2757711d1a191ef83b50b8f8a722392c0f00ef7a9d7bbbe2b971bc"
+}
