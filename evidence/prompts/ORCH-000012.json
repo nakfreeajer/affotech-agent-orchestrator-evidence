@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000012",
+  "parentMessageId": "ORCH-000011",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-PUBLICATION-RECONCILIATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A.PUBLICATION.RECONCILIATION.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000012.md",
+  "promptSha256": "07da670f5bcdffe130c001f015efe5f9621bf686151bb9f3261d0f825c074eeb",
+  "encoding": "UTF-8",
+  "createdByRole": "architect",
+  "authority": "CANONICAL",
+  "ledgerMirrorState": "PENDING",
+  "dispatchState": "READY"
+}
