@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000006",
+  "messageId": "ORCH-000006",
+  "parentMessageId": "ORCH-000005",
+  "missionId": "MISSION-PROMPT-LEDGER-QUALIFICATION",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.TRIGGER.1A.LIVE.QUALIFICATION.REPAIR.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000006.md",
+  "canonicalPromptSha256": "52b4fc1e2d1b8c4c8562fe510872de17c289a4b53f863577c6cd36a3f4342ef6",
+  "baselineIdentity": {
+    "acceptedPublicationId": "GH-PUB-8d0e5a1c4b2f7e9d6a3c1b5f0e8d4a72",
+    "acceptedDecisionId": "GH-DEC-8b7e1d4c2a6f9031b5e7c8d4a1f6e2b9",
+    "authorityModel": "IMMUTABLE_GIT_OBJECTS_PLUS_ANCESTRY_AND_SUPERSESSION_GATE"
+  },
+  "mutationEnvelope": {
+    "canonicalOrchestratorMutation": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0,
+    "sourceMutationExpected": 0,
+    "liveTriggerSendMax": 1
+  },
+  "createdAt": "2026-08-14T12:04:00Z",
+  "dispatchState": "READY",
+  "authority": "CANONICAL",
+  "issueIsObservabilityOnly": true
+}
