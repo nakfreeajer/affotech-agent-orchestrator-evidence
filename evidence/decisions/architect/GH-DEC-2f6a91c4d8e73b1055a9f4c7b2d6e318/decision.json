@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-2f6a91c4d8e73b1055a9f4c7b2d6e318",
+  "decision": "ACCEPTED",
+  "project": "affotech-agent-orchestrator",
+  "acceptedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.REGISTRATION.CONTRACT.1A",
+  "reviewedPublicationId": "GH-PUB-9e2c4a6f8b1d3e5a7c9f0b2d4e6a8c1f",
+  "reviewedRole": "executor",
+  "reviewedWorkerOutcome": "PASS",
+  "architectClassification": "ACCEPTED",
+  "evidenceRepository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "acceptedSourceManifest": "ba0660f824e77e8aad8accc2af9e8be908f8c81c96efb21a34a1dc05490b718e",
+  "acceptedTestCount": 198,
+  "acceptedFailedCount": 0,
+  "nextPlannedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.SESSION.REGISTRATION.1B",
+  "nextCanonicalMessageId": "ORCH-000009",
+  "decisionStatement": "The durable BrowserRelay Architect registration/control contract is accepted. Live session registration is authorized next, but no ChatGPT send is authorized by this decision."
+}
