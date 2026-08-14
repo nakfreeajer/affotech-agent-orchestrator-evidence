@@ -2,12 +2,12 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "INCONCLUSIVE",
-  "decisionId": "GH-DEC-6b39d42a17c84e6db5f3029ac0e74158",
-  "decision": "INCONCLUSIVE",
-  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B.EVIDENCE.COMPLETION.1A",
-  "reviewedPublicationId": "GH-PUB-7ca6fa4268fe3807fb2c78f0ae7b387ad08966da9c90d806ee0a8e581e620873",
-  "reason": "The current 64-file BrowserRelay state passes 202 tests but its manifest differs from the accepted baseline; exact per-file deltas were not computed, so intended relay-control repair changes cannot yet be distinguished from unrelated drift.",
-  "nextCanonicalMessageId": "ORCH-000015",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-6b39d42a17c84e6db5f3029ac0e74158/decision.json"
+  "pointerState": "BLOCKED",
+  "decisionId": "GH-DEC-05933e6b54ea45ffd9ee3d41983fc6ad",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B.STATE.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-7e2e10e0121780fcb0c7032493c293190d26767b0debbb042da681b3214df83c",
+  "blocker": "ACCEPTED_BROWSER_RELAY_MANIFEST_METADATA_DEFECT",
+  "nextCanonicalMessageId": "ORCH-000016",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-05933e6b54ea45ffd9ee3d41983fc6ad/decision.json"
 }
