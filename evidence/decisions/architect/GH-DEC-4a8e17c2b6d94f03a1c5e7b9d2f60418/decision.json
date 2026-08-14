@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-4a8e17c2b6d94f03a1c5e7b9d2f60418",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-9d3f5a7b1c2e4d6f8a0c1b3e5d7f9a2c",
+  "blocker": "EVIDENCE_REMOTE_PARENT_CHANGED",
+  "reconciliation": {
+    "staleExpectedParent": "9f5e4018c13464697eb7c05fcdffd67f31687863",
+    "observedArchitectHead": "d4378d5491b236ad7b3d7835452754eb9676fa48",
+    "relationship": "observed head is seven commits ahead with no divergence",
+    "overlap": "Architect decision/prompt/dispatch evidence only; no BrowserRelay source or live registration/control overlap"
+  },
+  "nextCanonicalMessageId": "ORCH-000012",
+  "createdByRole": "architect"
+}
