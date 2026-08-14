@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000013",
+  "parentMessageId": "ORCH-000012",
+  "promptPath": "evidence/prompts/ORCH-000013.md",
+  "promptSha256": "1b1cab3f61e30191ef6ff48424046348840fa233ba674328f0045455749aab4c",
+  "missionId": "MISSION-BROWSER-RELAY-RELAY-CONTROL-DURABILITY-CONTRACT-REBUILD",
+  "milestone": "ORCH.P0.BROWSER.RELAY.RELAY.CONTROL.DURABILITY.CONTRACT.REPAIR.1B",
+  "targetRole": "executor",
+  "dispatchState": "READY",
+  "issueIsObservabilityOnly": true
+}
