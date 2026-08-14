@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-ddee1b43af325c59ad188ba9bcbe4fe4",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.BROWSER.RELAY.ACCEPTED.BASELINE.MANIFEST.CORRECTION.AND.STATE.TEST.1A",
+  "dispatchId": "DISPATCH-000016",
+  "messageId": "ORCH-000016",
+  "parentMessageId": "ORCH-000015",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "RELAY_CONTROL_DURABILITY_STATE_TESTED_RECONCILED_AND_PRESERVED",
+  "reportPath": "evidence/terminal/executor/GH-PUB-ddee1b43af325c59ad188ba9bcbe4fe4/report.md",
+  "reportSha256": "894a0f970cea354218d6357ca40a6028d2ecf6afebc30cfb588df7bc8960563f",
+  "requiresArchitectDecision": true
+}
