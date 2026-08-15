@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-c4d2f8a761e34950b6a17c0d934e528b",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.QUALIFICATION.AND.REGISTRATION.1A",
+  "reviewedPublicationId": "GH-PUB-0000247f0c9333a1b2c3d4e5f6071829",
+  "blocker": "RONY_MANUAL_EXECUTOR_SESSION_BINDING_REQUIRED",
+  "reason": "The prior qualification correctly stopped because no Executor session identity was uniquely provable. Rony has now supplied the exact human-authorized binding relayPort 9444 and conversation https://chatgpt.com/c/6a80a082-3398-83ec-8336-dd73d62e848e. This resolves the missing-input condition for a bounded read-only qualification and registration retry; the prior blocked milestone itself is not reclassified.",
+  "nextCanonicalMessageId": "ORCH-000025",
+  "requiresRonyManualAction": false,
+  "manualBindingReceived": true,
+  "manualBinding": {
+    "workerRole": "executor",
+    "relayPort": 9444,
+    "conversationId": "6a80a082-3398-83ec-8336-dd73d62e848e",
+    "conversationUrl": "https://chatgpt.com/c/6a80a082-3398-83ec-8336-dd73d62e848e"
+  }
+}
