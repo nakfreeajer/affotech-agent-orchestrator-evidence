@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-08c77f233b2ec97082237910c7b8ab81",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-d70f469a7223a5a30c516268016dc2b",
+  "reason": "ORCH-000022 substantively reports the required delivery durability repair, exact two-file mutation boundary, 224 passed / 0 failed full suite, and reconstructible 66-file preservation, but its mandatory success evidence did not state the exact focused worker-relay test count/result.",
+  "nextCanonicalMessageId": "ORCH-000023",
+  "createdByRole": "architect"
+}
