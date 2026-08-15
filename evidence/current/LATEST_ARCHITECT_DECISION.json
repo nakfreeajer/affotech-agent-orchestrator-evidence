@@ -3,12 +3,12 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "INCONCLUSIVE",
-  "decisionId": "GH-DEC-027a9c4e6f2b4850b7d1e3a8c6f52094",
+  "decisionId": "GH-DEC-01d0bd7026131b0713d904e290060c3f",
   "decision": "INCONCLUSIVE",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.RESULT.EVIDENCE.AND.ARCHITECT.DOORBELL.CLOSED.LOOP.QUALIFICATION.1A",
-  "reviewedPublicationId": "GH-PUB-027-EXECUTOR-CLOSED-LOOP-AMBIGUOUS-000001",
-  "reason": "Delivery WORKER-DELIVERY-EXECUTOR-000002 is durably AMBIGUOUS after one attempted and zero confirmed sends. Rony directly observed the exact ORCH-000027 prompt remained pasted in the Executor composer and was not sent. Blind retry remains prohibited; ORCH-000028 is authorized only to reconcile that stale composer state structurally and may use a new delivery ID only after durable NOT_SENT_CONFIRMED reconciliation.",
-  "nextCanonicalMessageId": "ORCH-000028",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.CLOSED.LOOP.AMBIGUITY.RECONCILIATION.AND.RESEND.1A",
+  "reviewedPublicationId": "GH-PUB-028-RECONCILIATION-INCONCLUSIVE-000001",
+  "reason": "ORCH-000028 correctly preserved the ambiguous delivery and stale composer, but the read-only composer extraction did not byte-match raw ORCH-000027. No resend is authorized until a deterministic read-only normalization diagnostic establishes the exact mismatch class.",
+  "nextCanonicalMessageId": "ORCH-000029",
   "reconciliationRequired": true,
-  "decisionPath": "evidence/decisions/architect/GH-DEC-027a9c4e6f2b4850b7d1e3a8c6f52094/decision.json"
+  "decisionPath": "evidence/decisions/architect/GH-DEC-01d0bd7026131b0713d904e290060c3f/decision.json"
 }
