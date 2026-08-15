@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-01d0bd7026131b0713d904e290060c3f",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.CLOSED.LOOP.AMBIGUITY.RECONCILIATION.AND.RESEND.1A",
+  "reviewedPublicationId": "GH-PUB-028-RECONCILIATION-INCONCLUSIVE-000001",
+  "reason": "ORCH-000028 correctly preserved the ambiguous delivery and stale composer, but the read-only composer extraction did not byte-match raw ORCH-000027. No resend is authorized until a deterministic read-only normalization diagnostic establishes the exact mismatch class.",
+  "nextCanonicalMessageId": "ORCH-000029",
+  "reconciliationRequired": true
+}
