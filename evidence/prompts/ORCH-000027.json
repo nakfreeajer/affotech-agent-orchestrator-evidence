@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000027",
+  "parentMessageId": "ORCH-000026",
+  "promptPath": "evidence/prompts/ORCH-000027.md",
+  "promptSha256": "e87e465ccc48fb7953299e329bdc92c7451bdf14454a26bda29e43781083be09",
+  "missionId": "MISSION-WORKER-RELAY-EXECUTOR-CLOSED-LOOP-RESULT-DOORBELL",
+  "milestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.RESULT.EVIDENCE.AND.ARCHITECT.DOORBELL.CLOSED.LOOP.QUALIFICATION.1A",
+  "targetRole": "executor",
+  "dispatchId": "DISPATCH-000027",
+  "dispatchState": "READY"
+}
