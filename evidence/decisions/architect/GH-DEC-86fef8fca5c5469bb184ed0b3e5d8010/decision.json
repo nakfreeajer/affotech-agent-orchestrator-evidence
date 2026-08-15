@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-86fef8fca5c5469bb184ed0b3e5d8010",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.EVIDENCE.COMPLETION.1A",
+  "reviewedPublicationId": "GH-PUB-a516a004cb90e206d55d6b2bb4e49582",
+  "blocker": "PRESERVED_ORCH_000019_SNAPSHOT_CHUNKS_CANNOT_ENCODE_DECLARED_ZIP",
+  "reason": "ORCH-000020 correctly failed closed because the preserved ORCH-000019 base64 chunk transport cannot mathematically encode the declared 69505-byte ZIP. The immutable 66-file SHA-256/path manifest remains available and may be used for a bounded exact-state reconciliation without modifying source/tests.",
+  "nextCanonicalMessageId": "ORCH-000021"
+}
