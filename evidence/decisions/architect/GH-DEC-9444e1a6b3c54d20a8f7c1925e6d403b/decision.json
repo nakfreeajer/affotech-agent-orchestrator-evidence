@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-9444e1a6b3c54d20a8f7c1925e6d403b",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.REGISTRATION.1B",
+  "reviewedPublicationId": "GH-PUB-9444a0328daf06169e76f9c86f9f4cc7",
+  "nextCanonicalMessageId": "ORCH-000026"
+}
