@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000022",
+  "parentMessageId": "ORCH-000021",
+  "promptPath": "evidence/prompts/ORCH-000022.md",
+  "promptSha256": "d78f87527005735a80a888f2741bb46f691e64e9c93141aa17036bc9e1894578",
+  "missionId": "MISSION-WORKER-RELAY-DELIVERY-DURABILITY-CONTRACT-REPAIR",
+  "milestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A",
+  "targetRole": "executor",
+  "dispatchId": "DISPATCH-000022",
+  "dispatchState": "READY"
+}
