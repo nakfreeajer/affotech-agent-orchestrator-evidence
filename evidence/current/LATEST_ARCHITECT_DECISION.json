@@ -2,11 +2,13 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-0267a1e3c5b84920b6d4f8a1e237905c",
-  "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.ONE.SHOT.RAW.CDP.DELIVERY.QUALIFICATION.1A",
-  "reviewedPublicationId": "GH-PUB-026-EXECUTOR-ONE-SHOT-000001",
-  "nextCanonicalMessageId": "ORCH-000027",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-0267a1e3c5b84920b6d4f8a1e237905c/decision.json"
+  "pointerState": "INCONCLUSIVE",
+  "decisionId": "GH-DEC-027a9c4e6f2b4850b7d1e3a8c6f52094",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.RESULT.EVIDENCE.AND.ARCHITECT.DOORBELL.CLOSED.LOOP.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-027-EXECUTOR-CLOSED-LOOP-AMBIGUOUS-000001",
+  "reason": "Delivery WORKER-DELIVERY-EXECUTOR-000002 is durably AMBIGUOUS after one attempted and zero confirmed sends. Rony directly observed the exact ORCH-000027 prompt remained pasted in the Executor composer and was not sent. Blind retry remains prohibited; ORCH-000028 is authorized only to reconcile that stale composer state structurally and may use a new delivery ID only after durable NOT_SENT_CONFIRMED reconciliation.",
+  "nextCanonicalMessageId": "ORCH-000028",
+  "reconciliationRequired": true,
+  "decisionPath": "evidence/decisions/architect/GH-DEC-027a9c4e6f2b4850b7d1e3a8c6f52094/decision.json"
 }
