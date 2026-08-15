@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "eventType": "WORKER_RELAY_CONTRACT_QUALIFIED",
+  "publicationId": "GH-PUB-f496dda9990f8832670e9d4f92f43ea4",
+  "dispatchId": "DISPATCH-000019",
+  "messageId": "ORCH-000019",
+  "workerRoles": [
+    "executor",
+    "documentation_curator"
+  ],
+  "liveRegistrationCount": 0,
+  "liveSendCount": 0,
+  "portsTouched": []
+}

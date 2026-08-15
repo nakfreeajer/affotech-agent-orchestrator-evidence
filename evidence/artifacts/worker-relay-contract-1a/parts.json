@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "artifactType": "SANITIZED_SOURCE_SNAPSHOT_BASE64_CHUNKS",
+  "filename": "orchestrator-source-snapshot-worker-relay-contract-1a.zip",
+  "size": 69505,
+  "sha256": "f496dda9990f8832670e9d4f92f43ea49a603f5f8877a9128add7c497e744c11",
+  "regularFileCount": 66,
+  "manifestSha256": "b5a98c579fb17f6bd81e894f5e4e5b31df3a38c954558246d2b6b4574ec59117",
+  "encoding": "base64-concatenated-utf8-text",
+  "partCount": 3,
+  "parts": [
+    {
+      "path": "evidence/artifacts/worker-relay-contract-1a/part-01.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-contract-1a/part-02.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-contract-1a/part-03.b64",
+      "characters": 12066
+    }
+  ]
+}

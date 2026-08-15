@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
-  "publicationId": "GH-PUB-1523df677bcea85f743d9f51e67c4f52",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "pointerState": "TERMINAL_AWAITING_ARCHITECT",
+  "publicationId": "GH-PUB-f496dda9990f8832670e9d4f92f43ea4",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A",
   "role": "executor",
-  "milestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.ONE.SHOT.RAW.CDP.QUALIFICATION.1A",
   "workerOutcome": "PASS",
-  "classification": "RAW_CDP_ARCHITECT_ONE_SHOT_RELAY_QUALIFIED",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-1523df677bcea85f743d9f51e67c4f52/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-1523df677bcea85f743d9f51e67c4f52/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-1523df677bcea85f743d9f51e67c4f52/receipt.json",
+  "classification": "WORKER_RELAY_AUTHORITY_EXACTLY_ONCE_CONTRACT_READY_FOR_ARCHITECT_REVIEW",
   "requiresArchitectDecision": true
 }

@@ -1,0 +1,21 @@
+Exit code: 0
+Wall time: 0.8 seconds
+Output:
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-f496dda9990f8832670e9d4f92f43ea4",
+  "role": "executor",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_AUTHORITY_EXACTLY_ONCE_CONTRACT_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true,
+  "projectMutation": 0,
+  "liveWorkerRegistration": 0,
+  "liveWorkerSend": 0,
+  "portsTouched": [],
+  "acceptedArchitectControlChanged": false,
+  "reportPath": "evidence/terminal/executor/GH-PUB-f496dda9990f8832670e9d4f92f43ea4/report.md",
+  "snapshotPath": "evidence/artifacts/worker-relay-contract-1a/parts.json"
+}
