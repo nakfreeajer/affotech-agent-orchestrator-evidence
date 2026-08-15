@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-d70f469a7223a5a30c516268016dc2b",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A",
+  "role": "executor",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_DELIVERY_DURABILITY_REPAIRED_FOR_ARCHITECT_REVIEW",
+  "previousEvidenceCommit": "d0acad6e5c492a02f5ec7fdd1d2db1ded2a414f6",
+  "resultingEvidenceCommit": null,
+  "terminalSha256": "eddb47a2dd4ecfb74bb1af0767a682af4e51d0b625be60e1d3810ca567175a8f",
+  "reportSha256": "ee64a8726623bccfbd10b7f98534b6708dcbfcff3e285c3ef18985b875e7a476",
+  "archiveFilename": "orchestrator-source-snapshot-worker-relay-delivery-durability-repair-1a.zip",
+  "archiveSize": 70484,
+  "archiveSha256": "d70f469a7223a5a30c516268016dc2b821ba5864f35c1f13c6e17a43cfc3a681",
+  "regularFileCount": 66,
+  "manifestSha256": "f0216bca98cdde01d23813677554f1a4f23fb619dba88a62ff2b75282690ad88",
+  "base64CharacterCount": 93980,
+  "readbackVerified": true
+}

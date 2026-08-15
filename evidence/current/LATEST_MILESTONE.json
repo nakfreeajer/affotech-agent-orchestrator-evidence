@@ -3,10 +3,10 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "MILESTONE",
   "pointerState": "TERMINAL_AWAITING_ARCHITECT",
-  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.TESTED.STATE.RECOVERY.1A",
+  "milestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A",
   "role": "executor",
-  "publicationId": "GH-PUB-da86d97d01071a80a808995bbe7d0334",
+  "publicationId": "GH-PUB-d70f469a7223a5a30c516268016dc2b",
   "workerOutcome": "PASS",
-  "classification": "WORKER_RELAY_TESTED_STATE_RECOVERED_FOR_ARCHITECT_REVIEW",
+  "classification": "WORKER_RELAY_DELIVERY_DURABILITY_REPAIRED_FOR_ARCHITECT_REVIEW",
   "requiresArchitectDecision": true
 }

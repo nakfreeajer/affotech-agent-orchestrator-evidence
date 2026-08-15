@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-d70f469a7223a5a30c516268016dc2b",
+  "role": "executor",
+  "milestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_DELIVERY_DURABILITY_REPAIRED_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true,
+  "workspaceFiles": 66,
+  "manifestReconciled": true,
+  "authorizedSourceFilesModified": 2,
+  "liveWorkerRegistrations": 0,
+  "liveWorkerSends": 0,
+  "browserConnections": 0,
+  "portsTouched": [],
+  "acceptedPointerChanged": false
+}

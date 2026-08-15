@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "artifactType": "SANITIZED_SOURCE_SNAPSHOT_BASE64_CHUNKS",
+  "filename": "orchestrator-source-snapshot-worker-relay-delivery-durability-repair-1a.zip",
+  "size": 70484,
+  "sha256": "d70f469a7223a5a30c516268016dc2b821ba5864f35c1f13c6e17a43cfc3a681",
+  "regularFileCount": 66,
+  "manifestSha256": "f0216bca98cdde01d23813677554f1a4f23fb619dba88a62ff2b75282690ad88",
+  "base64CharacterCount": 93980,
+  "expectedBase64CharacterCount": 93980,
+  "partCount": 7,
+  "encoding": "base64-concatenated-utf8-text",
+  "parts": [
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-01.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-02.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-03.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-04.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-05.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-06.b64",
+      "characters": 14000
+    },
+    {
+      "path": "evidence/artifacts/worker-relay-delivery-durability-repair-1a/part-07.b64",
+      "characters": 9980
+    }
+  ]
+}
