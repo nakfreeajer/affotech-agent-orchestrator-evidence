@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "eventType": "EXECUTOR_SESSION_REGISTERED_STOP_BEFORE_SEND",
+  "eventId": "WORKER-RELAY-ORCH-000025-GH-PUB-9444a0328daf06169e76f9c86f9f4cc7",
+  "messageId": "ORCH-000025",
+  "dispatchId": "DISPATCH-000025",
+  "publicationId": "GH-PUB-9444a0328daf06169e76f9c86f9f4cc7",
+  "authorityId": "WORKER-AUTH-EXECUTOR-000001",
+  "registrationId": "WORKER-REG-EXECUTOR-000001",
+  "conversationId": "6a80a082-3398-83ec-8336-dd73d62e848e",
+  "relayPort": 9444,
+  "composerCount": 1,
+  "workerPromptSent": false,
+  "workerDeliveryCreated": false
+}

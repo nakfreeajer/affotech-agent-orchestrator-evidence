@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-9444a0328daf06169e76f9c86f9f4cc7",
+  "role": "executor",
+  "milestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.REGISTRATION.1B",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "EXECUTOR_WORKER_SESSION_REGISTERED_READY_STOP_BEFORE_SEND",
+  "requiresArchitectDecision": true,
+  "executorSessionRegistered": true,
+  "workerPromptSent": false,
+  "workerDeliveryCreated": false,
+  "architectDoorbellSent": false,
+  "relayPort": 9444,
+  "composerCount": 1,
+  "portsTouched": []
+}
