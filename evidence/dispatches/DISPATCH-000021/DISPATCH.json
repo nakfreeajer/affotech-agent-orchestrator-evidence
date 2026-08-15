@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "dispatchId": "DISPATCH-000021",
+  "messageId": "ORCH-000021",
+  "parentMessageId": "ORCH-000020",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000021.md",
+  "canonicalPromptSha256": "5fff161a863ce1171d60559e48cdca62ff09f3a4b67b4203dd5e1aab5725de8f",
+  "targetRole": "executor",
+  "dispatchState": "READY"
+}
