@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000025",
+  "parentMessageId": "ORCH-000024",
+  "promptPath": "evidence/prompts/ORCH-000025.md",
+  "promptSha256": "a357ca5b4106e9c2440b5b97bfb74624347ba9c575198d93ea066be411163f8d",
+  "missionId": "MISSION-WORKER-RELAY-EXECUTOR-SESSION-REGISTRATION",
+  "milestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.REGISTRATION.1B",
+  "targetRole": "executor",
+  "dispatchId": "DISPATCH-000025",
+  "dispatchState": "READY"
+}
