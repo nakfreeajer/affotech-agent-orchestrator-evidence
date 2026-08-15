@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "messageId": "ORCH-000019",
+  "parentMessageId": "ORCH-000018",
+  "missionId": "MISSION-WORKER-RELAY-AUTHORITY-EXACTLY-ONCE-CONTRACT",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A",
+  "targetRole": "executor",
+  "promptPath": "evidence/prompts/ORCH-000019.md",
+  "promptSha256": "ed17e90e9f177881fab7771fb97710de74913926901f72aea11af6b82bfbadf9",
+  "dispatchState": "READY"
+}
