@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-9c3f7a2d1e684b50a7d6c492f8b3150e",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.QUALIFICATION.AND.REGISTRATION.1A",
+  "reviewedPublicationId": "GH-PUB-0000247f0c9333a1b2c3d4e5f6071829",
+  "blocker": "RONY_MANUAL_EXECUTOR_SESSION_BINDING_REQUIRED",
+  "reason": "Read-only discovery found only the already-registered Architect conversation on port 9333. No distinct Executor conversation URL, conversation ID, or relay/CDP port was uniquely provable, so no Executor authority or registration was created and no message was sent.",
+  "nextCanonicalMessageId": null,
+  "requiresRonyManualAction": true
+}
