@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceType": "LITERAL_WORKER_RELAY_CONTRACT_EXTRACTION",
+  "sourcePath": "src/browser-relay/worker-relay.js",
+  "testPath": "test/worker-relay.test.js",
+  "supportedWorkerRoles": [
+    "executor",
+    "documentation_curator"
+  ],
+  "authority": {
+    "recordType": "WORKER_AUTHORITY",
+    "immutablePathFormula": "evidence/worker-sessions/authorities/<workerRole>/<authorityId>.json",
+    "currentPointerFormula": "evidence/current/worker/<workerRole>/LATEST_AUTHORITY.json",
+    "fields": [
+      "schemaVersion",
+      "recordType",
+      "workerRole",
+      "authorityId",
+      "generationId",
+      "missionId",
+      "state",
+      "createdAt",
+      "createdByRole",
+      "supersedesAuthorityId",
+      "authoritySha256"
+    ],
+    "hashRule": "SHA-256(UTF-8(JSON.stringify(payload fields excluding authoritySha256, insertion order)) )",
+    "allowedStates": [
+      "ACTIVE"
+    ],
+    "createdByRole": "architect",
+    "failClosed": [
+      "unsupported role",
+      "missing/invalid identity or mission",
+      "non-ACTIVE state",
+      "invalid time",
+      "non-architect provenance",
+      "invalid supersession lineage",
+      "hash mismatch"
+    ]
+  },
+  "registration": {
+    "recordType": "WORKER_REGISTRATION",
+    "immutablePathFormula": "evidence/worker-sessions/registrations/<workerRole>/<registrationId>.json",
+    "currentPointerFormula": "evidence/current/worker/<workerRole>/LATEST_REGISTRATION.json",
+    "fields": [
+      "schemaVersion",
+      "recordType",
+      "workerRole",
+      "registrationId",
+      "authorityId",
+      "authoritySha256",
+      "generationId",
+      "missionId",
+      "conversationId",
+      "conversationUrl",
+      "relayPort",
+      "state",
+      "createdAt",
+      "createdByRole",
+      "supersededBy",
+      "consumed",
+      "registrationSha256"
+    ],
+    "hashRule": "SHA-256(UTF-8(JSON.stringify(payload fields excluding registrationSha256, insertion order)) )",
+    "bindings": [
+      "authority identity/hash",
+      "worker role",
+      "generation",
+      "mission",
+      "conversation ID/URL",
+      "relay port"
+    ],
+    "staleRules": [
+      "consumed=true rejected",
+      "supersededBy non-null rejected",
+      "state must be ACTIVE"
+    ],
+    "failClosed": [
+      "role/authority/mission/hash/field/pointer mismatch",
+      "invalid port/time/provenance",
+      "consumed or superseded"
+    ]
+  },
+  "promptResolution": {
+    "dispatchFields": [
+      "dispatchState",
+      "dispatchId",
+      "messageId",
+      "targetRole",
+      "canonicalPromptPath",
+      "canonicalPromptSha256"
+    ],
+    "sequence": [
+      "READY dispatch",
+      "targetRole equals registered worker role",
+      "prompt path under evidence/prompts with no traversal/backslash",
+      "fetch exact canonical GitHub bytes",
+      "SHA-256 exact UTF-8 bytes",
+      "use those bytes only"
+    ],
+    "forbiddenAuthorities": [
+      "issue text/comments",
+      "DOM",
+      "clipboard",
+      "assistant response",
+      "invented worker identity/port"
+    ]
+  },
+  "delivery": {
+    "basePathFormula": "evidence/worker-deliveries/<workerRole>/<deliveryId>",
+    "intentPathFormula": "NOT_SEPARATELY_DEFINED_BY_VERIFIED_SOURCE; source exports only workerDeliveryPath(basePathFormula)",
+    "resultPathFormula": "NOT_SEPARATELY_DEFINED_BY_VERIFIED_SOURCE; source exports only workerDeliveryPath(basePathFormula)",
+    "currentPointerFormula": "NOT_DEFINED_BY_VERIFIED_SOURCE",
+    "intentRecordType": "WORKER_DELIVERY_INTENT",
+    "intentFields": [
+      "schemaVersion",
+      "recordType",
+      "deliveryId",
+      "workerRole",
+      "dispatchId",
+      "messageId",
+      "canonicalPromptPath",
+      "canonicalPromptSha256",
+      "authorityId",
+      "authoritySha256",
+      "registrationId",
+      "registrationSha256",
+      "conversationId",
+      "conversationUrl",
+      "relayPort",
+      "intendedSendCount",
+      "state",
+      "createdAt",
+      "intentSha256"
+    ],
+    "resultRecordType": "WORKER_DELIVERY_RESULT",
+    "resultFields": [
+      "schemaVersion",
+      "recordType",
+      "deliveryId",
+      "intentSha256",
+      "workerRole",
+      "outcome",
+      "attemptedSendCount",
+      "confirmedSendCount",
+      "browserDisconnected",
+      "responseDomRead",
+      "resultRecordedAt",
+      "resultSha256"
+    ],
+    "hashRule": "Each hash is SHA-256(UTF-8(JSON.stringify(record payload excluding its hash field, insertion order)) )",
+    "outcomes": [
+      "SENT",
+      "FAILED_BEFORE_SEND",
+      "AMBIGUOUS"
+    ],
+    "rules": [
+      "intent state ARMED before send",
+      "intendedSendCount=1",
+      "SENT requires attempted=1 confirmed=1",
+      "FAILED_BEFORE_SEND requires confirmed=0",
+      "AMBIGUOUS requires confirmed=0 and RECONCILIATION_REQUIRED/no retry",
+      "responseDomRead=false"
+    ]
+  },
+  "controls": [
+    "PAUSED_BY_RONY",
+    "STOP",
+    "ABORT_CURRENT_WORKER",
+    "RECONCILIATION_REQUIRED",
+    "CIRCUIT_OPEN"
+  ],
+  "bindingRules": [
+    "executor and documentation_curator are distinct exact role values",
+    "mission/authority/registration/dispatch/prompt/conversation/port checks are exact",
+    "Architect is provenance authority",
+    "contract does not authorize parallel shared-state mutation"
+  ]
+}
