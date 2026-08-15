@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-2f8c4a7d9b1e6053c6d4a8f0e7b2c195",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.TESTED.STATE.RECOVERY.1A",
+  "reviewedPublicationId": "GH-PUB-da86d97d01071a80a808995bbe7d0334",
+  "blocker": "WORKER_DELIVERY_DURABILITY_POINTER_CONTRACT_MISSING",
+  "reason": "ORCH-000021 recovered and independently preserved the exact 66-file tested state with 219/219 tests passing, but source inspection proves the worker delivery contract lacks deterministic intent.json/result.json formulas and the required role-scoped current delivery pointer/index. Live worker registration or send remains unauthorized until this durability gap is repaired.",
+  "nextCanonicalMessageId": "ORCH-000022",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-2f8c4a7d9b1e6053c6d4a8f0e7b2c195/decision.json"
+}
