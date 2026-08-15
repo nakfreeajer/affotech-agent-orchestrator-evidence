@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-0267a1e3c5b84920b6d4f8a1e237905c",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.ONE.SHOT.RAW.CDP.DELIVERY.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-026-EXECUTOR-ONE-SHOT-000001",
+  "acceptedDeliveryId": "WORKER-DELIVERY-EXECUTOR-000001",
+  "acceptedOutcome": "SENT",
+  "attemptedSendCount": 1,
+  "confirmedSendCount": 1,
+  "responseDomRead": false,
+  "browserDisconnected": true,
+  "nextCanonicalMessageId": "ORCH-000027"
+}
