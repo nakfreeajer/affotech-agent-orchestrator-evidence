@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-a516a004cb90e206d55d6b2bb4e49582",
+  "role": "executor",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.EVIDENCE.COMPLETION.1A",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "BLOCKED",
+  "classification": "WORKER_RELAY_CONTRACT_EVIDENCE_NOT_REPRODUCIBLE",
+  "result": "PRESERVED_ORCH_000019_SNAPSHOT_CHUNKS_CANNOT_ENCODE_DECLARED_ZIP",
+  "requiresArchitectDecision": true,
+  "projectMutation": 0,
+  "liveWorkerRegistration": 0,
+  "liveWorkerSend": 0,
+  "portsTouched": [],
+  "acceptedArchitectControlChanged": false,
+  "reportPath": "evidence/terminal/executor/GH-PUB-a516a004cb90e206d55d6b2bb4e49582/report.md",
+  "snapshotPath": "evidence/artifacts/worker-relay-contract-1a/parts.json",
+  "snapshotReproducible": false,
+  "priorPublicationPreserved": "GH-PUB-9a1c4f6d8e2b7c0a9d5e3f1b6c8a4d20"
+}
