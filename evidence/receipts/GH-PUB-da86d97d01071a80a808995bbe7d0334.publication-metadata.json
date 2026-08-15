@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-da86d97d01071a80a808995bbe7d0334",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.TESTED.STATE.RECOVERY.1A",
+  "role": "executor",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_TESTED_STATE_RECOVERED_FOR_ARCHITECT_REVIEW",
+  "previousEvidenceCommit": "1de7bb1fac82f24f66569a55805d3f20b28e28ee",
+  "resultingEvidenceCommit": null,
+  "terminalSha256": "7fbfb50df988b845f29c1fa3eda2412d8cfd12d824206175125630ccf427be3e",
+  "reportSha256": "cd19b181833e4c2e65cd43bc7341add7bdb2b1967dc98f9c34e9beb2679f4121",
+  "requiresArchitectDecision": true,
+  "archiveFilename": "orchestrator-source-snapshot-worker-relay-tested-state-recovery-1a.zip",
+  "archiveSize": 69505,
+  "archiveSha256": "da86d97d01071a80a808995bbe7d033491263448e084da00aebfae0bcde4890c",
+  "regularFileCount": 66,
+  "manifestSha256": "b5a98c579fb17f6bd81e894f5e4e5b31df3a38c954558246d2b6b4574ec59117",
+  "base64CharacterCount": 92676,
+  "readbackVerified": true
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-da86d97d01071a80a808995bbe7d0334",
+  "role": "executor",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.TESTED.STATE.RECOVERY.1A",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_TESTED_STATE_RECOVERED_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true,
+  "workspaceFiles": 66,
+  "manifestReconciled": true,
+  "sourceMutation": 0,
+  "liveWorkerRegistrations": 0,
+  "liveWorkerSends": 0,
+  "browserConnections": 0,
+  "portsTouched": [],
+  "acceptedPointerChanged": false
+}

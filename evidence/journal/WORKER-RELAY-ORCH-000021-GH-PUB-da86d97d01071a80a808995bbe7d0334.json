@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "eventType": "WORKER_RELAY_TESTED_STATE_RECOVERED",
+  "eventId": "WORKER-RELAY-ORCH-000021-GH-PUB-da86d97d01071a80a808995bbe7d0334",
+  "messageId": "ORCH-000021",
+  "dispatchId": "DISPATCH-000021",
+  "publicationId": "GH-PUB-da86d97d01071a80a808995bbe7d0334",
+  "manifestSha256": "b5a98c579fb17f6bd81e894f5e4e5b31df3a38c954558246d2b6b4574ec59117",
+  "archiveSha256": "da86d97d01071a80a808995bbe7d033491263448e084da00aebfae0bcde4890c",
+  "createdAt": "2026-08-15T00:00:00Z"
+}
