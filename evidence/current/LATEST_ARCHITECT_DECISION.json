@@ -2,12 +2,12 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "BLOCKED",
-  "decisionId": "GH-DEC-2f8c4a7d9b1e6053c6d4a8f0e7b2c195",
-  "decision": "BLOCKED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.TESTED.STATE.RECOVERY.1A",
-  "reviewedPublicationId": "GH-PUB-da86d97d01071a80a808995bbe7d0334",
-  "blocker": "WORKER_DELIVERY_DURABILITY_POINTER_CONTRACT_MISSING",
-  "nextCanonicalMessageId": "ORCH-000022",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-2f8c4a7d9b1e6053c6d4a8f0e7b2c195/decision.json"
+  "pointerState": "INCONCLUSIVE",
+  "decisionId": "GH-DEC-08c77f233b2ec97082237910c7b8ab81",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-d70f469a7223a5a30c516268016dc2b",
+  "reason": "ORCH-000022 substantively reports the required delivery durability repair, exact two-file mutation boundary, 224 passed / 0 failed full suite, and reconstructible 66-file preservation, but its mandatory success evidence did not state the exact focused worker-relay test count/result.",
+  "nextCanonicalMessageId": "ORCH-000023",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-08c77f233b2ec97082237910c7b8ab81/decision.json"
 }
