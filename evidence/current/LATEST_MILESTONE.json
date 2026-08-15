@@ -1,12 +1,1 @@
-{
-  "schemaVersion": "1.0",
-  "evidenceProject": "affotech-agent-orchestrator",
-  "pointerKind": "MILESTONE",
-  "pointerState": "TERMINAL_AWAITING_ARCHITECT",
-  "milestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.REGISTRATION.1B",
-  "role": "executor",
-  "publicationId": "GH-PUB-9444a0328daf06169e76f9c86f9f4cc7",
-  "workerOutcome": "PASS",
-  "classification": "EXECUTOR_WORKER_SESSION_REGISTERED_READY_STOP_BEFORE_SEND",
-  "requiresArchitectDecision": true
-}
+{"schemaVersion":"1.0","evidenceProject":"affotech-agent-orchestrator","pointerKind":"MILESTONE","pointerState":"TERMINAL_AWAITING_ARCHITECT","milestone":"ORCH.P0.WORKER.RELAY.EXECUTOR.ONE.SHOT.RAW.CDP.DELIVERY.QUALIFICATION.1A","role":"executor","publicationId":"GH-PUB-026-EXECUTOR-ONE-SHOT-000001","workerOutcome":"PASS","classification":"EXECUTOR_ONE_SHOT_RAW_CDP_DELIVERY_SENT_FOR_ARCHITECT_REVIEW","requiresArchitectDecision":true}
