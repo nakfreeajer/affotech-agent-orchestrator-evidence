@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-0000247f0c9333a1b2c3d4e5f6071829",
+  "role": "executor",
+  "milestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.SESSION.QUALIFICATION.AND.REGISTRATION.1A",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "BLOCKED",
+  "classification": "RONY_MANUAL_EXECUTOR_SESSION_BINDING_REQUIRED",
+  "requiresArchitectDecision": true,
+  "executorSessionRegistered": false,
+  "workerPromptSent": false,
+  "architectDoorbellSent": false,
+  "liveWorkerRegistrations": 0,
+  "portsTouched": []
+}
