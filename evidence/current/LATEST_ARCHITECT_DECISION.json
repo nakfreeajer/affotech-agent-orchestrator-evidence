@@ -2,11 +2,12 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-9767323d9058607c0b4f8a82e48ae5b1",
-  "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.ONE.SHOT.RAW.CDP.QUALIFICATION.1A",
-  "reviewedPublicationId": "GH-PUB-1523df677bcea85f743d9f51e67c4f52",
-  "nextCanonicalMessageId": "ORCH-000019",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-9767323d9058607c0b4f8a82e48ae5b1/decision.json"
+  "pointerState": "INCONCLUSIVE",
+  "decisionId": "GH-DEC-3d6a8f1c5b724e09a4d2f7c813e650ab",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A",
+  "reviewedPublicationId": "GH-PUB-9a1c4f6d8e2b7c0a9d5e3f1b6c8a4d20",
+  "reason": "ORCH-000019 passed 219 tests and preserved the tested worker-relay contract, but its success evidence omitted the literal deterministic worker authority/registration/current-pointer path formulas and full record schemas required for independent Architect review.",
+  "nextCanonicalMessageId": "ORCH-000020",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-3d6a8f1c5b724e09a4d2f7c813e650ab/decision.json"
 }
