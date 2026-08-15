@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000021",
+  "parentMessageId": "ORCH-000020",
+  "promptPath": "evidence/prompts/ORCH-000021.md",
+  "promptSha256": "5fff161a863ce1171d60559e48cdca62ff09f3a4b67b4203dd5e1aab5725de8f",
+  "missionId": "MISSION-WORKER-RELAY-TESTED-STATE-RECOVERY",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A.TESTED.STATE.RECOVERY.1A",
+  "targetRole": "executor",
+  "dispatchId": "DISPATCH-000021",
+  "dispatchState": "READY"
+}
