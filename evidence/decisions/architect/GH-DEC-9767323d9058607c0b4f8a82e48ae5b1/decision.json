@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-9767323d9058607c0b4f8a82e48ae5b1",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.BROWSER.RELAY.ARCHITECT.ONE.SHOT.RAW.CDP.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-1523df677bcea85f743d9f51e67c4f52",
+  "nextCanonicalMessageId": "ORCH-000019",
+  "reason": "Durable trigger intent/result evidence proves exactly one RAW-CDP send of `verify & next` to the registered Architect conversation on port 9333, with ACTIVE control revalidated, confirmedSendCount 1, no response DOM read, no retry, and ports 9222/9223 untouched."
+}
