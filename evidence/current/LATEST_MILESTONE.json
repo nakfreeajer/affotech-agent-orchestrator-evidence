@@ -5,7 +5,7 @@
   "pointerState": "TERMINAL_AWAITING_ARCHITECT",
   "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A",
   "role": "executor",
-  "publicationId": "GH-PUB-f496dda9990f8832670e9d4f92f43ea4",
+  "publicationId": "GH-PUB-9a1c4f6d8e2b7c0a9d5e3f1b6c8a4d20",
   "workerOutcome": "PASS",
   "classification": "WORKER_RELAY_AUTHORITY_EXACTLY_ONCE_CONTRACT_READY_FOR_ARCHITECT_REVIEW",
   "requiresArchitectDecision": true

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-9a1c4f6d8e2b7c0a9d5e3f1b6c8a4d20",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTHORITY.AND.EXACTLY.ONCE.CONTRACT.1A",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_AUTHORITY_EXACTLY_ONCE_CONTRACT_READY_FOR_ARCHITECT_REVIEW",
+  "terminalSha256": "b983ba64d549730f285dd9a76ac0a763150d9a3ec852a7b128115db5c7b54cf2",
+  "reportSha256": "9baa69af71d81eb0a42384675b2245e431277721160f7683235aba23c38e2f3e",
+  "previousEvidenceCommit": "b16683b8e8a9921deb89ab5853b67318b6f26996",
+  "resultingEvidenceCommit": null,
+  "requiresArchitectDecision": true,
+  "projectMutation": 0,
+  "liveWorkerRegistration": 0,
+  "liveWorkerSend": 0,
+  "responseDomRead": false,
+  "snapshotSha256": "f496dda9990f8832670e9d4f92f43ea49a603f5f8877a9128add7c497e744c11",
+  "preservedPublication": "GH-PUB-f496dda9990f8832670e9d4f92f43ea4"
+}
