@@ -1,0 +1,46 @@
+{
+  "sourceVerifiedAgainstManifest": true,
+  "workerRoles": [
+    "executor",
+    "documentation_curator"
+  ],
+  "authorityPath": "evidence/worker-sessions/authorities/<workerRole>/<authorityId>.json",
+  "registrationPath": "evidence/worker-sessions/registrations/<workerRole>/<registrationId>.json",
+  "authorityPointer": "evidence/current/worker/<workerRole>/LATEST_AUTHORITY.json",
+  "registrationPointer": "evidence/current/worker/<workerRole>/LATEST_REGISTRATION.json",
+  "deliveryBasePath": "evidence/worker-deliveries/<workerRole>/<deliveryId>",
+  "sourceDefinesSeparateDeliveryIntentResultPaths": false,
+  "sourceDefinesCurrentDeliveryPointer": false,
+  "sourceRecordTypes": [
+    "WORKER_AUTHORITY",
+    "WORKER_REGISTRATION",
+    "WORKER_DELIVERY_INTENT",
+    "WORKER_DELIVERY_RESULT"
+  ],
+  "sourceHashFields": [
+    "authoritySha256",
+    "registrationSha256",
+    "intentSha256",
+    "resultSha256"
+  ],
+  "supportedRoles": [
+    "executor",
+    "documentation_curator"
+  ],
+  "suppressingControls": [
+    "PAUSED_BY_RONY",
+    "STOP",
+    "ABORT_CURRENT_WORKER",
+    "RECONCILIATION_REQUIRED",
+    "CIRCUIT_OPEN"
+  ],
+  "exactlyOnce": [
+    "intent-before-send",
+    "intendedSendCount=1",
+    "FAILED_BEFORE_SEND",
+    "SENT",
+    "AMBIGUOUS=>RECONCILIATION_REQUIRED",
+    "retry=false",
+    "responseDomRead=false"
+  ]
+}
