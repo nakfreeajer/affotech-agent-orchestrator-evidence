@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-224d70f469a7223a5a30c516268016",
+  "repository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "milestone": "ORCH.P0.WORKER.RELAY.DELIVERY.DURABILITY.CONTRACT.REPAIR.1A.EVIDENCE.COMPLETION.1A",
+  "role": "executor",
+  "workerOutcome": "PASS",
+  "classification": "WORKER_RELAY_DELIVERY_DURABILITY_EVIDENCE_COMPLETE",
+  "previousEvidenceCommit": "e07e412cf5412cec5d67d40448c96e3d63c2fa5d",
+  "resultingEvidenceCommit": null,
+  "terminalSha256": "5590752c6e472624f2f1a882fd73f56efad46e8d178c371788c21f451fa48da5",
+  "reportSha256": "4faa098ff52f141896cafb1d8a4dc5af06958595fd8623b56f26626c3f30df0f",
+  "archiveSha256": "d70f469a7223a5a30c516268016dc2b821ba5864f35c1f13c6e17a43cfc3a681",
+  "manifestSha256": "f0216bca98cdde01d23813677554f1a4f23fb619dba88a62ff2b75282690ad88",
+  "archiveReadbackVerified": true,
+  "focusedTestsPassed": 22,
+  "focusedTestsFailed": 0,
+  "focusedTestsSkipped": 0,
+  "fullTestsPassed": 224,
+  "fullTestsFailed": 0
+}

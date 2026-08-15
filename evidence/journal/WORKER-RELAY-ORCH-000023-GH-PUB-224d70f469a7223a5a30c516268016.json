@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "eventType": "WORKER_RELAY_DELIVERY_DURABILITY_EVIDENCE_COMPLETED",
+  "eventId": "WORKER-RELAY-ORCH-000023-GH-PUB-224d70f469a7223a5a30c516268016",
+  "messageId": "ORCH-000023",
+  "dispatchId": "DISPATCH-000023",
+  "publicationId": "GH-PUB-224d70f469a7223a5a30c516268016",
+  "archiveSha256": "d70f469a7223a5a30c516268016dc2b821ba5864f35c1f13c6e17a43cfc3a681",
+  "manifestSha256": "f0216bca98cdde01d23813677554f1a4f23fb619dba88a62ff2b75282690ad88",
+  "focusedTests": "22 passed, 0 failed, 0 skipped",
+  "fullTests": "224 passed, 0 failed"
+}
