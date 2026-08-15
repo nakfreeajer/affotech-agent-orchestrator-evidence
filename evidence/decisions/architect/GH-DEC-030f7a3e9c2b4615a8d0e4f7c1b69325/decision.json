@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-030f7a3e9c2b4615a8d0e4f7c1b69325",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.CLOSED.LOOP.AMBIGUITY.RECONCILIATION.AND.RESEND.1A",
+  "reviewedPublicationId": "GH-PUB-028-RECONCILIATION-INCONCLUSIVE-000001",
+  "reason": "Rony supplied a proven AFFOTECH relay pattern in which a short immutable publication locator is delivered and the Executor independently resolves and verifies the full GitHub prompt. ORCH-000029 is superseded before execution so the worker relay can implement an equivalent compact GitHub DISPATCH locator transport without touching the unresolved browser composer state.",
+  "nextCanonicalMessageId": "ORCH-000030",
+  "reconciliationRequired": true,
+  "supersedesUnexecutedMessageId": "ORCH-000029"
+}
