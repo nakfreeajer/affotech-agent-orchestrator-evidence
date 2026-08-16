@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.REPAIRED.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000036",
+  "messageId": "ORCH-000036",
+  "canonicalPromptSha256": "d1802f044709e8d680f1b8618b1667c143e4c9d23f17f7b40756459fae57edb3",
+  "capturedRef": "edb3dcae4b84bdf82dd43dd5f82fb60023fbfd45",
+  "sourceBaseline": {"publicationId": "GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001", "fileCount": 66, "archiveSha256": "db0ae6ce35ca02839d6f018842a48aff7a83254ff801d478434a4da797aba389", "manifestSha256": "d915fda858de710e4c338e689635a5b7729c57d593c34834d7ac7baaeb2d8dd6"},
+  "preMutation": {"focusedTests": 35, "fullTests": 237, "failures": 0},
+  "postRepair": {"focusedTests": 51, "fullTests": 253, "failures": 0},
+  "changedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"],
+  "preservation": {"repairedFileCount": 66, "byteIdenticalUnchangedFileCount": 64, "changedFileCount": 2, "manifestSha256": "66cc34bee25a69d54714b5dd6c0affb46d931981064e8a160709fdfb1fa1bd29", "archiveSha256": "7a23baff7ed25098732c8329aa522a779591c4c08d8deab888c6f9c20e146c67", "archiveSize": 51159, "readbackFileCount": 66, "readbackManifestSha256": "66cc34bee25a69d54714b5dd6c0affb46d931981064e8a160709fdfb1fa1bd29"},
+  "resolver": {"implementation": "GITHUB_DISPATCH_LOCATOR_V1 native Git object resolver", "refCapture": "single origin/main commit ref", "promptTransport": "direct Git object bytes", "shell": false, "automaticExecution": false, "browserContacts": 0, "portsTouched": []},
+  "mutationAccounting": {"sourceMutation": 2, "testMutation": 2, "configMutation": 0, "browserMutation": 0, "deliveryMutation": 0, "resultMutation": 0, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "forcePush": 0, "historyRewrite": 0, "blindRetry": 0},
+  "classification": "WORKER_RELAY_GITHUB_DISPATCH_NATIVE_RESOLVER_BASELINE_REPAIRED_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true
+}
