@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000051",
+  "messageId": "ORCH-000051",
+  "parentMessageId": "ORCH-000050",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000051.md",
+  "canonicalPromptSha256": "3b2cc026a5c23ba0f6fa532a919e60c6a9ec2696909f8ba70fc4815ebb3cc697",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Implement the generic PROJECT_PROFILE v1.0 schema/validator, promote PROJECT_PROFILE in compatibility registry, and add the pinned Orchestrator self-profile without AFFOTECH integration."
+}
