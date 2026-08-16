@@ -3,9 +3,9 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "CURRENT",
-  "decisionId": "GH-DEC-031f4c8a2d6e47b0a9c1e5f3b7d26084",
+  "decisionId": "GH-DEC-032a6d9f3c1b4780e5a2f4c7b8d93061",
   "decision": "NO NEW REPORT",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.STALE.DRAFT.RECONCILIATION.AND.CLEANUP.1A",
-  "nextCanonicalMessageId": "ORCH-000032",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-031f4c8a2d6e47b0a9c1e5f3b7d26084/decision.json"
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.RECIPIENT.QUALIFICATION.1A",
+  "nextCanonicalMessageId": "ORCH-000033",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-032a6d9f3c1b4780e5a2f4c7b8d93061/decision.json"
 }
