@@ -2,10 +2,13 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "CURRENT",
-  "decisionId": "GH-DEC-032a6d9f3c1b4780e5a2f4c7b8d93061",
-  "decision": "NO NEW REPORT",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.RECIPIENT.QUALIFICATION.1A",
-  "nextCanonicalMessageId": "ORCH-000033",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-032a6d9f3c1b4780e5a2f4c7b8d93061/decision.json"
+  "pointerState": "ACCEPTED",
+  "decisionId": "GH-DEC-033e7c4a5b6d48f1a2c9e0d3b7f65124",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.MANUAL.RECIPIENT.QUALIFICATION.1A",
+  "reviewedResultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "nextCanonicalMessageId": "ORCH-000034",
+  "acceptedTransportAnchor": "GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001",
+  "acceptedRecipientResultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-033e7c4a5b6d48f1a2c9e0d3b7f65124/decision.json"
 }
