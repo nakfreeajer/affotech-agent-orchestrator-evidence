@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.IMPLEMENTATION.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000037",
+  "messageId": "ORCH-000037",
+  "canonicalPromptSha256": "fa3e2315d1bc9b6865e40c5c3534c881a4fb6af9f022a04cd29344abd66b7ffa",
+  "capturedRef": "bcae78b7843d442b8d072b41b4b02cd760954684",
+  "sourceBaseline": {"acceptedPublicationId": "GH-PUB-036-BASELINE-REPAIR-000001", "archiveSha256": "7a23baff7ed25098732c8329aa522a779591c4c08d8deab888c6f9c20e146c67", "fileCount": 66, "manifestSha256": "66cc34bee25a69d54714b5dd6c0affb46d931981064e8a160709fdfb1fa1bd29", "focusedTests": 51, "fullTests": 253},
+  "postMutation": {"focusedTests": 71, "fullTests": 273, "newFocusedTests": 20, "failures": 0},
+  "changedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"],
+  "preservation": {"finalFileCount": 66, "byteIdenticalOtherFileCount": 64, "changedFileCount": 2, "manifestSha256": "4162fd0421c0a5714c9c16fc78029c151a235182eb70c7a1924a1e66aafe18d8", "archiveSha256": "1323e91433eb62aac1e42ecae92ae83e05132f841a60b70af6e21cc2d5189f27", "archiveSize": 53842, "readbackFileCount": 66, "readbackManifestSha256": "4162fd0421c0a5714c9c16fc78029c151a235182eb70c7a1924a1e66aafe18d8"},
+  "watcher": {"states": ["IDLE", "CANDIDATE_READY", "INTENT_REQUIRED", "IN_FLIGHT", "RESULT_WAIT", "RECONCILIATION_REQUIRED", "PAUSED", "CIRCUIT_OPEN"], "planOnly": true, "daemon": false, "locatorSent": false, "browserContacts": 0, "githubMutation": 0},
+  "mutationAccounting": {"sourceMutation": 2, "testMutation": 2, "configMutation": 0, "browserMutation": 0, "deliveryMutation": 0, "resultMutation": 0, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "forcePush": 0, "historyRewrite": 0, "blindRetry": 0},
+  "classification": "WORKER_RELAY_AUTOMATIC_DISPATCH_WATCHER_IMPLEMENTATION_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true
+}
