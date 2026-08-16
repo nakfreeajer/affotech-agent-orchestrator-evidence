@@ -2,13 +2,15 @@
   "schemaVersion": "1.0",
   "pointerKind": "ARCHITECT_TRIGGER",
   "pointerState": "CURRENT",
-  "triggerId": "ARCH-TRIGGER-9333-000001",
-  "triggerState": "SENT",
-  "intentPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000001/intent.json",
-  "intentSha256": "a1fd78c94a8f6e540d5f3dcc508cc7c0a39698a3cf297defe1f7b609f72b4c92",
-  "resultPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000001/result.json",
-  "resultSha256": "f49bd1eaa55d6783a39533fae0c16586415c190d5f9633abea33e08f91f3afc8",
+  "triggerId": "ARCH-TRIGGER-9333-000002",
+  "triggerState": "AMBIGUOUS",
+  "intentPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000002/intent.json",
+  "intentSha256": "2b72ff62608c30421380e8e7e4a8b2cffc562a3402cd88ceae8d9fab1d955be4",
+  "resultPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000002/result.json",
+  "resultSha256": "b7f437845cf9bae2c5edc09554ac1b7f47e715a708199ae4870756a9f3a7c949",
   "attemptedSendCount": 1,
-  "confirmedSendCount": 1,
-  "outcome": "SENT"
+  "confirmedSendCount": 0,
+  "outcome": "AMBIGUOUS",
+  "retryAuthorized": false,
+  "reconciliationRequired": true
 }
