@@ -3,11 +3,11 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-037a91c2e6d84b50b3f7a4c8e129605d",
+  "decisionId": "GH-DEC-038c4e7a1d2b49f0a6e3c8d517920b64",
   "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.IMPLEMENTATION.1A",
-  "reviewedPublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
-  "nextCanonicalMessageId": "ORCH-000038",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.LIVE.GITHUB.EVALUATION.1A",
+  "reviewedPublicationId": "GH-PUB-038-LIVE-GITHUB-WATCHER-EVALUATION-000001",
+  "nextCanonicalMessageId": "ORCH-000039",
   "acceptedSourcePublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-037a91c2e6d84b50b3f7a4c8e129605d/decision.json"
+  "decisionPath": "evidence/decisions/architect/GH-DEC-038c4e7a1d2b49f0a6e3c8d517920b64/decision.json"
 }
