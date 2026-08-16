@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-042-WORKER-RESULT-RECOVERY-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.WORKER.RESULT.RECOVERY.AFTER.RECONCILED.SEND.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000042",
+  "messageId": "ORCH-000042",
+  "canonicalPromptSha256": "a597cd39fcbee44d641e4a77a0be55a84863d385bff848a902d6a8682d43b11f",
+  "capturedRef": "676aee0d3c46b072c723a59bd3dc97ed0ef4b2a0",
+  "reconciliation": {"reconciliationId": "WORKER-RECONCILIATION-EXECUTOR-000001", "recordBlobSha": "684f2bb26f1d1f4827aee76e7f31f0d04badd737", "resolvedTransportState": "SENT"},
+  "historicalDelivery": {"deliveryId": "WORKER-DELIVERY-EXECUTOR-000003", "state": "AMBIGUOUS", "intentSha256": "ad2ce7eacb081e6653d6a7815dcf741283c5e0dc33b4ef8e48aa3311ff71e0be", "resultSha256": "f3baf25e3d7852e8e30608aa09badffc49a52b013156adac2a0d9a10b8a6bd55", "retryAuthorized": false},
+  "promptVerification": {"dispatchId": "DISPATCH-000040", "messageId": "ORCH-000040", "canonicalPromptPath": "evidence/prompts/ORCH-000040.md", "canonicalPromptSha256": "246df3ef12d7d9f5a27f33d04b7182eeff93241fc241f33ee21ca0ea6e6f9de8", "locator": "execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000040"},
+  "recoveredResult": {"resultId": "WORKER-RESULT-EXECUTOR-AUTO-000002", "resultPath": "evidence/worker-results/executor/WORKER-RESULT-EXECUTOR-AUTO-000002/result.json", "resultBlobSha": "1248594c8056bfcb16c6896b650f45c8a76bbba5", "status": "RECONCILED_SENT_DELIVERY_AND_CANONICAL_PROMPT_VERIFIED"},
+  "resultPointer": {"path": "evidence/current/worker/executor/LATEST_RESULT.json", "readBack": true},
+  "mutationAccounting": {"sourceMutation": 0, "testMutation": 0, "configMutation": 0, "browserContacts": 0, "deliveryMutation": 0, "reconciliationMutation": 0, "resultMutation": 1, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "resend": 0},
+  "classification": "AUTOMATIC_WORKER_RESULT_RECOVERED_FROM_RECONCILED_SENT_DELIVERY_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true
+}
