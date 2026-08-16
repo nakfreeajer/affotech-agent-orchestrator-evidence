@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "decisionId": "GH-DEC-031f4c8a2d6e47b0a9c1e5f3b7d26084",
+  "decision": "NO NEW REPORT",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.STALE.DRAFT.RECONCILIATION.AND.CLEANUP.1A",
+  "reviewedPublicationId": null,
+  "reason": "DISPATCH-000031 was never executable and produced no Executor terminal. Rony manually cleared the preserved stale Executor composer draft, satisfying the cleanup prerequisite without retrying WORKER-DELIVERY-EXECUTOR-000002. The historical AMBIGUOUS delivery remains immutable. ORCH-000032 is authorized as the next recipient-only compact-locator qualification.",
+  "nextCanonicalMessageId": "ORCH-000032",
+  "manualReconciliationReceived": true,
+  "acceptedAnchorUnchanged": true
+}
