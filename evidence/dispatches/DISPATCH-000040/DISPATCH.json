@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "dispatchId": "DISPATCH-000040",
+  "messageId": "ORCH-000040",
+  "parentMessageId": "ORCH-000039",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000040.md",
+  "canonicalPromptSha256": "246df3ef12d7d9f5a27f33d04b7182eeff93241fc241f33ee21ca0ea6e6f9de8",
+  "canonicalPromptByteCount": 10523,
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "missionId": "MISSION-WORKER-RELAY-AUTOMATIC-LIVE-DELIVERY"
+}
