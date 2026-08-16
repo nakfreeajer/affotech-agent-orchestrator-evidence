@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-050-ARCHITECT-DOORBELL-IMMUTABLE-SEND-PROOF-SENT-RECONCILED-000001",
+  "milestone": "ORCH.P0.ARCHITECT.DOORBELL.IMMUTABLE.SEND.PROOF.EVIDENCE.RECONCILIATION.1A",
+  "classification": "AUTOMATIC_ARCHITECT_DOORBELL_IMMUTABLE_SEND_PROOF_SENT_RECONCILED_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000050",
+  "messageId": "ORCH-000050",
+  "workerOutcome": "PASS",
+  "historicalTriggerState": "AMBIGUOUS",
+  "historicalSendProof": "SEND_PROVEN",
+  "priorObservation": "ORCH-000048 EMPTY composer used only for residual-draft state; later virtualized USER lineage was not required.",
+  "resolution": {"resolvedTransportState": "SENT", "residualDraftPresent": false, "cleanupOrRepairRequired": false, "retryAuthorized": false, "reconciliationRequired": false, "laterRenderedUserLineageRequired": false},
+  "validation": {"acceptedSource": "GH-PUB-049-ARCHITECT-DOORBELL-RECONCILIATION-PROOF-SEPARATION-REPAIR-000001", "registry": "16/0/0", "workerRelay": "125/0/0", "full": "343/0/0"},
+  "mutationAccounting": {"browserContacts": 0, "composerMutation": 0, "resendCount": 0, "sourceMutation": 0, "testMutation": 0, "configMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0}
+}

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "pointerKind": "ARCHITECT_TRIGGER_RECONCILIATION",
   "pointerState": "CURRENT",
-  "reconciliationId": "ARCH-TRIGGER-RECONCILIATION-9333-000002",
-  "reconciliationPath": "evidence/architect-trigger-reconciliations/ARCH-TRIGGER-RECONCILIATION-9333-000002/reconciliation.json",
-  "reconciliationBlobSha": "e4616739cf01aeaaa22c091e3c8dcde3db0ef9ee"
+  "reconciliationId": "ARCH-TRIGGER-RECONCILIATION-9333-000003",
+  "reconciliationPath": "evidence/architect-trigger-reconciliations/ARCH-TRIGGER-RECONCILIATION-9333-000003/reconciliation.json",
+  "reconciliationBlobSha": "98d18c993b2e0b80cf7f57beff54f81477abf235"
 }
