@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000050",
+  "messageId": "ORCH-000050",
+  "parentMessageId": "ORCH-000049",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000050.md",
+  "canonicalPromptSha256": "6a4f3a2079401865ae9d98c575e5e00672e943017cd371d8ffce90845ff7f034",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Resolve ARCH-TRIGGER-9333-000003 from immutable SEND_PROVEN evidence plus the existing EMPTY-composer observation, without browser contact or resend."
+}
