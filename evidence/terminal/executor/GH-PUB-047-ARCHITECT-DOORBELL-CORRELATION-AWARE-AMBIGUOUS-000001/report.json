@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-047-ARCHITECT-DOORBELL-CORRELATION-AWARE-AMBIGUOUS-000001",
+  "milestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.AWARE.LIVE.REQUALIFICATION.1A",
+  "classification": "AUTOMATIC_ARCHITECT_DOORBELL_CORRELATION_AWARE_AMBIGUOUS_RECONCILIATION_REQUIRED",
+  "workerOutcome": "BLOCKED",
+  "requiresArchitectDecision": true,
+  "dispatchId": "DISPATCH-000047",
+  "messageId": "ORCH-000047",
+  "canonicalPromptSha256": "d0b32432a0f92b8a8f0ab059fff6f37d7e4dd64cd1608382b687f5881d180788",
+  "capturedRef": "1cfa352ea2e7b5a4dd45fd193d3b8aa8d5ff6d95",
+  "freshRemoteParent": "1cfa352ea2e7b5a4dd45fd193d3b8aa8d5ff6d95",
+  "triggerId": "ARCH-TRIGGER-9333-000003",
+  "intentSha256": "4a4fb5f9baad57c4a0d89a5da5435bada5cd8740f979b10b9c7bf585e0dd751c",
+  "resultSha256": "85ce3c795952c0f9da8b3aaf68fe7d82b0273c76f2bb6505a6ef54795ec29a2e",
+  "baseline": {"registryPassed": 16, "workerRelayPassed": 115, "fullPassed": 333},
+  "correlation": {"preTotal": 2, "preMatching": 2, "preBoundaryFingerprint": "f522d244183d9b59a2967cae4e4ec559f96bd39cb5c676bd2caf74cf06338124", "postTotal": 3, "postMatching": 3, "totalDelta": 1, "matchingDelta": 1, "newlyAppendedExact": true, "composerEmpty": false, "correlationEvaluator": "CORRELATION_SUFFICIENT", "confirmedSendCount": 0, "retryAuthorized": false, "reconciliationRequired": true},
+  "transport": {"attemptedSendCount": 1, "responseDomRead": false, "assistantMessageTextRead": false, "browserDisconnected": true, "port9333Contacts": 3, "port9444Contacts": 0, "port9222Contacts": 0, "port9223Contacts": 0},
+  "mutationAccounting": {"sourceMutation": 0, "testMutation": 0, "configMutation": 0, "workerDeliveryMutation": 0, "workerResultMutation": 0, "workerReconciliationMutation": 0, "architectTriggerMutation": 2, "authorityMutation": 0, "registrationMutation": 0, "controlMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "retry": 0}
+}
