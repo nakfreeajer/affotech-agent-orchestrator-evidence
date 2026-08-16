@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000048",
+  "messageId": "ORCH-000048",
+  "parentMessageId": "ORCH-000047",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000048.md",
+  "canonicalPromptSha256": "88dbabbbddb79eb562895a047f7d67fe07d3862b6f0dc2e37c2b43ff61db703e",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Read-only stable-state reconciliation of ARCH-TRIGGER-9333-000003 composer state after correlation-sufficient send evidence."
+}
