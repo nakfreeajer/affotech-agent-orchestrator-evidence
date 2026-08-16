@@ -3,11 +3,11 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-035f4a81c2d6470e9b35a6d18c7204fe",
+  "decisionId": "GH-DEC-036b7e2c4f8b49d1a5c3e6f2097b8416",
   "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.RECONCILIATION.1A",
-  "reviewedPublicationId": "GH-PUB-035-BASELINE-RECONCILIATION-000001",
-  "nextCanonicalMessageId": "ORCH-000036",
-  "acceptedSourceAnchorUnchanged": true,
-  "decisionPath": "evidence/decisions/architect/GH-DEC-035f4a81c2d6470e9b35a6d18c7204fe/decision.json"
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.REPAIRED.1A",
+  "reviewedPublicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
+  "nextCanonicalMessageId": "ORCH-000037",
+  "acceptedSourcePublicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-036b7e2c4f8b49d1a5c3e6f2097b8416/decision.json"
 }
