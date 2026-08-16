@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-041a6e2d9c4b47f0b3d8e12597c640af",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.WORKER.LOCATOR.LIVE.DELIVERY.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-041-AUTOMATIC-WORKER-LOCATOR-RECONCILIATION-000001",
+  "acceptedReconciliationId": "WORKER-RECONCILIATION-EXECUTOR-000001",
+  "resolvedDeliveryId": "WORKER-DELIVERY-EXECUTOR-000003",
+  "resolvedTransportState": "SENT",
+  "historicalDeliveryStatePreserved": "AMBIGUOUS",
+  "retryAuthorized": false,
+  "nextCanonicalMessageId": "ORCH-000042",
+  "acceptedSourcePublicationId": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
+  "reason": "Read-only reconciliation proved exactly one matching ORCH-000040 locator exists as a sent user message in the registered Executor conversation, the composer is empty, no resend occurred, and the historical ambiguous delivery record remains immutable. The transport ambiguity is resolved as SENT without rewriting delivery history."
+}
