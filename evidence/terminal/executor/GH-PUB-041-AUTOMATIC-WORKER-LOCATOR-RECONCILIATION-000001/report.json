@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-041-AUTOMATIC-WORKER-LOCATOR-RECONCILIATION-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.WORKER.LOCATOR.LIVE.DELIVERY.RECONCILIATION.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000041",
+  "messageId": "ORCH-000041",
+  "canonicalPromptSha256": "880e6e51ba4e3b5ad6e2974a6271b03c62d4f78b5493c28f950b77fb073d177d",
+  "capturedRef": "110d770ccbb08972b12cbc56af581faba266fe76",
+  "reconciliationEvidenceCommit": "b031c84788bf516e3c6af284e0c627823aa378c7",
+  "acceptedAnchor": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
+  "historicalDelivery": {"deliveryId": "WORKER-DELIVERY-EXECUTOR-000003", "state": "AMBIGUOUS", "intentSha256": "ad2ce7eacb081e6653d6a7815dcf741283c5e0dc33b4ef8e48aa3311ff71e0be", "resultSha256": "f3baf25e3d7852e8e30608aa09badffc49a52b013156adac2a0d9a10b8a6bd55", "attemptedSendCount": 1, "confirmedSendCount": 0, "retryAuthorized": false},
+  "reconciliation": {"reconciliationId": "WORKER-RECONCILIATION-EXECUTOR-000001", "recordBlobSha": "684f2bb26f1d1f4827aee76e7f31f0d04badd737", "classification": "AUTOMATIC_WORKER_LOCATOR_DELIVERY_SENT_RECONCILED", "resolvedTransportState": "SENT", "matchingUserMessageCount": 1, "composerState": "EMPTY", "responseDomRead": false, "assistantMessageTextRead": false, "resendCount": 0},
+  "browser": {"port9444Contacts": 1, "port9333Contacts": 0, "port9222Contacts": 0, "port9223Contacts": 0, "conversationId": "6a80a082-3398-83ec-8336-dd73d62e848e", "conversationUrlVerified": true, "composerMutation": 0},
+  "tests": {"focusedPassed": 95, "fullPassed": 297, "failures": 0},
+  "mutationAccounting": {"sourceMutation": 0, "testMutation": 0, "configMutation": 0, "browserMutation": 0, "deliveryMutation": 0, "resultMutation": 0, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "retry": 0, "resend": 0, "architectDoorbell": 0},
+  "classification": "AUTOMATIC_WORKER_LOCATOR_DELIVERY_SENT_RECONCILED_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true
+}
