@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000046",
+  "messageId": "ORCH-000046",
+  "parentMessageId": "ORCH-000045",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000046.md",
+  "canonicalPromptSha256": "5243abd8139a584283cbbc5097440483bb44701bde2174a6ff4452c8b29ff91b",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Implement durable Architect-doorbell pre-send correlation boundary and deterministic PRE-to-POST confirmation without live browser contact."
+}
