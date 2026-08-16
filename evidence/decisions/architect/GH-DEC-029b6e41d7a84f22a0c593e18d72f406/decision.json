@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-029b6e41d7a84f22a0c593e18d72f406",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.CLOSED.LOOP.COMPOSER.NORMALIZATION.DIAGNOSTIC.1A",
+  "reviewedPublicationId": "GH-PUB-029-COMPOSER-DIAGNOSTIC-000001",
+  "reason": "The read-only diagnostic completed correctly and proved that ChatGPT composer DOM extraction is not byte-faithful for the long canonical Markdown prompt: innerText inserted additional paragraph newlines and NBSP characters, while textContent removed line breaks; no deterministic T0-T4 normalization produced equality. No composer mutation, message send, delivery 000003, worker result, Architect trigger 000002, source/test/config/AFFOTECH/Drive/Curator mutation, or protected-port contact occurred. The accepted anchor remains ORCH-000026. The already-published ORCH-000030 compact GitHub dispatch-locator transport is the appropriate next milestone because it removes the need to transport or byte-reconstruct the full prompt through ChatGPT contenteditable DOM.",
+  "nextCanonicalMessageId": "ORCH-000030",
+  "reconciliationRequired": true,
+  "acceptedAnchorUnchanged": true,
+  "supersedesDecisionId": "GH-DEC-030f7a3e9c2b4615a8d0e4f7c1b69325"
+}
