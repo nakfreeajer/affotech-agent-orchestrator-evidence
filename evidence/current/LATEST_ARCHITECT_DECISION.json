@@ -2,13 +2,12 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "INCONCLUSIVE",
-  "decisionId": "GH-DEC-034d6f91a8c24b30b5e7d2196c4f308a",
-  "decision": "INCONCLUSIVE",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.NATIVE.RESOLVER.HARDENING.1A",
-  "reviewedPublicationId": "GH-PUB-034-GITHUB-DISPATCH-NATIVE-RESOLVER-000001",
-  "reason": "ORCH-000034 reports 55 preserved source/config/test files and 157 full-suite tests versus accepted ORCH-000030 with 66 files and 237 tests. Reconciliation is required before acceptance.",
-  "nextCanonicalMessageId": "ORCH-000035",
-  "reconciliationRequired": true,
-  "decisionPath": "evidence/decisions/architect/GH-DEC-034d6f91a8c24b30b5e7d2196c4f308a/decision.json"
+  "pointerState": "ACCEPTED",
+  "decisionId": "GH-DEC-035f4a81c2d6470e9b35a6d18c7204fe",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-035-BASELINE-RECONCILIATION-000001",
+  "nextCanonicalMessageId": "ORCH-000036",
+  "acceptedSourceAnchorUnchanged": true,
+  "decisionPath": "evidence/decisions/architect/GH-DEC-035f4a81c2d6470e9b35a6d18c7204fe/decision.json"
 }
