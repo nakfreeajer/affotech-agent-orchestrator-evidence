@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-045-PROTOCOL-SCHEMA-COMPATIBILITY-REGISTRY-000001",
+  "milestone": "ORCH.P0.PROTOCOL.SCHEMA.COMPATIBILITY.REGISTRY.1A",
+  "classification": "ORCHESTRATOR_PROTOCOL_SCHEMA_COMPATIBILITY_REGISTRY_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000045",
+  "messageId": "ORCH-000045",
+  "capturedRef": "f7f9e99e67aa5b53a1ec3a5cfb3c253d535cc32e",
+  "freshRemoteParent": "f7f9e99e67aa5b53a1ec3a5cfb3c253d535cc32e",
+  "canonicalPromptSha256": "3a007597549dacee0246e776b771f2ce0228fb1a7d468050a505e96b3f339464",
+  "preMutation": {"focusedPassed": 95, "fullPassed": 297},
+  "postMutation": {"registryPassed": 16, "workerRelayPassed": 103, "fullPassed": 321},
+  "preservation": {"acceptedFileCount": 66, "finalFileCount": 68, "addedFiles": 2, "modifiedFiles": 2, "byteIdenticalOtherFiles": 64, "manifestSha256": "a2692bc940ba3b9709d2606ed117ca9b2fd200c2ad6bdc3db254800e55a5a924", "archiveSha256": "240d709cb3cf26bf133029002c95dfc5dc76fca0d1528d2a58eb6ccb0c73741b", "archiveSize": 59385, "readbackManifestSha256": "a2692bc940ba3b9709d2606ed117ca9b2fd200c2ad6bdc3db254800e55a5a924"},
+  "compatibility": {"supportedSchemaVersion": "1.0", "reservedKinds": ["HUMAN_AUTH", "PROJECT_PROFILE", "MUTATION_LEASE", "CURATOR_RESULT"], "failClosedReasons": ["MISSING_SCHEMA_VERSION", "UNSUPPORTED_SCHEMA_VERSION", "UNKNOWN_RECORD_KIND", "RESERVED_NOT_YET_SUPPORTED", "FOREIGN_PROTOCOL_FAMILY", "INSUFFICIENT_CORRELATION_EVIDENCE", "CORRELATION_MISMATCH"], "translationInterface": false, "foreignFamilyAccess": false},
+  "mutationAccounting": {"sourceMutation": 2, "testMutation": 2, "configMutation": 0, "browserContacts": 0, "browserMutation": 0, "deliveryMutation": 0, "resultMutation": 0, "reconciliationMutation": 0, "triggerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "forcePush": 0, "historyRewrite": 0, "daemonCreated": 0}
+}
