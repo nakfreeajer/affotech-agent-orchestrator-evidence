@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000045",
+  "messageId": "ORCH-000045",
+  "parentMessageId": "ORCH-000044",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000045.md",
+  "canonicalPromptSha256": "3a007597549dacee0246e776b771f2ce0228fb1a7d468050a505e96b3f339464",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Implement the bounded Orchestrator protocol/schema compatibility registry with protocol-family separation and durable correlation identity invariants."
+}
