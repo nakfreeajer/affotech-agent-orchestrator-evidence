@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.CLOSED.LOOP.INTEGRATION.IMPLEMENTATION.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000039",
+  "messageId": "ORCH-000039",
+  "canonicalPromptSha256": "bdd218b6ff87e05509f07a73dc65cb52243fe3a242091969ddb496f6cf290f71",
+  "capturedRef": "44a364606e85b998a6635b1e300565688a7ffacd",
+  "acceptedSourceAnchor": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "acceptedLiveEvaluation": "GH-PUB-038-LIVE-GITHUB-WATCHER-EVALUATION-000001",
+  "acceptedSnapshot": {"fileCount": 66, "archiveSha256": "1323e91433eb62aac1e42ecae92ae83e05132f841a60b70af6e21cc2d5189f27", "manifestSha256": "4162fd0421c0a5714c9c16fc78029c151a235182eb70c7a1924a1e66aafe18d8"},
+  "baselineTests": {"focusedPassed": 71, "fullPassed": 273, "failures": 0},
+  "postMutation": {"focusedPassed": 95, "fullPassed": 297, "newFocusedTests": 24, "failures": 0},
+  "changedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"],
+  "preservation": {"finalFileCount": 66, "byteIdenticalOtherFileCount": 64, "changedFileCount": 2, "manifestSha256": "594673febae9aea78baa39469e07c2c29f0bd2f5add64e023acb8ea2e73655c5", "archiveSha256": "f3c6b3d02f5f261f5f62d02b0654c8f62ed2d7fde24bcfe36c776eaf0d51cc1f", "archiveSize": 56498, "readbackFileCount": 66, "readbackManifestSha256": "594673febae9aea78baa39469e07c2c29f0bd2f5add64e023acb8ea2e73655c5"},
+  "closedLoop": {"adapterDriven": true, "intentReadbackBeforeWorkerSend": true, "workerSendAtMostOnce": true, "resultEvidenceOnly": true, "triggerReadbackBeforeArchitectSend": true, "doorbellText": "verify & next", "bounded": true, "daemonCreated": false},
+  "mutationAccounting": {"sourceMutation": 2, "testMutation": 2, "configMutation": 0, "browserMutation": 0, "deliveryMutation": 0, "resultMutation": 0, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "forcePush": 0, "historyRewrite": 0, "blindRetry": 0},
+  "classification": "WORKER_RELAY_AUTOMATIC_CLOSED_LOOP_INTEGRATION_IMPLEMENTATION_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true
+}
