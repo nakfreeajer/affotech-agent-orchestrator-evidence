@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-035f4a81c2d6470e9b35a6d18c7204fe",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-035-BASELINE-RECONCILIATION-000001",
+  "reason": "The read-only reconciliation validly proved ORCH-000034 was not derived from the accepted ORCH-000030 source baseline. ORCH-000034 remains unaccepted; the accepted source/transport anchor remains GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001.",
+  "nextCanonicalMessageId": "ORCH-000036",
+  "reconciliationResolved": true,
+  "acceptedSourceAnchorUnchanged": true
+}
