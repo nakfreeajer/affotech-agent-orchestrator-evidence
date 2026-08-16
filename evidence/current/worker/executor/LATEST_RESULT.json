@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "pointerKind": "WORKER_RESULT",
+  "pointerState": "CURRENT",
+  "workerRole": "executor",
+  "resultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "resultPath": "evidence/worker-results/executor/WORKER-RESULT-EXECUTOR-LOCATOR-000001/result.json",
+  "resultBlobSha": "402732e21bafc81470d0f9c1e2eba2a9177b452a"
+}

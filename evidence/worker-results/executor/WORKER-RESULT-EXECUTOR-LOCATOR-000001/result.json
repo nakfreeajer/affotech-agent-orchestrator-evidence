@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "WORKER_RESULT",
+  "resultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "workerRole": "executor",
+  "messageId": "ORCH-000033",
+  "dispatchId": "DISPATCH-000033",
+  "status": "GITHUB_DISPATCH_LOCATOR_RESOLVED_AND_CANONICAL_PROMPT_VERIFIED",
+  "locatorText": "execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000033",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000033.md",
+  "canonicalPromptSha256": "4259b1fcbeec75107f74041fda98af3b8f0666d3e0a98959806f19f189109255",
+  "createdByRole": "executor",
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "browserMutation": 0,
+  "affotechMutation": 0,
+  "driveMutation": 0,
+  "curatorMutation": 0,
+  "resultRecordedAt": 1786848046013
+}
