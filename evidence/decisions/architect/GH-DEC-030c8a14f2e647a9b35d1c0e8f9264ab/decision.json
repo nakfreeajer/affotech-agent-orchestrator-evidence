@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-030c8a14f2e647a9b35d1c0e8f9264ab",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.TRANSPORT.1A",
+  "reviewedPublicationId": "GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001",
+  "reason": "GITHUB_DISPATCH_LOCATOR_V1 is implemented in exactly the authorized source/test files, focused tests passed 35/35, full suite passed 237/237, the reconstructible 66-file snapshot and hashes were durably preserved, and no browser/delivery/result/trigger/AFFOTECH/Drive/Curator mutation occurred. The unresolved delivery 000002 remains preserved for bounded reconciliation in the next live milestone.",
+  "nextCanonicalMessageId": "ORCH-000031",
+  "requiresRonyManualAction": false
+}
