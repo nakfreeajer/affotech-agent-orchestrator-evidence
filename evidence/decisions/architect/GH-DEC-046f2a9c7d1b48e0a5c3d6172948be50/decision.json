@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-046f2a9c7d1b48e0a5c3d6172948be50",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.BOUNDARY.REPAIR.IMPLEMENTATION.1A",
+  "reviewedPublicationId": "GH-PUB-046-ARCHITECT-DOORBELL-CORRELATION-BOUNDARY-REPAIR-000001",
+  "acceptedSourcePublicationId": "GH-PUB-046-ARCHITECT-DOORBELL-CORRELATION-BOUNDARY-REPAIR-000001",
+  "acceptedSourceFileCount": 68,
+  "registryPassed": 16,
+  "focusedPassed": 115,
+  "fullPassed": 333,
+  "manifestSha256": "6eee29d30c384bf6cc8044219c78229c1da5dae829a5b3405da362bf086d94db",
+  "archiveSha256": "501959d0d67e65e1834e263aa11bb6a0effb892d94eb824218fc00a78613d549",
+  "reasonCode": "ARCHITECT_DOORBELL_CORRELATION_BOUNDARY_REPAIR_VERIFIED",
+  "nextCanonicalMessageId": "ORCH-000047",
+  "nextMilestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.AWARE.LIVE.REQUALIFICATION.1A",
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false,
+  "createdByRole": "architect"
+}
