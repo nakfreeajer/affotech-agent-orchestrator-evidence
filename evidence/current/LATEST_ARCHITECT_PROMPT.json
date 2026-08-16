@@ -3,14 +3,14 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_PROMPT",
   "pointerState": "CANONICAL",
-  "messageId": "ORCH-000049",
-  "parentMessageId": "ORCH-000048",
-  "promptPath": "evidence/prompts/ORCH-000049.md",
-  "promptSha256": "8a85aa68855dbf763fd5cf01f90d54220790c15c82fb0cc356b351a3aea30c65",
-  "missionId": "MISSION-ARCHITECT-DOORBELL-RECONCILIATION-PROOF-SEPARATION-REPAIR",
-  "milestone": "ORCH.P0.ARCHITECT.DOORBELL.RECONCILIATION.PROOF.SEPARATION.REPAIR.IMPLEMENTATION.1A",
+  "messageId": "ORCH-000050",
+  "parentMessageId": "ORCH-000049",
+  "promptPath": "evidence/prompts/ORCH-000050.md",
+  "promptSha256": "6a4f3a2079401865ae9d98c575e5e00672e943017cd371d8ffce90845ff7f034",
+  "missionId": "MISSION-ARCHITECT-DOORBELL-IMMUTABLE-SEND-PROOF-EVIDENCE-RECONCILIATION",
+  "milestone": "ORCH.P0.ARCHITECT.DOORBELL.IMMUTABLE.SEND.PROOF.EVIDENCE.RECONCILIATION.1A",
   "targetRole": "executor",
   "ledgerMirrorState": "PENDING",
   "dispatchState": "MANUAL_TRIGGER_REQUIRED",
-  "issueIsObservabilityOnly": false
+  "issueIsObservabilityOnly": true
 }
