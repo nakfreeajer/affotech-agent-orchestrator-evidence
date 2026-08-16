@@ -3,12 +3,13 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "INCONCLUSIVE",
-  "decisionId": "GH-DEC-047d2c8a1f6b49e0a3c5e8172946bf50",
+  "decisionId": "GH-DEC-048e3b7a2c1d49f0a5c6e817294b630",
   "decision": "INCONCLUSIVE",
-  "reviewedMilestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.AWARE.LIVE.REQUALIFICATION.1A",
-  "reviewedPublicationId": "GH-PUB-047-ARCHITECT-DOORBELL-CORRELATION-AWARE-AMBIGUOUS-000001",
+  "reviewedMilestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.AWARE.LIVE.STABLE.STATE.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-048-ARCHITECT-DOORBELL-STABLE-STATE-RECONCILIATION-INCONCLUSIVE-000001",
   "reviewedTriggerId": "ARCH-TRIGGER-9333-000003",
-  "reasonCode": "CORRELATION_SUFFICIENT_BUT_COMPOSER_NONEMPTY_RECONCILIATION_REQUIRED",
+  "reviewedReconciliationId": "ARCH-TRIGGER-RECONCILIATION-9333-000002",
+  "reasonCode": "LATE_RENDERED_USER_LINEAGE_UNSTABLE_OBSERVABILITY_COUPLING_REPAIR_REQUIRED",
   "retryAuthorized": false,
   "reconciliationRequired": true,
   "acceptedSourcePublicationId": "GH-PUB-046-ARCHITECT-DOORBELL-CORRELATION-BOUNDARY-REPAIR-000001",
@@ -16,7 +17,7 @@
   "registryPassed": 16,
   "focusedPassed": 115,
   "fullPassed": 333,
-  "nextCanonicalMessageId": "ORCH-000048",
-  "nextMilestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.AWARE.LIVE.STABLE.STATE.RECONCILIATION.1A",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-047d2c8a1f6b49e0a3c5e8172946bf50/decision.json"
+  "nextCanonicalMessageId": "ORCH-000049",
+  "nextMilestone": "ORCH.P0.ARCHITECT.DOORBELL.RECONCILIATION.PROOF.SEPARATION.REPAIR.IMPLEMENTATION.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-048e3b7a2c1d49f0a5c6e817294b630/decision.json"
 }
