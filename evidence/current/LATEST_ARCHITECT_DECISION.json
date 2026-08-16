@@ -3,11 +3,11 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-038c4e7a1d2b49f0a6e3c8d517920b64",
+  "decisionId": "GH-DEC-039e8a4c1f6b47d2a5c3097e14b68250",
   "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.LIVE.GITHUB.EVALUATION.1A",
-  "reviewedPublicationId": "GH-PUB-038-LIVE-GITHUB-WATCHER-EVALUATION-000001",
-  "nextCanonicalMessageId": "ORCH-000039",
-  "acceptedSourcePublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-038c4e7a1d2b49f0a6e3c8d517920b64/decision.json"
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.CLOSED.LOOP.INTEGRATION.IMPLEMENTATION.1A",
+  "reviewedPublicationId": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
+  "nextCanonicalMessageId": "ORCH-000040",
+  "acceptedSourcePublicationId": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-039e8a4c1f6b47d2a5c3097e14b68250/decision.json"
 }
