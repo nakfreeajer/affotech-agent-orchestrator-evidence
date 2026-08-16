@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000039",
+  "messageId": "ORCH-000039",
+  "parentMessageId": "ORCH-000038",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000039.md",
+  "canonicalPromptSha256": "bdd218b6ff87e05509f07a73dc65cb52243fe3a242091969ddb496f6cf290f71",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "transport": "GITHUB_DISPATCH_LOCATOR_V1"
+}
