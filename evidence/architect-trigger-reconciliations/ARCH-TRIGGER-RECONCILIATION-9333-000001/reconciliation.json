@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "ARCHITECT_TRIGGER_RECONCILIATION",
+  "reconciliationId": "ARCH-TRIGGER-RECONCILIATION-9333-000001",
+  "triggerId": "ARCH-TRIGGER-9333-000002",
+  "messageId": "ORCH-000043",
+  "payloadText": "verify & next",
+  "historicalTriggerState": "AMBIGUOUS",
+  "attemptedSendCount": 1,
+  "confirmedSendCount": 0,
+  "retryAuthorized": false,
+  "classification": "AUTOMATIC_ARCHITECT_DOORBELL_RECONCILIATION_INCONCLUSIVE",
+  "resolvedTransportState": "INCONCLUSIVE",
+  "matchingUserMessageCount": 0,
+  "composerState": "EMPTY",
+  "responseDomRead": false,
+  "assistantMessageTextRead": false,
+  "composerMutation": 0,
+  "resendCount": 0,
+  "affotechMutation": 0,
+  "driveMutation": 0,
+  "curatorMutation": 0
+}
