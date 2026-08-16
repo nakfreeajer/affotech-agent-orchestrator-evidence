@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000044",
+  "messageId": "ORCH-000044",
+  "parentMessageId": "ORCH-000043",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000044.md",
+  "canonicalPromptSha256": "c0f0d2588088259b1a26b51e9110f7e5e6a6106fe36835e4b786a240e37d7b9b",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Read-only reconciliation of the current Architect trigger transport state."
+}
