@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "artifact": "orchestrator-source-snapshot-orch-000034.tar.gz",
+  "sha256": "71ddec7acae1bb7adf553f8a2fad9a1bb60550921a422d7964d1dc94e21291b9",
+  "size": 27316,
+  "partCount": 1,
+  "parts": [{"path": "evidence/artifacts/orch-000034/orchestrator-source-snapshot-orch-000034.tar.gz", "sha256": "71ddec7acae1bb7adf553f8a2fad9a1bb60550921a422d7964d1dc94e21291b9", "size": 27316}]
+}
