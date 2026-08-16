@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-046-ARCHITECT-DOORBELL-CORRELATION-BOUNDARY-REPAIR-000001",
+  "milestone": "ORCH.P0.ARCHITECT.DOORBELL.CORRELATION.BOUNDARY.REPAIR.IMPLEMENTATION.1A",
+  "classification": "ARCHITECT_DOORBELL_CORRELATION_BOUNDARY_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000046",
+  "messageId": "ORCH-000046",
+  "capturedRef": "d5b836b558c76a876c9e1446b705119695905b9e",
+  "freshRemoteParent": "d5b836b558c76a876c9e1446b705119695905b9e",
+  "canonicalPromptSha256": "5243abd8139a584283cbbc5097440483bb44701bde2174a6ff4452c8b29ff91b",
+  "preMutation": {"registryPassed": 16, "workerRelayPassed": 103, "fullPassed": 321},
+  "postMutation": {"registryPassed": 16, "workerRelayPassed": 115, "fullPassed": 333},
+  "mutationEnvelope": {"modifiedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"], "sourceMutation": 1, "testMutation": 1, "otherSourceFilesChanged": 0},
+  "correlationBoundary": {"target": ["authorityId", "registrationId", "relayPort", "conversationId"], "lineage": ["intentId", "triggerId", "sourceMessageId", "dispatchId"], "payloadSha256": true, "totalUserMessageCount": true, "matchingUserMessageCount": true, "userMessageBoundaryFingerprint": true, "preSendStalenessCheck": true, "postDeltaRule": "total +1 and matching +1 with exact newly appended USER payload", "assistantResponseRead": false, "zeroOrMultipleDeltaRetryAuthorized": false},
+  "preservation": {"acceptedFileCount": 68, "finalFileCount": 68, "byteIdenticalOtherFileCount": 66, "manifestSha256": "6eee29d30c384bf6cc8044219c78229c1da5dae829a5b3405da362bf086d94db", "archiveSha256": "501959d0d67e65e1834e263aa11bb6a0effb892d94eb824218fc00a78613d549", "archiveSize": 61498, "readbackManifestSha256": "6eee29d30c384bf6cc8044219c78229c1da5dae829a5b3405da362bf086d94db"},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "workerDeliveryMutation": 0, "workerResultMutation": 0, "architectTriggerMutation": 0, "forcePush": 0, "historyRewrite": 0}
+}
