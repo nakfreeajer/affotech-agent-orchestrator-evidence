@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-036b7e2c4f8b49d1a5c3e6f2097b8416",
+  "decision": "ACCEPTED",
+  "supersedesDecisionId": "GH-DEC-036a7e2c4f8b49d1a5c3e6f2097b8415",
+  "correctionReason": "Correct explanatory wording only; classification and evidence bindings are unchanged.",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.REPAIRED.1A",
+  "reviewedPublicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
+  "reason": "The accepted ORCH-000030 66-file baseline was reconstructed exactly; pre-mutation validation returned 35 focused and 237 full tests; the native resolver was integrated into exactly the two authorized relay files; all other 64 files remained byte-identical; and post-repair validation returned 51 focused and 253 full tests with zero failures and zero browser/AFFOTECH/Drive/Curator mutation.",
+  "nextCanonicalMessageId": "ORCH-000037",
+  "acceptedSourcePublicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
+  "acceptedSourceFileCount": 66,
+  "acceptedFocusedPassed": 51,
+  "acceptedFullPassed": 253,
+  "requiresReconciliation": false
+}
