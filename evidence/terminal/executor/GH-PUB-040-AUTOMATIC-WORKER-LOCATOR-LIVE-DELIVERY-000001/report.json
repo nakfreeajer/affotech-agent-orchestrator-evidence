@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-040-AUTOMATIC-WORKER-LOCATOR-LIVE-DELIVERY-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.WORKER.LOCATOR.LIVE.DELIVERY.QUALIFICATION.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000040",
+  "messageId": "ORCH-000040",
+  "canonicalPromptSha256": "246df3ef12d7d9f5a27f33d04b7182eeff93241fc241f33ee21ca0ea6e6f9de8",
+  "capturedRef": "492990ee0e9e4d22716feff5ae78122f6f44d378",
+  "deliveryEvidenceCommit": "f66f69e5808ee2cc39eca9c043be97a989a9a9e8",
+  "acceptedAnchor": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
+  "acceptedSnapshot": {"fileCount": 66, "archiveSha256": "f3c6b3d02f5f261f5f62d02b0654c8f62ed2d7fde24bcfe36c776eaf0d51cc1f", "manifestSha256": "594673febae9aea78baa39469e07c2c29f0bd2f5add64e023acb8ea2e73655c5"},
+  "baselineTests": {"focusedPassed": 95, "fullPassed": 297, "failures": 0},
+  "candidate": {"dispatchId": "DISPATCH-000040", "messageId": "ORCH-000040", "workerRole": "executor", "workerAuthorityId": "WORKER-AUTH-EXECUTOR-000001", "workerRegistrationId": "WORKER-REG-EXECUTOR-000001", "capturedRef": "492990ee0e9e4d22716feff5ae78122f6f44d378", "canonicalPromptPath": "evidence/prompts/ORCH-000040.md", "canonicalPromptSha256": "246df3ef12d7d9f5a27f33d04b7182eeff93241fc241f33ee21ca0ea6e6f9de8", "deliveryPayloadKind": "GITHUB_DISPATCH_LOCATOR_V1", "deliveryPayloadText": "execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000040", "deliveryPayloadSha256": "4353a672d6940fa746ddab5225193e48a538161ea38c2eced9af9b30d0b744e9", "deliveryPayloadByteCount": 88},
+  "intent": {"deliveryId": "WORKER-DELIVERY-EXECUTOR-000003", "state": "ARMED", "intentSha256": "ad2ce7eacb081e6653d6a7815dcf741283c5e0dc33b4ef8e48aa3311ff71e0be", "readBack": true},
+  "deliveryResult": {"outcome": "AMBIGUOUS", "attemptedSendCount": 1, "confirmedSendCount": 0, "retryAuthorized": false, "reconciliationRequired": true, "resultSha256": "f3baf25e3d7852e8e30608aa09badffc49a52b013156adac2a0d9a10b8a6bd55", "browserDisconnected": true, "responseDomRead": false},
+  "browser": {"port9444Contacts": 1, "port9333Contacts": 0, "port9222Contacts": 0, "port9223Contacts": 0, "registeredConversationId": "6a80a082-3398-83ec-8336-dd73d62e848e", "registeredUrlVerified": true, "oneVisibleEnabledComposer": true, "composerEmptyBeforeInsertion": true},
+  "mutationAccounting": {"sourceMutation": 0, "testMutation": 0, "configMutation": 0, "browserMutation": 1, "deliveryMutation": 1, "resultMutation": 0, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "retry": 0, "architectDoorbell": 0},
+  "classification": "AUTOMATIC_WORKER_LOCATOR_LIVE_DELIVERY_AMBIGUOUS_RECONCILIATION_REQUIRED",
+  "requiresArchitectDecision": true
+}
