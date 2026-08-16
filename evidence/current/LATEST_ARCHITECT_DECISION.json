@@ -2,12 +2,15 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-039e8a4c1f6b47d2a5c3097e14b68250",
-  "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.CLOSED.LOOP.INTEGRATION.IMPLEMENTATION.1A",
-  "reviewedPublicationId": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
-  "nextCanonicalMessageId": "ORCH-000040",
+  "pointerState": "INCONCLUSIVE",
+  "decisionId": "GH-DEC-040d7a1c5e2b48f09c3a6e7d125904fb",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.WORKER.LOCATOR.LIVE.DELIVERY.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-040-AUTOMATIC-WORKER-LOCATOR-LIVE-DELIVERY-000001",
+  "reason": "WORKER-DELIVERY-EXECUTOR-000003 is durably AMBIGUOUS after exactly one attempted send with zero confirmed sends. retryAuthorized=false and reconciliationRequired=true. No ORCH-000040 worker result was published. Read-only browser reconciliation is required before any further transport action.",
+  "nextCanonicalMessageId": "ORCH-000041",
   "acceptedSourcePublicationId": "GH-PUB-039-AUTOMATIC-CLOSED-LOOP-INTEGRATION-000001",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-039e8a4c1f6b47d2a5c3097e14b68250/decision.json"
+  "reconciliationRequired": true,
+  "retryAuthorized": false,
+  "decisionPath": "evidence/decisions/architect/GH-DEC-040d7a1c5e2b48f09c3a6e7d125904fb/decision.json"
 }
