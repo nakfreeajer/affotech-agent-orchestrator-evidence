@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-037a91c2e6d84b50b3f7a4c8e129605d",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.IMPLEMENTATION.1A",
+  "reviewedPublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "reason": "The watcher implementation preserves the accepted 66-file baseline, changes exactly the two authorized relay files, adds exactly 20 focused tests, passes 71 focused and 273 full tests with zero failures, remains plan-only with no daemon/browser/locator send, and records zero AFFOTECH/Drive/Curator access or mutation.",
+  "nextCanonicalMessageId": "ORCH-000038",
+  "acceptedSourcePublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001"
+}
