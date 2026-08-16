@@ -3,11 +3,11 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
   "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-036b7e2c4f8b49d1a5c3e6f2097b8416",
+  "decisionId": "GH-DEC-037a91c2e6d84b50b3f7a4c8e129605d",
   "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.NATIVE.RESOLVER.BASELINE.REPAIRED.1A",
-  "reviewedPublicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
-  "nextCanonicalMessageId": "ORCH-000037",
-  "acceptedSourcePublicationId": "GH-PUB-036-BASELINE-REPAIR-000001",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-036b7e2c4f8b49d1a5c3e6f2097b8416/decision.json"
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.IMPLEMENTATION.1A",
+  "reviewedPublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "nextCanonicalMessageId": "ORCH-000038",
+  "acceptedSourcePublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-037a91c2e6d84b50b3f7a4c8e129605d/decision.json"
 }
