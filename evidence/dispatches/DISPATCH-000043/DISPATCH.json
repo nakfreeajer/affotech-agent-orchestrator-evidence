@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000043",
+  "messageId": "ORCH-000043",
+  "parentMessageId": "ORCH-000042",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000043.md",
+  "canonicalPromptSha256": "eff536a1ce33d5fe1016a41292347899422e5df15255ede30fd7e21501b0b5b3",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Qualify one durable Architect doorbell derived from the accepted recovered worker result."
+}
