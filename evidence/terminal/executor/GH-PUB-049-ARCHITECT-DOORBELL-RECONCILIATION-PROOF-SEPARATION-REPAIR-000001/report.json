@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-049-ARCHITECT-DOORBELL-RECONCILIATION-PROOF-SEPARATION-REPAIR-000001",
+  "milestone": "ORCH.P0.ARCHITECT.DOORBELL.RECONCILIATION.PROOF.SEPARATION.REPAIR.IMPLEMENTATION.1A",
+  "classification": "ARCHITECT_DOORBELL_RECONCILIATION_PROOF_SEPARATION_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000049",
+  "messageId": "ORCH-000049",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "requiresArchitectDecision": true,
+  "validation": {"nodeCheckSource": "PASS", "nodeCheckTest": "PASS", "registry": "16/0/0", "workerRelay": "125/0/0", "full": "343/0/0"},
+  "mutationEnvelope": {"modifiedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"], "sourceMutation": 1, "testMutation": 1, "otherFilesChanged": 0, "newTopLevelTests": 10},
+  "preservation": {"acceptedFileCount": 68, "finalFileCount": 68, "byteIdenticalOtherFileCount": 66, "manifestSha256": "66450bd1a8d46c83d185911227adcc07d1fa19d5a02a8846598eafba97e406e9", "archiveSha256": "2a8679cfb255e82b88886e8d5bb50de43292c21b1b8f4a58f538ef3ec027e14d", "archiveSize": 63306},
+  "repair": {"sendProof": "SEND_PROVEN requires exact durable identity and correlation-sufficient PRE→POST +1/+1 proof", "observabilitySeparation": true, "emptyComposer": "SENT/no residual draft/no retry", "nonEmptyComposer": "SENT/residual draft/cleanup required/no retry", "historicalTriggerRemainsAmbiguous": true},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "workerDeliveryMutation": 0, "workerResultMutation": 0, "architectTriggerMutation": 0, "forcePush": 0, "historyRewrite": 0, "daemonCreated": 0}
+}
