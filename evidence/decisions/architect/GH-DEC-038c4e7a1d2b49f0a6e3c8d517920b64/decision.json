@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-038c4e7a1d2b49f0a6e3c8d517920b64",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.LIVE.GITHUB.EVALUATION.1A",
+  "reviewedPublicationId": "GH-PUB-038-LIVE-GITHUB-WATCHER-EVALUATION-000001",
+  "acceptedResult": "AUTOMATIC_DISPATCH_WATCHER_LIVE_GITHUB_EVALUATION_PASS",
+  "acceptedSourcePublicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "acceptedCandidateDispatchId": "DISPATCH-000038",
+  "nextCanonicalMessageId": "ORCH-000039",
+  "reason": "Live read-only evaluation produced exactly one correctly bound GITHUB_DISPATCH_LOCATOR_V1 candidate from one captured Git ref, with accepted 66-file/71-focused/273-full baseline and zero browser, delivery, result, trigger, AFFOTECH, Drive, or Curator mutation."
+}
