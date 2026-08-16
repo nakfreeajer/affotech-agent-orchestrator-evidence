@@ -3,11 +3,11 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "MILESTONE",
   "pointerState": "TERMINAL_AWAITING_ARCHITECT",
-  "publicationId": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
-  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.IMPLEMENTATION.1A",
+  "publicationId": "GH-PUB-038-LIVE-GITHUB-WATCHER-EVALUATION-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.LIVE.GITHUB.EVALUATION.1A",
   "role": "executor",
   "workerLifecycle": "COMPLETED",
   "workerOutcome": "PASS",
-  "classification": "WORKER_RELAY_AUTOMATIC_DISPATCH_WATCHER_IMPLEMENTATION_READY_FOR_ARCHITECT_REVIEW",
+  "classification": "AUTOMATIC_DISPATCH_WATCHER_LIVE_GITHUB_EVALUATION_PASS",
   "requiresArchitectDecision": true
 }

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-038-LIVE-GITHUB-WATCHER-EVALUATION-000001",
+  "milestone": "ORCH.P0.WORKER.RELAY.AUTOMATIC.DISPATCH.WATCHER.LIVE.GITHUB.EVALUATION.1A",
+  "role": "executor",
+  "dispatchId": "DISPATCH-000038",
+  "messageId": "ORCH-000038",
+  "canonicalPromptSha256": "5576de778337dda2056b6868a3e6186a4dea2aa96d60b76b589ba772727c0f9e",
+  "capturedRef": "05d8a4b898593d0d02ee5ca2e51be98c4349ba62",
+  "acceptedWatcherAnchor": "GH-PUB-037-AUTOMATIC-DISPATCH-WATCHER-000001",
+  "acceptedSnapshot": {"fileCount": 66, "archiveSha256": "1323e91433eb62aac1e42ecae92ae83e05132f841a60b70af6e21cc2d5189f27", "manifestSha256": "4162fd0421c0a5714c9c16fc78029c151a235182eb70c7a1924a1e66aafe18d8"},
+  "baselineTests": {"focusedPassed": 71, "focusedFailed": 0, "focusedSkipped": 0, "fullPassed": 273, "fullFailed": 0, "fullSkipped": 0},
+  "candidate": {"dispatchId": "DISPATCH-000038", "messageId": "ORCH-000038", "workerRole": "executor", "workerAuthorityId": "WORKER-AUTH-EXECUTOR-000001", "workerRegistrationId": "WORKER-REG-EXECUTOR-000001", "capturedRef": "05d8a4b898593d0d02ee5ca2e51be98c4349ba62", "canonicalPromptPath": "evidence/prompts/ORCH-000038.md", "canonicalPromptSha256": "5576de778337dda2056b6868a3e6186a4dea2aa96d60b76b589ba772727c0f9e", "deliveryPayloadKind": "GITHUB_DISPATCH_LOCATOR_V1", "deliveryPayloadText": "execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000038", "deliveryPayloadSha256": "6e79b0b4b4fa6d96b84d1572db290778aedc23f358a248810e92ef65078c9dd3", "deliveryPayloadByteCount": 88, "nextAction": "PREPARE_DURABLE_INTENT"},
+  "verification": {"classification": "ELIGIBLE_DISPATCH_CANDIDATE", "watcherState": "CANDIDATE_READY", "nativeResolver": "PASS", "ascii": true, "singleLine": true, "payloadMaxBytes": 160, "canonicalPromptBodyInPayload": false, "browserContacts": 0, "locatorSent": false, "daemonCreated": false},
+  "mutationAccounting": {"sourceMutation": 0, "testMutation": 0, "configMutation": 0, "browserMutation": 0, "deliveryMutation": 0, "resultMutation": 0, "architectTriggerMutation": 0, "authorityMutation": 0, "registrationMutation": 0, "acceptedPointerMutation": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0},
+  "classification": "AUTOMATIC_DISPATCH_WATCHER_LIVE_GITHUB_EVALUATION_PASS",
+  "requiresArchitectDecision": true
+}
