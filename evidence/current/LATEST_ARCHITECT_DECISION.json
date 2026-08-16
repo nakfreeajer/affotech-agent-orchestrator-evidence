@@ -2,14 +2,11 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "INCONCLUSIVE",
-  "decisionId": "GH-DEC-029b6e41d7a84f22a0c593e18d72f406",
-  "decision": "INCONCLUSIVE",
-  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.EXECUTOR.CLOSED.LOOP.COMPOSER.NORMALIZATION.DIAGNOSTIC.1A",
-  "reviewedPublicationId": "GH-PUB-029-COMPOSER-DIAGNOSTIC-000001",
-  "reason": "The read-only diagnostic proved the long canonical prompt cannot be byte-faithfully reconstructed from ChatGPT composer innerText/textContent. No send or unauthorized mutation occurred. The accepted anchor remains ORCH-000026; ORCH-000030 compact GitHub dispatch-locator transport remains the next canonical milestone.",
-  "nextCanonicalMessageId": "ORCH-000030",
-  "reconciliationRequired": true,
-  "acceptedAnchorUnchanged": true,
-  "decisionPath": "evidence/decisions/architect/GH-DEC-029b6e41d7a84f22a0c593e18d72f406/decision.json"
+  "pointerState": "ACCEPTED",
+  "decisionId": "GH-DEC-030c8a14f2e647a9b35d1c0e8f9264ab",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.TRANSPORT.1A",
+  "reviewedPublicationId": "GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001",
+  "nextCanonicalMessageId": "ORCH-000031",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-030c8a14f2e647a9b35d1c0e8f9264ab/decision.json"
 }
