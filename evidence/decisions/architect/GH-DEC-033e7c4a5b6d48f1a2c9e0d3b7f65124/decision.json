@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "ARCHITECT_DECISION",
+  "pointerState": "ACCEPTED",
+  "decisionId": "GH-DEC-033e7c4a5b6d48f1a2c9e0d3b7f65124",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.MANUAL.RECIPIENT.QUALIFICATION.1A",
+  "reviewedResultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "reason": "The Executor resolved DISPATCH-000033 from the compact locator, verified the exact canonical ORCH-000033 prompt SHA from GitHub, published a matching immutable result and current pointer, and reported zero source/test/browser/AFFOTECH/Drive/Curator mutations. Executor authority/registration, historical delivery 000002, Architect trigger, relay control, and the accepted ORCH-000030 transport anchor remained unchanged.",
+  "acceptedTransportAnchor": "GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001",
+  "acceptedRecipientResultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "nextCanonicalMessageId": "ORCH-000034",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-033e7c4a5b6d48f1a2c9e0d3b7f65124/decision.json"
+}
