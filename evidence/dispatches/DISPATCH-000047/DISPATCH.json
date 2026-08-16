@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000047",
+  "messageId": "ORCH-000047",
+  "parentMessageId": "ORCH-000046",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000047.md",
+  "canonicalPromptSha256": "d0b32432a0f92b8a8f0ab059fff6f37d7e4dd64cd1608382b687f5881d180788",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "purpose": "Perform the live correlation-aware Architect-doorbell requalification using a durable pre-send USER-message boundary and exact PRE-to-POST delta confirmation."
+}
