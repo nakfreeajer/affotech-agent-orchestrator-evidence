@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-034d6f91a8c24b30b5e7d2196c4f308a",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.WORKER.RELAY.GITHUB.DISPATCH.LOCATOR.NATIVE.RESOLVER.HARDENING.1A",
+  "reviewedPublicationId": "GH-PUB-034-GITHUB-DISPATCH-NATIVE-RESOLVER-000001",
+  "reason": "ORCH-000034 reports 55 preserved source/config/test files and 157 full-suite tests, while accepted ORCH-000030 reported 66 files and 237 tests. Because ORCH-000034 authorized exactly two file modifications and no deletions, the baseline/preservation discrepancy must be reconciled before acceptance.",
+  "nextCanonicalMessageId": "ORCH-000035",
+  "acceptedTransportAnchor": "GH-PUB-030-GITHUB-DISPATCH-LOCATOR-000001",
+  "acceptedRecipientResultId": "WORKER-RESULT-EXECUTOR-LOCATOR-000001",
+  "reconciliationRequired": true
+}
