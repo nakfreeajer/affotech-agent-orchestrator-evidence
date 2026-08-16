@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "artifactKind": "SANITIZED_SOURCE_SNAPSHOT",
+  "artifactId": "github-dispatch-locator-1a",
+  "filename": "orchestrator-source-snapshot-p0-github-dispatch-locator-1a.tar.gz",
+  "size": 48035,
+  "sha256": "db0ae6ce35ca02839d6f018842a48aff7a83254ff801d478434a4da797aba389",
+  "regularFileCount": 66,
+  "manifestSha256": "290c40a3d96d127dd3e1dfe56eb1e86f3dc92d6a6b55d2aa97028e0e1f2df77a",
+  "base64EncodedLength": 64048,
+  "chunkSize": 8000,
+  "chunkCount": 9,
+  "parts": [
+    [
+      "part-01.br",
+      "02db3912f98c6e1870ce5c1f327d305e1bb1212a"
+    ],
+    [
+      "part-02.br",
+      "93f4104b9e2e1a9ccabbb13ecab49a4cc86a8401"
+    ],
+    [
+      "part-03.br",
+      "a2d8b345de3910e5136f86f24529675beafa10ad"
+    ],
+    [
+      "part-04.br",
+      "fa6a72f5388cc69e0ad72eaf198757274a308d4b"
+    ],
+    [
+      "part-05.br",
+      "a94d1e33eb899379d35b66e04428dd0b6c1b12f8"
+    ],
+    [
+      "part-06.br",
+      "2be4738b0703dfbfca34b521573c1a5d561a92fa"
+    ],
+    [
+      "part-07.br",
+      "75ff2745f21e921d05a9fde64a1002ab2708bb71"
+    ],
+    [
+      "part-08.br",
+      "e95d703aeba765fc73369f9b3814595a0f4f26d0"
+    ],
+    [
+      "part-09.br",
+      "fb9f1a080f099abf5d280a6a62b32ce268d6f671"
+    ]
+  ],
+  "sourceFileSha256": {
+    "src/browser-relay/worker-relay.js": "1c357fe78e12149b028d9c6f3a4bc789d07489ff4b07c1ae484d9f420532b807",
+    "test/worker-relay.test.js": "b462db6da4016605a7f532e061127aa4f647fdb920ef194ccceaa9afc118043b"
+  }
+}
