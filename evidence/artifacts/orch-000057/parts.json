@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-057-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIFECYCLE-FOUNDATION-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000057/orchestrator-source-snapshot-orch-000057.tar.gz",
+  "archiveSha256": "53a3bed40b8dc1d75ae48248d1411b7cdfcf7e847a304610f478b5ba6912bd24",
+  "archiveSize": 83050,
+  "manifestSha256": "46e1b845ceeeb4ff5c4c75820758a24a7a8fe67eb48e3b5a6634cfaa2a0f8ef2",
+  "fileCount": 79,
+  "acceptedSourceFileCount": 77,
+  "addedFiles": ["src/host/automatic-dispatch-host.js", "test/automatic-dispatch-host.test.js"],
+  "modifiedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"],
+  "otherByteIdenticalFileCount": 75
+}

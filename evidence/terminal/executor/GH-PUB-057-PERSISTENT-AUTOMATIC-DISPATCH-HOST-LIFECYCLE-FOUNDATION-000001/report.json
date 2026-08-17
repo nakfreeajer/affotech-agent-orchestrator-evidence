@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-057-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIFECYCLE-FOUNDATION-000001",
+  "milestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.LIFECYCLE.FOUNDATION.1A",
+  "classification": "ORCHESTRATOR_PERSISTENT_AUTOMATIC_DISPATCH_HOST_LIFECYCLE_FOUNDATION_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000057",
+  "messageId": "ORCH-000057",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "mutationLease": "24/0/0", "preDispatchValidator": "32/0/0", "automaticDispatchHost": "24/0/0", "workerRelay": "145/0/0", "full": "487/0/0"},
+  "acceptedContract": "GH-PUB-056-AUTOMATIC-GOVERNANCE-GATED-WORKER-DELIVERY-SENT-000001",
+  "acceptedSource": "GH-PUB-055-PRE-DISPATCH-WATCHER-CANDIDATE-GATE-000001",
+  "hostProperties": ["persistent mutation-capable actions require exact MUTATION_LEASE", "SENT delivery suppresses duplicate send", "AMBIGUOUS delivery and Architect trigger require reconciliation without resend", "worker result and Architect trigger lineage use durable evidence only", "control precedence is enforced", "controller performs no I/O and grants no mutation or retry authority"],
+  "mutationEnvelope": {"addedFiles": ["src/host/automatic-dispatch-host.js", "test/automatic-dispatch-host.test.js"], "modifiedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"], "removedFiles": [], "otherByteIdenticalFileCount": 75, "finalFileCount": 79},
+  "protectedBoundary": {"AFFOTECHAccess": 0, "AFFOTECHMutation": 0, "foreignRelayAccess": 0, "browserContacts": 0},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "workerSendCount": 0, "architectSendCount": 0, "daemonCreated": 0}
+}
