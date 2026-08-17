@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-070b8e41f9c3d257a6e10c54f8b72a91",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENTATION.PROJECTION.1A",
+  "reviewedPublicationId": "GH-PUB-070-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-TRANSPORT-000001",
+  "acceptedSourcePublicationId": "GH-PUB-065-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-REPAIR-000001",
+  "reasonCode": "CURATOR_ROLE_BOUNDARY_UNAVAILABLE",
+  "stopBeforeMutationVerified": true,
+  "documentationFilesCreated": 0,
+  "curatorTerminalPublished": false,
+  "liveCuratorCursorMutationAuthorized": false,
+  "documentationMutationAuthorized": false,
+  "executorDocumentationAuthorshipAuthorized": false,
+  "requiredRepair": "CURATOR_OWNED_DETERMINISTIC_DOCUMENT_RENDERER",
+  "nextCanonicalMessageId": "ORCH-000071",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENT.RENDERER.REPAIR.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-070b8e41f9c3d257a6e10c54f8b72a91/decision.json"
+}
