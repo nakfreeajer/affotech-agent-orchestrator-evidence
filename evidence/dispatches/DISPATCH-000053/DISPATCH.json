@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000053",
+  "messageId": "ORCH-000053",
+  "parentMessageId": "ORCH-000052",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000053.md",
+  "canonicalPromptSha256": "24c3b687bd43029d052a28497d1d89a04bfc36cee3cfa03569a87dd0b9509e05",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PRE.DISPATCH.GOVERNANCE.VALIDATOR.FOUNDATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-052-HUMAN-AUTHORITY-SCHEMA-LIFECYCLE-FOUNDATION-000001",
+  "acceptedSourceFileCount": 73,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
