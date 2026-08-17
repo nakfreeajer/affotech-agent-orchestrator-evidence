@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000055",
+  "messageId": "ORCH-000055",
+  "parentMessageId": "ORCH-000054",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000055.md",
+  "canonicalPromptSha256": "ecb050ee4b31c293c8d2ea0511d82172af90611590a30d5d49c28742fe50050d",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PRE.DISPATCH.WATCHER.CANDIDATE.GATE.IMPLEMENTATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-054-MUTATION-LEASE-SCHEMA-PRE-DISPATCH-INTEGRATION-000001",
+  "acceptedSourceFileCount": 77,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
