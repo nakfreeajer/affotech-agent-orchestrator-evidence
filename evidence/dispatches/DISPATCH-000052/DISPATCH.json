@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000052",
+  "messageId": "ORCH-000052",
+  "parentMessageId": "ORCH-000051",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000052.md",
+  "canonicalPromptSha256": "844a9c1ab54e719ade932116842f5b9ae12dc096d05b83e0325bd2622d19f612",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.HUMAN.AUTHORITY.SCHEMA.LIFECYCLE.FOUNDATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-051-PROJECT-PROFILE-ADAPTER-SCHEMA-FOUNDATION-000001",
+  "acceptedSourceFileCount": 71,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
