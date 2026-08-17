@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000056",
+  "messageId": "ORCH-000056",
+  "parentMessageId": "ORCH-000055",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000056.md",
+  "canonicalPromptSha256": "e58fa773695024a94aa495b65769981aa83d96b8fe29c8b3604d6a2e328a2d35",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.GOVERNANCE.GATED.WORKER.DELIVERY.LIVE.ONE.SHOT.QUALIFICATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-055-PRE-DISPATCH-WATCHER-CANDIDATE-GATE-000001",
+  "acceptedSourceFileCount": 77,
+  "expectedMutationEnvelopeSha256": "199d5f202de3018ab60456d41012b995eb505ed5215fb0eb879259f9acc3230d",
+  "operationClass": "EXTERNAL_MUTATION",
+  "humanAuthorityRequired": false,
+  "mutationLeaseRequired": false,
+  "ambiguityProneExternalMutation": true,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
