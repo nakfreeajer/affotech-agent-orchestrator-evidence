@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "PROJECT_EVENT",
+  "eventId": "EVT-000033-dc3a265a8301658a",
+  "projectId": "affotech-agent-orchestrator",
+  "eventType": "EXECUTOR_TERMINAL_PUBLISHED",
+  "producerRole": "executor",
+  "producerId": "executor",
+  "eventSequence": 33,
+  "previousEventId": "EVT-000032-d1c9f41dd4baa75b",
+  "createdAt": 1786975125,
+  "missionId": null,
+  "messageId": null,
+  "dispatchId": null,
+  "milestoneId": null,
+  "subjectId": "GH-PUB-072-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-RETRY-000001",
+  "detailsRef": "evidence/terminal/executor/GH-PUB-072-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-RETRY-000001/terminal.json",
+  "detailsSha256": "f2616c5019a1285c5c09908c2679321e2b4636ed200e46e2fdb63f9e190149e1",
+  "documentationImpact": [
+    "NONE"
+  ],
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false,
+    "acceptanceAuthority": false
+  },
+  "sequence": 33,
+  "previousEventPath": "evidence/events/EVT-000032-d1c9f41dd4baa75b.json",
+  "previousEventSha256": "c237593add5a11e6ef7b012cca5c6e62384c3f708fc90671fb363cbca95f6a42",
+  "producerEventKey": "GH-PUB-072-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-RETRY-000001",
+  "eventPath": "evidence/events/EVT-000033-dc3a265a8301658a.json",
+  "canonicalPayloadSha256": "dc3a265a8301658abb323e2b7e97dd36298e9b5ac775968dcc9f35aaa693555f",
+  "recordSha256": "fc281173d5c03868b031f2ffac99898c914022d6b9cca19689db47bf6c789d11"
+}
