@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-053-PRE-DISPATCH-GOVERNANCE-VALIDATOR-FOUNDATION-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "dispatchId": "DISPATCH-000053",
+  "messageId": "ORCH-000053",
+  "fileCount": 75,
+  "manifestSha256": "13000960e2d606208e70263d48ca8606766a63583f117ed1c2a48e76daa8c82d",
+  "archivePath": "evidence/artifacts/orch-000053/orchestrator-source-snapshot-orch-000053.tar.gz",
+  "archiveSha256": "8c1b12f32e2872d3ef23a6b327430c74aa944c0f2f800b9d1e55909a30db24a3",
+  "archiveSize": 73681,
+  "acceptedSourcePublicationId": "GH-PUB-052-HUMAN-AUTHORITY-SCHEMA-LIFECYCLE-FOUNDATION-000001",
+  "acceptedSourceFileCount": 73,
+  "addedFiles": ["src/governance/pre-dispatch-validator.js", "test/pre-dispatch-validator.test.js"],
+  "modifiedFiles": [],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 73
+}

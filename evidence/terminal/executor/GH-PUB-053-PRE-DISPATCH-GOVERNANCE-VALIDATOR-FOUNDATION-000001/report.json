@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-053-PRE-DISPATCH-GOVERNANCE-VALIDATOR-FOUNDATION-000001",
+  "milestone": "ORCH.P0.PRE.DISPATCH.GOVERNANCE.VALIDATOR.FOUNDATION.1A",
+  "classification": "ORCHESTRATOR_PRE_DISPATCH_GOVERNANCE_VALIDATOR_FOUNDATION_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000053",
+  "messageId": "ORCH-000053",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "preDispatchValidator": "24/0/0", "workerRelay": "125/0/0", "full": "411/0/0"},
+  "mutationEnvelope": {"addedFiles": ["src/governance/pre-dispatch-validator.js", "test/pre-dispatch-validator.test.js"], "modifiedFiles": [], "removedFiles": [], "otherByteIdenticalFileCount": 73, "finalFileCount": 75},
+  "failClosed": ["project", "dispatch", "worker", "control", "baseline", "mutation-envelope", "HUMAN_AUTH", "MUTATION_LEASE_REQUIRED_NOT_SUPPORTED", "EXTERNAL_MUTATION_PLAN_REQUIRED"],
+  "authorityBoundary": {"eligibleDoesNotAuthorizeMutation": true, "eligibleDoesNotAuthorizeRetry": true, "eligibleDoesNotAuthorizeArchitectDispatch": true, "eligibleDoesNotAuthorizeWorkerDispatch": true, "eligibleDoesNotAuthorizeMutationLease": true, "humanAuthConsumed": false, "mutationLeaseImplemented": false},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "historyRewrite": 0, "daemonCreated": 0}
+}
