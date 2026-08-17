@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000060",
+  "messageId": "ORCH-000060",
+  "parentMessageId": "ORCH-000059",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000060.md",
+  "canonicalPromptSha256": "dd6be174ab33431434b1aad7655defce7f503fb912658f791a0995f8a44e4965",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.EVENT.LEDGER.CURATOR.PROJECTION.FOUNDATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-059-PERSISTENT-AUTOMATIC-DISPATCH-HOST-GITHUB-RUNTIME-PORTS-000001",
+  "acceptedSourceFileCount": 83,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
