@@ -13,6 +13,7 @@
   "acceptedEvaluatorState": "HOST_WAITING_WORKER_RESULT",
   "focusedTests": "337/0/0",
   "fullTests": "704/0/0",
+  "browserReadOnlyContacts": 3,
   "browserSendCount": 0,
   "leaseAcquireCount": 0,
   "workerDelivery005Created": 0
