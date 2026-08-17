@@ -1,0 +1,17 @@
+{
+  "publicationId": "GH-PUB-075-PROJECT-MEMORY-CURATOR-CURSOR-ADVANCEMENT-000001",
+  "dispatchId": "DISPATCH-000075",
+  "messageId": "ORCH-000075",
+  "classification": "ORCHESTRATOR_PROJECT_MEMORY_CURATOR_CURSOR_ADVANCEMENT_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "summary": "Persisted the accepted Curator cursor at canonical event sequence 15 through the accepted cursor boundary.",
+  "cursorPath": "evidence/current/curator/CURATOR_CURSOR.json",
+  "cursorCommit": "402f1704a0c0233f1b145364cfa0e3f0db6319f2",
+  "cursorBlobSha1": "7c07dd65feb2347f1ba3046c4210162b811034e5",
+  "cursorSha256": "885679e3cf8ec820f0ed9297e774c3d3dc46e3305c8533e376b52cc2254092e",
+  "lastProcessedSequence": 15,
+  "cursorValidation": "ADVANCED",
+  "githubCuratorCursorTests": "24/0/0",
+  "docsMutation": 0,
+  "eventAppend": 0
+}

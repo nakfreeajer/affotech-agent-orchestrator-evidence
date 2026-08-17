@@ -1,0 +1,13 @@
+{
+  "publicationId": "GH-PUB-075-PROJECT-MEMORY-CURATOR-CURSOR-ADVANCEMENT-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000075",
+  "messageId": "ORCH-000075",
+  "durable": true,
+  "cursorPath": "evidence/current/curator/CURATOR_CURSOR.json",
+  "cursorAdvance": 1,
+  "lastProcessedSequence": 15,
+  "documentationMutation": 0,
+  "projectEventAppend": 0,
+  "curatorPointerMutation": 0
+}
