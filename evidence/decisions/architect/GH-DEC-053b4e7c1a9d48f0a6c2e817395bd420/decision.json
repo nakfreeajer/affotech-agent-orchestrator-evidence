@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-053b4e7c1a9d48f0a6c2e817395bd420",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PRE.DISPATCH.GOVERNANCE.VALIDATOR.FOUNDATION.1A",
+  "reviewedPublicationId": "GH-PUB-053-PRE-DISPATCH-GOVERNANCE-VALIDATOR-FOUNDATION-000001",
+  "acceptedContractPublicationId": "GH-PUB-053-PRE-DISPATCH-GOVERNANCE-VALIDATOR-FOUNDATION-000001",
+  "acceptedSourcePublicationId": "GH-PUB-053-PRE-DISPATCH-GOVERNANCE-VALIDATOR-FOUNDATION-000001",
+  "acceptedSourceFileCount": 75,
+  "registryPassed": 16,
+  "projectProfilePassed": 20,
+  "humanAuthorityPassed": 24,
+  "preDispatchValidatorPassed": 24,
+  "focusedPassed": 125,
+  "fullPassed": 411,
+  "manifestSha256": "13000960e2d606208e70263d48ca8606766a63583f117ed1c2a48e76daa8c82d",
+  "archiveSha256": "8c1b12f32e2872d3ef23a6b327430c74aa944c0f2f800b9d1e55909a30db24a3",
+  "reasonCode": "PRE_DISPATCH_GOVERNANCE_VALIDATOR_FOUNDATION_VERIFIED",
+  "mutationLeaseSchema": "RESERVED_NOT_YET_SUPPORTED",
+  "nextCanonicalMessageId": "ORCH-000054",
+  "nextMilestone": "ORCH.P0.MUTATION.LEASE.SCHEMA.PRE.DISPATCH.INTEGRATION.1A"
+}
