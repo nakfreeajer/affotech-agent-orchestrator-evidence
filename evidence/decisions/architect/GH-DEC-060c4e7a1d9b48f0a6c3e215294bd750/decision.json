@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "ARCHITECT_DECISION",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-060c4e7a1d9b48f0a6c3e215294bd750",
+  "decision": "ACCEPTED",
+  "reviewedMessageId": "ORCH-000060",
+  "reviewedDispatchId": "DISPATCH-000060",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.EVENT.LEDGER.CURATOR.PROJECTION.FOUNDATION.1A",
+  "reviewedPublicationId": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "acceptedContractPublicationId": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "acceptedSourcePublicationId": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "acceptedSourceFileCount": 87,
+  "validation": {
+    "registryPassed": 16,
+    "projectProfilePassed": 20,
+    "humanAuthorityPassed": 24,
+    "mutationLeasePassed": 24,
+    "preDispatchValidatorPassed": 32,
+    "automaticDispatchHostPassed": 28,
+    "githubRuntimePortsPassed": 24,
+    "persistentHostRunnerPassed": 24,
+    "workerRelayPassed": 145,
+    "projectEventsPassed": 24,
+    "curatorProjectionPassed": 24,
+    "fullPassed": 587
+  },
+  "mutationEnvelopeVerified": {
+    "addedFiles": [
+      "src/events/project-events.js",
+      "test/project-events.test.js",
+      "src/curator/curator-projection.js",
+      "test/curator-projection.test.js"
+    ],
+    "modifiedFiles": [],
+    "removedFiles": [],
+    "otherByteIdenticalFileCount": 83
+  },
+  "manifestSha256": "582d712cac18c97d7359a1338985b76169534e36b6fcc0dfb3c44a40afd2ac3f",
+  "archiveSha256": "a50a6cf6222eaa27db0d14a4514f24220bcfb85b8b76be167cfc9271b2a9ee46",
+  "archiveSize": 102780,
+  "reasonCode": "PROJECT_MEMORY_EVENT_LEDGER_CURATOR_PROJECTION_FOUNDATION_VERIFIED",
+  "authorityBoundary": {
+    "curatorRemainsOnDemand": true,
+    "cursorMutationAuthorized": false,
+    "documentationMutationAuthorized": false,
+    "affotechIntegrationAuthorized": false,
+    "affotechAccessAuthorized": false
+  },
+  "nextCanonicalMessageId": "ORCH-000061",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.GITHUB.EVENT.LEDGER.CURATOR.CURSOR.PORTS.IMPLEMENTATION.1A"
+}
