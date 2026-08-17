@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "PROJECT_EVENT",
+  "eventId": "EVT-000007-3f794ec90222a472",
+  "projectId": "affotech-agent-orchestrator",
+  "eventType": "EXECUTOR_TERMINAL_PUBLISHED",
+  "producerRole": "executor",
+  "producerId": "executor",
+  "eventSequence": 7,
+  "previousEventId": "EVT-000006-907d12ebe81f1ce6",
+  "createdAt": 1786963112,
+  "missionId": null,
+  "messageId": "ORCH-000064",
+  "dispatchId": "DISPATCH-000064",
+  "milestoneId": null,
+  "subjectId": "GH-PUB-064-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-ROOT-CAUSE-RECONCILIATION-000001",
+  "detailsRef": "evidence/terminal/executor/GH-PUB-064-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-ROOT-CAUSE-RECONCILIATION-000001/terminal.json",
+  "detailsSha256": "a1adf75bf13eb1670d1f6769fa2b12c1afe54aa995abf4cb3af13ec9d4f4d4a3",
+  "documentationImpact": [
+    "PROJECT_HISTORY"
+  ],
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false,
+    "acceptanceAuthority": false
+  },
+  "sequence": 7,
+  "previousEventPath": "evidence/events/EVT-000006-907d12ebe81f1ce6.json",
+  "previousEventSha256": "09be03a6374db67bbaa32e975ce8a5a3ed7d91dbd75a0bc0afd428b679093208",
+  "producerEventKey": "GH-PUB-064-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-ROOT-CAUSE-RECONCILIATION-000001",
+  "eventPath": "evidence/events/EVT-000007-3f794ec90222a472.json",
+  "canonicalPayloadSha256": "3f794ec90222a4724a8402ae368070b2d5c602af18b61d230c23cc9fde1acb1f",
+  "recordSha256": "cb109586158e7385839d41b4274a6891e8cd3ea6b36aed905771620cd77d28de"
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "PROJECT_EVENT",
+  "eventId": "EVT-000014-52aa7aa87334e0b9",
+  "projectId": "affotech-agent-orchestrator",
+  "eventType": "EXECUTOR_TERMINAL_PUBLISHED",
+  "producerRole": "executor",
+  "producerId": "executor",
+  "eventSequence": 14,
+  "previousEventId": "EVT-000013-45eb69b4b95ac624",
+  "createdAt": 1786968379,
+  "missionId": null,
+  "messageId": "ORCH-000066",
+  "dispatchId": "DISPATCH-000066",
+  "milestoneId": null,
+  "subjectId": "GH-PUB-066-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-RECOVERY-000001",
+  "detailsRef": "evidence/terminal/executor/GH-PUB-066-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-RECOVERY-000001/terminal.json",
+  "detailsSha256": "18cde21859a9f4816e48f0f0612ac99a83ca461df3083eb032d1363431cc482c",
+  "documentationImpact": [
+    "PROJECT_HISTORY"
+  ],
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false,
+    "acceptanceAuthority": false
+  },
+  "sequence": 14,
+  "previousEventPath": "evidence/events/EVT-000013-45eb69b4b95ac624.json",
+  "previousEventSha256": "9efda247721278d07d94fbbb695358b6aff0197ecef3f483c6501aa1494a849c",
+  "producerEventKey": "GH-PUB-066-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-RECOVERY-000001",
+  "eventPath": "evidence/events/EVT-000014-52aa7aa87334e0b9.json",
+  "canonicalPayloadSha256": "52aa7aa87334e0b98874444ba105f0cff0e52a74eb6ec8450447289b09f4edaf",
+  "recordSha256": "3d101d6c77b7bb6e4fa4722d48488c6ccf7b36a8a4c2be69a3429dcc4e83a162"
+}
