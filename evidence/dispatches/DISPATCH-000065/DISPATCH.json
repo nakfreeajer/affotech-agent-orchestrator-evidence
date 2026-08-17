@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DISPATCH",
+  "dispatchId": "DISPATCH-000065",
+  "messageId": "ORCH-000065",
+  "parentMessageId": "ORCH-000064",
+  "missionId": "MISSION-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-REPAIR",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.CUTOVER.REPAIR.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000065.md",
+  "canonicalPromptSha256": "20fbdd37d4cf1e74ba6e7040bba180dd9c86a36bcee0fbe592d03a518aa95c56",
+  "architectDecisionId": "GH-DEC-064fae0a1ca4b8741ae9779966569893",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "liveProjectEventAppendAuthorized": false,
+  "livePrefixRewriteAuthorized": false
+}
