@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-074e1c3a7b9d2f4680a5c71e3b9f024d6",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENTATION.PROJECTION.OVERLAY.1A",
+  "reviewedPublicationId": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "acceptedSourcePublicationId": "GH-PUB-073-PROJECT-MEMORY-CURATOR-CURRENT-TRUTH-OVERLAY-REPAIR-000001",
+  "reasonCode": "CURATOR_DOCUMENTATION_PROJECTION_SEMANTICALLY_ACCEPTED",
+  "documentationCommit": "4fc6ee16b1d9d3260ee4b79840c01f3b485e98da",
+  "documentationPaths": [
+    "docs/CURRENT_STATE.md",
+    "docs/PROJECT_HISTORY.md",
+    "docs/DECISIONS.md",
+    "docs/BUGS_AND_LESSONS.md",
+    "docs/ARCHITECTURE.md"
+  ],
+  "documentationProjectionDigest": "318d52c216da5f9e4657dc99fe96b3e21325dd03f48f8e9e9de4f48d2a4b4aeb",
+  "frozenEventBoundaryRef": "fed93e71ec117121374a0f26e72be63143ffa792",
+  "acceptedEventRange": "1-15",
+  "semanticChecks": {
+    "currentStateLatestAcceptedSource": "GH-PUB-073-PROJECT-MEMORY-CURATOR-CURRENT-TRUTH-OVERLAY-REPAIR-000001",
+    "currentStateSourceFileCount": 97,
+    "currentStateFullTests": "704/0/0",
+    "ledgerHistoryEndsAtSequence": 15,
+    "orch000063RemainsBlocked": true,
+    "orch000064RemainsRootCauseNotSource": true,
+    "machineAuthorityDisclaimerPresent": true,
+    "executorContentEdits": 0,
+    "readbackEqual": true,
+    "postCommitRerenderEqual": true
+  },
+  "projectionHeaderStatusNote": "PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE is generation-time lifecycle metadata on the immutable projection commit; this Architect decision is the durable acceptance authority for that exact commit.",
+  "curatorProjectionAccepted": true,
+  "liveCuratorCursorMutationAuthorized": false,
+  "cursorAdvancementAuthorizedNext": true,
+  "nextCanonicalMessageId": "ORCH-000075",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.CURSOR.ADVANCEMENT.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-074e1c3a7b9d2f4680a5c71e3b9f024d6/decision.json"
+}
