@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-056-AUTOMATIC-GOVERNANCE-GATED-WORKER-DELIVERY-SENT-000001",
+  "milestone": "ORCH.P0.GOVERNANCE.GATED.WORKER.DELIVERY.LIVE.ONE.SHOT.QUALIFICATION.1A",
+  "classification": "AUTOMATIC_GOVERNANCE_GATED_WORKER_DELIVERY_SENT_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000056",
+  "messageId": "ORCH-000056",
+  "workerOutcome": "PASS",
+  "candidateGate": {"result": "PRE_DISPATCH_ELIGIBLE", "mutationAuthorized": false, "retryAuthorized": false, "humanAuthority": "NOT_REQUIRED", "mutationLease": "NOT_REQUIRED", "externalPlan": "COMPLETE"},
+  "delivery": {"deliveryId": "WORKER-DELIVERY-EXECUTOR-000004", "locator": "execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000056", "attemptedSendCount": 1, "confirmedSendCount": 1, "preUserCount": 3, "postUserCount": 4, "preMatchingCount": 0, "postMatchingCount": 1, "delta": "+1/+1", "newlyAppendedUserExact": true, "composer": "EMPTY", "browserDisconnected": true, "responseDomRead": false, "assistantMessageTextRead": false, "retryAuthorized": false, "reconciliationRequired": false},
+  "target": {"authorityId": "WORKER-AUTH-EXECUTOR-000001", "registrationId": "WORKER-REG-EXECUTOR-000001", "port": 9444, "conversationId": "6a80a082-3398-83ec-8336-dd73d62e848e"},
+  "durability": {"intentPath": "evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000004/intent.json", "intentSha256": "065291f2fb2b508a37db8c955c175ed000ffa3654a2732fa619ae43212765225", "resultPath": "evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000004/result.json", "resultSha256": "cdf59d71ed0ed9657d8cc5737c9ac826dec08991e8a68af6d803938bc3c330b0", "pointerState": "SENT"},
+  "mutationAccounting": {"source": 0, "tests": 0, "config": 0, "browserPortsTouched": [9444], "affotech": 0, "drive": 0, "curator": 0, "deployment": 0, "businessData": 0, "humanAuth": 0, "mutationLease": 0, "workerResult": 0, "architectTrigger": 0, "assistantResponseParsed": 0, "historyRewrite": 0}
+}
