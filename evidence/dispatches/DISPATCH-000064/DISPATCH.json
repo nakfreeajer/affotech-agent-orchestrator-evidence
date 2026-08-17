@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000064",
+  "messageId": "ORCH-000064",
+  "parentMessageId": "ORCH-000063",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000064.md",
+  "canonicalPromptSha256": "368663870facaf1cdfff659a92084755072a37267ef94f8a8caf227ae2e559cb",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.CUTOVER.ROOT.CAUSE.RECONCILIATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-062-PROJECT-MEMORY-EVENT-PRODUCER-RECORDER-INTEGRATION-000001",
+  "acceptedSourceFileCount": 95,
+  "liveProjectEventMutationAuthorized": false,
+  "livePrefixMutationAuthorized": false,
+  "documentationMutationAuthorized": false,
+  "curatorMutationAuthorized": false,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
