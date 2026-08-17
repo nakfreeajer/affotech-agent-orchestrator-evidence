@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-054-MUTATION-LEASE-SCHEMA-PRE-DISPATCH-INTEGRATION-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "dispatchId": "DISPATCH-000054",
+  "messageId": "ORCH-000054",
+  "fileCount": 77,
+  "manifestSha256": "e9790d2f3ac3215f864948d989b8c7befc79e748701b37deff74269b57408eb9",
+  "archivePath": "evidence/artifacts/orch-000054/orchestrator-source-snapshot-orch-000054.tar.gz",
+  "archiveSha256": "bba1d9266d90183314e5f70d8afac569db4d18082e29925b7a30aba59acf4426",
+  "archiveSize": 76656,
+  "acceptedSourcePublicationId": "GH-PUB-053-PRE-DISPATCH-GOVERNANCE-VALIDATOR-FOUNDATION-000001",
+  "acceptedSourceFileCount": 75,
+  "addedFiles": ["src/governance/mutation-lease.js", "test/mutation-lease.test.js"],
+  "modifiedFiles": ["src/governance/pre-dispatch-validator.js", "src/protocol/compatibility-registry.js", "test/pre-dispatch-validator.test.js", "test/protocol-compatibility-registry.test.js"],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 71
+}

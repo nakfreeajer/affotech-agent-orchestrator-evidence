@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-054-MUTATION-LEASE-SCHEMA-PRE-DISPATCH-INTEGRATION-000001",
+  "milestone": "ORCH.P0.MUTATION.LEASE.SCHEMA.PRE.DISPATCH.INTEGRATION.1A",
+  "classification": "ORCHESTRATOR_MUTATION_LEASE_SCHEMA_PRE_DISPATCH_INTEGRATION_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000054",
+  "messageId": "ORCH-000054",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "mutationLease": "24/0/0", "preDispatchValidator": "32/0/0", "workerRelay": "125/0/0", "full": "443/0/0"},
+  "mutationEnvelope": {"addedFiles": ["src/governance/mutation-lease.js", "test/mutation-lease.test.js"], "modifiedFiles": ["src/governance/pre-dispatch-validator.js", "src/protocol/compatibility-registry.js", "test/pre-dispatch-validator.test.js", "test/protocol-compatibility-registry.test.js"], "removedFiles": [], "otherByteIdenticalFileCount": 71, "finalFileCount": 77},
+  "compatibility": {"MUTATION_LEASE": "SUPPORTED", "CURATOR_RESULT": "RESERVED_NOT_YET_SUPPORTED", "PROJECT_PROFILE": "SUPPORTED", "HUMAN_AUTH": "SUPPORTED"},
+  "leaseGates": ["project", "holder", "lineage", "resource-scope", "mutation-envelope", "expiry", "release-state", "competing-lease-conflict"],
+  "preDispatchIntegration": {"missingLease": "PRE_DISPATCH_MUTATION_LEASE_REQUIRED", "deniedLease": "PRE_DISPATCH_MUTATION_LEASE_DENIED", "authorizedLease": "prerequisite only", "liveEnforcement": false},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "historyRewrite": 0, "daemonCreated": 0}
+}
