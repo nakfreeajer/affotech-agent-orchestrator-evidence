@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000061",
+  "messageId": "ORCH-000061",
+  "parentMessageId": "ORCH-000060",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000061.md",
+  "canonicalPromptSha256": "c9591974b347551a9cead050834946c0162f927ad9780b8479185fe16594e2f7",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.GITHUB.EVENT.LEDGER.CURATOR.CURSOR.PORTS.IMPLEMENTATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "acceptedSourceFileCount": 87,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
