@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000063",
+  "messageId": "ORCH-000063",
+  "parentMessageId": "ORCH-000062",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000063.md",
+  "canonicalPromptSha256": "18e006ef28fd8dffdfd064f3cb28e4a41c45128b535e7f58d048efeec3b823fa",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.LEDGER.CUTOVER.QUALIFICATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-062-PROJECT-MEMORY-EVENT-PRODUCER-RECORDER-INTEGRATION-000001",
+  "acceptedSourceFileCount": 95,
+  "sourceMutationAuthorized": false,
+  "liveProjectEventMutationAuthorized": true,
+  "liveProjectEventMutationScope": "EXACTLY_3_CUTOVER_EVENTS_PLUS_PROJECT_EVENT_INDEX_CAS",
+  "historicalEventBackfillAuthorized": false,
+  "liveCuratorCursorMutationAuthorized": false,
+  "documentationMutationAuthorized": false,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
