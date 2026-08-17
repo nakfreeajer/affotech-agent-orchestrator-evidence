@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "PROJECT_EVENT",
+  "eventId": "EVT-000049-629835c958ea3aaa",
+  "projectId": "affotech-agent-orchestrator",
+  "eventType": "EXECUTOR_TERMINAL_PUBLISHED",
+  "producerRole": "executor",
+  "producerId": "executor",
+  "eventSequence": 49,
+  "previousEventId": "EVT-000048-cb9b57e67808e042",
+  "createdAt": 1787009075,
+  "missionId": null,
+  "messageId": null,
+  "dispatchId": null,
+  "milestoneId": null,
+  "subjectId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "detailsRef": "evidence/terminal/executor/GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001/terminal.json",
+  "detailsSha256": "f9b4b8db00cdb13260c0c92d1e91c8c95d8b7b43f6a020760eaaf16374605e88",
+  "documentationImpact": [
+    "NONE"
+  ],
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false,
+    "acceptanceAuthority": false
+  },
+  "sequence": 49,
+  "previousEventPath": "evidence/events/EVT-000048-cb9b57e67808e042.json",
+  "previousEventSha256": "bf2388f48cf628075d912727be104e2a7e4865ac6dd1ffb387f6a6dcb9f1fcd3",
+  "producerEventKey": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "eventPath": "evidence/events/EVT-000049-629835c958ea3aaa.json",
+  "canonicalPayloadSha256": "629835c958ea3aaa55b8efd168b5ffd27e627db7113d280314898364a32965bb",
+  "recordSha256": "bb05265d184135dc75765a3a7fa69b04f4266dddea20f6de924e53004be3c8f9"
+}
