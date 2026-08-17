@@ -2,11 +2,11 @@
   "schemaVersion": "1.0",
   "pointerKind": "PROJECT_EVENT_INDEX",
   "projectId": "affotech-agent-orchestrator",
-  "indexRevision": 49,
-  "nextSequence": 50,
-  "headEventId": "EVT-000049-629835c958ea3aaa",
-  "headEventPath": "evidence/events/EVT-000049-629835c958ea3aaa.json",
-  "headEventSha256": "5261033c0d41ddb68abac9e2a676e8a167884fcd63d29b08986a728dcf96a1ce",
-  "headSequence": 49,
-  "updatedAt": 1787009075
+  "indexRevision": 50,
+  "nextSequence": 51,
+  "headEventId": "EVT-000050-b7d7532e1f10a8de",
+  "headEventPath": "evidence/events/EVT-000050-b7d7532e1f10a8de.json",
+  "headEventSha256": "e75b6641d69a8b3d64ef47f9bfe7033780e62775163ac36431950a9641d6e8fb",
+  "headSequence": 50,
+  "updatedAt": 1787009581
 }
