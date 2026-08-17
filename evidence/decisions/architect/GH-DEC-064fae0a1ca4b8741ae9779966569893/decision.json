@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-064fae0a1ca4b8741ae9779966569893",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.CUTOVER.ROOT.CAUSE.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-064-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-ROOT-CAUSE-RECONCILIATION-000001",
+  "acceptedSourcePublicationId": "GH-PUB-062-PROJECT-MEMORY-EVENT-PRODUCER-RECORDER-INTEGRATION-000001",
+  "reasonCode": "LIVE_EVENT_CUTOVER_ROOT_CAUSE_VERIFIED",
+  "prefixIntegrity": "SAFE_TO_PRESERVE",
+  "livePrefixHeadEventId": "EVT-000001-8630c967316f2fc0",
+  "livePrefixHeadSequence": 1,
+  "livePrefixNextSequence": 2,
+  "rootCauseVerified": [
+    "SOURCE_ACCEPTED identity collision in src/events/authoritative-event-adapters.js identity()",
+    "stored-record self-hash validation defect in src/events/github-event-ledger.js validateStored()"
+  ],
+  "projectEventRecorderDefect": false,
+  "livePrefixRewriteAuthorized": false,
+  "liveProjectEventAppendAuthorized": false,
+  "repairAuthorized": true,
+  "nextCanonicalMessageId": "ORCH-000065",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.CUTOVER.REPAIR.1A"
+}
