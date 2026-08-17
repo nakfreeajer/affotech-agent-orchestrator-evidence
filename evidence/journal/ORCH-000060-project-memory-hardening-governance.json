@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "eventType": "HUMAN_GOVERNANCE_DIRECTIVE",
+  "projectId": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000060",
+  "producerRole": "architect",
+  "humanAuthority": "Rony Finster",
+  "directive": "Harden project memory so first-hand producers durably record useful events; Architect promotes material human directives and owns project truth; Curator remains optional/on-demand and later consumes the durable event stream through a cursor-driven update workflow to maintain documentation.",
+  "governingAddendumPath": "governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md",
+  "authorityBoundary": {
+    "createsExecutorAuthority": false,
+    "createsCuratorAuthority": false,
+    "createsMutationAuthority": false,
+    "createsRetryAuthority": false
+  }
+}
