@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-063b7e4a1c8d49f0a6c3e215294bd711",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.LEDGER.CUTOVER.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-063-PROJECT-MEMORY-LIVE-EVENT-LEDGER-CUTOVER-QUALIFICATION-000001",
+  "acceptedSourcePublicationId": "GH-PUB-062-PROJECT-MEMORY-EVENT-PRODUCER-RECORDER-INTEGRATION-000001",
+  "blocker": "LIVE_EVENT_RECONCILIATION_INCONCLUSIVE",
+  "reason": "ORCH-000063 correctly failed closed after publishing only canonical sequence 1 ARCHITECT_DECISION. The required SOURCE_ACCEPTED and ARCHITECT_DISPATCH_PUBLISHED events were not completed. The live prefix is preserved; no blind retry or cutover acceptance is authorized until the second-request identity/reconciliation behavior is isolated deterministically.",
+  "completedCanonicalPrefixCount": 1,
+  "completedCanonicalHeadEventId": "EVT-000001-8630c967316f2fc0",
+  "livePrefixPreserveRequired": true,
+  "liveProjectEventRetryAuthorized": false,
+  "historicalBackfillAuthorized": false,
+  "acceptedSourceRemains": "GH-PUB-062-PROJECT-MEMORY-EVENT-PRODUCER-RECORDER-INTEGRATION-000001",
+  "nextCanonicalMessageId": "ORCH-000064",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.LIVE.EVENT.CUTOVER.ROOT.CAUSE.RECONCILIATION.1A"
+}
