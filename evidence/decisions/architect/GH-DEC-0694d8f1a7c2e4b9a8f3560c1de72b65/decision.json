@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-0694d8f1a7c2e4b9a8f3560c1de72b65",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENTATION.TARGET.BINDING.1A",
+  "reviewedPublicationId": "GH-PUB-069-PROJECT-MEMORY-CURATOR-DOCUMENTATION-TARGET-BINDING-000001",
+  "acceptedSourcePublicationId": "GH-PUB-065-PROJECT-MEMORY-LIVE-EVENT-CUTOVER-REPAIR-000001",
+  "reasonCode": "DOCUMENTATION_TARGET_BINDING_VERIFIED",
+  "frozenEventBoundaryRef": "fed93e71ec117121374a0f26e72be63143ffa792",
+  "canonicalEventRange": [1, 15],
+  "documentationProjectionRepository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+  "documentationTargets": {
+    "CURRENT_STATE": "docs/CURRENT_STATE.md",
+    "PROJECT_HISTORY": "docs/PROJECT_HISTORY.md",
+    "DECISIONS": "docs/DECISIONS.md",
+    "BUGS_AND_LESSONS": "docs/BUGS_AND_LESSONS.md",
+    "ARCHITECTURE": "docs/ARCHITECTURE.md"
+  },
+  "documentationTargetBindingState": "CANONICAL_CREATE_TARGETS",
+  "documentationAuthorityBoundary": "Human-readable projection only; durable evidence/decisions/events remain machine authority.",
+  "preservationMechanism": "One atomic Git commit containing exactly the five bound documentation files, followed by commit-pinned readback and per-file hash verification.",
+  "curatorProjectionAuthorizedNext": true,
+  "executorDocumentationAuthorshipAuthorized": false,
+  "executorTransportOnly": true,
+  "documentationMutationAuthorizedNow": false,
+  "liveCuratorCursorMutationAuthorized": false,
+  "liveProjectEventAppendAuthorized": false,
+  "latestCuratorAcceptedAdvanceAuthorized": false,
+  "nextCanonicalMessageId": "ORCH-000070",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENTATION.PROJECTION.1A"
+}
