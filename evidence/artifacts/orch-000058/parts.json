@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-058-PERSISTENT-AUTOMATIC-DISPATCH-HOST-RUNTIME-RUNNER-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000058/orchestrator-source-snapshot-orch-000058.tar.gz",
+  "archiveSha256": "d41e14bc4fbc57ed45c53a1abf4b430785dfea62708bfde916ef88be51b9eafa",
+  "archiveSize": 88755,
+  "manifestSha256": "684f80684c04520043cc53be161dd5ca68bae8d36030d948245286aac6b7e81b",
+  "fileCount": 81,
+  "acceptedSourceFileCount": 79,
+  "addedFiles": ["src/host/persistent-host-runner.js", "test/persistent-host-runner.test.js"],
+  "modifiedFiles": ["src/host/automatic-dispatch-host.js", "test/automatic-dispatch-host.test.js"],
+  "otherByteIdenticalFileCount": 77
+}

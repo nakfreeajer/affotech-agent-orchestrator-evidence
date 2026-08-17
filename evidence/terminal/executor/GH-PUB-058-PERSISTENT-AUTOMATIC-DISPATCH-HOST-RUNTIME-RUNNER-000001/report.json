@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-058-PERSISTENT-AUTOMATIC-DISPATCH-HOST-RUNTIME-RUNNER-000001",
+  "milestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.RUNTIME.RUNNER.IMPLEMENTATION.1A",
+  "classification": "ORCHESTRATOR_PERSISTENT_AUTOMATIC_DISPATCH_HOST_RUNTIME_RUNNER_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000058",
+  "messageId": "ORCH-000058",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "mutationLease": "24/0/0", "preDispatchValidator": "32/0/0", "automaticDispatchHost": "28/0/0", "persistentHostRunner": "20/0/0", "workerRelay": "145/0/0", "full": "511/0/0"},
+  "acceptedSource": "GH-PUB-057-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIFECYCLE-FOUNDATION-000001",
+  "runnerProperties": ["injected ports only", "sequential single-flight iteration", "no automatic start on import", "exact lease acquisition and revalidation before transport", "ambiguous lease/transport/release states never blind retry", "fresh durable snapshot on every iteration", "explicit stop and bounded circuit opening", "no assistant-response text authority", "no mutation/retry/Architect authority granted"],
+  "mutationEnvelope": {"addedFiles": ["src/host/persistent-host-runner.js", "test/persistent-host-runner.test.js"], "modifiedFiles": ["src/host/automatic-dispatch-host.js", "test/automatic-dispatch-host.test.js"], "removedFiles": [], "otherByteIdenticalFileCount": 77, "finalFileCount": 81},
+  "protectedBoundary": {"AFFOTECHAccess": 0, "AFFOTECHMutation": 0, "foreignRelayAccess": 0, "browserContacts": 0},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "workerSendCount": 0, "architectSendCount": 0, "daemonCreated": 0}
+}
