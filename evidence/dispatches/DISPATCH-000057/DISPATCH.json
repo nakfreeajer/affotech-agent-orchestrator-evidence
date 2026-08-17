@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000057",
+  "messageId": "ORCH-000057",
+  "parentMessageId": "ORCH-000056",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000057.md",
+  "canonicalPromptSha256": "b868cf8754d11f0db17e65e4a22942a4e9f8e7ea67b1e3297830dfd3111c30e8",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.LIFECYCLE.FOUNDATION.1A",
+  "acceptedContractPublicationId": "GH-PUB-056-AUTOMATIC-GOVERNANCE-GATED-WORKER-DELIVERY-SENT-000001",
+  "acceptedSourcePublicationId": "GH-PUB-055-PRE-DISPATCH-WATCHER-CANDIDATE-GATE-000001",
+  "acceptedSourceFileCount": 77,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
