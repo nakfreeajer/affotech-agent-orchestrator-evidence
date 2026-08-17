@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-061-PROJECT-MEMORY-GITHUB-EVENT-LEDGER-CURATOR-CURSOR-PORTS-000001",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.GITHUB.EVENT.LEDGER.CURATOR.CURSOR.PORTS.IMPLEMENTATION.1A",
+  "classification": "ORCHESTRATOR_PROJECT_MEMORY_GITHUB_EVENT_LEDGER_CURATOR_CURSOR_PORTS_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000061",
+  "messageId": "ORCH-000061",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "acceptedBaselineFull": "587/0/0", "githubEventLedger": "24/0/0", "githubCuratorCursor": "24/0/0", "full": "635/0/0"},
+  "acceptedSource": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "mutationEnvelope": {"addedFiles": ["src/events/github-event-ledger.js", "test/github-event-ledger.test.js", "src/curator/github-curator-cursor.js", "test/github-curator-cursor.test.js"], "modifiedFiles": [], "removedFiles": [], "otherByteIdenticalFileCount": 87, "finalFileCount": 91},
+  "properties": ["immutable create-before-index CAS", "one-ref contiguous range reads", "read-only ambiguity reconciliation", "accepted documentation gate for cursor advancement", "cursor grants no authority"],
+  "protectedBoundary": {"AFFOTECHAccess": 0, "AFFOTECHMutation": 0, "foreignRelayAccess": 0, "browserContacts": 0},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "liveProjectEventMutation": 0, "liveCuratorCursorMutation": 0, "workerSendCount": 0, "architectSendCount": 0, "daemonCreated": 0}
+}
