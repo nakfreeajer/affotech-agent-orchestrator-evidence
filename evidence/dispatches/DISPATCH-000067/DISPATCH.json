@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000067",
+  "messageId": "ORCH-000067",
+  "parentMessageId": "ORCH-000066",
+  "missionId": "MISSION-PROJECT-MEMORY-POST-CUTOVER-EVENT-CATCHUP",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.POST.CUTOVER.EVENT.CATCHUP.QUALIFICATION.1A",
+  "targetRole": "executor",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000067.md",
+  "canonicalPromptSha256": "55b13e0fb961de8a48bae31087c006e0f0582ba1845cbc1f56ba34878432f0fa",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "liveProjectEventAppendAuthorized": true,
+  "authorizedAppendSequences": [4,5,6,7,8,9,10,11,12,13,14,15],
+  "documentationMutationAuthorized": false,
+  "curatorExecutionAuthorized": false,
+  "liveCuratorCursorMutationAuthorized": false
+}
