@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-059-PERSISTENT-AUTOMATIC-DISPATCH-HOST-GITHUB-RUNTIME-PORTS-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000059/orchestrator-source-snapshot-orch-000059.tar.gz",
+  "archiveSha256": "b55396543cb57f2c7ecdb7dc5051a199dfcd8b6b2519e62f6bd47677ddc2da28",
+  "archiveSize": 96281,
+  "manifestSha256": "441626332718f6813954350a47cb7f4d315bdb76c15a13c27599b0e49f24559f",
+  "fileCount": 83,
+  "acceptedSourceFileCount": 81,
+  "addedFiles": ["src/host/github-runtime-ports.js", "test/github-runtime-ports.test.js"],
+  "modifiedFiles": ["src/host/persistent-host-runner.js", "test/persistent-host-runner.test.js"],
+  "otherByteIdenticalFileCount": 79
+}

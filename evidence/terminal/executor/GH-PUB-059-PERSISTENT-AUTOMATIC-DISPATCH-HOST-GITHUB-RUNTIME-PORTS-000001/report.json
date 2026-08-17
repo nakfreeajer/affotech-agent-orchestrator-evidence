@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-059-PERSISTENT-AUTOMATIC-DISPATCH-HOST-GITHUB-RUNTIME-PORTS-000001",
+  "milestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.GITHUB.RUNTIME.PORTS.IMPLEMENTATION.1A",
+  "classification": "ORCHESTRATOR_PERSISTENT_AUTOMATIC_DISPATCH_HOST_GITHUB_RUNTIME_PORTS_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000059",
+  "messageId": "ORCH-000059",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "mutationLease": "24/0/0", "preDispatchValidator": "32/0/0", "automaticDispatchHost": "28/0/0", "githubRuntimePorts": "24/0/0", "persistentHostRunner": "24/0/0", "workerRelay": "145/0/0", "full": "539/0/0"},
+  "acceptedSource": "GH-PUB-058-PERSISTENT-AUTOMATIC-DISPATCH-HOST-RUNTIME-RUNNER-000001",
+  "runtimePortProperties": ["one-ref durable snapshot reads", "immutable host identity and sanitized host events", "CAS-serialized lease acquisition", "immutable release revisions", "ambiguous acquisition/release requires read-only reconciliation", "orphan candidates never become active authority", "host-event failure cannot reinterpret durable SENT", "no mutation/retry/Architect/HUMAN_AUTH authority"],
+  "mutationEnvelope": {"addedFiles": ["src/host/github-runtime-ports.js", "test/github-runtime-ports.test.js"], "modifiedFiles": ["src/host/persistent-host-runner.js", "test/persistent-host-runner.test.js"], "removedFiles": [], "otherByteIdenticalFileCount": 79, "finalFileCount": 83},
+  "protectedBoundary": {"AFFOTECHAccess": 0, "AFFOTECHMutation": 0, "foreignRelayAccess": 0, "browserContacts": 0},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "workerSendCount": 0, "architectSendCount": 0, "daemonCreated": 0}
+}
