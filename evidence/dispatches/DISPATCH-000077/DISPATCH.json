@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "dispatchId": "DISPATCH-000077",
+  "messageId": "ORCH-000077",
+  "parentMessageId": "ORCH-000076",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000077.md",
+  "canonicalPromptSha256": "5b8f764aa81451a110d55b955ce8a73d88905ce9ee2de54a9e74a524b37f0f88",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "architectDecisionId": "GH-DEC-076b4f2a8c1d7e9305a6c4f18b2d9e71",
+  "acceptedSourcePublicationId": "GH-PUB-073-PROJECT-MEMORY-CURATOR-CURRENT-TRUTH-OVERLAY-REPAIR-000001",
+  "sourceMutationAuthorized": true,
+  "authorizedSourcePaths": [
+    "src/host/automatic-dispatch-host.js",
+    "test/automatic-dispatch-host.test.js",
+    "test/persistent-host-runner.test.js"
+  ],
+  "browserContactAuthorized": false,
+  "liveMutationLeaseAuthorized": false,
+  "workerDeliveryMutationAuthorized": false,
+  "existingOrch076EvidenceRewriteAuthorized": false,
+  "documentationMutationAuthorized": false,
+  "curatorMutationAuthorized": false,
+  "liveProjectEventAppendAuthorized": false,
+  "daemonBackgroundAuthorized": false
+}
