@@ -2,8 +2,24 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "CURATOR_ACCEPTED",
-  "pointerState": "NOT_YET_PUBLISHED",
-  "publicationId": null,
-  "accepted": false,
+  "pointerState": "ACCEPTED",
+  "publicationId": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "accepted": true,
+  "architectDecisionId": "GH-DEC-074e1c3a7b9d2f4680a5c71e3b9f024d6",
+  "acceptedProjectionTransportPublicationId": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "contentProducer": "accepted Curator renderer GH-PUB-073",
+  "transportOperator": "executor",
+  "documentationCommit": "4fc6ee16b1d9d3260ee4b79840c01f3b485e98da",
+  "projectionDigest": "318d52c216da5f9e4657dc99fe96b3e21325dd03f48f8e9e9de4f48d2a4b4aeb",
+  "acceptedEventRange": "1-15",
+  "frozenEventBoundaryRef": "fed93e71ec117121374a0f26e72be63143ffa792",
+  "documentationPaths": [
+    "docs/CURRENT_STATE.md",
+    "docs/PROJECT_HISTORY.md",
+    "docs/DECISIONS.md",
+    "docs/BUGS_AND_LESSONS.md",
+    "docs/ARCHITECTURE.md"
+  ],
+  "cursorAdvanced": false,
   "requiresArchitectDecision": false
 }
