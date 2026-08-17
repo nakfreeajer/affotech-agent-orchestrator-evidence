@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "dispatchId": "DISPATCH-000074",
+  "messageId": "ORCH-000074",
+  "parentMessageId": "ORCH-000073",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000074.md",
+  "canonicalPromptSha256": "873cdccadfcabcaf0673292010e7fb816635b30195ca9b0b3d156f6df0603465",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "architectDecisionId": "GH-DEC-073a6f2c8d41e9b5703c4a1f8e26d95b",
+  "acceptedSourcePublicationId": "GH-PUB-073-PROJECT-MEMORY-CURATOR-CURRENT-TRUTH-OVERLAY-REPAIR-000001",
+  "stableInputBoundaryRef": "fed93e71ec117121374a0f26e72be63143ffa792",
+  "authorizedReadSequences": [1, 15],
+  "curatorRendererOutputTransportAuthorized": true,
+  "executorTransportOnly": true,
+  "executorDocumentationAuthorshipAuthorized": false,
+  "documentationMutationAuthorized": true,
+  "authorizedDocumentationCreatePaths": [
+    "docs/CURRENT_STATE.md",
+    "docs/PROJECT_HISTORY.md",
+    "docs/DECISIONS.md",
+    "docs/BUGS_AND_LESSONS.md",
+    "docs/ARCHITECTURE.md"
+  ],
+  "atomicDocumentationCommitRequired": true,
+  "latestCuratorTerminalAdvanceAuthorized": false,
+  "latestCuratorAcceptedAdvanceAuthorized": false,
+  "liveCuratorCursorMutationAuthorized": false,
+  "liveProjectEventAppendAuthorized": false
+}
