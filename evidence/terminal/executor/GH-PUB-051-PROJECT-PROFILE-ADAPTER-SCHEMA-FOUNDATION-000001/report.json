@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-051-PROJECT-PROFILE-ADAPTER-SCHEMA-FOUNDATION-000001",
+  "milestone": "ORCH.P0.PROJECT.PROFILE.ADAPTER.SCHEMA.FOUNDATION.1A",
+  "classification": "ORCHESTRATOR_PROJECT_PROFILE_ADAPTER_SCHEMA_FOUNDATION_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000051",
+  "messageId": "ORCH-000051",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "configStrictJson": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "workerRelay": "125/0/0", "full": "363/0/0"},
+  "mutationEnvelope": {"addedFiles": ["src/project/project-profile.js", "test/project-profile.test.js", "config/project-profile.json"], "modifiedFiles": ["src/protocol/compatibility-registry.js"], "otherByteIdenticalFileCount": 67, "finalFileCount": 71},
+  "governancePins": {"bootstrap": {"version": "1.1", "path": "governance/ORCHESTRATOR_BOOTSTRAP.md", "blobSha": "bf8760ffda1d222d911895914a764eafa3461ca8", "contentSha256": "d497ad160193f94651841d694c1301d3afc3692fd534f41339a9c28317114011"}, "projectPolicy": {"version": "1.0", "path": "governance/PROJECT_ORCHESTRATION_POLICY.md", "blobSha": "dae6a456afa1c9fcad24d4a47bbec0d105d96a8d", "contentSha256": "77b4091fc3e5ea1669145e43d9a00f4576841e3fe01e4880e0a86c3691332205"}},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "workerDeliveryMutation": 0, "workerResultMutation": 0, "architectTriggerMutation": 0, "forcePush": 0, "historyRewrite": 0, "daemonCreated": 0}
+}

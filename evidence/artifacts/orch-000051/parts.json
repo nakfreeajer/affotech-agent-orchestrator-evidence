@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000051/orchestrator-source-snapshot-orch-000051.tar.gz",
+  "archiveSha256": "1d461c2a267b7ce66347f1189f963485129406611f980e3ce718664c1ac31d4e",
+  "archiveSize": 67246,
+  "fileCount": 71,
+  "manifestSha256": "0d41e1810a12e284a71de6ec504226e1872fe456f25e803bd6b26f568f7490f3",
+  "manifestDefinition": "sha256(JSON.stringify(sorted [{path,sha256}]))",
+  "partCount": 1,
+  "parts": [{"partNumber": 1, "path": "evidence/artifacts/orch-000051/orchestrator-source-snapshot-orch-000051.tar.gz", "sha256": "1d461c2a267b7ce66347f1189f963485129406611f980e3ce718664c1ac31d4e", "size": 67246}]
+}
