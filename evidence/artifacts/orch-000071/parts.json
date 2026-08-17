@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-071-CURATOR-DOCUMENT-RENDERER-REPAIR-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000071/orchestrator-source-snapshot-orch-000071.tar.gz",
+  "archiveSha256": "943555db0f427de5c96d3705b17f6798e9d3abd946f242c10a0f0e3457ba490a",
+  "archiveSize": 116913,
+  "manifestSha256": "7b392496db90a970887546150690553c63cf6167283c1115fab7d03071db8f0d",
+  "fileCount": 97,
+  "acceptedSourceFileCount": 95,
+  "modifiedFiles": [
+    "src/curator/curator-projection.js",
+    "test/curator-projection.test.js"
+  ],
+  "addedFiles": [
+    "src/curator/curator-document-renderer.js",
+    "test/curator-document-renderer.test.js"
+  ],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 93
+}
