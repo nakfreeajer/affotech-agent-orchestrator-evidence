@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "PROJECT_EVENT",
+  "eventId": "EVT-000034-cf1957d6c189124a",
+  "projectId": "affotech-agent-orchestrator",
+  "eventType": "ARCHITECT_DECISION",
+  "producerRole": "architect",
+  "producerId": "architect",
+  "eventSequence": 34,
+  "previousEventId": "EVT-000033-dc3a265a8301658a",
+  "createdAt": 1786989706,
+  "missionId": null,
+  "messageId": null,
+  "dispatchId": null,
+  "milestoneId": null,
+  "subjectId": "GH-DEC-072d0e4f6a1b9c73e8254d610fc8a29b",
+  "detailsRef": "evidence/decisions/architect/GH-DEC-072d0e4f6a1b9c73e8254d610fc8a29b/decision.json",
+  "detailsSha256": "eccaee0b332a74f23857211926f8f15ed5bf7b195b76fd4c13681e0c94830751",
+  "documentationImpact": [
+    "NONE"
+  ],
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false,
+    "acceptanceAuthority": false
+  },
+  "sequence": 34,
+  "previousEventPath": "evidence/events/EVT-000033-dc3a265a8301658a.json",
+  "previousEventSha256": "91b116742320d464005418376e801baecd9ba3b61ded9b7d0409f5b215acd4a5",
+  "producerEventKey": "GH-DEC-072d0e4f6a1b9c73e8254d610fc8a29b",
+  "eventPath": "evidence/events/EVT-000034-cf1957d6c189124a.json",
+  "canonicalPayloadSha256": "cf1957d6c189124a27d6b8d33f6658a0b190f5055d7384783b49fa5aebbcd351",
+  "recordSha256": "3bf8d38b6411e944b315338d07a0f4b423caacd9e600471148dabb2efff26d9d"
+}
