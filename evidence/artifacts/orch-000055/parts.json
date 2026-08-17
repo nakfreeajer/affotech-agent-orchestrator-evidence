@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-055-PRE-DISPATCH-WATCHER-CANDIDATE-GATE-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "dispatchId": "DISPATCH-000055",
+  "messageId": "ORCH-000055",
+  "fileCount": 77,
+  "manifestSha256": "b07d9b59395642ff5b1d24cb2ebf5a9aafb431eb723911441fb63ee07ddd700e",
+  "archivePath": "evidence/artifacts/orch-000055/orchestrator-source-snapshot-orch-000055.tar.gz",
+  "archiveSha256": "8784e78ecc8a794ecff59202dd2dee6608c1d7549910d646c44ff7b87e21f8f8",
+  "archiveSize": 79038,
+  "acceptedSourcePublicationId": "GH-PUB-054-MUTATION-LEASE-SCHEMA-PRE-DISPATCH-INTEGRATION-000001",
+  "acceptedSourceFileCount": 77,
+  "addedFiles": [],
+  "modifiedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 75
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-055-PRE-DISPATCH-WATCHER-CANDIDATE-GATE-000001",
+  "milestone": "ORCH.P0.PRE.DISPATCH.WATCHER.CANDIDATE.GATE.IMPLEMENTATION.1A",
+  "classification": "ORCHESTRATOR_PRE_DISPATCH_WATCHER_CANDIDATE_GATE_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000055",
+  "messageId": "ORCH-000055",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "mutationLease": "24/0/0", "preDispatchValidator": "32/0/0", "workerRelay": "141/0/0", "full": "459/0/0"},
+  "mutationEnvelope": {"addedFiles": [], "modifiedFiles": ["src/browser-relay/worker-relay.js", "test/worker-relay.test.js"], "removedFiles": [], "otherByteIdenticalFileCount": 75, "finalFileCount": 77},
+  "candidateGate": {"eligibleState": "PRE_DISPATCH_ELIGIBLE", "deniedState": "CANDIDATE_GOVERNANCE_DENIED", "missingContext": "PRE_DISPATCH_GOVERNANCE_CONTEXT_REQUIRED", "deliveryEligibleOnDenial": false, "sendEligibleOnDenial": false, "retryAuthorizedOnDenial": false, "browserContactAuthorizedOnDenial": false},
+  "protectedBoundary": {"AFFOTECHAccess": 0, "AFFOTECHMutation": 0, "foreignRelayAccess": 0},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "workerSendCount": 0, "architectSendCount": 0, "historyRewrite": 0, "daemonCreated": 0}
+}
