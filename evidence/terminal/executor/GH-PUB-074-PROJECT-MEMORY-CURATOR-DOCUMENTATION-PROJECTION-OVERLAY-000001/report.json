@@ -1,0 +1,19 @@
+{
+  "publicationId": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "dispatchId": "DISPATCH-000074",
+  "messageId": "ORCH-000074",
+  "classification": "ORCHESTRATOR_PROJECT_MEMORY_CURATOR_DOCUMENTATION_PROJECTION_OVERLAY_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "summary": "Transported the accepted Curator renderer output into exactly five new documentation files through event 15 with accepted overlay truth.",
+  "documentationCommit": "4fc6ee16b1d9d3260ee4b79840c01f3b485e98da",
+  "documentationPaths": ["docs/CURRENT_STATE.md", "docs/PROJECT_HISTORY.md", "docs/DECISIONS.md", "docs/BUGS_AND_LESSONS.md", "docs/ARCHITECTURE.md"],
+  "documentationMutation": 5,
+  "executorContentEdits": 0,
+  "focusedTests": "59/0/0",
+  "fullTests": "704/0/0",
+  "projectionDigest": "318d52c216da5f9e4657dc99fe96b3e21325dd03f48f8e9e9de4f48d2a4b4aeb",
+  "readbackEqual": true,
+  "postCommitRerenderEqual": true,
+  "cursorCreated": 0,
+  "eventAppend": 0
+}

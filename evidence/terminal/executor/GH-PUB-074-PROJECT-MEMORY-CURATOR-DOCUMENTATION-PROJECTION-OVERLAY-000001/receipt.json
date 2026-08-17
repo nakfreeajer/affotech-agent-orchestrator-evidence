@@ -1,0 +1,14 @@
+{
+  "publicationId": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000074",
+  "messageId": "ORCH-000074",
+  "durable": true,
+  "contentProducer": "accepted Curator renderer GH-PUB-073",
+  "transportOperator": "executor",
+  "executorContentEdits": 0,
+  "documentationCommit": "4fc6ee16b1d9d3260ee4b79840c01f3b485e98da",
+  "documentationMutation": 5,
+  "curatorCursorMutation": 0,
+  "projectEventAppend": 0
+}
