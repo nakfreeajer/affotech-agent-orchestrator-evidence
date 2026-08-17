@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "pointerState": "CURRENT",
+  "publicationId": "GH-PUB-078-PROJECT-MEMORY-EVENT-DOCUMENTATION-CATCHUP-000001",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.EVENT.AND.DOCUMENTATION.CATCHUP.THROUGH.ORCH77.1A",
+  "dispatchId": "DISPATCH-000078",
+  "messageId": "ORCH-000078",
+  "role": "executor",
+  "classification": "ORCHESTRATOR_PROJECT_MEMORY_EVENT_CATCHUP_COMPLETE_DOCUMENTATION_RENDERER_BLOCKED",
+  "status": "BLOCKED",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PARTIAL_EVENT_CATCHUP",
+  "requiresArchitectDecision": true,
+  "capturedRef": "2057787341151e8bdaa11a3d8a5a21d145c94586",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000078.md",
+  "canonicalPromptSha256": "8fb18b63186d27ba4f1eb115e29a32fccb47eda38d2276e93d82a53c72b702c2",
+  "acceptedSourcePublicationId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "preEventIndex": {
+    "indexRevision": 15,
+    "headSequence": 15,
+    "nextSequence": 16,
+    "headEventId": "EVT-000015-899a170ffb3a4896"
+  },
+  "appendedEventRange": {
+    "first": 16,
+    "last": 51,
+    "count": 36
+  },
+  "postEventIndex": {
+    "indexRevision": 51,
+    "headSequence": 51,
+    "nextSequence": 52,
+    "headEventId": "EVT-000051-0bad29ae0ca799ef",
+    "headEventType": "SOURCE_ACCEPTED",
+    "headProducerEventKey": "SOURCE_ACCEPTED:GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001:GH-DEC-077d3a6f1c8b4e2097a5c31f6b2e84d0"
+  },
+  "prefixSequences1Through15ByteIdentical": true,
+  "eventChainQualified": true,
+  "eventSequence52Absent": true,
+  "duplicateEventCount": 0,
+  "documentationRenderer": {
+    "acceptedSource": "ORCH-000077",
+    "requestedEventRange": "1-51",
+    "limitation": "accepted renderer validates eventRange.last=15 and events.length=15",
+    "classification": "CURATOR_DOCUMENT_RENDERER_INVALID",
+    "reasonCode": "REQUIRED_STRUCTURED_INPUT_MISSING",
+    "documentationMutationSkipped": true
+  },
+  "documentationCommit": null,
+  "cursor": {
+    "revision": 1,
+    "lastProcessedSequence": 15,
+    "lastProcessedEventId": "EVT-000015-899a170ffb3a4896",
+    "mutated": false
+  },
+  "mutationAccounting": {
+    "sourceMutation": 0,
+    "testMutation": 0,
+    "configMutation": 0,
+    "governanceMutation": 0,
+    "documentationMutation": 0,
+    "curatorMutation": 0,
+    "browserContacts": 0,
+    "affotechAccess": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0,
+    "workerDeliveryMutation": 0,
+    "leaseMutation": 0,
+    "daemonCreated": 0,
+    "retryAttempted": false,
+    "eventFilesCreated": 36,
+    "eventIndexMutations": 36
+  },
+  "protectedBoundaries": {
+    "browser": false,
+    "affotech": false,
+    "relay": false,
+    "ports": [],
+    "workerDelivery": false,
+    "sourceWorkspace": false
+  },
+  "summary": "Appended the exact authoritative project-event catch-up through ORCH-000077. The accepted ORCH-000077 renderer cannot express a 1-51 projection because its validated input contract remains fixed at 1-15; documentation mutation was therefore not attempted."
+}
