@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000058",
+  "messageId": "ORCH-000058",
+  "parentMessageId": "ORCH-000057",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000058.md",
+  "canonicalPromptSha256": "c5d758198a48fa22533ff221b389c7a674de45f2e26749faf09a6324af1fbaa0",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.RUNTIME.RUNNER.IMPLEMENTATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-057-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIFECYCLE-FOUNDATION-000001",
+  "acceptedSourceFileCount": 79,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
