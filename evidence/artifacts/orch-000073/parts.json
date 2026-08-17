@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-073-PROJECT-MEMORY-CURATOR-CURRENT-TRUTH-OVERLAY-REPAIR-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000073/orchestrator-source-snapshot-orch-000073.tar.gz",
+  "archiveSha256": "f18cfdc779669e5bbc396ea2df344a28f05b55ff4a8f3c2fac818d695edf73cf",
+  "archiveSize": 118188,
+  "manifestSha256": "9939530f727e61cc6baf7a6cc3a4be82db16dde46cf77a7c4e3d82dfe2b69287",
+  "fileCount": 97,
+  "acceptedSourceFileCount": 97,
+  "modifiedFiles": [
+    "src/curator/curator-document-renderer.js",
+    "src/curator/curator-projection.js",
+    "test/curator-document-renderer.test.js",
+    "test/curator-projection.test.js"
+  ],
+  "addedFiles": [],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 93
+}
