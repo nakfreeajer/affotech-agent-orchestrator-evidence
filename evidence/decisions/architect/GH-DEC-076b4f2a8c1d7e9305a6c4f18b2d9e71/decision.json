@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-076b4f2a8c1d7e9305a6c4f18b2d9e71",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.LIVE.TWO.ITERATION.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-076-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIVE-TWO-ITERATION-000001",
+  "acceptedSourcePublicationId": "GH-PUB-073-PROJECT-MEMORY-CURATOR-CURRENT-TRUTH-OVERLAY-REPAIR-000001",
+  "reasonCodes": [
+    "PERSISTENT_HOST_STALE_LINEAGE_SELECTION",
+    "EXECUTOR_TERMINAL_IMMUTABILITY_VIOLATION"
+  ],
+  "failureCode": "PERSISTENT_HOST_PRE_DISPATCH_NOT_ELIGIBLE",
+  "historicalDeliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+  "historicalDeliveryDispatchId": "DISPATCH-000056",
+  "currentDispatchId": "DISPATCH-000076",
+  "historicalResultId": "WORKER-RESULT-EXECUTOR-AUTO-000002",
+  "historicalResultDispatchId": "DISPATCH-000040",
+  "browserSendCount": 0,
+  "leaseAcquireCount": 0,
+  "freshDeliveryCreated": 0,
+  "liveMutationOccurred": false,
+  "firstTerminalPublicationCommit": "f69fb5aba4eeae1ace646282f44617196907a36a",
+  "postPublicationCorrectionCommit": "34a66e7d37f433c2044f0bd2fad8eefefd4ac40d",
+  "existingOrch076EvidenceRewriteAuthorized": false,
+  "requiredRepair": "LINEAGE_FIRST_WORKER_STATE_SELECTION",
+  "nextCanonicalMessageId": "ORCH-000077",
+  "nextMilestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.LINEAGE.SELECTION.REPAIR.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-076b4f2a8c1d7e9305a6c4f18b2d9e71/decision.json"
+}
