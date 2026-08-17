@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000059",
+  "messageId": "ORCH-000059",
+  "parentMessageId": "ORCH-000058",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000059.md",
+  "canonicalPromptSha256": "b0b2177b6f55862eb2a177af272df96990bc62b4df6b632f50585a3413fd555d",
+  "targetRole": "executor",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "milestone": "ORCH.P0.PERSISTENT.AUTOMATIC.DISPATCH.HOST.GITHUB.RUNTIME.PORTS.IMPLEMENTATION.1A",
+  "acceptedSourcePublicationId": "GH-PUB-058-PERSISTENT-AUTOMATIC-DISPATCH-HOST-RUNTIME-RUNNER-000001",
+  "acceptedSourceFileCount": 81,
+  "affotechIntegrationAuthorized": false,
+  "affotechAccessAuthorized": false
+}
