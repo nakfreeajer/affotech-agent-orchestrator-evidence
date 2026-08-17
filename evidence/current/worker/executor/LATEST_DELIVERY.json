@@ -3,9 +3,10 @@
   "pointerKind": "WORKER_DELIVERY",
   "workerRole": "executor",
   "deliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
-  "state": "ARMED",
+  "state": "SENT",
   "intentPath": "evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000004/intent.json",
   "resultPath": "evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000004/result.json",
   "intentSha256": "065291f2fb2b508a37db8c955c175ed000ffa3654a2732fa619ae43212765225",
+  "resultSha256": "cdf59d71ed0ed9657d8cc5737c9ac826dec08991e8a68af6d803938bc3c330b0",
   "intendedSendCount": 1
 }
