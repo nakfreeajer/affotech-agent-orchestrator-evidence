@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000060/orchestrator-source-snapshot-orch-000060.tar.gz",
+  "archiveSha256": "a50a6cf6222eaa27db0d14a4514f24220bcfb85b8b76be167cfc9271b2a9ee46",
+  "archiveSize": 102780,
+  "manifestSha256": "582d712cac18c97d7359a1338985b76169534e36b6fcc0dfb3c44a40afd2ac3f",
+  "fileCount": 87,
+  "acceptedSourceFileCount": 83,
+  "addedFiles": ["src/events/project-events.js", "test/project-events.test.js", "src/curator/curator-projection.js", "test/curator-projection.test.js"],
+  "modifiedFiles": [],
+  "otherByteIdenticalFileCount": 83
+}

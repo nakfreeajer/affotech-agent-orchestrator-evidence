@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-060-PROJECT-MEMORY-EVENT-LEDGER-CURATOR-PROJECTION-FOUNDATION-000001",
+  "milestone": "ORCH.P0.PROJECT.MEMORY.EVENT.LEDGER.CURATOR.PROJECTION.FOUNDATION.1A",
+  "classification": "ORCHESTRATOR_PROJECT_MEMORY_EVENT_LEDGER_CURATOR_PROJECTION_FOUNDATION_READY_FOR_ARCHITECT_REVIEW",
+  "dispatchId": "DISPATCH-000060",
+  "messageId": "ORCH-000060",
+  "workerOutcome": "PASS",
+  "validation": {"nodeChecks": "PASS", "registry": "16/0/0", "projectProfile": "20/0/0", "humanAuthority": "24/0/0", "mutationLease": "24/0/0", "preDispatchValidator": "32/0/0", "automaticDispatchHost": "28/0/0", "githubRuntimePorts": "24/0/0", "persistentHostRunner": "24/0/0", "workerRelay": "145/0/0", "projectEvents": "24/0/0", "curatorProjection": "24/0/0", "full": "587/0/0"},
+  "acceptedSource": "GH-PUB-059-PERSISTENT-AUTOMATIC-DISPATCH-HOST-GITHUB-RUNTIME-PORTS-000001",
+  "memoryProperties": ["pure deterministic typed project-event envelope", "producer and authority gates", "structured human directives without transcript parsing", "sanitized durable references and documentation impacts", "strict contiguous event-chain validation", "pure Curator update projection with causal grouping", "accepted-truth gate for canonical state", "failure/root-cause/countermeasure retention", "proposed cursor never authorized for mutation"],
+  "mutationEnvelope": {"addedFiles": ["src/events/project-events.js", "test/project-events.test.js", "src/curator/curator-projection.js", "test/curator-projection.test.js"], "modifiedFiles": [], "removedFiles": [], "otherByteIdenticalFileCount": 83, "finalFileCount": 87},
+  "protectedBoundary": {"AFFOTECHAccess": 0, "AFFOTECHMutation": 0, "foreignRelayAccess": 0, "browserContacts": 0},
+  "mutationAccounting": {"browserContacts": 0, "affotechMutation": 0, "driveMutation": 0, "curatorMutation": 0, "deploymentMutation": 0, "businessDataMutation": 0, "liveHumanAuthMutation": 0, "liveMutationLeaseMutation": 0, "workerSendCount": 0, "architectSendCount": 0, "daemonCreated": 0}
+}
