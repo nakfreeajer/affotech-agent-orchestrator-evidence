@@ -1,1 +1,11 @@
-{"schemaVersion":"1.0","pointerKind":"WORKER_DELIVERY","workerRole":"executor","deliveryId":"WORKER-DELIVERY-EXECUTOR-000003","state":"AMBIGUOUS","intentPath":"evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000003/intent.json","resultPath":"evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000003/result.json","intentSha256":"ad2ce7eacb081e6653d6a7815dcf741283c5e0dc33b4ef8e48aa3311ff71e0be","resultSha256":"f3baf25e3d7852e8e30608aa09badffc49a52b013156adac2a0d9a10b8a6bd55"}
+{
+  "schemaVersion": "1.0",
+  "pointerKind": "WORKER_DELIVERY",
+  "workerRole": "executor",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+  "state": "ARMED",
+  "intentPath": "evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000004/intent.json",
+  "resultPath": "evidence/worker-deliveries/executor/WORKER-DELIVERY-EXECUTOR-000004/result.json",
+  "intentSha256": "065291f2fb2b508a37db8c955c175ed000ffa3654a2732fa619ae43212765225",
+  "intendedSendCount": 1
+}
