@@ -3,11 +3,11 @@
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "DISPATCH",
   "pointerState": "MANUAL_TRIGGER_REQUIRED",
-  "dispatchId": "DISPATCH-000063",
-  "messageId": "ORCH-000063",
-  "parentMessageId": "ORCH-000062",
-  "canonicalPromptPath": "evidence/prompts/ORCH-000063.md",
-  "canonicalPromptSha256": "18e006ef28fd8dffdfd064f3cb28e4a41c45128b535e7f58d048efeec3b823fa",
+  "dispatchId": "DISPATCH-000064",
+  "messageId": "ORCH-000064",
+  "parentMessageId": "ORCH-000063",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000064.md",
+  "canonicalPromptSha256": "368663870facaf1cdfff659a92084755072a37267ef94f8a8caf227ae2e559cb",
   "targetRole": "executor",
   "dispatchState": "MANUAL_TRIGGER_REQUIRED"
 }
