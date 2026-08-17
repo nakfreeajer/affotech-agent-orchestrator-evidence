@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "pointerKind": "CURATOR_CURSOR",
+  "projectId": "affotech-agent-orchestrator",
+  "cursorRevision": 1,
+  "lastProcessedSequence": 15,
+  "lastProcessedEventId": "EVT-000015-899a170ffb3a4896",
+  "lastProcessedEventPath": "evidence/events/EVT-000015-899a170ffb3a4896.json",
+  "lastProcessedEventSha256": "68a4b9ed251c3487be21a9e03c05491d1689afd56d47df9326dc724fbbada5f8",
+  "documentationResultId": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "documentationPreservationRef": "github:commit:4fc6ee16b1d9d3260ee4b79840c01f3b485e98da",
+  "architectDecisionId": "GH-DEC-074e1c3a7b9d2f4680a5c71e3b9f024d6",
+  "updatedAt": 0
+}
