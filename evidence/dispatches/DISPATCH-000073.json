@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "dispatchId": "DISPATCH-000073",
+  "messageId": "ORCH-000073",
+  "parentMessageId": "ORCH-000072",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000073.md",
+  "canonicalPromptSha256": "7d9f300a1f3db1305f65b318afbdbb2c8ac4079bcc25f29e44523bf6dabd658c",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "architectDecisionId": "GH-DEC-072d0e4f6a1b9c73e8254d610fc8a29b",
+  "acceptedSourcePublicationId": "GH-PUB-071-PROJECT-MEMORY-CURATOR-DOCUMENT-RENDERER-REPAIR-000001",
+  "stableInputBoundaryRef": "fed93e71ec117121374a0f26e72be63143ffa792",
+  "sourceMutationAuthorized": true,
+  "authorizedSourcePaths": [
+    "src/curator/curator-document-renderer.js",
+    "src/curator/curator-projection.js",
+    "test/curator-document-renderer.test.js",
+    "test/curator-projection.test.js"
+  ],
+  "documentationMutationAuthorized": false,
+  "curatorExecutionAuthorized": false,
+  "latestCuratorTerminalAdvanceAuthorized": false,
+  "latestCuratorAcceptedAdvanceAuthorized": false,
+  "liveCuratorCursorMutationAuthorized": false,
+  "liveProjectEventAppendAuthorized": false
+}
