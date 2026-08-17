@@ -1,0 +1,1 @@
+{"publicationId":"GH-PUB-067-PROJECT-MEMORY-POST-CUTOVER-EVENT-CATCH-UP-000001","receiptType":"EXECUTOR_TERMINAL_PUBLICATION","dispatchId":"DISPATCH-000067","messageId":"ORCH-000067","durable":true,"publishedFiles":["terminal.json","report.json","receipt.json"],"eventRange":"4-15","eventCount":12,"indexRevision":15,"headSequence":15,"nextSequence":16}
