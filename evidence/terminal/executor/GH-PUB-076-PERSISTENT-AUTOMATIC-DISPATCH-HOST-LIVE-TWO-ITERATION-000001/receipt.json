@@ -1,0 +1,12 @@
+{
+  "publicationId": "GH-PUB-076-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIVE-TWO-ITERATION-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000076",
+  "messageId": "ORCH-000076",
+  "durable": true,
+  "classification": "ORCHESTRATOR_PERSISTENT_HOST_LIVE_FAILED_BEFORE_SEND",
+  "mutationAttempted": false,
+  "browserSendCount": 0,
+  "workerDelivery005Created": 0,
+  "leaseAcquireCount": 0
+}

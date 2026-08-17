@@ -1,0 +1,19 @@
+{
+  "publicationId": "GH-PUB-076-PERSISTENT-AUTOMATIC-DISPATCH-HOST-LIVE-TWO-ITERATION-000001",
+  "dispatchId": "DISPATCH-000076",
+  "messageId": "ORCH-000076",
+  "classification": "ORCHESTRATOR_PERSISTENT_HOST_LIVE_FAILED_BEFORE_SEND",
+  "status": "FAIL_CLOSED",
+  "failureCode": "PERSISTENT_HOST_PRE_DISPATCH_NOT_ELIGIBLE",
+  "summary": "Stopped before lease, host identity, delivery, or browser mutation because the accepted lifecycle classified the current dispatch as waiting on a historical SENT delivery.",
+  "snapshotRef": "58b127d2c6a391ad680b90584b26862d4e882ede",
+  "currentDispatchId": "DISPATCH-000076",
+  "historicalSentDeliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+  "historicalSentDeliveryDispatchId": "DISPATCH-000056",
+  "acceptedEvaluatorState": "HOST_WAITING_WORKER_RESULT",
+  "focusedTests": "337/0/0",
+  "fullTests": "704/0/0",
+  "browserSendCount": 0,
+  "leaseAcquireCount": 0,
+  "workerDelivery005Created": 0
+}
