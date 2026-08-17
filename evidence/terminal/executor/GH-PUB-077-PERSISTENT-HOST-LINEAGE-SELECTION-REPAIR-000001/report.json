@@ -1,0 +1,20 @@
+{
+  "publicationId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "dispatchId": "DISPATCH-000077",
+  "messageId": "ORCH-000077",
+  "classification": "ORCHESTRATOR_PERSISTENT_HOST_LINEAGE_SELECTION_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "summary": "Repaired persistent-host lineage-first selection so historical worker state cannot suppress a newer dispatch.",
+  "modifiedPaths": ["src/host/automatic-dispatch-host.js", "test/automatic-dispatch-host.test.js", "test/persistent-host-runner.test.js"],
+  "sourceFileCount": 97,
+  "otherByteIdenticalFileCount": 94,
+  "automaticDispatchHostTests": "36/0/0",
+  "persistentHostRunnerTests": "26/0/0",
+  "fullTests": "714/0/0",
+  "artifactManifestSha256": "dd4a0ef4917d604b359c212105569a3d167f62106c5b16a9c5ba3ead4c1787e5",
+  "artifactArchiveSha256": "0f568530187990f17cdc8912b318516ee501eb2907953a1e75cfe8bec497340f",
+  "artifactArchiveSize": 119068,
+  "browserSendCount": 0,
+  "leaseAcquireCount": 0,
+  "workerDeliveryMutation": 0
+}

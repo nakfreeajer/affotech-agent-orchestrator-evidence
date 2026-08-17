@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000077/orchestrator-source-snapshot-orch-000077.tar.gz",
+  "archiveSha256": "0f568530187990f17cdc8912b318516ee501eb2907953a1e75cfe8bec497340f",
+  "archiveSize": 119068,
+  "manifestSha256": "dd4a0ef4917d604b359c212105569a3d167f62106c5b16a9c5ba3ead4c1787e5",
+  "fileCount": 97,
+  "acceptedSourceFileCount": 97,
+  "modifiedFiles": [
+    "src/host/automatic-dispatch-host.js",
+    "test/automatic-dispatch-host.test.js",
+    "test/persistent-host-runner.test.js"
+  ],
+  "addedFiles": [],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 94
+}

@@ -1,0 +1,13 @@
+{
+  "publicationId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000077",
+  "messageId": "ORCH-000077",
+  "durable": true,
+  "sourceMutation": 3,
+  "testMutation": 2,
+  "browserContact": 0,
+  "browserSend": 0,
+  "liveMutationLease": 0,
+  "workerDeliveryMutation": 0
+}
