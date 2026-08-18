@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "ARCHITECT_DECISION",
+  "pointerState": "BLOCKED",
+  "decisionId": "GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.EVENT.AND.DOCUMENTATION.CATCHUP.THROUGH.ORCH77.1A",
+  "reviewedPublicationId": "GH-PUB-078-PROJECT-MEMORY-EVENT-DOCUMENTATION-CATCHUP-000001",
+  "acceptedSourcePublicationId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "reasonCodes": [
+    "EVENT_CATCHUP_VERIFIED",
+    "CURATOR_RENDERER_VARIABLE_RANGE_UNSUPPORTED"
+  ],
+  "eventCatchupAcceptedThroughSequence": 51,
+  "eventIndexRevision": 51,
+  "eventNextSequence": 52,
+  "documentationMutationOccurred": false,
+  "curatorCursorSequence": 15,
+  "existingEvents16Through51RewriteAuthorized": false,
+  "requiredRepair": "CURATOR_VARIABLE_RANGE_AND_POST_LEDGER_OVERLAY_RENDERER",
+  "nextCanonicalMessageId": "ORCH-000079",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.VARIABLE.RANGE.RENDERER.REPAIR.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3/decision.json"
+}
