@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "ARCHITECT_DECISION",
+  "pointerState": "BLOCKED",
+  "decisionId": "GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.DOCUMENTATION.CATCHUP.THROUGH.ORCH83.1A",
+  "reviewedPublicationId": "GH-PUB-084-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH83-000001",
+  "acceptedSourcePublicationId": "GH-PUB-083-CURATOR-DOCUMENT-SEMANTIC-COVERAGE-FRESH-RETRY-000001",
+  "reasonCodes": [
+    "CURATOR_MULTI_OVERLAY_SEMANTIC_FAILURE",
+    "CURATOR_CANONICAL_DECISION_SEQUENCE_BINDING_FAILURE"
+  ],
+  "preMutationAuthorityCheckpointVerified": true,
+  "documentationMutation": 0,
+  "documentationCommit": null,
+  "eventIndexPreservedThroughSequence": 51,
+  "eventNextSequence": 52,
+  "curatorCursorSequence": 15,
+  "acceptedSourceFileCount": 97,
+  "acceptedSourceFullPassed": 738,
+  "requiredRepair": "GENERALIZE_VARIABLE_LENGTH_POST_LEDGER_OVERLAY_RENDERING_USING_EXACT_ORCH084_PROFILE",
+  "nextCanonicalMessageId": "ORCH-000085",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.MULTI.POSTLEDGER.OVERLAY.REPAIR.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46/decision.json"
+}
