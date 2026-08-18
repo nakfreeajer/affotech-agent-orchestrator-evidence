@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: cecc570ae3f7ebe6a81d6c23f15c97be5e45e762
+Projection input boundary: 10e3fba6ab2f55f8957509d500e38120629072aa
 Covered event range: 1-51
 Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
 Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
@@ -13,5 +13,22 @@ Human-readable projection only; durable GitHub evidence and Architect decisions 
 - Curator is an optional, on-demand human-readable documentation projection.
 - A Curator cursor can advance only after documentation preservation/readback and Architect semantic acceptance.
 - The accepted event-ledger state ends at sequence 51.
+- durable GitHub evidence and Architect decisions are machine authority
+- chronological reconstructable event ledger through 51
+- Curator is on-demand human-readable projection
+- variable coherent ranges and variable-length post-ledger overlays
+- post-ledger overlays do not rewrite history
+- cursor advances only after docs preservation/readback and Architect acceptance
+- mutating milestones require immutable pre-mutation authority checkpoints
+- persistent host current-lineage PRE_DISPATCH_ELIGIBLE exact target registration mutation lease exactly-once no blind retry control precedence no assistant-response-text authority
+- AFFOTECH remains separate/protected
+- Post-ledger overlay ORCH-000078: BLOCKED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000079: ACCEPTED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000080: BLOCKED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000081: INCONCLUSIVE; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000082: INCONCLUSIVE; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000083: ACCEPTED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000084: BLOCKED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000085: ACCEPTED; no canonical sequence is assigned.
 
 This does not claim continuous automatic Curator operation or a live cursor.

@@ -1,12 +1,12 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: cecc570ae3f7ebe6a81d6c23f15c97be5e45e762
+Projection input boundary: 10e3fba6ab2f55f8957509d500e38120629072aa
 Covered event range: 1-51
 Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
 Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
 
 # Project History
 
-## Canonical event history 1-51: ORCH-000068 INCONCLUSIVE; ORCH-000070 BLOCKED; ORCH-000072 BLOCKED; ORCH-000074 ACCEPTED; ORCH-000075 ACCEPTED; ORCH-000076 BLOCKED / failed before send; ORCH-000077 ACCEPTED
+## Canonical event history 1-51
 
 Durable event-derived project history through sequence 51.
 
@@ -63,9 +63,51 @@ Durable event-derived project history through sequence 51.
 - Sequence 51: SOURCE_ACCEPTED — EVT-000051-0bad29ae0ca799ef — evidence/decisions/architect/GH-DEC-077d3a6f1c8b4e2097a5c31f6b2e84d0/decision.json
 ## Post-ledger overlay
 
-### BLOCKED: ORCH-000078-ARCHITECT-DECISION
+### BLOCKED: ORCH-000078
 
-{"cursorSequence":15,"documentationMutation":0,"eventCatchup":"16-51 preserved","eventIndex":"51/51/52","livePersistentHostQualification":"NOT_SUCCEEDED","messageId":"ORCH-000078","rendererRange":"1-51 rejected"}
+{"cursor":15,"docsMutation":0,"eventCatchup":"16-51 preserved","eventIndex":"51/51/52","messageId":"ORCH-000078"}
 
-Evidence: evidence/decisions/architect/GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3/decision.json, evidence/terminal/executor/GH-PUB-078-PROJECT-MEMORY-EVENT-DOCUMENTATION-CATCHUP-000001/terminal.json
+Evidence: evidence/decisions/GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3/decision.json
+
+### ACCEPTED: ORCH-000079
+
+{"fullTests":"726/0/0","messageId":"ORCH-000079","sourceFiles":97,"variableRanges":"accepted"}
+
+Evidence: evidence/decisions/GH-DEC-079a5c7e2d1b4f6380e9a52c7d31b846/decision.json
+
+### BLOCKED: ORCH-000080
+
+{"messageId":"ORCH-000080","semanticProjection":"rejected","sequenceZeroDefect":true}
+
+Evidence: evidence/decisions/GH-DEC-080d6b4e1a9c3752f8e40b7a61c293d5/decision.json
+
+### INCONCLUSIVE: ORCH-000081
+
+{"messageId":"ORCH-000081","sourceAcceptance":"withheld","wrongPromptSha":true}
+
+Evidence: evidence/decisions/GH-DEC-081c4e7b2a9d6f1380b5c4e7a2d961f3/decision.json
+
+### INCONCLUSIVE: ORCH-000082
+
+{"messageId":"ORCH-000082","reconciliation":"fresh retry required"}
+
+Evidence: evidence/decisions/GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30/decision.json
+
+### ACCEPTED: ORCH-000083
+
+{"checkpointVerified":true,"fullTests":"738/0/0","messageId":"ORCH-000083","sourceFiles":97}
+
+Evidence: evidence/decisions/GH-DEC-083e6a1c4b7d29f5083a61e2c9f4b735/decision.json
+
+### BLOCKED: ORCH-000084
+
+{"docsMutation":0,"messageId":"ORCH-000084","sequenceZeroFailure":true}
+
+Evidence: evidence/decisions/GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46/decision.json
+
+### ACCEPTED: ORCH-000085
+
+{"fullTests":"746/0/0","messageId":"ORCH-000085","overlayRepair":"accepted","sourceFiles":97}
+
+Evidence: evidence/decisions/GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983/decision.json
 Post-ledger facts do not rewrite canonical event history.
