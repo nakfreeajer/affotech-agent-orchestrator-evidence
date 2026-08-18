@@ -1,6 +1,6 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: fed93e71ec117121374a0f26e72be63143ffa792
-Covered event range: 1-15
+Projection input boundary: cecc570ae3f7ebe6a81d6c23f15c97be5e45e762
+Covered event range: 1-51
 Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
 Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
 
@@ -12,6 +12,6 @@ Human-readable projection only; durable GitHub evidence and Architect decisions 
 - Immutable event records and a compare-and-swap index preserve the canonical chain.
 - Curator is an optional, on-demand human-readable documentation projection.
 - A Curator cursor can advance only after documentation preservation/readback and Architect semantic acceptance.
-- The accepted event-ledger state ends at sequence 15; newer accepted overlay facts remain outside that ledger until separately mirrored.
+- The accepted event-ledger state ends at sequence 51.
 
 This does not claim continuous automatic Curator operation or a live cursor.
