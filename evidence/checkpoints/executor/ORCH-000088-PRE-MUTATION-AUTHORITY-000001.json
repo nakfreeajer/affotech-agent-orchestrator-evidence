@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "checkpointKind": "EXECUTOR_PRE_MUTATION_AUTHORITY",
+  "checkpointPurpose": "PRE_MUTATION_AUTHORITY_BINDING",
+  "messageId": "ORCH-000088",
+  "dispatchId": "DISPATCH-000088",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000088.md",
+  "canonicalPromptSha256": "6f3903f91fda5c1e995fb4c18148e28a690a319bc08f16252b656b912d0d36d5",
+  "architectDecisionId": "GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b",
+  "acceptedSourcePublicationId": "GH-PUB-087-CURATOR-CANONICAL-HISTORY-LESSON-SEMANTIC-REPAIR-000001",
+  "documentationMutationStarted": false
+}
