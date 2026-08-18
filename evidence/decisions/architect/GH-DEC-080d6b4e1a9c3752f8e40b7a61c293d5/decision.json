@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "ARCHITECT_DECISION",
+  "pointerState": "BLOCKED",
+  "decisionId": "GH-DEC-080d6b4e1a9c3752f8e40b7a61c293d5",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.DOCUMENTATION.CATCHUP.THROUGH.ORCH79.1A",
+  "reviewedPublicationId": "GH-PUB-080-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH79-000001",
+  "acceptedSourcePublicationId": "GH-PUB-079-CURATOR-VARIABLE-RANGE-RENDERER-REPAIR-000001",
+  "documentationCommitReviewed": "fb7645dacc31872b35b4e43396e95da61d8ece73",
+  "documentationAccepted": false,
+  "reasonCodes": [
+    "CURATOR_DOCUMENT_SEMANTIC_COVERAGE_FAILURE",
+    "CURATOR_CANONICAL_DECISION_SEQUENCE_BINDING_FAILURE"
+  ],
+  "transportAndCommitScopeVerified": true,
+  "eventIndexPreservedThroughSequence": 51,
+  "eventNextSequence": 52,
+  "curatorCursorSequence": 15,
+  "latestCuratorAcceptedRemains": "GH-PUB-074-PROJECT-MEMORY-CURATOR-DOCUMENTATION-PROJECTION-OVERLAY-000001",
+  "acceptedSourceFileCount": 97,
+  "acceptedSourceFullPassed": 726,
+  "requiredRepair": "CURATOR_DOCUMENT_SEMANTIC_COVERAGE_AND_CANONICAL_DECISION_SEQUENCE_BINDING",
+  "nextCanonicalMessageId": "ORCH-000081",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENT.SEMANTIC.COVERAGE.REPAIR.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-080d6b4e1a9c3752f8e40b7a61c293d5/decision.json"
+}
