@@ -1,0 +1,17 @@
+{
+  "publicationId": "GH-PUB-085-CURATOR-MULTI-POSTLEDGER-OVERLAY-REPAIR-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000085",
+  "messageId": "ORCH-000085",
+  "durable": true,
+  "sourceMutation": 4,
+  "testMutation": 2,
+  "documentationMutation": 0,
+  "projectEventMutation": 0,
+  "eventIndexMutation": 0,
+  "curatorCursorMutation": 0,
+  "browserContact": 0,
+  "workerDeliveryMutation": 0,
+  "retryAttempted": false,
+  "preMutationAuthorityCheckpointVerified": true
+}

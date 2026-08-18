@@ -1,0 +1,101 @@
+{
+  "publicationId": "GH-PUB-085-CURATOR-MULTI-POSTLEDGER-OVERLAY-REPAIR-000001",
+  "dispatchId": "DISPATCH-000085",
+  "messageId": "ORCH-000085",
+  "classification": "ORCHESTRATOR_CURATOR_MULTI_POSTLEDGER_OVERLAY_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000085.md",
+  "canonicalPromptSha256": "9bacf3731e89cd60e35816fc390aedf57b896fff6870dd3db7e13fea5e69e489",
+  "preMutationAuthorityCheckpoint": "evidence/checkpoints/executor/ORCH-000085-PRE-MUTATION-AUTHORITY-000001.json",
+  "preMutationAuthorityCheckpointVerified": true,
+  "acceptedSourcePublicationId": "GH-PUB-083-CURATOR-DOCUMENT-SEMANTIC-COVERAGE-FRESH-RETRY-000001",
+  "sourceFileCount": 97,
+  "modifiedPaths": [
+    "src/curator/curator-document-renderer.js",
+    "src/curator/curator-projection.js",
+    "test/curator-document-renderer.test.js",
+    "test/curator-projection.test.js"
+  ],
+  "addedPaths": [],
+  "removedPaths": [],
+  "otherByteIdenticalFileCount": 93,
+  "tests": {
+    "curatorDocumentRenderer": "29/0/0",
+    "curatorProjection": "38/0/0",
+    "githubCuratorCursor": "24/0/0",
+    "automaticDispatchHost": "36/0/0",
+    "persistentHostRunner": "26/0/0",
+    "workerRelay": "145/0/0",
+    "full": "746/0/0",
+    "syntaxChecks": true
+  },
+  "qualification": {
+    "pinnedRef": "fc676f3d11d504c36e29faaf03c51c5173f66d4d",
+    "deterministicPasses": 2,
+    "projectionDigest": "8c88d4f6b4cc728cec72a447c763280d469bba5e1cbf5f4602477bf0cef8f4cb",
+    "documentHashes": {
+      "docs/CURRENT_STATE.md": "20dcbb64cf34f03a309d197750285f8ab46e780324453954d1dd86f9598e4819",
+      "docs/PROJECT_HISTORY.md": "e9dad0db580d5f9371e8dbf1315dedc56a9e33acb72a5ddfd965ff794c06f07f",
+      "docs/DECISIONS.md": "bfb499cd4df8e5ff5e980472e3aadca323873fd517b275c32f59ec605c3eae1c",
+      "docs/BUGS_AND_LESSONS.md": "6ba99bea6ce19d7dba813933f122438038f8801957f511b91f238e59452b260f",
+      "docs/ARCHITECTURE.md": "a78a4e8f2eecb8a3bf8d7ec277911e45a996f939d7a6464d1b91644bc4c31b98"
+    },
+    "overlayFacts": [
+      "ORCH-000078",
+      "ORCH-000079",
+      "ORCH-000080",
+      "ORCH-000081",
+      "ORCH-000082",
+      "ORCH-000083"
+    ],
+    "overlayFactCoverageExact": true,
+    "canonicalDecisionSequences": [
+      1,
+      5,
+      8,
+      11,
+      15,
+      18,
+      21,
+      24,
+      27,
+      30,
+      34,
+      37,
+      41,
+      44,
+      47,
+      50
+    ],
+    "sequenceZeroAbsent": true,
+    "acceptedCurrentSource": "GH-PUB-083-CURATOR-DOCUMENT-SEMANTIC-COVERAGE-FRESH-RETRY-000001",
+    "executorContentEdits": false
+  },
+  "artifact": {
+    "path": "evidence/artifacts/orch-000085",
+    "manifestSha256": "5b592851eeb6c5441b32a8993ff3c36f4f3b1acfe15d9a0a132fea4fc62ee62d",
+    "archivePath": "evidence/artifacts/orch-000085/orchestrator-source-snapshot-orch-000085.tar.gz",
+    "archiveSha256": "f6692ef1ae6f23116ea201b8713da8330bcd10351fdac0a79647021491929ad3",
+    "archiveSize": 123895
+  },
+  "protectedBoundaries": {
+    "documentationMutation": 0,
+    "projectEventMutation": 0,
+    "eventIndexMutation": 0,
+    "curatorCursorMutation": 0,
+    "curatorPointerMutation": 0,
+    "latestExecutorAcceptedMutation": 0,
+    "sourceOutsideEnvelope": 0,
+    "browserContacts": 0,
+    "ports": [],
+    "workerDeliveryMutation": 0,
+    "liveLeaseMutation": 0,
+    "humanAuthMutation": 0,
+    "hostRuntimeMutation": 0,
+    "affotechAccess": 0,
+    "relayAccess": 0,
+    "driveMutation": 0,
+    "daemonCreated": 0,
+    "existingOrch084EvidenceRewritten": 0
+  }
+}
