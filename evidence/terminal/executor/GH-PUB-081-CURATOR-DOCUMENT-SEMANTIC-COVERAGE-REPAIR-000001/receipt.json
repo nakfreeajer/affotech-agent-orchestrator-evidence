@@ -1,0 +1,14 @@
+{
+  "publicationId": "GH-PUB-081-CURATOR-DOCUMENT-SEMANTIC-COVERAGE-REPAIR-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000081",
+  "messageId": "ORCH-000081",
+  "durable": true,
+  "sourceMutation": 4,
+  "testMutation": 2,
+  "documentationMutation": 0,
+  "projectEventMutation": 0,
+  "curatorCursorMutation": 0,
+  "browserContact": 0,
+  "workerDeliveryMutation": 0
+}
