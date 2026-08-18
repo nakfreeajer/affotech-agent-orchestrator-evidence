@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "checkpointKind": "EXECUTOR_PRE_MUTATION_AUTHORITY",
+  "checkpointPurpose": "PRE_MUTATION_AUTHORITY_BINDING",
+  "messageId": "ORCH-000086",
+  "dispatchId": "DISPATCH-000086",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000086.md",
+  "canonicalPromptSha256": "4715ec46f2fa2ee2074dfd5e202ca78c5e6b0d6f1a85ca8238b9cd534001c6b6",
+  "architectDecisionId": "GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983",
+  "acceptedSourcePublicationId": "GH-PUB-085-CURATOR-MULTI-POSTLEDGER-OVERLAY-REPAIR-000001",
+  "documentationMutationStarted": false
+}
