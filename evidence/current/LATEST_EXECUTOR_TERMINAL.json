@@ -1,7 +1,11 @@
 {
-  "publicationId": "GH-PUB-087-CURATOR-CANONICAL-HISTORY-LESSON-SEMANTIC-REPAIR-000001",
-  "path": "evidence/terminal/executor/GH-PUB-087-CURATOR-CANONICAL-HISTORY-LESSON-SEMANTIC-REPAIR-000001/terminal.json",
-  "dispatchId": "DISPATCH-000087",
-  "messageId": "ORCH-000087",
-  "classification": "ORCHESTRATOR_CURATOR_CANONICAL_HISTORY_LESSON_SEMANTIC_REPAIR_READY_FOR_ARCHITECT_REVIEW"
+  "pointerKind": "LATEST_EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001/report.json",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001/receipt.json",
+  "messageId": "ORCH-000088",
+  "dispatchId": "DISPATCH-000088",
+  "status": "PASS",
+  "requiresArchitectDecision": true
 }
