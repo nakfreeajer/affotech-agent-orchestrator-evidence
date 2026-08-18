@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30",
+  "decision": "INCONCLUSIVE",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENT.SEMANTIC.COVERAGE.AUTHORITY.RECONCILIATION.1A",
+  "reviewedPublicationId": "GH-PUB-082-ORCH081-AUTHORITY-BINDING-RECONCILIATION-000001",
+  "acceptedSourcePublicationId": "GH-PUB-079-CURATOR-VARIABLE-RANGE-RENDERER-REPAIR-000001",
+  "sourceAcceptanceWithheld": true,
+  "reasonCode": "PREMUTATION_AUTHORITY_BINDING_NOT_PROVEN",
+  "firstHandPreMutationEvidenceFound": false,
+  "retryPerformedByReconciliation": false,
+  "existingOrch081EvidenceRewriteAuthorized": false,
+  "requiredNextAction": "FRESH_SEMANTIC_REPAIR_FROM_ACCEPTED_ORCH079_WITH_PREMUTATION_AUTHORITY_CHECKPOINT",
+  "eventIndexPreservedThroughSequence": 51,
+  "eventNextSequence": 52,
+  "curatorCursorSequence": 15,
+  "nextCanonicalMessageId": "ORCH-000083",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.DOCUMENT.SEMANTIC.COVERAGE.RETRY.1A",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30/decision.json"
+}
