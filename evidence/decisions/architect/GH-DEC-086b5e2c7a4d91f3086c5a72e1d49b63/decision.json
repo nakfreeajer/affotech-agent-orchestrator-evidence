@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.DOCUMENTATION.CATCHUP.THROUGH.ORCH85.1A",
+  "reviewedPublicationId": "GH-PUB-086-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH85-000001",
+  "acceptedSourcePublicationId": "GH-PUB-085-CURATOR-MULTI-POSTLEDGER-OVERLAY-REPAIR-000001",
+  "documentationCommitReviewed": "5325b9b2d954e39b6b7eae9024d714903fc82758",
+  "documentationAccepted": false,
+  "transportAndCommitScopeVerified": true,
+  "preMutationAuthorityCheckpointVerified": true,
+  "reasonCodes": [
+    "CURATOR_PROJECT_HISTORY_CANONICAL_CLASSIFICATION_SEMANTIC_OMISSION",
+    "CURATOR_BUGS_LESSONS_ORCH077_REPAIR_OMISSION"
+  ],
+  "verifiedDefects": {
+    "projectHistory": "Canonical events 1-51 are preserved, but required explicit outcome labels for ORCH-000068/070/072/074/075/076/077 are absent; ORCH-000076 failed-before-send and ORCH-000077 accepted lineage-first repair are not explicitly surfaced.",
+    "bugsAndLessons": "ORCH-000076 stale-lineage/immutability lessons are present, but the explicitly required ORCH-000077 accepted lineage-first repair is omitted from the causal lesson."
+  },
+  "sequenceZeroAbsent": true,
+  "canonicalDecisionSequenceBindingVerified": true,
+  "eventIndexPreservedThroughSequence": 51,
+  "eventNextSequence": 52,
+  "curatorCursorSequence": 15,
+  "existingOrch086DocumentationRewriteAuthorized": false,
+  "requiredRepair": "CURATOR_CANONICAL_HISTORY_CLASSIFICATION_AND_ORCH077_LESSON_SEMANTIC_REPAIR",
+  "nextCanonicalMessageId": "ORCH-000087",
+  "nextMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.CANONICAL.HISTORY.LESSON.SEMANTIC.REPAIR.1A"
+}
