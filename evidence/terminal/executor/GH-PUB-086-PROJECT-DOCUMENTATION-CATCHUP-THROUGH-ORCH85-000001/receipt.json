@@ -1,0 +1,18 @@
+{
+  "publicationId": "GH-PUB-086-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH85-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000086",
+  "messageId": "ORCH-000086",
+  "durable": true,
+  "documentationMutation": 5,
+  "documentationCommit": "5325b9b2d954e39b6b7eae9024d714903fc82758",
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "projectEventMutation": 0,
+  "eventIndexMutation": 0,
+  "curatorCursorMutation": 0,
+  "browserContact": 0,
+  "workerDeliveryMutation": 0,
+  "retryAttempted": false,
+  "preMutationAuthorityCheckpointVerified": true
+}
