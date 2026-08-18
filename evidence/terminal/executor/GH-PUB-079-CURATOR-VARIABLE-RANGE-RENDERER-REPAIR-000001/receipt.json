@@ -1,0 +1,15 @@
+{
+  "publicationId": "GH-PUB-079-CURATOR-VARIABLE-RANGE-RENDERER-REPAIR-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000079",
+  "messageId": "ORCH-000079",
+  "durable": true,
+  "sourceMutation": 4,
+  "testMutation": 2,
+  "documentationMutation": 0,
+  "projectEventMutation": 0,
+  "curatorCursorMutation": 0,
+  "browserContact": 0,
+  "workerDeliveryMutation": 0,
+  "affotechAccess": 0
+}

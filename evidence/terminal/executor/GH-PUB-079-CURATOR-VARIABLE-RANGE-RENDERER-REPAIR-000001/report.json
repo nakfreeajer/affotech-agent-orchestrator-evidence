@@ -1,0 +1,67 @@
+{
+  "publicationId": "GH-PUB-079-CURATOR-VARIABLE-RANGE-RENDERER-REPAIR-000001",
+  "dispatchId": "DISPATCH-000079",
+  "messageId": "ORCH-000079",
+  "classification": "ORCHESTRATOR_CURATOR_VARIABLE_RANGE_RENDERER_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "modifiedPaths": [
+    "src/curator/curator-document-renderer.js",
+    "src/curator/curator-projection.js",
+    "test/curator-document-renderer.test.js",
+    "test/curator-projection.test.js"
+  ],
+  "addedPaths": [],
+  "removedPaths": [],
+  "sourceFileCount": 97,
+  "otherByteIdenticalFileCount": 93,
+  "tests": {
+    "curatorDocumentRenderer": "17/0/0",
+    "curatorProjection": "30/0/0",
+    "githubCuratorCursor": "24/0/0",
+    "automaticDispatchHost": "36/0/0",
+    "persistentHostRunner": "26/0/0",
+    "workerRelay": "145/0/0",
+    "full": "726/0/0",
+    "syntaxChecks": true
+  },
+  "renderQualification": {
+    "eventRange": "1-51",
+    "events": 51,
+    "valid": true,
+    "deterministicPasses": 2,
+    "projectionDigest": "0682bab403e799411bf7820c03f5041f9e9f17a8d70820119559bec60e7aa2a1",
+    "documentHashes": {
+      "docs/CURRENT_STATE.md": "b03592caa6052cf536165fc55d41950f261456cadaad7c5413d86a3960cd9fd0",
+      "docs/PROJECT_HISTORY.md": "036cc53e677fd2a6f5425c1ee8c75b392c36144e1ac375d89e87dcec2509cf25",
+      "docs/DECISIONS.md": "40ac456bc588f87306d9217fb396bd9015fb2b014a4d2ba60a02185a86e7c868",
+      "docs/BUGS_AND_LESSONS.md": "328fec7472c7ba65168ecb49f8b0b0a9a820ab4525d00edde1b0f8e4a3105bca",
+      "docs/ARCHITECTURE.md": "3852c6dd259c01cbbdf885372c8af172dc5f3f96eb47361d0fa2b518951f93bf"
+    },
+    "hardCodedFinalSequence15": false
+  },
+  "artifact": {
+    "path": "evidence/artifacts/orch-000079",
+    "manifestSha256": "8adf6608761d6a42d586b88cdc72ac4a546d235458b70f3adcbaaf65dcf822582",
+    "archivePath": "evidence/artifacts/orch-000079/orchestrator-source-snapshot-orch-000079.tar.gz",
+    "archiveSha256": "33112146ed5f17f0f1bc4e32033d64d85c65033e430e3447a069ae5e479be946f",
+    "archiveSize": 119370
+  },
+  "mutationAccounting": {
+    "projectEventMutation": 0,
+    "eventIndexMutation": 0,
+    "docsMutation": 0,
+    "curatorCursorMutation": 0,
+    "latestExecutorAcceptedMutation": 0,
+    "orch000078Rewrite": 0,
+    "browserContacts": 0,
+    "ports": [],
+    "workerDeliveryMutation": 0,
+    "liveLeaseMutation": 0,
+    "humanAuthMutation": 0,
+    "hostRuntimeMutation": 0,
+    "affotechAccess": 0,
+    "relayAccess": 0,
+    "driveMutation": 0,
+    "daemonCreated": 0
+  }
+}
