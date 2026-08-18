@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "DISPATCH",
+  "pointerState": "MANUAL_TRIGGER_REQUIRED",
+  "dispatchId": "DISPATCH-000079",
+  "messageId": "ORCH-000079",
+  "parentMessageId": "ORCH-000078",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000079.md",
+  "canonicalPromptSha256": "96dc211e27c2a3b1c657ffd9dbb831bf9f9a8c870ff55f1eeb1e15ac33d284ff",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "architectDecisionId": "GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3",
+  "acceptedSourcePublicationId": "GH-PUB-077-PERSISTENT-HOST-LINEAGE-SELECTION-REPAIR-000001",
+  "eventIndexRevision": 51,
+  "eventHeadSequence": 51,
+  "eventNextSequence": 52,
+  "curatorCursorSequence": 15,
+  "sourceMutationAuthorized": true,
+  "authorizedSourcePaths": [
+    "src/curator/curator-document-renderer.js",
+    "src/curator/curator-projection.js",
+    "test/curator-document-renderer.test.js",
+    "test/curator-projection.test.js"
+  ],
+  "projectEventMutationAuthorized": false,
+  "documentationMutationAuthorized": false,
+  "curatorMutationAuthorized": false,
+  "browserContactAuthorized": false,
+  "workerDeliveryMutationAuthorized": false,
+  "liveMutationLeaseAuthorized": false,
+  "daemonBackgroundAuthorized": false
+}
