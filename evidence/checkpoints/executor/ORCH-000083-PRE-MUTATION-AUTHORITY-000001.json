@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "checkpointKind": "EXECUTOR_PRE_MUTATION_AUTHORITY",
+  "checkpointPurpose": "PRE_MUTATION_AUTHORITY_BINDING",
+  "messageId": "ORCH-000083",
+  "dispatchId": "DISPATCH-000083",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000083.md",
+  "canonicalPromptSha256": "271c225d8a671c013fcf458dbba1f8cd53af713736bde31e5e6ffd4e85b558b9",
+  "architectDecisionId": "GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30",
+  "acceptedSourcePublicationId": "GH-PUB-079-CURATOR-VARIABLE-RANGE-RENDERER-REPAIR-000001",
+  "sourceMutationStarted": false
+}
