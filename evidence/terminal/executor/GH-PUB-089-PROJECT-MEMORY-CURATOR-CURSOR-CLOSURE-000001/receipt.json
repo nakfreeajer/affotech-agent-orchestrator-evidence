@@ -1,0 +1,17 @@
+{
+  "publicationId": "GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000089",
+  "messageId": "ORCH-000089",
+  "durable": true,
+  "curatorPointerMutation": 2,
+  "documentationMutation": 0,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "projectEventMutation": 0,
+  "eventIndexMutation": 0,
+  "browserContact": 0,
+  "workerDeliveryMutation": 0,
+  "retryAttempted": false,
+  "preMutationAuthorityCheckpointVerified": true
+}

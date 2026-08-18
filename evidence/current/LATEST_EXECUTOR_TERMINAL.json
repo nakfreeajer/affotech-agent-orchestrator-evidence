@@ -1,11 +1,11 @@
 {
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001/report.json",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001/receipt.json",
-  "messageId": "ORCH-000088",
-  "dispatchId": "DISPATCH-000088",
+  "publicationId": "GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001/report.json",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001/receipt.json",
+  "messageId": "ORCH-000089",
+  "dispatchId": "DISPATCH-000089",
   "status": "PASS",
   "requiresArchitectDecision": true
 }
