@@ -1,0 +1,16 @@
+{
+  "publicationId": "GH-PUB-082-ORCH081-AUTHORITY-BINDING-RECONCILIATION-000001",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "dispatchId": "DISPATCH-000082",
+  "messageId": "ORCH-000082",
+  "durable": true,
+  "reconciliationOnly": true,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "documentationMutation": 0,
+  "projectEventMutation": 0,
+  "curatorCursorMutation": 0,
+  "browserContact": 0,
+  "workerDeliveryMutation": 0,
+  "retryAttempted": false
+}

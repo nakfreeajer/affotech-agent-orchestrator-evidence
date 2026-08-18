@@ -1,0 +1,39 @@
+{
+  "publicationId": "GH-PUB-082-ORCH081-AUTHORITY-BINDING-RECONCILIATION-000001",
+  "dispatchId": "DISPATCH-000082",
+  "messageId": "ORCH-000082",
+  "classification": "ORCHESTRATOR_ORCH081_AUTHORITY_BINDING_RECONCILIATION_INCONCLUSIVE",
+  "status": "INCONCLUSIVE",
+  "sourceAcceptanceWithheld": true,
+  "requiredPromptSha256": "6827c393b5176926c35eb7b994082750ffd12ecba7b185bd50d755d57a8c5be7",
+  "terminalRecordedPromptSha256": "f1c1aaeae00991303c5604b5ff808a053843a0dce686cf2a08170449ffaf8b73",
+  "firstHandPreMutationEvidenceFound": false,
+  "supportingChecks": {
+    "currentPromptPointerMatches": true,
+    "dispatchBindingMatches": true,
+    "terminalIdentityMatches": true,
+    "reportIdentityMatches": true,
+    "receiptIdentityMatches": true,
+    "correctPromptHashFoundOnlyInCurrentGitHubAuthorityPointers": true
+  },
+  "retryPerformed": false,
+  "existingOrch081EvidenceRewritten": false,
+  "protectedBoundaries": {
+    "sourceMutation": 0,
+    "testMutation": 0,
+    "documentationMutation": 0,
+    "projectEventMutation": 0,
+    "eventIndexMutation": 0,
+    "curatorCursorMutation": 0,
+    "browserContacts": 0,
+    "ports": [],
+    "workerDeliveryMutation": 0,
+    "liveLeaseMutation": 0,
+    "humanAuthMutation": 0,
+    "hostRuntimeMutation": 0,
+    "affotechAccess": 0,
+    "relayAccess": 0,
+    "driveMutation": 0,
+    "daemonCreated": 0
+  }
+}
