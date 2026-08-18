@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "checkpointKind": "EXECUTOR_PRE_MUTATION_AUTHORITY",
+  "checkpointPurpose": "PRE_MUTATION_AUTHORITY_BINDING",
+  "messageId": "ORCH-000084",
+  "dispatchId": "DISPATCH-000084",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000084.md",
+  "canonicalPromptSha256": "06a502fb1cf2bee489a3a1fce10f431a203fc10c58931c2a28f58adaf4431e0e",
+  "architectDecisionId": "GH-DEC-083e6a1c4b7d29f5083a61e2c9f4b735",
+  "acceptedSourcePublicationId": "GH-PUB-083-CURATOR-DOCUMENT-SEMANTIC-COVERAGE-FRESH-RETRY-000001",
+  "documentationMutationStarted": false
+}
