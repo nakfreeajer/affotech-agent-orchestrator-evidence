@@ -1,10 +1,19 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: 10e3fba6ab2f55f8957509d500e38120629072aa
+Projection input boundary: 9e27a6e862e8ff42bf0f6513785863090cb7ceff
 Covered event range: 1-51
 Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
 Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
 
 # Project History
+## Canonical milestone classifications
+
+- ORCH-000068 — INCONCLUSIVE.
+- ORCH-000070 — BLOCKED.
+- ORCH-000072 — BLOCKED.
+- ORCH-000074 — ACCEPTED.
+- ORCH-000075 — ACCEPTED.
+- ORCH-000076 — BLOCKED; failed before send.
+- ORCH-000077 — ACCEPTED; lineage-first host selection repair.
 
 ## Canonical event history 1-51
 
@@ -65,7 +74,7 @@ Durable event-derived project history through sequence 51.
 
 ### BLOCKED: ORCH-000078
 
-{"cursor":15,"docsMutation":0,"eventCatchup":"16-51 preserved","eventIndex":"51/51/52","messageId":"ORCH-000078"}
+{"cursor":15,"docsMutation":0,"eventCatchup":"16-51 verified/preserved","eventIndex":"51/51/52","messageId":"ORCH-000078"}
 
 Evidence: evidence/decisions/GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3/decision.json
 
@@ -110,4 +119,16 @@ Evidence: evidence/decisions/GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46/decision.js
 {"fullTests":"746/0/0","messageId":"ORCH-000085","overlayRepair":"accepted","sourceFiles":97}
 
 Evidence: evidence/decisions/GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983/decision.json
+
+### BLOCKED: ORCH-000086
+
+{"acceptance":"withheld","docsCommit":"5325b9b2d954e39b6b7eae9024d714903fc82758","docsMutation":5,"messageId":"ORCH-000086"}
+
+Evidence: evidence/decisions/GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63/decision.json
+
+### ACCEPTED: ORCH-000087
+
+{"canonicalHistoryRepair":true,"fullTests":"749/0/0","messageId":"ORCH-000087","sourceFiles":97}
+
+Evidence: evidence/decisions/GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b/decision.json
 Post-ledger facts do not rewrite canonical event history.

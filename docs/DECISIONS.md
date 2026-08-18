@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: 10e3fba6ab2f55f8957509d500e38120629072aa
+Projection input boundary: 9e27a6e862e8ff42bf0f6513785863090cb7ceff
 Covered event range: 1-51
 Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
 Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
@@ -110,5 +110,15 @@ Human-readable projection only; durable GitHub evidence and Architect decisions 
 - Classification: ACCEPTED
 - Authority: GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983
 - Evidence: evidence/decisions/GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983/decision.json
+## Post-ledger ORCH-000086
+
+- Classification: BLOCKED
+- Authority: GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63
+- Evidence: evidence/decisions/GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63/decision.json
+## Post-ledger ORCH-000087
+
+- Classification: ACCEPTED
+- Authority: GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b
+- Evidence: evidence/decisions/GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b/decision.json
 
 Machine decision records remain authoritative.

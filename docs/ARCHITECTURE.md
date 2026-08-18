@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: 10e3fba6ab2f55f8957509d500e38120629072aa
+Projection input boundary: 9e27a6e862e8ff42bf0f6513785863090cb7ceff
 Covered event range: 1-51
 Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
 Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
@@ -17,10 +17,11 @@ Human-readable projection only; durable GitHub evidence and Architect decisions 
 - chronological reconstructable event ledger through 51
 - Curator is on-demand human-readable projection
 - variable coherent ranges and variable-length post-ledger overlays
+- canonical-history summaries preserve classifications without replacing event history
 - post-ledger overlays do not rewrite history
 - cursor advances only after docs preservation/readback and Architect acceptance
 - mutating milestones require immutable pre-mutation authority checkpoints
-- persistent host current-lineage PRE_DISPATCH_ELIGIBLE exact target registration mutation lease exactly-once no blind retry control precedence no assistant-response-text authority
+- persistent host remains governed by current-lineage selection, exact binding, leases, exactly-once, no blind retry, control precedence, no assistant-response-text authority
 - AFFOTECH remains separate/protected
 - Post-ledger overlay ORCH-000078: BLOCKED; no canonical sequence is assigned.
 - Post-ledger overlay ORCH-000079: ACCEPTED; no canonical sequence is assigned.
@@ -30,5 +31,7 @@ Human-readable projection only; durable GitHub evidence and Architect decisions 
 - Post-ledger overlay ORCH-000083: ACCEPTED; no canonical sequence is assigned.
 - Post-ledger overlay ORCH-000084: BLOCKED; no canonical sequence is assigned.
 - Post-ledger overlay ORCH-000085: ACCEPTED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000086: BLOCKED; no canonical sequence is assigned.
+- Post-ledger overlay ORCH-000087: ACCEPTED; no canonical sequence is assigned.
 
 This does not claim continuous automatic Curator operation or a live cursor.
