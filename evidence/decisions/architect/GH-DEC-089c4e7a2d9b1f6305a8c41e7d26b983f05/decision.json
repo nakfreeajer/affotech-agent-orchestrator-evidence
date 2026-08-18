@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-089c4e7a2d9b1f6305a8c41e7d26b983f05",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.CURSOR.CLOSURE.THROUGH.SEQUENCE51.1A",
+  "reviewedPublicationId": "GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001",
+  "messageId": "ORCH-000089",
+  "dispatchId": "DISPATCH-000089",
+  "canonicalPromptSha256": "93c8ea6ed9480e564821a44c837c23a6e909fe6b81a21eeabe64008d78e42378",
+  "preMutationAuthorityCheckpointVerified": true,
+  "acceptedSourcePublicationId": "GH-PUB-087-CURATOR-CANONICAL-HISTORY-LESSON-SEMANTIC-REPAIR-000001",
+  "acceptedDocumentationPublicationId": "GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001",
+  "acceptedDocumentationCommit": "e589c7c656cb54a82eee26463ae3c400b14bcc26",
+  "closureCommit": "419df80c479624a5e0cb838d0a00ebab5262511d",
+  "cursorRevision": 2,
+  "cursorSequence": 51,
+  "eventIndexRevision": 51,
+  "eventHeadSequence": 51,
+  "eventNextSequence": 52,
+  "eventHeadId": "EVT-000051-0bad29ae0ca799ef",
+  "eventHeadSha256": "6d5b1a90b64e967347d36dadf7516927e6d74c4105ea3675412a9f82e2a61e63",
+  "projectionDigest": "6c22e840d4bd7799fc8d893cb099bc29a43a414bd4f848f5423a4a4dde655d0e",
+  "curatorClosureVerified": true,
+  "projectMemoryCycleClosed": true,
+  "mutatedCurrentPaths": [
+    "evidence/current/curator/CURATOR_CURSOR.json",
+    "evidence/current/LATEST_CURATOR_ACCEPTED.json"
+  ],
+  "protectedBoundaryVerified": true,
+  "reasonCode": "CURATOR_CURSOR_CLOSURE_THROUGH_SEQUENCE51_VERIFIED",
+  "nextAction": "FOLLOW_LATEST_RONY_DIRECTION_AFTER_SANDBOX_REMOTE_SETUP; NO_FURTHER_PROJECT_MEMORY_INFRASTRUCTURE"
+}
