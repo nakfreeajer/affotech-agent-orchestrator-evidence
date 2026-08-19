@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_BOOTSTRAP_ATTEMPT",
+  "bootstrapId": "HOST-BOOTSTRAP-SANDBOX-000001",
+  "messageId": "ORCH-000090",
+  "dispatchId": "DISPATCH-000090",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000001",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000001",
+  "classification": "BLOCKED",
+  "launchCommand": "node --input-type=module (temporary one-iteration composition importing runPersistentHost and createGitHubRuntimePorts)",
+  "exportsDiscovered": {
+    "persistentHostRunner": [
+      "RUNNER_EVENTS",
+      "createPersistentHostRunner",
+      "runPersistentHost",
+      "runPersistentHostIteration",
+      "validatePersistentHostPorts"
+    ],
+    "githubRuntimePorts": [
+      "HOST_RUNTIME_PATHS",
+      "RUNTIME_PORT_EVENTS",
+      "createGitHubRuntimePorts"
+    ],
+    "automaticDispatchHost": [
+      "HOST_STATES",
+      "automaticDispatchHost",
+      "evaluateAutomaticDispatchHost"
+    ],
+    "workerRelay": [
+      "createWorkerDeliveryIntent",
+      "createWorkerDeliveryResult",
+      "createWorkerDeliveryPointer",
+      "runAutomaticRelayCycle",
+      "evaluateDispatchWatcher"
+    ]
+  },
+  "error": {
+    "code": "HOST_IDENTITY_INVALID",
+    "message": "runPersistentHost returned RUNNER_GOVERNANCE_DENIED because the launch input omitted the required integer nowMs field.",
+    "hostState": "RUNNER_GOVERNANCE_DENIED",
+    "nextAction": "STOP",
+    "stack": null
+  },
+  "hostIdentityCreated": false,
+  "leaseAcquireCount": 0,
+  "browserSendCount": 0,
+  "delivery000005Exists": false,
+  "hostStillRunning": false,
+  "sourceMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false
+}
