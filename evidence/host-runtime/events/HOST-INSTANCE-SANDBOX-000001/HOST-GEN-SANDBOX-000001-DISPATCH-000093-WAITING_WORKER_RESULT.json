@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000001-DISPATCH-000093-WAITING_WORKER_RESULT",
+  "eventType": "WAITING_WORKER_RESULT",
+  "sourceRef": "61767451fc731af4fa4d82bde2b0d0aa001e9530",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000001",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000001",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_WAITING_WORKER_RESULT",
+  "nextAction": "READ_DURABLE_WORKER_RESULT",
+  "dispatchId": "DISPATCH-000093",
+  "messageId": "ORCH-000093",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+  "workerResultId": null,
+  "architectTriggerId": "ARCH-TRIGGER-9333-000003",
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "telemetryOnly": true
+}
