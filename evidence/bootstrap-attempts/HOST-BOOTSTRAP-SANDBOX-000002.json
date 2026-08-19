@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_BOOTSTRAP_ATTEMPT",
+  "bootstrapId": "HOST-BOOTSTRAP-SANDBOX-000002",
+  "messageId": "ORCH-000090",
+  "dispatchId": "DISPATCH-000090",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000001",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000001",
+  "classification": "BLOCKED",
+  "launchCommand": "node --input-type=module (same temporary one-iteration composition with nowMs=Date.now())",
+  "nowMsSupplied": true,
+  "nowMsInteger": true,
+  "nowMs": 1787105489241,
+  "exportsDiscovered": {
+    "persistentHostRunner": [
+      "RUNNER_EVENTS",
+      "createPersistentHostRunner",
+      "runPersistentHost",
+      "runPersistentHostIteration",
+      "validatePersistentHostPorts"
+    ],
+    "githubRuntimePorts": [
+      "HOST_RUNTIME_PATHS",
+      "RUNTIME_PORT_EVENTS",
+      "createGitHubRuntimePorts"
+    ],
+    "automaticDispatchHost": [
+      "HOST_STATES",
+      "automaticDispatchHost",
+      "evaluateAutomaticDispatchHost"
+    ],
+    "workerRelay": [
+      "createWorkerDeliveryIntent",
+      "createWorkerDeliveryResult",
+      "createWorkerDeliveryPointer",
+      "runAutomaticRelayCycle"
+    ]
+  },
+  "error": {
+    "code": "PORT_REQUIRED",
+    "message": "runPersistentHost returned RUNNER_GOVERNANCE_DENIED because the injected ports object did not provide the required sendWorkerDelivery and sendArchitectTrigger functions.",
+    "hostState": "RUNNER_GOVERNANCE_DENIED",
+    "nextAction": "STOP",
+    "missingPorts": [
+      "sendWorkerDelivery",
+      "sendArchitectTrigger"
+    ],
+    "stack": null
+  },
+  "hostIdentityCreated": false,
+  "leaseAcquireCount": 0,
+  "browserSendCount": 0,
+  "delivery000005Exists": false,
+  "hostStillRunning": false,
+  "sourceMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false
+}
