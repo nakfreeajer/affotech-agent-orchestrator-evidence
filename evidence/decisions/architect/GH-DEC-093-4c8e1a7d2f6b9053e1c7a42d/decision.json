@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-093-4c8e1a7d2f6b9053e1c7a42d",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.DISPATCH.METADATA.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-093-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000002",
+  "messageId": "ORCH-000093",
+  "dispatchId": "DISPATCH-000093",
+  "acceptedSourcePublicationId": "GH-PUB-091-PERSISTENT-HOST-BROWSER-RELAY-TRANSPORT-PORTS-000001",
+  "protectedBoundaryVerified": true,
+  "hostStarted": true,
+  "hostIdentityCreated": true,
+  "observedHistoricalDeliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+  "expectedFreshDeliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "leaseAcquireCount": 0,
+  "browserSendCount": 0,
+  "reasonCode": "CURRENT_LINEAGE_DELIVERY_HYDRATION_INVALID",
+  "nextAction": "IMPLEMENT_GITHUB_RUNTIME_WORKER_LINEAGE_HYDRATION_REPAIR",
+  "nextCanonicalMessageId": "ORCH-000094"
+}
