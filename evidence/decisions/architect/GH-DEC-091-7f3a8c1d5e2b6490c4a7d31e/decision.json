@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-091-7f3a8c1d5e2b6490c4a7d31e",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PERSISTENT.HOST.BROWSER.RELAY.TRANSPORT.PORTS.IMPLEMENTATION.1A",
+  "reviewedPublicationId": "GH-PUB-091-PERSISTENT-HOST-BROWSER-RELAY-TRANSPORT-PORTS-000001",
+  "messageId": "ORCH-000091",
+  "dispatchId": "DISPATCH-000091",
+  "canonicalPromptSha256": "d350ee6be00f6883f557f9e5b44312696fad31f9d58bd43a6a01e5ad520427e2",
+  "acceptedSourcePublicationId": "GH-PUB-091-PERSISTENT-HOST-BROWSER-RELAY-TRANSPORT-PORTS-000001",
+  "acceptedSourceFileCount": 99,
+  "manifestSha256": "6699b653455f8e51d4715cd72fd805c0e285be754c39e09149ef083717bf0fb0",
+  "archiveSha256": "852c0b07b8c062b0a2a005b0ed8711910eeeac58627f7e939252522da9c912f3",
+  "archiveSize": 128819,
+  "focusedTransportTests": "14/0/0",
+  "existingFocusedTests": "246/0/0",
+  "fullTests": "763/0/0",
+  "acceptedBaselinePreserved": true,
+  "changedPaths": [
+    "src/host/browser-relay-transport-ports.js",
+    "test/browser-relay-transport-ports.test.js"
+  ],
+  "otherAcceptedSourceFilesByteIdentical": true,
+  "liveSideEffectsVerifiedZero": true,
+  "protectedBoundaryVerified": true,
+  "acceptedDocumentationPublicationId": "GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001",
+  "projectMemoryCycleClosed": true,
+  "nextAction": "RUN_BOUNDED_LIVE_OPERATIONAL_HOST_DELIVERY_QUALIFICATION",
+  "nextCanonicalMessageId": "ORCH-000092",
+  "reasonCode": "BROWSER_RELAY_HOST_TRANSPORT_PORTS_IMPLEMENTATION_VERIFIED"
+}
