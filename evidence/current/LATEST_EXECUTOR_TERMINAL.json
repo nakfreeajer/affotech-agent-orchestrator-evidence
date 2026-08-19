@@ -7,6 +7,6 @@
   "receiptPath": "evidence/terminal/executor/GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001/receipt.json",
   "messageId": "ORCH-000094",
   "dispatchId": "DISPATCH-000094",
-  "status": "BLOCKED",
+  "status": "PASS",
   "requiresArchitectDecision": true
 }
