@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-093-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "role": "executor",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.DISPATCH.METADATA.REPAIR.1A",
+  "messageId": "ORCH-000093",
+  "dispatchId": "DISPATCH-000093",
+  "classification": "ORCHESTRATOR_SANDBOX_OPERATIONAL_HOST_LIVE_BLOCKED",
+  "status": "BLOCKED",
+  "durable": true,
+  "workerLifecycle": "BLOCKED",
+  "workerOutcome": "BLOCKED",
+  "retryAttempted": false,
+  "manualDispatch": false,
+  "assistantMessageTextRead": false,
+  "sourceMutation": 0
+}
