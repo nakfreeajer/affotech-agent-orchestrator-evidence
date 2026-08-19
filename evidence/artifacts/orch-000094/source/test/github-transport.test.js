@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import { buildTerminalPublication, publishTerminal, acceptTerminalPublication, captureLocalTerminal } from '../src/github-transport/publisher.js';
+import { terminalFallback } from '../src/github-transport/wrapper.js';
+
+const model = (overrides = {}) => buildTerminalPublication({ role: 'executor', milestone: 'SYNTHETIC.GITHUB.1A', workerLifecycle: 'COMPLETED', workerOutcome: 'PASS', classification: 'PASS', terminal: { case: 'synthetic', projectMutation: 0 }, report: '# Synthetic terminal\n', ...overrides });
+class FakeRemote {
+  constructor() { this.head = '0'.repeat(40); this.commits = new Map(); this.pushes = 0; this.headReads = 0; this.changeParent = false; this.throwAfterApply = false; }
+  async getBranchHead() { this.headReads++; if (this.changeParent && this.headReads === 2) this.head = '1'.repeat(40); return this.head; }
+  async getPublication(id) { return this.commits.get(id)?.publication ?? null; }
+  async createCommit({ parent, files, publicationId }) { const commit = `${String(this.commits.size + 1).padStart(40, '0')}`; this.commits.set(publicationId, { parent, files: Object.fromEntries(files.map((x) => [x.path, { sha256: x.sha256 ?? requireHash(x.content), content: x.content }])) , publication: { publicationId, files: Object.fromEntries(files.map((x) => [x.path, { sha256: x.sha256 ?? requireHash(x.content) }])), role: publicationId.startsWith('GH-PUB-') ? 'executor' : undefined, milestone: 'SYNTHETIC.GITHUB.1A' } }); return commit; }
+  async pushOnce({ expectedParent, commit, publicationId }) { this.pushes++; if (this.changeParent) { this.head = '1'.repeat(40); throw new Error('remote parent changed'); } this.head = commit; if (this.throwAfterApply) throw new Error('ambiguous acknowledgement'); }
+}
+const requireHash = (text) => { let hash = 0; for (const char of text) hash = ((hash << 5) - hash + char.charCodeAt(0)) | 0; return String(hash); };
+
+test('PASS terminal publication is deterministic and terminal pointer is separate from accepted pointer', async () => { const a = model(); const b = model(); assert.equal(a.publicationId, b.publicationId); assert.equal(a.requiresArchitectDecision, true); assert.ok(a.terminalPointerPath.endsWith('LATEST_EXECUTOR_TERMINAL.json')); assert.ok(a.acceptedPointerPath.endsWith('LATEST_EXECUTOR_ACCEPTED.json')); });
+test('blocked zero-mutation publication remains terminal and requires Architect decision', () => { const x = model({ workerOutcome: 'BLOCKED', classification: 'BLOCKED', terminal: { projectMutation: 0 } }); assert.equal(x.workerOutcome, 'BLOCKED'); assert.equal(x.requiresArchitectDecision, true); });
+test('identity-gate-failed publication is terminal without project mutation', () => { const x = model({ workerOutcome: 'INCONCLUSIVE', classification: 'IDENTITY_GATE_FAILED', terminal: { projectMutation: 0, identityGate: 'failed' } }); assert.equal(x.requiresArchitectDecision, true); assert.ok(x.files.some((file) => file.path.endsWith('/terminal.json'))); });
+test('publication pushes once and readback succeeds', async () => { const remote = new FakeRemote(); const x = await publishTerminal(remote, model()); assert.equal(x.classification, 'PUBLISHED'); assert.equal(remote.pushes, 1); });
+test('duplicate publication is idempotently recognized', async () => { const remote = new FakeRemote(); const m = model(); await publishTerminal(remote, m); const x = await publishTerminal(remote, m); assert.equal(x.classification, 'ALREADY_PUBLISHED'); assert.equal(remote.pushes, 1); });
+test('unexpected parent change fails without push', async () => { const remote = new FakeRemote(); remote.changeParent = true; const x = await publishTerminal(remote, model()); assert.equal(x.classification, 'EVIDENCE_REMOTE_PARENT_CHANGED'); assert.equal(remote.pushes, 0); });
+test('ambiguous apply-then-throw reconciles without second push', async () => { const remote = new FakeRemote(); remote.throwAfterApply = true; const x = await publishTerminal(remote, model()); assert.equal(x.classification, 'RECONCILED_PUBLISHED'); assert.equal(remote.pushes, 1); });
+test('unknown ambiguous state requires reconciliation without retry', async () => { const remote = new FakeRemote(); remote.throwAfterApply = true; remote.getPublication = async () => null; const x = await publishTerminal(remote, model()); assert.equal(x.classification, 'RECONCILIATION_REQUIRED'); assert.equal(remote.pushes, 1); });
+test('wrong publication model/path fails closed', async () => { const remote = new FakeRemote(); const x = await publishTerminal(remote, { publicationId: 'GH-PUB-bad', files: [{ path: '../evil', content: 'x' }] }); assert.equal(x.classification, 'FAIL_CLOSED'); assert.equal(remote.pushes, 0); });
+test('explicit acceptance advances accepted pointer only', async () => { const remote = new FakeRemote(); const m = model(); await publishTerminal(remote, m); const x = await acceptTerminalPublication(remote, { publicationId: m.publicationId, role: 'executor', acceptedBy: 'Architect', decision: 'ACCEPT', milestone: 'SYNTHETIC.GITHUB.1A' }); assert.equal(x.acceptedPointerPath, 'evidence/current/LATEST_EXECUTOR_ACCEPTED.json'); });
+test('worker exit without publication creates inconclusive fallback', () => { const x = terminalFallback({ workerExited: true, terminalPublished: false }); assert.equal(x.classification, 'WORKER_EXITED_WITHOUT_TERMINAL_PUBLICATION'); assert.equal(x.workerOutcome, 'INCONCLUSIVE'); assert.equal(x.requiresArchitectDecision, true); });
+test('local terminal spool is first-write durable', async () => { const root = await fs.mkdtemp(path.join(os.tmpdir(), 'github-evidence-spool-')); const x = await captureLocalTerminal({ spoolRoot: root, model: model() }); assert.equal(x.classification, 'LOCAL_TERMINAL_CAPTURED'); assert.ok((await fs.readdir(x.spoolPath)).includes('terminal.json')); });
+test('stale pointer does not hide immutable publication model', async () => { const remote = new FakeRemote(); const m = model(); const x = await publishTerminal(remote, m); assert.equal(x.classification, 'PUBLISHED'); assert.equal((await remote.getPublication(m.publicationId)).publicationId, m.publicationId); });

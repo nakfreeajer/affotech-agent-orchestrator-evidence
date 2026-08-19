@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-093-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000002",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-093-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000002/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-093-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000002/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-093-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000002/receipt.json",
-  "messageId": "ORCH-000093",
-  "dispatchId": "DISPATCH-000093",
+  "publicationId": "GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001/receipt.json",
+  "messageId": "ORCH-000094",
+  "dispatchId": "DISPATCH-000094",
   "status": "BLOCKED",
   "requiresArchitectDecision": true
 }
