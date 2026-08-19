@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_BOOTSTRAP_ATTEMPT",
+  "bootstrapId": "HOST-BOOTSTRAP-SANDBOX-000003",
+  "messageId": "ORCH-000090",
+  "dispatchId": "DISPATCH-000090",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000001",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000001",
+  "classification": "BLOCKED",
+  "launchCommand": "not executed: accepted transport composition failed contract inspection before host launch",
+  "nowMsSupplied": true,
+  "nowMsInteger": true,
+  "sendWorkerDeliveryProvided": false,
+  "sendArchitectTriggerProvided": false,
+  "exportsDiscovered": {
+    "persistentHostRunner": [
+      "runPersistentHost",
+      "createPersistentHostRunner",
+      "runPersistentHostIteration",
+      "validatePersistentHostPorts"
+    ],
+    "githubRuntimePorts": [
+      "createGitHubRuntimePorts"
+    ],
+    "automaticDispatchHost": [
+      "automaticDispatchHost",
+      "evaluateAutomaticDispatchHost"
+    ],
+    "workerRelay": [
+      "runAutomaticRelayCycle",
+      "createWorkerDeliveryIntent",
+      "createWorkerDeliveryResult",
+      "createWorkerDeliveryPointer"
+    ]
+  },
+  "error": {
+    "code": "PORT_REQUIRED",
+    "failingFunction": "validatePersistentHostPorts / runPersistentHost",
+    "message": "The accepted runner requires callable ports.sendWorkerDelivery and ports.sendArchitectTrigger. The accepted local relay modules expose protocol, intent, result, pointer, and cycle functions but no BrowserRelay transport adapter implementing either host port. The historical 000004 CDP script is a manual one-shot script, not an accepted injected host transport.",
+    "missingPorts": [
+      "sendWorkerDelivery",
+      "sendArchitectTrigger"
+    ],
+    "stack": null
+  },
+  "hostIdentityCreated": false,
+  "leaseAcquireCount": 0,
+  "browserSendCount": 0,
+  "delivery000005Exists": false,
+  "hostStillRunning": false,
+  "sourceMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false
+}
