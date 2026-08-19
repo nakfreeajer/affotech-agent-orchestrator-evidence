@@ -1,8 +1,10 @@
 {
+  "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.PROJECT.MEMORY.CURATOR.CURSOR.CLOSURE.THROUGH.SEQUENCE51.1A",
-  "publicationId": "GH-PUB-089-PROJECT-MEMORY-CURATOR-CURSOR-CLOSURE-000001",
-  "messageId": "ORCH-000089",
+  "milestone": "ORCH.P0.PERSISTENT.HOST.BROWSER.RELAY.TRANSPORT.PORTS.IMPLEMENTATION.1A",
+  "publicationId": "GH-PUB-091-PERSISTENT-HOST-BROWSER-RELAY-TRANSPORT-PORTS-000001",
+  "messageId": "ORCH-000091",
+  "dispatchId": "DISPATCH-000091",
   "status": "PASS",
   "requiresArchitectDecision": true
 }

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-091-PERSISTENT-HOST-BROWSER-RELAY-TRANSPORT-PORTS-000001",
+  "role": "executor",
+  "milestone": "ORCH.P0.PERSISTENT.HOST.BROWSER.RELAY.TRANSPORT.PORTS.IMPLEMENTATION.1A",
+  "messageId": "ORCH-000091",
+  "dispatchId": "DISPATCH-000091",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000091.md",
+  "canonicalPromptSha256": "d350ee6be00f6883f557f9e5b44312696fad31f9d58bd43a6a01e5ad520427e2",
+  "architectDecisionId": "GH-DEC-090-e84e061acf4a8f0bb22729f7",
+  "acceptedSourcePublicationId": "GH-PUB-087-CURATOR-CANONICAL-HISTORY-LESSON-SEMANTIC-REPAIR-000001",
+  "classification": "ORCHESTRATOR_BROWSER_RELAY_TRANSPORT_PORTS_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "sourceFileCount": 99,
+  "baselineSourceFileCount": 97,
+  "changedPaths": [
+    "src/host/browser-relay-transport-ports.js",
+    "test/browser-relay-transport-ports.test.js"
+  ],
+  "otherAcceptedSourceFilesByteIdentical": true,
+  "manifestPath": "evidence/artifacts/orch-000091/manifest.json",
+  "manifestSha256": "6699b653455f8e51d4715cd72fd805c0e285be754c39e09149ef083717bf0fb0",
+  "archivePath": "evidence/artifacts/orch-000091/orchestrator-source-snapshot-orch-000091.tar.gz",
+  "archiveSha256": "852c0b07b8c062b0a2a005b0ed8711910eeeac58627f7e939252522da9c912f3",
+  "archiveSize": 128819,
+  "focusedTransportTests": {
+    "tests": 14,
+    "passed": 14,
+    "failed": 0
+  },
+  "existingFocusedTests": {
+    "tests": 246,
+    "passed": 246,
+    "failed": 0
+  },
+  "baselineFullTests": {
+    "tests": 749,
+    "passed": 749,
+    "failed": 0
+  },
+  "fullTests": {
+    "tests": 763,
+    "passed": 763,
+    "failed": 0
+  },
+  "syntaxChecks": "PASS",
+  "liveBrowserContact": 0,
+  "liveGithubRuntimeSideEffects": 0,
+  "hostIdentityMutation": 0,
+  "mutationLeaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "architectTriggerMutation": 0,
+  "projectEventMutation": 0,
+  "curatorMutation": 0,
+  "affotechAccess": 0,
+  "driveAccess": 0,
+  "deploymentAccess": 0,
+  "protectedPortAccess": 0,
+  "daemonCreated": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true,
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "durable": true,
+  "sourceMutation": 1,
+  "testMutation": 1,
+  "sourceArtifactMutation": 1,
+  "retryAttempted": false
+}
