@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-092-5b7e1c9a4d2f6830a1c7e45b",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-092-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "messageId": "ORCH-000092",
+  "dispatchId": "DISPATCH-000092",
+  "acceptedSourcePublicationId": "GH-PUB-091-PERSISTENT-HOST-BROWSER-RELAY-TRANSPORT-PORTS-000001",
+  "protectedBoundaryVerified": true,
+  "reasonCode": "DISPATCH_METADATA_INCOMPLETE",
+  "missingDispatchFields": ["milestoneId", "expectedMutationEnvelopeSha256"],
+  "observedHostIdentityCreated": false,
+  "observedLeaseAcquireCount": 0,
+  "observedBrowserSendCount": 0,
+  "observedDelivery000005Exists": false,
+  "nextAction": "RETRY_LIVE_HOST_QUALIFICATION_WITH_FRESH_COMPLETE_IMMUTABLE_DISPATCH",
+  "nextCanonicalMessageId": "ORCH-000093"
+}
