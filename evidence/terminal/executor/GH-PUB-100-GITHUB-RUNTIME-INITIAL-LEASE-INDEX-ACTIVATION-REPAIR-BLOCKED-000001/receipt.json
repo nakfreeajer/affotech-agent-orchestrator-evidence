@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-100-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-BLOCKED-000001",
+  "role": "executor",
+  "milestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.RUNTIME.INITIAL.LEASE.INDEX.ACTIVATION.REPAIR.1A",
+  "messageId": "ORCH-000100",
+  "dispatchId": "DISPATCH-000100",
+  "classification": "ORCHESTRATOR_GITHUB_RUNTIME_INITIAL_LEASE_INDEX_ACTIVATION_REPAIR_BLOCKED",
+  "status": "BLOCKED",
+  "durable": true,
+  "retryAttempted": false,
+  "manualDispatch": false,
+  "promptShaMatch": false,
+  "assistantMessageTextRead": false,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "browserMutation": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "architectTriggerMutation": 0
+}
