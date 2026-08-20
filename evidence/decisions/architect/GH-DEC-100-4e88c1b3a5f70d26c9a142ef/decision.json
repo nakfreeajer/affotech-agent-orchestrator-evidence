@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-100-4e88c1b3a5f70d26c9a142ef",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.RUNTIME.INITIAL.LEASE.INDEX.ACTIVATION.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-100-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-BLOCKED-000001",
+  "messageId": "ORCH-000100",
+  "dispatchId": "DISPATCH-000100",
+  "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
+  "protectedBoundaryVerified": true,
+  "reasonCode": "CANONICAL_PROMPT_SHA_MISMATCH",
+  "declaredPromptSha256": "d8b8d07a2e06eb8fb22155946e503833368976aa6e625809832cd65c77909478",
+  "observedPromptSha256": "a419be6b41f8cc6d0140e033342263c79925269a9dd7f6217c247ba5d4ca60a5",
+  "sourceMutationObserved": 0,
+  "nextAction": "RETRY_INITIAL_LEASE_INDEX_SOURCE_REPAIR_WITH_READBACK_VERIFIED_PROMPT_SHA",
+  "nextCanonicalMessageId": "ORCH-000101",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-100-4e88c1b3a5f70d26c9a142ef/decision.json"
+}
