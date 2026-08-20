@@ -2,17 +2,30 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "BLOCKED",
-  "decisionId": "GH-DEC-095-8a4c1e7d3f6b9025c4d8a31e",
-  "decision": "BLOCKED",
-  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.LINEAGE.HYDRATED.RETRY.1A",
-  "reviewedPublicationId": "GH-PUB-095-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
-  "messageId": "ORCH-000095",
-  "dispatchId": "DISPATCH-000095",
-  "acceptedSourcePublicationId": "GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001",
+  "pointerState": "ACCEPTED",
+  "decisionId": "GH-DEC-096-df82c25637d88c4c9940b1b5",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.RUNTIME.EXECUTOR.REGISTRATION.HYDRATION.REPAIR.1A",
+  "reviewedPublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
+  "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
   "protectedBoundaryVerified": true,
-  "reasonCode": "EXECUTOR_REGISTRATION_HYDRATION_INVALID",
-  "nextAction": "IMPLEMENT_GITHUB_RUNTIME_EXECUTOR_REGISTRATION_HYDRATION_REPAIR",
-  "nextCanonicalMessageId": "ORCH-000096",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-095-8a4c1e7d3f6b9025c4d8a31e/decision.json"
+  "verification": {
+    "modifiedFiles": 3,
+    "sourceFiles": 99,
+    "tests": {
+      "githubRuntimePortsPassed": 35,
+      "persistentHostRunnerPassed": 29,
+      "automaticDispatchHostPassed": 36,
+      "browserRelayTransportPortsPassed": 14,
+      "fullPassed": 777
+    },
+    "manifestSha256": "68ab814672746fafcc9931564540d504fe8db1f7958fcfec9d17d2c4a63b8b4a",
+    "archiveSha256": "43b9f420769821f2e37ee4d613836306e65979faf3927a2c23bdd075c469711d",
+    "registrationHydrationVerified": true,
+    "qualificationFixtureResult": "HOST_MUTATION_LEASE_REQUIRED",
+    "transportCalls": 0
+  },
+  "nextAction": "RETRY_LIVE_HOST_QUALIFICATION_WITH_FRESH_HOST_IDENTITY_000003",
+  "nextCanonicalMessageId": "ORCH-000097",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-096-df82c25637d88c4c9940b1b5/decision.json"
 }
