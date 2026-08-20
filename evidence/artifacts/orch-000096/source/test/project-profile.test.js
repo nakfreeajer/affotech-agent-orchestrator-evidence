@@ -1,0 +1,29 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { PROTOCOL_FAMILIES, validateProtocolRecord } from '../src/protocol/compatibility-registry.js';
+import { PROJECT_PROFILE_REASON_CODES, validateProjectProfile } from '../src/project/project-profile.js';
+
+const config = JSON.parse(readFileSync(new URL('../config/project-profile.json', import.meta.url), 'utf8'));
+const validProfile = () => JSON.parse(JSON.stringify(config));
+
+test('valid generic ORCHESTRATOR_GITHUB PROJECT_PROFILE v1.0 is supported', () => assert.equal(validateProjectProfile(validProfile()).classification, 'PROJECT_PROFILE_SUPPORTED'));
+test('self profile config/project-profile.json validates', () => assert.equal(validateProjectProfile(config).valid, true));
+test('input object is not mutated', () => { const profile = validProfile(); const before = JSON.stringify(profile); validateProjectProfile(profile); assert.equal(JSON.stringify(profile), before); });
+test('validated projection is independent and frozen-safe', () => { const profile = validProfile(); const out = validateProjectProfile(profile); assert.equal(Object.isFrozen(out.projection), true); profile.projectId = 'changed'; assert.equal(out.projection.projectId, 'affotech-agent-orchestrator'); });
+test('missing recordType or profile section fails invalid', () => { const profile = validProfile(); delete profile.recordType; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_INVALID'); });
+test('unsupported schemaVersion fails closed', () => { const profile = validProfile(); profile.schemaVersion = '2.0'; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_SCHEMA_UNSUPPORTED'); });
+test('foreign protocol family fails closed', () => { const profile = validProfile(); profile.protocolFamily = 'AFFOTECH_PUB_EXTERNAL'; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_FOREIGN_PROTOCOL_FAMILY'); });
+test('malformed evidence repository fails', () => { const profile = validProfile(); profile.authority.evidenceRepository = 'not-a-repository'; assert.equal(validateProjectProfile(profile).reasonCodes[0], 'EVIDENCE_AUTHORITY_INVALID'); });
+test('malformed Git blob SHA fails governance pin', () => { const profile = validProfile(); profile.governance.bootstrap.blobSha = 'bad'; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_GOVERNANCE_PIN_INVALID'); });
+test('malformed SHA-256 fails governance pin', () => { const profile = validProfile(); profile.governance.projectPolicy.contentSha256 = 'bad'; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_GOVERNANCE_PIN_INVALID'); });
+test('missing bootstrap pin fails governance pin', () => { const profile = validProfile(); delete profile.governance.bootstrap; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_GOVERNANCE_PIN_INVALID'); });
+test('missing project-policy inheritance fails governance pin', () => { const profile = validProfile(); delete profile.governance.projectPolicy.inheritsBootstrap; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_GOVERNANCE_PIN_INVALID'); });
+test('unknown top-level field fails closed', () => { const profile = validProfile(); profile.unknown = true; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_INVALID'); });
+test('embedded current dispatch or message or decision IDs fail dynamic-state rule', () => { const profile = validProfile(); profile.currentDispatchId = 'DISPATCH-000051'; profile.currentMessageId = 'ORCH-000051'; profile.currentDecisionId = 'GH-DEC-current'; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_DYNAMIC_STATE_EMBEDDED'); });
+test('embedded current accepted-source or trigger or reconciliation IDs fail dynamic-state rule', () => { const profile = validProfile(); profile.acceptedSourcePublicationId = 'GH-PUB-current'; profile.triggerId = 'ARCH-TRIGGER-current'; profile.reconciliationId = 'ARCH-TRIGGER-RECONCILIATION-current'; assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_DYNAMIC_STATE_EMBEDDED'); });
+test('protected port collision with 9333 or 9444 fails resource-conflict rule', () => { const profile = validProfile(); profile.protectedBoundaries.protectedPorts.push(9333); assert.equal(validateProjectProfile(profile).classification, 'PROJECT_PROFILE_PROTECTED_RESOURCE_CONFLICT'); });
+test('protected AFFOTECH 9222 and 9223 with access and integration false is valid', () => { const profile = validProfile(); assert.deepEqual(profile.protectedBoundaries.protectedPorts, [9222, 9223]); assert.equal(validateProjectProfile(profile).valid, true); });
+test('compatibility registry now reports PROJECT_PROFILE 1.0 supported', () => assert.equal(validateProtocolRecord(validProfile()).classification, 'SUPPORTED'));
+test('compatibility registry still reports HUMAN_AUTH, MUTATION_LEASE, and CURATOR_RESULT reserved', () => { for (const recordType of ['HUMAN_AUTH', 'MUTATION_LEASE', 'CURATOR_RESULT']) assert.equal(validateProtocolRecord({ schemaVersion: '1.0', recordType }).classification, 'RESERVED_NOT_YET_SUPPORTED'); });
+test('exact self-profile governance pins equal captured values and no current mutable workflow IDs are stored', () => { assert.equal(config.governance.bootstrap.blobSha, 'bf8760ffda1d222d911895914a764eafa3461ca8'); assert.equal(config.governance.projectPolicy.blobSha, 'dae6a456afa1c9fcad24d4a47bbec0d105d96a8d'); assert.equal(config.governance.bootstrap.contentSha256, 'd497ad160193f94651841d694c1301d3afc3692fd534f41339a9c28317114011'); assert.equal(config.governance.projectPolicy.contentSha256, '77b4091fc3e5ea1669145e43d9a00f4576841e3fe01e4880e0a86c3691332205'); assert.doesNotMatch(JSON.stringify(config), /(?:ORCH-|DISPATCH-|GH-DEC-|ARCH-TRIGGER-|RECONCILIATION-)/); });

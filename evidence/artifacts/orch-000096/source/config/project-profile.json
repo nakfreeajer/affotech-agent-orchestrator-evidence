@@ -1,0 +1,26 @@
+{
+  "recordType": "PROJECT_PROFILE",
+  "schemaVersion": "1.0",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "projectId": "affotech-agent-orchestrator",
+  "projectName": "AFFOTECH Agent Orchestrator",
+  "authority": {
+    "evidenceRepository": "nakfreeajer/affotech-agent-orchestrator-evidence",
+    "evidenceBranch": "main",
+    "evidenceAuthority": "GITHUB_DURABLE_EVIDENCE",
+    "currentPointerPaths": ["evidence/current/LATEST_ARCHITECT_DECISION.json", "evidence/current/LATEST_ARCHITECT_PROMPT.json", "evidence/current/LATEST_DISPATCH.json", "evidence/current/LATEST_EXECUTOR_ACCEPTED.json", "evidence/current/RELAY_CONTROL.json"]
+  },
+  "source": {
+    "sourceAuthorityMode": "EVIDENCE_SNAPSHOT",
+    "acceptedSourcePointerPath": "evidence/current/LATEST_EXECUTOR_ACCEPTED.json",
+    "canonicalLocalRoot": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator"
+  },
+  "governance": {
+    "bootstrap": {"version": "1.1", "path": "governance/ORCHESTRATOR_BOOTSTRAP.md", "blobSha": "bf8760ffda1d222d911895914a764eafa3461ca8", "contentSha256": "d497ad160193f94651841d694c1301d3afc3692fd534f41339a9c28317114011"},
+    "projectPolicy": {"version": "1.0", "path": "governance/PROJECT_ORCHESTRATION_POLICY.md", "blobSha": "dae6a456afa1c9fcad24d4a47bbec0d105d96a8d", "contentSha256": "77b4091fc3e5ea1669145e43d9a00f4576841e3fe01e4880e0a86c3691332205", "inheritsBootstrap": true}
+  },
+  "roles": {"humanFinalAuthority": "Rony Finster", "architectRole": "architect", "executorRole": "executor", "curatorPolicy": "ON_DEMAND"},
+  "protectedBoundaries": {"foreignProtocolFamily": "AFFOTECH_PUB_EXTERNAL", "foreignRepository": "nakfreeajer/affotech-agent-relay", "foreignRepositoryAccess": "PROTECTED_NO_ACCESS", "protectedPorts": [9222, 9223], "affotechIntegrationAuthorized": false, "affotechAccessAuthorized": false},
+  "endpoints": {"architectRelayPort": 9333, "executorRelayPort": 9444},
+  "pointers": {"architectDecision": "evidence/current/LATEST_ARCHITECT_DECISION.json", "architectPrompt": "evidence/current/LATEST_ARCHITECT_PROMPT.json", "dispatch": "evidence/current/LATEST_DISPATCH.json", "acceptedExecutor": "evidence/current/LATEST_EXECUTOR_ACCEPTED.json", "relayControl": "evidence/current/RELAY_CONTROL.json"}
+}
