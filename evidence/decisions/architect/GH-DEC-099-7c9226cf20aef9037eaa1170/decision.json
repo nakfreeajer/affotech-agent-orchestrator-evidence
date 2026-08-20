@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-099-7c9226cf20aef9037eaa1170",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.ABSENT.LEASE.INDEX.CAS.RETRY.1A",
+  "reviewedPublicationId": "GH-PUB-099-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "messageId": "ORCH-000099",
+  "dispatchId": "DISPATCH-000099",
+  "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
+  "protectedBoundaryVerified": true,
+  "reasonCode": "REPEATED_INITIAL_LEASE_INDEX_ACTIVATION_ADAPTER_FAILURE",
+  "reconciliationClassification": "NOT_ACQUIRED_SAFE",
+  "observedFailures": ["ORCH-000098", "ORCH-000099"],
+  "nextAction": "IMPLEMENT_RUNTIME_INITIAL_LEASE_INDEX_CREATE_PATH",
+  "nextCanonicalMessageId": "ORCH-000100",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-099-7c9226cf20aef9037eaa1170/decision.json"
+}
