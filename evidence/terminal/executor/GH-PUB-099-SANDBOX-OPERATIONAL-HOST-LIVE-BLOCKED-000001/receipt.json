@@ -15,6 +15,9 @@
   "sourceMutation": 0,
   "testMutation": 0,
   "browserMutation": 0,
+  "hostRuntimeIdentityMutation": 1,
+  "hostRuntimeEventMutation": 2,
+  "liveMutationLeaseMutation": 1,
   "workerDeliveryMutation": 0,
   "workerResultMutation": 0,
   "architectTriggerMutation": 0

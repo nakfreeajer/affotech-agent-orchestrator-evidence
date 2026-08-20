@@ -15,11 +15,12 @@
   "hostInstanceId": "HOST-INSTANCE-SANDBOX-000005",
   "hostGenerationId": "HOST-GEN-SANDBOX-000005",
   "hostProcessStarted": true,
-  "hostIdentityCreated": false,
+  "hostIdentityCreated": true,
   "hostStillRunning": false,
   "preMutationLeaseReconciliation": "NOT_ACQUIRED_SAFE",
   "historicalHostIdentitiesPreserved": true,
   "nowMsSupplied": true,
+  "leaseAcquireAttemptCount": 1,
   "leaseAcquireCount": 0,
   "leaseReleaseCount": 0,
   "browserSendCount": 0,
@@ -32,7 +33,7 @@
   "testMutation": 0,
   "hostRuntimeIdentityMutation": 0,
   "hostRuntimeEventMutation": 0,
-  "liveMutationLeaseMutation": 0,
+  "liveMutationLeaseMutation": 1,
   "workerDeliveryMutation": 0,
   "workerResultMutation": 0,
   "architectTriggerMutation": 0,
@@ -42,13 +43,15 @@
   "privateBusinessDataAccess": 0,
   "protectedPortAccess": 0,
   "error": {
-    "code": "HOST_STARTUP_STALLED_BEFORE_IDENTITY",
-    "reasonCode": "BROWSER_RELAY_TRANSPORT_INITIALIZATION_STALLED",
-    "failingFunction": "temporary launch glue cdpTransport / WebSocket open",
-    "message": "The corrected temporary launcher process remained alive but produced no durable host identity, lease evidence, or delivery evidence during the bounded startup observation. Its first pre-identity await is BrowserRelay cdpTransport WebSocket initialization for the authorized Executor port 9444. No exception was emitted. The process was stopped fail-closed.",
+    "code": "LEASE_INDEX_CAS_STARTUP_STALLED",
+    "reasonCode": "LEASE_INDEX_CREATE_IF_ABSENT_NOT_CONFIRMED",
+    "failingFunction": "temporary GitHub client updateJsonCas create-if-absent CAS",
+    "message": "The host published identity and lease-required evidence and created the fresh ORCH-000099 immutable lease candidate, but the corrected create-if-absent lease-index CAS did not complete during the bounded observation. No active lease-index membership or durable acquisition was confirmed. The process was stopped fail-closed.",
     "launchCommand": "node C:\\Temp\\affotech-orch098-launch.mjs",
     "temporaryAdapterRepair": "create-if-absent updateJsonCas was applied outside the accepted source tree",
-    "browserEndpointProbe": "GET http://127.0.0.1:9444/json/list succeeded; no USER message was sent"
+    "browserEndpointProbe": "GET http://127.0.0.1:9444/json/list succeeded; no USER message was sent",
+    "leaseCandidatePath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-500a618a731f48d9ebd6cabc22cc64c2/revisions/000001.json",
+    "leaseIndexPath": "evidence/current/host-runtime/MUTATION_LEASE_INDEX.json"
   },
-  "summary": "ORCH-000099 failed closed before host identity creation because the temporary BrowserRelay transport initialization stalled. No lease acquisition, worker delivery, retry, or assistant-response read occurred."
+  "summary": "ORCH-000099 failed closed after host identity and immutable lease-candidate creation, before active lease-index membership, browser delivery, or worker-delivery persistence. No retry or assistant-response read occurred."
 }
