@@ -9,7 +9,7 @@
   "status": "PASS",
   "durable": true,
   "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
-  "sourceMutation": 2,
+  "sourceMutation": 1,
   "testMutation": 1,
   "browserMutation": 0,
   "liveHostRuntimeMutation": 0,
