@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000002-DISPATCH-000095-GOVERNANCE_DENIED",
+  "eventType": "GOVERNANCE_DENIED",
+  "sourceRef": "f6b3bb1c5c005d872f12e471672ee27246d2b971",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000002",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000002",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_GOVERNANCE_DENIED",
+  "nextAction": "STOP",
+  "dispatchId": "DISPATCH-000095",
+  "messageId": "ORCH-000095",
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "telemetryOnly": true
+}
