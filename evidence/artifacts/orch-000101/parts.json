@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-101-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-RETRY-000001",
+  "artifactKind": "ORCHESTRATOR_SOURCE_SNAPSHOT",
+  "archivePath": "evidence/artifacts/orch-000101/orchestrator-source-snapshot-orch-000101.tar.gz",
+  "archiveSha256": "4c55d07330779a6087f91e2cea2c23970cf9a446d45b6dd416f8b5e00fd82820",
+  "archiveSize": 131348,
+  "manifestSha256": "657d4781e52bf1d725d6ce8972c814bfcdcab630bc5a96a4f20d574f3d258b85",
+  "fileCount": 99,
+  "acceptedSourceFileCount": 99,
+  "modifiedFiles": [
+    "src/host/github-runtime-ports.js",
+    "test/github-runtime-ports.test.js"
+  ],
+  "addedFiles": [],
+  "removedFiles": [],
+  "otherByteIdenticalFileCount": 97
+}
