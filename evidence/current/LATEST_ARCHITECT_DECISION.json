@@ -2,30 +2,17 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "pointerKind": "ARCHITECT_DECISION",
-  "pointerState": "ACCEPTED",
-  "decisionId": "GH-DEC-096-df82c25637d88c4c9940b1b5",
-  "decision": "ACCEPTED",
-  "reviewedMilestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.RUNTIME.EXECUTOR.REGISTRATION.HYDRATION.REPAIR.1A",
-  "reviewedPublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
+  "pointerState": "BLOCKED",
+  "decisionId": "GH-DEC-097-8c6763b3d237b8656b80a1f0",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.REGISTRATION.HYDRATED.RETRY.1A",
+  "reviewedPublicationId": "GH-PUB-097-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "messageId": "ORCH-000097",
+  "dispatchId": "DISPATCH-000097",
   "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
   "protectedBoundaryVerified": true,
-  "verification": {
-    "modifiedFiles": 3,
-    "sourceFiles": 99,
-    "tests": {
-      "githubRuntimePortsPassed": 35,
-      "persistentHostRunnerPassed": 29,
-      "automaticDispatchHostPassed": 36,
-      "browserRelayTransportPortsPassed": 14,
-      "fullPassed": 777
-    },
-    "manifestSha256": "68ab814672746fafcc9931564540d504fe8db1f7958fcfec9d17d2c4a63b8b4a",
-    "archiveSha256": "43b9f420769821f2e37ee4d613836306e65979faf3927a2c23bdd075c469711d",
-    "registrationHydrationVerified": true,
-    "qualificationFixtureResult": "HOST_MUTATION_LEASE_REQUIRED",
-    "transportCalls": 0
-  },
-  "nextAction": "RETRY_LIVE_HOST_QUALIFICATION_WITH_FRESH_HOST_IDENTITY_000003",
-  "nextCanonicalMessageId": "ORCH-000097",
-  "decisionPath": "evidence/decisions/architect/GH-DEC-096-df82c25637d88c4c9940b1b5/decision.json"
+  "reasonCode": "PRE_DISPATCH_INVALID_DISPATCH_BASELINE_BINDING_MISSING",
+  "nextAction": "RETRY_LIVE_HOST_WITH_COMPLETE_DISPATCH_BASELINE_BINDING",
+  "nextCanonicalMessageId": "ORCH-000098",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-097-8c6763b3d237b8656b80a1f0/decision.json"
 }
