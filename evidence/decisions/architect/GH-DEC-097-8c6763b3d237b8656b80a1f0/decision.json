@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-097-8c6763b3d237b8656b80a1f0",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.REGISTRATION.HYDRATED.RETRY.1A",
+  "reviewedPublicationId": "GH-PUB-097-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "messageId": "ORCH-000097",
+  "dispatchId": "DISPATCH-000097",
+  "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
+  "protectedBoundaryVerified": true,
+  "reasonCode": "PRE_DISPATCH_INVALID_DISPATCH_BASELINE_BINDING_MISSING",
+  "reason": "DISPATCH-000097 omitted required expectedAcceptedSourcePublicationId; host failed closed before lease or browser contact.",
+  "nextAction": "RETRY_LIVE_HOST_WITH_COMPLETE_DISPATCH_BASELINE_BINDING",
+  "nextCanonicalMessageId": "ORCH-000098"
+}
