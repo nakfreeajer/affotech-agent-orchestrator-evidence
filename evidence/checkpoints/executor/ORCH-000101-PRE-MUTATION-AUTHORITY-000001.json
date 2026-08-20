@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "checkpointKind": "EXECUTOR_PRE_MUTATION_AUTHORITY",
+  "checkpointPurpose": "PRE_MUTATION_AUTHORITY_BINDING",
+  "messageId": "ORCH-000101",
+  "dispatchId": "DISPATCH-000101",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000101.md",
+  "canonicalPromptSha256": "8c0048d1835feeaf24bfd0d95457d4e5c03099a7d1b38035461873781dca0f50",
+  "capturedOriginMainRef": "59786136479af25c005e309d29f57b9fe5facf25",
+  "architectDecisionId": "GH-DEC-100-4e88c1b3a5f70d26c9a142ef",
+  "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
+  "acceptedSourceFileCount": 99,
+  "baselineFocusedTests": {
+    "githubRuntimePorts": 35,
+    "persistentHostRunner": 29,
+    "automaticDispatchHost": 36,
+    "browserRelayTransportPorts": 14
+  },
+  "baselineFullTests": 777,
+  "baselineFailures": 0,
+  "authorizedMutationPaths": [
+    "src/host/github-runtime-ports.js",
+    "test/github-runtime-ports.test.js",
+    "test/persistent-host-runner.test.js"
+  ],
+  "sourceMutationStarted": false,
+  "testMutationStarted": false,
+  "liveHostStart": 0,
+  "browserContact": 0,
+  "liveMutationLease": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "architectTriggerMutation": 0,
+  "affotechAccess": 0,
+  "driveAccess": 0,
+  "deploymentAccess": 0,
+  "privateBusinessDataAccess": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false,
+  "stateMutationStarted": false
+}
