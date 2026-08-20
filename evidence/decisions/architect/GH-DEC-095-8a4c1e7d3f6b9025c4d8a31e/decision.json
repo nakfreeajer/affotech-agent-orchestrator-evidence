@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-095-8a4c1e7d3f6b9025c4d8a31e",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.LINEAGE.HYDRATED.RETRY.1A",
+  "reviewedPublicationId": "GH-PUB-095-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "messageId": "ORCH-000095",
+  "dispatchId": "DISPATCH-000095",
+  "acceptedSourcePublicationId": "GH-PUB-094-GITHUB-RUNTIME-WORKER-LINEAGE-HYDRATION-REPAIR-000001",
+  "protectedBoundaryVerified": true,
+  "reasonCode": "EXECUTOR_REGISTRATION_HYDRATION_INVALID",
+  "nextAction": "IMPLEMENT_GITHUB_RUNTIME_EXECUTOR_REGISTRATION_HYDRATION_REPAIR",
+  "nextCanonicalMessageId": "ORCH-000096",
+  "requiresArchitectDecision": false
+}
