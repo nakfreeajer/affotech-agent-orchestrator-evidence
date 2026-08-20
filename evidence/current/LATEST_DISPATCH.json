@@ -2,17 +2,17 @@
   "schemaVersion": "1.0",
   "evidenceProject": "affotech-agent-orchestrator",
   "recordType": "DISPATCH",
-  "dispatchId": "DISPATCH-000098",
-  "messageId": "ORCH-000098",
-  "parentMessageId": "ORCH-000097",
-  "canonicalPromptPath": "evidence/prompts/ORCH-000098.md",
-  "canonicalPromptSha256": "9a1b5b660811b8cd00726779ec0f2b3ff64bdf6b30535d3f22100e2715a79958",
+  "dispatchId": "DISPATCH-000099",
+  "messageId": "ORCH-000099",
+  "parentMessageId": "ORCH-000098",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000099.md",
+  "canonicalPromptSha256": "67a884afa38cecf6add8d8cd7eaf5c0f8b63f49fce2891506674ee8e578023e4",
   "targetRole": "executor",
   "protocolFamily": "ORCHESTRATOR_GITHUB",
   "dispatchState": "MANUAL_TRIGGER_REQUIRED",
-  "architectDecisionId": "GH-DEC-097-8c6763b3d237b8656b80a1f0",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.DISPATCH.BASELINE.BINDING.RETRY.1A",
-  "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.DISPATCH.BASELINE.BINDING.RETRY.1A",
+  "architectDecisionId": "GH-DEC-098-7f61b4d29a8c30e5d6421fa7",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.ABSENT.LEASE.INDEX.CAS.RETRY.1A",
+  "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.ABSENT.LEASE.INDEX.CAS.RETRY.1A",
   "acceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
   "expectedAcceptedSourcePublicationId": "GH-PUB-096-GITHUB-RUNTIME-EXECUTOR-REGISTRATION-HYDRATION-REPAIR-000001",
   "acceptedSourceFileCount": 99,
@@ -22,14 +22,19 @@
   "mutationLeaseRequired": true,
   "ambiguityProneExternalMutation": true,
   "preMutationAuthorityCheckpointRequired": true,
-  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000004",
-  "hostGenerationId": "HOST-GEN-SANDBOX-000004",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000005",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000005",
   "historicalHostInstanceIds": [
     "HOST-INSTANCE-SANDBOX-000001",
     "HOST-INSTANCE-SANDBOX-000002",
-    "HOST-INSTANCE-SANDBOX-000003"
+    "HOST-INSTANCE-SANDBOX-000003",
+    "HOST-INSTANCE-SANDBOX-000004"
   ],
   "expectedFreshWorkerDeliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "priorLeaseReconciliation": {
+    "leaseId": "MUTATION-LEASE-HOST-df845b8cd25cdbc11a1e2e7c90abc575",
+    "requiredClassification": "NOT_ACQUIRED_SAFE"
+  },
   "browserContactAuthorized": true,
   "workerDeliveryMutationAuthorized": true,
   "liveMutationLeaseAuthorized": true,
@@ -45,5 +50,5 @@
   "protectedBrowserPorts": [9222, 9223],
   "pointerKind": "DISPATCH",
   "pointerState": "MANUAL_TRIGGER_REQUIRED",
-  "dispatchPath": "evidence/dispatches/DISPATCH-000098/DISPATCH.json"
+  "dispatchPath": "evidence/dispatches/DISPATCH-000099/DISPATCH.json"
 }
