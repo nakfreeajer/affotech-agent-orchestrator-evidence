@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000004-DISPATCH-000098-LEASE_REQUIRED",
+  "eventType": "LEASE_REQUIRED",
+  "sourceRef": "5238e1729c5801504b184d7b50d1d0ce9deb23a9",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000004",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000004",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_MUTATION_LEASE_REQUIRED",
+  "nextAction": "OBTAIN_WORKER_MUTATION_LEASE",
+  "dispatchId": "DISPATCH-000098",
+  "messageId": "ORCH-000098",
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "requiredLease": {
+    "actionKind": "WORKER_DELIVERY",
+    "projectId": "affotech-agent-orchestrator",
+    "holder": {
+      "registrationId": "WORKER-REG-EXECUTOR-000001",
+      "workerRole": "executor"
+    },
+    "messageId": "ORCH-000098",
+    "dispatchId": "DISPATCH-000098",
+    "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.DISPATCH.BASELINE.BINDING.RETRY.1A",
+    "resourceScope": [
+      "worker-delivery"
+    ],
+    "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
+    "mutationEnvelopeSha256": "4047d2051e29fda032f2a89b9ad0976311718b600caf385d5a4599beb6f3b8a7",
+    "target": null
+  },
+  "telemetryOnly": true
+}
