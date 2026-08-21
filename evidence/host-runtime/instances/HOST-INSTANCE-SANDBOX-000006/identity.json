@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_INSTANCE_IDENTITY",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000006",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000006",
+  "projectId": "affotech-agent-orchestrator",
+  "workerRole": "executor",
+  "acceptedSourcePublicationId": "GH-PUB-101-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-RETRY-000001",
+  "createdAt": 1787279858924,
+  "createdByRole": "executor",
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false
+  }
+}
