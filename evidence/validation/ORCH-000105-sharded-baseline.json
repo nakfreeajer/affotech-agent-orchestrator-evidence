@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "SHARDED_BASELINE_LEDGER",
+  "messageId": "ORCH-000105",
+  "dispatchId": "DISPATCH-000105",
+  "acceptedSourcePublicationId": "GH-PUB-101-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-RETRY-000001",
+  "commandTemplate": "node --test <exact-test-file>",
+  "testConcurrencyOverride": false,
+  "fileCount": 24,
+  "completedExitZeroFiles": 23,
+  "blockedFile": {
+    "path": "test/worker-relay.test.js",
+    "exitStatus": null,
+    "signal": "SIGTERM",
+    "timeout": true,
+    "perFileTimeoutSeconds": 45
+  },
+  "aggregate": {
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "cancelled": null,
+    "complete": false,
+    "requiredPassed": 780,
+    "requiredFailed": 0
+  },
+  "mutationStarted": false,
+  "sourceMutation": 0,
+  "testMutation": 0
+}
