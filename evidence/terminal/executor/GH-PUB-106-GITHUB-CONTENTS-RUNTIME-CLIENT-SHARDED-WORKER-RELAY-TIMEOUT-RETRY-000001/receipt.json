@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "role": "executor",
+  "milestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.CONTENTS.RUNTIME.CLIENT.REPAIR.SHARDED.WORKER.RELAY.TIMEOUT.RETRY.1A",
+  "messageId": "ORCH-000106",
+  "dispatchId": "DISPATCH-000106",
+  "classification": "ORCHESTRATOR_GITHUB_CONTENTS_RUNTIME_CLIENT_READY_FOR_ARCHITECT_REVIEW",
+  "status": "PASS",
+  "durable": true,
+  "sourceMutation": 2,
+  "testMutation": 1,
+  "browserMutation": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "architectTriggerMutation": 0,
+  "assistantMessageTextRead": false
+}
