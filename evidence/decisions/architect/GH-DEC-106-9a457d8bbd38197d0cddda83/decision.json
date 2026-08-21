@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-106-9a457d8bbd38197d0cddda83",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.CONTENTS.RUNTIME.CLIENT.REPAIR.SHARDED.WORKER.RELAY.TIMEOUT.RETRY.1A",
+  "reviewedPublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "messageId": "ORCH-000106",
+  "dispatchId": "DISPATCH-000106",
+  "acceptedSourcePublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "acceptedSourceFileCount": 101,
+  "acceptedManifestSha256": "9649e8a261672c14415b77259ae8dbdd19158c91b368d3b0a6a57e2539939a7d",
+  "acceptedArchiveSha256": "f3201b7b44230a2f5f032575750fc3b690954597a7cd1be428f511cbcb06a5d5",
+  "acceptedArchiveBytes": 134093,
+  "baselineShardedPassed": 780,
+  "postMutationShardedPassed": 792,
+  "newClientTestsPassed": 12,
+  "acceptedFilesUnchanged": 99,
+  "protectedBoundaryVerified": true,
+  "nextAction": "RETRY_LIVE_HOST_QUALIFICATION_WITH_REUSABLE_GITHUB_CONTENTS_RUNTIME_CLIENT",
+  "nextCanonicalMessageId": "ORCH-000107"
+}
