@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-103-GITHUB-CONTENTS-RUNTIME-CLIENT-REPAIR-BLOCKED-000001",
+  "role": "executor",
+  "milestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.CONTENTS.RUNTIME.CLIENT.REPAIR.1A",
+  "messageId": "ORCH-000103",
+  "dispatchId": "DISPATCH-000103",
+  "classification": "ORCHESTRATOR_GITHUB_CONTENTS_RUNTIME_CLIENT_REPAIR_BLOCKED",
+  "status": "BLOCKED",
+  "durable": true,
+  "retryAttempted": false,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "browserMutation": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "architectTriggerMutation": 0,
+  "assistantMessageTextRead": false
+}
