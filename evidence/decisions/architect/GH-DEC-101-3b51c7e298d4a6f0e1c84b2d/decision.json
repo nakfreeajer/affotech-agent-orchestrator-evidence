@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-101-3b51c7e298d4a6f0e1c84b2d",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.RUNTIME.INITIAL.LEASE.INDEX.ACTIVATION.REPAIR.RETRY.1A",
+  "reviewedPublicationId": "GH-PUB-101-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-RETRY-000001",
+  "messageId": "ORCH-000101",
+  "dispatchId": "DISPATCH-000101",
+  "acceptedSourcePublicationId": "GH-PUB-101-GITHUB-RUNTIME-INITIAL-LEASE-INDEX-ACTIVATION-REPAIR-RETRY-000001",
+  "protectedBoundaryVerified": true,
+  "verification": {
+    "sourceFiles": 99,
+    "modifiedFiles": 2,
+    "githubRuntimePortsPassed": 38,
+    "persistentHostRunnerPassed": 29,
+    "automaticDispatchHostPassed": 36,
+    "browserRelayTransportPortsPassed": 14,
+    "fullPassed": 780,
+    "manifestSha256": "657d4781e52bf1d725d6ce8972c814bfcdcab630bc5a96a4f20d574f3d258b85",
+    "archiveSha256": "4c55d07330779a6087f91e2cea2c23970cf9a446d45b6dd416f8b5e00fd82820",
+    "initialLeaseIndexCreatePathVerified": true,
+    "existingIndexCasPreserved": true,
+    "liveSideEffects": 0
+  },
+  "nextAction": "RETRY_LIVE_HOST_QUALIFICATION_AFTER_INITIAL_LEASE_INDEX_REPAIR",
+  "nextCanonicalMessageId": "ORCH-000102",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-101-3b51c7e298d4a6f0e1c84b2d/decision.json"
+}
