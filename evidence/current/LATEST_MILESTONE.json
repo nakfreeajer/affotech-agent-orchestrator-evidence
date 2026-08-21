@@ -2,9 +2,9 @@
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
   "milestone": "ORCH.P0.PERSISTENT.HOST.GITHUB.CONTENTS.RUNTIME.CLIENT.REPAIR.1A",
-  "publicationId": "GH-PUB-103-GITHUB-CONTENTS-RUNTIME-CLIENT-REPAIR-BLOCKED-000001",
-  "messageId": "ORCH-000103",
-  "dispatchId": "DISPATCH-000103",
+  "publicationId": "GH-PUB-104-GITHUB-CONTENTS-RUNTIME-CLIENT-REPAIR-RETRY-BLOCKED-000001",
+  "messageId": "ORCH-000104",
+  "dispatchId": "DISPATCH-000104",
   "status": "BLOCKED",
   "requiresArchitectDecision": true
 }

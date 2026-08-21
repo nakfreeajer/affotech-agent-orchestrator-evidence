@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_BOOTSTRAP_ATTEMPT",
+  "bootstrapId": "HOST-BOOTSTRAP-SANDBOX-000004",
+  "messageId": "ORCH-000104",
+  "dispatchId": "DISPATCH-000104",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000001",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000001",
+  "classification": "BLOCKED",
+  "launchCommand": "node --test (accepted source baseline; bounded 300-second run)",
+  "exportsDiscovered": {},
+  "error": {
+    "code": "BASELINE_FULL_SUITE_TIMEOUT",
+    "message": "The mandatory ordinary node --test baseline did not complete within the bounded 300-second window; execution stopped before source mutation.",
+    "failingCommand": "node --test",
+    "expectedBaseline": {
+      "tests": 780,
+      "passed": 780,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0
+    },
+    "observed": "process timed out without a completion summary"
+  },
+  "hostIdentityCreated": false,
+  "leaseAcquireCount": 0,
+  "browserSendCount": 0,
+  "delivery000005Exists": false,
+  "hostStillRunning": false,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "browserMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false
+}
