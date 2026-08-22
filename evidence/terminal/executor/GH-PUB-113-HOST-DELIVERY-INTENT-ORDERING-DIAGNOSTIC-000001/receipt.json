@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-113-HOST-DELIVERY-INTENT-ORDERING-DIAGNOSTIC-000001",
+  "messageId": "ORCH-000113",
+  "dispatchId": "DISPATCH-000113",
+  "status": "PASS",
+  "classification": "ACCEPTED_RUNNER_MISSING_INTENT_PREPARATION_STEP",
+  "diagnosticPath": "evidence/diagnostics/ORCH-000113-DELIVERY-INTENT-ORDERING.json",
+  "focusedTestsPassed": 117,
+  "focusedTestsFailed": 0,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "hostStart": 0,
+  "browserContact": 0,
+  "leaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false,
+  "responseDomRead": false,
+  "secretValuesPersisted": false
+}

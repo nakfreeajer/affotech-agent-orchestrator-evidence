@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_DELIVERY_INTENT_ORDERING_DIAGNOSTIC",
+  "diagnosticId": "ORCH-000113-DELIVERY-INTENT-ORDERING-000001",
+  "messageId": "ORCH-000113",
+  "dispatchId": "DISPATCH-000113",
+  "status": "PASS",
+  "classification": "ACCEPTED_RUNNER_MISSING_INTENT_PREPARATION_STEP",
+  "authorityRef": "3ad3ad9a05f82f56c7c751983e1b17111cbba50d",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000113.md",
+  "canonicalPromptSha256": "e613ffc18e1d48c3d63488e178b0907e5a797d5d95828a7a57a5bc7be4661a61",
+  "architectDecisionId": "GH-DEC-112-6e7d1f9a4c20b853d1a2764f",
+  "acceptedSourcePublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "focusedTests": {
+    "passed": 117,
+    "failed": 0,
+    "suites": ["github-runtime-ports", "persistent-host-runner", "automatic-dispatch-host", "browser-relay-transport-ports"]
+  },
+  "durableState": {
+    "latestDeliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+    "latestDeliveryState": "SENT",
+    "freshDelivery000005Exists": false,
+    "freshIntent000005Exists": false,
+    "freshResult000005Exists": false,
+    "activeLeaseCount": 0,
+    "hostIdentity000008Exists": true
+  },
+  "callGraph": {
+    "runnerRequiredPorts": ["readDurableSnapshot", "acquireMutationLease", "reconcileMutationLease", "releaseMutationLease", "sendWorkerDelivery", "sendArchitectTrigger", "publishHostEvent", "waitForNextPoll"],
+    "intentPreparationPortPresent": false,
+    "persistentHostRunnerAfterLease": "runPersistentHostIteration re-evaluates HOST_DELIVERY_READY, then directly invokes ports.sendWorkerDelivery",
+    "runnerSourceLocation": "src/host/persistent-host-runner.js:87",
+    "transportSourceLocation": "src/host/browser-relay-transport-ports.js:76",
+    "browserObservationBeforeIntent": "sendWorkerDelivery calls workerTransport.observe at browser-relay-transport-ports.js:88",
+    "intentPersistenceAfterObservation": "createWorkerDeliveryIntent is built and persisted at browser-relay-transport-ports.js:92-96",
+    "resultAndPointerAfterTransport": "result/pointer persistence follows send and post-send observation at browser-relay-transport-ports.js:101-108",
+    "intentConstructor": "createWorkerDeliveryIntent in src/browser-relay/worker-relay.js",
+    "launchGlueAvailable": true,
+    "launchGluePath": "C:\\tmp\\orch-000112-live-host.mjs"
+  },
+  "testCoverageAnalysis": {
+    "runnerLeaseTest": "test/persistent-host-runner.test.js:28 asserts lease acquisition, one worker call, and waiting state, but does not provide or assert durable intent preparation",
+    "runnerTransportTest": "test/persistent-host-runner.test.js:32 asserts one transport call and one release, but not intent-before-transport ordering",
+    "relayTest": "test/browser-relay-transport-ports.test.js:34 asserts SENT and fake persistence, but does not assert browser observation occurs after durable intent",
+    "automaticHostTest": "test/automatic-dispatch-host.test.js:28 asserts HOST_DELIVERY_READY for an exact lease, but has no intent-preparation state",
+    "endToEndOrderingCovered": false
+  },
+  "repairBound": {
+    "sourceMutationRequired": true,
+    "smallestLikelySourcePath": "src/host/persistent-host-runner.js",
+    "smallestLikelyTestPath": "test/persistent-host-runner.test.js",
+    "additionalTransportChangesProvenNecessary": false,
+    "repairPerformed": false
+  },
+  "mutationAccounting": {
+    "sourceMutation": 0,
+    "testMutation": 0,
+    "configMutation": 0,
+    "hostStart": 0,
+    "browserContact": 0,
+    "browserSend": 0,
+    "leaseMutation": 0,
+    "workerDeliveryMutation": 0,
+    "workerResultMutation": 0,
+    "architectTriggerMutation": 0,
+    "githubAuthenticationMutation": 0,
+    "systemInstallationMutation": 0,
+    "protectedPortAccess": 0,
+    "assistantMessageTextRead": false,
+    "responseDomRead": false,
+    "affotechAccess": 0,
+    "driveAccess": 0,
+    "deploymentAccess": 0,
+    "privateDataAccess": 0,
+    "secretValueOutputOrPersistence": 0
+  },
+  "requiresArchitectDecision": true
+}
