@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-113-HOST-DELIVERY-INTENT-ORDERING-DIAGNOSTIC-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-113-HOST-DELIVERY-INTENT-ORDERING-DIAGNOSTIC-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-113-HOST-DELIVERY-INTENT-ORDERING-DIAGNOSTIC-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-113-HOST-DELIVERY-INTENT-ORDERING-DIAGNOSTIC-000001/receipt.json",
-  "messageId": "ORCH-000113",
-  "dispatchId": "DISPATCH-000113",
-  "status": "PASS",
+  "publicationId": "GH-PUB-114-HOST-DELIVERY-INTENT-ORDERING-REPAIR-BOUND-BLOCKED-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-114-HOST-DELIVERY-INTENT-ORDERING-REPAIR-BOUND-BLOCKED-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-114-HOST-DELIVERY-INTENT-ORDERING-REPAIR-BOUND-BLOCKED-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-114-HOST-DELIVERY-INTENT-ORDERING-REPAIR-BOUND-BLOCKED-000001/receipt.json",
+  "messageId": "ORCH-000114",
+  "dispatchId": "DISPATCH-000114",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }
