@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_PRE_LIVE_AUTHORITY_CHECKPOINT",
+  "checkpointId": "ORCH-000112-PRE-LIVE-AUTHORITY-000001",
+  "messageId": "ORCH-000112",
+  "dispatchId": "DISPATCH-000112",
+  "acceptedSourcePublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000008",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000008",
+  "workerAuthorityId": "WORKER-AUTH-EXECUTOR-000001",
+  "workerRegistrationId": "WORKER-REG-EXECUTOR-000001",
+  "workerPort": 9444,
+  "conversationId": "6a80a082-3398-83ec-8336-dd73d62e848e",
+  "previousDeliveryId": "WORKER-DELIVERY-EXECUTOR-000004",
+  "previousDeliveryState": "SENT",
+  "freshDeliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false,
+  "responseDomRead": false
+}
