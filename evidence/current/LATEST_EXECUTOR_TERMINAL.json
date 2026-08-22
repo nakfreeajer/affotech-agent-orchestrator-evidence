@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-111-HOST-GITHUB-CLI-POST-MANUAL-AUTH-READY-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-111-HOST-GITHUB-CLI-POST-MANUAL-AUTH-READY-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-111-HOST-GITHUB-CLI-POST-MANUAL-AUTH-READY-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-111-HOST-GITHUB-CLI-POST-MANUAL-AUTH-READY-000001/receipt.json",
-  "messageId": "ORCH-000111",
-  "dispatchId": "DISPATCH-000111",
-  "status": "PASS",
+  "publicationId": "GH-PUB-112-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-112-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-112-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-112-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001/receipt.json",
+  "messageId": "ORCH-000112",
+  "dispatchId": "DISPATCH-000112",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }
