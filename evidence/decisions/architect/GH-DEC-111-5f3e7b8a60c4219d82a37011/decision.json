@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-111-5f3e7b8a60c4219d82a37011",
+  "decision": "ACCEPTED",
+  "reviewedMilestone": "ORCH.P0.HOST.GITHUB.CLI.POST.MANUAL.AUTH.VERIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-111-HOST-GITHUB-CLI-POST-MANUAL-AUTH-READY-000001",
+  "messageId": "ORCH-000111",
+  "dispatchId": "DISPATCH-000111",
+  "acceptedSourcePublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "classification": "GH_AUTHENTICATED_API_READY",
+  "protectedBoundaryVerified": true,
+  "sourceAcceptanceAdvanced": false,
+  "nextAction": "RETRY_LIVE_HOST_QUALIFICATION_WITH_AUTHENTICATED_GITHUB_CONTENTS_RUNTIME_CLIENT",
+  "nextCanonicalMessageId": "ORCH-000112"
+}
