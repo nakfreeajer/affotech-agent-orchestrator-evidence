@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.GITHUB.CONTENTS.RUNTIME.CLIENT.1A",
-  "publicationId": "GH-PUB-107-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
-  "messageId": "ORCH-000107",
-  "dispatchId": "DISPATCH-000107",
-  "status": "BLOCKED",
+  "milestone": "ORCH.P0.HOST.GITHUB.RUNTIME.AUTH.ENVIRONMENT.QUALIFICATION.1A",
+  "publicationId": "GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001",
+  "messageId": "ORCH-000108",
+  "dispatchId": "DISPATCH-000108",
+  "status": "PASS",
   "requiresArchitectDecision": true
 }

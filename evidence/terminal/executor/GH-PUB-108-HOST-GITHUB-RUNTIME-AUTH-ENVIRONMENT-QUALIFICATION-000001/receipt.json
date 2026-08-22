@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001",
+  "messageId": "ORCH-000108",
+  "dispatchId": "DISPATCH-000108",
+  "classification": "WINGET_GITHUB_CLI_INSTALL_PATH_AVAILABLE",
+  "status": "PASS",
+  "durableEvidence": true,
+  "promptVerified": true,
+  "promptSha256": "5f815dc94559c94319f4fd32762627c64fb4e28cb92eb72d556fd46f41b9ae2f",
+  "secretValuesPersisted": false,
+  "sourceMutation": 0,
+  "systemInstallationMutation": 0,
+  "hostStart": 0,
+  "browserContact": 0,
+  "leaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false
+}
