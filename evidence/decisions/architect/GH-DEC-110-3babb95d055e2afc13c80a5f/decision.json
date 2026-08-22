@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-110-3babb95d055e2afc13c80a5f",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.HOST.GITHUB.CLI.POST.MANUAL.INSTALL.VERIFICATION.1A",
+  "reviewedPublicationId": "GH-PUB-110-HOST-GITHUB-CLI-POST-MANUAL-INSTALL-VERIFICATION-BLOCKED-000001",
+  "messageId": "ORCH-000110",
+  "dispatchId": "DISPATCH-000110",
+  "acceptedSourcePublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "protectedBoundaryVerified": true,
+  "reasonCode": "GH_INSTALLED_BUT_NOT_AUTHENTICATED",
+  "ghResolvedPath": "C:\\Program Files\\GitHub CLI\\gh.exe",
+  "ghVersion": "2.98.0",
+  "ghAuthStatusExitCode": 1,
+  "privateEvidenceGhApiReadAuthenticated": false,
+  "sourceAcceptanceAdvanced": false,
+  "nextAction": "RONY_MANUALLY_AUTHENTICATE_GITHUB_CLI_THEN_EXECUTOR_READ_ONLY_VERIFY",
+  "nextCanonicalMessageId": "ORCH-000111"
+}
