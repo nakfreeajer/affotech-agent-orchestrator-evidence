@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-107-SANDBOX-OPERATIONAL-HOST-LIVE-BLOCKED-000001",
+  "role": "executor",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.LIVE.DELIVERY.QUALIFICATION.GITHUB.CONTENTS.CLIENT.1A",
+  "messageId": "ORCH-000107",
+  "dispatchId": "DISPATCH-000107",
+  "classification": "ORCHESTRATOR_SANDBOX_OPERATIONAL_HOST_LIVE_BLOCKED",
+  "status": "BLOCKED",
+  "durable": true,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "browserMutation": 0,
+  "liveMutationLease": 0,
+  "workerDeliveryMutation": 0,
+  "architectTriggerMutation": 0,
+  "assistantMessageTextRead": false
+}
