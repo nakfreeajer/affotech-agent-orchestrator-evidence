@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001/receipt.json",
-  "messageId": "ORCH-000108",
-  "dispatchId": "DISPATCH-000108",
-  "status": "PASS",
+  "publicationId": "GH-PUB-109-HOST-GITHUB-CLI-BOUNDED-INSTALL-AUTH-STATUS-BLOCKED-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-109-HOST-GITHUB-CLI-BOUNDED-INSTALL-AUTH-STATUS-BLOCKED-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-109-HOST-GITHUB-CLI-BOUNDED-INSTALL-AUTH-STATUS-BLOCKED-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-109-HOST-GITHUB-CLI-BOUNDED-INSTALL-AUTH-STATUS-BLOCKED-000001/receipt.json",
+  "messageId": "ORCH-000109",
+  "dispatchId": "DISPATCH-000109",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }

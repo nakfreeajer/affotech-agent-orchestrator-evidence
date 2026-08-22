@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.HOST.GITHUB.RUNTIME.AUTH.ENVIRONMENT.QUALIFICATION.1A",
-  "publicationId": "GH-PUB-108-HOST-GITHUB-RUNTIME-AUTH-ENVIRONMENT-QUALIFICATION-000001",
-  "messageId": "ORCH-000108",
-  "dispatchId": "DISPATCH-000108",
-  "status": "PASS",
+  "milestone": "ORCH.P0.HOST.GITHUB.CLI.BOUNDED.INSTALL.AUTH.STATUS.QUALIFICATION.1A",
+  "publicationId": "GH-PUB-109-HOST-GITHUB-CLI-BOUNDED-INSTALL-AUTH-STATUS-BLOCKED-000001",
+  "messageId": "ORCH-000109",
+  "dispatchId": "DISPATCH-000109",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }

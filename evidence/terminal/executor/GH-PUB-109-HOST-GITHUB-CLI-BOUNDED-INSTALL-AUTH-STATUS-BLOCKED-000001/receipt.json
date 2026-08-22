@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-109-HOST-GITHUB-CLI-BOUNDED-INSTALL-AUTH-STATUS-BLOCKED-000001",
+  "messageId": "ORCH-000109",
+  "dispatchId": "DISPATCH-000109",
+  "status": "BLOCKED",
+  "result": "ORCHESTRATOR_HOST_GITHUB_CLI_INSTALL_BLOCKED",
+  "authClassification": "RONY_MANUAL_OS_APPROVAL_REQUIRED",
+  "installationAttemptedCount": 1,
+  "systemInstallationMutation": 1,
+  "sourceMutation": 0,
+  "gitRepositoryMutation": 0,
+  "gitCredentialMutation": 0,
+  "githubAuthenticationMutation": 0,
+  "hostStart": 0,
+  "browserContact": 0,
+  "leaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "protectedPortAccess": 0,
+  "assistantMessageTextRead": false,
+  "secretValuesPersisted": false
+}
