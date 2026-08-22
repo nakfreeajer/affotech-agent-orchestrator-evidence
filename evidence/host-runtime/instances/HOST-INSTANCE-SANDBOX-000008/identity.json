@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_INSTANCE_IDENTITY",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000008",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000008",
+  "projectId": "affotech-agent-orchestrator",
+  "workerRole": "executor",
+  "acceptedSourcePublicationId": "GH-PUB-106-GITHUB-CONTENTS-RUNTIME-CLIENT-SHARDED-WORKER-RELAY-TIMEOUT-RETRY-000001",
+  "createdAt": 1787386090182,
+  "createdByRole": "executor",
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false
+  }
+}
