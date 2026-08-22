@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.DELIVERY.INTENT.ORDERING.REPAIR.1A",
-  "publicationId": "GH-PUB-114-HOST-DELIVERY-INTENT-ORDERING-REPAIR-BOUND-BLOCKED-000001",
-  "messageId": "ORCH-000114",
-  "dispatchId": "DISPATCH-000114",
-  "status": "BLOCKED",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.DELIVERY.INTENT.ORDERING.REPAIR.EXPANDED.1A",
+  "publicationId": "GH-PUB-115-HOST-DELIVERY-INTENT-ORDERING-REPAIR-EXPANDED-READY-000001",
+  "messageId": "ORCH-000115",
+  "dispatchId": "DISPATCH-000115",
+  "status": "PASS",
   "requiresArchitectDecision": true
 }
