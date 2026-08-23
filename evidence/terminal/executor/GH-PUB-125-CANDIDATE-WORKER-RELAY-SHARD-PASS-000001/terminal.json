@@ -12,6 +12,6 @@
   "workerOutcome": "PASS",
   "classification": "ORCHESTRATOR_CANDIDATE_WORKER_RELAY_MATCHED_HARNESS_VALIDATION_PASS",
   "reportPath": "evidence/terminal/executor/GH-PUB-125-CANDIDATE-WORKER-RELAY-SHARD-PASS-000001/report.md",
-  "reportSha256": "REPORT_HASH_PENDING",
+  "reportSha256": "6d288433ff4454edab4686cca50a194766e370410705fdba24823d3ae603f188",
   "requiresArchitectDecision": true
 }
