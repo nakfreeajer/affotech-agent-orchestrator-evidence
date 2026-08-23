@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.WORKER.DELIVERY.LEASE.ACTION.KIND.REPAIR.1A",
-  "publicationId": "GH-PUB-117-HOST-WORKER-DELIVERY-LEASE-ACTION-KIND-REPAIR-READY-000001",
-  "messageId": "ORCH-000117",
-  "dispatchId": "DISPATCH-000117",
-  "status": "PASS",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.BOOTSTRAP.1A",
+  "publicationId": "GH-PUB-118-INDEPENDENT-TERMINAL-BOOTSTRAP-BLOCKED-000001",
+  "messageId": "ORCH-000118",
+  "dispatchId": "DISPATCH-000118",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-118-INDEPENDENT-TERMINAL-BOOTSTRAP-BLOCKED-000001",
+  "messageId": "ORCH-000118",
+  "dispatchId": "DISPATCH-000118",
+  "status": "BLOCKED",
+  "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_BOOTSTRAP_BLOCKED",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000010",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000010",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "deliveryState": "ARMED",
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "retryAuthorized": false,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}

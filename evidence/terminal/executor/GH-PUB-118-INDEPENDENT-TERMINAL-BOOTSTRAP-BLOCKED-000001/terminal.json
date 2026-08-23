@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-118-INDEPENDENT-TERMINAL-BOOTSTRAP-BLOCKED-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.BOOTSTRAP.1A",
+  "dispatchId": "DISPATCH-000118",
+  "messageId": "ORCH-000118",
+  "parentMessageId": "ORCH-000117",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "BLOCKED",
+  "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_BOOTSTRAP_BLOCKED",
+  "reportPath": "evidence/terminal/executor/GH-PUB-118-INDEPENDENT-TERMINAL-BOOTSTRAP-BLOCKED-000001/report.md",
+  "reportSha256": "cb37fef65a19923b058d35fbf80a6a17a37ff91acfd4dff8994778ce3e7efb50",
+  "requiresArchitectDecision": true
+}
