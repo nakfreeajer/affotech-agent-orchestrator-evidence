@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-120-TRANSPORT-STOPPOINT-DIAGNOSTIC-BLOCKED-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.TRANSPORT.STOPPOINT.DIAGNOSTIC.1A",
+  "dispatchId": "DISPATCH-000120",
+  "messageId": "ORCH-000120",
+  "parentMessageId": "ORCH-000119",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "BLOCKED",
+  "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_TRANSPORT_STOPPOINT_DIAGNOSTIC_BLOCKED",
+  "result": "EVIDENCE_INSUFFICIENT_FOR_EXACT_INTERNAL_STOPPOINT",
+  "reportPath": "evidence/terminal/executor/GH-PUB-120-TRANSPORT-STOPPOINT-DIAGNOSTIC-BLOCKED-000001/report.md",
+  "reportSha256": "REPORT_HASH_PENDING",
+  "requiresArchitectDecision": true
+}

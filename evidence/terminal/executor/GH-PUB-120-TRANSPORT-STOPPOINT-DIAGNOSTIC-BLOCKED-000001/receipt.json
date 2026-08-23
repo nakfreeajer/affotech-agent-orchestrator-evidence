@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-120-TRANSPORT-STOPPOINT-DIAGNOSTIC-BLOCKED-000001",
+  "messageId": "ORCH-000120",
+  "dispatchId": "DISPATCH-000120",
+  "status": "BLOCKED",
+  "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_TRANSPORT_STOPPOINT_DIAGNOSTIC_BLOCKED",
+  "result": "EVIDENCE_INSUFFICIENT_FOR_EXACT_INTERNAL_STOPPOINT",
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "configMutation": 0,
+  "hostStartCount": 0,
+  "browserSendCount": 0,
+  "workerDeliveryMutation": 0,
+  "leaseMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
