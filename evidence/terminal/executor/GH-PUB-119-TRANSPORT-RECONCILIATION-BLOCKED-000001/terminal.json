@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-119-TRANSPORT-RECONCILIATION-BLOCKED-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.TRANSPORT.RECONCILIATION.1A",
+  "dispatchId": "DISPATCH-000119",
+  "messageId": "ORCH-000119",
+  "parentMessageId": "ORCH-000118",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "BLOCKED",
+  "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_TRANSPORT_RECONCILIATION_BLOCKED",
+  "result": "AMBIGUOUS",
+  "reportPath": "evidence/terminal/executor/GH-PUB-119-TRANSPORT-RECONCILIATION-BLOCKED-000001/report.md",
+  "reportSha256": "e72361ca4d141e4506d591f6b26116593fe0a9a3e639d2c0096b03c523db8c4a",
+  "requiresArchitectDecision": true
+}

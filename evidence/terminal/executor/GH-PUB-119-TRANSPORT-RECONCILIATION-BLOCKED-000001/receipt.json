@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-119-TRANSPORT-RECONCILIATION-BLOCKED-000001",
+  "messageId": "ORCH-000119",
+  "dispatchId": "DISPATCH-000119",
+  "status": "BLOCKED",
+  "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_TRANSPORT_RECONCILIATION_BLOCKED",
+  "result": "AMBIGUOUS",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "deliveryIntentState": "ARMED",
+  "browserSendAuthorized": false,
+  "browserSendPerformed": "NOT_DURABLY_PROVEN",
+  "hostStartCount": 0,
+  "leaseMutation": 0,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}

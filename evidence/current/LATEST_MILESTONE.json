@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.BOOTSTRAP.1A",
-  "publicationId": "GH-PUB-118-INDEPENDENT-TERMINAL-BOOTSTRAP-BLOCKED-000001",
-  "messageId": "ORCH-000118",
-  "dispatchId": "DISPATCH-000118",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.TRANSPORT.RECONCILIATION.1A",
+  "publicationId": "GH-PUB-119-TRANSPORT-RECONCILIATION-BLOCKED-000001",
+  "messageId": "ORCH-000119",
+  "dispatchId": "DISPATCH-000119",
   "status": "BLOCKED",
   "requiresArchitectDecision": true
 }
