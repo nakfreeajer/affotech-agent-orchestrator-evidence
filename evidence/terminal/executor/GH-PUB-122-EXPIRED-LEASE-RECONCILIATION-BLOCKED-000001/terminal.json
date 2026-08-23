@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-122-EXPIRED-LEASE-RECONCILIATION-BLOCKED-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.EXPIRED.WORKER.DELIVERY.LEASE.RECONCILIATION.1A",
+  "dispatchId": "DISPATCH-000122",
+  "messageId": "ORCH-000122",
+  "parentMessageId": "ORCH-000121",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "BLOCKED",
+  "classification": "ORCHESTRATOR_EXPIRED_WORKER_DELIVERY_LEASE_RECONCILIATION_BLOCKED",
+  "result": "EXACT_LEASE_RELEASE_CONTRACT_REJECTED_EXPIRED_STATE",
+  "reportPath": "evidence/terminal/executor/GH-PUB-122-EXPIRED-LEASE-RECONCILIATION-BLOCKED-000001/report.md",
+  "reportSha256": "REPORT_HASH_PENDING",
+  "requiresArchitectDecision": true
+}

@@ -2,9 +2,9 @@
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
   "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.EXPIRED.WORKER.DELIVERY.LEASE.RECONCILIATION.1A",
-  "publicationId": null,
+  "publicationId": "GH-PUB-122-EXPIRED-LEASE-RECONCILIATION-BLOCKED-000001",
   "messageId": "ORCH-000122",
   "dispatchId": "DISPATCH-000122",
-  "status": "PENDING_EXECUTION",
-  "requiresArchitectDecision": false
+  "status": "BLOCKED",
+  "requiresArchitectDecision": true
 }

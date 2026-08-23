@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-122-EXPIRED-LEASE-RECONCILIATION-BLOCKED-000001",
+  "messageId": "ORCH-000122",
+  "dispatchId": "DISPATCH-000122",
+  "status": "BLOCKED",
+  "classification": "ORCHESTRATOR_EXPIRED_WORKER_DELIVERY_LEASE_RECONCILIATION_BLOCKED",
+  "leaseId": "MUTATION-LEASE-HOST-bfc33fa29e6a4f025312baed48f38ac8",
+  "releaseStatus": "DENIED",
+  "releaseReasonCode": "LEASE_EXPIRED",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "deliveryState": "ARMED",
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "hostStart": 0,
+  "browserSend": 0,
+  "workerDeliveryMutation": 0,
+  "requiresArchitectDecision": true
+}
