@@ -12,6 +12,6 @@
   "workerOutcome": "INCONCLUSIVE",
   "classification": "ORCHESTRATOR_CANDIDATE_SHARDED_FULL_SUITE_VALIDATION_INCONCLUSIVE",
   "reportPath": "evidence/terminal/executor/GH-PUB-124-CANDIDATE-SHARDED-VALIDATION-INCONCLUSIVE-000001/report.md",
-  "reportSha256": "REPORT_HASH_PENDING",
+  "reportSha256": "402823811e530ab9593b1a3a3be3f8138c56936833d530f93e1eace9c792a34e",
   "requiresArchitectDecision": true
 }
