@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000010-DISPATCH-000118-LEASE_DENIED",
+  "eventType": "LEASE_DENIED",
+  "sourceRef": "7569c52b145aa27bab96e74b5f0a1ff254ba7e40",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000010",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000010",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_MUTATION_LEASE_REQUIRED",
+  "nextAction": "OBTAIN_WORKER_MUTATION_LEASE",
+  "dispatchId": "DISPATCH-000118",
+  "messageId": "ORCH-000118",
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "telemetryOnly": true
+}
