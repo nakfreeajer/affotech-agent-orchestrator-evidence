@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_SUPPLEMENTAL_SHARDED_TEST_LEDGER",
+  "messageId": "ORCH-000125",
+  "dispatchId": "DISPATCH-000125",
+  "status": "PASS",
+  "candidatePublicationId": "GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001",
+  "priorLedgerId": "ORCH-000124-SHARDED-TEST-LEDGER",
+  "validationTarget": "test/worker-relay.test.js",
+  "command": ["node", "--test", "--test-reporter", "tap", "test/worker-relay.test.js"],
+  "timeoutMs": 120000,
+  "byteIdentity": {
+    "src/browser-relay/worker-relay.js": {"acceptedSha256":"826bf8f62f38cfbe1e247496e7e9da1d3c51fc43852f1dc29788d07dfb1388fe","candidateSha256":"826bf8f62f38cfbe1e247496e7e9da1d3c51fc43852f1dc29788d07dfb1388fe","equal":true},
+    "test/worker-relay.test.js": {"acceptedSha256":"6bf05fdf2600670b2189da54274ac9e9b04f45348369c4762162e89f9776c497","candidateSha256":"6bf05fdf2600670b2189da54274ac9e9b04f45348369c4762162e89f9776c497","equal":true}
+  },
+  "runs": {
+    "accepted_ORCH_000121": {"completed":true,"plan":145,"tests":145,"passed":145,"failed":0,"skipped":0,"cancelled":0,"timedOut":false,"durationMs":94032.9897},
+    "candidate_ORCH_000123": {"completed":true,"plan":145,"tests":145,"passed":145,"failed":0,"skipped":0,"cancelled":0,"timedOut":false,"durationMs":106308.1481}
+  },
+  "reconciledAggregate": {"priorCompletedShards":24,"priorTests":663,"priorPassed":663,"workerRelayTests":145,"workerRelayPassed":145,"tests":808,"passed":808,"failed":0,"skipped":0,"cancelled":0,"completed":true},
+  "countDeltaExplanation": {"mutation-lease.test.js":"24 -> 26: two authorized tests","github-runtime-ports.test.js":"38 -> 40: two authorized tests","worker-relay.test.js":"145 -> 145: unchanged and matched","allOtherShards":"unchanged"},
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "configMutation": 0,
+  "hostStart": 0,
+  "browserContact": 0,
+  "browserSend": 0,
+  "leaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "workerResultMutation": 0,
+  "architectTrigger": 0,
+  "assistantMessageTextRead": false,
+  "affotechAccess": 0,
+  "driveAccess": 0,
+  "deploymentAccess": 0,
+  "privateDataAccess": 0,
+  "protectedPortAccess": 0,
+  "requiresArchitectDecision": true
+}

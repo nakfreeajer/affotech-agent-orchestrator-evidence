@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-125-CANDIDATE-WORKER-RELAY-SHARD-PASS-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.EXPIRED.WORKER.DELIVERY.LEASE.RECONCILIATION.CONTRACT.CANDIDATE.WORKER.RELAY.SHARD.VALIDATION.1A",
+  "dispatchId": "DISPATCH-000125",
+  "messageId": "ORCH-000125",
+  "parentMessageId": "ORCH-000124",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "ORCHESTRATOR_CANDIDATE_WORKER_RELAY_MATCHED_HARNESS_VALIDATION_PASS",
+  "reportPath": "evidence/terminal/executor/GH-PUB-125-CANDIDATE-WORKER-RELAY-SHARD-PASS-000001/report.md",
+  "reportSha256": "REPORT_HASH_PENDING",
+  "requiresArchitectDecision": true
+}
