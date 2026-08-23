@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_INSTANCE_IDENTITY",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000010",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000010",
+  "projectId": "affotech-agent-orchestrator",
+  "workerRole": "executor",
+  "acceptedSourcePublicationId": "GH-PUB-117-HOST-WORKER-DELIVERY-LEASE-ACTION-KIND-REPAIR-READY-000001",
+  "createdAt": 1787444502981,
+  "createdByRole": "executor",
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false
+  }
+}
