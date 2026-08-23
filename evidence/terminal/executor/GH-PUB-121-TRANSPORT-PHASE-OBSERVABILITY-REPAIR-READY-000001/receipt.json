@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-121-TRANSPORT-PHASE-OBSERVABILITY-REPAIR-READY-000001",
+  "messageId": "ORCH-000121",
+  "dispatchId": "DISPATCH-000121",
+  "status": "PASS",
+  "classification": "ORCHESTRATOR_TRANSPORT_PHASE_OBSERVABILITY_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "sourceMutationPaths": 2,
+  "testMutationPaths": 2,
+  "otherSourceTestConfigDrift": 0,
+  "focusedTests": {"tests":165,"passed":165,"failed":0},
+  "fullTests": {"tests":804,"passed":804,"failed":0},
+  "hostStart": 0,
+  "browserContact": 0,
+  "browserSend": 0,
+  "leaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}

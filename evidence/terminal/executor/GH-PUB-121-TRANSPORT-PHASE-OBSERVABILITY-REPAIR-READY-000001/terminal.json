@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-121-TRANSPORT-PHASE-OBSERVABILITY-REPAIR-READY-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.TRANSPORT.PHASE.OBSERVABILITY.REPAIR.1A",
+  "dispatchId": "DISPATCH-000121",
+  "messageId": "ORCH-000121",
+  "parentMessageId": "ORCH-000120",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "ORCHESTRATOR_TRANSPORT_PHASE_OBSERVABILITY_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "reportPath": "evidence/terminal/executor/GH-PUB-121-TRANSPORT-PHASE-OBSERVABILITY-REPAIR-READY-000001/report.md",
+  "reportSha256": "REPORT_HASH_PENDING",
+  "requiresArchitectDecision": true
+}
