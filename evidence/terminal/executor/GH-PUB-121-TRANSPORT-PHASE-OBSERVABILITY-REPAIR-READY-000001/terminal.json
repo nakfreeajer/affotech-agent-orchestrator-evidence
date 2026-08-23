@@ -12,6 +12,6 @@
   "workerOutcome": "PASS",
   "classification": "ORCHESTRATOR_TRANSPORT_PHASE_OBSERVABILITY_REPAIR_READY_FOR_ARCHITECT_REVIEW",
   "reportPath": "evidence/terminal/executor/GH-PUB-121-TRANSPORT-PHASE-OBSERVABILITY-REPAIR-READY-000001/report.md",
-  "reportSha256": "REPORT_HASH_PENDING",
+  "reportSha256": "dabbac063a88f0fba00169f1df0a58ce5de9dcb8a5c1e04ea4701207d94b054b",
   "requiresArchitectDecision": true
 }
