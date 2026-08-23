@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_SHARDED_TEST_LEDGER",
+  "messageId": "ORCH-000117",
+  "dispatchId": "DISPATCH-000117",
+  "status": "PASS",
+  "shardCount": 25,
+  "focused": {
+    "persistent-host-runner.test.js": {"tests": 35, "passed": 35, "failed": 0},
+    "browser-relay-transport-ports.test.js": {"tests": 16, "passed": 16, "failed": 0},
+    "mutation-lease.test.js": {"tests": 24, "passed": 24, "failed": 0},
+    "github-runtime-ports.test.js": {"tests": 38, "passed": 38, "failed": 0},
+    "automatic-dispatch-host.test.js": {"tests": 36, "passed": 36, "failed": 0},
+    "github-contents-runtime-client.test.js": {"tests": 12, "passed": 12, "failed": 0}
+  },
+  "aggregate": {"tests": 800, "passed": 800, "failed": 0, "skipped": 0, "cancelled": 0, "unexpectedSkipped": 0}
+}

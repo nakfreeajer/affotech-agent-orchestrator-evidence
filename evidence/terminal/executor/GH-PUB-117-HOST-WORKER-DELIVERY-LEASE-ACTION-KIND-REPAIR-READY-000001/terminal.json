@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-117-HOST-WORKER-DELIVERY-LEASE-ACTION-KIND-REPAIR-READY-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.WORKER.DELIVERY.LEASE.ACTION.KIND.REPAIR.1A",
+  "dispatchId": "DISPATCH-000117",
+  "messageId": "ORCH-000117",
+  "parentMessageId": "ORCH-000116",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "classification": "ORCHESTRATOR_HOST_WORKER_DELIVERY_LEASE_ACTION_KIND_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "reportPath": "evidence/terminal/executor/GH-PUB-117-HOST-WORKER-DELIVERY-LEASE-ACTION-KIND-REPAIR-READY-000001/report.md",
+  "reportSha256": "dee18fc8a543bfec5de17ef0d772deef0401567efec1ae8028efe86c0011f9dd",
+  "requiresArchitectDecision": true
+}
