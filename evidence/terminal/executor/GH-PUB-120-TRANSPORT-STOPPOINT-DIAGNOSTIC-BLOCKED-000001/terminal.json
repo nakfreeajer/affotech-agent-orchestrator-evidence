@@ -13,6 +13,6 @@
   "classification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_TRANSPORT_STOPPOINT_DIAGNOSTIC_BLOCKED",
   "result": "EVIDENCE_INSUFFICIENT_FOR_EXACT_INTERNAL_STOPPOINT",
   "reportPath": "evidence/terminal/executor/GH-PUB-120-TRANSPORT-STOPPOINT-DIAGNOSTIC-BLOCKED-000001/report.md",
-  "reportSha256": "REPORT_HASH_PENDING",
+  "reportSha256": "c808ba5284ccc0de6d2a9792d64f5b3b4e31cd9ff4802bb42573059e92ae14ce",
   "requiresArchitectDecision": true
 }
