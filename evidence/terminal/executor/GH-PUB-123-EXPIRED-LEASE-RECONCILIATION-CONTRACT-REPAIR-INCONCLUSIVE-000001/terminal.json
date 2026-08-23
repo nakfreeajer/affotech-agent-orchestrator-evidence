@@ -12,6 +12,6 @@
   "workerOutcome": "INCONCLUSIVE",
   "classification": "ORCHESTRATOR_EXPIRED_LEASE_RECONCILIATION_CONTRACT_REPAIR_INCONCLUSIVE",
   "reportPath": "evidence/terminal/executor/GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001/report.md",
-  "reportSha256": "REPORT_HASH_PENDING",
+  "reportSha256": "4caeb14d1f455c36e77673e1e7fce9338cab7a1ae5cbabd4241854d9f3d4a1b2",
   "requiresArchitectDecision": true
 }
