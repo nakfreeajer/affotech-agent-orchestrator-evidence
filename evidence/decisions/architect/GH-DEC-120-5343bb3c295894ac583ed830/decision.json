@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "ARCHITECT_DECISION",
+  "decisionId": "GH-DEC-120-5343bb3c295894ac583ed830",
+  "decision": "BLOCKED",
+  "reviewedMilestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.TRANSPORT.STOPPOINT.DIAGNOSTIC.1A",
+  "reviewedPublicationId": "GH-PUB-120-TRANSPORT-STOPPOINT-DIAGNOSTIC-BLOCKED-000001",
+  "messageId": "ORCH-000120",
+  "dispatchId": "DISPATCH-000120",
+  "acceptedSourcePublicationId": "GH-PUB-117-HOST-WORKER-DELIVERY-LEASE-ACTION-KIND-REPAIR-READY-000001",
+  "protectedBoundaryVerified": true,
+  "executorClassification": "ORCHESTRATOR_INDEPENDENT_TERMINAL_TRANSPORT_STOPPOINT_DIAGNOSTIC_BLOCKED",
+  "result": "EVIDENCE_INSUFFICIENT_FOR_EXACT_INTERNAL_STOPPOINT",
+  "durableCallPathProven": [
+    "lease acquisition",
+    "ARMED intent persistence/readback",
+    "sendWorkerDelivery entry",
+    "DELIVERY_AMBIGUOUS host event"
+  ],
+  "workerDeliveryId": "WORKER-DELIVERY-EXECUTOR-000005",
+  "workerDeliveryIntentState": "ARMED",
+  "browserSendDurablyProven": false,
+  "retryPerformed": false,
+  "reasonCode": "TRANSPORT_PHASE_OBSERVABILITY_GAP",
+  "requiredRepairPaths": [
+    "src/host/browser-relay-transport-ports.js",
+    "src/host/persistent-host-runner.js",
+    "test/browser-relay-transport-ports.test.js",
+    "test/persistent-host-runner.test.js"
+  ],
+  "nextAction": "BOUNDED_TRANSPORT_PHASE_OBSERVABILITY_REPAIR",
+  "nextCanonicalMessageId": "ORCH-000121",
+  "decisionPath": "evidence/decisions/architect/GH-DEC-120-5343bb3c295894ac583ed830/decision.json"
+}
