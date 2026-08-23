@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_SOURCE_REPAIR_DIAGNOSTIC",
+  "messageId": "ORCH-000123",
+  "dispatchId": "DISPATCH-000123",
+  "classification": "INCONCLUSIVE",
+  "operationClass": "SOURCE_MUTATION",
+  "acceptedSourcePublicationId": "GH-PUB-121-TRANSPORT-PHASE-OBSERVABILITY-REPAIR-READY-000001",
+  "acceptedSourceFileCount": 101,
+  "preMutationSnapshot": {
+    "sourceFiles": 101,
+    "mismatches": 0,
+    "focusedTests": {"tests": 62, "passed": 62, "failed": 0},
+    "fullExpected": {"tests": 804, "passed": 804, "failed": 0}
+  },
+  "authorizedChangedPaths": [
+    "src/governance/mutation-lease.js",
+    "src/host/github-runtime-ports.js",
+    "test/mutation-lease.test.js",
+    "test/github-runtime-ports.test.js"
+  ],
+  "postMutation": {
+    "focusedTests": {"tests": 66, "passed": 66, "failed": 0},
+    "fullObserved": {"tests": 663, "passed": 663, "failed": 0, "cancelled": 0, "runnerCompleted": false},
+    "fullRunNote": "Node emitted 663 passing top-level tests and zero failures, then remained open without its completion summary; this does not prove the required accepted 804-test full-suite result."
+  },
+  "sourceManifestSha256": "114bdc022c8287d5bff8254c5a7d54b87492200d34869579c60902de61adba59",
+  "sourceArchiveSha256": "e10e8337960528d5bff8254c5a7d54b87492200d34869579c60902de61adba59",
+  "sourceArchiveBytes": 137305,
+  "reconciliationContract": {
+    "ordinaryExpiredReleaseRemainsFailClosed": true,
+    "explicitExpiredReconciliationApi": "reconcileExpiredMutationLease",
+    "terminalState": "EXPIRED",
+    "transportCompletion": "AMBIGUOUS",
+    "deliverySuccessSynthesized": false
+  },
+  "mutationAccounting": {
+    "sourceMutation": 2,
+    "testMutation": 2,
+    "configMutation": 0,
+    "hostStart": 0,
+    "browserContact": 0,
+    "browserSend": 0,
+    "liveMutationLease": 0,
+    "workerDeliveryMutation": 0,
+    "workerResultMutation": 0,
+    "architectTrigger": 0,
+    "assistantMessageTextRead": false,
+    "affotechAccess": 0,
+    "driveAccess": 0,
+    "deploymentAccess": 0,
+    "privateDataAccess": 0,
+    "protectedPortAccess": 0
+  },
+  "requiresArchitectDecision": true
+}

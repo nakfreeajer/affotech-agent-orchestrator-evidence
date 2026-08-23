@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "publicationId": "GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.EXPIRED.WORKER.DELIVERY.LEASE.RECONCILIATION.CONTRACT.REPAIR.1A",
+  "dispatchId": "DISPATCH-000123",
+  "messageId": "ORCH-000123",
+  "parentMessageId": "ORCH-000122",
+  "role": "executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "INCONCLUSIVE",
+  "classification": "ORCHESTRATOR_EXPIRED_LEASE_RECONCILIATION_CONTRACT_REPAIR_INCONCLUSIVE",
+  "reportPath": "evidence/terminal/executor/GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001/report.md",
+  "reportSha256": "REPORT_HASH_PENDING",
+  "requiresArchitectDecision": true
+}
