@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_PRE_MUTATION_AUTHORITY_CHECKPOINT",
+  "checkpointId": "ORCH-000121-PRE-MUTATION-AUTHORITY-000001",
+  "messageId": "ORCH-000121",
+  "dispatchId": "DISPATCH-000121",
+  "authorityRef": "8b49bb99a9e0bad6beafd29295631cfff4452656",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000121.md",
+  "canonicalPromptSha256": "e0c8092acb69c2ee45942dd5ff1ab465eb737adc023cacb125536f740e621eb7",
+  "architectDecisionId": "GH-DEC-120-5343bb3c295894ac583ed830",
+  "acceptedSourcePublicationId": "GH-PUB-117-HOST-WORKER-DELIVERY-LEASE-ACTION-KIND-REPAIR-READY-000001",
+  "acceptedSourceManifestSha256": "585534f328abb8f50a058e35ea3c87ef303a3af695c1d58427ec69acdfd41672",
+  "acceptedSourceArchiveSha256": "cc3c4fae0d7fbd7876c8d7e40bc7c77addeecff12e19ada3e6e5e2e1d5b497b4",
+  "acceptedSourceFileCount": 101,
+  "manifestMismatches": 0,
+  "focusedBaseline": {
+    "browser-relay-transport-ports.test.js": {"tests": 16, "passed": 16, "failed": 0},
+    "persistent-host-runner.test.js": {"tests": 35, "passed": 35, "failed": 0}
+  },
+  "fullBaseline": {"tests": 800, "passed": 800, "failed": 0, "skipped": 0, "cancelled": 0},
+  "authorizedModifyPaths": [
+    "src/host/browser-relay-transport-ports.js",
+    "src/host/persistent-host-runner.js",
+    "test/browser-relay-transport-ports.test.js",
+    "test/persistent-host-runner.test.js"
+  ],
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "hostStart": 0,
+  "browserContact": 0,
+  "browserSend": 0,
+  "leaseMutation": 0,
+  "workerDeliveryMutation": 0,
+  "affotechAccess": 0,
+  "driveAccess": 0,
+  "protectedPortAccess": 0
+}
