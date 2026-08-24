@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-129-PRE-SEND-OBSERVATION-PROVEN-NOT-SENT-CONTRACT-GAP-000001",
+  "messageId": "ORCH-000129",
+  "dispatchId": "DISPATCH-000129",
+  "status": "PASS",
+  "classification": "ORCHESTRATOR_PRE_SEND_OBSERVATION_PROVEN_NOT_SENT_CONTRACT_GAP",
+  "durable": true,
+  "exactProbeOccurrenceCount": 0,
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000006",
+  "deliveryState": "ARMED",
+  "browserSendCount": 0,
+  "noRetryPerformed": true,
+  "sourceMutation": 0,
+  "protectedPortAccess": 0
+}
