@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-127-FRESH-INDEPENDENT-TERMINAL-LIVE-DELIVERY-BLOCKED-000001",
+  "messageId": "ORCH-000127",
+  "dispatchId": "DISPATCH-000127",
+  "status": "BLOCKED",
+  "durable": true,
+  "firstBlockerCode": "TARGET_BINDING_INVALID",
+  "delivery000006Exists": false,
+  "leaseAcquireCount": 0,
+  "browserSendCount": 0,
+  "sourceMutation": 0,
+  "protectedPortAccess": 0
+}
