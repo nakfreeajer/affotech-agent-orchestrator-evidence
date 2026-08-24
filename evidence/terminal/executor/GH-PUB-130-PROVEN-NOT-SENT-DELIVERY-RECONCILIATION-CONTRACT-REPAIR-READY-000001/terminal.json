@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-130-PROVEN-NOT-SENT-DELIVERY-RECONCILIATION-CONTRACT-REPAIR-READY-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "role": "executor",
+  "messageId": "ORCH-000130",
+  "dispatchId": "DISPATCH-000130",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000130.md",
+  "canonicalPromptSha256": "a652c3aaa74d0746f14820a8fb6bf3702cc4bd390b8ced291d48f7ad2634b6ee",
+  "status": "PASS",
+  "classification": "ORCHESTRATOR_PROVEN_NOT_SENT_DELIVERY_RECONCILIATION_CONTRACT_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "requiresArchitectDecision": true,
+  "acceptedSourcePublication": "GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001",
+  "sourceSnapshot": {
+    "fileCount": 101,
+    "manifestPath": "evidence/artifacts/orch-000130/manifest.json",
+    "manifestSha256": "0f8916a74a1275be90f2ff1a10704f8f9c79793e1a63d8da81c7906e318ee5ad",
+    "archivePath": "evidence/artifacts/orch-000130/source.tar.gz",
+    "archiveSha256": "79c36abd1ea108003baa737550210a71008a9a70a887c9a14c04aa533235f103",
+    "preMutationManifestSha256": "114bdc022c8287d5bff8254c5a7d54b87492200d34869579c60902de61adba59",
+    "preMutationArchiveSha256": "e10e8337960528d5bff8254c5a7d54b87492200d34869579c60902de61adba59",
+    "changedPathsExactly": [
+      "src/browser-relay/worker-relay.js",
+      "test/worker-relay.test.js",
+      "src/host/browser-relay-transport-ports.js",
+      "test/browser-relay-transport-ports.test.js"
+    ],
+    "unchangedFileCount": 97,
+    "extraFiles": 0,
+    "missingFiles": 0
+  },
+  "baseline": {
+    "focused": {
+      "workerRelay": { "tests": 145, "passed": 145, "failed": 0, "skipped": 0, "cancelled": 0 },
+      "browserRelayTransportPorts": { "tests": 19, "passed": 19, "failed": 0, "skipped": 0, "cancelled": 0 },
+      "persistentHostRunner": { "tests": 36, "passed": 36, "failed": 0, "skipped": 0, "cancelled": 0 },
+      "githubRuntimePorts": { "tests": 40, "passed": 40, "failed": 0, "skipped": 0, "cancelled": 0 }
+    },
+    "fullAggregate": { "tests": 808, "passed": 808, "failed": 0, "skipped": 0, "cancelled": 0 }
+  },
+  "postMutation": {
+    "focused": {
+      "workerRelay": { "tests": 148, "passed": 148, "failed": 0, "skipped": 0, "cancelled": 0 },
+      "browserRelayTransportPorts": { "tests": 21, "passed": 21, "failed": 0, "skipped": 0, "cancelled": 0 },
+      "persistentHostRunner": { "tests": 36, "passed": 36, "failed": 0, "skipped": 0, "cancelled": 0 },
+      "githubRuntimePorts": { "tests": 40, "passed": 40, "failed": 0, "skipped": 0, "cancelled": 0 }
+    },
+    "fullAggregate": { "tests": 813, "passed": 813, "failed": 0, "skipped": 0, "cancelled": 0, "files": 25 }
+  },
+  "mutationAccounting": {
+    "sourceMutation": 2,
+    "testMutation": 2,
+    "authorizedPathMutationCount": 4,
+    "configMutation": 0,
+    "workerDeliveryMutation": 0,
+    "hostRuntimeMutation": 0,
+    "browserMutation": 0,
+    "affotechMutation": 0,
+    "driveMutation": 0,
+    "curatorMutation": 0
+  },
+  "protectedAccess": { "affotech": 0, "drive": 0, "deployment": 0, "privateBusinessData": 0, "ports9222": 0, "ports9223": 0, "ports9333": 0, "ports9444": 0 },
+  "workerDeliveryMutation": "NOT_APPLICABLE_BY_PROMPT",
+  "acceptedPointerAdvanced": false,
+  "publishedAt": "2026-08-24T00:00:00.000Z"
+}
