@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_PRE_MUTATION_CHECKPOINT",
+  "checkpointId": "ORCH-000130-PRE-MUTATION-CHECKPOINT-000001",
+  "messageId": "ORCH-000130",
+  "dispatchId": "DISPATCH-000130",
+  "acceptedSourcePublication": "GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001",
+  "acceptedSnapshotFileCount": 101,
+  "acceptedSnapshotManifestSha256": "114bdc022c8287d5bff8254c5a7d54b87492200d34869579c60902de61adba59",
+  "acceptedSnapshotArchiveSha256": "e10e8337960528d5bff8254c5a7d54b87492200d34869579c60902de61adba59",
+  "baseline": {
+    "workerRelay": { "tests": 145, "passed": 145, "failed": 0, "skipped": 0, "cancelled": 0 },
+    "browserRelayTransportPorts": { "tests": 19, "passed": 19, "failed": 0, "skipped": 0, "cancelled": 0 },
+    "persistentHostRunner": { "tests": 36, "passed": 36, "failed": 0, "skipped": 0, "cancelled": 0 },
+    "githubRuntimePorts": { "tests": 40, "passed": 40, "failed": 0, "skipped": 0, "cancelled": 0 },
+    "shardedFullAggregateTests": 808,
+    "shardedFullAggregatePassed": 808,
+    "shardedFullAggregateFailed": 0,
+    "shardedFullAggregateSkipped": 0,
+    "shardedFullAggregateCancelled": 0
+  },
+  "authorizedMutationPaths": [
+    "src/browser-relay/worker-relay.js",
+    "test/worker-relay.test.js",
+    "src/host/browser-relay-transport-ports.js",
+    "test/browser-relay-transport-ports.test.js"
+  ],
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "browserMutation": 0,
+  "hostRuntimeMutation": 0,
+  "workerDeliveryMutation": 0,
+  "protectedAffotechMutation": 0,
+  "protectedPortAccess": { "9222": 0, "9223": 0, "9333": 0, "9444": 0 },
+  "status": "CHECKPOINTED_BEFORE_AUTHORIZED_MUTATION",
+  "recordedAt": "2026-08-24T00:00:00.000Z"
+}
