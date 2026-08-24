@@ -12,6 +12,6 @@
   "workerOutcome": "PASS",
   "classification": "ORCHESTRATOR_EXPIRED_LEASE_RECONCILIATION_APPLIED",
   "reportPath": "evidence/terminal/executor/GH-PUB-126-EXPIRED-LEASE-RECONCILIATION-PASS-000001/report.md",
-  "reportSha256": "REPORT_HASH_PENDING",
+  "reportSha256": "b94275b72358025a11d8a3cbb89e597f42c1e4c18647bcb14168960eebca2414",
   "requiresArchitectDecision": true
 }
