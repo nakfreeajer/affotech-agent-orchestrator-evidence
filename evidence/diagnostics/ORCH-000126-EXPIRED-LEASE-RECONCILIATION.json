@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_EXPIRED_LEASE_RECONCILIATION_DIAGNOSTIC",
+  "messageId": "ORCH-000126",
+  "dispatchId": "DISPATCH-000126",
+  "classification": "PASS",
+  "acceptedSourcePublicationId": "GH-PUB-123-EXPIRED-LEASE-RECONCILIATION-CONTRACT-REPAIR-INCONCLUSIVE-000001",
+  "validationAuthority": "GH-PUB-125-CANDIDATE-WORKER-RELAY-SHARD-PASS-000001",
+  "sourceRefBefore": "e747dd5f4640285de6aee32d1af59ce3cd112fac",
+  "exactLease": {
+    "leaseId": "MUTATION-LEASE-HOST-bfc33fa29e6a4f025312baed48f38ac8",
+    "revisionBefore": 1,
+    "revisionAfter": 2,
+    "leaseEpoch": 6,
+    "messageId": "ORCH-000118",
+    "dispatchId": "DISPATCH-000118",
+    "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.BOOTSTRAP.1A",
+    "holder": {"registrationId":"WORKER-REG-EXECUTOR-000001","workerRole":"executor"},
+    "resourceScope": ["worker-delivery"],
+    "stateBefore": "ACTIVE_BUT_EXPIRED",
+    "stateAfter": "EXPIRED",
+    "activeIndexAfter": false,
+    "releasedAt": 1787531162448,
+    "operationReference": "EXPIRED_LEASE_RECONCILIATION"
+  },
+  "api": {"name":"reconcileExpiredMutationLease","status":"EXPIRED_RECONCILED","transportCompletion":"AMBIGUOUS","deliverySuccess":false},
+  "delivery": {"ambiguousDeliveryId":"WORKER-DELIVERY-EXECUTOR-000005","intentState":"ARMED","resultExists":false,"latestDeliveryId":"WORKER-DELIVERY-EXECUTOR-000004","latestDeliveryState":"SENT"},
+  "mutationAccounting": {"sourceMutation":0,"testMutation":0,"configMutation":0,"hostStart":0,"browserContact":0,"browserSend":0,"liveMutationLease":1,"workerDeliveryMutation":0,"workerResultMutation":0,"architectTrigger":0,"affotechAccess":0,"driveAccess":0,"deploymentAccess":0,"privateDataAccess":0,"protectedPortAccess":0,"assistantMessageTextRead":false},
+  "readyForFreshIndependentHostQualification": true,
+  "requiresArchitectDecision": true
+}
