@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-128-FRESH-INDEPENDENT-TERMINAL-TARGET-BINDING-RETRY-INCONCLUSIVE-000001",
+  "messageId": "ORCH-000128",
+  "dispatchId": "DISPATCH-000128",
+  "status": "INCONCLUSIVE",
+  "durable": true,
+  "targetBindingValidated": true,
+  "firstFailureCode": "TRANSPORT_RESULT_NOT_OBSERVED",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000006",
+  "intentState": "ARMED",
+  "deliveryResultExists": false,
+  "leaseActiveAfterAttempt": false,
+  "noRetryPerformed": true,
+  "sourceMutation": 0,
+  "protectedPortAccess": 0
+}
