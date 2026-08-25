@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-137-GITHUB-CONTENTS-WORKER-PERSISTENCE-LIVE-DELIVERY-000007-INCONCLUSIVE-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-137-GITHUB-CONTENTS-WORKER-PERSISTENCE-LIVE-DELIVERY-000007-INCONCLUSIVE-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-137-GITHUB-CONTENTS-WORKER-PERSISTENCE-LIVE-DELIVERY-000007-INCONCLUSIVE-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-137-GITHUB-CONTENTS-WORKER-PERSISTENCE-LIVE-DELIVERY-000007-INCONCLUSIVE-000001/receipt.json",
-  "messageId": "ORCH-000137",
-  "dispatchId": "DISPATCH-000137",
-  "status": "INCONCLUSIVE",
+  "publicationId": "GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001/receipt.json",
+  "messageId": "ORCH-000138",
+  "dispatchId": "DISPATCH-000138",
+  "status": "COMPLETED",
   "requiresArchitectDecision": true
 }
