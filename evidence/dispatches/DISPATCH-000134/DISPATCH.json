@@ -1,1 +1,18 @@
-{}
+{
+  "schemaVersion": "1.0",
+  "recordType": "DISPATCH",
+  "dispatchId": "DISPATCH-000134",
+  "messageId": "ORCH-000134",
+  "parentMessageId": "ORCH-000133",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000134.md",
+  "canonicalPromptSha256": "eab946e8b724086be1cc5f48889f587f42594c4f250c4406999a32d5a0b78705",
+  "targetRole": "executor",
+  "dispatchState": "MANUAL_TRIGGER_REQUIRED",
+  "architectDecisionId": "GH-DEC-133-LOCAL-GIT-RUNTIME-PERSISTENCE-BLOCKED",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.FRESH.LIVE.DELIVERY.QUALIFICATION.GITHUB.CONTENTS.RUNTIME.2C",
+  "acceptedSourcePublicationId": "GH-PUB-130-PROVEN-NOT-SENT-DELIVERY-RECONCILIATION-CONTRACT-REPAIR-READY-000001",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000014",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000014",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000007",
+  "dispatchPath": "evidence/dispatches/DISPATCH-000134/DISPATCH.json"
+}
