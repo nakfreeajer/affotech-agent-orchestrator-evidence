@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-146-FRESH-FORWARD-DELIVERY-000011-LEASE-AMBIGUOUS-BLOCKED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-146-FRESH-FORWARD-DELIVERY-000011-LEASE-AMBIGUOUS-BLOCKED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-146-FRESH-FORWARD-DELIVERY-000011-LEASE-AMBIGUOUS-BLOCKED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-146-FRESH-FORWARD-DELIVERY-000011-LEASE-AMBIGUOUS-BLOCKED-000001/receipt.json",
-  "messageId": "ORCH-000146",
-  "dispatchId": "DISPATCH-000146",
-  "status": "BLOCKED",
+  "publicationId": "GH-PUB-147-WORKER-DELIVERY-LEASE-GITHUB-CONTENTS-PATH-READY-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-147-WORKER-DELIVERY-LEASE-GITHUB-CONTENTS-PATH-READY-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-147-WORKER-DELIVERY-LEASE-GITHUB-CONTENTS-PATH-READY-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-147-WORKER-DELIVERY-LEASE-GITHUB-CONTENTS-PATH-READY-000001/receipt.json",
+  "messageId": "ORCH-000147",
+  "dispatchId": "DISPATCH-000147",
+  "status": "READY",
   "requiresArchitectDecision": true
 }
