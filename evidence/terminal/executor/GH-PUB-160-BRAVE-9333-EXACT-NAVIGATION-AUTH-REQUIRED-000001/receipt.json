@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-160-BRAVE-9333-EXACT-NAVIGATION-AUTH-REQUIRED-000001",
+  "messageId": "ORCH-000160",
+  "dispatchId": "DISPATCH-000160",
+  "status": "BLOCKED",
+  "classification": "RONY_MANUAL_CHATGPT_AUTH_REQUIRED",
+  "navigationCount": 1,
+  "browserProcessLaunchCount": 0,
+  "architectTriggerMutation": 0,
+  "architectSendCount": 0,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "hostProcessRemainsRunning": true,
+  "requiresArchitectDecision": true
+}
