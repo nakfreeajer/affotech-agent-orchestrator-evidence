@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-156-ARCHITECT-RELAY-BRAVE-PORT-OWNER-DIAGNOSTIC-000001",
+  "messageId": "ORCH-000156",
+  "dispatchId": "DISPATCH-000156",
+  "status": "COMPLETED",
+  "classification": "BRAVE_9333_NOT_DEBUG_ENABLED",
+  "listenerState": "NO_LISTENER",
+  "braveProcessWith9333": false,
+  "architectTriggerMutation": 0,
+  "architectSendCount": 0,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
