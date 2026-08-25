@@ -1,11 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.EXECUTOR.TERMINAL.ARCHITECT.WAKE.EXACTLY.ONCE.1A",
-  "publicationId": "GH-PUB-154-ARCHITECT-WAKE-000004-FAILED-BEFORE-SEND-PORT-UNAVAILABLE-000001",
-  "messageId": "ORCH-000154",
-  "dispatchId": "DISPATCH-000154",
-  "status": "FAILED_BEFORE_SEND",
-  "status": "COMPLETED",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.ARCHITECT.RELAY.PORT.RECOVERY.AND.WAKE.EXACTLY.ONCE.1B",
+  "publicationId": "GH-PUB-155-ARCHITECT-RELAY-RECOVERY-FAILED-000004-000001",
+  "messageId": "ORCH-000155",
+  "dispatchId": "DISPATCH-000155",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }

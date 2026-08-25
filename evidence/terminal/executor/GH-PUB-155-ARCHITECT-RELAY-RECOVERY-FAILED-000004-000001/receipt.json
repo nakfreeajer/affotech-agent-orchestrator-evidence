@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-155-ARCHITECT-RELAY-RECOVERY-FAILED-000004-000001",
+  "messageId": "ORCH-000155",
+  "dispatchId": "DISPATCH-000155",
+  "status": "BLOCKED",
+  "failureCode": "ARCHITECT_RELAY_PORT_RECOVERY_FAILED",
+  "triggerId": "ARCH-TRIGGER-9333-000004",
+  "architectBrowserLaunchCount": 1,
+  "architectBrowserContactCount": 0,
+  "attemptedSendCount": 0,
+  "confirmedSendCount": 0,
+  "secondSendCount": 0,
+  "architectTriggerMutation": 0,
+  "assistantMessageTextRead": false,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
