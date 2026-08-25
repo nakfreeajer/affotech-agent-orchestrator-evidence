@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-159-BRAVE-9333-EXISTING-RELAY-TARGET-ABSENT-000001",
+  "messageId": "ORCH-000159",
+  "dispatchId": "DISPATCH-000159",
+  "status": "BLOCKED",
+  "classification": "RONY_MANUAL_ARCHITECT_CHAT_REGISTRATION_REQUIRED",
+  "browserProcessLaunchCount": 0,
+  "architectBrowserContactCount": 1,
+  "architectTriggerMutation": 0,
+  "architectSendCount": 0,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
