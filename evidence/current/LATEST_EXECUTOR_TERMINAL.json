@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-149-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILIATION-INCONCLUSIVE-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-149-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILIATION-INCONCLUSIVE-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-149-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILIATION-INCONCLUSIVE-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-149-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILIATION-INCONCLUSIVE-000001/receipt.json",
-  "messageId": "ORCH-000149",
-  "dispatchId": "DISPATCH-000149",
+  "publicationId": "GH-PUB-150-EXPIRED-LEASE-RECONCILIATION-DENIAL-DIAGNOSTIC-INCONCLUSIVE-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-150-EXPIRED-LEASE-RECONCILIATION-DENIAL-DIAGNOSTIC-INCONCLUSIVE-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-150-EXPIRED-LEASE-RECONCILIATION-DENIAL-DIAGNOSTIC-INCONCLUSIVE-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-150-EXPIRED-LEASE-RECONCILIATION-DENIAL-DIAGNOSTIC-INCONCLUSIVE-000001/receipt.json",
+  "messageId": "ORCH-000150",
+  "dispatchId": "DISPATCH-000150",
   "status": "INCONCLUSIVE",
   "requiresArchitectDecision": true
 }
