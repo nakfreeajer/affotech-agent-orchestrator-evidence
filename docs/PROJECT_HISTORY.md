@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -202,9 +202,22 @@ Publication:
 
 `GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001`
 
-At this documentation sync boundary, ORCH-000138 still requires Architect review. Executor completion is not automatic acceptance.
+## 10. ORCH-000138 — ACCEPTED recovery
 
-## 10. Current strategic direction
+Architect decision:
+
+`GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`
+
+The exact ORCH-000137 locator had zero occurrences in the registered Executor
+conversation. The expired epoch-9 lease was reconciled to revision 2 /
+`EXPIRED`, delivery `000007` was durably reconciled as `PROVEN_NOT_SENT`,
+attempted/confirmed sends remained `0/0`, retry remained unauthorized, and
+`LATEST_DELIVERY` remained `000004 / SENT`.
+
+This is accepted recovery/cleanup evidence, not proof of successful forward
+delivery.
+
+## 11. Current strategic direction
 
 The project is deliberately moving away from treating the Orchestrator as a complex reasoning system.
 
@@ -225,7 +238,7 @@ Simplify after end-to-end proof:
 - keep AI only in Architect, Executor and Curator roles;
 - Python is a preferred future local-daemon option, but no Python implementation is yet accepted.
 
-## 11. Remaining operational trajectory
+## 12. Remaining operational trajectory
 
 The next visible goal is one successful fresh forward delivery:
 

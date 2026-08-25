@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -28,9 +28,9 @@ The accepted source pointer has not advanced beyond ORCH-000130 because later mi
 
 Latest Architect decision at this documentation sync boundary:
 
-- ORCH-000137: `INCONCLUSIVE`;
-- decision: `GH-DEC-137-PRE-SEND-OBSERVATION-INCONCLUSIVE`;
-- reason: durable delivery intent existed before BrowserRelay contact, but pre-send observation failed before any send.
+- ORCH-000138: `ACCEPTED`;
+- decision: `GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`;
+- reason: exact probe occurrence count was zero, the expired lease was reconciled, and delivery 000007 was safely terminalized as `PROVEN_NOT_SENT`.
 
 Latest Executor terminal:
 
@@ -38,7 +38,7 @@ Latest Executor terminal:
 - publication: `GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001`;
 - status: `COMPLETED`;
 - Executor classification: `ORCHESTRATOR_WORKER_DELIVERY_000007_PROVEN_NOT_SENT_AND_RECONCILED_READY_FOR_ARCHITECT_REVIEW`;
-- Architect acceptance: **pending at this documentation sync boundary**.
+- Architect acceptance: **accepted** by `GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`.
 
 ## 3. Delivery 000007 state
 
@@ -66,7 +66,7 @@ ORCH-000138 Executor reconciliation reports:
 - `LATEST_DELIVERY` was **not** advanced to `000007`;
 - the associated epoch-9 lease was reconciled from expired-active state to terminal `EXPIRED` and removed from the active lease set.
 
-Because ORCH-000138 is still awaiting Architect review, these are Executor-reported durable facts, not yet an Architect acceptance classification.
+These facts are now Architect-accepted recovery state. They do not establish a successful forward delivery.
 
 ## 4. What has been proven
 
@@ -83,6 +83,8 @@ The project has now proven the following important pieces independently:
 - BrowserRelay phase/reason telemetry distinguishes pre-send observation from send invocation/completion;
 - Architect/Executor authority/session binding remains separate from the transport mechanism;
 - the Orchestrator does not need AI reasoning.
+
+The accepted ORCH-000130 source also added the explicit durable recovery-only `PROVEN_NOT_SENT` worker-delivery reconciliation contract. Later runtime qualification and cleanup milestones do not advance the accepted source pointer unless Architect explicitly accepts a new source publication.
 
 ## 5. What is not yet proven
 

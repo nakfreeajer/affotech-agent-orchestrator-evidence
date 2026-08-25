@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -236,13 +236,23 @@ Latest Executor reconciliation reports:
 - zero browser sends and zero retries;
 - `LATEST_DELIVERY` remains the last truly SENT delivery, `000004`.
 
-At this documentation sync boundary, this result still awaits Architect acceptance.
+Architect accepted this recovery. A read-only target check plus accepted
+recovery contracts can safely close ambiguous pre-send state without resend.
 
 Lesson:
 
-A read-only target check plus accepted recovery contracts can safely close ambiguous pre-send state without resend.
+Recovery-only `PROVEN_NOT_SENT` records remain distinct from `SENT`; an
+accepted cleanup result must never be used to claim that forward delivery
+succeeded.
 
-## 15. Over-engineering lesson
+## 15. Documentation and messenger scope
+
+- The Orchestrator is a deterministic messenger/router, not an AI decision agent.
+- Keep semantic judgment in Architect, Executor and Curator roles.
+- Do not add business logic or another application framework to the messenger merely to compensate for a qualification seam.
+- A small local daemon, potentially packaged in Python, is a future simplification candidate only; no Python implementation is currently accepted.
+
+## 16. Over-engineering lesson
 
 The Orchestrator accumulated many distributed-systems-style mechanisms while the user's core need is simple:
 
@@ -272,7 +282,7 @@ Simplify after end-to-end proof:
 
 A small local deterministic daemon is the target. Python is a preferred future packaging option, not a reason to discard proven protocol/evidence rules.
 
-## 16. Final operational lesson
+## 17. Final operational lesson
 
 Do not measure progress by how many contracts or tests exist. The visible success criterion is:
 

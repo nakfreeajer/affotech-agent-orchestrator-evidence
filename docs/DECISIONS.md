@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decision records under `evidence/decisions/architect/`
 
@@ -175,7 +175,7 @@ Next action:
 
 read-only exact-probe occurrence reconciliation, then conditional accepted recovery only if proven not sent.
 
-## ORCH-000138 — Executor result awaiting Architect decision
+## ORCH-000138 — ACCEPTED
 
 Latest Executor publication:
 
@@ -192,7 +192,14 @@ Executor reports:
 - no retry;
 - no source/test/config mutation.
 
-At this documentation sync boundary, ORCH-000138 still has `requiresArchitectDecision=true`. Therefore this section records the latest durable Executor evidence but does **not** classify ORCH-000138 as accepted yet.
+Architect decision:
+
+`GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`
+
+The decision accepted the exact zero-occurrence probe reconciliation, the
+expired lease terminalization, and the distinct `PROVEN_NOT_SENT` delivery
+result. It did not accept a successful forward delivery or advance the
+accepted source pointer.
 
 ## Current strategic decisions
 

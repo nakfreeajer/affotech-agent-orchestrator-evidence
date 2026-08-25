@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -170,7 +170,7 @@ Material live-transport progress:
 - ORCH-000135 proved GitHub Contents runtime and reached BrowserRelay, but its temporary launcher used a no-op worker persistence adapter.
 - ORCH-000136 reconciled the lease and proved the accepted runner ordering was correct; the defect was temporary composition, not source.
 - ORCH-000137 used real GitHub Contents-backed worker persistence and durably recorded delivery `000007` before BrowserRelay contact. It still stopped at `PRE_SEND_OBSERVATION / WORKER_PRE_SEND_OBSERVATION_FAILED` with zero attempted/confirmed sends.
-- ORCH-000138 Executor reconciliation now reports exact probe occurrence count `0`, `PROVEN_NOT_SENT`, delivery `000007` reconciled to `PROVEN_NOT_SENT`, and its lease reconciled to `EXPIRED`. This result still awaits Architect acceptance at this documentation sync boundary.
+- ORCH-000138 is Architect-accepted recovery: exact probe occurrence count `0`, delivery `000007` reconciled to `PROVEN_NOT_SENT`, and its lease reconciled to `EXPIRED`. This does not prove forward delivery.
 
 ## 8. Browser/session boundaries
 
@@ -186,7 +186,15 @@ Protected AFFOTECH ports:
 
 BrowserRelay is a transport adapter only. Architect wake-up must remain one-way and must not parse or scrape Architect assistant responses.
 
-## 9. Protected AFFOTECH boundary
+## 9. Runtime lessons and target simplification
+
+- The accepted runner ordering is `prepareWorkerDeliveryIntent` → durable GitHub Contents write/readback → BrowserRelay observation → send.
+- Mutation leases, durable intent/result records, `LATEST_DELIVERY`, and explicit reconciliation preserve exactly-once and no-blind-retry behavior.
+- The current qualified runtime is Node/JavaScript launched as an independent Windows process; PowerShell is only launcher glue.
+- A lightweight local Python daemon is a future packaging candidate, not an implemented or accepted runtime.
+- The Orchestrator must remain deterministic and non-AI: observe, deliver the exact governed envelope, observe durable result, and wake the next governed role.
+
+## 10. Protected AFFOTECH boundary
 
 The Orchestrator project remains separate from AFFOTECH System V2 Hybrid.
 
@@ -201,7 +209,7 @@ Without a later explicit Rony-authorized integration milestone, the Orchestrator
 - tenant spreadsheets/resources;
 - business/private data.
 
-## 10. Completion trajectory
+## 11. Completion trajectory
 
 The next meaningful success is not another abstraction. It is visible end-to-end transport:
 
