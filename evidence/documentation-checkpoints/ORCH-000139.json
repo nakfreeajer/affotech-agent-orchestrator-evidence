@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "DOCUMENTATION_PRE_MUTATION_CHECKPOINT",
+  "checkpointId": "ORCH-000139",
+  "messageId": "ORCH-000139",
+  "dispatchId": "DISPATCH-000139",
+  "canonicalPromptPath": "evidence/prompts/ORCH-000139.md",
+  "canonicalPromptSha256": "7e75b918a51314882bc3a1fcfe3ba886496886024a60cd0ca771f8f58075a1d6",
+  "architectDecisionId": "GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED",
+  "acceptedSourcePublicationId": "GH-PUB-130-PROVEN-NOT-SENT-DELIVERY-RECONCILIATION-CONTRACT-REPAIR-READY-000001",
+  "pinnedEvidenceRef": "332a942ebe348e8726bfb99247f22974029ceb2e",
+  "acceptedRecoveryPublicationId": "GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001",
+  "documentationPaths": [
+    "docs/CURRENT_STATE.md",
+    "docs/PROJECT_HISTORY.md",
+    "docs/DECISIONS.md",
+    "docs/BUGS_AND_LESSONS.md",
+    "docs/ARCHITECTURE.md"
+  ],
+  "curatorBoundary": {
+    "acceptedPublicationId": "GH-PUB-088-PROJECT-DOCUMENTATION-CATCHUP-THROUGH-ORCH87-000001",
+    "projectionBoundarySequence": 51,
+    "executorContentEdits": 0
+  },
+  "documentationMutationStarted": false,
+  "readmeMutation": 0,
+  "governanceMutation": 0,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "runtimeMutation": 0,
+  "browserMutation": 0
+}
