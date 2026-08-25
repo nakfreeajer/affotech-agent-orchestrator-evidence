@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-151-EXPIRED-LEASE-RECONCILIATION-COMPOSITION-DEFECT-PROVEN-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-151-EXPIRED-LEASE-RECONCILIATION-COMPOSITION-DEFECT-PROVEN-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-151-EXPIRED-LEASE-RECONCILIATION-COMPOSITION-DEFECT-PROVEN-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-151-EXPIRED-LEASE-RECONCILIATION-COMPOSITION-DEFECT-PROVEN-000001/receipt.json",
-  "messageId": "ORCH-000151",
-  "dispatchId": "DISPATCH-000151",
+  "publicationId": "GH-PUB-152-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILED-ORIGINAL-BINDING-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-152-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILED-ORIGINAL-BINDING-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-152-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILED-ORIGINAL-BINDING-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-152-WORKER-DELIVERY-LEASE-000012-EXPIRED-RECONCILED-ORIGINAL-BINDING-000001/receipt.json",
+  "messageId": "ORCH-000152",
+  "dispatchId": "DISPATCH-000152",
   "status": "COMPLETED",
   "requiresArchitectDecision": true
 }
