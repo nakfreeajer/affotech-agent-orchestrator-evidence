@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.FRESH.LIVE.DELIVERY.QUALIFICATION.2A",
-  "publicationId": "GH-PUB-132-FRESH-INDEPENDENT-TERMINAL-LIVE-DELIVERY-000007-BLOCKED-000001",
-  "messageId": "ORCH-000132",
-  "dispatchId": "DISPATCH-000132",
-  "status": "BLOCKED",
-  "requiresArchitectDecision": true
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.HOST.INDEPENDENT.TERMINAL.FRESH.LIVE.DELIVERY.QUALIFICATION.2B",
+  "publicationId": null,
+  "messageId": "ORCH-000133",
+  "dispatchId": "DISPATCH-000133",
+  "status": "PENDING_EXECUTION",
+  "requiresArchitectDecision": false
 }
