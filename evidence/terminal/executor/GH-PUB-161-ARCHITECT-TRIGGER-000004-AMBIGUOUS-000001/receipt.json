@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-161-ARCHITECT-TRIGGER-000004-AMBIGUOUS-000001",
+  "messageId": "ORCH-000161",
+  "dispatchId": "DISPATCH-000161",
+  "status": "AMBIGUOUS",
+  "classification": "ARCHITECT_TRIGGER_000004_AMBIGUOUS_RECONCILIATION_REQUIRED",
+  "triggerId": "ARCH-TRIGGER-9333-000004",
+  "attemptedSendCount": 1,
+  "confirmedSendCount": 0,
+  "secondSendCount": 0,
+  "retryAuthorized": false,
+  "reconciliationRequired": true,
+  "architectTriggerMutation": 1,
+  "architectSendCount": 1,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
