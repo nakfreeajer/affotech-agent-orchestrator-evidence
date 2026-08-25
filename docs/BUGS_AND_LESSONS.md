@@ -1,42 +1,285 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: 9e27a6e862e8ff42bf0f6513785863090cb7ceff
-Covered event range: 1-51
-Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
-Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
+Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Status: CURRENT HUMAN-READABLE PROJECTION
+Machine authority: durable GitHub evidence and Architect decisions
 
 # Bugs and Lessons
 
-## Accepted root causes
+## 1. Governance lessons that remain permanent
 
-- SOURCE_ACCEPTED identity-collision defect: distinct producer identity binding is the accepted repair.
-- Stored-record self-hash defect: validation excludes the stored self-hash field.
-- ORCH-000076 stale-lineage selection defect -> ORCH-000077 accepted lineage-first selection repair.
-- ORCH-000076 immutable terminal evidence violation is preserved as a separate lesson.
+### Executor PASS is not acceptance
 
-## Fail-closed lessons
+Executor terminal status is evidence only. Architect must independently verify important claims and classify exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, or `NO NEW REPORT`.
 
-- Do not blindly retry after an ambiguous mutation.
-- Reconcile read-only first.
-- Preserve a valid canonical prefix.
-- SOURCE_ACCEPTED identity collision and distinct identity repair
-- stored-record self-hash defect and accepted validation repair
-- no blind retry; read-only reconciliation first
-- ORCH-000076 stale-lineage and immutable terminal evidence lessons
-- ORCH-000078 fixed-final-sequence and ORCH-000079 variable-range repair
-- ORCH-000080 semantic omission and Sequence 0 lesson
-- ORCH-000081 authority-hash ambiguity
-- ORCH-000083 checkpoint countermeasure
-- ORCH-000084 multi-overlay fail-closed-before-write
-- ORCH-000085 variable-length overlay repair
-- ORCH-000086 semantic-inspection lesson
-- ORCH-000087 canonical-history/causal-lesson repair
-- ORCH-000078: BLOCKED; evidence evidence/decisions/GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3/decision.json.
-- ORCH-000079: ACCEPTED; evidence evidence/decisions/GH-DEC-079a5c7e2d1b4f6380e9a52c7d31b846/decision.json.
-- ORCH-000080: BLOCKED; evidence evidence/decisions/GH-DEC-080d6b4e1a9c3752f8e40b7a61c293d5/decision.json.
-- ORCH-000081: INCONCLUSIVE; evidence evidence/decisions/GH-DEC-081c4e7b2a9d6f1380b5c4e7a2d961f3/decision.json.
-- ORCH-000082: INCONCLUSIVE; evidence evidence/decisions/GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30/decision.json.
-- ORCH-000083: ACCEPTED; evidence evidence/decisions/GH-DEC-083e6a1c4b7d29f5083a61e2c9f4b735/decision.json.
-- ORCH-000084: BLOCKED; evidence evidence/decisions/GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46/decision.json.
-- ORCH-000085: ACCEPTED; evidence evidence/decisions/GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983/decision.json.
-- ORCH-000086: BLOCKED; evidence evidence/decisions/GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63/decision.json.
-- ORCH-000087: ACCEPTED; evidence evidence/decisions/GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b/decision.json.
+### No blind retry
+
+For ambiguity-prone external mutation:
+
+```text
+pre-attempt boundary
+→ durable intent/readback
+→ one attempt
+→ durable result OR AMBIGUOUS
+→ read-only reconciliation
+```
+
+Never resend/retry merely because the previous attempt did not return a clean success.
+
+### Historical ambiguity must not be rewritten
+
+A later reconciliation may prove `SENT` or `PROVEN_NOT_SENT`, but historical ambiguous evidence remains historically ambiguous. Recovery is a new durable record/state transition, not retroactive rewriting.
+
+### Role separation matters
+
+- Architect decides.
+- Executor implements/runs/validates.
+- Curator maintains documentation when used.
+- Orchestrator carries messages only.
+
+Putting AI reasoning into the Orchestrator would create another authority/interpretation layer and make the system harder to audit.
+
+## 2. Early accepted defects/repairs
+
+- SOURCE_ACCEPTED identity collision required distinct producer identity binding.
+- Stored-record self-hash validation must exclude the stored self-hash field itself.
+- ORCH-000076 exposed stale-lineage host selection and immutable-terminal evidence problems.
+- ORCH-000077 accepted lineage-first selection as the repair.
+- Documentation renderer/projection work proved that transport success is insufficient when required human-readable semantics are missing.
+
+## 3. Delivery intent must exist before browser contact
+
+A worker delivery must be durably prepared and read back before BrowserRelay observation/contact.
+
+Required order:
+
+```text
+prepareWorkerDeliveryIntent
+→ durable GitHub write
+→ exact readback/identity verification
+→ BrowserRelay pre-send observation
+→ send if eligible
+```
+
+The runner/transport source now enforces this ordering; live composition must not bypass it.
+
+## 4. ORCH-000118 — independent process proof
+
+A real separate PowerShell-hosted Orchestrator process was successfully launched.
+
+Lesson:
+
+- the Orchestrator can and should run independently from the Executor terminal;
+- PowerShell is only a Windows process launcher;
+- the Orchestrator does not need an AI model.
+
+## 5. ORCH-000121 — phase observability is essential
+
+Before phase telemetry, a transport failure could be too coarse to distinguish whether the system failed before send, during send, after send or during result persistence.
+
+Accepted phase/reason observability now distinguishes:
+
+- pre-send observation;
+- send invocation/completion boundary;
+- post-send observation;
+- cleanup/disconnect;
+- durable result/current-pointer persistence.
+
+Lesson:
+
+Observability should identify the concrete failure seam without reading assistant response content.
+
+## 6. ORCH-000122/123 — expired lease recovery gap
+
+Problem:
+
+- an expired mutation lease could remain in durable state without an accepted contract for terminalizing it safely.
+
+Repair:
+
+- explicit `reconcileExpiredMutationLease` contract;
+- exact identity/epoch/revision/scope/envelope verification;
+- immutable terminal revision plus lease-index CAS;
+- ordinary expired release remains fail-closed;
+- transport ambiguity is not silently converted to success.
+
+Lesson:
+
+Lease expiry is not itself permission to mutate or release. Recovery requires an explicit contract.
+
+## 7. ORCH-000129/130 — ARMED proven-not-sent recovery gap
+
+Problem:
+
+- read-only reconciliation could prove a browser delivery did not occur, but there was no accepted durable operation to terminalize the ARMED intent as not sent.
+
+Repair:
+
+- recovery-only `PROVEN_NOT_SENT` delivery reconciliation;
+- zero send counts preserved;
+- `LATEST_DELIVERY` not advanced to a non-sent delivery;
+- exact-repeat idempotence;
+- conflict fail-closed behavior.
+
+Lesson:
+
+`PROVEN_NOT_SENT` is a first-class terminal recovery state and must remain distinct from `SENT`.
+
+## 8. ORCH-000127 — required target binding missing
+
+Problem:
+
+The temporary launcher omitted required Architect target-binding metadata even though Architect contact/trigger was disabled for the worker-send qualification.
+
+Outcome:
+
+Fail-closed before delivery/browser mutation.
+
+Lesson:
+
+Constructor/runtime contracts may require complete metadata even when a particular side effect is disabled. Launcher composition must satisfy the accepted contract exactly rather than guessing which fields are unnecessary.
+
+## 9. ORCH-000132 — `input.nowMs` omission
+
+Problem:
+
+The temporary launcher called the persistent host runner without required integer `input.nowMs`.
+
+Outcome:
+
+`HOST_RUNNER_INPUT_VALIDATION / HOST_IDENTITY_INVALID` before lease/delivery/browser work.
+
+Lesson:
+
+Live launch glue is production code in practice. Even when source is correct, ad-hoc launcher composition can invalidate the entire runtime.
+
+## 10. ORCH-000133 — stale local git runtime persistence
+
+Problem:
+
+Host runtime persistence used a temporary local evidence git worktree and attempted commit/push. The worktree was stale behind `origin/main`, creating an ambiguous/non-fast-forward persistence outcome.
+
+Outcome:
+
+Remote readback proved no durable host identity mutation; unpublished local state was discarded.
+
+Lesson:
+
+**Do not use local git commit/push as runtime state transport.**
+
+Runtime state must go through the accepted GitHub Contents client/CAS semantics so the independent daemon is not coupled to a clone's freshness.
+
+## 11. ORCH-000134 — `gh` executable not on child PATH
+
+Problem:
+
+The accepted GitHub Contents runtime required an authenticated `gh api` request seam, but the spawned process could not resolve `gh` through PATH.
+
+Known qualified executable:
+
+`C:\Program Files\GitHub CLI\gh.exe`
+
+Lesson:
+
+Expose the exact executable or its directory only to the spawned process/command-runner seam. Do not mutate machine/user PATH, install software, or change authentication state merely to satisfy runtime composition.
+
+## 12. ORCH-000135/136 — no-op worker persistence was a dangerous composition defect
+
+Problem:
+
+The temporary ORCH-000135 launcher composed BrowserRelay transport with a fake/no-op `workerPersistence.persistAndReadBack` adapter that returned `durableRecorded=true` without writing the delivery intent to GitHub.
+
+Symptom:
+
+- browser pre-send observation occurred;
+- durable event still had `deliveryId=null`;
+- actual intent did not exist.
+
+ORCH-000136 diagnosis proved:
+
+- accepted persistent runner order was correct;
+- source repair was not required;
+- the defect was entirely temporary runtime composition.
+
+Lesson:
+
+Never use a test/identity/no-op adapter in live composition merely because it satisfies an interface shape. `durableRecorded=true` must mean an actual durable write and exact readback occurred.
+
+## 13. ORCH-000137 — corrected persistence exposed the real remaining transport failure
+
+ORCH-000137 used genuine GitHub Contents-backed worker persistence.
+
+It proved:
+
+- real intent `WORKER-DELIVERY-EXECUTOR-000007` existed;
+- intent was read back before browser contact;
+- browser contact count was 1;
+- browser send count was 0;
+- attempted/confirmed send counts were 0/0;
+- no result/pointer advance occurred.
+
+Remaining failure:
+
+`PRE_SEND_OBSERVATION / WORKER_PRE_SEND_OBSERVATION_FAILED`
+
+Lesson:
+
+Once persistence ordering is correct, do not invent another framework abstraction. Diagnose the concrete BrowserRelay target/composer observation on port 9444.
+
+## 14. ORCH-000138 — zero-occurrence reconciliation
+
+Latest Executor reconciliation reports:
+
+- exact ORCH-000137 probe occurrence count: 0;
+- transport proven not sent;
+- delivery `000007` reconciled to `PROVEN_NOT_SENT`;
+- epoch-9 lease reconciled to terminal `EXPIRED`;
+- zero browser sends and zero retries;
+- `LATEST_DELIVERY` remains the last truly SENT delivery, `000004`.
+
+At this documentation sync boundary, this result still awaits Architect acceptance.
+
+Lesson:
+
+A read-only target check plus accepted recovery contracts can safely close ambiguous pre-send state without resend.
+
+## 15. Over-engineering lesson
+
+The Orchestrator accumulated many distributed-systems-style mechanisms while the user's core need is simple:
+
+```text
+observe durable message
+→ deliver exact message once
+→ observe durable result
+→ wake the governed next role
+```
+
+The durable guarantees are valuable, but the operational implementation should not become a second application platform.
+
+Keep:
+
+- registrations;
+- durable GitHub mailbox;
+- exact IDs/hashes;
+- duplicate suppression;
+- explicit ambiguity reconciliation;
+- protected role boundaries.
+
+Simplify after end-to-end proof:
+
+- qualification-only launcher glue;
+- unnecessary ceremony around the steady-state messenger;
+- runtime packaging.
+
+A small local deterministic daemon is the target. Python is a preferred future packaging option, not a reason to discard proven protocol/evidence rules.
+
+## 16. Final operational lesson
+
+Do not measure progress by how many contracts or tests exist. The visible success criterion is:
+
+1. one fresh message actually reaches Executor exactly once;
+2. the durable delivery result proves it;
+3. duplicate suppression works;
+4. Executor completion wakes Architect exactly once;
+5. no response scraping or AI decision logic exists in the Orchestrator.
+
+That is the milestone the remaining work should optimize toward.
