@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-144-HOST-IDENTITY-GITHUB-CONTENTS-PUT-HTTP400-BLOCKED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-144-HOST-IDENTITY-GITHUB-CONTENTS-PUT-HTTP400-BLOCKED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-144-HOST-IDENTITY-GITHUB-CONTENTS-PUT-HTTP400-BLOCKED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-144-HOST-IDENTITY-GITHUB-CONTENTS-PUT-HTTP400-BLOCKED-000001/receipt.json",
-  "messageId": "ORCH-000144",
-  "dispatchId": "DISPATCH-000144",
-  "status": "BLOCKED",
+  "publicationId": "GH-PUB-145-HOST-IDENTITY-GITHUB-CONTENTS-GHCLI-INPUT-REPAIR-READY-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-145-HOST-IDENTITY-GITHUB-CONTENTS-GHCLI-INPUT-REPAIR-READY-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-145-HOST-IDENTITY-GITHUB-CONTENTS-GHCLI-INPUT-REPAIR-READY-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-145-HOST-IDENTITY-GITHUB-CONTENTS-GHCLI-INPUT-REPAIR-READY-000001/receipt.json",
+  "messageId": "ORCH-000145",
+  "dispatchId": "DISPATCH-000145",
+  "status": "READY",
   "requiresArchitectDecision": true
 }
