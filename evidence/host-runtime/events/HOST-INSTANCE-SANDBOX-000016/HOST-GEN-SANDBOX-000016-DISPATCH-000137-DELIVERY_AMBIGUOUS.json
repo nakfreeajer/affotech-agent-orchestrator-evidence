@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000016-DISPATCH-000137-DELIVERY_AMBIGUOUS",
+  "eventType": "DELIVERY_AMBIGUOUS",
+  "sourceRef": "63bd7af5e770b2cd1594d6f4aeffef3e08a9c260",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000016",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000016",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_DELIVERY_READY",
+  "nextAction": "PREPARE_WORKER_DELIVERY_INTENT",
+  "dispatchId": "DISPATCH-000137",
+  "messageId": "ORCH-000137",
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": true,
+  "transportPhase": "PRE_SEND_OBSERVATION",
+  "transportReasonCode": "WORKER_PRE_SEND_OBSERVATION_FAILED",
+  "telemetryOnly": true
+}
