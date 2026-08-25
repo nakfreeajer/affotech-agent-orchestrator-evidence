@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-131-WORKER-DELIVERY-000006-PROVEN-NOT-SENT-RECONCILED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-131-WORKER-DELIVERY-000006-PROVEN-NOT-SENT-RECONCILED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-131-WORKER-DELIVERY-000006-PROVEN-NOT-SENT-RECONCILED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-131-WORKER-DELIVERY-000006-PROVEN-NOT-SENT-RECONCILED-000001/receipt.json",
-  "messageId": "ORCH-000131",
-  "dispatchId": "DISPATCH-000131",
-  "status": "PASS",
+  "publicationId": "GH-PUB-132-FRESH-INDEPENDENT-TERMINAL-LIVE-DELIVERY-000007-BLOCKED-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-132-FRESH-INDEPENDENT-TERMINAL-LIVE-DELIVERY-000007-BLOCKED-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-132-FRESH-INDEPENDENT-TERMINAL-LIVE-DELIVERY-000007-BLOCKED-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-132-FRESH-INDEPENDENT-TERMINAL-LIVE-DELIVERY-000007-BLOCKED-000001/receipt.json",
+  "messageId": "ORCH-000132",
+  "dispatchId": "DISPATCH-000132",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }
