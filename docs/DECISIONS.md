@@ -1,124 +1,212 @@
 Project: affotech-agent-orchestrator
-Projection input boundary: 9e27a6e862e8ff42bf0f6513785863090cb7ceff
-Covered event range: 1-51
-Status: PENDING_ARCHITECT_SEMANTIC_ACCEPTANCE
-Human-readable projection only; durable GitHub evidence and Architect decisions remain machine authority.
+Documentation sync boundary: through ORCH-000137 Architect decision plus ORCH-000138 Executor reconciliation terminal
+Status: CURRENT HUMAN-READABLE PROJECTION
+Machine authority: immutable Architect decision records under `evidence/decisions/architect/`
 
 # Architect Decisions
 
-## Sequence 1: GH-DEC-0620a10b9d9acd534615c5f36c9ca29a0f0
+## Decision model
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-0620a10b9d9acd534615c5f36c9ca29a0f0/decision.json
-## Sequence 5: GH-DEC-063b7e4a1c8d49f0a6c3e215294bd711
+Architect classifications are exactly:
 
-- Classification: BLOCKED
-- Evidence: evidence/decisions/architect/GH-DEC-063b7e4a1c8d49f0a6c3e215294bd711/decision.json
-## Sequence 8: GH-DEC-064fae0a1ca4b8741ae9779966569893
+- `ACCEPTED`
+- `BLOCKED`
+- `INCONCLUSIVE`
+- `NO NEW REPORT`
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-064fae0a1ca4b8741ae9779966569893/decision.json
-## Sequence 11: GH-DEC-065f417d3b684e88a7ea15aa376c4e91
+Executor PASS/COMPLETED is evidence only. It never becomes acceptance until Architect independently verifies the durable state and publishes an Architect decision.
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-065f417d3b684e88a7ea15aa376c4e91/decision.json
-## Sequence 15: GH-DEC-0667a3d1c54e4e88bb5a58b86d2c6f4
+The canonical early decision/event history remains preserved in the immutable event/evidence chain through sequence 51. This document focuses on the current material decision chain and does not replace those records.
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-0667a3d1c54e4e88bb5a58b86d2c6f4/decision.json
-## Sequence 18: GH-DEC-067c8d2e6a1f4b9c83e5d7a2f61b0e44
+## Earlier accepted foundations
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-067c8d2e6a1f4b9c83e5d7a2f61b0e44/decision.json
-## Sequence 21: GH-DEC-068e91b3c64a4d2f8c7e10a5b6397d22
+Material earlier decisions established:
 
-- Classification: INCONCLUSIVE
-- Evidence: evidence/decisions/architect/GH-DEC-068e91b3c64a4d2f8c7e10a5b6397d22/decision.json
-## Sequence 24: GH-DEC-0694d8f1a7c2e4b9a8f3560c1de72b65
+- durable GitHub evidence as machine authority;
+- project-event/cursor/documentation projection rules;
+- lineage-first persistent-host selection after the ORCH-000076 stale-lineage defect;
+- fail-closed documentation semantic checks;
+- no blind retry after ambiguity;
+- exact worker/Architect authority/session binding;
+- AFFOTECH separation/protection.
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-0694d8f1a7c2e4b9a8f3560c1de72b65/decision.json
-## Sequence 27: GH-DEC-070b8e41f9c3d257a6e10c54f8b72a91
+The human-readable documentation catch-up through ORCH-000087 was Architect-accepted under the prior Curator projection chain.
 
-- Classification: BLOCKED
-- Evidence: evidence/decisions/architect/GH-DEC-070b8e41f9c3d257a6e10c54f8b72a91/decision.json
-## Sequence 30: GH-DEC-0716f23a4d8c9e5b107a34f6c2d81e90
+## Recent operational decisions
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-0716f23a4d8c9e5b107a34f6c2d81e90/decision.json
-## Sequence 34: GH-DEC-072d0e4f6a1b9c73e8254d610fc8a29b
+### ORCH-000123 candidate → later ACCEPTED source foundation
 
-- Classification: BLOCKED
-- Evidence: evidence/decisions/architect/GH-DEC-072d0e4f6a1b9c73e8254d610fc8a29b/decision.json
-## Sequence 37: GH-DEC-073a6f2c8d41e9b5703c4a1f8e26d95b
+Expired mutation-lease reconciliation was implemented and subsequently validated/accepted after full sharded qualification. This created the recovery contract later used on stale live leases.
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-073a6f2c8d41e9b5703c4a1f8e26d95b/decision.json
-## Sequence 41: GH-DEC-074e1c3a7b9d2f4680a5c71e3b9f024d6
+### ORCH-000129 — ACCEPTED diagnostic
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-074e1c3a7b9d2f4680a5c71e3b9f024d6/decision.json
-## Sequence 44: GH-DEC-075c8a4e2f6b19d307e5a41c9f268bd0
+Read-only reconciliation proved the affected live probe had not been sent and identified a missing durable non-send reconciliation operation for ARMED deliveries.
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-075c8a4e2f6b19d307e5a41c9f268bd0/decision.json
-## Sequence 47: GH-DEC-076b4f2a8c1d7e9305a6c4f18b2d9e71
+The diagnostic was accepted; it did not change accepted source.
 
-- Classification: BLOCKED
-- Evidence: evidence/decisions/architect/GH-DEC-076b4f2a8c1d7e9305a6c4f18b2d9e71/decision.json
-## Sequence 50: GH-DEC-077d3a6f1c8b4e2097a5c31f6b2e84d0
+### ORCH-000130 — ACCEPTED
 
-- Classification: ACCEPTED
-- Evidence: evidence/decisions/architect/GH-DEC-077d3a6f1c8b4e2097a5c31f6b2e84d0/decision.json
-## Post-ledger ORCH-000078
+Decision:
 
-- Classification: BLOCKED
-- Authority: GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3
-- Evidence: evidence/decisions/GH-DEC-078f2c4a9d1e6b37c805a4f2d9b761e3/decision.json
-## Post-ledger ORCH-000079
+`GH-DEC-130-PROVEN-NOT-SENT-RECONCILIATION-CONTRACT-ACCEPTED`
 
-- Classification: ACCEPTED
-- Authority: GH-DEC-079a5c7e2d1b4f6380e9a52c7d31b846
-- Evidence: evidence/decisions/GH-DEC-079a5c7e2d1b4f6380e9a52c7d31b846/decision.json
-## Post-ledger ORCH-000080
+Accepted source:
 
-- Classification: BLOCKED
-- Authority: GH-DEC-080d6b4e1a9c3752f8e40b7a61c293d5
-- Evidence: evidence/decisions/GH-DEC-080d6b4e1a9c3752f8e40b7a61c293d5/decision.json
-## Post-ledger ORCH-000081
+`GH-PUB-130-PROVEN-NOT-SENT-DELIVERY-RECONCILIATION-CONTRACT-REPAIR-READY-000001`
 
-- Classification: INCONCLUSIVE
-- Authority: GH-DEC-081c4e7b2a9d6f1380b5c4e7a2d961f3
-- Evidence: evidence/decisions/GH-DEC-081c4e7b2a9d6f1380b5c4e7a2d961f3/decision.json
-## Post-ledger ORCH-000082
+Reason:
 
-- Classification: INCONCLUSIVE
-- Authority: GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30
-- Evidence: evidence/decisions/GH-DEC-082b7e4a1c9d5630f8a2c41e7b695d30/decision.json
-## Post-ledger ORCH-000083
+- explicit recovery-only `PROVEN_NOT_SENT` contract validated;
+- ordinary ARMED/SENT semantics preserved;
+- exact-repeat idempotence and conflict fail-closed behavior validated;
+- no send/result/pointer success synthesized;
+- full sharded suite: 813/0.
 
-- Classification: ACCEPTED
-- Authority: GH-DEC-083e6a1c4b7d29f5083a61e2c9f4b735
-- Evidence: evidence/decisions/GH-DEC-083e6a1c4b7d29f5083a61e2c9f4b735/decision.json
-## Post-ledger ORCH-000084
+This remains the current accepted source.
 
-- Classification: BLOCKED
-- Authority: GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46
-- Evidence: evidence/decisions/GH-DEC-084c5a8e2d7b1f63409e5a72c8d31b46/decision.json
-## Post-ledger ORCH-000085
+### ORCH-000131 — ACCEPTED
 
-- Classification: ACCEPTED
-- Authority: GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983
-- Evidence: evidence/decisions/GH-DEC-085a4f7c2e9d1b6305a8c41f7d26e983/decision.json
-## Post-ledger ORCH-000086
+Decision:
 
-- Classification: BLOCKED
-- Authority: GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63
-- Evidence: evidence/decisions/GH-DEC-086b5e2c7a4d91f3086c5a72e1d49b63/decision.json
-## Post-ledger ORCH-000087
+`GH-DEC-131-WORKER-DELIVERY-000006-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`
 
-- Classification: ACCEPTED
-- Authority: GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b
-- Evidence: evidence/decisions/GH-DEC-087d3c6a8e1f4b9207a5c31d6e84f2b/decision.json
+Reason:
 
-Machine decision records remain authoritative.
+- unresolved delivery `000006` was safely terminalized as proven-not-sent using the accepted recovery contract;
+- zero browser/host/source mutation;
+- `LATEST_DELIVERY` remained on `000004 / SENT`.
+
+Accepted-source pointer remained ORCH-000130 because ORCH-000131 was live-state cleanup only.
+
+### ORCH-000132 — BLOCKED
+
+Decision:
+
+`GH-DEC-132-HOST-RUNNER-NOWMS-LAUNCH-COMPOSITION-BLOCKED`
+
+Reason:
+
+- temporary launcher omitted required integer `input.nowMs`;
+- failure occurred before lease/delivery/browser activity.
+
+Next action was a launcher-only retry.
+
+### ORCH-000133 — BLOCKED
+
+Decision:
+
+`GH-DEC-133-LOCAL-GIT-RUNTIME-PERSISTENCE-BLOCKED`
+
+Reason:
+
+- corrected launcher reached host identity persistence;
+- temporary runtime used a stale local evidence git worktree;
+- push became ambiguous/non-fast-forward;
+- remote readback proved no durable host identity mutation;
+- local git commit/push was rejected as the runtime persistence strategy.
+
+### ORCH-000134 — BLOCKED
+
+Decision:
+
+`GH-DEC-134-GITHUB-CONTENTS-GHCLI-PATH-COMPOSITION-BLOCKED`
+
+Reason:
+
+- GitHub Contents runtime was the correct composition;
+- the spawned process could not resolve `gh` on PATH;
+- known qualified executable existed at `C:\Program Files\GitHub CLI\gh.exe`;
+- no host/browser/delivery side effect occurred.
+
+### ORCH-000135 — INCONCLUSIVE
+
+Decision:
+
+`GH-DEC-135-PRE-SEND-INTENT-ORDERING-INCONCLUSIVE`
+
+Reason:
+
+- GitHub Contents runtime and exact GitHub CLI path worked;
+- host and lease were durably created;
+- BrowserRelay reached pre-send observation;
+- no send occurred;
+- no durable delivery intent existed even though browser contact had occurred;
+- the live composition therefore required reconciliation/diagnosis before retry.
+
+### ORCH-000136 — ACCEPTED
+
+Decision:
+
+`GH-DEC-136-PRE-SEND-COMPOSITION-DEFECT-DIAGNOSIS-ACCEPTED`
+
+Reason:
+
+- the expired ORCH-000135 lease was reconciled;
+- read-only diagnosis proved the accepted runner ordering was correct;
+- defect was isolated to temporary launcher composition;
+- browser transport had been configured with a no-op `workerPersistence.persistAndReadBack` that falsely returned `durableRecorded=true`;
+- source repair was not required.
+
+Next action: retry with genuine GitHub Contents-backed worker persistence.
+
+### ORCH-000137 — INCONCLUSIVE
+
+Decision:
+
+`GH-DEC-137-PRE-SEND-OBSERVATION-INCONCLUSIVE`
+
+Verified facts:
+
+- real delivery intent `WORKER-DELIVERY-EXECUTOR-000007` existed;
+- intent was durably written and read back before BrowserRelay contact;
+- BrowserRelay contact count: 1;
+- browser send count: 0;
+- attempted/confirmed sends: 0/0;
+- no delivery result yet;
+- `LATEST_DELIVERY` remained `000004 / SENT`;
+- associated lease remained unresolved at terminal time;
+- failure phase remained `PRE_SEND_OBSERVATION / WORKER_PRE_SEND_OBSERVATION_FAILED`.
+
+Reason code:
+
+`PRE_SEND_OBSERVATION_FAILED_AFTER_DURABLE_INTENT_BEFORE_ANY_SEND`
+
+Next action:
+
+read-only exact-probe occurrence reconciliation, then conditional accepted recovery only if proven not sent.
+
+## ORCH-000138 — Executor result awaiting Architect decision
+
+Latest Executor publication:
+
+`GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001`
+
+Executor reports:
+
+- exact probe occurrence count: 0;
+- `transportReconciliation = PROVEN_NOT_SENT`;
+- delivery `000007`: `ARMED → PROVEN_NOT_SENT`;
+- attempted/confirmed sends remain 0/0;
+- epoch-9 lease: terminal `EXPIRED`, inactive;
+- `LATEST_DELIVERY` remains `000004 / SENT`;
+- no retry;
+- no source/test/config mutation.
+
+At this documentation sync boundary, ORCH-000138 still has `requiresArchitectDecision=true`. Therefore this section records the latest durable Executor evidence but does **not** classify ORCH-000138 as accepted yet.
+
+## Current strategic decisions
+
+The current architecture direction is:
+
+1. keep Architect judgment human-governed and AI-assisted;
+2. keep Executor and Curator role-separated;
+3. keep the Orchestrator deterministic and non-AI;
+4. use GitHub as durable mailbox/state authority;
+5. use BrowserRelay only as a transport adapter;
+6. preserve durable intent/result/reconciliation and duplicate suppression;
+7. never blind-retry after ambiguous external mutation;
+8. do not let local git commit/push become runtime transport;
+9. prove one actual forward delivery before adding more abstractions;
+10. simplify/package the final local messenger after proof; Python is a preferred option, not yet an accepted implementation.
+
+Machine decision records remain authoritative if any human-readable summary differs.
