@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "ARCHITECT_TRIGGER_RECONCILIATION",
+  "reconciliationId": "ARCH-TRIGGER-RECONCILIATION-9333-000004",
+  "triggerId": "ARCH-TRIGGER-9333-000004",
+  "messageId": "ORCH-000162",
+  "dispatchId": "DISPATCH-000162",
+  "historicalSendProof": "PROVEN_NOT_SENT",
+  "resolvedTransportState": "NOT_SENT",
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "sourceIntentPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000004/intent.json",
+  "sourceResultPath": "evidence/architect-triggers/ARCH-TRIGGER-9333-000004/result.json",
+  "preBoundary": {
+    "userMessageCount": 2,
+    "matchingPayloadCount": 1,
+    "userBoundaryFingerprint": "dfe19d7eb87081f233daa2789bcce37d0d7411e3cb4eca4ee8ed2d8e54064edd"
+  },
+  "immediatePostBoundary": {
+    "userMessageCount": 2,
+    "matchingPayloadCount": 1,
+    "composerText": "verify & next"
+  },
+  "currentBoundary": {
+    "targetUrl": "https://chatgpt.com/c/6a7f0e19-6e20-83ec-b052-c62f0e926242",
+    "userMessageCount": 2,
+    "matchingPayloadCount": 1,
+    "lastUserText": "write handover prompt for new chat session & wait for executor result",
+    "userBoundaryFingerprint": "dfe19d7eb87081f233daa2789bcce37d0d7411e3cb4eca4ee8ed2d8e54064edd",
+    "composerText": "verify & next",
+    "composerDisabled": false
+  },
+  "architectBrowserContactCount": 1,
+  "sendCount": 0,
+  "assistantMessageTextRead": false,
+  "responseDomRead": false,
+  "recordedAt": 1787699335852
+}
