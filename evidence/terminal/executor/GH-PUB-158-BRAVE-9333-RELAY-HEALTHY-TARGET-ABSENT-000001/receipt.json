@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-158-BRAVE-9333-RELAY-HEALTHY-TARGET-ABSENT-000001",
+  "messageId": "ORCH-000158",
+  "dispatchId": "DISPATCH-000158",
+  "status": "BLOCKED",
+  "classification": "RONY_MANUAL_ARCHITECT_CHAT_REGISTRATION_REQUIRED",
+  "browserProcessLaunchCount": 1,
+  "architectBrowserContactCount": 1,
+  "architectTriggerMutation": 0,
+  "architectSendCount": 0,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "hostProcessRemainsRunning": true,
+  "requiresArchitectDecision": true
+}

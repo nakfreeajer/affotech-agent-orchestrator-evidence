@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-157-BRAVE-9333-RELAY-REPAIR-FAILED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-157-BRAVE-9333-RELAY-REPAIR-FAILED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-157-BRAVE-9333-RELAY-REPAIR-FAILED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-157-BRAVE-9333-RELAY-REPAIR-FAILED-000001/receipt.json",
-  "messageId": "ORCH-000157",
-  "dispatchId": "DISPATCH-000157",
+  "publicationId": "GH-PUB-158-BRAVE-9333-RELAY-HEALTHY-TARGET-ABSENT-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-158-BRAVE-9333-RELAY-HEALTHY-TARGET-ABSENT-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-158-BRAVE-9333-RELAY-HEALTHY-TARGET-ABSENT-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-158-BRAVE-9333-RELAY-HEALTHY-TARGET-ABSENT-000001/receipt.json",
+  "messageId": "ORCH-000158",
+  "dispatchId": "DISPATCH-000158",
   "status": "BLOCKED",
   "requiresArchitectDecision": true
 }
