@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.ARCHITECT.RELAY.BRAVE.PORT.OWNER.DIAGNOSTIC.1C",
-  "publicationId": "GH-PUB-156-ARCHITECT-RELAY-BRAVE-PORT-OWNER-DIAGNOSTIC-000001",
-  "messageId": "ORCH-000156",
-  "dispatchId": "DISPATCH-000156",
-  "status": "COMPLETED",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.ARCHITECT.RELAY.BRAVE.9333.REPAIR.AND.WAKE.EXACTLY.ONCE.1D",
+  "publicationId": "GH-PUB-157-BRAVE-9333-RELAY-REPAIR-FAILED-000001",
+  "messageId": "ORCH-000157",
+  "dispatchId": "DISPATCH-000157",
+  "status": "BLOCKED",
   "requiresArchitectDecision": true
 }

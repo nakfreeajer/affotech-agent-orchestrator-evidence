@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-157-BRAVE-9333-RELAY-REPAIR-FAILED-000001",
+  "messageId": "ORCH-000157",
+  "dispatchId": "DISPATCH-000157",
+  "status": "BLOCKED",
+  "classification": "BRAVE_9333_RELAY_REPAIR_FAILED",
+  "browserProcessLaunchCount": 1,
+  "architectTriggerMutation": 0,
+  "architectSendCount": 0,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
