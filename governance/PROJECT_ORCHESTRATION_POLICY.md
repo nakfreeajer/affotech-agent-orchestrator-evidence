@@ -1,7 +1,7 @@
 # AFFOTECH Agent Orchestrator Project Orchestration Policy
 
 **File:** `PROJECT_ORCHESTRATION_POLICY.md`  
-**Version:** 1.0  
+**Version:** 1.1  
 **Status:** Governing project-specific extension  
 **Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md`  
 **Project:** `affotech-agent-orchestrator`  
@@ -27,19 +27,30 @@ Where this policy is silent, `ORCHESTRATOR_BOOTSTRAP.md` controls. This policy m
 
 No other project repository or worktree is implicitly authorized by this policy.
 
-## 3. Authority model
+## 3. Authority model and documentation ownership
 
 Normal chain:
 
 `Rony → Architect → Executor → Architect`
 
-Documentation Curator policy:
+For this project, documentation ownership is now **ARCHITECT_DIRECT**.
 
-`ON_DEMAND`
+The Architect must directly maintain all relevant governing and human-readable project documentation when durable project truth changes, including as applicable:
 
-Curator is not a mandatory stage and does not require a permanent terminal/registration during ordinary Orchestrator hardening. Architect directly maintains governing architecture/history/control documentation when connected write authority exists.
+- project governance/policy;
+- architecture;
+- accepted current state;
+- Architect decisions/rationale summaries;
+- project history;
+- reusable bugs/lessons;
+- README/entrypoint documentation;
+- handover/recovery material if later introduced.
 
-Use Curator only when substantial repository documentation work benefits from a separate bounded worker. Executor never authorizes Curator. Curator never authorizes Executor. Every Curator result returns to Architect.
+Documentation updates are part of Architect closure after verified accepted work or a material Rony directive. They must not be deferred merely because a separate documentation worker could be used.
+
+Documentation Curator is **not an active required role for this project** and is not part of the normal forward/return transport chain. Historical Curator evidence remains valid historical evidence. A Curator may be reintroduced only by a future explicit Rony directive that changes this policy.
+
+Executor does not own canonical documentation unless an Architect prompt explicitly grants a bounded documentation mutation envelope. Executor never self-accepts documentation truth.
 
 Architect classifications are exactly:
 
@@ -66,7 +77,9 @@ Important current-pointer classes include, as applicable:
 
 Current pointers are convenience indexes. Immutable prompts, dispatches, decisions, results, reconciliations, receipts/publications, source snapshots/manifests, and Git history remain the underlying evidence.
 
-Browser-visible assistant text, terminal screen output, or a human-readable ledger is not machine authority.
+Browser-visible assistant text, terminal screen output, or human-readable Markdown is not machine authority.
+
+Human-readable documentation is an Architect-maintained projection of durable accepted truth.
 
 ## 5. Protocol-family separation
 
@@ -97,7 +110,7 @@ Executor browser/session authority is the registered dedicated Executor session 
 
 These endpoints are project-specific control-plane resources. Their exact durable authority/registration IDs must be read from current evidence rather than guessed.
 
-Curator has no required persistent registration at present. Register Curator only through a future bounded Architect-authorized milestone when an actual independent documentation workload requires it.
+No Curator browser/session registration is required under the current `ARCHITECT_DIRECT` documentation policy.
 
 ## 7. Protected AFFOTECH resources
 
@@ -130,7 +143,7 @@ Rony alone releases a Rony pause or otherwise grants human authority reserved to
 
 ## 9. Identity and baseline gate
 
-Before command 1 and before the first mutation of every mutating milestone, Executor must verify at minimum:
+Before command 1 and before the first mutation of every mutating Executor milestone, Executor must verify at minimum:
 
 - repository/project identity;
 - branch/ref/baseline required by the Architect prompt;
@@ -145,13 +158,17 @@ Before command 1 and before the first mutation of every mutating milestone, Exec
 
 Failure stops before project mutation and must still produce terminal governance evidence when the publication path is available.
 
-## 10. Mutation envelope
+Architect documentation/control-plane writes use connected Architect authority and must independently read current durable evidence before changing canonical human-readable project truth.
 
-Every mutating milestone must enumerate exact authorized source/test/config/evidence paths or bounded resources and exact forbidden domains.
+## 10. Mutation envelope and role boundaries
+
+Every mutating Executor milestone must enumerate exact authorized source/test/config/evidence paths or bounded resources and exact forbidden domains.
 
 Anything not explicitly authorized is denied.
 
-Source/test implementation work is Executor-owned. Architect does not silently become Executor. Architect may write governance/evidence/architecture records within its own connected authority because those are control-plane records, not implementation source.
+Source/test implementation work is Executor-owned. Architect does not silently become Executor.
+
+Architect directly owns governance/evidence/architecture/current-state/history/decision-summary documentation and may write those control-plane/human-readable records within connected Architect authority. This is not Executor implementation work and does not require a Curator handoff.
 
 Destructive cleanup is default-deny. Never rewrite historical ambiguous evidence to make it appear successful.
 
@@ -165,7 +182,7 @@ Read-only inspection does not require an active mutation lease.
 
 Lease means exclusion, not authority. The Architect prompt/dispatch and any required human authority remain separate gates.
 
-No parallel mutating agents may operate in the same worktree/shared mutable state unless Architect explicitly proves isolation and authorizes it.
+No parallel mutating agents may operate in the same worktree/shared state unless Architect explicitly proves isolation and authorizes it.
 
 ## 12. Durable human authority
 
@@ -223,8 +240,6 @@ Architect BrowserRelay is a one-way doorbell. It may send only the governed wake
 
 Browser transport must preserve exactly-once intent/result/reconciliation semantics and current session identity gates.
 
-The failed ORCH-000043/044 live doorbell qualification is historical evidence that repeated-payload reconciliation without a durable pre-send correlation boundary is insufficient. That history must remain preserved.
-
 ## 16. Schema compatibility
 
 All machine-routable Orchestrator records must declare/resolve a supported record type and schema version.
@@ -232,8 +247,6 @@ All machine-routable Orchestrator records must declare/resolve a supported recor
 Unknown record types, unsupported major versions, ambiguous protocol family, or missing required compatibility metadata fail closed.
 
 No automatic schema migration/normalization is allowed at an authority boundary unless a separately authorized migration contract exists.
-
-The currently authorized compatibility-registry workstream must preserve this policy and must not access AFFOTECH while implementing generic compatibility gates.
 
 ## 17. Evidence and acceptance
 
@@ -244,6 +257,8 @@ Architect independently verifies the newest valid unconsumed result and classifi
 Accepted source must be durably externally preserved before another implementation milestone begins, unless Architect/Rony explicitly handles an exception.
 
 Historical states remain immutable in meaning. For example, an `AMBIGUOUS` delivery may later have a separate reconciliation proving `SENT`; the old delivery record remains `AMBIGUOUS`.
+
+After an accepted milestone or material Rony directive, Architect must update every human-readable document materially affected by that truth. Documentation sync must not be postponed to a future Curator run.
 
 ## 18. Business/product state vs orchestration state
 
@@ -263,6 +278,8 @@ Correctness-critical authority must not exist only in process memory, browser me
 A fresh Architect/Executor environment must be able to reconstruct the next legal action from durable GitHub evidence plus the accepted source/policy/profile records.
 
 Unfinished intent or uncertain external side effects enter reconciliation before any retry.
+
+Human-readable docs must make the current accepted operational picture understandable, but they never replace the durable evidence chain.
 
 ## 20. Future AFFOTECH integration boundary
 
@@ -287,7 +304,7 @@ This Orchestrator owns the canonical universal bootstrap. New governed applicati
 - `AGENTS.md` referencing both rather than duplicating the entire governance kernel;
 - `config/project-profile.json` (or equivalent) binding bootstrap version/hash, project-policy path/hash, protocol family, repositories, roles, and protected resources.
 
-The private evidence bootstrap publication for a new project should bind those file hashes and the Architect's bootstrap-acceptance decision.
+A downstream project may choose a different documentation worker policy, but this Orchestrator project's own policy remains `ARCHITECT_DIRECT` until Rony changes it.
 
 ## 22. Document precedence inside this project
 
@@ -300,15 +317,17 @@ For the Orchestrator project:
 5. canonical Architect prompt/dispatch;
 6. worker-local choices.
 
-The Architecture Manual remains the detailed human architecture specification. Where a true conflict exists between an older manual statement and newer explicit Rony-approved governing evidence/policy, stop and reconcile the documentation rather than guessing.
+The Architecture Manual/human-readable docs remain detailed project specifications and projections. Where a true conflict exists between an older document and newer explicit Rony-approved governing evidence/policy, Architect must reconcile the documentation directly rather than guessing or delegating the conflict away.
 
-## 23. Current integration posture
+## 23. Current project posture
 
-At adoption of this policy:
+Current governing posture:
 
-- Orchestrator control/evidence work may continue under its current canonical GitHub authority;
-- Curator remains on-demand;
+- Orchestrator control/evidence work continues under canonical GitHub authority;
+- Architect directly maintains all relevant project documentation;
+- Curator is not an active normal role and no Curator transport proof is required for project completion;
 - protocol-family separation is mandatory;
 - durable correlation identity is mandatory for reconciliation-capable external mutations;
 - AFFOTECH integration/access remains unauthorized;
-- the ongoing generic protocol/schema compatibility milestone remains separate from AFFOTECH.
+- accepted source remains separately governed from runtime qualification;
+- productive Orchestrator work should continue after accepted transport proof without creating documentation-relay milestones that no longer serve the project.
