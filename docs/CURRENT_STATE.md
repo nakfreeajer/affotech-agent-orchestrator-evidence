@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
+Documentation sync boundary: through Architect-accepted ORCH-000163 and Rony documentation-ownership directive of 2026-08-26
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,7 +7,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## 1. Accepted source baseline
 
-Current Architect-accepted source:
+Current Architect-accepted source remains:
 
 `GH-PUB-130-PROVEN-NOT-SENT-DELIVERY-RECONCILIATION-CONTRACT-REPAIR-READY-000001`
 
@@ -22,114 +22,126 @@ Accepted qualification:
 - manifest SHA-256: `0f8916a74a1275be90f2ff1a10704f8f9c79793e1a63d8da81c7906e318ee5ad`;
 - archive SHA-256: `79c36abd1ea108003baa737550210a71008a9a70a887c9a14c04aa533235f103`.
 
-The accepted source pointer has not advanced beyond ORCH-000130 because later milestones have been live qualification, recovery, diagnosis or composition work rather than accepted source changes.
+The accepted-source pointer has not advanced because ORCH-000131 through ORCH-000163 were live qualification, reconciliation, browser-relay repair, or control-plane proof rather than accepted source changes.
 
-## 2. Current operational authority state
+## 2. Latest Architect-accepted operational state
 
-Latest Architect decision at this documentation sync boundary:
+Latest Architect decision:
 
-- ORCH-000138: `ACCEPTED`;
-- decision: `GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`;
-- reason: exact probe occurrence count was zero, the expired lease was reconciled, and delivery 000007 was safely terminalized as `PROVEN_NOT_SENT`.
+`GH-DEC-163-AUTOMATIC-ARCHITECT-DOORBELL-TRIGGER-000005-ACCEPTED`
 
-Latest Executor terminal:
+Reviewed Executor publication:
 
-- ORCH-000138 / `DISPATCH-000138`;
-- publication: `GH-PUB-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILED-000001`;
+`GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001`
+
+Verified ORCH-000163 state:
+
 - status: `COMPLETED`;
-- Executor classification: `ORCHESTRATOR_WORKER_DELIVERY_000007_PROVEN_NOT_SENT_AND_RECONCILED_READY_FOR_ARCHITECT_REVIEW`;
-- Architect acceptance: **accepted** by `GH-DEC-138-WORKER-DELIVERY-000007-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`.
+- trigger: `ARCH-TRIGGER-9333-000005`;
+- trigger state: `SENT`;
+- payload: exact `verify & next`;
+- intent/result/pointer were durably created/read back;
+- pre-send USER count: `2`;
+- post-send USER count: `3`;
+- pre-send matching payload count: `1`;
+- post-send matching payload count: `2`;
+- newly appended USER message: exact `verify & next`;
+- composer empty after send: yes;
+- attempted/confirmed send counts: `1/1`;
+- second send count: `0`;
+- duplicate replay count: `1`;
+- duplicate replay additional send count: `0`;
+- retry authorized: `false`;
+- reconciliation required: `false`;
+- assistant response text read: `false`;
+- response DOM read: `false`;
+- browser process launches/navigation: `0/0`;
+- source/test/config/AFFOTECH/Drive/deployment/protected-port mutations/contact: `0`.
 
-## 3. Delivery 000007 state
+This is the first fully confirmed automatic Architect wake in the current chain.
 
-ORCH-000137 proved the corrected ordering:
+## 3. Forward delivery state
 
-- delivery intent `WORKER-DELIVERY-EXECUTOR-000007` was created durably;
-- intent state was `ARMED`;
-- exact ORCH-000137 locator was bound to the current Executor authority, registration, conversation and port `9444`;
-- the intent was read back before any BrowserRelay observation/contact;
-- BrowserRelay contact count: `1`;
-- browser send count: `0`;
-- attempted send count: `0`;
-- confirmed send count: `0`;
-- no delivery result existed at ORCH-000137 terminal;
-- `LATEST_DELIVERY` remained `WORKER-DELIVERY-EXECUTOR-000004 / SENT`.
+ORCH-000153 previously proved the fresh Architect-governed forward delivery path to Executor:
 
-ORCH-000138 Executor reconciliation reports:
+- host: `HOST-INSTANCE-SANDBOX-000024`;
+- delivery: `WORKER-DELIVERY-EXECUTOR-000013`;
+- state: `SENT`;
+- intent durable: true;
+- result durable: true;
+- exactly one browser send;
+- duplicate replay second send: `0`;
+- retry unauthorized;
+- no Architect trigger in that milestone;
+- protected boundaries remained clean.
 
-- exact probe occurrence count in the registered Executor conversation: `0`;
-- transport reconciliation: `PROVEN_NOT_SENT`;
-- delivery `000007` state transitioned from `ARMED` to `PROVEN_NOT_SENT`;
-- attempted send count remained `0`;
-- confirmed send count remained `0`;
-- retry remained unauthorized;
-- `LATEST_DELIVERY` was **not** advanced to `000007`;
-- the associated epoch-9 lease was reconciled from expired-active state to terminal `EXPIRED` and removed from the active lease set.
+`WORKER-DELIVERY-EXECUTOR-000013 / SENT` remains the latest proven forward-delivery anchor in this chain.
 
-These facts are now Architect-accepted recovery state. They do not establish a successful forward delivery.
+## 4. Architect relay state
 
-## 4. What has been proven
+The dedicated Architect relay is the Brave-based control session on CDP port `9333` under the durable Architect registration/authority evidence.
 
-The project has now proven the following important pieces independently:
+ORCH-000154 through ORCH-000162 established the necessary recovery/qualification facts:
+
+- initial port 9333 absence was diagnosed rather than guessed;
+- incorrect Chrome recovery was rejected;
+- Brave ownership/process/debug-port diagnostics were performed;
+- an exact dedicated Brave profile/listener was established;
+- target/trigger ambiguity was reconciled without blind resend;
+- historical trigger `000004` was ultimately proven not sent;
+- a fresh trigger identity `000005` was used for the successful exactly-once send.
+
+The return path is now accepted healthy at the transport-proof level.
+
+## 5. What is now proven
+
+The project has proven:
 
 - a genuinely separate local Orchestrator process can be launched;
-- GitHub Contents can be used as durable runtime persistence instead of local git commit/push;
-- the exact GitHub CLI path can be exposed only to the child process without mutating machine/user PATH;
+- GitHub Contents can act as durable runtime persistence instead of local git commit/push;
 - host identity and mutation-lease state can be durably persisted;
-- delivery intent can be persisted/read back before browser contact;
+- worker delivery intent can be persisted/read back before browser contact;
 - stale/expired leases can be reconciled explicitly;
-- a delivery can be durably reconciled as `PROVEN_NOT_SENT` without synthesizing `SENT`;
+- a delivery can be terminalized as `PROVEN_NOT_SENT` without synthesizing `SENT`;
 - no blind retry occurs after ambiguous transport;
-- BrowserRelay phase/reason telemetry distinguishes pre-send observation from send invocation/completion;
-- Architect/Executor authority/session binding remains separate from the transport mechanism;
-- the Orchestrator does not need AI reasoning.
+- fresh forward delivery to Executor can be confirmed exactly once with duplicate suppression;
+- a dedicated Brave Architect relay on 9333 can be qualified without using protected AFFOTECH ports;
+- Architect-trigger ambiguity can be reconciled read-only;
+- a fresh Architect trigger can append exact `verify & next` exactly once and be durably recorded as `SENT`;
+- the Orchestrator can wake Architect without reading assistant response text/DOM;
+- the Orchestrator itself does not need AI reasoning.
 
-The accepted ORCH-000130 source also added the explicit durable recovery-only `PROVEN_NOT_SENT` worker-delivery reconciliation contract. Later runtime qualification and cleanup milestones do not advance the accepted source pointer unless Architect explicitly accepts a new source publication.
+## 6. What remains
 
-## 5. What is not yet proven
+The main remaining objective is no longer basic forward delivery or basic Architect wake proof.
 
-The main operational goal is **not complete**.
+Remaining work should focus on the smallest reliable unattended governed cycle:
 
-Still required:
+1. observe a new Architect-authorized dispatch durably;
+2. deliver it to Executor exactly once;
+3. observe the corresponding durable Executor terminal/result;
+4. wake Architect exactly once;
+5. allow Architect to verify/decide and publish the next governed state;
+6. repeat without manual transport intervention while preserving all authority and ambiguity controls;
+7. simplify/package the operational daemon only after the cycle is reliable.
 
-1. a fresh independent Orchestrator instance records a fresh delivery intent;
-2. BrowserRelay pre-send observation succeeds against the registered Executor session on `9444`;
-3. exactly one real USER message is sent;
-4. durable delivery result becomes `SENT` with attempted/confirmed send counts `1/1`;
-5. `LATEST_DELIVERY` advances to that exact delivery;
-6. a subsequent iteration proves duplicate suppression with zero second send;
-7. Executor completion is detected from durable evidence;
-8. Orchestrator wakes Architect on `9333` exactly once with governed wake text and without parsing Architect response DOM/text;
-9. Curator relay is proven when documentation work is requested;
-10. then the operational runtime can be simplified/packaged.
+A Curator transport/registration proof is **not** required under current policy because Architect now maintains documentation directly.
 
-## 6. Operational implementation direction
+## 7. Documentation ownership
 
-Current implementation under qualification:
+Current documentation policy: `ARCHITECT_DIRECT`.
 
-- Node/JavaScript Orchestrator engine;
-- PowerShell used to launch/prove an independent Windows process;
-- GitHub Contents durable mailbox/state;
-- BrowserRelay/CDP transport.
+Architect must directly update all materially affected human-readable project documents after accepted milestones and material Rony directives. Documentation must not remain stale merely because a separate Curator could theoretically be used.
 
-Target simplification:
+Historical Curator evidence remains immutable and valid but is not part of the active workflow.
 
-- a small local deterministic daemon;
-- no AI model inside the Orchestrator;
-- no acceptance/business logic inside the Orchestrator;
-- Python is a preferred future packaging/runtime option, but no Python migration has been implemented or accepted yet.
-
-## 7. Current role/session boundaries
+## 8. Current role/session boundaries
 
 - Architect registered control session: port `9333`.
 - Executor registered control session: port `9444`.
 - Protected AFFOTECH ports: `9222`, `9223`.
 
-The Orchestrator is permitted to carry exact governed messages only. It must not scrape assistant responses for decisions or authority.
-
-## 8. Documentation state
-
-This documentation refresh supersedes the stale ORCH-000087-era human-readable projection. The machine-authoritative project-event/evidence chain remains immutable and is not rewritten by this documentation update.
+The Orchestrator may carry exact governed messages only. It must not scrape assistant responses for decisions or authority.
 
 ## 9. AFFOTECH boundary
 
