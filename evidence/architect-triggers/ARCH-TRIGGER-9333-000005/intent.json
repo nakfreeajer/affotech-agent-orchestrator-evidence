@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "ARCHITECT_TRIGGER_INTENT",
+  "triggerId": "ARCH-TRIGGER-9333-000005",
+  "messageId": "ORCH-000163",
+  "dispatchId": "DISPATCH-000163",
+  "sourcePublicationId": "GH-PUB-153-FRESH-EXECUTOR-FORWARD-DELIVERY-000013-SENT-DUPLICATE-SUPPRESSED-000001",
+  "reconciliationId": "ARCH-TRIGGER-RECONCILIATION-9333-000004",
+  "priorTriggerId": "ARCH-TRIGGER-9333-000004",
+  "priorTriggerResolvedState": "PROVEN_NOT_SENT/NOT_SENT",
+  "authorityId": "ARCH-AUTH-9333-000001",
+  "registrationId": "ARCH-REG-9333-000001",
+  "generation": "ARCH-GEN-9333-000001",
+  "conversationId": "6a7f0e19-6e20-83ec-b052-c62f0e926242",
+  "relayPort": 9333,
+  "payloadText": "verify & next",
+  "payloadSha256": "e27bd8ccce50250367bf0719db24f86ec39179e45b7015ddeea43dd51f5782fe",
+  "currentUserBoundary": {
+    "messageCount": 2,
+    "matchingPayloadCount": 1,
+    "lastUserText": "write handover prompt for new chat session & wait for executor result",
+    "userBoundaryFingerprint": "dfe19d7eb87081f233daa2789bcce37d0d7411e3cb4eca4ee8ed2d8e54064edd"
+  },
+  "existingComposerText": "verify & next",
+  "composerDraftAdoptedFromReconciledTrigger": "ARCH-TRIGGER-9333-000004",
+  "attemptedSendCount": 0,
+  "confirmedSendCount": 0,
+  "retryAuthorized": false,
+  "responseDomRead": false,
+  "createdAt": 1787707966443
+}
