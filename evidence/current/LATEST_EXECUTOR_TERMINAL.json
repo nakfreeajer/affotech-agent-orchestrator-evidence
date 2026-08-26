@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-162-ARCHITECT-TRIGGER-000004-PROVEN-NOT-SENT-RECONCILED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-162-ARCHITECT-TRIGGER-000004-PROVEN-NOT-SENT-RECONCILED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-162-ARCHITECT-TRIGGER-000004-PROVEN-NOT-SENT-RECONCILED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-162-ARCHITECT-TRIGGER-000004-PROVEN-NOT-SENT-RECONCILED-000001/receipt.json",
-  "messageId": "ORCH-000162",
-  "dispatchId": "DISPATCH-000162",
+  "publicationId": "GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001/receipt.json",
+  "messageId": "ORCH-000163",
+  "dispatchId": "DISPATCH-000163",
   "status": "COMPLETED",
   "requiresArchitectDecision": true
 }

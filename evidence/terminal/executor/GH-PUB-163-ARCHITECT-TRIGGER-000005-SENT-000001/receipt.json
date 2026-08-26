@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001",
+  "messageId": "ORCH-000163",
+  "dispatchId": "DISPATCH-000163",
+  "status": "COMPLETED",
+  "classification": "AUTOMATIC_ARCHITECT_DOORBELL_TRIGGER_000005_SENT_FOR_ARCHITECT_REVIEW",
+  "triggerId": "ARCH-TRIGGER-9333-000005",
+  "attemptedSendCount": 1,
+  "confirmedSendCount": 1,
+  "secondSendCount": 0,
+  "duplicateReplayCount": 1,
+  "duplicateReplayAdditionalSendCount": 0,
+  "architectTriggerMutation": 3,
+  "architectSendCount": 1,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
