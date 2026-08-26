@@ -32,7 +32,7 @@ The component with first-hand authority for a fact publishes the corresponding e
 
 Minimum producer ownership:
 
-- Architect: material human directives, governance changes, architecture/requirement decisions, Architect classifications, accepted root cause/countermeasure decisions, canonical dispatch publication, mission/pause/resume/stop decisions, and documentation-sync closure where recorded;
+- Architect: material human directives, governance changes, architecture/requirement decisions, Architect classifications, accepted root cause/countermeasure decisions, canonical dispatch publication, mission/pause/resume/stop decisions, and documentation-sync closure where recorded through an already-supported evidence/event class;
 - Executor: execution start/checkpoint/terminal outcome, validation result, blocker/failure evidence, mutation accounting, implementation-side external mutation outcomes;
 - Reconciliation component/worker: reconciliation started/resolved/inconclusive evidence for the operation it reconciles;
 - GitHub/CI/release adapter where later authorized: commit/PR/merge/CI/release/deployment observations that the adapter directly observes.
@@ -97,13 +97,14 @@ No event may contain assistant-response text, credentials/tokens, browser DOM du
 
 ## 6. Required project event classes
 
-The implementation must support a typed allowlist/registry rather than arbitrary free-form event types. Active classes should cover at least:
+The currently accepted event registry remains authoritative. This documentation-governance change does **not** require a new source event type.
+
+Existing active classes continue to include the accepted project event types such as:
 
 - `HUMAN_PROJECT_DIRECTIVE`
 - `GOVERNANCE_CHANGED`
 - `ARCHITECT_DECISION`
 - `ARCHITECT_DISPATCH_PUBLISHED`
-- `ARCHITECT_DOCUMENTATION_SYNCED`
 - `ROOT_CAUSE_CONFIRMED`
 - `COUNTERMEASURE_ADOPTED`
 - `EXECUTOR_STARTED`
@@ -121,7 +122,7 @@ The implementation must support a typed allowlist/registry rather than arbitrary
 - `MISSION_RESUMED`
 - `MISSION_COMPLETE`
 
-Legacy Curator event types remain readable for historical compatibility:
+Legacy Curator event types remain readable for historical compatibility where supported by the accepted registry:
 
 - `CURATOR_UPDATE_STARTED`
 - `CURATOR_UPDATE_COMPLETED`
@@ -129,6 +130,8 @@ Legacy Curator event types remain readable for historical compatibility:
 - `CURATOR_CURSOR_ADVANCED`
 
 They are not required for new project progress under the current Architect-direct documentation policy.
+
+If a dedicated Architect-documentation event type is ever desired, it must be introduced by a separately governed source milestone and accepted before becoming mandatory.
 
 Unknown event types or unsupported major schema versions fail closed unless a separately accepted compatibility rule applies.
 
