@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000163 and Rony documentation-ownership directive of 2026-08-26
+Documentation sync boundary: through Architect-classified ORCH-000164 and canonical ORCH-000165 repair dispatch
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -22,127 +22,128 @@ Accepted qualification:
 - manifest SHA-256: `0f8916a74a1275be90f2ff1a10704f8f9c79793e1a63d8da81c7906e318ee5ad`;
 - archive SHA-256: `79c36abd1ea108003baa737550210a71008a9a70a887c9a14c04aa533235f103`.
 
-The accepted-source pointer has not advanced because ORCH-000131 through ORCH-000163 were live qualification, reconciliation, browser-relay repair, or control-plane proof rather than accepted source changes.
+No later runtime milestone has yet advanced the accepted-source pointer.
 
-## 2. Latest Architect-accepted operational state
+## 2. Proven transport legs
 
-Latest Architect decision:
+### Forward delivery — ORCH-000153
+
+Architect-accepted decision:
+
+`GH-DEC-153-FRESH-EXECUTOR-FORWARD-DELIVERY-000013-ACCEPTED`
+
+Proven state:
+
+- host `HOST-INSTANCE-SANDBOX-000024`;
+- delivery `WORKER-DELIVERY-EXECUTOR-000013`;
+- delivery state `SENT`;
+- durable intent/result;
+- exactly one Executor browser send;
+- duplicate replay additional send `0`;
+- retry unauthorized;
+- active lease count returned to zero.
+
+`WORKER-DELIVERY-EXECUTOR-000013 / SENT` remains the latest worker-delivery pointer.
+
+### Architect wake — ORCH-000163
+
+Architect-accepted decision:
 
 `GH-DEC-163-AUTOMATIC-ARCHITECT-DOORBELL-TRIGGER-000005-ACCEPTED`
 
-Reviewed Executor publication:
+Proven state:
 
-`GH-PUB-163-ARCHITECT-TRIGGER-000005-SENT-000001`
+- trigger `ARCH-TRIGGER-9333-000005 / SENT`;
+- exact payload `verify & next`;
+- USER message count `2 → 3`;
+- matching payload count `1 → 2`;
+- attempted/confirmed `1/1`;
+- second send `0`;
+- duplicate replay additional send `0`;
+- retry false;
+- reconciliation false;
+- assistant response text/DOM not read.
 
-Verified ORCH-000163 state:
+The dedicated Brave Architect relay on port `9333` remains the accepted return-path transport target.
 
-- status: `COMPLETED`;
-- trigger: `ARCH-TRIGGER-9333-000005`;
-- trigger state: `SENT`;
-- payload: exact `verify & next`;
-- intent/result/pointer were durably created/read back;
-- pre-send USER count: `2`;
-- post-send USER count: `3`;
-- pre-send matching payload count: `1`;
-- post-send matching payload count: `2`;
-- newly appended USER message: exact `verify & next`;
-- composer empty after send: yes;
-- attempted/confirmed send counts: `1/1`;
-- second send count: `0`;
-- duplicate replay count: `1`;
-- duplicate replay additional send count: `0`;
-- retry authorized: `false`;
-- reconciliation required: `false`;
-- assistant response text read: `false`;
-- response DOM read: `false`;
-- browser process launches/navigation: `0/0`;
-- source/test/config/AFFOTECH/Drive/deployment/protected-port mutations/contact: `0`.
+## 3. ORCH-000164 unattended-host bootstrap — BLOCKED
 
-This is the first fully confirmed automatic Architect wake in the current chain.
+Architect decision:
 
-## 3. Forward delivery state
+`GH-DEC-164-UNATTENDED-HOST-BOOTSTRAP-LINEAGE-CONFLICT-BLOCKED`
 
-ORCH-000153 previously proved the fresh Architect-governed forward delivery path to Executor:
+Executor publication:
 
-- host: `HOST-INSTANCE-SANDBOX-000024`;
-- delivery: `WORKER-DELIVERY-EXECUTOR-000013`;
-- state: `SENT`;
-- intent durable: true;
-- result durable: true;
-- exactly one browser send;
-- duplicate replay second send: `0`;
-- retry unauthorized;
-- no Architect trigger in that milestone;
-- protected boundaries remained clean.
+`GH-PUB-164-AUTOMATIC-HOST-000025-BOOTSTRAP-BLOCKED-LINEAGE-CONFLICT-000001`
 
-`WORKER-DELIVERY-EXECUTOR-000013 / SENT` remains the latest proven forward-delivery anchor in this chain.
+Verified facts:
 
-## 4. Architect relay state
+- bootstrap host identity `HOST-INSTANCE-SANDBOX-000025` was created;
+- explicit bootstrap boundary `DISPATCH-000164` was created/read back;
+- one polling iteration was reached;
+- zero valid polling iterations completed;
+- host was stopped and is not running;
+- browser contact/send: `0/0`;
+- worker-delivery mutation: `0`;
+- Architect-trigger mutation: `0`;
+- lease acquisition: `0`;
+- source/test/config/docs/governance mutation by Executor: `0`;
+- protected AFFOTECH/Drive/deployment/ports remained untouched.
 
-The dedicated Architect relay is the Brave-based control session on CDP port `9333` under the durable Architect registration/authority evidence.
+The exact blocker is:
 
-ORCH-000154 through ORCH-000162 established the necessary recovery/qualification facts:
+`WORKER_DELIVERY_LINEAGE_CONFLICT`
 
-- initial port 9333 absence was diagnosed rather than guessed;
-- incorrect Chrome recovery was rejected;
-- Brave ownership/process/debug-port diagnostics were performed;
-- an exact dedicated Brave profile/listener was established;
-- target/trigger ambiguity was reconciled without blind resend;
-- historical trigger `000004` was ultimately proven not sent;
-- a fresh trigger identity `000005` was used for the successful exactly-once send.
+The immutable delivery `WORKER-DELIVERY-EXECUTOR-000013` has a correctly bound intent containing:
 
-The return path is now accepted healthy at the transport-proof level.
+- `messageId = ORCH-000153`;
+- `dispatchId = DISPATCH-000153`;
+- `intentSha256 = 579ffd5c1b37aa9990e85060deff29c76f2c1f71d844ca97fefc242f86e23f03`.
 
-## 5. What is now proven
+Its immutable `SENT` result binds to the exact same `intentSha256`, delivery ID, and worker role, but does not contain explicit `messageId` or `dispatchId`. The accepted durable-snapshot hydrator currently requires those explicit result fields and therefore rejects the otherwise exact historical binding.
 
-The project has proven:
+Historical delivery evidence must not be rewritten.
 
-- a genuinely separate local Orchestrator process can be launched;
-- GitHub Contents can act as durable runtime persistence instead of local git commit/push;
-- host identity and mutation-lease state can be durably persisted;
-- worker delivery intent can be persisted/read back before browser contact;
-- stale/expired leases can be reconciled explicitly;
-- a delivery can be terminalized as `PROVEN_NOT_SENT` without synthesizing `SENT`;
-- no blind retry occurs after ambiguous transport;
-- fresh forward delivery to Executor can be confirmed exactly once with duplicate suppression;
-- a dedicated Brave Architect relay on 9333 can be qualified without using protected AFFOTECH ports;
-- Architect-trigger ambiguity can be reconciled read-only;
-- a fresh Architect trigger can append exact `verify & next` exactly once and be durably recorded as `SENT`;
-- the Orchestrator can wake Architect without reading assistant response text/DOM;
-- the Orchestrator itself does not need AI reasoning.
+## 4. Current repair authority — ORCH-000165
 
-## 6. What remains
+Canonical next milestone:
 
-The main remaining objective is no longer basic forward delivery or basic Architect wake proof.
+`ORCH.P0.SANDBOX.OPERATIONAL.WORKER.DELIVERY.LEGACY.RESULT.LINEAGE.HYDRATION.REPAIR.1A`
 
-Remaining work should focus on the smallest reliable unattended governed cycle:
+Dispatch:
 
-1. observe a new Architect-authorized dispatch durably;
-2. deliver it to Executor exactly once;
-3. observe the corresponding durable Executor terminal/result;
-4. wake Architect exactly once;
-5. allow Architect to verify/decide and publish the next governed state;
-6. repeat without manual transport intervention while preserving all authority and ambiguity controls;
-7. simplify/package the operational daemon only after the cycle is reliable.
+`DISPATCH-000165`
 
-A Curator transport/registration proof is **not** required under current policy because Architect now maintains documentation directly.
+Purpose:
 
-## 7. Documentation ownership
+1. add fail-closed backward-compatible hydration for legacy worker-delivery results that omit explicit message/dispatch lineage but are exactly bound to their immutable intent by `intentSha256`, delivery ID, and worker role;
+2. preserve explicit-lineage mismatch as a hard conflict;
+3. make future worker-delivery results persist explicit `messageId` and `dispatchId`;
+4. leave all historical delivery records unchanged;
+5. validate read-only hydration of real delivery `000013`;
+6. publish a complete immutable candidate source snapshot for Architect review.
+
+ORCH-000165 authorizes source/test work only. Browser contact, host start, delivery/trigger mutation, lease mutation, documentation mutation by Executor, and accepted-source pointer mutation are all zero.
+
+## 5. Remaining operational trajectory
+
+After ORCH-000165 is independently verified and accepted, the unattended-host bootstrap may be retried under a fresh host identity and fresh dispatch.
+
+The target cycle remains:
+
+`Architect decision/dispatch → persistent deterministic Orchestrator → Executor exactly once → durable Executor terminal → Orchestrator → Architect wake exactly once → Architect decision → next cycle`
+
+Do not retry ORCH-000164 directly. Do not rewrite delivery `000013`. Do not reopen the proven 9333 browser-repair chain without regression evidence.
+
+## 6. Documentation ownership
 
 Current documentation policy: `ARCHITECT_DIRECT`.
 
-Architect must directly update all materially affected human-readable project documents after accepted milestones and material Rony directives. Documentation must not remain stale merely because a separate Curator could theoretically be used.
+Architect directly updates all materially affected human-readable project documentation. Curator is not an active required role or transport leg.
 
-Historical Curator evidence remains immutable and valid but is not part of the active workflow.
-
-## 8. Current role/session boundaries
+## 7. Role/session and protected boundaries
 
 - Architect registered control session: port `9333`.
 - Executor registered control session: port `9444`.
 - Protected AFFOTECH ports: `9222`, `9223`.
-
-The Orchestrator may carry exact governed messages only. It must not scrape assistant responses for decisions or authority.
-
-## 9. AFFOTECH boundary
-
-AFFOTECH System V2 Hybrid remains separate and protected. No current Orchestrator milestone authorizes AFFOTECH source, relay, Drive, tenant, deployment, business/private-data or protected-port mutation/access.
+- AFFOTECH System V2 Hybrid, the existing AFFOTECH relay, Drive/business/private data, deployments, and tenant resources remain separate and unauthorized.
