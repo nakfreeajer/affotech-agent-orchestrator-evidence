@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-164-AUTOMATIC-HOST-000025-BOOTSTRAP-BLOCKED-LINEAGE-CONFLICT-000001",
+  "messageId": "ORCH-000164",
+  "dispatchId": "DISPATCH-000164",
+  "status": "BLOCKED",
+  "classification": "UNATTENDED_AUTOMATIC_HOST_000025_BOOTSTRAP_BLOCKED",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000025",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000025",
+  "hostIdentityCreated": true,
+  "pollingIterationsCompleted": 1,
+  "browserContactCount": 0,
+  "browserSendCount": 0,
+  "workerDeliveryMutationCount": 0,
+  "architectTriggerMutationCount": 0,
+  "leaseAcquireCount": 0,
+  "hostStillRunning": false,
+  "sourceMutation": 0,
+  "assistantMessageTextRead": false,
+  "failureCode": "WORKER_DELIVERY_LINEAGE_CONFLICT",
+  "requiresArchitectDecision": true
+}
