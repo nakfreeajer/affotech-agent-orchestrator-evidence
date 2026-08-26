@@ -1,11 +1,11 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000138 recovery
+Documentation sync boundary: through Architect-accepted ORCH-000163 and Rony documentation-ownership directive of 2026-08-26
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
 # Bugs and Lessons
 
-## 1. Governance lessons that remain permanent
+## 1. Permanent governance lessons
 
 ### Executor PASS is not acceptance
 
@@ -29,26 +29,18 @@ Never resend/retry merely because the previous attempt did not return a clean su
 
 A later reconciliation may prove `SENT` or `PROVEN_NOT_SENT`, but historical ambiguous evidence remains historically ambiguous. Recovery is a new durable record/state transition, not retroactive rewriting.
 
-### Role separation matters
+### Architect owns documentation truth directly
 
-- Architect decides.
-- Executor implements/runs/validates.
-- Curator maintains documentation when used.
+For this project:
+
+- Architect decides;
+- Executor implements/runs/validates;
+- Architect directly updates all relevant human-readable project documentation;
 - Orchestrator carries messages only.
 
-Putting AI reasoning into the Orchestrator would create another authority/interpretation layer and make the system harder to audit.
+Do not create a separate documentation relay merely to keep project truth current. Historical Curator evidence remains valid, but Curator is not an active required role under current policy.
 
-## 2. Early accepted defects/repairs
-
-- SOURCE_ACCEPTED identity collision required distinct producer identity binding.
-- Stored-record self-hash validation must exclude the stored self-hash field itself.
-- ORCH-000076 exposed stale-lineage host selection and immutable-terminal evidence problems.
-- ORCH-000077 accepted lineage-first selection as the repair.
-- Documentation renderer/projection work proved that transport success is insufficient when required human-readable semantics are missing.
-
-## 3. Delivery intent must exist before browser contact
-
-A worker delivery must be durably prepared and read back before BrowserRelay observation/contact.
+## 2. Delivery intent must exist before browser contact
 
 Required order:
 
@@ -60,236 +52,191 @@ prepareWorkerDeliveryIntent
 → send if eligible
 ```
 
-The runner/transport source now enforces this ordering; live composition must not bypass it.
+Live composition must not bypass this ordering.
 
-## 4. ORCH-000118 — independent process proof
+## 3. Independent process and runtime persistence
 
-A real separate PowerShell-hosted Orchestrator process was successfully launched.
+A real separate local Orchestrator process was proven operationally possible.
 
-Lesson:
+Permanent lessons:
 
-- the Orchestrator can and should run independently from the Executor terminal;
-- PowerShell is only a Windows process launcher;
-- the Orchestrator does not need an AI model.
+- Orchestrator should run independently from Executor terminal state;
+- PowerShell is launcher glue only;
+- Orchestrator does not need an AI model;
+- local git commit/push is the wrong runtime state transport;
+- GitHub Contents/CAS semantics are the durable runtime seam.
 
-## 5. ORCH-000121 — phase observability is essential
+## 4. Launch glue is operational code
 
-Before phase telemetry, a transport failure could be too coarse to distinguish whether the system failed before send, during send, after send or during result persistence.
+Several failures came from temporary composition rather than accepted source:
 
-Accepted phase/reason observability now distinguishes:
-
-- pre-send observation;
-- send invocation/completion boundary;
-- post-send observation;
-- cleanup/disconnect;
-- durable result/current-pointer persistence.
-
-Lesson:
-
-Observability should identify the concrete failure seam without reading assistant response content.
-
-## 6. ORCH-000122/123 — expired lease recovery gap
-
-Problem:
-
-- an expired mutation lease could remain in durable state without an accepted contract for terminalizing it safely.
-
-Repair:
-
-- explicit `reconcileExpiredMutationLease` contract;
-- exact identity/epoch/revision/scope/envelope verification;
-- immutable terminal revision plus lease-index CAS;
-- ordinary expired release remains fail-closed;
-- transport ambiguity is not silently converted to success.
+- omitted `input.nowMs`;
+- missing `gh` executable resolution;
+- missing GitHub CLI `--input -` JSON stdin behavior;
+- invalid temporary project profile;
+- no-op worker-persistence adapter;
+- malformed Brave launch composition.
 
 Lesson:
 
-Lease expiry is not itself permission to mutate or release. Recovery requires an explicit contract.
+Treat live launcher/adapter composition as production-grade behavior. Satisfying an interface shape is not enough; the exact durable side effect and readback must occur.
 
-## 7. ORCH-000129/130 — ARMED proven-not-sent recovery gap
+## 5. `PROVEN_NOT_SENT` is a first-class recovery state
 
-Problem:
+ORCH-000129/130 established the recovery-only contract for a delivery that is durably ARMED but later proven not sent.
 
-- read-only reconciliation could prove a browser delivery did not occur, but there was no accepted durable operation to terminalize the ARMED intent as not sent.
+Required semantics:
 
-Repair:
+- zero send counts remain zero;
+- `LATEST_DELIVERY` must not advance to a non-sent delivery;
+- exact-repeat recovery may be idempotent only with exact readback;
+- conflict fails closed;
+- `PROVEN_NOT_SENT` must never be reported as `SENT`.
 
-- recovery-only `PROVEN_NOT_SENT` delivery reconciliation;
-- zero send counts preserved;
-- `LATEST_DELIVERY` not advanced to a non-sent delivery;
-- exact-repeat idempotence;
-- conflict fail-closed behavior.
+ORCH-000131 and ORCH-000138 applied this safely.
 
-Lesson:
+## 6. Lease expiry is not mutation authority
 
-`PROVEN_NOT_SENT` is a first-class terminal recovery state and must remain distinct from `SENT`.
+Expired/stale leases require explicit reconciliation with exact identity/epoch/revision/scope/envelope binding.
 
-## 8. ORCH-000127 — required target binding missing
+ORCH-000148 through ORCH-000152 reinforced this lesson: a recovery binding mismatch must fail closed until the exact stale lease lineage is used.
 
-Problem:
+## 7. Forward delivery must be proven by durable result plus duplicate suppression
 
-The temporary launcher omitted required Architect target-binding metadata even though Architect contact/trigger was disabled for the worker-send qualification.
+ORCH-000153 established the successful worker-delivery pattern:
 
-Outcome:
-
-Fail-closed before delivery/browser mutation.
-
-Lesson:
-
-Constructor/runtime contracts may require complete metadata even when a particular side effect is disabled. Launcher composition must satisfy the accepted contract exactly rather than guessing which fields are unnecessary.
-
-## 9. ORCH-000132 — `input.nowMs` omission
-
-Problem:
-
-The temporary launcher called the persistent host runner without required integer `input.nowMs`.
-
-Outcome:
-
-`HOST_RUNNER_INPUT_VALIDATION / HOST_IDENTITY_INVALID` before lease/delivery/browser work.
+- fresh host identity;
+- fresh delivery identity;
+- durable intent/readback before browser send;
+- exactly one send;
+- durable `SENT` result;
+- duplicate replay additional sends `0`;
+- no retry;
+- protected boundaries untouched.
 
 Lesson:
 
-Live launch glue is production code in practice. Even when source is correct, ad-hoc launcher composition can invalidate the entire runtime.
+A visible message alone is not enough. Exactly-once transport requires durable intent/result state plus a duplicate-replay proof.
 
-## 10. ORCH-000133 — stale local git runtime persistence
+## 8. Browser ownership must be diagnosed, not guessed
 
-Problem:
+The Architect relay hardening chain exposed multiple browser-control mistakes:
 
-Host runtime persistence used a temporary local evidence git worktree and attempted commit/push. The worktree was stale behind `origin/main`, creating an ambiguous/non-fast-forward persistence outcome.
-
-Outcome:
-
-Remote readback proved no durable host identity mutation; unpublished local state was discarded.
-
-Lesson:
-
-**Do not use local git commit/push as runtime state transport.**
-
-Runtime state must go through the accepted GitHub Contents client/CAS semantics so the independent daemon is not coupled to a clone's freshness.
-
-## 11. ORCH-000134 — `gh` executable not on child PATH
-
-Problem:
-
-The accepted GitHub Contents runtime required an authenticated `gh api` request seam, but the spawned process could not resolve `gh` through PATH.
-
-Known qualified executable:
-
-`C:\Program Files\GitHub CLI\gh.exe`
+- ORCH-000154: port 9333 unavailable;
+- ORCH-000155: Chrome was launched even though Brave was the intended relay;
+- ORCH-000156: read-only process/listener diagnostics correctly proved no 9333 listener and no Brave process with the debug-port switch;
+- ORCH-000157: malformed Brave launch composition caused process exit and a profile path to appear as a positional file URL;
+- ORCH-000158: exact Brave argv/profile composition finally produced a healthy dedicated 9333 listener.
 
 Lesson:
 
-Expose the exact executable or its directory only to the spawned process/command-runner seam. Do not mutate machine/user PATH, install software, or change authentication state merely to satisfy runtime composition.
+Do not infer CDP health from a visible browser window. Prove listener ownership, executable lineage, debug-port switch, dedicated profile, `/json/version`, and `/json/list`.
 
-## 12. ORCH-000135/136 — no-op worker persistence was a dangerous composition defect
+## 9. Healthy relay is different from correct target registration
 
-Problem:
-
-The temporary ORCH-000135 launcher composed BrowserRelay transport with a fake/no-op `workerPersistence.persistAndReadBack` adapter that returned `durableRecorded=true` without writing the delivery intent to GitHub.
-
-Symptom:
-
-- browser pre-send observation occurred;
-- durable event still had `deliveryId=null`;
-- actual intent did not exist.
-
-ORCH-000136 diagnosis proved:
-
-- accepted persistent runner order was correct;
-- source repair was not required;
-- the defect was entirely temporary runtime composition.
+ORCH-000158 proved a healthy Brave 9333 relay while the registered Architect conversation target was still absent.
 
 Lesson:
 
-Never use a test/identity/no-op adapter in live composition merely because it satisfies an interface shape. `durableRecorded=true` must mean an actual durable write and exact readback occurred.
+Separate these gates:
 
-## 13. ORCH-000137 — corrected persistence exposed the real remaining transport failure
+1. process/listener ownership;
+2. CDP endpoint health;
+3. exact registered conversation target present uniquely;
+4. usable visible empty composer;
+5. durable trigger intent/readback;
+6. exactly one send.
 
-ORCH-000137 used genuine GitHub Contents-backed worker persistence.
+Do not conflate a healthy port with a ready governed target.
 
-It proved:
+## 10. Repeated text is not sufficient correlation
 
-- real intent `WORKER-DELIVERY-EXECUTOR-000007` existed;
-- intent was read back before browser contact;
-- browser contact count was 1;
-- browser send count was 0;
-- attempted/confirmed send counts were 0/0;
-- no result/pointer advance occurred.
+The Architect doorbell payload `verify & next` is intentionally repeated across cycles. Therefore payload equality alone cannot prove which attempt produced which visible message.
 
-Remaining failure:
+ORCH-000159 through ORCH-000162 reinforced the need for:
 
-`PRE_SEND_OBSERVATION / WORKER_PRE_SEND_OBSERVATION_FAILED`
+- durable trigger identity;
+- pre-send USER boundary;
+- matching-payload count;
+- exact target binding;
+- one-attempt semantics;
+- read-only reconciliation after ambiguity;
+- no assistant-response scraping.
 
-Lesson:
+Historical trigger `000004` was ultimately proven not sent rather than blindly retried.
 
-Once persistence ordering is correct, do not invent another framework abstraction. Diagnose the concrete BrowserRelay target/composer observation on port 9444.
+## 11. Fresh trigger identity after proven non-send
 
-## 14. ORCH-000138 — zero-occurrence reconciliation
+After ORCH-000162 proved trigger `000004` not sent, the residual exact `verify & next` draft could not simply be treated as permission to retry the old trigger.
 
-Latest Executor reconciliation reports:
-
-- exact ORCH-000137 probe occurrence count: 0;
-- transport proven not sent;
-- delivery `000007` reconciled to `PROVEN_NOT_SENT`;
-- epoch-9 lease reconciled to terminal `EXPIRED`;
-- zero browser sends and zero retries;
-- `LATEST_DELIVERY` remains the last truly SENT delivery, `000004`.
-
-Architect accepted this recovery. A read-only target check plus accepted
-recovery contracts can safely close ambiguous pre-send state without resend.
+A fresh trigger identity `000005` was required.
 
 Lesson:
 
-Recovery-only `PROVEN_NOT_SENT` records remain distinct from `SENT`; an
-accepted cleanup result must never be used to claim that forward delivery
-succeeded.
+When an old ambiguous intent is resolved `PROVEN_NOT_SENT`, future mutation authority comes from a fresh Architect-authorized operation identity, not from the old intent or from residual browser state.
 
-## 15. Documentation and messenger scope
+## 12. ORCH-000163 — exact automatic Architect wake proof
 
-- The Orchestrator is a deterministic messenger/router, not an AI decision agent.
-- Keep semantic judgment in Architect, Executor and Curator roles.
-- Do not add business logic or another application framework to the messenger merely to compensate for a qualification seam.
-- A small local daemon, potentially packaged in Python, is a future simplification candidate only; no Python implementation is currently accepted.
+ORCH-000163 is the accepted doorbell proof:
 
-## 16. Over-engineering lesson
+- trigger `ARCH-TRIGGER-9333-000005`;
+- state `SENT`;
+- USER count `2 → 3`;
+- matching exact payload count `1 → 2`;
+- newly appended USER message exact `verify & next`;
+- composer empty after send;
+- attempted/confirmed `1/1`;
+- second send `0`;
+- duplicate replay additional send `0`;
+- retry false;
+- reconciliation false;
+- assistant response text/DOM not read;
+- browser launch/navigation `0/0`;
+- protected/source mutations `0`.
 
-The Orchestrator accumulated many distributed-systems-style mechanisms while the user's core need is simple:
+Lesson:
+
+The return path can be proven exactly once without reading Architect response content. The Orchestrator only needs to ring the doorbell; Architect remains the decision-maker.
+
+## 13. Documentation must not lag operational truth
+
+The human-readable docs remained at the ORCH-000138 boundary even though the project had advanced through forward delivery and automatic Architect wake proof.
+
+Rony corrected the governance model on 2026-08-26: Architect must update all relevant documents directly.
+
+Lesson:
+
+Documentation continuity is part of Architect closure. Do not allow a separate worker dependency to make architecture/current-state/history stale after accepted milestones.
+
+## 14. Over-engineering lesson
+
+The user's core need remains simple:
 
 ```text
-observe durable message
+observe durable governed dispatch
 → deliver exact message once
 → observe durable result
-→ wake the governed next role
+→ wake Architect once
+→ Architect verifies/decides
 ```
 
-The durable guarantees are valuable, but the operational implementation should not become a second application platform.
+Keep the durable guarantees that prevent corruption/duplicate side effects, but do not turn the messenger into another application platform.
 
-Keep:
+Simplify only after the end-to-end governed cycle is reliable.
 
-- registrations;
-- durable GitHub mailbox;
+## 15. Current operational success criterion
+
+Two critical legs are now proven independently:
+
+1. fresh forward delivery to Executor exactly once — ORCH-000153;
+2. automatic Architect wake exactly once — ORCH-000163.
+
+The remaining success criterion is to combine them into a reliable unattended governed cycle while preserving:
+
+- durable authority;
 - exact IDs/hashes;
 - duplicate suppression;
-- explicit ambiguity reconciliation;
-- protected role boundaries.
-
-Simplify after end-to-end proof:
-
-- qualification-only launcher glue;
-- unnecessary ceremony around the steady-state messenger;
-- runtime packaging.
-
-A small local deterministic daemon is the target. Python is a preferred future packaging option, not a reason to discard proven protocol/evidence rules.
-
-## 17. Final operational lesson
-
-Do not measure progress by how many contracts or tests exist. The visible success criterion is:
-
-1. one fresh message actually reaches Executor exactly once;
-2. the durable delivery result proves it;
-3. duplicate suppression works;
-4. Executor completion wakes Architect exactly once;
-5. no response scraping or AI decision logic exists in the Orchestrator.
-
-That is the milestone the remaining work should optimize toward.
+- no blind retry;
+- protected role/project boundaries;
+- zero assistant-response scraping;
+- Architect-direct documentation closure.
