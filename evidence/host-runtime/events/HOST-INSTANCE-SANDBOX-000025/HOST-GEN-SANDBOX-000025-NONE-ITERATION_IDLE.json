@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000025-NONE-ITERATION_IDLE",
+  "eventType": "ITERATION_IDLE",
+  "sourceRef": "63dfbc34dc6780db24e14f73e357ac01e256f2be",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000025",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000025",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_IDLE",
+  "nextAction": "NONE",
+  "dispatchId": null,
+  "messageId": null,
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "telemetryOnly": true
+}
