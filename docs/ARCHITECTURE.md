@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000163 and Rony documentation-ownership directive of 2026-08-26
+Documentation sync boundary: through Architect-accepted ORCH-000165 and canonical ORCH-000166
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,58 +7,27 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## 1. Core purpose
 
-The AFFOTECH Agent Orchestrator is a governed **message-routing and durable-state layer** between the active AI roles. It is not another AI reasoning agent.
+The AFFOTECH Agent Orchestrator is a governed **deterministic message-routing and durable-state layer**. AI roles think; the Orchestrator carries exact governed envelopes and observes durable state. It does not approve work, interpret business semantics, scrape assistant decisions, or synthesize authority from browser text.
 
-The governing principle remains:
-
-> AI roles think. The Orchestrator carries exact governed envelopes.
-
-The Orchestrator must not understand AFFOTECH business logic, approve work, classify milestones, reinterpret prompts, scrape assistant decisions, or synthesize authority from browser text.
-
-## 2. Authority and role model
-
-Current authority:
+## 2. Authority and active roles
 
 ```text
 Rony
   ↕
-Architect
-  ↓ bounded durable instruction
-Orchestrator
-  ↓ exact/opaque delivery
-Executor
-  ↓ durable evidence
-Orchestrator
-  ↓ exact one-way wake
+Architect — govern / verify / decide / document
+  ↓ durable dispatch
+Persistent deterministic Orchestrator
+  ↓ exact delivery
+Executor — bounded implementation/runtime/validation
+  ↓ durable terminal
+Persistent deterministic Orchestrator
+  ↓ one-way wake
 Architect
 ```
 
-Role responsibilities:
-
-- **Rony** — final human authority.
-- **Architect** — THINK / GOVERN / VERIFY / DECIDE and directly maintain all relevant project documentation.
-- **Executor** — implementation/runtime/validation/transport work inside the exact mutation envelope.
-- **Orchestrator** — deterministic relay and observer only.
-
 Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO NEW REPORT`.
 
-Executor PASS/COMPLETED is evidence, not Architect acceptance.
-
-### Documentation ownership
-
-Documentation is no longer a separate normal role hop for this project.
-
-Architect directly owns:
-
-- governance/policy;
-- architecture;
-- accepted current state;
-- decision summaries/rationale;
-- project history;
-- reusable bugs/lessons;
-- README/entrypoint and handover/recovery material.
-
-A separate Documentation Curator is not required and no Curator relay proof is part of the active completion trajectory. Historical Curator evidence remains valid historical evidence.
+Documentation policy is `ARCHITECT_DIRECT`. Curator is not an active required role.
 
 ## 3. Operational topology
 
@@ -70,164 +39,111 @@ A separate Documentation Curator is not required and no Curator relay proof is p
 Architect browser 9333 ◄── Local Orchestrator ──► Executor browser 9444
 ```
 
-The operational daemon should remain small, deterministic, long-running, locally hosted, and non-AI.
+Current implementation direction:
 
-Current qualified implementation direction:
+- Node/JavaScript modules;
+- independent long-running local process;
+- GitHub Contents/CAS runtime persistence;
+- BrowserRelay/CDP only for exact transport;
+- durable host/delivery/lease/trigger state;
+- duplicate suppression and explicit reconciliation;
+- no local-git commit/push as runtime transport.
 
-- Node/JavaScript Orchestrator modules;
-- independent process launched from PowerShell;
-- GitHub Contents runtime for durable host, lease, delivery and trigger evidence;
-- BrowserRelay/CDP for exact message transport;
-- durable duplicate suppression and ambiguity reconciliation in GitHub.
-
-A small Python daemon remains only a possible future packaging simplification. No Python migration is currently accepted or deployed.
-
-## 4. Durable authority model
-
-GitHub is the machine-authoritative mailbox and audit trail.
-
-Durable objects include:
-
-- canonical `ORCH-*` prompts;
-- `DISPATCH-*` records;
-- Architect `GH-DEC-*` decisions;
-- Executor terminal/report/receipt publications;
-- accepted-source pointers and immutable source snapshots/manifests;
-- worker delivery intents/results/reconciliations;
-- mutation leases and lease-index state;
-- host identity/events;
-- Architect trigger intents/results/reconciliations;
-- current pointers for discovery.
-
-Human-readable Markdown is an Architect-maintained projection only. Browser-visible text and terminal screen output are not machine authority.
-
-## 5. External-mutation contract
-
-Ambiguity-prone external operations follow:
+## 4. Durable external-mutation contract
 
 ```text
 read-only pre-boundary
-    ↓
-durable intent + readback
-    ↓
-exactly one attempt
-    ↓
-durable result
-    OR
-AMBIGUOUS
-    ↓
-read-only reconciliation before any retry
+→ durable intent/readback
+→ exactly one attempt
+→ durable result OR AMBIGUOUS
+→ read-only reconciliation before retry
 ```
 
-No blind retry is allowed.
+Repeated text is never sufficient correlation. Historical ambiguity is preserved rather than rewritten.
 
-For BrowserRelay transport, exactly-once proof requires a durable pre-attempt boundary/correlation identity, one attempt, a durable result, and no second send. Repeated equal text by itself is not sufficient proof.
+## 5. Worker-delivery lineage model
+
+A worker delivery consists of an immutable intent plus result.
+
+Current accepted rules after ORCH-000165:
+
+- new results persist explicit `messageId` and `dispatchId`;
+- result delivery ID and worker role must match the intent;
+- result `intentSha256` must exactly match the immutable intent;
+- explicit result lineage must match intent lineage or fail closed;
+- a **legacy** result that predates explicit lineage fields may hydrate message/dispatch lineage only from its exact immutable intent after all exact bindings above pass;
+- timestamps, payload text, current pointers, or another delivery may never be used to infer missing lineage;
+- historical records are never rewritten merely to satisfy a newer reader.
+
+This compatibility rule was required because accepted delivery `WORKER-DELIVERY-EXECUTOR-000013` has exact `intentSha256` binding but its historical result does not contain explicit `messageId`/`dispatchId`.
 
 ## 6. Current accepted source
 
-Current Architect-accepted source remains ORCH-000130:
+Accepted source:
 
-`GH-PUB-130-PROVEN-NOT-SENT-DELIVERY-RECONCILIATION-CONTRACT-REPAIR-READY-000001`
+`GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
-Qualified baseline:
+Decision:
 
-- source files: 101;
-- full sharded suite: 813 passed / 0 failed / 0 skipped / 0 cancelled;
-- worker relay: 148;
-- BrowserRelay transport ports: 21;
-- persistent host runner: 36;
-- GitHub runtime ports: 40;
-- manifest SHA-256: `0f8916a74a1275be90f2ff1a10704f8f9c79793e1a63d8da81c7906e318ee5ad`;
-- archive SHA-256: `79c36abd1ea108003baa737550210a71008a9a70a887c9a14c04aa533235f103`.
+`GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`
 
-Later milestones through ORCH-000163 qualified/reconciled live runtime behavior without changing accepted source.
+Qualification:
 
-## 7. Forward delivery proof
+- source files: `101`;
+- focused tests: `65/65`;
+- GitHub runtime ports: `43/43`;
+- BrowserRelay transport ports: `22/22`;
+- full deterministic suite: `817/817`;
+- manifest SHA-256: `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`;
+- archive SHA-256: `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`.
 
-ORCH-000153 proved the first fresh forward Executor delivery in this hardening chain:
+A read-only live compatibility check resolved delivery `000013` as `SENT / ORCH-000153 / DISPATCH-000153` with zero writes.
 
-- host `HOST-INSTANCE-SANDBOX-000024`;
-- delivery `WORKER-DELIVERY-EXECUTOR-000013`;
-- state `SENT`;
-- intent/result durable;
-- browser send count `1`;
-- duplicate replay second send `0`;
-- exact delivery payload was the governed dispatch locator;
-- no Architect trigger occurred in that milestone;
-- protected boundaries remained clean.
+## 7. Proven transport legs
 
-That closed the forward-delivery objective without advancing accepted source.
+### Forward leg — ORCH-000153
 
-## 8. Architect relay and return-path proof
+`WORKER-DELIVERY-EXECUTOR-000013 / SENT` was delivered exactly once; duplicate replay additional send `0`; lease returned inactive.
 
-ORCH-000154 through ORCH-000162 hardened the dedicated Architect return path.
+### Return leg — ORCH-000163
 
-Key outcomes:
+`ARCH-TRIGGER-9333-000005 / SENT` appended exact `verify & next`; USER count `2→3`; attempted/confirmed `1/1`; second send `0`; no assistant-response text/DOM read.
 
-- port `9333` was initially unavailable;
-- an incorrect Chrome recovery attempt was rejected;
-- Windows/Brave diagnostics proved no existing 9333 listener;
-- a Brave launch-composition defect was isolated;
-- ORCH-000158 successfully established one dedicated Brave process owning `127.0.0.1:9333` with the exact dedicated profile;
-- subsequent milestones reconciled target/trigger ambiguity without blind resend;
-- ORCH-000162 proved historical trigger `000004` had not been sent and preserved the exact residual draft for a fresh attempt.
+These prove both transport legs independently.
 
-ORCH-000163 then completed the fresh trigger:
+## 8. Persistent-host bootstrap
 
-- trigger `ARCH-TRIGGER-9333-000005`;
-- state `SENT`;
-- exact payload `verify & next`;
-- USER boundary `2 → 3`;
-- matching payload count `1 → 2`;
-- attempted/confirmed `1/1`;
-- second send `0`;
-- duplicate replay additional send `0`;
-- composer empty after send;
-- retry false;
-- reconciliation false;
-- assistant response text/DOM not read;
-- no source/test/config/AFFOTECH/Drive/deployment/protected-port mutation.
+ORCH-000164 was the first attempt to combine the proven legs into a persistent unattended host.
 
-Architect acceptance:
+Its `DISPATCH-000164` bootstrap watermark was successfully created/read back, but the first durable snapshot failed with `WORKER_DELIVERY_LINEAGE_CONFLICT` because the pre-ORCH-000165 reader rejected the legacy result shape. It failed before browser contact/send and the partial host was stopped.
 
-`GH-DEC-163-AUTOMATIC-ARCHITECT-DOORBELL-TRIGGER-000005-ACCEPTED`
+ORCH-000165 repaired that reader/writer compatibility seam.
 
-This proves the Executor-result → automatic Architect wake leg exactly once.
+ORCH-000166 is the fresh bootstrap retry with `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`. It must:
+
+1. prove real delivery `000013` hydrates correctly read-only before process launch;
+2. establish `DISPATCH-000166` as already handled;
+3. make exactly one OS process-creation attempt;
+4. complete at least two valid idle polling iterations with zero browser contact/send;
+5. leave the host running;
+6. claim readiness only if the same accepted running composition can observe a newer dispatch, deliver it exactly once, observe its durable Executor terminal, and invoke the proven Architect wake path.
 
 ## 9. Browser/session boundaries
 
-Current registered control-plane endpoints:
+- Architect control session: port `9333`.
+- Executor control session: port `9444`.
+- Protected AFFOTECH ports: `9222`, `9223`.
 
-- Architect: CDP port `9333`;
-- Executor: CDP port `9444`.
-
-Protected AFFOTECH ports:
-
-- `9222`;
-- `9223`.
-
-BrowserRelay is transport only. The Architect doorbell must never parse or scrape Architect assistant responses.
+BrowserRelay remains transport only.
 
 ## 10. Protected AFFOTECH boundary
 
-The Orchestrator project remains separate from AFFOTECH System V2 Hybrid.
+No current Orchestrator authority permits AFFOTECH source/worktree, `nakfreeajer/affotech-agent-relay`, Drive, Apps Script, tenant resources, business/private data, deployment, or protected-port access/mutation.
 
-Without a later explicit Rony-authorized integration milestone, the Orchestrator must not access or mutate:
+## 11. Completion trajectory
 
-- AFFOTECH source/worktrees;
-- `nakfreeajer/affotech-agent-relay`;
-- AFFOTECH relay authority/state;
-- ports `9222/9223`;
-- Google Drive evidence/state;
-- Apps Script deployments;
-- tenant spreadsheets/resources;
-- business/private data.
+Target steady-state cycle:
 
-## 11. Current completion trajectory
+`Architect decision/dispatch → persistent Orchestrator → Executor exactly once → durable terminal → persistent Orchestrator → Architect wake exactly once → Architect decision → repeat`
 
-The transport architecture has now proven both critical message legs independently:
-
-1. Architect-governed dispatch reaches Executor exactly once with durable `SENT` evidence — proven by ORCH-000153.
-2. Executor durable completion can drive an exact automatic Architect wake on 9333 without response scraping — proven by ORCH-000163.
-
-The next work should focus on converting these qualified pieces into the smallest reliable unattended governed cycle and operational daemon. Do **not** add a Curator transport leg merely for documentation continuity; Architect now updates documentation directly.
+If ORCH-000166 is accepted, the next Architect dispatch must be discovered and forwarded by the running host without manual transport intervention.
