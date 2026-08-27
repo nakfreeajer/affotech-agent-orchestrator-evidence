@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000167 and canonical ORCH-000168
+Documentation sync boundary: through Architect-accepted ORCH-000168 and canonical ORCH-000169
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -15,11 +15,11 @@ AFFOTECH Agent Orchestrator is a governed deterministic message-routing and dura
 Architect 9333
   ↓ durable dispatch
 Persistent deterministic Orchestrator
-  ↓ durable intent + exact delivery
+  ↓ exact lease + durable worker intent + exact delivery
 Executor 9444
   ↓ durable terminal
 Persistent deterministic Orchestrator
-  ↓ durable trigger + exact wake
+  ↓ durable Architect trigger + exact wake
 Architect 9333
 ```
 
@@ -31,12 +31,12 @@ Current source:
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
-Qualification: 101 files; focused `65/65`; runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
+Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
 Worker-delivery rules after ORCH-000165:
 
 - future results persist explicit message/dispatch lineage;
-- delivery ID, worker role and `intentSha256` must bind exactly;
+- delivery ID, worker role and `intentSha256` bind exactly;
 - explicit conflicts fail closed;
 - legacy missing lineage may hydrate only through the exact immutable intent;
 - historical records are not rewritten.
@@ -45,46 +45,55 @@ Worker-delivery rules after ORCH-000165:
 
 - ORCH-000153: forward delivery exactly once.
 - ORCH-000163: Architect wake exactly once.
-- ORCH-000166: persistent host `000026` armed, three valid idle polls, self-echo suppressed, zero transport side effects, left running.
+- ORCH-000166: persistent host `000026` armed, three valid idle polls, self-echo suppressed, zero transport side effects.
+- ORCH-000167: a strictly newer Architect dispatch was automatically detected by the running persistent host without manual forwarding.
 
-## 5. ORCH-000167 — automatic observation works; automatic preparation does not yet
+## 5. Worker-delivery action chain
 
-The first full-cycle probe proved the persistent host detects a strictly newer Architect dispatch automatically.
+ORCH-000168 established the accepted automatic chain precisely:
 
-For `DISPATCH-000167`, host `000026` durably emitted:
+```text
+evaluateAutomaticDispatchHost
+→ lease requirement derived from WORKER_DELIVERY action
+→ acquire exact worker mutation lease
+→ HOST_DELIVERY_READY / PREPARE_WORKER_DELIVERY_INTENT
+→ persistent-host-runner calls ports.prepareWorkerDeliveryIntent
+→ browser-relay transport persists + reads back intent
+→ require status PREPARED + exact preparedIntent
+→ only then sendWorkerDelivery may run
+```
 
-1. `LEASE_REQUIRED` with `actionKind=WORKER_DELIVERY`;
-2. `LEASE_ACQUIRED` telemetry;
-3. transition to `HOST_DELIVERY_READY`;
-4. `nextAction=PREPARE_WORKER_DELIVERY_INTENT`;
-5. `RECONCILIATION_REQUIRED` with reason `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
+`automatic-dispatch-host.js` selects the next lifecycle action; it does not itself perform the durable intent side effect. `persistent-host-runner.js` is responsible for executing the action. `browser-relay-transport-ports.js` owns the preparation method and requires an injected worker persistence adapter. `github-runtime-ports.js` provides the underlying durable GitHub primitives.
 
-No delivery intent/result was created, no Executor browser send occurred, and no Architect trigger was created. Active lease index is currently empty.
+## 6. ORCH-000168 diagnosis — COMPOSITION_WIRING_DEFECT
 
-Architect decision:
+Accepted decision:
 
-`GH-DEC-167-AUTOMATIC-HOST-WORKER-DELIVERY-INTENT-PREPARATION-BLOCKED`.
+`GH-DEC-168-WORKER-DELIVERY-INTENT-PREPARATION-COMPOSITION-DIAGNOSTIC-ACCEPTED`
 
-Architectural conclusion: the durable dispatch-observation stage is now proven. The next unresolved seam is between the post-lease `HOST_DELIVERY_READY` action boundary and durable `prepareWorkerDeliveryIntent` execution.
+The accepted source already calls preparation automatically. Host `000026` statically bound `prepareWorkerDeliveryIntent`, but the effective injected persistence composition did not return a durably read-back `PREPARED` intent. The runner therefore released/reconciled and stopped before BrowserRelay send.
 
-## 6. ORCH-000168 diagnostic boundary
+This is a **composition/persistence-adapter failure first**, not evidence of a missing accepted state-machine transition.
 
-ORCH-000168 must determine whether that seam belongs to:
+The diagnostic also clarified lease semantics: worker-delivery lease need is derived from the action/lineage/resource contract. Dispatch metadata booleans do not safely override that action-derived boundary.
 
-- accepted source automation;
-- host-000026 disposable launcher/composition wiring;
-- dispatch lease metadata;
-- or multiple causes.
+## 7. Current replacement strategy — ORCH-000169
 
-It inspects `automatic-dispatch-host.js`, `persistent-host-runner.js`, `github-runtime-ports.js`, `browser-relay-transport-ports.js`, and the local host-000026 launcher/log only. It must not mutate source, host, browser, delivery, trigger, or lease state.
+ORCH-000169 is composition-only. It must not patch accepted source.
 
-## 7. Persistent-host correctness principle
+Required sequence:
 
-A persistent host is not fully unattended merely because it detects a dispatch. A complete worker leg requires:
+1. verify and safely stop exact host `000026` only at a zero-active-lease boundary;
+2. repair disposable untracked host-launcher persistence injection;
+3. use the corrected composition to prepare delivery `WORKER-DELIVERY-EXECUTOR-000014` durably with zero browser contact;
+4. require exact readback and `PREPARED` result;
+5. reconcile the preflight delivery as `PROVEN_NOT_SENT`, preserving `LATEST_DELIVERY=000013/SENT`;
+6. release the lease to active count zero;
+7. start fresh host `000027` exactly once with the same corrected composition;
+8. suppress `DISPATCH-000169` as bootstrap and complete at least two valid idle polls;
+9. leave host `000027` running for the next strictly newer dispatch.
 
-`observe dispatch → acquire exact lease if required → prepare/read back durable intent → BrowserRelay pre-send observation → one send → durable result → duplicate suppression`.
-
-The return leg analogously requires terminal observation → durable trigger intent → one Architect wake → durable result.
+If composition-only repair cannot satisfy the accepted preparation contract, the milestone must stop with `SOURCE_CONTRACT_REPAIR_REQUIRED` and defer any tracked source patch to a new Architect-authorized source milestone.
 
 ## 8. Protected boundaries
 
