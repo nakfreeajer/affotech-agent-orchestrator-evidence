@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000169 and canonical ORCH-000170
+Documentation sync boundary: through Architect-accepted ORCH-000170 and canonical ORCH-000171
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -17,51 +17,55 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - No blind retry after ambiguous external mutation.
 - Historical evidence is immutable in meaning.
 - Local git commit/push is not runtime persistence.
-- AFFOTECH and its protected resources remain separate.
+- AFFOTECH and protected resources remain separate.
 - Documentation policy is `ARCHITECT_DIRECT`.
 
 ## Accepted foundations
 
 - ORCH-000153 — exactly-once Executor forward delivery.
 - ORCH-000163 — exactly-once Architect wake.
-- ORCH-000165 — lineage-compatibility source repair, full deterministic `817/817`.
+- ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
 - ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000168 — accepted diagnostic that the automatic preparation call exists in accepted source and the immediate failure was the effective persistence/composition seam.
+- ORCH-000168 — accepted composition diagnostic.
 
-## ORCH-000169 — BLOCKED before durable preparation and with lease ambiguity
+## ORCH-000169 — BLOCKED
 
 Decision:
 
 `GH-DEC-169-PREPARATION-PREFLIGHT-AND-LEASE-AMBIGUITY-BLOCKED`
 
+Composition preflight still failed before durable delivery intent creation; host `000027` did not arm; an expired worker-delivery lease remained indexed ACTIVE after ambiguous expiry reconciliation.
+
+## ORCH-000170 — ACCEPTED diagnostic
+
+Decision:
+
+`GH-DEC-170-PREPARATION-AND-EXPIRED-LEASE-DIAGNOSTIC-ACCEPTED`
+
 Reviewed publication:
 
-`GH-PUB-169-PREPARATION-COMPOSITION-REPAIR-FRESH-HOST-ARM-BLOCKED-000001`
+`GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001`
 
-Architect verified:
+Architect accepts two independent classifications.
 
-- accepted source remained ORCH-000165;
-- host `000026` was already absent;
-- one host-000027 launch attempt created its identity but did not leave a running/armed host;
-- one preflight preparation call returned `FAILED_BEFORE_SEND` with `durableRecorded=false`;
-- delivery `000014` intent/result remained absent;
-- browser contact/send `0/0`;
-- latest delivery remained `000013/SENT`;
-- latest Architect trigger remained `000005/SENT`; trigger `000006` absent;
-- no source mutation occurred.
+### Preparation — `COMPOSITION_ADAPTER_DEFECT`
 
-A second blocker was created during authorized preflight cleanup: the exact worker-delivery lease expired and expiry reconciliation returned `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`. The current index still lists that exact expired lease as `ACTIVE`.
+Accepted transport resolves the worker delivery ID from `request.snapshot?.pointers?.dispatch?.expectedFreshWorkerDeliveryId` or factory option `workerDeliveryId`.
 
-Classification rationale:
+Host `000027` supplied neither. The dispatch exposed `expectedDeliveryId`, so accepted `workerId()` returned no ID and preparation failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence/browser contact.
 
-`COMPOSITION_REPAIR_STILL_FAILED_BEFORE_DURABLE_INTENT_AND_EXPIRED_ORCH_000169_WORKER_DELIVERY_LEASE_RECONCILIATION_REMAINS_AMBIGUOUS`.
+Decision: no tracked source repair is proven necessary. The later preparation repair belongs first to disposable launcher composition: inject `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` and preserve stable reason logging.
 
-Architect policy:
+### Lease — `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`
 
-**Do not retry preparation, patch source, replace hosts, or mutate the lease until a read-only diagnostic identifies both the lower-level preparation failure and the exact reconciliation ambiguity.**
+ORCH-000169 supplied the correct immutable expiry-reconciliation binding. Accepted recovery attempted to create revision `000002`, but durable creation/readback was not proven. No valid revision `000002` exists and the index correctly remains fail-closed on revision `000001`.
 
-## Current next authority — ORCH-000170
+Decision: do not acquire a new lease or mix preparation recovery with lease recovery. The single safe next mutation is one exact accepted `reconcileExpiredMutationLease` call after unchanged-index and absent-revision-000002 checks.
 
-ORCH-000170 is a read-only diagnostic. It must classify the preparation failure independently and classify the lease ambiguity independently, identify exact call/binding evidence, and state the smallest next repair/recovery boundary.
+## Current next authority — ORCH-000171
 
-No source, host, browser, delivery, trigger, lease, lease-index, reconciliation, AFFOTECH, Drive, deployment, tenant or private-data mutation is authorized.
+ORCH-000171 is lease-recovery only.
+
+It authorizes exactly one reconciliation call for `MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`. Success requires durable revision `000002` plus one exact index CAS leaving `activeLeases=[]`.
+
+No new lease, preparation, host, browser, delivery, trigger, source, docs, AFFOTECH, Drive, deployment, tenant or private-data mutation is authorized.
