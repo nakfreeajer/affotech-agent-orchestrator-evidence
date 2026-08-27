@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
+Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -39,34 +39,38 @@ Accepted action chain:
 
 `observe dispatch → derive/acquire exact WORKER_DELIVERY lease → HOST_DELIVERY_READY → prepareWorkerDeliveryIntent → durable canonical intent/readback → PREPARED → sendWorkerDelivery`.
 
-ORCH-000170 proved the host-000027 preparation blocker is composition-only: accepted worker-ID resolution requires `expectedFreshWorkerDeliveryId` or factory option `workerDeliveryId`; the launcher supplied neither and failed with `WORKER_DELIVERY_ID_REQUIRED`. No source repair is currently proven necessary for preparation.
+ORCH-000170 proved host `000027` failed because its disposable composition supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation returned `WORKER_DELIVERY_ID_REQUIRED`. The later preparation fix remains disposable launcher injection of `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`; no tracked source repair is currently proven necessary for that seam.
 
-## 5. Expired-lease recovery contract and current failure seam
+## 5. Expired-lease create/readback seam
 
-The target lease remains:
+Target lease:
 
 `MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`, epoch `185`, revision `1`, bound to `ORCH-000169 / DISPATCH-000169`, expired but indexed `ACTIVE` at index revision `369`.
 
-ORCH-000170 proved the recovery binding itself is correct and classified the original ambiguity as `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
+ORCH-000171 executed one exact accepted reconciliation and reproduced `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with no revision `000002` and no index advancement.
 
-ORCH-000171 then exercised the accepted recovery path exactly once under unchanged preconditions. The call again returned `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`; revision `000002` remained absent and the index did not move.
+ORCH-000172 then traced the concrete path. Architect accepted:
 
-Architectural conclusion: the next unresolved seam is not lease lineage. It is the concrete durable create/readback path for projected reconciliation revision `000002`.
+- ORCH-000171 used accepted `createGitHubContentsRuntimeClient` and accepted `createJson`;
+- revision `000002` uses accepted lease-revision path and deterministic schema-valid expired projection;
+- the path uses normal GitHub Contents GET → PUT → GET readback and the same repository/branch/auth/base64 model as known-good creates;
+- no path, payload, schema, auth, or accepted `createJson` defect is proven;
+- the client normalizes the unproven mutation to `AMBIGUOUS / POST_MUTATION_ABSENT`;
+- runtime reconciliation then collapses that to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`;
+- the disposable request wrapper did not preserve the underlying `gh`/HTTP failure.
 
-No second reconciliation is safe until that seam is diagnosed.
+Classification: `ERROR_PROPAGATION_ONLY_GAP`.
 
-## 6. Current authority — ORCH-000172
+## 6. Current authority — ORCH-000173
 
-ORCH-000172 is read-only and traces:
+ORCH-000173 performs one instrumented exact reconciliation with the immutable lease binding and unchanged accepted request semantics.
 
-- accepted `reconcileExpiredMutationLease` call flow;
-- the concrete client used for `createJson` of revision `000002`;
-- actual API/CLI method, stdin/input, repository/ref/path, payload and return normalization;
-- lower-level error propagation;
-- comparison with known-good durable GitHub creates.
+Only the disposable injected request wrapper may add non-sensitive diagnostics. It must preserve method, endpoint, branch, body, encoding, authentication, sequencing, accepted normalization, and retry count exactly.
 
-It must classify the root cause and name the smallest repair boundary without mutating the lease, index, source, host, browser, delivery, or trigger state.
+If revision `000002` is durably created/read back, one index CAS may remove only the target lease. If the call is not proven successful, no retry is allowed; the concrete PUT/readback transport error must be reported.
+
+No new lease, preparation, host, browser, delivery, trigger, source, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
 
 ## 7. Protected boundaries
 
-Architect session: `9333`; Executor session: `9444`; protected AFFOTECH ports: `9222/9223`. AFFOTECH source/worktrees, AFFOTECH relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
+Architect session: `9333`; Executor session: `9444`; protected AFFOTECH ports: `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
