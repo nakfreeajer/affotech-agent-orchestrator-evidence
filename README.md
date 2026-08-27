@@ -1,6 +1,6 @@
 # AFFOTECH Agent Orchestrator Evidence
 
-This repository is the machine-authoritative control/evidence plane for `affotech-agent-orchestrator`. Immutable prompts, dispatches, Architect decisions, Executor terminals, delivery/trigger records, source snapshots/manifests, and current pointers are durable authority. Human-readable documentation is maintained directly by Architect and never overrides machine evidence.
+This repository is the machine-authoritative control/evidence plane for `affotech-agent-orchestrator`. Immutable prompts, dispatches, Architect decisions, Executor terminals, delivery/trigger records, source snapshots/manifests, host events, and current pointers are durable authority. Human-readable documentation is maintained directly by Architect and never overrides machine evidence.
 
 ## Active model
 
@@ -20,7 +20,7 @@ Persistent deterministic Orchestrator
 Architect AI
 ```
 
-Curator is not an active required role. Documentation policy is `ARCHITECT_DIRECT`.
+Documentation policy is `ARCHITECT_DIRECT`; Curator is not an active required role.
 
 ## Current accepted source
 
@@ -28,41 +28,45 @@ Curator is not an active required role. Documentation policy is `ARCHITECT_DIREC
 
 Decision: `GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`.
 
-Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic suite `817/817`; manifest `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`; archive `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`.
+Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-ORCH-000165 added fail-closed compatibility for legacy worker-delivery results without rewriting historical evidence and makes future results persist explicit message/dispatch lineage.
+## Proven foundations
 
-## Proven transport legs
+- ORCH-000153 proved exactly-once forward delivery: `WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
+- ORCH-000163 proved exactly-once Architect wake: `ARCH-TRIGGER-9333-000005 / SENT`.
+- ORCH-000166 accepted persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`: one process start, three valid idle polls, bootstrap dispatch suppressed three times, zero transport side effects, PID `16880` alive at terminal publication, `leaveRunning=true`.
 
-- ORCH-000153: `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once; duplicate additional send `0`.
-- ORCH-000163: `ARCH-TRIGGER-9333-000005 / SENT`; attempted/confirmed `1/1`; second send `0`; no assistant-response scraping.
+## First unattended-cycle probe — ORCH-000167 BLOCKED before delivery
 
-## Persistent host — ORCH-000166 ACCEPTED
+Decision:
 
-Decision: `GH-DEC-166-UNATTENDED-AUTOMATIC-HOST-000026-ARMED-ACCEPTED`.
+`GH-DEC-167-AUTOMATIC-HOST-WORKER-DELIVERY-INTENT-PREPARATION-BLOCKED`
 
-Host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` started with exactly one OS process-creation attempt, established `DISPATCH-000166` as an already-handled bootstrap watermark, completed three valid idle polling iterations, suppressed the bootstrap dispatch on all three, performed zero browser/delivery/trigger/lease activity, remained alive at terminal publication as PID `16880`, and was intentionally left running.
+The important success: host `000026` **automatically detected `DISPATCH-000167` without manual forwarding**.
 
-The next dispatch must therefore be published by Architect into GitHub and picked up by the running host automatically. Manual forwarding is no longer the expected path.
+Durable host events then show:
 
-## Next objective
+- `LEASE_REQUIRED` for `WORKER_DELIVERY`;
+- `LEASE_ACQUIRED` telemetry;
+- host reached `HOST_DELIVERY_READY`;
+- `nextAction=PREPARE_WORKER_DELIVERY_INTENT`;
+- stop state `RECONCILIATION_REQUIRED`;
+- reason `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
 
-ORCH-000167 is the first full unattended-cycle probe:
+`WORKER-DELIVERY-EXECUTOR-000014` was never created, browser send remained `0`, Executor terminal remained ORCH-000166, Architect trigger remained `000005/SENT`, and active mutation leases are currently empty.
 
-`new Architect dispatch → host automatic Executor delivery exactly once → Executor no-op durable terminal → host automatic Architect wake exactly once`.
+This means automatic durable **dispatch observation is proven**, but the running composition does not yet automatically execute the durable worker-delivery-intent preparation step required before BrowserRelay send.
 
-No source, AFFOTECH, Drive, deployment, tenant, or business/private-data mutation is part of that probe.
+## Current next — ORCH-000168
 
-## Governing entrypoints
+`DISPATCH-000168` is a manual read-only Executor diagnostic. It must identify whether the missing intent-preparation step is:
 
-- `governance/ORCHESTRATOR_BOOTSTRAP.md`
-- `governance/PROJECT_ORCHESTRATION_POLICY.md`
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md`
-- `docs/CURRENT_STATE.md`
-- `docs/ARCHITECTURE.md`
-- `docs/DECISIONS.md`
-- `docs/PROJECT_HISTORY.md`
-- `docs/BUGS_AND_LESSONS.md`
+- a host-000026 launcher/composition wiring defect;
+- an accepted-source automation gap;
+- a dispatch lease-authority metadata error;
+- or a combination.
+
+No source, host, browser, delivery, trigger, lease, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized by the diagnostic.
 
 ## Protected boundary
 
