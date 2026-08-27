@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-169-PREPARATION-COMPOSITION-REPAIR-FRESH-HOST-ARM-BLOCKED-000001",
+  "messageId": "ORCH-000169",
+  "dispatchId": "DISPATCH-000169",
+  "status": "BLOCKED",
+  "classification": "COMPOSITION_PREPARATION_REPAIR_OR_HOST_REPLACEMENT_BLOCKED",
+  "blockedReasonCode": "SOURCE_CONTRACT_REPAIR_REQUIRED",
+  "preflightStatus": "FAILED_BEFORE_SEND",
+  "preflightIntentExists": false,
+  "freshHostIdentityCreated": true,
+  "freshHostStillRunning": false,
+  "browserContactCount": 0,
+  "browserSendCount": 0,
+  "workerDeliverySentResultCount": 0,
+  "latestDeliveryUnchanged": "WORKER-DELIVERY-EXECUTOR-000013/SENT",
+  "architectTriggerUnchanged": "ARCH-TRIGGER-9333-000005/SENT",
+  "activeLeaseAtPublication": true,
+  "leaseCleanupStatus": "AMBIGUOUS",
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
