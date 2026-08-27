@@ -2,35 +2,8 @@
   "schemaVersion": "1.0",
   "pointerKind": "HOST_MUTATION_LEASE_INDEX",
   "projectId": "affotech-agent-orchestrator",
-  "indexRevision": 99,
+  "indexRevision": 100,
   "nextLeaseEpoch": 51,
-  "activeLeases": [
-    {
-      "leaseId": "MUTATION-LEASE-HOST-8e352642a04e21dad5646c031e08cd8f",
-      "leaseEpoch": 50,
-      "leaseRevision": 1,
-      "revision": 1,
-      "currentRevision": 1,
-      "recordPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-8e352642a04e21dad5646c031e08cd8f/revisions/000001.json",
-      "recordSha256": "be75307ae643f81b709c510ce33c2294f624d180e60b31bd615663b95b723ba2",
-      "immutableRecordPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-8e352642a04e21dad5646c031e08cd8f/revisions/000001.json",
-      "immutableRecordSha256": "be75307ae643f81b709c510ce33c2294f624d180e60b31bd615663b95b723ba2",
-      "projectId": "affotech-agent-orchestrator",
-      "holder": {
-        "registrationId": "WORKER-REG-EXECUTOR-000001",
-        "workerRole": "executor"
-      },
-      "messageId": "ORCH-000168",
-      "dispatchId": "DISPATCH-000168",
-      "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.INTENT.PREPARATION.SEAM.DIAGNOSTIC.1A",
-      "resourceScope": [
-        "worker-delivery"
-      ],
-      "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
-      "mutationEnvelopeSha256": "1041012f30260f7e76b1722c41fd007f2e334355b85d81c880757a1a3ba04370",
-      "expiresAt": 1787795053780,
-      "state": "ACTIVE"
-    }
-  ],
+  "activeLeases": [],
   "updatedAt": 1787794993780
 }
