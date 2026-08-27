@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000165 and canonical ORCH-000166
+Documentation sync boundary: through Architect-accepted ORCH-000166
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -20,7 +20,7 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - AFFOTECH and its protected resources remain separate.
 - Documentation policy is `ARCHITECT_DIRECT`; Curator is not an active required role.
 
-## Prior accepted transport foundations
+## Accepted transport foundations
 
 ### ORCH-000153 — ACCEPTED forward delivery
 
@@ -28,71 +28,59 @@ Decision: `GH-DEC-153-FRESH-EXECUTOR-FORWARD-DELIVERY-000013-ACCEPTED`.
 
 Proved `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once with duplicate additional send `0`.
 
-### ORCH-000162 — ACCEPTED reconciliation
-
-Decision: `GH-DEC-162-ARCHITECT-TRIGGER-000004-PROVEN-NOT-SENT-RECONCILIATION-ACCEPTED`.
-
-Proved historical trigger `000004` not sent; old trigger was not retried.
-
 ### ORCH-000163 — ACCEPTED automatic Architect wake
 
 Decision: `GH-DEC-163-AUTOMATIC-ARCHITECT-DOORBELL-TRIGGER-000005-ACCEPTED`.
 
 Proved trigger `000005 / SENT`, USER boundary `2→3`, attempted/confirmed `1/1`, second send `0`, duplicate additional send `0`, no assistant-response scraping.
 
-## ORCH-000164 — BLOCKED unattended-host bootstrap
+## ORCH-000164 — BLOCKED first unattended-host bootstrap
+
+Decision: `GH-DEC-164-UNATTENDED-HOST-BOOTSTRAP-LINEAGE-CONFLICT-BLOCKED`.
+
+The bootstrap watermark worked, but durable snapshot hydration failed with `WORKER_DELIVERY_LINEAGE_CONFLICT` before any browser contact/send. Historical delivery `000013` was not rewritten.
+
+## ORCH-000165 — ACCEPTED source compatibility repair
+
+Decision: `GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`.
+
+Accepted source: `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`.
+
+Why accepted: exact legacy intent binding only, explicit conflicts fail closed, future results persist explicit lineage, historical delivery unchanged, live compatibility writes `0`, and full deterministic suite `817/817`.
+
+## ORCH-000166 — ACCEPTED persistent automatic host bootstrap
 
 Decision:
 
-`GH-DEC-164-UNATTENDED-HOST-BOOTSTRAP-LINEAGE-CONFLICT-BLOCKED`
+`GH-DEC-166-UNATTENDED-AUTOMATIC-HOST-000026-ARMED-ACCEPTED`
 
-The explicit bootstrap boundary for `DISPATCH-000164` succeeded, but current-delivery hydration failed with `WORKER_DELIVERY_LINEAGE_CONFLICT` before any browser contact/send.
+Reviewed publication:
 
-Accepted root cause:
+`GH-PUB-166-AUTOMATIC-HOST-000026-ARMED-000001`
 
-- delivery `000013` intent contains `ORCH-000153 / DISPATCH-000153`;
-- its result binds to the exact intent SHA, delivery ID and worker role;
-- that historical result omits explicit message/dispatch lineage;
-- the then-accepted reader incorrectly required those fields on every result.
+Verified facts:
 
-Repair policy: do not rewrite historical evidence; add an exact fail-closed legacy hydration rule and make future results explicit.
+- host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`;
+- exactly one process-creation attempt;
+- PID `16880` alive at terminal publication;
+- `leaveRunning=true`;
+- explicit bootstrap boundary `DISPATCH-000166` read back;
+- three valid idle polls;
+- bootstrap dispatch suppressed three times;
+- browser contact/send `0/0`;
+- worker-delivery and Architect-trigger mutations `0/0`;
+- lease acquisition `0`;
+- accepted source unchanged;
+- protected boundaries clean.
 
-## ORCH-000165 — ACCEPTED source repair
+Reason code:
 
-Decision:
+`HOST_000026_STARTED_ONCE_ARMED_AT_DISPATCH_000166_COMPLETED_THREE_VALID_IDLE_POLLS_AND_REMAINED_RUNNING_WITH_ZERO_TRANSPORT_SIDE_EFFECTS`.
 
-`GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`
+This accepts the persistent host as armed for a strictly newer dispatch. It does **not yet** accept a full unattended cycle.
 
-Accepted source:
+## Current next authority — ORCH-000167
 
-`GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
+Architect will publish the first full unattended-cycle probe directly to GitHub. Manual forwarding is not authorized as the normal path.
 
-Why accepted:
-
-- only four authorized source/test paths changed;
-- legacy lineage hydrates only through exact immutable intent binding;
-- mismatched exact bindings fail closed;
-- explicit lineage conflicts fail closed;
-- future results persist explicit `messageId`/`dispatchId`;
-- historical delivery `000013` was not modified;
-- live read-only compatibility resolved `000013` as `SENT / ORCH-000153 / DISPATCH-000153` with zero writes;
-- focused suite `65/65`;
-- GitHub runtime ports `43/43`;
-- BrowserRelay transport ports `22/22`;
-- full deterministic suite `817/817`;
-- candidate source preserved as 101-file immutable snapshot.
-
-Accepted hashes:
-
-- manifest `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`;
-- archive `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`.
-
-ORCH-000165 supersedes ORCH-000130 as the current accepted source.
-
-## Current next authority — ORCH-000166
-
-`DISPATCH-000166` retries persistent-host bootstrap using fresh host `000026` and the accepted ORCH-000165 source.
-
-It must perform the repaired hydration probe before launch, gets exactly one OS process-creation attempt, must suppress its own bootstrap dispatch, complete at least two valid idle polls with zero browser traffic, remain running, and prove its accepted composition can support both future forward delivery and terminal-to-Architect wake observation.
-
-If accepted, the next Architect dispatch must be handled automatically by the running host rather than manually relayed.
+Success requires the running host to automatically perform exactly one fresh Executor delivery, observe the matching no-op Executor terminal, and automatically perform exactly one fresh Architect wake, with durable intent/result evidence and no second sends.
