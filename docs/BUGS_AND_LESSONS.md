@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000165 and canonical ORCH-000166
+Documentation sync boundary: through Architect-accepted ORCH-000166
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -18,71 +18,74 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Required worker-send order:
 
-`durable intent/readback → pre-send observation → one send attempt → durable result → duplicate suppression/reconciliation`
+`durable intent/readback → pre-send observation → one send attempt → durable result → duplicate suppression/reconciliation`.
 
 `PROVEN_NOT_SENT` is a first-class recovery state and never means `SENT`.
 
 ## Launch/composition lessons
 
-Operational launch glue is production behavior. Prior failures came from missing `input.nowMs`, missing qualified `gh` resolution, missing `--input -`, invalid temporary profiles, no-op persistence adapters, and malformed browser argv. Do not loosen source contracts to accommodate bad composition.
+Operational launch glue is production behavior. Prior failures came from missing `input.nowMs`, qualified `gh` resolution, `--input -`, invalid profiles, no-op persistence adapters, and malformed browser argv. Do not loosen source contracts to accommodate bad composition.
 
 ## Browser/target lessons
 
 A visible browser is not proof of a governed relay. Separately prove process/listener ownership, CDP health, exact registered target, composer readiness, durable intent, and one-attempt send semantics.
 
-Repeated text such as `verify & next` is not unique correlation; durable trigger identity plus USER-message boundary evidence is required.
+Repeated `verify & next` text is not unique correlation; durable trigger identity plus USER-message boundary evidence is required.
 
-## ORCH-000153 — forward delivery proof
+## ORCH-000153 and ORCH-000163
 
-Accepted pattern: fresh delivery identity, intent before browser contact, exactly one send, durable `SENT`, duplicate additional send `0`, retry false.
+Forward delivery and Architect wake are independently proven exactly once. Durable intent/result plus duplicate suppression—not visible UI alone—is the proof standard.
 
-## ORCH-000163 — Architect doorbell proof
+## ORCH-000164/165 — reader/writer compatibility
 
-Accepted pattern: fresh trigger identity, exact USER-boundary delta, attempted/confirmed `1/1`, second send `0`, duplicate additional send `0`, no assistant-response scraping.
+A stricter reader rejected historical delivery `000013` because its old result lacked explicit message/dispatch lineage despite exact immutable intent binding.
 
-## ORCH-000164 — bootstrap watermark is necessary but not sufficient
+Accepted repair:
 
-The first persistent-host bootstrap correctly established `DISPATCH-000164` as already handled, yet readiness still failed because the complete durable snapshot could not hydrate.
-
-Lesson: an unattended host is not armed until the entire polling snapshot hydrates and multiple valid idle iterations complete with zero unauthorized side effects.
-
-## ORCH-000164/165 — reader/writer schema compatibility
-
-The historical accepted result for worker delivery `000013` contains exact `intentSha256`, delivery ID and worker role but predates explicit result `messageId`/`dispatchId` fields. A stricter newer reader rejected it with `WORKER_DELIVERY_LINEAGE_CONFLICT`.
-
-Wrong repair: rewrite the old result or infer lineage from timestamps/current pointers/payload text.
-
-Accepted repair in ORCH-000165:
-
-- legacy missing lineage may resolve only through the exact immutable intent;
+- legacy missing lineage resolves only through the exact immutable intent;
 - exact `intentSha256`, delivery ID and worker role must match;
-- the immutable intent itself must contain valid message/dispatch lineage;
-- any explicit result-lineage mismatch remains a hard conflict;
+- explicit lineage mismatch remains a hard conflict;
 - future results persist explicit `messageId` and `dispatchId`;
-- historical result `000013` remains unchanged.
+- historical records remain untouched.
 
-Validation: focused `65/65`, GitHub runtime ports `43/43`, BrowserRelay transport ports `22/22`, full deterministic `817/817`, and read-only real-000013 hydration with zero writes.
+Lesson: compatibility belongs in a narrow fail-closed reader/writer contract, not historical evidence mutation.
 
-Lesson: compatibility belongs in a narrowly bounded fail-closed reader/writer contract, not in historical evidence mutation.
+## ORCH-000166 — bootstrap proof must include idle repetition
 
-## ORCH-000166 — stricter persistent-host retry
+ORCH-000166 accepted host `000026` only after:
 
-The new bootstrap requires:
+- the repaired current snapshot hydrated successfully;
+- exactly one OS process was created;
+- the bootstrap watermark was read back before transport eligibility;
+- three valid idle polls completed (more than the required two);
+- `DISPATCH-000166` was suppressed on all three;
+- browser/delivery/trigger/lease side effects stayed zero;
+- PID `16880` was alive at terminal publication and intentionally left running.
 
-- a read-only real-000013 hydration probe before any process launch;
-- exactly one OS process-creation attempt, with no relaunch loop;
-- self-echo boundary `DISPATCH-000166` established before polling;
-- at least two valid idle polls;
-- zero browser contacts/sends and zero delivery/trigger/lease mutation during bootstrap;
-- host alive and intentionally left running;
-- no readiness claim unless the running accepted composition supports both automatic newer-dispatch forwarding and durable-terminal-to-Architect wake observation.
+Lesson: a persistent host is not armed because a process merely exists. It must repeatedly observe the durable state without self-echo or unauthorized side effects and remain alive across the terminal boundary.
 
-If ORCH-000166 is accepted, the next dispatch must be picked up automatically rather than manually forwarded.
+## First automatic dispatch after bootstrap
+
+Once a host is accepted as armed, do not manually forward the next dispatch as a convenience. That would invalidate the very property being tested.
+
+The first post-bootstrap probe must distinguish:
+
+1. Architect publishing a new durable dispatch (authorized control-plane mutation);
+2. running host discovering it without human relay;
+3. durable worker-delivery intent before Executor browser contact;
+4. exactly one Executor send and durable result;
+5. corresponding Executor terminal publication;
+6. running host detecting that terminal;
+7. durable fresh Architect-trigger intent before port-9333 contact;
+8. exactly one Architect wake and durable result;
+9. zero second sends on both legs.
+
+If either transport leg becomes ambiguous, the host must stop that leg without retry and require read-only reconciliation.
 
 ## Current success criterion
 
-Combine the already-proven forward and return legs into:
+ORCH-000167 should prove the first complete unattended transport cycle:
 
-`Architect dispatch → persistent Orchestrator → Executor exactly once → durable terminal → Architect wake exactly once → Architect decision → repeat`
+`Architect dispatch → persistent Orchestrator → Executor exactly once → durable terminal → persistent Orchestrator → Architect wake exactly once`.
 
-while preserving durable authority, exact IDs/hashes, duplicate suppression, fail-closed ambiguity, protected project boundaries, zero response scraping, and Architect-direct documentation closure.
+No source, AFFOTECH, Drive, deployment, tenant, or business/private-data mutation is required to prove that loop.
