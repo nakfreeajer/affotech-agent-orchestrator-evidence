@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-172-EXPIRED-LEASE-REVISION-CREATE-READBACK-SEAM-DIAGNOSTIC-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "classification": "EXPIRED_LEASE_REVISION_CREATE_READBACK_SEAM_DIAGNOSTIC_COMPLETE",
+  "status": "COMPLETED",
+  "messageId": "ORCH-000172",
+  "dispatchId": "DISPATCH-000172",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.LEASE.REVISION.CREATE.READBACK.SEAM.DIAGNOSTIC.1A",
+  "architectDecisionId": "GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE",
+  "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256": "17a00646b44ac550f743599e07b85b61889ed616657019a3b65927e274e3c980",
+  "authorityRef": "e6eb4ae44c53dedbad0ae656432e34f370420907",
+  "diagnosticA": {
+    "classification": "ERROR_PROPAGATION_ONLY_GAP",
+    "a1": "ORCH-000171 imported the accepted createGitHubContentsRuntimeClient and called its createJson(path,value) through the accepted runtime reconciliation path.",
+    "a2": "It was the accepted client implementation, with the disposable ORCH-000171 request wrapper around gh api; no alternate GitHub API client was used.",
+    "a3": { "method": "PUT", "path": "/repos/nakfreeajer/affotech-agent-orchestrator-evidence/contents/evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98/revisions/000002.json", "body": "mutationBody(path, expired, 'main', null, commitMessage) with JSON serialized value and GitHub Contents content encoding", "precheck": "GET current path, then PUT, then GET read-back" },
+    "a4": "Accepted expiry reconciliation accepts create status CREATED, IDEMPOTENT, or OK; it then accepts one successful index CAS as UPDATED or OK and requires read-back absence of the lease.",
+    "a5": "The concrete normalized client result available from the accepted code path before the runtime collapse is AMBIGUOUS / POST_MUTATION_ABSENT when the PUT or its post-readback cannot be proven and the subsequent GET finds no revision. ORCH-000171 did not preserve the underlying gh exit/status/error payload.",
+    "a6": "github-contents-runtime-client.js createJson catches the PUT exception and calls reconcile(path,value); reconcile catches the read failure and returns AMBIGUOUS/POST_MUTATION_ABSENT. github-runtime-ports.js then maps any non-CREATED/IDEMPOTENT/OK result to EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS, discarding the nested reason.",
+    "a7": "ERROR_PROPAGATION_ONLY_GAP"
+  },
+  "diagnosticB": {
+    "b1": "Known-good creates use the same accepted createJson path for host identity, lease revision 000001, host events, and other durable evidence records.",
+    "b2": "Both paths use gh api through the injected request function, repository nakfreeajer/affotech-agent-orchestrator-evidence, branch main, Contents GET precheck, PUT JSON body, and GET exact JSON read-back. createJson uses base64 content encoding internally for GitHub Contents; neither path uses a different auth mechanism or SHA for create. The failing path is invoked by reconcileExpiredMutationLease, while the known-good lease acquisition path invokes createJson before its index CAS.",
+    "b3": "Material difference: revision 000002 is the expiry projection path and its error is collapsed twice; no material path/auth/payload encoding difference is proven. ORCH-000171 used a disposable wrapper that also discarded stderr/exit details.",
+    "b4": "The revision path is valid and parent directories are supported by GitHub Contents. The path is the exact accepted HOST_RUNTIME_PATHS.leaseRevision(leaseId,2) result. No path defect is evidenced.",
+    "b5": "The projected EXPIRED revision is deterministically computed from revision 000001, increments revision to 2, preserves the exact lease identity/lineage/scope/envelope, sets previousRecordSha256 from the current index entry, and is schema-valid under projectMutationLeaseExpiryReconciliation."
+  },
+  "diagnosticC": "ERROR_PROPAGATION_ONLY_GAP",
+  "diagnosticD": {
+    "d1": "Tracked source repair is not required by the evidence.",
+    "d2": "Disposable diagnostic/recovery adapter correction: preserve and surface the injected request's stable HTTP/gh status and reason through createJson/reconciliation logging, then perform one later exact reconciliation only when authorized. Do not manually edit the lease files or index.",
+    "d3": "If Architect later authorizes source observability repair, implicated functions are createJson/reconcile in src/host/github-contents-runtime-client.js and reconcileExpiredMutationLease in src/host/github-runtime-ports.js; focused tests are the client create/reconciliation tests and github-runtime-ports.test.js. No source was modified now.",
+    "d4": "Yes, one later exact reconciliation can be authorized after the concrete create/read-back seam is repaired or the GitHub transport failure is resolved, without changing the immutable lease binding.",
+    "d5": "Required later checks: current index revision 369 and exact blob/entry unchanged; revision 000001 exact; revision 000002 absent or exact-idempotent; no other active leases; exact lease binding and envelope unchanged; nowMs > expiresAt; create/read-back revision 000002 exact; one CAS removes only the target; read-back proves activeLeases=[]; no delivery, trigger, host, or browser activity."
+  },
+  "crossCheck": "The preparation omission and lease create/read-back ambiguity are independent. This diagnostic performed no retry or mutation.",
+  "observedState": { "leaseIndexRevision": 369, "targetLeaseStillIndexedActive": true, "activeLeaseCount": 1, "revision000001Exists": true, "revision000002Exists": false, "latestDelivery": "WORKER-DELIVERY-EXECUTOR-000013/SENT", "delivery000014Exists": false, "latestArchitectTrigger": "ARCH-TRIGGER-9333-000005/SENT", "trigger000006Exists": false, "host000026Running": false, "host000027Running": false },
+  "mutationAccounting": { "reconcileExpiredMutationLeaseCalls": 0, "leaseMutation": 0, "hostProcessMutation": 0, "browserContactCount": 0, "browserSendCount": 0, "workerDeliveryMutation": 0, "architectTriggerMutation": 0, "sourceMutation": 0, "testMutation": 0, "configMutation": 0, "documentationMutation": 0, "governanceMutation": 0, "assistantMessageTextRead": false, "responseDomRead": false, "affotechAccess": 0, "driveAccess": 0, "deploymentAccess": 0, "privateBusinessDataAccess": 0, "protectedPortContactCount": 0, "localGitRuntimeMutation": 0 },
+  "requiresArchitectDecision": true
+}

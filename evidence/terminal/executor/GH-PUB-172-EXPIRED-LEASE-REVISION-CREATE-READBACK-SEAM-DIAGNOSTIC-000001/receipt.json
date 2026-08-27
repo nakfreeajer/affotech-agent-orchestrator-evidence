@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-172-EXPIRED-LEASE-REVISION-CREATE-READBACK-SEAM-DIAGNOSTIC-000001",
+  "messageId": "ORCH-000172",
+  "dispatchId": "DISPATCH-000172",
+  "status": "COMPLETED",
+  "classification": "EXPIRED_LEASE_REVISION_CREATE_READBACK_SEAM_DIAGNOSTIC_COMPLETE",
+  "preparationClassification": "ERROR_PROPAGATION_ONLY_GAP",
+  "leaseClassification": "ERROR_PROPAGATION_ONLY_GAP",
+  "reconcileExpiredMutationLeaseCalls": 0,
+  "revision000002Exists": false,
+  "activeLeaseCount": 1,
+  "browserContactCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
