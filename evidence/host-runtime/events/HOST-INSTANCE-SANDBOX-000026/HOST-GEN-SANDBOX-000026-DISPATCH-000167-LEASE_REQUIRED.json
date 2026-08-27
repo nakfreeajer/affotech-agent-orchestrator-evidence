@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000026-DISPATCH-000167-LEASE_REQUIRED",
+  "eventType": "LEASE_REQUIRED",
+  "sourceRef": "756e880e718722c722bac1064fb22897cb822683",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000026",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000026",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_MUTATION_LEASE_REQUIRED",
+  "nextAction": "OBTAIN_WORKER_MUTATION_LEASE",
+  "dispatchId": "DISPATCH-000167",
+  "messageId": "ORCH-000167",
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": false,
+  "requiredLease": {
+    "actionKind": "WORKER_DELIVERY",
+    "projectId": "affotech-agent-orchestrator",
+    "holder": {
+      "registrationId": "WORKER-REG-EXECUTOR-000001",
+      "workerRole": "executor"
+    },
+    "messageId": "ORCH-000167",
+    "dispatchId": "DISPATCH-000167",
+    "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.FULL.LOOP.PROBE.1A",
+    "resourceScope": [
+      "worker-delivery"
+    ],
+    "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
+    "mutationEnvelopeSha256": "dd8cf91ddfe313317b04b7572d4585756ed06226985871530ed0a06a9ce6b31e",
+    "target": null
+  },
+  "telemetryOnly": true
+}
