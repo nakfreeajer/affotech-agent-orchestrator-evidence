@@ -1,10 +1,8 @@
 # AFFOTECH Agent Orchestrator Evidence
 
-This repository is the machine-authoritative control/evidence plane for `affotech-agent-orchestrator`. Immutable prompts, dispatches, Architect decisions, Executor terminals, delivery/trigger records, source snapshots/manifests, host events, and current pointers are durable authority. Human-readable documentation is maintained directly by Architect and never overrides machine evidence.
+This repository is the machine-authoritative control/evidence plane for `affotech-agent-orchestrator`. Durable GitHub prompts, dispatches, Architect decisions, Executor terminals, transport records, source snapshots, host events, and current pointers are authority. Human-readable documentation is maintained directly by Architect and never overrides machine evidence.
 
 ## Active model
-
-The Orchestrator is a **deterministic messenger, not an AI agent**.
 
 ```text
 Rony (final human authority)
@@ -12,7 +10,7 @@ Rony (final human authority)
 Architect AI — govern / verify / decide / document — port 9333
   ↓ durable dispatch
 Persistent deterministic Orchestrator
-  ↓ durable intent + exact governed delivery
+  ↓ exact lease + durable intent + exact delivery
 Executor AI — bounded work — port 9444
   ↓ durable terminal
 Persistent deterministic Orchestrator
@@ -20,7 +18,7 @@ Persistent deterministic Orchestrator
 Architect AI
 ```
 
-Documentation policy is `ARCHITECT_DIRECT`; Curator is not an active required role.
+The Orchestrator is deterministic transport, not an AI decision-maker. Documentation policy is `ARCHITECT_DIRECT`; Curator is not an active required role.
 
 ## Current accepted source
 
@@ -32,46 +30,45 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## Proven foundations
 
-- ORCH-000153 proved exactly-once forward delivery: `WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
-- ORCH-000163 proved exactly-once Architect wake: `ARCH-TRIGGER-9333-000005 / SENT`.
-- ORCH-000166 accepted persistent host `000026` after safe idle qualification.
-- ORCH-000167 proved a persistent host can automatically detect a strictly newer Architect dispatch without manual forwarding.
-- ORCH-000168 proved the accepted source already calls `prepareWorkerDeliveryIntent`; the immediate failure was the effective injected persistence/composition seam, not a missing state-machine action.
+- ORCH-000153: exactly-once Executor forward delivery `WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
+- ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005 / SENT`.
+- ORCH-000166: persistent host `000026` safely armed/idle.
+- ORCH-000167: persistent host automatically detected a newer Architect dispatch without manual forwarding.
 
-## ORCH-000169 — BLOCKED before durable preparation
+## ORCH-000170 — accepted diagnostic
 
 Architect decision:
 
-`GH-DEC-169-PREPARATION-PREFLIGHT-AND-LEASE-AMBIGUITY-BLOCKED`
+`GH-DEC-170-PREPARATION-AND-EXPIRED-LEASE-DIAGNOSTIC-ACCEPTED`
 
-The composition-only recovery corrected the disposable GitHub-backed adapter enough to reach the real accepted preparation method, but the call still returned:
+The two ORCH-000169 blockers are independent.
 
-- `FAILED_BEFORE_SEND`;
-- `durableRecorded=false`;
-- delivery `WORKER-DELIVERY-EXECUTOR-000014` intent/result absent;
-- browser contact/send `0/0`.
+### Preparation
 
-Host `000026` was already absent. Fresh host `000027` identity was created and one launch attempt occurred, but the process did not remain running and completed zero idle polls. It is **not an accepted or armed host**.
+Classification: `COMPOSITION_ADAPTER_DEFECT`.
 
-The preflight worker-delivery lease also expired during cleanup. Its exact expiry reconciliation became ambiguous with `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`, and the lease remains indexed `ACTIVE` even though it is expired. No new mutation is authorized while that ambiguity remains unresolved.
+The accepted transport resolves a worker-delivery ID from `snapshot.pointers.dispatch.expectedFreshWorkerDeliveryId` or the factory option `workerDeliveryId`. Host `000027` supplied neither; the dispatch exposed `expectedDeliveryId`. The accepted preparation path therefore failed with stable reason `WORKER_DELIVERY_ID_REQUIRED` before persistence or browser contact.
 
-Current transport baseline therefore remains:
+Smallest later repair: disposable launcher injection of `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` and stable reason-code logging. No tracked source repair is currently proven necessary.
 
-- `LATEST_DELIVERY = WORKER-DELIVERY-EXECUTOR-000013 / SENT`;
-- `LATEST_ARCHITECT_TRIGGER = ARCH-TRIGGER-9333-000005 / SENT`;
-- delivery `000014` absent;
-- trigger `000006` absent;
-- no running accepted replacement host.
+### Expired lease
 
-## Current next — ORCH-000170
+Classification: `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
 
-`DISPATCH-000170` is a manual **read-only diagnostic**. It must independently determine:
+The ORCH-000169 expiry-reconciliation binding was correct, but revision `000002` was not durably created/read back. The index therefore correctly remains fail-closed with the expired revision-1 lease active. Revision `000002` is still absent and the current index remains revision `369`.
 
-1. the exact lower-level reason the accepted preparation path still failed to create/read back a durable intent under host-000027 composition; and
-2. why the exact expired ORCH-000169 lease reconciliation became ambiguous and what single later mutation, if any, can close it safely.
+## Current next — ORCH-000171
 
-ORCH-000170 authorizes no host/process mutation, no source patch, no browser contact, no delivery/trigger mutation, and no lease/index/reconciliation mutation.
+`DISPATCH-000171` authorizes **only one exact accepted expired-lease reconciliation** for:
+
+`MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`
+
+No new lease, preparation retry, delivery `000014`, host process action, browser contact, source patch, trigger action, or AFFOTECH/Drive/deployment activity is authorized.
+
+Success requires durable revision `000002`, exact lineage/readback, one index CAS removing only that lease, and `activeLeases=[]`.
+
+Only after the lease is clean may Architect authorize the separate disposable preparation/host retry.
 
 ## Protected boundary
 
-AFFOTECH System V2 Hybrid, the existing AFFOTECH relay, ports `9222/9223`, Drive/business/private data, deployments, and tenant resources remain separate and unauthorized unless Rony explicitly authorizes a later integration milestone.
+AFFOTECH System V2 Hybrid, the existing AFFOTECH relay, ports `9222/9223`, Drive/business/private data, deployments, tenant resources, and protected project boundaries remain unauthorized absent explicit later authority.
