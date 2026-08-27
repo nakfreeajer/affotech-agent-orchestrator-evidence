@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000170 and canonical ORCH-000171
+Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -17,57 +17,48 @@ Key accepted milestones:
 
 Documentation ownership became `ARCHITECT_DIRECT`; Curator is not an active required role.
 
-## ORCH-000166 through ORCH-000169
+## ORCH-000166 through ORCH-000170
 
 ORCH-000166 safely armed persistent host `000026`.
 
-ORCH-000167 proved automatic observation of a newer Architect dispatch but stopped before durable worker intent preparation.
+ORCH-000167 proved automatic observation of a newer Architect dispatch but stopped before durable worker-intent preparation.
 
-ORCH-000168 proved accepted source already performs the preparation action and isolated the effective persistence/composition seam.
+ORCH-000168 proved accepted source already executes the preparation action and isolated the effective persistence/composition seam.
 
-ORCH-000169 attempted composition-first recovery and fresh host `000027`. Preparation still failed before durable intent creation, host `000027` did not arm, and the preflight lease expired during cleanup. Expiry reconciliation became ambiguous, leaving the exact expired lease fail-closed in the current index.
+ORCH-000169 attempted composition-first recovery and fresh host `000027`; preparation still failed before intent creation and an expired worker-delivery lease remained active after ambiguous reconciliation.
 
-Architect classified ORCH-000169 under:
+ORCH-000170 independently diagnosed the two causes:
 
-`GH-DEC-169-PREPARATION-PREFLIGHT-AND-LEASE-AMBIGUITY-BLOCKED`.
+- preparation = `COMPOSITION_ADAPTER_DEFECT` because host `000027` omitted accepted `workerDeliveryId`;
+- lease = `RECONCILIATION_RECORD_CREATION_AMBIGUOUS` with correct immutable recovery binding but absent revision `000002`.
 
-## ORCH-000170 — accepted dual diagnostic
+## ORCH-000171 — exact lease recovery INCONCLUSIVE
 
-Executor performed no mutation and independently diagnosed both ORCH-000169 blockers.
+Architect authorized exactly one accepted `reconcileExpiredMutationLease` call for the ORCH-000169 lease.
 
-Publication:
+All preconditions passed. The call returned:
 
-`GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001`
+`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
 
-Architect decision:
+Readback after the call proved:
 
-`GH-DEC-170-PREPARATION-AND-EXPIRED-LEASE-DIAGNOSTIC-ACCEPTED`
+- revision `000002` absent;
+- index revision still `369`;
+- exact expired revision-1 lease still indexed `ACTIVE`;
+- active lease count still `1`;
+- no new lease, host, browser, delivery, trigger, or tracked-source mutation.
 
-Preparation finding:
+Architect classified:
 
-- accepted worker-ID resolution expects `expectedFreshWorkerDeliveryId` or factory `workerDeliveryId`;
-- host `000027` supplied neither;
-- stable failure was `WORKER_DELIVERY_ID_REQUIRED`;
-- classification `COMPOSITION_ADAPTER_DEFECT`;
-- no source repair is currently proven necessary.
+`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`.
 
-Lease finding:
+The important conclusion is that the ambiguity is reproducible at the revision-create/readback seam even under a correctly-bound one-call recovery. A second blind call is forbidden.
 
-- ORCH-000169 expiry-reconciliation binding was correct;
-- accepted recovery attempted revision `000002` but could not prove durable create/readback;
-- revision `000002` does not exist;
-- index revision `369` still holds the expired ACTIVE revision-1 lease;
-- classification `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
+## ORCH-000172 — current read-only seam diagnostic
 
-The causes are independent.
+The next milestone traces the exact concrete GitHub createJson/client path used for lease revision `000002`, including command/API method, input handling, path/payload, return normalization, and error propagation. It compares that path against known-good durable creates and identifies the smallest repair boundary without mutation.
 
-## ORCH-000171 — current exact lease recovery
-
-Architect intentionally separated recovery order. Lease ambiguity must be closed before any new preparation/host attempt.
-
-ORCH-000171 authorizes exactly one accepted expired-lease reconciliation call for the ORCH-000169 worker-delivery lease. It may create/read back revision `000002` and CAS the index once to remove only that lease. It may not acquire another lease, retry preparation, create delivery `000014`, launch a host, contact a browser, or patch source.
-
-If accepted, the following milestone can return to the disposable launcher fix by injecting `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, then re-prove preparation before arming a fresh host.
+Only after ORCH-000172 may Architect decide whether the next action is a disposable adapter fix, bounded accepted-source repair, transport/auth repair, or another exact recovery under corrected conditions.
 
 ## Current target
 
