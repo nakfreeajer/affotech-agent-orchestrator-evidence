@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000167 and canonical ORCH-000168
+Documentation sync boundary: through Architect-accepted ORCH-000168 and canonical ORCH-000169
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -17,62 +17,76 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 - ORCH-000153: forward delivery `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once.
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005 / SENT` exactly once.
-- ORCH-000166: persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` accepted as armed after one process start, three valid idle polls, bootstrap suppression x3, zero browser/delivery/trigger/lease side effects, PID `16880` alive at publication and intentionally left running.
+- ORCH-000166: persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` accepted as armed after one process start, three valid idle polls, self-echo suppression, zero transport side effects, PID `16880` alive at publication.
+- ORCH-000167: running host `000026` automatically observed a strictly newer Architect dispatch without manual forwarding.
 
-## 3. ORCH-000167 full-cycle probe — BLOCKED before worker delivery
+## 3. ORCH-000167 — BLOCKED before delivery
 
 Decision:
 
 `GH-DEC-167-AUTOMATIC-HOST-WORKER-DELIVERY-INTENT-PREPARATION-BLOCKED`
 
-What is now proven:
+Durable host events prove `DISPATCH-000167` reached `HOST_DELIVERY_READY / PREPARE_WORKER_DELIVERY_INTENT`, then stopped with `RECONCILIATION_REQUIRED / WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
 
-- host `000026` automatically observed `DISPATCH-000167` with no manual forwarding;
-- host required a WORKER_DELIVERY lease;
-- a lease-acquired telemetry event exists;
-- host reached `HOST_DELIVERY_READY`.
+No delivery `000014` intent/result was created, browser send remained zero, no ORCH-000167 terminal was published, no trigger `000006` was created, and active leases returned to zero.
 
-Exact stop:
+## 4. ORCH-000168 diagnostic — ACCEPTED
 
-- `nextAction=PREPARE_WORKER_DELIVERY_INTENT`;
-- event type `RECONCILIATION_REQUIRED`;
-- reason `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
+Decision:
 
-What did not happen:
+`GH-DEC-168-WORKER-DELIVERY-INTENT-PREPARATION-COMPOSITION-DIAGNOSTIC-ACCEPTED`
 
-- `WORKER-DELIVERY-EXECUTOR-000014` intent/result: absent;
-- Executor browser send: `0`;
-- Executor terminal: remains ORCH-000166;
-- `ARCH-TRIGGER-9333-000006`: absent;
-- Architect wake send: `0`.
+Executor publication:
 
-Current mutation-lease index has `activeLeases=[]`, so there is no active lease blocker.
+`GH-PUB-168-WORKER-DELIVERY-INTENT-PREPARATION-SEAM-DIAGNOSTIC-000001`
 
-This is a clean pre-send block, not an ambiguous browser send.
+Accepted finding:
 
-## 4. Current authority — ORCH-000168
+- accepted `persistent-host-runner.js` automatically calls `ports.prepareWorkerDeliveryIntent` after lease acquisition;
+- accepted `browser-relay-transport-ports.js` supplies the preparation method and requires durable create/readback through its injected worker-persistence adapter;
+- `sendWorkerDelivery` was never reached;
+- host-000026 launcher statically bound the preparation function, but the effective injected persistence composition did not return a durably read-back `PREPARED` intent;
+- the runner safely released/reconciled before browser contact;
+- exact lower-level preparation failure was not durably propagated by the current runner event;
+- worker-delivery lease requirement is action-derived by the accepted host contract; the earlier dispatch lease booleans were metadata-inconsistent and must not weaken that requirement.
+
+This classifies the immediate root cause as `COMPOSITION_WIRING_DEFECT`, not a proven accepted-source automation gap.
+
+Host `000026` / PID `16880` was still running at the diagnostic and is not authorized for further mutation except the exact retirement governed by ORCH-000169.
+
+Current latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013 / SENT`; delivery `000014` is absent; latest Architect trigger remains `ARCH-TRIGGER-9333-000005 / SENT`; active leases are zero at the verified boundary.
+
+## 5. Current authority — ORCH-000169
 
 Milestone:
 
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.INTENT.PREPARATION.SEAM.DIAGNOSTIC.1A`
+`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.PREPARATION.COMPOSITION.REPAIR.AND.FRESH.HOST.ARM.1A`
 
 Dispatch:
 
-`DISPATCH-000168`
+`DISPATCH-000169`
 
-Purpose: diagnose read-only whether the missing automatic `prepareWorkerDeliveryIntent` execution is a source automation gap, host-000026 launcher/composition wiring defect, dispatch lease-metadata issue, or multiple causes.
+ORCH-000169 must:
 
-The diagnostic must inspect accepted source and local host-000026 launcher/logs, identify the exact call/action chain and smallest repair boundary, and publish only diagnostic terminal/report/receipt evidence.
+1. verify and stop only exact stuck host `000026` at a zero-lease boundary;
+2. repair only disposable untracked host-launcher/persistence composition;
+3. prepare delivery `WORKER-DELIVERY-EXECUTOR-000014` durably through the exact accepted preparation method with zero browser contact/send;
+4. require `PREPARED` and exact readback lineage;
+5. reconcile the preflight delivery to `PROVEN_NOT_SENT`, leaving `LATEST_DELIVERY=000013/SENT`;
+6. release the lease and return active lease count to zero;
+7. start fresh host `000027` exactly once using the same corrected composition;
+8. complete at least two valid idle polls with `DISPATCH-000169` suppressed;
+9. leave host `000027` running for a strictly newer dispatch.
 
-No source/test/config/docs mutation by Executor, no host mutation, no browser contact/send, no delivery/trigger/lease mutation, no accepted-source change, and no AFFOTECH/Drive/deployment/private/protected-port activity are authorized.
+Tracked source changes are prohibited. Failure of composition-only repair must return `SOURCE_CONTRACT_REPAIR_REQUIRED` rather than patching source in place.
 
-Because host `000026` cannot yet prepare a worker-delivery intent automatically, ORCH-000168 requires manual diagnostic dispatch to Executor.
+Because the old automatic host cannot yet prepare durable worker intent, ORCH-000169 remains a manual Executor dispatch.
 
-## 5. Documentation ownership
+## 6. Documentation ownership
 
 Policy: `ARCHITECT_DIRECT`. Architect directly updates materially affected human-readable documentation. Curator is not an active required role.
 
-## 6. Boundaries
+## 7. Boundaries
 
 - Architect session: `9333`.
 - Executor session: `9444`.
