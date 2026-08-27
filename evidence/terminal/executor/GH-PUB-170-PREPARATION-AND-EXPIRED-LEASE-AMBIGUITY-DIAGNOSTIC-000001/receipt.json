@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001",
+  "messageId": "ORCH-000170",
+  "dispatchId": "DISPATCH-000170",
+  "status": "COMPLETED",
+  "classification": "PREPARATION_AND_EXPIRED_LEASE_AMBIGUITY_DIAGNOSTIC_COMPLETE",
+  "preparationClassification": "COMPOSITION_ADAPTER_DEFECT",
+  "leaseClassification": "RECONCILIATION_RECORD_CREATION_AMBIGUOUS",
+  "delivery000014Exists": false,
+  "latestDeliveryUnchanged": "WORKER-DELIVERY-EXECUTOR-000013/SENT",
+  "browserContactCount": 0,
+  "browserSendCount": 0,
+  "leaseMutationCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
