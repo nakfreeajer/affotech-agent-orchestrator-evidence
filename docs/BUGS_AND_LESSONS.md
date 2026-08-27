@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
+Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -14,60 +14,56 @@ Machine authority: durable GitHub evidence and Architect decisions
 - Orchestrator is deterministic transport only; it never reads assistant decisions for authority.
 - Local git commit/push is not runtime state transport.
 
-## Durable worker-delivery ordering
+## Preparation lesson
 
-Required order:
+Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence. The correct later preparation fix is exact disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative source patch.
 
-`observe governed dispatch → exact action-derived lease → durable worker-delivery intent/readback → BrowserRelay pre-send observation → one send → durable result → duplicate suppression/reconciliation`.
+## Lease lesson from ORCH-000171
 
-## Preparation lesson from ORCH-000170
+A correctly bound recovery can still fail at durable mutation transport. ORCH-000171 executed the accepted reconciliation once and reproduced `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with no revision `000002`, no index CAS, and no unrelated mutation.
 
-Deterministic adapter boundaries require exact field/option names. Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence. Semantic similarity such as `expectedDeliveryId` is insufficient.
+Correct response: diagnose the write/readback seam, not another blind call.
 
-No tracked source repair is currently proven necessary for this preparation seam.
+## ORCH-000172 — error-propagation-only gap
 
-## Lease lesson from ORCH-000170 and ORCH-000171
+The seam diagnostic proved:
 
-ORCH-000170 proved the expired-lease reconciliation binding was correct. ORCH-000171 then executed that exact accepted recovery once under unchanged preconditions.
+- accepted `createGitHubContentsRuntimeClient` / `createJson` was used;
+- revision `000002` path is the accepted lease-revision path;
+- projected EXPIRED record is deterministic and schema-valid;
+- known-good creates use the same GitHub Contents request model, repository, branch, auth and encoding;
+- no path/payload/schema/auth/runtime-create defect is proven;
+- the client returns `AMBIGUOUS / POST_MUTATION_ABSENT` when PUT/readback cannot be proven;
+- reconciliation then collapses this to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`;
+- the disposable wrapper discarded the concrete `gh`/HTTP status/error.
 
-It still returned:
+Classification: `ERROR_PROPAGATION_ONLY_GAP`.
 
-`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
+Lesson: **safe fail-closed normalization is not enough for operability if it destroys the evidence needed to repair a transport failure**. Preserve bounded non-sensitive transport diagnostics at disposable runtime boundaries.
 
-Revision `000002` remained absent and index revision `369` did not move.
+## Instrumentation must not mutate semantics
 
-Lesson: **a correct recovery binding does not prove the durable mutation adapter can create/read back the recovery record**. When a correctly-bound one-call recovery repeats the same ambiguity with no durable side effect, the next step is not another retry; it is diagnosis of the concrete write/readback seam.
+Diagnostic instrumentation may record operation label, HTTP method/path, process exit code, HTTP status, stable error reason, redacted bounded stderr, parseability, and normalized result. It must not change method, URL, body, branch, encoding, auth, sequencing, accepted normalization, or retry behavior.
 
-## No-partial-side-effect distinction
+This distinction makes an instrumented retry evidence-driven rather than blind.
 
-ORCH-000171 produced no revision `000002`, no index CAS, and no unrelated mutation. This matters: the state is unresolved, but there is no half-created reconciliation record requiring speculative repair.
+## ORCH-000173 rule
 
-The safe posture is preserve the expired ACTIVE index entry until the durable create/readback mechanism is understood and corrected.
+Exactly one instrumented accepted expired-lease reconciliation is authorized under the unchanged ORCH-000169 lease binding.
 
-## Error-propagation requirement
+Success requires revision `000002` durable readback and one exact index CAS leaving `activeLeases=[]`.
 
-Generic stable outer reason codes such as `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` are safe but may be operationally insufficient. Diagnostic evidence must preserve the non-sensitive lower-level client status/error needed to distinguish:
+If it fails or remains ambiguous, no retry is allowed. The concrete redacted transport diagnostics become the next Architect evidence.
 
-- disposable GitHub client adapter defect;
-- accepted runtime createJson defect;
-- GitHub auth/transport failure;
-- invalid revision path/payload;
-- or error-propagation-only loss.
-
-## ORCH-000172 rule
-
-Read-only trace the exact revision-`000002` path used by ORCH-000171 and compare it to a known-good durable create. Inspect API/CLI method, stdin/input handling, repository/ref/path, payload encoding, return normalization, and the branch that collapses the lower failure.
-
-No reconciliation call, lease/index/revision mutation, new lease, host action, browser contact, delivery/trigger mutation, or source patch is authorized by this diagnostic.
+No new lease, preparation retry, host action, browser contact, delivery/trigger mutation, or tracked source patch may be mixed into this milestone.
 
 ## Recovery ordering
 
-1. identify and repair the revision-create/readback seam;
-2. only then authorize one newly-bounded exact lease reconciliation if evidence says it is safe;
-3. verify `activeLeases=[]`;
-4. separately retry preparation with exact `workerDeliveryId` composition;
-5. prove durable `PREPARED` before browser contact;
-6. arm a fresh host and resume full-cycle qualification.
+1. obtain concrete transport diagnostics and close the expired lease if possible;
+2. verify `activeLeases=[]`;
+3. separately retry preparation with exact `workerDeliveryId` composition;
+4. prove durable `PREPARED` before browser contact;
+5. arm a fresh host and resume full-cycle qualification.
 
 ## Current success criterion
 
