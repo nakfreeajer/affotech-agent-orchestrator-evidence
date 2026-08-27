@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
+Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -26,7 +26,7 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - ORCH-000163 — exactly-once Architect wake.
 - ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
 - ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000170 — accepted dual diagnostic: preparation `COMPOSITION_ADAPTER_DEFECT`; lease `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
+- ORCH-000170 — preparation `COMPOSITION_ADAPTER_DEFECT`; lease recovery binding correct but revision creation ambiguous.
 
 ## ORCH-000171 — INCONCLUSIVE
 
@@ -34,22 +34,40 @@ Decision:
 
 `GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`
 
-The exact accepted expiry-reconciliation call was authorized once and executed once after unchanged-index and absent-revision-000002 checks.
+One exact correctly bound accepted reconciliation call repeated `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with revision `000002` absent, index revision `369` unchanged, target expired lease still ACTIVE, and no durable side effect.
 
-Outcome:
+Architect decision: no second blind reconciliation.
 
-`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
+## ORCH-000172 — ACCEPTED error-propagation diagnostic
 
-Post-readback proves revision `000002` is still absent and the lease index remains revision `369` with the same expired revision-1 lease active. No durable lease-state advancement occurred. No blind retry was performed.
+Decision:
+
+`GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`
+
+Reviewed publication:
+
+`GH-PUB-172-EXPIRED-LEASE-REVISION-CREATE-READBACK-SEAM-DIAGNOSTIC-000001`
+
+Architect accepts:
+
+- ORCH-000171 used accepted `createGitHubContentsRuntimeClient` and accepted `createJson`;
+- revision `000002` path and deterministic EXPIRED payload are valid;
+- known-good creates use the same GitHub Contents client model, repository, branch, auth and encoding;
+- no path, payload, schema, auth or accepted-runtime create defect is proven;
+- the accepted client collapses the failed/unproven PUT/readback to `AMBIGUOUS / POST_MUTATION_ABSENT`;
+- runtime reconciliation then collapses that to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`;
+- the disposable request wrapper did not preserve the underlying `gh`/HTTP failure;
+- classification is `ERROR_PROPAGATION_ONLY_GAP`;
+- no tracked source repair is currently required by the evidence.
 
 Decision rationale:
 
-`ONE_EXACT_CORRECTLY_BOUND_RECONCILIATION_CALL_REPEATED_THE_REVISION_000002_CREATE_READBACK_AMBIGUITY_WITH_NO_DURABLE_SIDE_EFFECT`.
+`ACCEPTED_CREATE_JSON_AND_LEASE_PATH_ARE_NOT_PROVEN_DEFECTIVE_BUT_DISPOSABLE_REQUEST_AND_RUNTIME_ERROR_PROPAGATION_HIDE_THE_CONCRETE_GITHUB_FAILURE`.
 
-Architect decision: a second reconciliation call is not authorized until the concrete create/readback failure seam is diagnosed.
+## Current next authority — ORCH-000173
 
-## Current next authority — ORCH-000172
+ORCH-000173 authorizes one instrumented exact reconciliation. The accepted request/reconciliation semantics and immutable lease binding must remain unchanged; only the disposable request wrapper may preserve safe non-sensitive PUT/readback diagnostics.
 
-ORCH-000172 is zero-mutation diagnostic work focused on the revision-`000002` GitHub create/readback seam. It must identify the concrete client/adapter used by ORCH-000171, exact API/CLI invocation and lower-level failure, compare it with known-good durable creates, classify root cause, and state the smallest repair boundary.
+If reconciliation succeeds, revision `000002` and one exact index CAS may close the lease. If it fails or is ambiguous, no retry is authorized and the concrete redacted transport cause must be published.
 
-It may not call reconciliation, mutate lease/index/revision state, acquire a new lease, retry preparation, launch a host, contact a browser, mutate delivery/trigger state, patch source, or touch AFFOTECH/Drive/deployment/private boundaries.
+No new lease, preparation, host, browser, delivery, trigger, source, AFFOTECH, Drive, deployment, tenant or private-data mutation is authorized beyond the exact lease/index reconciliation envelope.
