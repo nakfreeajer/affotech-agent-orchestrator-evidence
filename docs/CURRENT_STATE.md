@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
+Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -19,64 +19,59 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000167: automatic newer-dispatch observation proved.
 - ORCH-000170: preparation blocker classified `COMPOSITION_ADAPTER_DEFECT`; accepted source does not currently require repair for that seam.
 
-## 3. ORCH-000171 — INCONCLUSIVE
+## 3. ORCH-000171 — INCONCLUSIVE exact lease recovery
 
-Decision:
-
-`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`
-
-Publication:
-
-`GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001`
-
-One exact accepted `reconcileExpiredMutationLease` call ran after all prescribed preconditions passed. It returned:
+One exact accepted `reconcileExpiredMutationLease` call ran after all prescribed preconditions passed and returned:
 
 `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
 
-Fresh readback proves:
+Revision `000002` remained absent; lease-index revision stayed `369`; the target expired lease remained the sole ACTIVE entry; no durable side effect or unrelated mutation occurred.
 
-- revision `000002` absent;
-- mutation-lease index revision still `369`;
-- target lease still indexed `ACTIVE` though expired;
-- active lease count `1`;
-- no new lease acquisition;
-- no host process mutation;
-- browser contact/send `0/0`;
-- no delivery or trigger mutation;
-- no source/test/config/docs/governance mutation.
+Architect decision:
 
-This is not a partial recovery. The call produced no durable lease-state advancement, and no retry is authorized.
+`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`.
 
-## 4. Current transport baseline
+## 4. ORCH-000172 diagnostic — ACCEPTED
+
+Decision:
+
+`GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`
+
+Publication:
+
+`GH-PUB-172-EXPIRED-LEASE-REVISION-CREATE-READBACK-SEAM-DIAGNOSTIC-000001`
+
+Accepted conclusion: `ERROR_PROPAGATION_ONLY_GAP`.
+
+ORCH-000171 used accepted `createGitHubContentsRuntimeClient` / `createJson`. Revision `000002` path and deterministic EXPIRED projection are valid, and no material path/payload/schema/auth difference from known-good durable creates is proven.
+
+The concrete accepted normalized result is `AMBIGUOUS / POST_MUTATION_ABSENT`, which runtime reconciliation collapses to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`. The disposable request wrapper failed to preserve the underlying `gh`/HTTP status/error, so the concrete transport cause is not yet known.
+
+No tracked source repair is currently proven necessary.
+
+## 5. Current baseline
 
 - `LATEST_DELIVERY = WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
 - delivery `000014` absent.
 - `LATEST_ARCHITECT_TRIGGER = ARCH-TRIGGER-9333-000005 / SENT`.
 - trigger `000006` absent.
-- no accepted persistent replacement host is running.
-
-## 5. Current lease blocker
-
-`MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`
-
-- epoch `185`;
-- revision `1`;
-- index revision `369`;
-- bound to `ORCH-000169 / DISPATCH-000169`;
-- expired but indexed `ACTIVE`;
+- no accepted persistent host is running.
+- target expired lease remains ACTIVE at index revision `369`.
 - revision `000002` absent.
 
-The immutable binding was previously proven correct. The unresolved issue is now the durable create/readback path for reconciliation revision `000002`.
-
-## 6. Current authority — ORCH-000172
+## 6. Current authority — ORCH-000173
 
 Milestone:
 
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.LEASE.REVISION.CREATE.READBACK.SEAM.DIAGNOSTIC.1A`
+`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.LEASE.INSTRUMENTED.EXACT.RECONCILIATION.1A`
 
-ORCH-000172 is manual/read-only. It must identify the concrete createJson/client path used by ORCH-000171, the exact lower-level failure or error-propagation gap, compare it with known-good GitHub durable creates, and classify the smallest repair boundary.
+ORCH-000173 authorizes exactly one accepted reconciliation call using the unchanged immutable lease binding and accepted request semantics. Only a disposable wrapper may add safe diagnostics around the GitHub requests.
 
-No reconciliation call, lease/index/revision mutation, new lease, host action, browser contact, delivery/trigger mutation, tracked source patch, AFFOTECH, Drive, deployment, tenant or private/protected resource activity is authorized.
+Success requires durable revision `000002`, exact readback, one index CAS removing only the target lease, and `activeLeases=[]`.
+
+If the call is not proven successful, no retry is authorized; Executor must publish the concrete redacted PUT/readback/HTTP/gh diagnostics and unchanged post-state.
+
+No new lease, preparation retry, delivery/trigger mutation, host process action, browser contact/send, source/test/config/docs/governance mutation, AFFOTECH, Drive, deployment or private/protected resource activity is authorized.
 
 ## 7. Documentation ownership
 
