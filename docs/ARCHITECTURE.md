@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000169 and canonical ORCH-000170
+Documentation sync boundary: through Architect-accepted ORCH-000170 and canonical ORCH-000171
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -23,9 +23,9 @@ Persistent deterministic Orchestrator
 Architect 9333
 ```
 
-Documentation policy is `ARCHITECT_DIRECT`; Curator is not an active required role.
+Documentation policy is `ARCHITECT_DIRECT`.
 
-## 3. Accepted source and lineage contract
+## 3. Accepted source
 
 Current accepted source:
 
@@ -33,76 +33,54 @@ Current accepted source:
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Worker-delivery rules:
+## 4. Worker-delivery preparation contract
 
-- future results persist explicit message/dispatch lineage;
-- delivery ID, worker role and `intentSha256` bind exactly;
-- explicit conflicts fail closed;
-- legacy missing lineage may hydrate only through the exact immutable intent;
-- historical records are not rewritten.
-
-## 4. Proven transport pieces
-
-- ORCH-000153: forward delivery exactly once.
-- ORCH-000163: Architect wake exactly once.
-- ORCH-000166: persistent host `000026` safely armed/idle.
-- ORCH-000167: a strictly newer Architect dispatch was automatically detected by the persistent host without manual forwarding.
-
-## 5. Worker-delivery action chain
-
-ORCH-000168 established the accepted chain:
+Accepted action chain:
 
 ```text
-evaluateAutomaticDispatchHost
+observe dispatch
 → derive/acquire exact WORKER_DELIVERY lease
 → HOST_DELIVERY_READY / PREPARE_WORKER_DELIVERY_INTENT
 → persistent-host-runner calls ports.prepareWorkerDeliveryIntent
-→ transport persists + reads back canonical intent
-→ require PREPARED + exact preparedIntent
-→ only then sendWorkerDelivery may run
+→ browser-relay transport resolves worker-delivery ID
+→ create + durably read back canonical intent
+→ require PREPARED
+→ only then sendWorkerDelivery
 ```
 
-`automatic-dispatch-host.js` chooses the next lifecycle action. `persistent-host-runner.js` executes it. `browser-relay-transport-ports.js` owns intent preparation and requires an injected worker-persistence adapter. `github-runtime-ports.js` provides durable GitHub primitives.
+ORCH-000170 clarified the exact ID contract. `browser-relay-transport-ports.js` resolves the worker-delivery ID from either:
 
-## 6. ORCH-000169 result — composition repair still insufficient
+- `request.snapshot?.pointers?.dispatch?.expectedFreshWorkerDeliveryId`, or
+- factory option `workerDeliveryId`.
 
-ORCH-000169 attempted a composition-only repair and fresh host replacement without tracked source changes.
+Host `000027` composition supplied neither; the dispatch used `expectedDeliveryId`. The resulting accepted failure was `WORKER_DELIVERY_ID_REQUIRED` before persistence. This is `COMPOSITION_ADAPTER_DEFECT`, not a proven source automation/persistence defect.
 
-Observed result:
+The smallest later preparation repair is disposable launcher injection of `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, while preserving the accepted GitHub create/readback adapter. Source repair is not currently required.
 
-- accepted `prepareWorkerDeliveryIntent` was called once;
-- status `FAILED_BEFORE_SEND`;
-- `durableRecorded=false`;
-- no delivery `000014` intent/result;
-- browser contact/send `0/0`;
-- `sendWorkerDelivery` never reached.
+## 5. Expired-lease reconciliation contract
 
-Therefore the disposable composition repair did not yet satisfy the accepted preparation persistence contract. The lower-level failure remains hidden by the current diagnostic surface and must be identified before deciding whether the next repair belongs to composition, source error propagation, or the persistence contract itself.
+ORCH-000170 classified the ORCH-000169 lease blocker as `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
 
-Host `000027` identity exists, but its process exited and completed zero idle polls. It is not an armed replacement host.
+The supplied expiry-reconciliation binding was exact. Accepted reconciliation attempted to create revision `000002`, but no valid record was durably created/read back. The index correctly stayed fail-closed on the expired ACTIVE revision `000001`.
 
-## 7. Lease ambiguity is now a hard gating condition
+Safe recovery order is therefore:
 
-The ORCH-000169 preflight acquired one worker-delivery mutation lease. It expired before cleanup. Release/expiry reconciliation returned `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
+1. fresh-read exact immutable revision `000001` and current index;
+2. require revision `000002` absent;
+3. require unchanged lease/index binding and `nowMs > expiresAt`;
+4. invoke accepted `reconcileExpiredMutationLease` exactly once;
+5. durably create/read back revision `000002`;
+6. CAS the index once to remove only the reconciled lease;
+7. read back `activeLeases=[]`.
 
-The exact lease remains present in the current index as `ACTIVE` despite being expired:
+No blind retry is allowed after an ambiguous result.
 
-`MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`, epoch `185`, revision `1`, bound to `ORCH-000169 / DISPATCH-000169`, resource scope `worker-delivery`.
+## 6. Current authority — ORCH-000171
 
-No further ambiguity-prone mutation should proceed until read-only diagnosis establishes whether a durable reconciliation record exists, whether the index is stale, or whether the recovery binding itself was wrong.
+ORCH-000171 performs only the exact lease-reconciliation chain above. It must not prepare delivery `000014`, acquire a new lease, start/stop a host, contact a browser, mutate source/tests/config/docs/governance, or create an Architect trigger.
 
-## 8. Current diagnostic boundary — ORCH-000170
+Only after this lease is durably closed may the preparation/host composition be retried under a later fresh authority.
 
-ORCH-000170 is read-only and must answer two questions independently:
+## 7. Protected boundaries
 
-1. why the corrected host-000027 preparation adapter still failed before durable intent creation/readback;
-2. why exact expired-lease reconciliation became ambiguous and what exact later mutation can close it safely.
-
-It must not mutate source, host process, browser, delivery, trigger, lease, lease index, or reconciliation state.
-
-## 9. Protected boundaries
-
-- Architect session: `9333`.
-- Executor session: `9444`.
-- protected AFFOTECH ports: `9222/9223`.
-- AFFOTECH source/worktrees, AFFOTECH relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony integration authority.
+Architect session: `9333`; Executor session: `9444`; protected AFFOTECH ports: `9222/9223`. AFFOTECH source/worktrees, AFFOTECH relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
