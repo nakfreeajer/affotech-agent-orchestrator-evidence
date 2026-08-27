@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "messageId": "ORCH-000165",
+  "dispatchId": "DISPATCH-000165",
+  "status": "COMPLETED",
+  "classification": "WORKER_DELIVERY_LEGACY_RESULT_LINEAGE_HYDRATION_REPAIR_READY_FOR_ARCHITECT_REVIEW",
+  "candidateSourceFileCount": 101,
+  "focusedTestsPassed": 65,
+  "fullTestsPassed": 817,
+  "historicalDeliveryMutationCount": 0,
+  "browserContactCount": 0,
+  "workerDeliveryMutationCount": 0,
+  "architectTriggerMutationCount": 0,
+  "leaseAcquireCount": 0,
+  "sourceMutation": 2,
+  "testMutation": 2,
+  "assistantMessageTextRead": false,
+  "requiresArchitectDecision": true
+}
