@@ -1,0 +1,27 @@
+{
+  "recordType": "MUTATION_LEASE",
+  "schemaVersion": "1.0",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "leaseId": "MUTATION-LEASE-HOST-4a052fc7fb6c17989c2f608629384069",
+  "leaseRevision": 1,
+  "leaseEpoch": 95,
+  "projectId": "affotech-agent-orchestrator",
+  "resourceScope": [
+    "worker-delivery"
+  ],
+  "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
+  "mutationEnvelopeSha256": "1041012f30260f7e76b1722c41fd007f2e334355b85d81c880757a1a3ba04370",
+  "holder": {
+    "registrationId": "WORKER-REG-EXECUTOR-000001",
+    "workerRole": "executor"
+  },
+  "messageId": "ORCH-000168",
+  "dispatchId": "DISPATCH-000168",
+  "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.INTENT.PREPARATION.SEAM.DIAGNOSTIC.1A",
+  "state": "ACTIVE",
+  "acquiredAt": 1787794993780,
+  "expiresAt": 1787795053780,
+  "releasedAt": null,
+  "previousRecordSha256": null,
+  "releasedBy": null
+}
