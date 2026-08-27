@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000169 and canonical ORCH-000170
+Documentation sync boundary: through Architect-accepted ORCH-000170 and canonical ORCH-000171
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -20,65 +20,55 @@ Required order:
 
 `observe governed dispatch → exact action-derived lease → durable worker-delivery intent/readback → BrowserRelay pre-send observation → one send → durable result → duplicate suppression/reconciliation`.
 
-A state machine returning `PREPARE_WORKER_DELIVERY_INTENT` is not equivalent to a runner successfully creating/read-backing the canonical intent.
+## ORCH-000170 — exact preparation lesson
 
-## Proven transport foundations
+The accepted preparation code was not missing. Host `000027` failed because its disposable composition did not supply the worker-delivery ID in either accepted form:
 
-ORCH-000153 and ORCH-000163 independently prove exactly-once forward delivery and Architect wake. ORCH-000166 proves safe persistent idle operation. ORCH-000167 proves automatic observation of a new Architect dispatch.
+- `snapshot.pointers.dispatch.expectedFreshWorkerDeliveryId`, or
+- factory option `workerDeliveryId`.
 
-## ORCH-000168 — distinguish accepted logic from effective composition
+The dispatch instead exposed `expectedDeliveryId`. Accepted worker-ID resolution therefore returned undefined and preparation failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence.
 
-Accepted source already calls `prepareWorkerDeliveryIntent` after lease acquisition. Host-000026's effective injected worker-persistence composition failed to return a durable `PREPARED` intent, so the runner failed closed before send.
+Lesson: **semantic similarity of metadata names is not enough at a deterministic adapter boundary**. Composition must inject the exact accepted field/option contract. The correct next preparation fix is disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative source patch.
 
-Lesson: a method being statically bound does not prove that its injected adapter satisfies the accepted create/readback contract.
+## Diagnostic error-propagation lesson
 
-## ORCH-000169 — composition repair can expose a deeper contract/error-surface issue
+Host `000027` logged only outer `FAILED_BEFORE_SEND / durableRecorded=false`, which initially hid `WORKER_DELIVERY_ID_REQUIRED`.
 
-The composition-first repair supplied GitHub-backed persistence and reached the real accepted preparation method, but preparation still returned:
+Lesson: fail-closed outer status is necessary but operability improves when disposable/runtime diagnostic evidence preserves stable lower-level reason codes without exposing browser response text or private data.
 
-`FAILED_BEFORE_SEND` with `durableRecorded=false`.
+## ORCH-000170 — exact lease lesson
 
-No delivery `000014` intent/result was created and no browser contact occurred.
+The ORCH-000169 expiry-reconciliation binding itself was correct. The ambiguity arose during creation/readback of the projected revision `000002`; no valid revision `000002` exists.
 
-Lesson: once the composition is plausibly real, do not automatically label the remaining failure as source defect merely because the outer terminal says `SOURCE_CONTRACT_REPAIR_REQUIRED`. Independently identify the lower-level error and the exact branch that suppresses it before choosing a source repair boundary.
+The current index remaining on expired ACTIVE revision `000001` is therefore correct fail-closed behavior, not proof the index should be manually edited.
 
-## Fresh host identity is not host readiness
+Lesson: distinguish:
 
-Host `000027` identity was created and one launch attempt occurred, but the process exited and completed zero idle polls.
+- `RECONCILIATION_BINDING_MISMATCH`, where the recovery request is wrong;
+- `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`, where the exact binding is right but durable mutation cannot be proven.
 
-Lesson: a durable identity record proves lineage only. Host readiness still requires process liveness, complete snapshot hydration, bootstrap suppression, multiple valid polls, and zero unauthorized side effects.
+These demand different next actions.
 
-## Expired lease + ambiguous reconciliation is a hard stop
+## Recovery ordering lesson
 
-ORCH-000169 acquired one worker-delivery lease for the zero-browser preflight. It expired before cleanup. Release/expiry reconciliation returned:
+Preparation failure and lease ambiguity are independent. Do not combine their fixes while authority is ambiguous.
 
-`EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
+Correct order:
 
-The current lease index still lists that exact expired lease as `ACTIVE`.
+1. close the exact expired lease under one bounded reconciliation authority;
+2. verify active lease count zero;
+3. only then retry disposable preparation composition with the exact `workerDeliveryId` contract;
+4. prove durable `PREPARED` before browser contact;
+5. then arm a fresh host and resume full-cycle qualification.
 
-Lesson: **expiry does not erase mutation authority ambiguity**. An expired lease that remains indexed active after ambiguous reconciliation blocks later mutation until read-only diagnosis proves whether:
+## ORCH-000171 rule
 
-- a durable reconciliation record exists but the index is stale;
-- the recovery binding mismatched the immutable lease;
-- record creation itself was ambiguous;
-- or the accepted reconciliation contract is defective.
+Exactly one accepted `reconcileExpiredMutationLease` call is authorized for the ORCH-000169 lease after unchanged-index and absent-revision-000002 checks.
 
-Do not simply acquire a new lease or retry reconciliation with guessed bindings.
+No new lease acquisition, no preparation retry, no host action, no browser contact, no delivery/trigger mutation, and no source patch may be mixed into that recovery.
 
-## Error propagation is part of operability
-
-Fail-closed stable reason codes are necessary, but if the runner collapses all preparation failures into `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED` / `FAILED_BEFORE_SEND`, the system may be safe yet hard to repair.
-
-Diagnostic evidence should preserve a stable lower-level code and non-sensitive binding detail sufficient to distinguish adapter misuse, GitHub persistence failure, readback mismatch, or source-contract defect without reading browser responses or private data.
-
-## ORCH-000170 diagnostic rule
-
-Before any further mutation, diagnose two streams separately:
-
-1. preparation failure: exact accepted interface, actual host-000027 injected adapter, failure code/hidden branch, and smallest repair boundary;
-2. lease ambiguity: exact immutable lease/recovery binding, any durable reconciliation record, index state, and single safe later recovery mutation.
-
-Only after both are resolved should Architect authorize another source/composition/host attempt.
+If the single reconciliation call is ambiguous again, preserve it as `INCONCLUSIVE`; never retry blindly.
 
 ## Current success criterion
 
