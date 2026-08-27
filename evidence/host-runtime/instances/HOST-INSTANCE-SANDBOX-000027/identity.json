@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_INSTANCE_IDENTITY",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000027",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000027",
+  "projectId": "affotech-agent-orchestrator",
+  "workerRole": "executor",
+  "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "createdAt": 1787804510287,
+  "createdByRole": "executor",
+  "authorityBoundary": {
+    "grantsArchitectAuthority": false,
+    "grantsHumanAuthAuthority": false,
+    "grantsMutationLeaseAuthority": false,
+    "mutationAuthorized": false,
+    "retryAuthorized": false
+  }
+}
