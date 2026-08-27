@@ -24,43 +24,34 @@ Curator is not an active required role. Documentation policy is `ARCHITECT_DIREC
 
 ## Current accepted source
 
-Accepted source is now:
-
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
-Architect decision:
+Decision: `GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`.
 
-`GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`
+Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic suite `817/817`; manifest `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`; archive `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`.
 
-Qualification:
-
-- source files: `101`
-- focused tests: `65/65`
-- full deterministic suite: `817/817`
-- GitHub runtime ports: `43/43`
-- BrowserRelay transport ports: `22/22`
-- manifest SHA-256: `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`
-- archive SHA-256: `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`
-
-ORCH-000165 repaired the exact compatibility seam exposed by the first unattended-host bootstrap. Legacy worker-delivery results that omit explicit message/dispatch lineage may hydrate only through an exact immutable intent binding; explicit conflicts still fail closed. Future results persist explicit `messageId` and `dispatchId`. Historical delivery `000013` was not rewritten.
+ORCH-000165 added fail-closed compatibility for legacy worker-delivery results without rewriting historical evidence and makes future results persist explicit message/dispatch lineage.
 
 ## Proven transport legs
 
-ORCH-000153 proved fresh exactly-once Executor delivery with `WORKER-DELIVERY-EXECUTOR-000013 / SENT` and duplicate additional send `0`.
+- ORCH-000153: `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once; duplicate additional send `0`.
+- ORCH-000163: `ARCH-TRIGGER-9333-000005 / SENT`; attempted/confirmed `1/1`; second send `0`; no assistant-response scraping.
 
-ORCH-000163 proved the automatic Architect doorbell with `ARCH-TRIGGER-9333-000005 / SENT`, USER boundary `2→3`, attempted/confirmed `1/1`, second send `0`, and no assistant-response scraping.
+## Persistent host — ORCH-000166 ACCEPTED
 
-## Unattended-cycle status
+Decision: `GH-DEC-166-UNATTENDED-AUTOMATIC-HOST-000026-ARMED-ACCEPTED`.
 
-ORCH-000164 attempted the first persistent-host bootstrap. Its self-echo boundary worked, but the host failed closed before browser contact because the prior accepted reader required explicit result lineage fields that historical delivery `000013` did not contain. Browser sends, delivery/trigger mutations, and leases remained zero; the partial host was stopped.
+Host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` started with exactly one OS process-creation attempt, established `DISPATCH-000166` as an already-handled bootstrap watermark, completed three valid idle polling iterations, suppressed the bootstrap dispatch on all three, performed zero browser/delivery/trigger/lease activity, remained alive at terminal publication as PID `16880`, and was intentionally left running.
 
-ORCH-000165 is the accepted source repair for that defect.
+The next dispatch must therefore be published by Architect into GitHub and picked up by the running host automatically. Manual forwarding is no longer the expected path.
 
-Current canonical next milestone is ORCH-000166 / DISPATCH-000166 using fresh host:
+## Next objective
 
-`HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`
+ORCH-000167 is the first full unattended-cycle probe:
 
-It must perform a read-only compatibility probe first, create exactly one OS host process, mark `DISPATCH-000166` already handled, complete at least two valid idle polls with zero browser contact/send, and leave the host running. If accepted, the next Architect dispatch must be picked up automatically rather than manually relayed.
+`new Architect dispatch → host automatic Executor delivery exactly once → Executor no-op durable terminal → host automatic Architect wake exactly once`.
+
+No source, AFFOTECH, Drive, deployment, tenant, or business/private-data mutation is part of that probe.
 
 ## Governing entrypoints
 
