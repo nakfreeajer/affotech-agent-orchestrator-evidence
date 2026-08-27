@@ -1,0 +1,34 @@
+{
+  "recordType": "MUTATION_LEASE",
+  "schemaVersion": "1.0",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "leaseId": "MUTATION-LEASE-HOST-3f73fb6c646869c819af7b1cc6f91eee",
+  "leaseRevision": 2,
+  "leaseEpoch": 18,
+  "projectId": "affotech-agent-orchestrator",
+  "resourceScope": [
+    "worker-delivery"
+  ],
+  "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
+  "mutationEnvelopeSha256": "dd8cf91ddfe313317b04b7572d4585756ed06226985871530ed0a06a9ce6b31e",
+  "holder": {
+    "registrationId": "WORKER-REG-EXECUTOR-000001",
+    "workerRole": "executor"
+  },
+  "messageId": "ORCH-000167",
+  "dispatchId": "DISPATCH-000167",
+  "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.FULL.LOOP.PROBE.1A",
+  "state": "RELEASED",
+  "acquiredAt": 1787794993780,
+  "expiresAt": 1787795053780,
+  "releasedAt": 1787794993780,
+  "previousRecordSha256": "2d87fff59d1194d37c21806ee1877a0331f8de76c73a6353fca6b0531e57ac96",
+  "releasedBy": {
+    "registrationId": "WORKER-REG-EXECUTOR-000001",
+    "workerRole": "executor",
+    "messageId": "ORCH-000167",
+    "dispatchId": "DISPATCH-000167",
+    "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.FULL.LOOP.PROBE.1A",
+    "operationReference": "HOST_RUNTIME"
+  }
+}
