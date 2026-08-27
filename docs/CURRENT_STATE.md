@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000168 and canonical ORCH-000169
+Documentation sync boundary: through Architect-classified ORCH-000169 and canonical ORCH-000170
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -17,76 +17,83 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 - ORCH-000153: forward delivery `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once.
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005 / SENT` exactly once.
-- ORCH-000166: persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` accepted as armed after one process start, three valid idle polls, self-echo suppression, zero transport side effects, PID `16880` alive at publication.
-- ORCH-000167: running host `000026` automatically observed a strictly newer Architect dispatch without manual forwarding.
+- ORCH-000166: persistent host `000026` accepted as safely armed/idle.
+- ORCH-000167: host `000026` automatically observed a newer Architect dispatch without manual forwarding.
+- ORCH-000168: accepted diagnostic proved the automatic preparation action already exists in accepted source and isolated the effective persistence/composition seam.
 
-## 3. ORCH-000167 — BLOCKED before delivery
+## 3. ORCH-000169 — BLOCKED
 
-Decision:
+Architect decision:
 
-`GH-DEC-167-AUTOMATIC-HOST-WORKER-DELIVERY-INTENT-PREPARATION-BLOCKED`
-
-Durable host events prove `DISPATCH-000167` reached `HOST_DELIVERY_READY / PREPARE_WORKER_DELIVERY_INTENT`, then stopped with `RECONCILIATION_REQUIRED / WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
-
-No delivery `000014` intent/result was created, browser send remained zero, no ORCH-000167 terminal was published, no trigger `000006` was created, and active leases returned to zero.
-
-## 4. ORCH-000168 diagnostic — ACCEPTED
-
-Decision:
-
-`GH-DEC-168-WORKER-DELIVERY-INTENT-PREPARATION-COMPOSITION-DIAGNOSTIC-ACCEPTED`
+`GH-DEC-169-PREPARATION-PREFLIGHT-AND-LEASE-AMBIGUITY-BLOCKED`
 
 Executor publication:
 
-`GH-PUB-168-WORKER-DELIVERY-INTENT-PREPARATION-SEAM-DIAGNOSTIC-000001`
+`GH-PUB-169-PREPARATION-COMPOSITION-REPAIR-FRESH-HOST-ARM-BLOCKED-000001`
 
-Accepted finding:
+Verified facts:
 
-- accepted `persistent-host-runner.js` automatically calls `ports.prepareWorkerDeliveryIntent` after lease acquisition;
-- accepted `browser-relay-transport-ports.js` supplies the preparation method and requires durable create/readback through its injected worker-persistence adapter;
+- host `000026` was already absent before the recovery attempt;
+- disposable host-000027 composition was adjusted to use GitHub-backed persistence;
+- exactly one preparation call was made;
+- preparation returned `FAILED_BEFORE_SEND` with `durableRecorded=false`;
+- delivery `WORKER-DELIVERY-EXECUTOR-000014` intent/result remains absent;
+- browser contact/send remained `0/0`;
 - `sendWorkerDelivery` was never reached;
-- host-000026 launcher statically bound the preparation function, but the effective injected persistence composition did not return a durably read-back `PREPARED` intent;
-- the runner safely released/reconciled before browser contact;
-- exact lower-level preparation failure was not durably propagated by the current runner event;
-- worker-delivery lease requirement is action-derived by the accepted host contract; the earlier dispatch lease booleans were metadata-inconsistent and must not weaken that requirement.
+- host `000027` identity was created and one launch attempt occurred;
+- PID `16136` is not running; idle polls `0`; host `000027` is not armed;
+- tracked source/test/config/docs/governance mutation by Executor remained `0`.
 
-This classifies the immediate root cause as `COMPOSITION_WIRING_DEFECT`, not a proven accepted-source automation gap.
+## 4. Current transport baseline
 
-Host `000026` / PID `16880` was still running at the diagnostic and is not authorized for further mutation except the exact retirement governed by ORCH-000169.
+- `LATEST_DELIVERY = WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
+- delivery `000014` absent.
+- `LATEST_ARCHITECT_TRIGGER = ARCH-TRIGGER-9333-000005 / SENT`.
+- trigger `000006` absent.
+- no accepted replacement persistent host is running.
 
-Current latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013 / SENT`; delivery `000014` is absent; latest Architect trigger remains `ARCH-TRIGGER-9333-000005 / SENT`; active leases are zero at the verified boundary.
+## 5. Active mutation blocker
 
-## 5. Current authority — ORCH-000169
+ORCH-000169 acquired one worker-delivery lease:
+
+`MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`
+
+Binding:
+
+- epoch `185`;
+- revision `1`;
+- message `ORCH-000169`;
+- dispatch `DISPATCH-000169`;
+- scope `worker-delivery`;
+- scope SHA `07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8`;
+- mutation-envelope SHA `cf7b580844e419c946a27e58139b16e0d9657a23480b238abe095750c77b7a74`.
+
+The lease expired before cleanup. Release/expiry reconciliation returned `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`, and the current lease index still lists this exact expired lease as `ACTIVE`.
+
+This ambiguity blocks further mutation until reconciled through a newly authorized, evidence-supported recovery step.
+
+## 6. Current authority — ORCH-000170
 
 Milestone:
 
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.PREPARATION.COMPOSITION.REPAIR.AND.FRESH.HOST.ARM.1A`
+`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.PREPARATION.FAILURE.AND.EXPIRED.LEASE.AMBIGUITY.DIAGNOSTIC.1A`
 
 Dispatch:
 
-`DISPATCH-000169`
+`DISPATCH-000170`
 
-ORCH-000169 must:
+ORCH-000170 is manual and read-only. It must independently determine:
 
-1. verify and stop only exact stuck host `000026` at a zero-lease boundary;
-2. repair only disposable untracked host-launcher/persistence composition;
-3. prepare delivery `WORKER-DELIVERY-EXECUTOR-000014` durably through the exact accepted preparation method with zero browser contact/send;
-4. require `PREPARED` and exact readback lineage;
-5. reconcile the preflight delivery to `PROVEN_NOT_SENT`, leaving `LATEST_DELIVERY=000013/SENT`;
-6. release the lease and return active lease count to zero;
-7. start fresh host `000027` exactly once using the same corrected composition;
-8. complete at least two valid idle polls with `DISPATCH-000169` suppressed;
-9. leave host `000027` running for a strictly newer dispatch.
+1. the exact lower-level preparation failure and whether the smallest repair belongs to disposable composition, source error propagation, or the accepted persistence contract;
+2. the exact cause of `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`, whether any durable reconciliation record already exists, and the single safe later mutation that can close the lease.
 
-Tracked source changes are prohibited. Failure of composition-only repair must return `SOURCE_CONTRACT_REPAIR_REQUIRED` rather than patching source in place.
+No host/process mutation, browser contact/send, delivery/trigger mutation, lease/index/reconciliation mutation, source/test/config/docs/governance mutation, or AFFOTECH/Drive/deployment/private/protected-port activity is authorized.
 
-Because the old automatic host cannot yet prepare durable worker intent, ORCH-000169 remains a manual Executor dispatch.
-
-## 6. Documentation ownership
+## 7. Documentation ownership
 
 Policy: `ARCHITECT_DIRECT`. Architect directly updates materially affected human-readable documentation. Curator is not an active required role.
 
-## 7. Boundaries
+## 8. Boundaries
 
 - Architect session: `9333`.
 - Executor session: `9444`.
