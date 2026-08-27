@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000167 and canonical ORCH-000168
+Documentation sync boundary: through Architect-accepted ORCH-000168 and canonical ORCH-000169
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -18,9 +18,9 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Required order:
 
-`observe governed dispatch → exact lease if required → durable worker-delivery intent/readback → BrowserRelay pre-send observation → one send → durable result → duplicate suppression/reconciliation`.
+`observe governed dispatch → exact action-derived lease → durable worker-delivery intent/readback → BrowserRelay pre-send observation → one send → durable result → duplicate suppression/reconciliation`.
 
-Skipping or merely announcing the intent-preparation action is not equivalent to preparing the intent.
+A state machine returning `PREPARE_WORKER_DELIVERY_INTENT` is not equivalent to a persistent runner successfully executing and durably reading back that action.
 
 ## ORCH-000153 / ORCH-000163
 
@@ -28,58 +28,58 @@ Forward delivery and Architect wake are independently proven exactly once. Durab
 
 ## ORCH-000164 / ORCH-000165
 
-A stricter reader rejected historical delivery `000013` because its old result lacked explicit lineage despite exact immutable intent binding. The accepted ORCH-000165 repair added fail-closed legacy hydration and future explicit lineage without rewriting historical evidence.
+A stricter reader rejected historical delivery `000013` because its old result lacked explicit lineage despite exact immutable intent binding. ORCH-000165 added fail-closed legacy hydration and future explicit lineage without rewriting historical evidence.
 
 ## ORCH-000166 — persistent idle proof
 
-Host `000026` was accepted only after one process start, consumed bootstrap watermark readback, three valid idle polls, bootstrap suppression x3, zero transport side effects, and liveness at terminal publication.
+Host `000026` was accepted only after one process start, consumed bootstrap watermark readback, three valid idle polls, self-echo suppression, zero transport side effects, and liveness at publication.
 
 Lesson: process existence is not enough; repeated safe durable observation is required.
 
 ## ORCH-000167 — automatic observation is not automatic delivery
 
-The first full-cycle probe cleanly separated two capabilities that had previously been grouped together.
+The first full-cycle probe proved host `000026` automatically observes a newer Architect dispatch and derives the worker-delivery lease/action boundary. It did not yet prove durable intent preparation or browser delivery.
 
-Proven automatically:
+Stop reason:
 
-- host `000026` observed `DISPATCH-000167` without manual relay;
-- it derived a WORKER_DELIVERY lease requirement;
-- it reached `HOST_DELIVERY_READY`.
+`WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
 
-Not yet automatic:
+## ORCH-000168 — distinguish source logic from effective composition
 
-- durable `prepareWorkerDeliveryIntent` execution;
-- delivery `000014` creation;
-- Executor BrowserRelay send;
-- corresponding terminal observation and Architect trigger.
+Accepted diagnostic finding:
 
-The host stopped with:
+- `automatic-dispatch-host.js` correctly produces `HOST_DELIVERY_READY / PREPARE_WORKER_DELIVERY_INTENT`;
+- `persistent-host-runner.js` automatically calls `ports.prepareWorkerDeliveryIntent` after lease acquisition;
+- `browser-relay-transport-ports.js` provides the preparation method and requires a real persistence adapter to create/read back canonical intent before returning `PREPARED`;
+- host-000026 launcher statically bound the method;
+- nevertheless, the effective injected persistence composition returned no durable prepared intent and the runner safely reconciled before send.
 
-`WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`
+Lesson: **a function being present and bound is not proof that its injected persistence dependencies satisfy the runtime contract**. Composition must be qualified end-to-end through the same durable create/readback path used in production.
 
-and `nextAction=PREPARE_WORKER_DELIVERY_INTENT`.
+## Error propagation lesson
 
-Lesson: a deterministic state machine returning a required next action is not the same thing as the persistent runner/composition executing that action. Full unattended operation requires every action boundary to be wired to the accepted durable side-effect adapter and readback before advancing.
+The accepted runner preserved the stable stop reason but did not preserve a narrower lower-level preparation failure. That was enough to fail closed but not enough to identify the exact adapter sub-cause from host events alone.
 
-## Lease metadata lesson from ORCH-000167
+Future composition/source repair should preserve a stable preparation failure detail in diagnostic evidence without exposing private/browser response content.
 
-DISPATCH-000167 declared `mutationLeaseRequired=false` / `liveMutationLeaseAuthorized=false`, but the host deterministically emitted `LEASE_REQUIRED` for WORKER_DELIVERY. That inconsistency must be diagnosed rather than silently normalized.
+## Lease metadata lesson
 
-The next diagnostic must establish whether lease necessity is canonically derived from operation/action/resource semantics—in which case the dispatch booleans were Architect metadata mistakes—or whether the host ignored authoritative dispatch flags.
+The worker-delivery lease is derived from the action/lineage/resource contract and `evaluateMutationLeaseUse`. Earlier dispatch metadata saying `mutationLeaseRequired=false` did not override that boundary.
 
-Do not repair the wrong layer until that contract is proven from accepted code.
+Lesson: Architect dispatch metadata must match the accepted action contract, but metadata inconsistency must never be repaired by weakening a safety lease already required by the host lifecycle.
 
-## Current diagnostic rule
+## ORCH-000169 — composition-first repair rule
 
-ORCH-000168 is read-only. It must distinguish:
+Before considering tracked source changes:
 
-- `COMPOSITION_WIRING_DEFECT`;
-- `ACCEPTED_SOURCE_AUTOMATION_GAP`;
-- `DISPATCH_AUTHORITY_METADATA_CONFLICT`;
-- multiple causes;
-- or another exact seam.
+1. retire the exact stuck host only at a zero-active-lease boundary;
+2. fix disposable untracked launcher/persistence injection;
+3. prove one real canonical worker-delivery intent reaches durable `PREPARED` with zero browser contact;
+4. reconcile that preflight as `PROVEN_NOT_SENT` so no false SENT/current-delivery state is created;
+5. use the same corrected composition for a fresh host identity;
+6. require multiple idle polls before accepting the replacement host.
 
-Only after that should Architect authorize source changes, launcher-composition changes, dispatch-metadata correction, host replacement, or any combination.
+If the exact accepted preparation method cannot succeed with a correct real GitHub-backed persistence composition, then and only then return `SOURCE_CONTRACT_REPAIR_REQUIRED` for a separate source milestone.
 
 ## Current success criterion
 
