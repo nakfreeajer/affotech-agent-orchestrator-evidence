@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-166-AUTOMATIC-HOST-000026-ARMED-000001",
+  "messageId": "ORCH-000166",
+  "dispatchId": "DISPATCH-000166",
+  "status": "COMPLETED",
+  "classification": "UNATTENDED_AUTOMATIC_HOST_000026_ARMED_AT_DISPATCH_000166_READY_FOR_AUTOMATIC_NEXT_DISPATCH",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000026",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000026",
+  "processCreationAttemptCount": 1,
+  "hostStillRunning": true,
+  "bootstrapBoundaryReadBack": true,
+  "validIdleIterations": 3,
+  "dispatchSuppressedCount": 3,
+  "browserContactCount": 0,
+  "workerDeliveryMutationCount": 0,
+  "architectTriggerMutationCount": 0,
+  "leaseAcquireCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
