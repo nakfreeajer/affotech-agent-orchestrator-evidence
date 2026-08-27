@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "HOST_EVENT",
+  "eventId": "HOST-GEN-SANDBOX-000026-DISPATCH-000167-RECONCILIATION_REQUIRED",
+  "eventType": "RECONCILIATION_REQUIRED",
+  "sourceRef": "756e880e718722c722bac1064fb22897cb822683",
+  "hostInstanceId": "HOST-INSTANCE-SANDBOX-000026",
+  "hostGenerationId": "HOST-GEN-SANDBOX-000026",
+  "projectId": "affotech-agent-orchestrator",
+  "hostState": "HOST_DELIVERY_READY",
+  "nextAction": "PREPARE_WORKER_DELIVERY_INTENT",
+  "dispatchId": "DISPATCH-000167",
+  "messageId": "ORCH-000167",
+  "deliveryId": null,
+  "workerResultId": null,
+  "architectTriggerId": null,
+  "mutationAuthorized": false,
+  "retryAuthorized": false,
+  "reconciliationRequired": true,
+  "reasonCode": "WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED",
+  "telemetryOnly": true
+}
