@@ -34,40 +34,37 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005 / SENT`.
 - ORCH-000166: persistent host `000026` safely armed/idle.
 - ORCH-000167: persistent host automatically detected a newer Architect dispatch without manual forwarding.
+- ORCH-000170: preparation failure classified `COMPOSITION_ADAPTER_DEFECT`; host `000027` omitted accepted `workerDeliveryId`; no tracked source repair is currently required.
 
-## ORCH-000170 — accepted diagnostic
+## ORCH-000171 — INCONCLUSIVE exact lease recovery
 
 Architect decision:
 
-`GH-DEC-170-PREPARATION-AND-EXPIRED-LEASE-DIAGNOSTIC-ACCEPTED`
+`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`
 
-The two ORCH-000169 blockers are independent.
+One exact accepted `reconcileExpiredMutationLease` call was executed after all preconditions passed. It again returned:
 
-### Preparation
+`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
 
-Classification: `COMPOSITION_ADAPTER_DEFECT`.
+Post-readback proves:
 
-The accepted transport resolves a worker-delivery ID from `snapshot.pointers.dispatch.expectedFreshWorkerDeliveryId` or the factory option `workerDeliveryId`. Host `000027` supplied neither; the dispatch exposed `expectedDeliveryId`. The accepted preparation path therefore failed with stable reason `WORKER_DELIVERY_ID_REQUIRED` before persistence or browser contact.
+- revision `000002` remains absent;
+- lease-index revision remains `369`;
+- the same expired ORCH-000169 lease remains indexed `ACTIVE`;
+- active lease count remains `1`;
+- no new lease, host action, browser contact, delivery mutation, trigger mutation, or source mutation occurred.
 
-Smallest later repair: disposable launcher injection of `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` and stable reason-code logging. No tracked source repair is currently proven necessary.
+Transport baseline remains `WORKER-DELIVERY-EXECUTOR-000013/SENT` and `ARCH-TRIGGER-9333-000005/SENT`.
 
-### Expired lease
+Because the single recovery call produced no durable side effect and repeated the same ambiguity, a second blind reconciliation is forbidden.
 
-Classification: `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
+## Current next — ORCH-000172
 
-The ORCH-000169 expiry-reconciliation binding was correct, but revision `000002` was not durably created/read back. The index therefore correctly remains fail-closed with the expired revision-1 lease active. Revision `000002` is still absent and the current index remains revision `369`.
+`DISPATCH-000172` is manual and read-only. It diagnoses the concrete revision-`000002` GitHub create/readback seam used by ORCH-000169 and ORCH-000171.
 
-## Current next — ORCH-000171
+It must identify the exact client implementation, command/API method, payload/path, lower-level failure or error-propagation branch, compare it with known-good durable GitHub creates, and determine whether the smallest repair belongs to disposable adapter wiring, accepted runtime createJson logic, GitHub transport/auth, path/payload, or error propagation.
 
-`DISPATCH-000171` authorizes **only one exact accepted expired-lease reconciliation** for:
-
-`MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`
-
-No new lease, preparation retry, delivery `000014`, host process action, browser contact, source patch, trigger action, or AFFOTECH/Drive/deployment activity is authorized.
-
-Success requires durable revision `000002`, exact lineage/readback, one index CAS removing only that lease, and `activeLeases=[]`.
-
-Only after the lease is clean may Architect authorize the separate disposable preparation/host retry.
+No lease/index/revision mutation, reconciliation call, host action, browser contact, delivery/trigger mutation, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
 
 ## Protected boundary
 
