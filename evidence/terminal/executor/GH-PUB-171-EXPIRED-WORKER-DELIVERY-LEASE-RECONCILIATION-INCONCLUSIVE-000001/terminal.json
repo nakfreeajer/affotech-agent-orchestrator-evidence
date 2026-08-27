@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "classification": "EXPIRED_WORKER_DELIVERY_LEASE_RECONCILIATION_INCONCLUSIVE",
+  "status": "INCONCLUSIVE",
+  "messageId": "ORCH-000171",
+  "dispatchId": "DISPATCH-000171",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.WORKER.DELIVERY.LEASE.EXACT.RECONCILIATION.1A",
+  "architectDecisionId": "GH-DEC-170-PREPARATION-AND-EXPIRED-LEASE-DIAGNOSTIC-ACCEPTED",
+  "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256": "1a6ede581e862c93599c7702a3230f5a315b7c1241ee57e33e3afbd4c6ecf999",
+  "targetLease": { "leaseId": "MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98", "leaseEpoch": 185, "leaseRevision": 1, "messageId": "ORCH-000169", "dispatchId": "DISPATCH-000169", "indexRevisionBeforeCall": 369, "expiresAt": 1787804589200 },
+  "preconditionsVerified": true,
+  "reconcileExpiredMutationLeaseCallCount": 1,
+  "reconcileOutcome": { "status": "AMBIGUOUS", "reasonCode": "EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS", "leaseReconciliationRequired": true },
+  "postState": { "revision000002Exists": false, "indexRevision": 369, "targetLeaseStillIndexedActive": true, "activeLeaseCount": 1, "latestDelivery": "WORKER-DELIVERY-EXECUTOR-000013/SENT", "delivery000014Exists": false, "latestArchitectTrigger": "ARCH-TRIGGER-9333-000005/SENT", "trigger000006Exists": false },
+  "noBlindRetryPerformed": true,
+  "mutationAccounting": { "newLeaseAcquireCount": 0, "reconcileCallCount": 1, "hostProcessMutation": 0, "browserContactCount": 0, "browserSendCount": 0, "workerDeliveryMutation": 0, "architectTriggerMutation": 0, "sourceMutation": 0, "testMutation": 0, "configMutation": 0, "documentationMutation": 0, "governanceMutation": 0, "assistantMessageTextRead": false, "responseDomRead": false, "affotechAccess": 0, "driveAccess": 0, "deploymentAccess": 0, "privateBusinessDataAccess": 0, "protectedPortContactCount": 0, "localGitRuntimeMutation": 0 },
+  "requiresArchitectDecision": true
+}

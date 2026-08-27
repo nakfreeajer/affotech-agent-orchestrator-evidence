@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001/receipt.json",
-  "messageId": "ORCH-000170",
-  "dispatchId": "DISPATCH-000170",
-  "status": "COMPLETED",
+  "publicationId": "GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001/receipt.json",
+  "messageId": "ORCH-000171",
+  "dispatchId": "DISPATCH-000171",
+  "status": "INCONCLUSIVE",
   "requiresArchitectDecision": true
 }

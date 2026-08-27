@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE-000001",
+  "messageId": "ORCH-000171",
+  "dispatchId": "DISPATCH-000171",
+  "status": "INCONCLUSIVE",
+  "classification": "EXPIRED_WORKER_DELIVERY_LEASE_RECONCILIATION_INCONCLUSIVE",
+  "reconcileCallCount": 1,
+  "outcome": "AMBIGUOUS",
+  "reasonCode": "EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS",
+  "targetLeaseStillActive": true,
+  "revision000002Exists": false,
+  "browserContactCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
