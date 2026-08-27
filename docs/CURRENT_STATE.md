@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000165 and canonical ORCH-000166
+Documentation sync boundary: through Architect-accepted ORCH-000166
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,94 +7,75 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## 1. Accepted source baseline
 
-Current Architect-accepted source is:
+Current accepted source:
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
-Architect decision:
+Decision: `GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`.
 
-`GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`
+Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`; manifest `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`; archive `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`.
 
-Qualification:
-
-- source files: `101`;
-- focused tests: `65/65`;
-- GitHub runtime ports: `43/43`;
-- BrowserRelay transport ports: `22/22`;
-- full deterministic suite: `817/817`;
-- manifest SHA-256: `3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28`;
-- archive SHA-256: `e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba`.
-
-ORCH-000165 supersedes ORCH-000130 as the accepted source baseline.
+ORCH-000165 repaired legacy worker-delivery result lineage hydration without rewriting historical delivery `000013`.
 
 ## 2. Proven transport legs
 
-### Forward delivery — ORCH-000153
+- Forward delivery: ORCH-000153, `WORKER-DELIVERY-EXECUTOR-000013 / SENT`, one send, duplicate additional send `0`.
+- Architect wake: ORCH-000163, `ARCH-TRIGGER-9333-000005 / SENT`, attempted/confirmed `1/1`, second send `0`, no response scraping.
 
-`WORKER-DELIVERY-EXECUTOR-000013 / SENT` is Architect-accepted exactly-once forward-delivery evidence. Exactly one browser send occurred; duplicate replay additional send was `0`; retry remained false.
-
-### Architect wake — ORCH-000163
-
-`ARCH-TRIGGER-9333-000005 / SENT` is Architect-accepted return-path evidence. USER count advanced `2→3`, attempted/confirmed was `1/1`, second send `0`, and assistant response text/DOM was not read.
-
-## 3. ORCH-000164 unattended-host bootstrap — BLOCKED
+## 3. Persistent automatic host — ORCH-000166 ACCEPTED
 
 Decision:
 
-`GH-DEC-164-UNATTENDED-HOST-BOOTSTRAP-LINEAGE-CONFLICT-BLOCKED`
+`GH-DEC-166-UNATTENDED-AUTOMATIC-HOST-000026-ARMED-ACCEPTED`
 
-The bootstrap boundary for `DISPATCH-000164` was created/read back, but durable snapshot hydration rejected the historical delivery `000013` result because it lacked explicit `messageId`/`dispatchId`. The host failed closed before browser contact/send and was stopped.
+Publication:
 
-Zero side effects on browser sends, worker delivery, Architect trigger, leases, AFFOTECH, Drive, deployments, or protected ports were preserved.
+`GH-PUB-166-AUTOMATIC-HOST-000026-ARMED-000001`
 
-## 4. ORCH-000165 repair — ACCEPTED
-
-ORCH-000165 repaired the exact reader/writer compatibility seam without rewriting historical evidence.
-
-Accepted behavior:
-
-- legacy result lineage may hydrate only from the exact immutable intent;
-- exact `intentSha256`, delivery ID, and worker-role binding are required;
-- explicit lineage conflicts remain fail-closed;
-- future worker-delivery results persist explicit `messageId` and `dispatchId`;
-- historical delivery `000013` remains unchanged.
-
-Read-only live compatibility verification resolved delivery `000013` to:
-
-- state `SENT`;
-- message `ORCH-000153`;
-- dispatch `DISPATCH-000153`;
-- writes `0`.
-
-## 5. Current authority — ORCH-000166
-
-Milestone:
-
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.PERSISTENT.HOST.BOOTSTRAP.ARM.RETRY.1B`
-
-Dispatch:
-
-`DISPATCH-000166`
-
-Fresh host:
+Running host:
 
 `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`
 
-ORCH-000166 must first repeat the read-only real-000013 hydration probe, then establish `DISPATCH-000166` as already handled, make exactly one OS host-process creation attempt, complete at least two valid idle polls with zero browser contact/send, and leave the process running.
+Verified bootstrap facts:
 
-It may claim readiness only if the accepted running composition can also observe a newer durable dispatch, deliver it exactly once, observe the corresponding Executor terminal, and invoke the proven Architect doorbell path.
+- process creation attempts: `1`;
+- PID: `16880`;
+- alive at terminal publication: yes;
+- left running: yes;
+- bootstrap boundary: explicit consumed watermark `DISPATCH-000166`;
+- boundary readback: yes;
+- valid idle iterations: `3` (required `2`);
+- current dispatch suppressed: `3`;
+- browser contact/send: `0/0`;
+- worker-delivery mutation: `0`;
+- Architect-trigger mutation: `0`;
+- lease acquisition: `0`;
+- latest delivery remains `000013 / SENT`;
+- latest Architect trigger remains `000005 / SENT`;
+- assistant response text/DOM read: false;
+- source/test/config/docs/governance/AFFOTECH/Drive/deployment/protected-port side effects: zero.
 
-If ORCH-000166 is accepted, the next dispatch after `000166` must be picked up automatically by the host; no manual relay should be used.
+ORCH-000166 closes the bootstrap/arming phase. A manual relay is no longer the expected next path.
 
-## 6. Documentation ownership
+## 4. Current next authority — ORCH-000167
 
-Policy: `ARCHITECT_DIRECT`.
+The next milestone is the first full unattended-cycle probe. Architect will publish a strictly newer dispatch into GitHub; host `000026` must discover and forward it automatically.
 
-Architect directly updates all materially affected human-readable project documentation. Curator is not an active required role.
+Expected bounded cycle:
 
-## 7. Boundaries
+`Architect DISPATCH-000167 → host automatic fresh worker delivery → Executor no-op durable terminal → host automatic fresh Architect trigger → exact verify & next`
 
-- Architect control session: port `9333`.
-- Executor control session: port `9444`.
+The probe must use fresh operation identities, exactly one Executor send and exactly one Architect wake, zero second sends, durable intent/result evidence on both legs, and zero source/AFFOTECH/Drive/deployment/private-data mutation.
+
+If the host fails before a confirmed send, fail closed. If either send is ambiguous, do not retry; require read-only reconciliation.
+
+## 5. Documentation ownership
+
+Policy: `ARCHITECT_DIRECT`. Architect directly updates all materially affected human-readable documentation. Curator is not an active required role.
+
+## 6. Boundaries
+
+- Architect session: port `9333`.
+- Executor session: port `9444`.
 - protected AFFOTECH ports: `9222/9223`.
 - AFFOTECH System V2 Hybrid, existing AFFOTECH relay, Drive/business/private data, deployments and tenant resources remain separate and unauthorized.
