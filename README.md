@@ -34,39 +34,43 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 - ORCH-000153 proved exactly-once forward delivery: `WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
 - ORCH-000163 proved exactly-once Architect wake: `ARCH-TRIGGER-9333-000005 / SENT`.
-- ORCH-000166 accepted persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` after one start, three valid idle polls, self-echo suppression, zero transport side effects, and liveness at publication.
-- ORCH-000167 proved the persistent host automatically detects a strictly newer Architect dispatch without manual forwarding.
+- ORCH-000166 accepted persistent host `000026` after safe idle qualification.
+- ORCH-000167 proved a persistent host can automatically detect a strictly newer Architect dispatch without manual forwarding.
+- ORCH-000168 proved the accepted source already calls `prepareWorkerDeliveryIntent`; the immediate failure was the effective injected persistence/composition seam, not a missing state-machine action.
 
-## ORCH-000167 / ORCH-000168 finding
+## ORCH-000169 — BLOCKED before durable preparation
 
-The first unattended full-cycle probe stopped before browser contact with `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`. Delivery `000014` was never created and no browser send occurred.
+Architect decision:
 
-ORCH-000168 was accepted as a read-only diagnostic under:
+`GH-DEC-169-PREPARATION-PREFLIGHT-AND-LEASE-AMBIGUITY-BLOCKED`
 
-`GH-DEC-168-WORKER-DELIVERY-INTENT-PREPARATION-COMPOSITION-DIAGNOSTIC-ACCEPTED`
+The composition-only recovery corrected the disposable GitHub-backed adapter enough to reach the real accepted preparation method, but the call still returned:
 
-It proved the accepted source already contains the automatic call chain:
+- `FAILED_BEFORE_SEND`;
+- `durableRecorded=false`;
+- delivery `WORKER-DELIVERY-EXECUTOR-000014` intent/result absent;
+- browser contact/send `0/0`.
 
-`observe dispatch → derive/acquire worker-delivery lease → HOST_DELIVERY_READY → persistent runner calls prepareWorkerDeliveryIntent → require durable PREPARED intent → sendWorkerDelivery`.
+Host `000026` was already absent. Fresh host `000027` identity was created and one launch attempt occurred, but the process did not remain running and completed zero idle polls. It is **not an accepted or armed host**.
 
-The defect is therefore the **effective disposable host-000026 preparation/persistence composition**, not a missing action in the accepted state machine. The launcher bound the method statically, but its injected persistence seam failed to return a durably read-back `PREPARED` intent. The runner then released/reconciled safely before any send.
+The preflight worker-delivery lease also expired during cleanup. Its exact expiry reconciliation became ambiguous with `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`, and the lease remains indexed `ACTIVE` even though it is expired. No new mutation is authorized while that ambiguity remains unresolved.
 
-The worker-delivery lease is action-derived by the accepted host contract; dispatch booleans that said otherwise were metadata-inconsistent and must not be used to weaken the lease boundary.
+Current transport baseline therefore remains:
 
-Host `000026` remained running as PID `16880` after the diagnostic and is not a safe candidate for further mutation without explicit replacement authority.
+- `LATEST_DELIVERY = WORKER-DELIVERY-EXECUTOR-000013 / SENT`;
+- `LATEST_ARCHITECT_TRIGGER = ARCH-TRIGGER-9333-000005 / SENT`;
+- delivery `000014` absent;
+- trigger `000006` absent;
+- no running accepted replacement host.
 
-## Current next — ORCH-000169
+## Current next — ORCH-000170
 
-`DISPATCH-000169` is a bounded composition-only recovery. It must:
+`DISPATCH-000170` is a manual **read-only diagnostic**. It must independently determine:
 
-1. verify and safely stop only host `000026`;
-2. repair only disposable untracked host-launcher/persistence wiring;
-3. prove one real durable worker-delivery intent (`000014`) reaches `PREPARED` with **zero browser contact/send**;
-4. reconcile that preflight delivery to `PROVEN_NOT_SENT` and leave `LATEST_DELIVERY` at `000013/SENT`;
-5. start fresh host `000027` exactly once using the same corrected composition;
-6. complete at least two valid idle polls and leave host `000027` running.
+1. the exact lower-level reason the accepted preparation path still failed to create/read back a durable intent under host-000027 composition; and
+2. why the exact expired ORCH-000169 lease reconciliation became ambiguous and what single later mutation, if any, can close it safely.
 
-Tracked source changes are prohibited. If composition-only repair cannot satisfy the accepted preparation contract, Executor must stop with `SOURCE_CONTRACT_REPAIR_REQUIRED` rather than patching source opportunistically.
+ORCH-000170 authorizes no host/process mutation, no source patch, no browser contact, no delivery/trigger mutation, and no lease/index/reconciliation mutation.
 
 ## Protected boundary
 
