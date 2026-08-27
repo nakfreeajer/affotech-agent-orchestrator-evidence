@@ -12,11 +12,11 @@ Rony (final human authority)
 Architect AI — govern / verify / decide / document — port 9333
   ↓ durable dispatch
 Persistent deterministic Orchestrator
-  ↓ exact governed delivery
+  ↓ durable intent + exact governed delivery
 Executor AI — bounded work — port 9444
   ↓ durable terminal
 Persistent deterministic Orchestrator
-  ↓ exact one-way wake
+  ↓ durable trigger + exact wake
 Architect AI
 ```
 
@@ -34,39 +34,39 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 - ORCH-000153 proved exactly-once forward delivery: `WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
 - ORCH-000163 proved exactly-once Architect wake: `ARCH-TRIGGER-9333-000005 / SENT`.
-- ORCH-000166 accepted persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`: one process start, three valid idle polls, bootstrap dispatch suppressed three times, zero transport side effects, PID `16880` alive at terminal publication, `leaveRunning=true`.
+- ORCH-000166 accepted persistent host `HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026` after one start, three valid idle polls, self-echo suppression, zero transport side effects, and liveness at publication.
+- ORCH-000167 proved the persistent host automatically detects a strictly newer Architect dispatch without manual forwarding.
 
-## First unattended-cycle probe — ORCH-000167 BLOCKED before delivery
+## ORCH-000167 / ORCH-000168 finding
 
-Decision:
+The first unattended full-cycle probe stopped before browser contact with `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`. Delivery `000014` was never created and no browser send occurred.
 
-`GH-DEC-167-AUTOMATIC-HOST-WORKER-DELIVERY-INTENT-PREPARATION-BLOCKED`
+ORCH-000168 was accepted as a read-only diagnostic under:
 
-The important success: host `000026` **automatically detected `DISPATCH-000167` without manual forwarding**.
+`GH-DEC-168-WORKER-DELIVERY-INTENT-PREPARATION-COMPOSITION-DIAGNOSTIC-ACCEPTED`
 
-Durable host events then show:
+It proved the accepted source already contains the automatic call chain:
 
-- `LEASE_REQUIRED` for `WORKER_DELIVERY`;
-- `LEASE_ACQUIRED` telemetry;
-- host reached `HOST_DELIVERY_READY`;
-- `nextAction=PREPARE_WORKER_DELIVERY_INTENT`;
-- stop state `RECONCILIATION_REQUIRED`;
-- reason `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
+`observe dispatch → derive/acquire worker-delivery lease → HOST_DELIVERY_READY → persistent runner calls prepareWorkerDeliveryIntent → require durable PREPARED intent → sendWorkerDelivery`.
 
-`WORKER-DELIVERY-EXECUTOR-000014` was never created, browser send remained `0`, Executor terminal remained ORCH-000166, Architect trigger remained `000005/SENT`, and active mutation leases are currently empty.
+The defect is therefore the **effective disposable host-000026 preparation/persistence composition**, not a missing action in the accepted state machine. The launcher bound the method statically, but its injected persistence seam failed to return a durably read-back `PREPARED` intent. The runner then released/reconciled safely before any send.
 
-This means automatic durable **dispatch observation is proven**, but the running composition does not yet automatically execute the durable worker-delivery-intent preparation step required before BrowserRelay send.
+The worker-delivery lease is action-derived by the accepted host contract; dispatch booleans that said otherwise were metadata-inconsistent and must not be used to weaken the lease boundary.
 
-## Current next — ORCH-000168
+Host `000026` remained running as PID `16880` after the diagnostic and is not a safe candidate for further mutation without explicit replacement authority.
 
-`DISPATCH-000168` is a manual read-only Executor diagnostic. It must identify whether the missing intent-preparation step is:
+## Current next — ORCH-000169
 
-- a host-000026 launcher/composition wiring defect;
-- an accepted-source automation gap;
-- a dispatch lease-authority metadata error;
-- or a combination.
+`DISPATCH-000169` is a bounded composition-only recovery. It must:
 
-No source, host, browser, delivery, trigger, lease, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized by the diagnostic.
+1. verify and safely stop only host `000026`;
+2. repair only disposable untracked host-launcher/persistence wiring;
+3. prove one real durable worker-delivery intent (`000014`) reaches `PREPARED` with **zero browser contact/send**;
+4. reconcile that preflight delivery to `PROVEN_NOT_SENT` and leave `LATEST_DELIVERY` at `000013/SENT`;
+5. start fresh host `000027` exactly once using the same corrected composition;
+6. complete at least two valid idle polls and leave host `000027` running.
+
+Tracked source changes are prohibited. If composition-only repair cannot satisfy the accepted preparation contract, Executor must stop with `SOURCE_CONTRACT_REPAIR_REQUIRED` rather than patching source opportunistically.
 
 ## Protected boundary
 
