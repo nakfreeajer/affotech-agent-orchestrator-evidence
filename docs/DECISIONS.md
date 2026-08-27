@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000170 and canonical ORCH-000171
+Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -26,46 +26,30 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - ORCH-000163 — exactly-once Architect wake.
 - ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
 - ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000168 — accepted composition diagnostic.
+- ORCH-000170 — accepted dual diagnostic: preparation `COMPOSITION_ADAPTER_DEFECT`; lease `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`.
 
-## ORCH-000169 — BLOCKED
-
-Decision:
-
-`GH-DEC-169-PREPARATION-PREFLIGHT-AND-LEASE-AMBIGUITY-BLOCKED`
-
-Composition preflight still failed before durable delivery intent creation; host `000027` did not arm; an expired worker-delivery lease remained indexed ACTIVE after ambiguous expiry reconciliation.
-
-## ORCH-000170 — ACCEPTED diagnostic
+## ORCH-000171 — INCONCLUSIVE
 
 Decision:
 
-`GH-DEC-170-PREPARATION-AND-EXPIRED-LEASE-DIAGNOSTIC-ACCEPTED`
+`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`
 
-Reviewed publication:
+The exact accepted expiry-reconciliation call was authorized once and executed once after unchanged-index and absent-revision-000002 checks.
 
-`GH-PUB-170-PREPARATION-AND-EXPIRED-LEASE-AMBIGUITY-DIAGNOSTIC-000001`
+Outcome:
 
-Architect accepts two independent classifications.
+`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
 
-### Preparation — `COMPOSITION_ADAPTER_DEFECT`
+Post-readback proves revision `000002` is still absent and the lease index remains revision `369` with the same expired revision-1 lease active. No durable lease-state advancement occurred. No blind retry was performed.
 
-Accepted transport resolves the worker delivery ID from `request.snapshot?.pointers?.dispatch?.expectedFreshWorkerDeliveryId` or factory option `workerDeliveryId`.
+Decision rationale:
 
-Host `000027` supplied neither. The dispatch exposed `expectedDeliveryId`, so accepted `workerId()` returned no ID and preparation failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence/browser contact.
+`ONE_EXACT_CORRECTLY_BOUND_RECONCILIATION_CALL_REPEATED_THE_REVISION_000002_CREATE_READBACK_AMBIGUITY_WITH_NO_DURABLE_SIDE_EFFECT`.
 
-Decision: no tracked source repair is proven necessary. The later preparation repair belongs first to disposable launcher composition: inject `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` and preserve stable reason logging.
+Architect decision: a second reconciliation call is not authorized until the concrete create/readback failure seam is diagnosed.
 
-### Lease — `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`
+## Current next authority — ORCH-000172
 
-ORCH-000169 supplied the correct immutable expiry-reconciliation binding. Accepted recovery attempted to create revision `000002`, but durable creation/readback was not proven. No valid revision `000002` exists and the index correctly remains fail-closed on revision `000001`.
+ORCH-000172 is zero-mutation diagnostic work focused on the revision-`000002` GitHub create/readback seam. It must identify the concrete client/adapter used by ORCH-000171, exact API/CLI invocation and lower-level failure, compare it with known-good durable creates, classify root cause, and state the smallest repair boundary.
 
-Decision: do not acquire a new lease or mix preparation recovery with lease recovery. The single safe next mutation is one exact accepted `reconcileExpiredMutationLease` call after unchanged-index and absent-revision-000002 checks.
-
-## Current next authority — ORCH-000171
-
-ORCH-000171 is lease-recovery only.
-
-It authorizes exactly one reconciliation call for `MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`. Success requires durable revision `000002` plus one exact index CAS leaving `activeLeases=[]`.
-
-No new lease, preparation, host, browser, delivery, trigger, source, docs, AFFOTECH, Drive, deployment, tenant or private-data mutation is authorized.
+It may not call reconciliation, mutate lease/index/revision state, acquire a new lease, retry preparation, launch a host, contact a browser, mutate delivery/trigger state, patch source, or touch AFFOTECH/Drive/deployment/private boundaries.
