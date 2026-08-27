@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
+Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -15,7 +15,7 @@ Key accepted milestones:
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005 / SENT` exactly once.
 - ORCH-000165: legacy worker-delivery lineage compatibility repair accepted with full deterministic `817/817`.
 
-Documentation ownership became `ARCHITECT_DIRECT`; Curator is not an active required role.
+Documentation ownership is `ARCHITECT_DIRECT`; Curator is not an active required role.
 
 ## ORCH-000166 through ORCH-000170
 
@@ -27,38 +27,44 @@ ORCH-000168 proved accepted source already executes the preparation action and i
 
 ORCH-000169 attempted composition-first recovery and fresh host `000027`; preparation still failed before intent creation and an expired worker-delivery lease remained active after ambiguous reconciliation.
 
-ORCH-000170 independently diagnosed the two causes:
+ORCH-000170 independently diagnosed:
 
 - preparation = `COMPOSITION_ADAPTER_DEFECT` because host `000027` omitted accepted `workerDeliveryId`;
 - lease = `RECONCILIATION_RECORD_CREATION_AMBIGUOUS` with correct immutable recovery binding but absent revision `000002`.
 
 ## ORCH-000171 — exact lease recovery INCONCLUSIVE
 
-Architect authorized exactly one accepted `reconcileExpiredMutationLease` call for the ORCH-000169 lease.
+Architect authorized exactly one accepted `reconcileExpiredMutationLease` call for the ORCH-000169 lease. It returned `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`. Revision `000002` remained absent, index revision remained `369`, and no durable side effect occurred.
 
-All preconditions passed. The call returned:
-
-`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
-
-Readback after the call proved:
-
-- revision `000002` absent;
-- index revision still `369`;
-- exact expired revision-1 lease still indexed `ACTIVE`;
-- active lease count still `1`;
-- no new lease, host, browser, delivery, trigger, or tracked-source mutation.
-
-Architect classified:
+Architect decision:
 
 `GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`.
 
-The important conclusion is that the ambiguity is reproducible at the revision-create/readback seam even under a correctly-bound one-call recovery. A second blind call is forbidden.
+## ORCH-000172 — accepted create/readback seam diagnostic
 
-## ORCH-000172 — current read-only seam diagnostic
+Executor traced the exact accepted GitHub Contents path without mutation.
 
-The next milestone traces the exact concrete GitHub createJson/client path used for lease revision `000002`, including command/API method, input handling, path/payload, return normalization, and error propagation. It compares that path against known-good durable creates and identifies the smallest repair boundary without mutation.
+Publication:
 
-Only after ORCH-000172 may Architect decide whether the next action is a disposable adapter fix, bounded accepted-source repair, transport/auth repair, or another exact recovery under corrected conditions.
+`GH-PUB-172-EXPIRED-LEASE-REVISION-CREATE-READBACK-SEAM-DIAGNOSTIC-000001`
+
+Architect decision:
+
+`GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`.
+
+The diagnostic proved ORCH-000171 used accepted `createGitHubContentsRuntimeClient` / `createJson`, the projected `000002` path and EXPIRED payload are valid, and no material path/payload/schema/auth difference from known-good durable creates is proven.
+
+The concrete accepted normalized failure is `AMBIGUOUS / POST_MUTATION_ABSENT`. Runtime reconciliation collapses that to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`, while the disposable request wrapper had discarded the underlying `gh`/HTTP status/error.
+
+Classification: `ERROR_PROPAGATION_ONLY_GAP`. No tracked source repair is currently proven necessary.
+
+## ORCH-000173 — current instrumented exact reconciliation
+
+Architect now authorizes one exact reconciliation under the same immutable lease binding and accepted request semantics, but with a disposable wrapper that preserves safe transport diagnostics without changing request behavior.
+
+If revision `000002` and index CAS succeed, the lease may close. If not, the call must not be retried; the concrete redacted PUT/readback cause must be published.
+
+Preparation retry remains separate and still waits until lease ambiguity is closed.
 
 ## Current target
 
