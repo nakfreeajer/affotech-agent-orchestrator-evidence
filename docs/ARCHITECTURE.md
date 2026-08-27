@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000166
+Documentation sync boundary: through Architect-classified ORCH-000167 and canonical ORCH-000168
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,119 +7,88 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## 1. Core purpose
 
-AFFOTECH Agent Orchestrator is a governed **deterministic message-routing and durable-state layer**. AI roles think; the Orchestrator carries exact governed envelopes and observes durable state. It does not approve work, interpret business semantics, scrape assistant decisions, or synthesize authority from browser text.
+AFFOTECH Agent Orchestrator is a governed deterministic message-routing and durable-state layer. AI roles think; the Orchestrator carries exact governed envelopes and observes durable state. It does not approve work, interpret business semantics, scrape assistant decisions, or synthesize authority from browser text.
 
-## 2. Authority and active roles
+## 2. Active topology
 
 ```text
-Rony
-  ↕
-Architect — govern / verify / decide / document
+Architect 9333
   ↓ durable dispatch
 Persistent deterministic Orchestrator
-  ↓ exact delivery
-Executor — bounded implementation/runtime/validation
+  ↓ durable intent + exact delivery
+Executor 9444
   ↓ durable terminal
 Persistent deterministic Orchestrator
-  ↓ one-way wake
-Architect
+  ↓ durable trigger + exact wake
+Architect 9333
 ```
 
-Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO NEW REPORT`.
 Documentation policy is `ARCHITECT_DIRECT`; Curator is not an active required role.
 
-## 3. Operational topology
+## 3. Accepted source and lineage contract
 
-```text
-                     GitHub evidence repo
-                    durable mailbox/state
-                          ▲      │
-                          │      ▼
-Architect browser 9333 ◄── Local Orchestrator ──► Executor browser 9444
-```
-
-Current accepted implementation direction:
-
-- Node/JavaScript modules;
-- independent long-running local process;
-- GitHub Contents/CAS runtime persistence;
-- BrowserRelay/CDP for exact message transport only;
-- durable host/delivery/lease/trigger state;
-- duplicate suppression and explicit reconciliation;
-- no local-git commit/push as runtime transport.
-
-## 4. Durable mutation contract
-
-`read-only pre-boundary → durable intent/readback → exactly one attempt → durable result OR AMBIGUOUS → read-only reconciliation before retry`.
-
-Repeated text is never sufficient correlation. Historical ambiguity/evidence is preserved rather than rewritten.
-
-## 5. Worker-delivery lineage model
-
-Current ORCH-000165 rules:
-
-- future results persist explicit `messageId` and `dispatchId`;
-- result delivery ID, worker role, and `intentSha256` must exactly bind to the immutable intent;
-- explicit result lineage conflicts fail closed;
-- a legacy result missing explicit lineage may hydrate only through that exact immutable intent after all exact bindings pass;
-- timestamps, payload text, current pointers, and other deliveries may never supply missing lineage;
-- historical records are not rewritten for reader compatibility.
-
-Accepted source:
+Current source:
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
 Qualification: 101 files; focused `65/65`; runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-## 6. Proven transport legs
+Worker-delivery rules after ORCH-000165:
 
-- ORCH-000153 proved forward delivery `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once.
-- ORCH-000163 proved Architect trigger `ARCH-TRIGGER-9333-000005 / SENT` exactly once without assistant-response scraping.
+- future results persist explicit message/dispatch lineage;
+- delivery ID, worker role and `intentSha256` must bind exactly;
+- explicit conflicts fail closed;
+- legacy missing lineage may hydrate only through the exact immutable intent;
+- historical records are not rewritten.
 
-## 7. Persistent host — ORCH-000166 ACCEPTED
+## 4. Proven transport pieces
 
-Decision:
+- ORCH-000153: forward delivery exactly once.
+- ORCH-000163: Architect wake exactly once.
+- ORCH-000166: persistent host `000026` armed, three valid idle polls, self-echo suppressed, zero transport side effects, left running.
 
-`GH-DEC-166-UNATTENDED-AUTOMATIC-HOST-000026-ARMED-ACCEPTED`
+## 5. ORCH-000167 — automatic observation works; automatic preparation does not yet
 
-Running host identity:
+The first full-cycle probe proved the persistent host detects a strictly newer Architect dispatch automatically.
 
-`HOST-INSTANCE-SANDBOX-000026 / HOST-GEN-SANDBOX-000026`
+For `DISPATCH-000167`, host `000026` durably emitted:
 
-Accepted bootstrap facts:
+1. `LEASE_REQUIRED` with `actionKind=WORKER_DELIVERY`;
+2. `LEASE_ACQUIRED` telemetry;
+3. transition to `HOST_DELIVERY_READY`;
+4. `nextAction=PREPARE_WORKER_DELIVERY_INTENT`;
+5. `RECONCILIATION_REQUIRED` with reason `WORKER_DELIVERY_INTENT_PREPARATION_REQUIRED`.
 
-- one OS process-creation attempt;
-- PID `16880` alive at terminal publication;
-- `leaveRunning=true`;
-- explicit consumed watermark `DISPATCH-000166` read back;
-- three valid idle polling iterations;
-- bootstrap dispatch suppressed three times;
-- browser contact/send `0/0`;
-- worker-delivery/Architect-trigger mutation `0/0`;
-- lease acquisition `0`;
-- accepted GitHub runtime, worker transport, and Architect wake-port composition installed;
-- protected boundaries untouched.
+No delivery intent/result was created, no Executor browser send occurred, and no Architect trigger was created. Active lease index is currently empty.
 
-This closes bootstrap/arming. The next dispatch must be discovered by this running host rather than manually forwarded.
+Architect decision:
 
-## 8. First unattended-cycle probe
+`GH-DEC-167-AUTOMATIC-HOST-WORKER-DELIVERY-INTENT-PREPARATION-BLOCKED`.
 
-ORCH-000167 is intended to prove the combined steady-state path in one bounded cycle:
+Architectural conclusion: the durable dispatch-observation stage is now proven. The next unresolved seam is between the post-lease `HOST_DELIVERY_READY` action boundary and durable `prepareWorkerDeliveryIntent` execution.
 
-1. Architect publishes a strictly newer durable dispatch;
-2. host `000026` observes it;
-3. host creates one fresh durable worker-delivery intent/result and sends the exact locator to Executor once;
-4. Executor performs a no-op/read-only probe and publishes one durable terminal;
-5. host observes the corresponding terminal;
-6. host creates one fresh Architect-trigger intent/result and sends exact `verify & next` to port `9333` once;
-7. no assistant response text/DOM is read.
+## 6. ORCH-000168 diagnostic boundary
 
-No source, docs-by-Executor, AFFOTECH, Drive, deployment, tenant, or business/private-data mutation is authorized by the probe.
+ORCH-000168 must determine whether that seam belongs to:
 
-## 9. Session and protected boundaries
+- accepted source automation;
+- host-000026 disposable launcher/composition wiring;
+- dispatch lease metadata;
+- or multiple causes.
 
-- Architect control session: `9333`.
-- Executor control session: `9444`.
-- Protected AFFOTECH ports: `9222/9223`.
+It inspects `automatic-dispatch-host.js`, `persistent-host-runner.js`, `github-runtime-ports.js`, `browser-relay-transport-ports.js`, and the local host-000026 launcher/log only. It must not mutate source, host, browser, delivery, trigger, or lease state.
 
-AFFOTECH source/worktrees, `nakfreeajer/affotech-agent-relay`, Drive, Apps Script, tenant resources, deployments, and business/private data remain separate unless Rony explicitly authorizes integration.
+## 7. Persistent-host correctness principle
+
+A persistent host is not fully unattended merely because it detects a dispatch. A complete worker leg requires:
+
+`observe dispatch → acquire exact lease if required → prepare/read back durable intent → BrowserRelay pre-send observation → one send → durable result → duplicate suppression`.
+
+The return leg analogously requires terminal observation → durable trigger intent → one Architect wake → durable result.
+
+## 8. Protected boundaries
+
+- Architect session: `9333`.
+- Executor session: `9444`.
+- protected AFFOTECH ports: `9222/9223`.
+- AFFOTECH source/worktrees, AFFOTECH relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony integration authority.
