@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000170 and canonical ORCH-000171
+Documentation sync boundary: through Architect-classified ORCH-000171 and canonical ORCH-000172
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -20,60 +20,57 @@ Required order:
 
 `observe governed dispatch → exact action-derived lease → durable worker-delivery intent/readback → BrowserRelay pre-send observation → one send → durable result → duplicate suppression/reconciliation`.
 
-## ORCH-000170 — exact preparation lesson
+## Preparation lesson from ORCH-000170
 
-The accepted preparation code was not missing. Host `000027` failed because its disposable composition did not supply the worker-delivery ID in either accepted form:
+Deterministic adapter boundaries require exact field/option names. Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence. Semantic similarity such as `expectedDeliveryId` is insufficient.
 
-- `snapshot.pointers.dispatch.expectedFreshWorkerDeliveryId`, or
-- factory option `workerDeliveryId`.
+No tracked source repair is currently proven necessary for this preparation seam.
 
-The dispatch instead exposed `expectedDeliveryId`. Accepted worker-ID resolution therefore returned undefined and preparation failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence.
+## Lease lesson from ORCH-000170 and ORCH-000171
 
-Lesson: **semantic similarity of metadata names is not enough at a deterministic adapter boundary**. Composition must inject the exact accepted field/option contract. The correct next preparation fix is disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative source patch.
+ORCH-000170 proved the expired-lease reconciliation binding was correct. ORCH-000171 then executed that exact accepted recovery once under unchanged preconditions.
 
-## Diagnostic error-propagation lesson
+It still returned:
 
-Host `000027` logged only outer `FAILED_BEFORE_SEND / durableRecorded=false`, which initially hid `WORKER_DELIVERY_ID_REQUIRED`.
+`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
 
-Lesson: fail-closed outer status is necessary but operability improves when disposable/runtime diagnostic evidence preserves stable lower-level reason codes without exposing browser response text or private data.
+Revision `000002` remained absent and index revision `369` did not move.
 
-## ORCH-000170 — exact lease lesson
+Lesson: **a correct recovery binding does not prove the durable mutation adapter can create/read back the recovery record**. When a correctly-bound one-call recovery repeats the same ambiguity with no durable side effect, the next step is not another retry; it is diagnosis of the concrete write/readback seam.
 
-The ORCH-000169 expiry-reconciliation binding itself was correct. The ambiguity arose during creation/readback of the projected revision `000002`; no valid revision `000002` exists.
+## No-partial-side-effect distinction
 
-The current index remaining on expired ACTIVE revision `000001` is therefore correct fail-closed behavior, not proof the index should be manually edited.
+ORCH-000171 produced no revision `000002`, no index CAS, and no unrelated mutation. This matters: the state is unresolved, but there is no half-created reconciliation record requiring speculative repair.
 
-Lesson: distinguish:
+The safe posture is preserve the expired ACTIVE index entry until the durable create/readback mechanism is understood and corrected.
 
-- `RECONCILIATION_BINDING_MISMATCH`, where the recovery request is wrong;
-- `RECONCILIATION_RECORD_CREATION_AMBIGUOUS`, where the exact binding is right but durable mutation cannot be proven.
+## Error-propagation requirement
 
-These demand different next actions.
+Generic stable outer reason codes such as `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` are safe but may be operationally insufficient. Diagnostic evidence must preserve the non-sensitive lower-level client status/error needed to distinguish:
 
-## Recovery ordering lesson
+- disposable GitHub client adapter defect;
+- accepted runtime createJson defect;
+- GitHub auth/transport failure;
+- invalid revision path/payload;
+- or error-propagation-only loss.
 
-Preparation failure and lease ambiguity are independent. Do not combine their fixes while authority is ambiguous.
+## ORCH-000172 rule
 
-Correct order:
+Read-only trace the exact revision-`000002` path used by ORCH-000171 and compare it to a known-good durable create. Inspect API/CLI method, stdin/input handling, repository/ref/path, payload encoding, return normalization, and the branch that collapses the lower failure.
 
-1. close the exact expired lease under one bounded reconciliation authority;
-2. verify active lease count zero;
-3. only then retry disposable preparation composition with the exact `workerDeliveryId` contract;
-4. prove durable `PREPARED` before browser contact;
-5. then arm a fresh host and resume full-cycle qualification.
+No reconciliation call, lease/index/revision mutation, new lease, host action, browser contact, delivery/trigger mutation, or source patch is authorized by this diagnostic.
 
-## ORCH-000171 rule
+## Recovery ordering
 
-Exactly one accepted `reconcileExpiredMutationLease` call is authorized for the ORCH-000169 lease after unchanged-index and absent-revision-000002 checks.
-
-No new lease acquisition, no preparation retry, no host action, no browser contact, no delivery/trigger mutation, and no source patch may be mixed into that recovery.
-
-If the single reconciliation call is ambiguous again, preserve it as `INCONCLUSIVE`; never retry blindly.
+1. identify and repair the revision-create/readback seam;
+2. only then authorize one newly-bounded exact lease reconciliation if evidence says it is safe;
+3. verify `activeLeases=[]`;
+4. separately retry preparation with exact `workerDeliveryId` composition;
+5. prove durable `PREPARED` before browser contact;
+6. arm a fresh host and resume full-cycle qualification.
 
 ## Current success criterion
 
-The target remains:
-
 `Architect dispatch → persistent Orchestrator → durable intent → Executor exactly once → durable terminal → persistent Orchestrator → durable trigger → Architect wake exactly once`.
 
-No AFFOTECH, Drive, deployment, tenant, or business/private-data mutation is necessary to prove the transport loop itself.
+AFFOTECH, Drive, deployment, tenant, and business/private-data mutation are not required to prove the transport loop.
