@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000175 and canonical ORCH-000176
+Documentation sync boundary: through Architect-classified ORCH-000176 and canonical ORCH-000177
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -13,76 +13,72 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## 2. Proven foundations
 
-- ORCH-000153: forward delivery `WORKER-DELIVERY-EXECUTOR-000013 / SENT` exactly once.
-- ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005 / SENT` exactly once.
+- ORCH-000153: forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` exactly once.
+- ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once.
 - ORCH-000166: persistent host `000026` safely armed/idle.
 - ORCH-000167: automatic newer-dispatch observation proved.
-- ORCH-000170: preparation blocker classified `COMPOSITION_ADAPTER_DEFECT`.
-- ORCH-000173: expired ORCH-000169 lease durably reconciled and removed; index revision `370`, `activeLeases=[]`.
+- ORCH-000170: preparation defect classified `COMPOSITION_ADAPTER_DEFECT`.
+- ORCH-000173: prior expired lease closed; current clean index baseline `370 / nextEpoch 186 / activeLeases=[]`.
+- ORCH-000175: ORCH-000174 acquisition ambiguity left no candidate revision or index mutation; `ERROR_PROPAGATION_ONLY_GAP`.
 
-## 3. ORCH-000174 — BLOCKED
-
-The clean preflight boundary passed, but the single authorized worker-delivery lease acquisition returned `AMBIGUOUS` before preparation.
-
-Verified post-state:
-
-- preparation calls `0`;
-- delivery `000014` absent;
-- index revision `370`;
-- `nextLeaseEpoch=186`;
-- `activeLeases=[]`;
-- latest delivery `000013/SENT`;
-- browser contact/send `0/0`;
-- no host/trigger/source mutation.
-
-Decision: `GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`.
-
-## 4. ORCH-000175 — ACCEPTED diagnostic
+## 3. ORCH-000176 — BLOCKED
 
 Decision:
 
-`GH-DEC-175-WORKER-DELIVERY-LEASE-ACQUISITION-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`
+`GH-DEC-176-WORKER-DELIVERY-INSTRUMENTED-ACQUISITION-TRACE-PERSISTENCE-BLOCKED`
 
 Publication:
 
-`GH-PUB-175-WORKER-DELIVERY-LEASE-ACQUISITION-AMBIGUITY-DIAGNOSTIC-000001`
+`GH-PUB-176-WORKER-DELIVERY-INSTRUMENTED-LEASE-ACQUISITION-PREFLIGHT-BLOCKED-000001`
 
-Accepted conclusion: `ERROR_PROPAGATION_ONLY_GAP`.
+Verified facts:
 
-The diagnostic found:
+- clean preconditions passed;
+- one instrumented lease acquisition call ran;
+- acquisition returned `AMBIGUOUS`;
+- no candidate revision exists/read back;
+- no lease-index CAS occurred;
+- index remains revision `370`, next epoch `186`, active lease count `0`;
+- wrapper collected diagnostics in process memory but launcher exited before flushing them;
+- reconciliation descriptor was not persisted;
+- preparation call count `0`;
+- delivery `000014` intent/result absent;
+- `LATEST_DELIVERY=000013/SENT`;
+- browser contact/send `0/0`;
+- no host, trigger, tracked-source, AFFOTECH, Drive, deployment, or private-data side effect.
 
-- no durable ORCH-000174 candidate lease revision;
-- no successful candidate readback;
-- no lease-index CAS;
-- no orphan immutable lease record;
-- current index remains revision `370` with zero active leases;
-- ORCH-000174's disposable launcher discarded the accepted reconciliation descriptor/lower request details.
+The explicit worker-delivery ID preparation fix is still unproven because acquisition never became durable.
 
-No source patch, manual index edit, or cleanup mutation is currently required.
-
-## 5. Current transport baseline
-
-- `LATEST_DELIVERY = WORKER-DELIVERY-EXECUTOR-000013 / SENT`.
-- delivery `000014` absent before ORCH-000176 execution.
-- `LATEST_ARCHITECT_TRIGGER = ARCH-TRIGGER-9333-000005 / SENT`.
-- trigger `000006` absent.
-- lease index revision `370`; `nextLeaseEpoch=186`; active lease count `0`.
-- no accepted persistent host is currently running.
-
-## 6. Current authority — ORCH-000176
+## 4. Current authority — ORCH-000177
 
 Milestone:
 
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.INSTRUMENTED.LEASE.ACQUISITION.EXPLICIT.ID.PREFLIGHT.1A`
+`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.DURABLE.TRACE.FLUSH.INSTRUMENTED.ACQUISITION.EXPLICIT.ID.PREFLIGHT.1A`
 
-ORCH-000176 authorizes one fresh instrumented worker-delivery lease acquisition. Only if acquisition is durably proven ACTIVE/indexed may it proceed to exact disposable preparation option:
+Before any mutation, ORCH-000177 must prove a disposable diagnostic sink can append, flush, and read back a safe trace for a harmless read-only request through the same wrapper.
 
-`workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`
+Only after that qualification may it call `acquireMutationLease` once.
 
-Success requires durable `PREPARED`, durable `PROVEN_NOT_SENT / NOT_SENT` with browser contact/send `0/0`, `LATEST_DELIVERY` still `000013/SENT`, normal lease release, final `activeLeases=[]`, and source unchanged.
+If acquisition succeeds durably, it may continue to:
 
-No host process action or Architect trigger is authorized.
+- exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
+- one durable PREPARED intent;
+- one zero-browser PROVEN_NOT_SENT/NOT_SENT result;
+- one normal lease release;
+- final `activeLeases=[]`;
+- `LATEST_DELIVERY` remains `000013/SENT`.
 
-## 7. Documentation ownership
+Any ambiguity stops without retry; the already-flushed safe diagnostics and reconciliation descriptor must be published.
+
+## 5. Current transport baseline
+
+- latest delivery: `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- delivery `000014` absent;
+- latest Architect trigger: `ARCH-TRIGGER-9333-000005/SENT`;
+- trigger `000006` absent;
+- lease index `370`, next epoch `186`, active leases `0`;
+- no accepted persistent replacement host running.
+
+## 6. Documentation ownership
 
 Policy: `ARCHITECT_DIRECT`.
