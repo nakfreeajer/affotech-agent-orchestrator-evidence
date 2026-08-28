@@ -37,31 +37,43 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## ORCH-000174 — BLOCKED before preparation
 
+The intended explicit delivery ID was `WORKER-DELIVERY-EXECUTOR-000014`, but the single worker-delivery lease acquisition returned `AMBIGUOUS` before `prepareWorkerDeliveryIntent` ran. Durable post-state stayed clean: no delivery `000014`, no active lease, index revision `370`, browser contact/send `0/0`, and no host/trigger/source mutation.
+
 Architect decision:
 
 `GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`
 
-The clean post-ORCH-000173 boundary was verified and the preflight used the intended explicit delivery ID `WORKER-DELIVERY-EXECUTOR-000014`, but the single authorized worker-delivery lease acquisition returned `AMBIGUOUS` before `prepareWorkerDeliveryIntent` was called.
+## ORCH-000175 — ACCEPTED acquisition diagnostic
 
-Durable post-state remains clean:
+Architect decision:
 
-- preparation call count `0`;
-- delivery `000014` intent/result absent;
-- `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- lease-index revision `370`;
-- `activeLeases=[]`;
-- browser contact/send `0/0`;
-- no host, trigger, or source mutation.
+`GH-DEC-175-WORKER-DELIVERY-LEASE-ACQUISITION-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`
 
-Therefore the explicit-ID preparation fix is still unproven. No acquisition retry is authorized yet.
+The accepted acquisition path creates the immutable candidate before index activation and may return `AMBIGUOUS` when candidate creation or its reconciliation cannot be proven. ORCH-000174's disposable launcher discarded the accepted reconciliation descriptor and lower request diagnostics.
 
-## Current next — ORCH-000175
+Read-only GitHub state proves:
 
-`DISPATCH-000175` is manual and read-only. It diagnoses the ORCH-000174 acquisition ambiguity and checks whether an orphan immutable lease revision was created even though the current index stayed clean.
+- no ORCH-000174 / DISPATCH-000174 / delivery-000014 lease candidate was durably created;
+- no candidate readback succeeded;
+- no lease-index CAS occurred;
+- no orphan immutable lease record exists;
+- index revision remains `370`;
+- `nextLeaseEpoch=186`;
+- `activeLeases=[]`.
 
-It must identify the exact acquisition function/binding, proposed lease identity/epoch, the failing create/readback/index-CAS stage, any lower-level GitHub/gh error or error-propagation loss, and the smallest safe next recovery/repair boundary.
+Classification: `ERROR_PROPAGATION_ONLY_GAP`. No tracked source patch or manual index edit is currently required.
 
-No lease/index mutation, acquisition retry, preparation call, delivery `000014`, host action, browser contact, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
+## Current next — ORCH-000176
+
+`DISPATCH-000176` authorizes one fresh **instrumented** worker-delivery lease acquisition at the clean revision-370 boundary. Instrumentation may preserve bounded non-sensitive request/reconciliation diagnostics but may not alter accepted request semantics.
+
+Only if acquisition is durably proven ACTIVE/indexed may the milestone continue to the already-diagnosed explicit preparation fix:
+
+`workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`
+
+It must then prove durable `PREPARED`, reconcile delivery `000014` as `PROVEN_NOT_SENT / NOT_SENT` with zero browser contact, release the lease normally, keep `LATEST_DELIVERY=000013/SENT`, and finish with `activeLeases=[]`.
+
+No host process action, browser send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
 
 ## Protected boundary
 
