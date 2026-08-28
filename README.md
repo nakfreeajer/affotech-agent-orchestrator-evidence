@@ -24,8 +24,6 @@ The Orchestrator is deterministic transport, not an AI decision-maker. Documenta
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
-Decision: `GH-DEC-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-ACCEPTED`.
-
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
 ## Proven foundations
@@ -34,42 +32,36 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005 / SENT`.
 - ORCH-000166: persistent host `000026` safely armed/idle.
 - ORCH-000167: persistent host automatically detected a newer Architect dispatch without manual forwarding.
-- ORCH-000170: preparation failure classified `COMPOSITION_ADAPTER_DEFECT`; host `000027` omitted accepted `workerDeliveryId`; no tracked source repair is currently required.
+- ORCH-000170: preparation defect isolated to missing disposable `workerDeliveryId`; no tracked source repair currently required.
+- ORCH-000173: expired ORCH-000169 lease durably closed; index `369 → 370`; `activeLeases=[]`.
 
-## ORCH-000173 — ACCEPTED lease closure
+## ORCH-000174 — BLOCKED before preparation
 
 Architect decision:
 
-`GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED`
+`GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`
 
-One exact instrumented `reconcileExpiredMutationLease` call succeeded without changing accepted request semantics.
+The clean post-ORCH-000173 boundary was verified and the preflight used the intended explicit delivery ID `WORKER-DELIVERY-EXECUTOR-000014`, but the single authorized worker-delivery lease acquisition returned `AMBIGUOUS` before `prepareWorkerDeliveryIntent` was called.
 
-Durable proof:
+Durable post-state remains clean:
 
-- revision `000002` exists and reads back as `EXPIRED` with exact ORCH-000169 lineage;
-- `previousRecordSha256` binds exactly to revision `000001`;
-- lease-index revision advanced exactly `369 → 370`;
-- only the target lease was removed;
+- preparation call count `0`;
+- delivery `000014` intent/result absent;
+- `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- lease-index revision `370`;
 - `activeLeases=[]`;
-- no new lease, browser, host, delivery, trigger, or source side effect occurred.
+- browser contact/send `0/0`;
+- no host, trigger, or source mutation.
 
-The instrumented transport observed an initial expected GET 404 for absent revision `000002`, then a successful PUT and exact readback. The previous ambiguity is closed.
+Therefore the explicit-ID preparation fix is still unproven. No acquisition retry is authorized yet.
 
-## Current next — ORCH-000174
+## Current next — ORCH-000175
 
-`DISPATCH-000174` is a zero-browser worker-delivery preparation preflight.
+`DISPATCH-000175` is manual and read-only. It diagnoses the ORCH-000174 acquisition ambiguity and checks whether an orphan immutable lease revision was created even though the current index stayed clean.
 
-It explicitly injects:
+It must identify the exact acquisition function/binding, proposed lease identity/epoch, the failing create/readback/index-CAS stage, any lower-level GitHub/gh error or error-propagation loss, and the smallest safe next recovery/repair boundary.
 
-`workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`
-
-It may acquire one new worker-delivery lease, call accepted `prepareWorkerDeliveryIntent` once, and must prove durable `PREPARED` intent creation/readback with exact ORCH-000174 / DISPATCH-000174 lineage.
-
-Without contacting any browser, it must then reconcile delivery `000014` as `PROVEN_NOT_SENT / NOT_SENT`, keep `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT`, release the lease normally before expiry, and finish with `activeLeases=[]`.
-
-No host process action, browser contact/send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
-
-Only after this preparation composition is proven may a fresh persistent host be armed.
+No lease/index mutation, acquisition retry, preparation call, delivery `000014`, host action, browser contact, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
 
 ## Protected boundary
 
