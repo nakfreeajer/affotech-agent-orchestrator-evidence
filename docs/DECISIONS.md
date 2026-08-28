@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000173 and canonical ORCH-000174
+Documentation sync boundary: through Architect-classified ORCH-000174 and canonical ORCH-000175
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -26,55 +26,38 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - ORCH-000163 — exactly-once Architect wake.
 - ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
 - ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000170 — preparation `COMPOSITION_ADAPTER_DEFECT`; no tracked source repair required for the missing worker-delivery ID seam.
+- ORCH-000170 — preparation `COMPOSITION_ADAPTER_DEFECT`; explicit worker-delivery ID needed in disposable composition.
+- ORCH-000173 — expired ORCH-000169 lease closed; index `369→370`; zero active leases.
 
-## ORCH-000171 — INCONCLUSIVE
-
-One exact correctly bound accepted reconciliation call repeated `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with revision `000002` absent and no durable side effect.
-
-Architect decision:
-
-`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`.
-
-## ORCH-000172 — ACCEPTED diagnostic
-
-Architect accepted `ERROR_PROPAGATION_ONLY_GAP`: accepted create/path/schema semantics were not proven defective, but disposable/runtime error propagation hid the concrete GitHub transport outcome.
+## ORCH-000174 — BLOCKED before preparation
 
 Decision:
 
-`GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`.
-
-## ORCH-000173 — ACCEPTED lease reconciliation
-
-Decision:
-
-`GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED`
+`GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`
 
 Reviewed publication:
 
-`GH-PUB-173-EXPIRED-LEASE-INSTRUMENTED-RECONCILED-000001`
+`GH-PUB-174-WORKER-DELIVERY-PREFLIGHT-BLOCKED-000001`
 
-Architect independently verified:
+Architect verified:
 
-- one accepted reconciliation call only;
-- revision `000002` created/read back as exact `EXPIRED` projection;
-- index revision `369 → 370` by one CAS;
-- only the target lease removed;
-- `activeLeases=[]`;
-- browser/host/delivery/trigger/source side effects zero.
+- ORCH-000174 clean pre-state passed;
+- one worker-delivery lease acquisition call was made;
+- acquisition returned `AMBIGUOUS`;
+- `prepareWorkerDeliveryIntent` was never called;
+- delivery `000014` intent/result do not exist;
+- index remains revision `370` with `activeLeases=[]`;
+- latest delivery remains `000013/SENT`;
+- browser, host, trigger, source and protected-resource side effects are zero.
 
-The expired lease is closed. No further recovery work on that lease is authorized absent regression evidence.
+Decision rationale:
 
-## Current next authority — ORCH-000174
+`SINGLE_WORKER_DELIVERY_LEASE_ACQUISITION_BECAME_AMBIGUOUS_BEFORE_EXPLICIT_ID_PREPARATION_WITH_NO_ACTIVE_LEASE_OR_DELIVERY_SIDE_EFFECT`.
 
-Preparation recovery is now separated from host arming.
+Architect decision: do not retry acquisition or claim the explicit-ID preparation fix is proven until read-only diagnosis establishes the exact acquisition failure and checks for any orphan immutable lease revision outside the index.
 
-ORCH-000174 authorizes one zero-browser preflight using exact disposable composition option:
+## Current next authority — ORCH-000175
 
-`workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`
+ORCH-000175 is zero-mutation diagnostic work. It must identify the proposed lease identity/binding, exact acquisition stage/status/error, orphan-record state, and smallest safe repair/recovery boundary.
 
-It may acquire one worker-delivery lease, call accepted preparation once, require durable `PREPARED`, reconcile delivery `000014` as proven-not-sent without any browser contact, and release the lease normally.
-
-Success requires `LATEST_DELIVERY` remain `000013/SENT`, final active leases zero, and no host/source/trigger activity.
-
-A fresh persistent host may be authorized only after this preflight is accepted.
+It may not acquire/reconcile/release a lease, call preparation, create delivery `000014`, start a host, contact a browser, mutate trigger/source/docs, or touch AFFOTECH/Drive/deployment/private boundaries.
