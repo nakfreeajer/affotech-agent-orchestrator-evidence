@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000174 and canonical ORCH-000175
+Documentation sync boundary: through Architect-accepted ORCH-000175 and canonical ORCH-000176
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -16,57 +16,58 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## Preparation lesson
 
-Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence.
+The known preparation composition defect remains precise: accepted preparation needs exact factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when accepted dispatch metadata does not supply `expectedFreshWorkerDeliveryId`.
 
-The intended preparation repair remains explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative tracked-source patch.
+ORCH-000174 did not test this fix because execution never crossed lease acquisition.
 
-## Lease-recovery lesson
+## ORCH-000175 — clean index plus namespace scan closes the orphan question
 
-ORCH-000173 proved semantically inert instrumentation can resolve an opaque durable-transport ambiguity without changing accepted request semantics. The expired ORCH-000169 lease is closed and must not be reopened absent regression evidence.
+A clean current index alone is not enough after ambiguous candidate creation. ORCH-000175 therefore also inspected the durable lease namespace.
 
-## ORCH-000174 — acquisition ambiguity precedes preparation
+It proved both:
 
-The explicit delivery ID can be correct and still remain untested if the preceding mutation-lease acquisition fails.
+- current index revision `370` has `activeLeases=[]`; and
+- no immutable lease candidate matching ORCH-000174 / DISPATCH-000174 / delivery `000014` exists outside the index.
 
-ORCH-000174 made one authorized acquisition call and received `AMBIGUOUS`; preparation call count stayed `0` and delivery `000014` remained absent.
+Lesson: **after ambiguous acquisition, require both index readback and candidate-namespace reconciliation before authorizing another acquisition**.
 
-Lesson: **do not attribute a milestone failure to the next state-machine action when execution never reached it**. Preserve stage-specific accounting.
+## Error propagation at lease acquisition
 
-## Clean current index does not prove no orphan immutable record
+The accepted acquisition path creates an immutable candidate and only then activates it through index CAS/readback. It may correctly return `AMBIGUOUS` if candidate creation or reconciliation cannot be proven.
 
-ORCH-000174 post-state shows index revision `370` with `activeLeases=[]`. That proves no active lease authority is currently projected, but an ambiguous create/readback may still have left an immutable lease revision outside the index.
+ORCH-000174's disposable launcher discarded the accepted `reconciliationDescriptor` and lower request details, leaving the exact request outcome unrecoverable retrospectively.
 
-Lesson: before another acquisition attempt, read-only inspect the durable lease namespace for the proposed lease identity and epoch. Do not rely only on the current index.
+Classification from ORCH-000175: `ERROR_PROPAGATION_ONLY_GAP`.
 
-## Acquisition ambiguity classification must be stage-specific
+Lesson: semantically inert diagnostics should preserve bounded method/path/status/error plus accepted reconciliation descriptors at disposable external-mutation boundaries. They must not change method, payload, auth, sequencing, normalization, or retry behavior.
 
-The next diagnostic must distinguish:
+## No source patch without source evidence
 
-- revision create ambiguity;
-- revision readback ambiguity;
-- index CAS ambiguity;
-- index readback ambiguity;
-- disposable request-wrapper/error-propagation loss;
-- binding mismatch;
-- accepted source acquisition-contract defect.
+ORCH-000175 found no orphan candidate, no index CAS, and no durable source-contract contradiction. Therefore do not patch accepted lease logic simply because a disposable wrapper returned `LEASE_AMBIGUOUS`.
 
-These have different recovery requirements.
+Instrument the boundary first and retry only under fresh Architect authority.
 
-## ORCH-000175 rule
+## ORCH-000176 rule
 
-Read-only diagnose ORCH-000174. Determine the exact acquisition call/binding, proposed lease ID/epoch, lower-level stable GitHub/gh result, any orphan revision `000001`, and smallest safe next boundary.
+One fresh instrumented worker-delivery lease acquisition is authorized from exact pre-state:
 
-No acquisition retry, lease/index mutation, preparation call, delivery/trigger mutation, host action, browser contact, tracked source patch, or protected-resource mutation is authorized.
+- index revision `370`;
+- next epoch `186`;
+- zero active leases;
+- no ORCH-000174 orphan candidate.
+
+If acquisition is ambiguous, stop without retry and preserve the concrete diagnostics.
+
+Only after acquisition is durably proven ACTIVE/indexed may the milestone exercise `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, require durable PREPARED, reconcile the delivery as PROVEN_NOT_SENT without browser contact, and normally release the lease.
 
 ## Recovery ordering
 
-1. diagnose acquisition ambiguity and orphan-record state;
-2. clean/reconcile only if durable evidence requires it;
-3. if safe, perform one newly bounded instrumented acquisition;
-4. only after lease acquisition is proven, exercise explicit `workerDeliveryId` preparation;
-5. prove durable PREPARED and PROVEN_NOT_SENT with zero browser contact;
-6. release lease normally;
-7. then arm a fresh persistent host and resume unattended full-cycle qualification.
+1. perform one instrumented fresh acquisition;
+2. prove ACTIVE candidate plus index membership;
+3. exercise exact explicit-ID preparation;
+4. prove durable PREPARED and PROVEN_NOT_SENT with browser contact/send zero;
+5. normally release the lease and verify active lease count zero;
+6. only then arm a fresh persistent host and resume unattended full-cycle qualification.
 
 ## Current success criterion
 
