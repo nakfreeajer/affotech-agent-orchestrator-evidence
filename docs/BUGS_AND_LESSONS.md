@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000173 and canonical ORCH-000174
+Documentation sync boundary: through Architect-classified ORCH-000174 and canonical ORCH-000175
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -18,52 +18,55 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence.
 
-Lesson: deterministic adapter boundaries require the exact accepted field/option contract. The correct preparation repair is explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative tracked-source patch.
+The intended preparation repair remains explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative tracked-source patch.
 
-## Lease ambiguity lesson
+## Lease-recovery lesson
 
-ORCH-000171 proved a correctly bound reconciliation can still remain ambiguous at durable transport. The correct response was not another blind retry; ORCH-000172 traced the create/readback seam and identified an `ERROR_PROPAGATION_ONLY_GAP`.
+ORCH-000173 proved semantically inert instrumentation can resolve an opaque durable-transport ambiguity without changing accepted request semantics. The expired ORCH-000169 lease is closed and must not be reopened absent regression evidence.
 
-## ORCH-000173 — instrumentation can preserve semantics and resolve ambiguity
+## ORCH-000174 — acquisition ambiguity precedes preparation
 
-ORCH-000173 wrapped only the disposable GitHub request function while preserving accepted method, endpoint, branch, payload, encoding, auth, sequencing and normalization.
+The explicit delivery ID can be correct and still remain untested if the preceding mutation-lease acquisition fails.
 
-The exact reconciliation then succeeded:
+ORCH-000174 made one authorized acquisition call and received `AMBIGUOUS`; preparation call count stayed `0` and delivery `000014` remained absent.
 
-- absent revision `000002` precheck returned expected 404;
-- exact PUT succeeded;
-- exact readback succeeded;
-- revision `000002` became durable `EXPIRED` state;
-- one index CAS advanced `369 → 370`;
-- target lease removed;
-- `activeLeases=[]`.
+Lesson: **do not attribute a milestone failure to the next state-machine action when execution never reached it**. Preserve stage-specific accounting.
 
-Lesson: **observability instrumentation is safe and useful only when it is semantically inert**. It can distinguish a true transport failure from an opaque normalized ambiguity without weakening retry discipline.
+## Clean current index does not prove no orphan immutable record
 
-The closed expired lease must not be reopened without regression evidence.
+ORCH-000174 post-state shows index revision `370` with `activeLeases=[]`. That proves no active lease authority is currently projected, but an ambiguous create/readback may still have left an immutable lease revision outside the index.
 
-## Recovery separation lesson
+Lesson: before another acquisition attempt, read-only inspect the durable lease namespace for the proposed lease identity and epoch. Do not rely only on the current index.
 
-Lease recovery and worker-delivery preparation are independent seams. Closing one does not prove the other.
+## Acquisition ambiguity classification must be stage-specific
 
-Correct order now is:
+The next diagnostic must distinguish:
 
-1. lease ambiguity closed and active lease count verified zero;
-2. prove preparation with exact `workerDeliveryId` and no browser contact;
-3. reconcile the preflight as proven-not-sent;
-4. release its lease normally;
-5. only then arm a fresh host;
-6. resume unattended dispatch → Executor → terminal → Architect wake qualification.
+- revision create ambiguity;
+- revision readback ambiguity;
+- index CAS ambiguity;
+- index readback ambiguity;
+- disposable request-wrapper/error-propagation loss;
+- binding mismatch;
+- accepted source acquisition-contract defect.
 
-## ORCH-000174 rule
+These have different recovery requirements.
 
-ORCH-000174 may acquire one worker-delivery lease and prepare exactly one delivery ID:
+## ORCH-000175 rule
 
-`WORKER-DELIVERY-EXECUTOR-000014`.
+Read-only diagnose ORCH-000174. Determine the exact acquisition call/binding, proposed lease ID/epoch, lower-level stable GitHub/gh result, any orphan revision `000001`, and smallest safe next boundary.
 
-Success requires durable `PREPARED`, exact ORCH-000174 / DISPATCH-000174 lineage, browser contact/send `0/0`, durable `PROVEN_NOT_SENT / NOT_SENT` result, `LATEST_DELIVERY` still `000013/SENT`, normal lease release before expiry, and final `activeLeases=[]`.
+No acquisition retry, lease/index mutation, preparation call, delivery/trigger mutation, host action, browser contact, tracked source patch, or protected-resource mutation is authorized.
 
-No host action, Architect trigger, browser contact, or tracked source patch may be mixed into this proof.
+## Recovery ordering
+
+1. diagnose acquisition ambiguity and orphan-record state;
+2. clean/reconcile only if durable evidence requires it;
+3. if safe, perform one newly bounded instrumented acquisition;
+4. only after lease acquisition is proven, exercise explicit `workerDeliveryId` preparation;
+5. prove durable PREPARED and PROVEN_NOT_SENT with zero browser contact;
+6. release lease normally;
+7. then arm a fresh persistent host and resume unattended full-cycle qualification.
 
 ## Current success criterion
 
