@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
+Documentation sync boundary: through Architect-accepted ORCH-000173 and canonical ORCH-000174
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -27,44 +27,43 @@ ORCH-000168 proved accepted source already executes the preparation action and i
 
 ORCH-000169 attempted composition-first recovery and fresh host `000027`; preparation still failed before intent creation and an expired worker-delivery lease remained active after ambiguous reconciliation.
 
-ORCH-000170 independently diagnosed:
+ORCH-000170 independently diagnosed preparation as `COMPOSITION_ADAPTER_DEFECT`: host `000027` omitted accepted `workerDeliveryId`. It also proved the expired-lease recovery binding was correct.
 
-- preparation = `COMPOSITION_ADAPTER_DEFECT` because host `000027` omitted accepted `workerDeliveryId`;
-- lease = `RECONCILIATION_RECORD_CREATION_AMBIGUOUS` with correct immutable recovery binding but absent revision `000002`.
+## ORCH-000171 / ORCH-000172 — ambiguity isolation
 
-## ORCH-000171 — exact lease recovery INCONCLUSIVE
+ORCH-000171 executed one exact accepted expired-lease reconciliation under unchanged preconditions and returned `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with no durable side effect.
 
-Architect authorized exactly one accepted `reconcileExpiredMutationLease` call for the ORCH-000169 lease. It returned `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`. Revision `000002` remained absent, index revision remained `369`, and no durable side effect occurred.
+ORCH-000172 traced the create/readback seam and was accepted as `ERROR_PROPAGATION_ONLY_GAP`: accepted path/payload/schema semantics were not proven defective, while the disposable/runtime layers had hidden the concrete GitHub transport outcome.
 
-Architect decision:
+## ORCH-000173 — expired lease closed
 
-`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`.
+Architect authorized one instrumented exact reconciliation with unchanged accepted request semantics.
 
-## ORCH-000172 — accepted create/readback seam diagnostic
+Execution proved:
 
-Executor traced the exact accepted GitHub Contents path without mutation.
+- initial revision-`000002` precheck returned expected 404;
+- the exact GitHub Contents PUT succeeded;
+- revision `000002` read back as exact `EXPIRED` projection of revision `000001`;
+- one index CAS advanced revision `369 → 370`;
+- only the target lease was removed;
+- current active lease count is `0`;
+- no browser, host, worker-delivery, trigger, source, AFFOTECH or Drive side effect occurred.
 
-Publication:
+Architect accepted:
 
-`GH-PUB-172-EXPIRED-LEASE-REVISION-CREATE-READBACK-SEAM-DIAGNOSTIC-000001`
+`GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED`.
 
-Architect decision:
+The ORCH-000169 lease recovery chain is closed.
 
-`GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`.
+## ORCH-000174 — current preparation preflight
 
-The diagnostic proved ORCH-000171 used accepted `createGitHubContentsRuntimeClient` / `createJson`, the projected `000002` path and EXPIRED payload are valid, and no material path/payload/schema/auth difference from known-good durable creates is proven.
+The project now returns to the independent preparation seam.
 
-The concrete accepted normalized failure is `AMBIGUOUS / POST_MUTATION_ABSENT`. Runtime reconciliation collapses that to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`, while the disposable request wrapper had discarded the underlying `gh`/HTTP status/error.
+ORCH-000174 explicitly supplies `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, acquires at most one worker-delivery lease, and must prove one durable `PREPARED` intent with zero browser contact.
 
-Classification: `ERROR_PROPAGATION_ONLY_GAP`. No tracked source repair is currently proven necessary.
+The prepared preflight must then be durably reconciled as `PROVEN_NOT_SENT / NOT_SENT`, leaving `LATEST_DELIVERY=000013/SENT`, and its lease must be released normally before expiry so active lease count returns to zero.
 
-## ORCH-000173 — current instrumented exact reconciliation
-
-Architect now authorizes one exact reconciliation under the same immutable lease binding and accepted request semantics, but with a disposable wrapper that preserves safe transport diagnostics without changing request behavior.
-
-If revision `000002` and index CAS succeed, the lease may close. If not, the call must not be retried; the concrete redacted PUT/readback cause must be published.
-
-Preparation retry remains separate and still waits until lease ambiguity is closed.
+Only after this preparation proof is accepted should Architect arm a fresh host identity and resume the unattended full-cycle qualification.
 
 ## Current target
 
