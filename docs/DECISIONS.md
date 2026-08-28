@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000174 and canonical ORCH-000175
+Documentation sync boundary: through Architect-accepted ORCH-000175 and canonical ORCH-000176
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -35,29 +35,37 @@ Decision:
 
 `GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`
 
+One worker-delivery lease acquisition returned `AMBIGUOUS` before preparation. Delivery `000014` remained absent and index revision `370` remained clean with zero active leases.
+
+## ORCH-000175 — ACCEPTED diagnostic
+
+Decision:
+
+`GH-DEC-175-WORKER-DELIVERY-LEASE-ACQUISITION-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`
+
 Reviewed publication:
 
-`GH-PUB-174-WORKER-DELIVERY-PREFLIGHT-BLOCKED-000001`
+`GH-PUB-175-WORKER-DELIVERY-LEASE-ACQUISITION-AMBIGUITY-DIAGNOSTIC-000001`
 
-Architect verified:
+Architect accepts:
 
-- ORCH-000174 clean pre-state passed;
-- one worker-delivery lease acquisition call was made;
-- acquisition returned `AMBIGUOUS`;
-- `prepareWorkerDeliveryIntent` was never called;
-- delivery `000014` intent/result do not exist;
-- index remains revision `370` with `activeLeases=[]`;
-- latest delivery remains `000013/SENT`;
-- browser, host, trigger, source and protected-resource side effects are zero.
+- acquisition failure classification `ERROR_PROPAGATION_ONLY_GAP`;
+- no durable candidate lease revision exists for ORCH-000174;
+- candidate readback did not succeed;
+- no index CAS occurred;
+- no orphan immutable lease record exists;
+- index remains revision `370`, next epoch `186`, active lease count `0`;
+- accepted source is not proven defective;
+- ORCH-000174's disposable launcher lost the accepted reconciliation descriptor and concrete lower request outcome.
 
-Decision rationale:
+Decision: do not manually edit the index or patch source. A later acquisition may be authorized only with semantically inert bounded diagnostics at a freshly verified clean boundary.
 
-`SINGLE_WORKER_DELIVERY_LEASE_ACQUISITION_BECAME_AMBIGUOUS_BEFORE_EXPLICIT_ID_PREPARATION_WITH_NO_ACTIVE_LEASE_OR_DELIVERY_SIDE_EFFECT`.
+## Current next authority — ORCH-000176
 
-Architect decision: do not retry acquisition or claim the explicit-ID preparation fix is proven until read-only diagnosis establishes the exact acquisition failure and checks for any orphan immutable lease revision outside the index.
+ORCH-000176 authorizes one instrumented fresh worker-delivery lease acquisition.
 
-## Current next authority — ORCH-000175
+If and only if acquisition is durably proven ACTIVE/indexed, it may proceed to exact preparation option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, prove durable PREPARED, reconcile as PROVEN_NOT_SENT without browser contact, and normally release the lease.
 
-ORCH-000175 is zero-mutation diagnostic work. It must identify the proposed lease identity/binding, exact acquisition stage/status/error, orphan-record state, and smallest safe repair/recovery boundary.
+Any ambiguous external mutation stops the milestone without retry.
 
-It may not acquire/reconcile/release a lease, call preparation, create delivery `000014`, start a host, contact a browser, mutate trigger/source/docs, or touch AFFOTECH/Drive/deployment/private boundaries.
+No host, browser, Architect-trigger, tracked-source, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized beyond the exact lease/delivery preflight envelope.
