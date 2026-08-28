@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000174 and canonical ORCH-000175
+Documentation sync boundary: through Architect-accepted ORCH-000175 and canonical ORCH-000176
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -39,40 +39,41 @@ Accepted action chain:
 
 `observe dispatch → derive/acquire exact WORKER_DELIVERY lease → HOST_DELIVERY_READY → prepareWorkerDeliveryIntent → durable canonical intent/readback → PREPARED → sendWorkerDelivery`.
 
-ORCH-000170 proved the known preparation composition defect: the disposable host composition must supply exact factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when the dispatch does not expose accepted `expectedFreshWorkerDeliveryId`.
+ORCH-000170 proved the preparation composition must supply exact factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when accepted dispatch metadata does not expose `expectedFreshWorkerDeliveryId`.
 
-However ORCH-000174 never reached preparation. Its one authorized worker-delivery lease acquisition returned `AMBIGUOUS` first.
+ORCH-000174 did not test this fix because lease acquisition failed first.
 
-## 5. Lease baseline after ORCH-000173
+## 5. Lease acquisition ambiguity from ORCH-000174
 
-The expired ORCH-000169 lease recovery is closed. Revision `000002` is durably `EXPIRED`, the lease index advanced `369 → 370`, and current `activeLeases=[]`.
+ORCH-000175 read-only diagnosis proved the acquisition ambiguity did not leave durable mutation state:
 
-This clean index is the starting boundary for new worker-delivery lease acquisition.
+- no candidate lease revision matching ORCH-000174 / DISPATCH-000174 / delivery `000014` exists;
+- candidate readback did not succeed;
+- lease-index CAS was not attempted/completed;
+- no orphan immutable lease record exists;
+- index remains revision `370`, `nextLeaseEpoch=186`, `activeLeases=[]`.
 
-## 6. ORCH-000174 acquisition block
+The accepted acquisition path can normalize an unproven candidate create/reconciliation to `AMBIGUOUS`. The ORCH-000174 disposable launcher then discarded the accepted reconciliation descriptor and lower request diagnostics.
 
-ORCH-000174 verified the clean pre-state but stopped at its first mutation:
+Architect classification: `ERROR_PROPAGATION_ONLY_GAP`. No accepted-source lease contract defect is currently proven.
 
-- one lease-acquisition call;
-- outcome `AMBIGUOUS`;
-- preparation calls `0`;
-- delivery `000014` absent;
-- index remained revision `370` with `activeLeases=[]`;
-- browser/host/trigger/source side effects zero.
+## 6. Current authority — ORCH-000176
 
-Architectural conclusion: the explicit worker-delivery ID composition remains unproven because lease acquisition failed before the preparation boundary.
+ORCH-000176 performs one instrumented fresh worker-delivery lease acquisition from the unchanged clean boundary. Instrumentation is semantically inert and preserves bounded request/reconciliation diagnostics.
 
-## 7. Current authority — ORCH-000175
+The milestone may continue past acquisition only if one epoch-186 lease is durably ACTIVE and indexed under exact ORCH-000176 / DISPATCH-000176 binding.
 
-ORCH-000175 is read-only. It traces the accepted lease-acquisition path and determines:
+If acquisition succeeds, the same bounded preflight then:
 
-- exact function/input binding and proposed lease identity/epoch;
-- whether revision `000001` for the attempted ORCH-000174 lease exists as an orphan outside the index;
-- whether ambiguity occurred at revision create/readback, index CAS/readback, binding, disposable request wrapper, or accepted source contract;
-- the smallest safe next boundary.
+1. injects `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
+2. calls accepted preparation once and requires durable `PREPARED`;
+3. keeps browser contact/send zero;
+4. reconciles the prepared delivery as `PROVEN_NOT_SENT / NOT_SENT`;
+5. leaves `LATEST_DELIVERY=000013/SENT`;
+6. normally releases the lease and requires final `activeLeases=[]`.
 
-No acquisition retry, lease/index/revision mutation, worker-delivery preparation, host process, browser, trigger, source, or protected-resource mutation is authorized.
+If any ambiguous external mutation occurs, no retry is permitted.
 
-## 8. Protected boundaries
+## 7. Protected boundaries
 
 Architect session: `9333`; Executor session: `9444`; protected AFFOTECH ports: `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
