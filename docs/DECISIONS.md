@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000175 and canonical ORCH-000176
+Documentation sync boundary: through Architect-classified ORCH-000176 and canonical ORCH-000177
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -26,46 +26,42 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - ORCH-000163 — exactly-once Architect wake.
 - ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
 - ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000170 — preparation `COMPOSITION_ADAPTER_DEFECT`; explicit worker-delivery ID needed in disposable composition.
-- ORCH-000173 — expired ORCH-000169 lease closed; index `369→370`; zero active leases.
+- ORCH-000170 — preparation requires exact disposable worker-delivery ID.
+- ORCH-000173 — expired ORCH-000169 lease closed.
+- ORCH-000175 — acquisition ambiguity left no orphan candidate/index mutation; `ERROR_PROPAGATION_ONLY_GAP`.
 
-## ORCH-000174 — BLOCKED before preparation
-
-Decision:
-
-`GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`
-
-One worker-delivery lease acquisition returned `AMBIGUOUS` before preparation. Delivery `000014` remained absent and index revision `370` remained clean with zero active leases.
-
-## ORCH-000175 — ACCEPTED diagnostic
+## ORCH-000176 — BLOCKED
 
 Decision:
 
-`GH-DEC-175-WORKER-DELIVERY-LEASE-ACQUISITION-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`
+`GH-DEC-176-WORKER-DELIVERY-INSTRUMENTED-ACQUISITION-TRACE-PERSISTENCE-BLOCKED`
 
 Reviewed publication:
 
-`GH-PUB-175-WORKER-DELIVERY-LEASE-ACQUISITION-AMBIGUITY-DIAGNOSTIC-000001`
+`GH-PUB-176-WORKER-DELIVERY-INSTRUMENTED-LEASE-ACQUISITION-PREFLIGHT-BLOCKED-000001`
 
-Architect accepts:
+Architect verified:
 
-- acquisition failure classification `ERROR_PROPAGATION_ONLY_GAP`;
-- no durable candidate lease revision exists for ORCH-000174;
-- candidate readback did not succeed;
-- no index CAS occurred;
-- no orphan immutable lease record exists;
-- index remains revision `370`, next epoch `186`, active lease count `0`;
-- accepted source is not proven defective;
-- ORCH-000174's disposable launcher lost the accepted reconciliation descriptor and concrete lower request outcome.
+- one fresh acquisition call only;
+- accepted result `AMBIGUOUS`;
+- no candidate revision/readback;
+- no index CAS;
+- index unchanged at revision `370`, next epoch `186`, active leases `0`;
+- no preparation or delivery `000014` mutation;
+- no browser/host/trigger/source side effect;
+- wrapper collected safe diagnostics in memory;
+- launcher exited before flushing the trace or reconciliation descriptor.
 
-Decision: do not manually edit the index or patch source. A later acquisition may be authorized only with semantically inert bounded diagnostics at a freshly verified clean boundary.
+Decision rationale:
 
-## Current next authority — ORCH-000176
+`ACQUISITION_REMAINED_AMBIGUOUS_WITH_ZERO_DURABLE_SIDE_EFFECTS_BUT_THE_DISPOSABLE_LAUNCHER_EXITED_BEFORE_FLUSHING_ITS_IN_MEMORY_DIAGNOSTIC_TRACE`.
 
-ORCH-000176 authorizes one instrumented fresh worker-delivery lease acquisition.
+Architect decision: do not perform another acquisition until the disposable trace sink itself is qualified on a harmless read-only request and the wrapper guarantees synchronous durable flush before result interpretation/throw.
 
-If and only if acquisition is durably proven ACTIVE/indexed, it may proceed to exact preparation option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, prove durable PREPARED, reconcile as PROVEN_NOT_SENT without browser contact, and normally release the lease.
+## Current next authority — ORCH-000177
 
-Any ambiguous external mutation stops the milestone without retry.
+ORCH-000177 must first prove durable diagnostic trace flush without mutation. Only then may one fresh acquisition occur.
 
-No host, browser, Architect-trigger, tracked-source, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized beyond the exact lease/delivery preflight envelope.
+If acquisition succeeds durably, the milestone may continue to explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, PREPARED intent, zero-browser PROVEN_NOT_SENT result, and normal lease release.
+
+Any ambiguity stops without retry and must preserve already-flushed diagnostics and a safe reconciliation descriptor.
