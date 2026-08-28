@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-177-WORKER-DELIVERY-DURABLE-TRACE-FLUSH-ACQUISITION-BLOCKED-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "classification": "WORKER_DELIVERY_000014_DURABLE_TRACE_FLUSH_INSTRUMENTED_ACQUISITION_BLOCKED",
+  "status": "BLOCKED",
+  "messageId": "ORCH-000177",
+  "dispatchId": "DISPATCH-000177",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.DURABLE.TRACE.FLUSH.INSTRUMENTED.ACQUISITION.EXPLICIT.ID.PREFLIGHT.1A",
+  "architectDecisionId": "GH-DEC-176-WORKER-DELIVERY-INSTRUMENTED-ACQUISITION-TRACE-PERSISTENCE-BLOCKED",
+  "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256": "fa0013b72f747ca1519c915c54ebcf91d383c7189a17cf3f6dbe4b6931b513e6",
+  "authorityRef": "33b81cc5fc14c44f764af8cff9dac7ab3dd0633e",
+  "preflight": {
+    "preconditionsVerified": true,
+    "traceFlushProbePassed": true,
+    "traceFlushedBeforeInterpretation": true,
+    "leaseAcquireCallCount": 1,
+    "leaseAcquireOutcome": "AMBIGUOUS",
+    "reconciliationDescriptor": {
+      "leaseId": "MUTATION-LEASE-HOST-d91c7b9535d971b0d8ed869959f53a34",
+      "recordPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-d91c7b9535d971b0d8ed869959f53a34/revisions/000001.json",
+      "epoch": 186
+    },
+    "candidateRevisionExists": false,
+    "candidateRevisionReadBack": false,
+    "indexRevisionBefore": 370,
+    "indexRevisionAfter": 370,
+    "nextLeaseEpochBefore": 186,
+    "nextLeaseEpochAfter": 186,
+    "activeLeaseCountAfter": 0,
+    "orphanCandidateFound": false,
+    "delivery000014IntentExists": false,
+    "delivery000014ResultExists": false,
+    "latestDelivery": "WORKER-DELIVERY-EXECUTOR-000013/SENT"
+  },
+  "diagnosis": {
+    "classification": "DISPOSABLE_ACQUISITION_CLIENT_ADAPTER_DEFECT",
+    "failingPath": "disposable request adapter -> github-contents-runtime-client.createJson precheck -> githubRuntimePorts.acquireMutationLease",
+    "request": {
+      "operation": "GET",
+      "repositoryRelativeEndpoint": "/repos/nakfreeajer/affotech-agent-orchestrator-evidence/contents/evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-d91c7b9535d971b0d8ed869959f53a34/revisions/000001.json",
+      "ghExitCode": 1,
+      "httpStatus": 404,
+      "stableErrorType": "GITHUB_API_ERROR",
+      "reason": "gh: Not Found (HTTP 404)",
+      "redactedStderr": "gh: Not Found (HTTP 404)",
+      "responseJsonParseable": false
+    },
+    "clientNormalization": {
+      "adapterErrorStatusSuppliedToClient": 1,
+      "notFoundPredicateAccepted": false,
+      "normalizedResult": "CREATE_PRECHECK_FAILED",
+      "runtimeResult": "AMBIGUOUS",
+      "candidatePutIssued": false,
+      "indexCasIssued": false
+    },
+    "reason": "The adapter overwrote the HTTP semantic status with the gh process exit code. Because the accepted client recognizes NOT_FOUND only from code NOT_FOUND, status 404, statusCode 404, or absent=true, the normal missing candidate precondition was treated as a precheck failure. The accepted runtime then returned AMBIGUOUS with its reconciliation descriptor before any mutation."
+  },
+  "traceQualification": {
+    "probeEndpoint": "/repos/nakfreeajer/affotech-agent-orchestrator-evidence/contents/evidence/diagnostics/ORCH-000177-NONEXISTENT-PROBE.json",
+    "probeMethod": "GET",
+    "probeGhExitCode": 1,
+    "probeHttpStatus": 404,
+    "probeStableErrorType": "GITHUB_API_ERROR",
+    "probeAcceptedNormalizedResult": "AMBIGUOUS_OR_ERROR",
+    "probeTraceReadBack": true,
+    "credentialLeakage": false
+  },
+  "nextAction": {
+    "sourcePatchRequired": false,
+    "retryAuthorized": false,
+    "smallestRepair": "correct only the disposable request adapter to preserve HTTP 404 semantics while retaining gh exit diagnostics, then obtain a fresh Architect-authorized acquisition at a verified clean boundary",
+    "manualIndexEdit": false
+  },
+  "mutationAccounting": {
+    "leaseAcquireCalls": 1,
+    "leaseRevisionCreateCount": 0,
+    "leaseIndexCasCount": 0,
+    "leaseReleaseCount": 0,
+    "workerDeliveryIntentCount": 0,
+    "workerDeliveryResultCount": 0,
+    "browserContactCount": 0,
+    "browserSendCount": 0,
+    "hostProcessMutation": 0,
+    "architectTriggerMutation": 0,
+    "trackedSourceMutation": 0,
+    "testMutation": 0,
+    "configMutation": 0,
+    "documentationMutation": 0,
+    "governanceMutation": 0,
+    "acceptedSourcePointerMutation": 0,
+    "affotechAccess": 0,
+    "driveAccess": 0,
+    "deploymentAccess": 0,
+    "privateBusinessDataAccess": 0,
+    "protectedPortContactCount": 0,
+    "assistantMessageTextRead": false,
+    "responseDomRead": false,
+    "localGitRuntimePersistence": 0
+  },
+  "requiresArchitectDecision": true
+}
