@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
+Documentation sync boundary: through Architect-accepted ORCH-000173 and canonical ORCH-000174
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -16,54 +16,54 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## Preparation lesson
 
-Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence. The correct later preparation fix is exact disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative source patch.
+Host `000027` supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation therefore failed with `WORKER_DELIVERY_ID_REQUIRED` before persistence.
 
-## Lease lesson from ORCH-000171
+Lesson: deterministic adapter boundaries require the exact accepted field/option contract. The correct preparation repair is explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, not a speculative tracked-source patch.
 
-A correctly bound recovery can still fail at durable mutation transport. ORCH-000171 executed the accepted reconciliation once and reproduced `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with no revision `000002`, no index CAS, and no unrelated mutation.
+## Lease ambiguity lesson
 
-Correct response: diagnose the write/readback seam, not another blind call.
+ORCH-000171 proved a correctly bound reconciliation can still remain ambiguous at durable transport. The correct response was not another blind retry; ORCH-000172 traced the create/readback seam and identified an `ERROR_PROPAGATION_ONLY_GAP`.
 
-## ORCH-000172 — error-propagation-only gap
+## ORCH-000173 — instrumentation can preserve semantics and resolve ambiguity
 
-The seam diagnostic proved:
+ORCH-000173 wrapped only the disposable GitHub request function while preserving accepted method, endpoint, branch, payload, encoding, auth, sequencing and normalization.
 
-- accepted `createGitHubContentsRuntimeClient` / `createJson` was used;
-- revision `000002` path is the accepted lease-revision path;
-- projected EXPIRED record is deterministic and schema-valid;
-- known-good creates use the same GitHub Contents request model, repository, branch, auth and encoding;
-- no path/payload/schema/auth/runtime-create defect is proven;
-- the client returns `AMBIGUOUS / POST_MUTATION_ABSENT` when PUT/readback cannot be proven;
-- reconciliation then collapses this to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`;
-- the disposable wrapper discarded the concrete `gh`/HTTP status/error.
+The exact reconciliation then succeeded:
 
-Classification: `ERROR_PROPAGATION_ONLY_GAP`.
+- absent revision `000002` precheck returned expected 404;
+- exact PUT succeeded;
+- exact readback succeeded;
+- revision `000002` became durable `EXPIRED` state;
+- one index CAS advanced `369 → 370`;
+- target lease removed;
+- `activeLeases=[]`.
 
-Lesson: **safe fail-closed normalization is not enough for operability if it destroys the evidence needed to repair a transport failure**. Preserve bounded non-sensitive transport diagnostics at disposable runtime boundaries.
+Lesson: **observability instrumentation is safe and useful only when it is semantically inert**. It can distinguish a true transport failure from an opaque normalized ambiguity without weakening retry discipline.
 
-## Instrumentation must not mutate semantics
+The closed expired lease must not be reopened without regression evidence.
 
-Diagnostic instrumentation may record operation label, HTTP method/path, process exit code, HTTP status, stable error reason, redacted bounded stderr, parseability, and normalized result. It must not change method, URL, body, branch, encoding, auth, sequencing, accepted normalization, or retry behavior.
+## Recovery separation lesson
 
-This distinction makes an instrumented retry evidence-driven rather than blind.
+Lease recovery and worker-delivery preparation are independent seams. Closing one does not prove the other.
 
-## ORCH-000173 rule
+Correct order now is:
 
-Exactly one instrumented accepted expired-lease reconciliation is authorized under the unchanged ORCH-000169 lease binding.
+1. lease ambiguity closed and active lease count verified zero;
+2. prove preparation with exact `workerDeliveryId` and no browser contact;
+3. reconcile the preflight as proven-not-sent;
+4. release its lease normally;
+5. only then arm a fresh host;
+6. resume unattended dispatch → Executor → terminal → Architect wake qualification.
 
-Success requires revision `000002` durable readback and one exact index CAS leaving `activeLeases=[]`.
+## ORCH-000174 rule
 
-If it fails or remains ambiguous, no retry is allowed. The concrete redacted transport diagnostics become the next Architect evidence.
+ORCH-000174 may acquire one worker-delivery lease and prepare exactly one delivery ID:
 
-No new lease, preparation retry, host action, browser contact, delivery/trigger mutation, or tracked source patch may be mixed into this milestone.
+`WORKER-DELIVERY-EXECUTOR-000014`.
 
-## Recovery ordering
+Success requires durable `PREPARED`, exact ORCH-000174 / DISPATCH-000174 lineage, browser contact/send `0/0`, durable `PROVEN_NOT_SENT / NOT_SENT` result, `LATEST_DELIVERY` still `000013/SENT`, normal lease release before expiry, and final `activeLeases=[]`.
 
-1. obtain concrete transport diagnostics and close the expired lease if possible;
-2. verify `activeLeases=[]`;
-3. separately retry preparation with exact `workerDeliveryId` composition;
-4. prove durable `PREPARED` before browser contact;
-5. arm a fresh host and resume full-cycle qualification.
+No host action, Architect trigger, browser contact, or tracked source patch may be mixed into this proof.
 
 ## Current success criterion
 
