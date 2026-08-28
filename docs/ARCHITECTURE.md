@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000172 and canonical ORCH-000173
+Documentation sync boundary: through Architect-accepted ORCH-000173 and canonical ORCH-000174
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -39,37 +39,43 @@ Accepted action chain:
 
 `observe dispatch → derive/acquire exact WORKER_DELIVERY lease → HOST_DELIVERY_READY → prepareWorkerDeliveryIntent → durable canonical intent/readback → PREPARED → sendWorkerDelivery`.
 
-ORCH-000170 proved host `000027` failed because its disposable composition supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation returned `WORKER_DELIVERY_ID_REQUIRED`. The later preparation fix remains disposable launcher injection of `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`; no tracked source repair is currently proven necessary for that seam.
+ORCH-000170 proved host `000027` failed because its disposable composition supplied neither `expectedFreshWorkerDeliveryId` nor factory `workerDeliveryId`; accepted preparation returned `WORKER_DELIVERY_ID_REQUIRED` before persistence.
 
-## 5. Expired-lease create/readback seam
+The smallest repair remains composition-only: explicitly inject `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` while preserving the accepted GitHub-backed persistence adapter.
 
-Target lease:
+## 5. Expired-lease recovery is closed
 
-`MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98`, epoch `185`, revision `1`, bound to `ORCH-000169 / DISPATCH-000169`, expired but indexed `ACTIVE` at index revision `369`.
+ORCH-000173 is accepted under:
 
-ORCH-000171 executed one exact accepted reconciliation and reproduced `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with no revision `000002` and no index advancement.
+`GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED`.
 
-ORCH-000172 then traced the concrete path. Architect accepted:
+One exact instrumented accepted reconciliation:
 
-- ORCH-000171 used accepted `createGitHubContentsRuntimeClient` and accepted `createJson`;
-- revision `000002` uses accepted lease-revision path and deterministic schema-valid expired projection;
-- the path uses normal GitHub Contents GET → PUT → GET readback and the same repository/branch/auth/base64 model as known-good creates;
-- no path, payload, schema, auth, or accepted `createJson` defect is proven;
-- the client normalizes the unproven mutation to `AMBIGUOUS / POST_MUTATION_ABSENT`;
-- runtime reconciliation then collapses that to `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`;
-- the disposable request wrapper did not preserve the underlying `gh`/HTTP failure.
+- created/read back lease revision `000002` as `EXPIRED`;
+- preserved exact epoch/lineage/scope/envelope and previous-record hash;
+- advanced the lease index exactly `369 → 370`;
+- removed only the target lease;
+- left `activeLeases=[]`;
+- produced zero browser, host, worker-delivery, Architect-trigger, or source side effects.
 
-Classification: `ERROR_PROPAGATION_ONLY_GAP`.
+The earlier ambiguity did not prove a path/schema/runtime defect; instrumentation showed the revision PUT/readback can succeed with unchanged accepted semantics.
 
-## 6. Current authority — ORCH-000173
+## 6. Current preparation proof — ORCH-000174
 
-ORCH-000173 performs one instrumented exact reconciliation with the immutable lease binding and unchanged accepted request semantics.
+ORCH-000174 is deliberately smaller than a host restart.
 
-Only the disposable injected request wrapper may add non-sensitive diagnostics. It must preserve method, endpoint, branch, body, encoding, authentication, sequencing, accepted normalization, and retry count exactly.
+It must:
 
-If revision `000002` is durably created/read back, one index CAS may remove only the target lease. If the call is not proven successful, no retry is allowed; the concrete PUT/readback transport error must be reported.
+1. begin from index revision `370` with zero active leases;
+2. acquire at most one new worker-delivery lease;
+3. use the accepted preparation path with explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
+4. require `PREPARED`, `durableRecorded=true`, exact immutable intent/readback, and exact ORCH-000174 / DISPATCH-000174 lineage;
+5. keep browser contact/send exactly zero;
+6. reconcile the prepared preflight as accepted `PROVEN_NOT_SENT / NOT_SENT` without sending;
+7. keep `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+8. release the lease normally before expiry and finish with `activeLeases=[]`.
 
-No new lease, preparation, host, browser, delivery, trigger, source, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
+No host process may be started or stopped in ORCH-000174. A fresh host may be armed only after this composition is independently proven.
 
 ## 7. Protected boundaries
 
