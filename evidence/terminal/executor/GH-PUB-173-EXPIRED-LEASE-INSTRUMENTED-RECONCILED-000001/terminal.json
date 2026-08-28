@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-173-EXPIRED-LEASE-INSTRUMENTED-RECONCILED-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "classification": "EXPIRED_WORKER_DELIVERY_LEASE_RECONCILED_WITH_INSTRUMENTED_TRANSPORT",
+  "status": "COMPLETED",
+  "messageId": "ORCH-000173",
+  "dispatchId": "DISPATCH-000173",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.LEASE.INSTRUMENTED.EXACT.RECONCILIATION.1A",
+  "architectDecisionId": "GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED",
+  "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256": "2883557121a148d1e035649d82c119f6e2261a66bd330e9019fdf5835410cb7e",
+  "preconditionAuthorityRef": "d166eef32d627f859d62265b507034de89ecebe7",
+  "targetLease": { "leaseId": "MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98", "leaseEpoch": 185, "leaseRevisionBefore": 1, "messageId": "ORCH-000169", "dispatchId": "DISPATCH-000169", "previousRevisionPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98/revisions/000001.json", "nextRevisionPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98/revisions/000002.json" },
+  "reconcileExpiredMutationLeaseCallCount": 1,
+  "reconcileOutcome": { "status": "EXPIRED_RECONCILED", "leaseId": "MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98", "transportCompletion": "AMBIGUOUS", "deliverySuccess": false },
+  "instrumentedTransport": [
+    { "label": "revision-000002-readback", "method": "GET", "httpStatus": 404, "ghExitCode": 1, "stableErrorType": "GITHUB_API_ERROR", "reason": "Not Found", "responseJsonParseable": true },
+    { "label": "revision-000002-put", "method": "PUT", "endpoint": "/repos/nakfreeajer/affotech-agent-orchestrator-evidence/contents/evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-97e204bd87c1b341df79b1d787987f98/revisions/000002.json", "ghExitCode": 0, "httpStatus": null, "stableErrorType": null, "stderr": "", "responseJsonParseable": true },
+    { "label": "revision-000002-readback", "method": "GET", "ghExitCode": 0, "httpStatus": null, "stableErrorType": null, "stderr": "", "responseJsonParseable": true },
+    { "label": "revision-000002-readback", "method": "GET", "ghExitCode": 0, "httpStatus": null, "stableErrorType": null, "stderr": "", "responseJsonParseable": true }
+  ],
+  "revision000002": { "exists": true, "readBack": true, "recordType": "MUTATION_LEASE", "leaseRevision": 2, "leaseEpoch": 185, "state": "EXPIRED", "previousRecordSha256": "14454ef82e9106080b433818fbf73f8b8bbd3bc4b20e42de938bc025e0c2fad2", "messageId": "ORCH-000169", "dispatchId": "DISPATCH-000169", "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8", "mutationEnvelopeSha256": "cf7b580844e419c946a27e58139b16e0d9657a23480b238abe095750c77b7a74" },
+  "index": { "beforeRevision": 369, "afterRevision": 370, "activeLeaseCountBefore": 1, "activeLeaseCountAfter": 0, "targetLeasePresentAfter": false, "otherEntriesChanged": false, "casCount": 1, "readBackVerified": true },
+  "transportBaseline": { "browserContactCount": 0, "browserSendCount": 0, "hostProcessMutation": 0, "workerDeliveryMutation": 0, "architectTriggerMutation": 0, "assistantMessageTextRead": false, "responseDomRead": false },
+  "mutationAccounting": { "newLeaseAcquireCount": 0, "reconcileExpiredMutationLeaseCalls": 1, "leaseRevisionCreateCount": 1, "leaseIndexCasCount": 1, "trackedSourceMutation": 0, "testMutation": 0, "configMutation": 0, "documentationMutation": 0, "governanceMutation": 0, "acceptedSourcePointerMutation": 0, "affotechAccess": 0, "driveAccess": 0, "deploymentAccess": 0, "privateBusinessDataAccess": 0, "protectedPortContactCount": 0, "localGitRuntimePersistence": 0 },
+  "requiresArchitectDecision": true
+}

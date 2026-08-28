@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-173-EXPIRED-LEASE-INSTRUMENTED-RECONCILED-000001",
+  "messageId": "ORCH-000173",
+  "dispatchId": "DISPATCH-000173",
+  "status": "COMPLETED",
+  "classification": "EXPIRED_WORKER_DELIVERY_LEASE_RECONCILED_WITH_INSTRUMENTED_TRANSPORT",
+  "reconcileCallCount": 1,
+  "revision000002ReadBack": true,
+  "indexRevisionBefore": 369,
+  "indexRevisionAfter": 370,
+  "activeLeaseCountAfter": 0,
+  "newLeaseAcquireCount": 0,
+  "browserContactCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
