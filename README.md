@@ -36,47 +36,40 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000167: persistent host automatically detected a newer Architect dispatch without manual forwarding.
 - ORCH-000170: preparation failure classified `COMPOSITION_ADAPTER_DEFECT`; host `000027` omitted accepted `workerDeliveryId`; no tracked source repair is currently required.
 
-## ORCH-000171 — exact lease recovery INCONCLUSIVE
-
-One correctly bound accepted `reconcileExpiredMutationLease` call repeated:
-
-`AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
-
-Revision `000002` remained absent, index revision remained `369`, the expired ORCH-000169 lease remained the sole ACTIVE entry, and no browser/host/delivery/trigger/source side effect occurred.
+## ORCH-000173 — ACCEPTED lease closure
 
 Architect decision:
 
-`GH-DEC-171-EXPIRED-WORKER-DELIVERY-LEASE-RECONCILIATION-INCONCLUSIVE`.
+`GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED`
 
-## ORCH-000172 — ACCEPTED error-propagation diagnostic
+One exact instrumented `reconcileExpiredMutationLease` call succeeded without changing accepted request semantics.
 
-Architect decision:
+Durable proof:
 
-`GH-DEC-172-EXPIRED-LEASE-CREATE-READBACK-ERROR-PROPAGATION-DIAGNOSTIC-ACCEPTED`.
+- revision `000002` exists and reads back as `EXPIRED` with exact ORCH-000169 lineage;
+- `previousRecordSha256` binds exactly to revision `000001`;
+- lease-index revision advanced exactly `369 → 370`;
+- only the target lease was removed;
+- `activeLeases=[]`;
+- no new lease, browser, host, delivery, trigger, or source side effect occurred.
 
-The accepted GitHub Contents client and accepted `createJson` path were used by ORCH-000171. The projected revision path, payload, schema, repository, branch, base64 encoding, and authentication model are not proven defective and match known-good durable creates.
+The instrumented transport observed an initial expected GET 404 for absent revision `000002`, then a successful PUT and exact readback. The previous ambiguity is closed.
 
-The concrete accepted normalized failure is:
+## Current next — ORCH-000174
 
-`AMBIGUOUS / POST_MUTATION_ABSENT`
+`DISPATCH-000174` is a zero-browser worker-delivery preparation preflight.
 
-which is then collapsed by runtime reconciliation to:
+It explicitly injects:
 
-`EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`.
+`workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`
 
-The lower-level `gh`/HTTP failure was not preserved by the disposable request wrapper. Classification: `ERROR_PROPAGATION_ONLY_GAP`. No tracked source repair is currently proven necessary.
+It may acquire one new worker-delivery lease, call accepted `prepareWorkerDeliveryIntent` once, and must prove durable `PREPARED` intent creation/readback with exact ORCH-000174 / DISPATCH-000174 lineage.
 
-Current lease state is still unchanged: revision `000002` absent; index revision `369`; one expired ACTIVE target lease.
+Without contacting any browser, it must then reconcile delivery `000014` as `PROVEN_NOT_SENT / NOT_SENT`, keep `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT`, release the lease normally before expiry, and finish with `activeLeases=[]`.
 
-## Current next — ORCH-000173
+No host process action, browser contact/send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
 
-`DISPATCH-000173` authorizes one **instrumented exact reconciliation**. It uses the same accepted reconciliation/client semantics and same immutable lease binding, but wraps only the disposable injected request function to preserve non-sensitive transport diagnostics such as operation, method/path, exit code, HTTP status, stable error reason, redacted stderr, JSON parseability, and accepted normalized result.
-
-The wrapper must not change request method, endpoint, branch, body, encoding, authentication, sequencing, accepted normalization, or retry count.
-
-If revision `000002` and the index CAS succeed, the lease may close to `activeLeases=[]`. If not, no retry is permitted; the concrete transport failure must be published for Architect review.
-
-No new lease, preparation retry, delivery `000014`, host action, browser contact, source patch, trigger action, AFFOTECH, Drive, deployment, tenant, or private-data mutation is authorized.
+Only after this preparation composition is proven may a fresh persistent host be armed.
 
 ## Protected boundary
 
