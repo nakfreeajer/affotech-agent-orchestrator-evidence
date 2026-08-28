@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-accepted ORCH-000173 and canonical ORCH-000174
+Documentation sync boundary: through Architect-classified ORCH-000174 and canonical ORCH-000175
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -15,9 +15,9 @@ Key accepted milestones:
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005 / SENT` exactly once.
 - ORCH-000165: legacy worker-delivery lineage compatibility repair accepted with full deterministic `817/817`.
 
-Documentation ownership is `ARCHITECT_DIRECT`; Curator is not an active required role.
+Documentation ownership is `ARCHITECT_DIRECT`.
 
-## ORCH-000166 through ORCH-000170
+## ORCH-000166 through ORCH-000173
 
 ORCH-000166 safely armed persistent host `000026`.
 
@@ -27,43 +27,41 @@ ORCH-000168 proved accepted source already executes the preparation action and i
 
 ORCH-000169 attempted composition-first recovery and fresh host `000027`; preparation still failed before intent creation and an expired worker-delivery lease remained active after ambiguous reconciliation.
 
-ORCH-000170 independently diagnosed preparation as `COMPOSITION_ADAPTER_DEFECT`: host `000027` omitted accepted `workerDeliveryId`. It also proved the expired-lease recovery binding was correct.
+ORCH-000170 diagnosed preparation as `COMPOSITION_ADAPTER_DEFECT`: host `000027` omitted accepted `workerDeliveryId`.
 
-## ORCH-000171 / ORCH-000172 — ambiguity isolation
-
-ORCH-000171 executed one exact accepted expired-lease reconciliation under unchanged preconditions and returned `AMBIGUOUS / EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS` with no durable side effect.
-
-ORCH-000172 traced the create/readback seam and was accepted as `ERROR_PROPAGATION_ONLY_GAP`: accepted path/payload/schema semantics were not proven defective, while the disposable/runtime layers had hidden the concrete GitHub transport outcome.
-
-## ORCH-000173 — expired lease closed
-
-Architect authorized one instrumented exact reconciliation with unchanged accepted request semantics.
-
-Execution proved:
-
-- initial revision-`000002` precheck returned expected 404;
-- the exact GitHub Contents PUT succeeded;
-- revision `000002` read back as exact `EXPIRED` projection of revision `000001`;
-- one index CAS advanced revision `369 → 370`;
-- only the target lease was removed;
-- current active lease count is `0`;
-- no browser, host, worker-delivery, trigger, source, AFFOTECH or Drive side effect occurred.
+ORCH-000171 / 172 isolated the expired-lease create/readback ambiguity; ORCH-000173 then closed that lease under one instrumented accepted reconciliation. Revision `000002` became durable `EXPIRED`, index revision advanced `369→370`, and active lease count became zero.
 
 Architect accepted:
 
 `GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED`.
 
-The ORCH-000169 lease recovery chain is closed.
+## ORCH-000174 — preparation preflight BLOCKED at lease acquisition
 
-## ORCH-000174 — current preparation preflight
+ORCH-000174 was intentionally smaller than a host restart and explicitly targeted `WORKER-DELIVERY-EXECUTOR-000014`.
 
-The project now returns to the independent preparation seam.
+Its clean pre-state passed, but the single authorized worker-delivery lease acquisition returned `AMBIGUOUS` before preparation.
 
-ORCH-000174 explicitly supplies `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, acquires at most one worker-delivery lease, and must prove one durable `PREPARED` intent with zero browser contact.
+Durable post-state:
 
-The prepared preflight must then be durably reconciled as `PROVEN_NOT_SENT / NOT_SENT`, leaving `LATEST_DELIVERY=000013/SENT`, and its lease must be released normally before expiry so active lease count returns to zero.
+- preparation calls `0`;
+- delivery `000014` intent/result absent;
+- no proven-not-sent reconciliation;
+- index revision still `370`;
+- `activeLeases=[]`;
+- latest delivery remains `000013/SENT`;
+- browser/host/trigger/source side effects zero.
 
-Only after this preparation proof is accepted should Architect arm a fresh host identity and resume the unattended full-cycle qualification.
+Architect classified:
+
+`GH-DEC-174-WORKER-DELIVERY-PREFLIGHT-LEASE-ACQUISITION-BLOCKED`.
+
+The explicit worker-delivery ID fix remains unproven because execution never reached `prepareWorkerDeliveryIntent`.
+
+## ORCH-000175 — current acquisition ambiguity diagnostic
+
+The next milestone is read-only. It must determine the exact lease acquisition function/binding, proposed lease ID/epoch, whether an ORCH-000174 immutable revision record exists outside the current index, the exact create/readback/index-CAS failure stage, and the smallest safe next boundary.
+
+No acquisition retry or other mutation is authorized.
 
 ## Current target
 
