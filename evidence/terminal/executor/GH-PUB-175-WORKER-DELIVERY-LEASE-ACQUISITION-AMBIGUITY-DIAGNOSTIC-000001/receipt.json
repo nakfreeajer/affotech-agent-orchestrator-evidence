@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-175-WORKER-DELIVERY-LEASE-ACQUISITION-AMBIGUITY-DIAGNOSTIC-000001",
+  "messageId": "ORCH-000175",
+  "dispatchId": "DISPATCH-000175",
+  "status": "COMPLETED",
+  "classification": "WORKER_DELIVERY_LEASE_ACQUISITION_AMBIGUITY_DIAGNOSTIC_COMPLETE",
+  "diagnosticOnly": true,
+  "leaseAcquireCalls": 0,
+  "candidateRevisionFound": false,
+  "activeLeaseCount": 0,
+  "indexRevision": 370,
+  "delivery000014Exists": false,
+  "browserContactCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}
