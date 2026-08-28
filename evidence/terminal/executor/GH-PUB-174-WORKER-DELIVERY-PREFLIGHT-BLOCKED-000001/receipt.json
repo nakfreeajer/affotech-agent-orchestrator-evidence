@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-174-WORKER-DELIVERY-PREFLIGHT-BLOCKED-000001",
+  "messageId": "ORCH-000174",
+  "dispatchId": "DISPATCH-000174",
+  "status": "BLOCKED",
+  "classification": "WORKER_DELIVERY_000014_PREPARATION_AND_PROVEN_NOT_SENT_PREFLIGHT_BLOCKED",
+  "leaseAcquireCount": 1,
+  "leaseAcquireOutcome": "AMBIGUOUS",
+  "preparationCallCount": 0,
+  "delivery000014Exists": false,
+  "activeLeaseCount": 0,
+  "browserContactCount": 0,
+  "browserSendCount": 0,
+  "sourceMutation": 0,
+  "requiresArchitectDecision": true
+}

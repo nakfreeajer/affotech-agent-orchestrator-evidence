@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-174-WORKER-DELIVERY-PREFLIGHT-BLOCKED-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "classification": "WORKER_DELIVERY_000014_PREPARATION_AND_PROVEN_NOT_SENT_PREFLIGHT_BLOCKED",
+  "status": "BLOCKED",
+  "messageId": "ORCH-000174",
+  "dispatchId": "DISPATCH-000174",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.PREPARATION.EXPLICIT.ID.ZERO.BROWSER.PREFLIGHT.1A",
+  "architectDecisionId": "GH-DEC-173-EXPIRED-WORKER-DELIVERY-LEASE-INSTRUMENTED-RECONCILIATION-ACCEPTED",
+  "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256": "7fe17a4ca3bffae4873adfb2803b25392bb8127b32461e6c13003ea8e8a0ed5b",
+  "preconditionsVerified": true,
+  "blockedReasonCode": "WORKER_DELIVERY_PREFLIGHT_LEASE_ACQUISITION_AMBIGUOUS",
+  "preflight": { "explicitDeliveryId": "WORKER-DELIVERY-EXECUTOR-000014", "leaseAcquireCount": 1, "leaseAcquireOutcome": "AMBIGUOUS", "preparationCallCount": 0, "intentExists": false, "resultExists": false, "provenNotSent": false, "latestDelivery": "WORKER-DELIVERY-EXECUTOR-000013/SENT", "finalActiveLeaseCount": 0, "indexRevision": 370 },
+  "postState": { "targetLeaseActive": false, "delivery000014Exists": false, "latestArchitectTrigger": "ARCH-TRIGGER-9333-000005/SENT", "architectTrigger000006Exists": false, "hostProcessMutation": 0 },
+  "noRetryPerformed": true,
+  "mutationAccounting": { "newLeaseAcquireCount": 1, "workerDeliveryIntentCount": 0, "workerDeliveryResultCount": 0, "leaseCleanupCallCount": 0, "browserContactCount": 0, "browserSendCount": 0, "hostProcessMutation": 0, "architectTriggerMutation": 0, "sourceMutation": 0, "testMutation": 0, "configMutation": 0, "documentationMutation": 0, "governanceMutation": 0, "acceptedSourcePointerMutation": 0, "affotechAccess": 0, "driveAccess": 0, "deploymentAccess": 0, "privateBusinessDataAccess": 0, "protectedPortContactCount": 0, "assistantMessageTextRead": false, "responseDomRead": false, "localGitRuntimePersistence": 0 },
+  "requiresArchitectDecision": true
+}
