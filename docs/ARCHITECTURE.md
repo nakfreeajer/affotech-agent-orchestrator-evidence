@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000177 and canonical ORCH-000178
+Documentation sync boundary: through Architect-classified ORCH-000178 and canonical ORCH-000179
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -33,47 +33,45 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## 4. Worker-delivery chain
 
-Accepted order:
+Accepted target order:
 
-`observe dispatch → acquire exact WORKER_DELIVERY lease → prepareWorkerDeliveryIntent → durable PREPARED intent/readback → sendWorkerDelivery → durable result → release/reconcile lease`.
+`observe dispatch → acquire exact WORKER_DELIVERY lease → prepareWorkerDeliveryIntent → durable PREPARED intent/readback → send/reconcile result → release/reconcile lease`.
 
-ORCH-000170 proved preparation requires exact disposable factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when no accepted fresh-delivery ID is otherwise supplied. That fix remains unproven because later preflights have stopped at lease acquisition first.
+For the zero-browser preflight, the send step is replaced by accepted PROVEN_NOT_SENT reconciliation.
 
-## 5. Lease baseline
+ORCH-000170 proved preparation needs exact disposable factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when no accepted fresh-delivery ID is otherwise supplied.
 
-ORCH-000173 closed the prior expired lease. Current clean baseline remains:
+## 5. Disposable GitHub adapter contract is now proven for acquisition
 
-- lease-index revision `370`;
-- `nextLeaseEpoch=186`;
-- `activeLeases=[]`.
+ORCH-000177 identified that `ghExitCode=1` had overwritten actual GitHub HTTP `404` semantics. ORCH-000178 corrected only that disposable boundary.
 
-No later preflight has produced a candidate revision or index CAS.
+Proven behavior:
 
-## 6. ORCH-000177 — exact disposable adapter defect
+- actual GitHub 404 reaches the accepted client as semantic status `404`/NOT_FOUND;
+- `ghExitCode=1` remains separate diagnostics;
+- accepted candidate precheck succeeds as normal absence;
+- accepted acquisition can create/read back an ACTIVE lease and activate it in the index;
+- accepted normal release can create/read back RELEASED revision and remove the lease from the index.
 
-ORCH-000177 successfully proved the durable diagnostic trace lifecycle before mutation. Its one acquisition call then exposed the precise failure:
+ORCH-000178 lease `MUTATION-LEASE-HOST-553f5ff7a8db44a8bf8bbf091309bb19` proves revision `000001=ACTIVE`, revision `000002=RELEASED`, epoch `186`.
 
-- candidate-path GET returned HTTP `404`;
-- `gh` process exit code was `1`;
-- disposable adapter supplied semantic status `1` to the accepted client;
-- accepted `notFound()` predicate therefore returned false;
-- `createJson` normalized to `CREATE_PRECHECK_FAILED`;
-- `acquireMutationLease` returned `AMBIGUOUS`;
-- candidate PUT and index CAS were never issued.
+Final clean boundary is index revision `372`, next epoch `187`, active leases `0`.
 
-Architectural conclusion: accepted lease-acquisition semantics are not proven defective. The immediate defect is the disposable request adapter conflating transport-process exit status with HTTP semantic status.
+## 6. ORCH-000178 remaining defect — launcher continuation
 
-## 7. Current authority — ORCH-000178
+ORCH-000178 did not reach preparation. The temporary launcher treated successful acquisition as the end of its active work and terminated before invoking `prepareWorkerDeliveryIntent`, then released the lease normally.
 
-ORCH-000178 changes only the disposable adapter boundary. It must preserve:
+This is a disposable control-flow defect, not evidence of an accepted acquisition or source-contract defect.
 
-- HTTP semantic status/statusCode `404` for an actual GitHub 404;
-- `ghExitCode=1` separately as diagnostic metadata;
-- durable trace flush before result interpretation.
+## 7. Current authority — ORCH-000179
 
-A harmless read-only missing-path probe must prove accepted NOT_FOUND recognition before any mutation.
+ORCH-000179 uses one continuous disposable launcher/process with required successful-path order:
 
-Only then may one `acquireMutationLease` call run. If that lease becomes durably ACTIVE and indexed, the milestone may continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, one durable PREPARED intent, zero-browser PROVEN_NOT_SENT result, and one normal lease release.
+`ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+
+A successful acquisition is explicitly not a terminal condition. The exact returned lease binding must stay in the same process and the launcher must immediately call preparation with `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+
+Success requires durable PREPARED intent, zero browser contact, durable PROVEN_NOT_SENT/NOT_SENT result, normal release before expiry, final active leases `0`, and latest delivery still `000013/SENT`.
 
 No tracked source patch, host process, browser, Architect trigger, or protected-resource mutation is authorized.
 
