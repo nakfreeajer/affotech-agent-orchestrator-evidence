@@ -34,36 +34,33 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000167: persistent host automatically detected a newer Architect dispatch without manual forwarding.
 - ORCH-000170: preparation defect isolated to missing disposable `workerDeliveryId`; no tracked source repair required.
 - ORCH-000173: expired ORCH-000169 lease durably closed; index `369→370`, `activeLeases=[]`.
-- ORCH-000175: no orphan ORCH-000174 lease candidate exists; acquisition ambiguity classified `ERROR_PROPAGATION_ONLY_GAP`.
+- ORCH-000175: no orphan ORCH-000174 lease candidate exists; acquisition ambiguity was an error-propagation gap.
 
-## ORCH-000176 — BLOCKED at instrumented acquisition
+## ORCH-000177 — BLOCKED with concrete acquisition cause
 
 Architect decision:
 
-`GH-DEC-176-WORKER-DELIVERY-INSTRUMENTED-ACQUISITION-TRACE-PERSISTENCE-BLOCKED`
+`GH-DEC-177-WORKER-DELIVERY-ACQUISITION-HTTP-STATUS-ADAPTER-BLOCKED`
 
-One fresh instrumented worker-delivery lease acquisition was attempted from the clean revision-370 boundary. It again returned `AMBIGUOUS` before preparation.
+The durable trace qualification passed. The single acquisition then failed before any mutation because the disposable request adapter supplied `status=1` from the `gh` process exit code even though the actual GitHub response was HTTP `404 Not Found`.
 
-Durable post-state remains clean:
+Accepted `createJson` correctly treats a missing candidate as normal only when it sees accepted NOT_FOUND semantics such as HTTP/status `404`. Because the adapter overwrote that semantic status, `createJson` returned `CREATE_PRECHECK_FAILED` and `acquireMutationLease` returned `AMBIGUOUS` before candidate PUT or index CAS.
+
+Durable post-state is clean:
 
 - candidate revision absent;
-- lease-index CAS count `0`;
-- index revision `370`;
-- `nextLeaseEpoch=186`;
-- `activeLeases=[]`;
+- index remains `370`, `nextLeaseEpoch=186`, `activeLeases=[]`;
 - delivery `000014` absent;
 - latest delivery `000013/SENT`;
 - browser/host/trigger/source side effects zero.
 
-The disposable wrapper did collect bounded diagnostics in memory, but the launcher converted the result to `LEASE_AMBIGUOUS` and exited before flushing the trace or reconciliation descriptor. The lower GitHub request result therefore remains unrecoverable from ORCH-000176.
+No accepted-source repair is proven necessary.
 
-## Current next — ORCH-000177
+## Current next — ORCH-000178
 
-`DISPATCH-000177` first qualifies **durable trace flush** on a harmless read-only GitHub request through the same disposable wrapper. Acquisition is forbidden unless that trace is flushed and read back successfully before result interpretation.
+`DISPATCH-000178` corrects only the disposable adapter mapping. It must preserve HTTP semantic status independently from `ghExitCode` so a real HTTP `404` is presented to the accepted client as `404`/NOT_FOUND while `ghExitCode=1` remains diagnostic metadata only.
 
-Only then may it perform one fresh instrumented lease acquisition. If the lease becomes durably ACTIVE and indexed, the same bounded milestone may continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, durable PREPARED intent, zero-browser PROVEN_NOT_SENT result, and normal lease release.
-
-Any ambiguity stops without retry, but this time the safe trace and reconciliation descriptor must already be durable before exit.
+After a read-only qualification of this mapping, exactly one fresh acquisition is permitted. Only if the lease is durably ACTIVE and indexed may the milestone continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, durable PREPARED intent, zero-browser PROVEN_NOT_SENT result, and normal lease release.
 
 No host process, browser contact/send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data activity is authorized.
 
