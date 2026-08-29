@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000176 and canonical ORCH-000177
+Documentation sync boundary: through Architect-classified ORCH-000177 and canonical ORCH-000178
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -37,57 +37,45 @@ Accepted order:
 
 `observe dispatch → acquire exact WORKER_DELIVERY lease → prepareWorkerDeliveryIntent → durable PREPARED intent/readback → sendWorkerDelivery → durable result → release/reconcile lease`.
 
-ORCH-000170 proved preparation itself requires exact factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in the disposable composition when no accepted fresh-delivery ID is otherwise provided.
-
-That preparation fix remains unproven because ORCH-000174 and ORCH-000176 both stopped at lease acquisition first.
+ORCH-000170 proved preparation requires exact disposable factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when no accepted fresh-delivery ID is otherwise supplied. That fix remains unproven because later preflights have stopped at lease acquisition first.
 
 ## 5. Lease baseline
 
-ORCH-000173 closed the previous expired lease. Current clean baseline remains:
+ORCH-000173 closed the prior expired lease. Current clean baseline remains:
 
 - lease-index revision `370`;
 - `nextLeaseEpoch=186`;
 - `activeLeases=[]`.
 
-ORCH-000175 proved ORCH-000174 left no orphan immutable lease candidate and no index CAS. Its ambiguity was `ERROR_PROPAGATION_ONLY_GAP`.
+No later preflight has produced a candidate revision or index CAS.
 
-## 6. ORCH-000176 — instrumentation lifecycle defect
+## 6. ORCH-000177 — exact disposable adapter defect
 
-ORCH-000176 attempted one fresh instrumented acquisition from the same clean boundary.
+ORCH-000177 successfully proved the durable diagnostic trace lifecycle before mutation. Its one acquisition call then exposed the precise failure:
 
-Observed:
+- candidate-path GET returned HTTP `404`;
+- `gh` process exit code was `1`;
+- disposable adapter supplied semantic status `1` to the accepted client;
+- accepted `notFound()` predicate therefore returned false;
+- `createJson` normalized to `CREATE_PRECHECK_FAILED`;
+- `acquireMutationLease` returned `AMBIGUOUS`;
+- candidate PUT and index CAS were never issued.
 
-- acquisition result `AMBIGUOUS`;
-- no candidate revision;
-- no index CAS;
-- index still `370`, next epoch still `186`, zero active leases;
-- no preparation call;
-- delivery `000014` absent;
-- no browser/host/trigger/source side effect.
+Architectural conclusion: accepted lease-acquisition semantics are not proven defective. The immediate defect is the disposable request adapter conflating transport-process exit status with HTTP semantic status.
 
-The disposable wrapper collected request diagnostics in memory, but the launcher interpreted `AMBIGUOUS`, converted it to `LEASE_AMBIGUOUS`, and exited before the trace or reconciliation descriptor was durably flushed.
+## 7. Current authority — ORCH-000178
 
-Architectural conclusion: accepted acquisition semantics are still not proven defective. The immediate defect is the disposable diagnostic lifecycle: observability must be persisted **before** result interpretation/throw.
+ORCH-000178 changes only the disposable adapter boundary. It must preserve:
 
-## 7. Current authority — ORCH-000177
+- HTTP semantic status/statusCode `404` for an actual GitHub 404;
+- `ghExitCode=1` separately as diagnostic metadata;
+- durable trace flush before result interpretation.
 
-ORCH-000177 first qualifies durable trace flush using a harmless read-only GitHub request through the exact disposable wrapper planned for acquisition.
+A harmless read-only missing-path probe must prove accepted NOT_FOUND recognition before any mutation.
 
-Required ordering:
+Only then may one `acquireMutationLease` call run. If that lease becomes durably ACTIVE and indexed, the milestone may continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, one durable PREPARED intent, zero-browser PROVEN_NOT_SENT result, and one normal lease release.
 
-`read-only probe → append+flush trace → read back trace → only then one acquireMutationLease call`.
-
-For acquisition-related calls, request diagnostics and any safe reconciliation descriptor must be synchronously flushed before control returns to result interpretation.
-
-If acquisition becomes durably ACTIVE, the milestone may continue to:
-
-- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
-- one durable PREPARED intent;
-- zero-browser PROVEN_NOT_SENT result;
-- one normal lease release;
-- final `activeLeases=[]`.
-
-No retry after ambiguity and no host/browser/Architect-trigger/source mutation are authorized.
+No tracked source patch, host process, browser, Architect trigger, or protected-resource mutation is authorized.
 
 ## 8. Protected boundaries
 
