@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000176 and canonical ORCH-000177
+Documentation sync boundary: through Architect-classified ORCH-000177 and canonical ORCH-000178
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -23,48 +23,50 @@ ORCH-000166 safely armed persistent host `000026`.
 
 ORCH-000167 proved automatic observation of a newer Architect dispatch but stopped before durable worker-intent preparation.
 
-ORCH-000168 proved accepted source already executes the preparation action and isolated the effective persistence/composition seam.
+ORCH-000168 proved accepted source already executes preparation and isolated the effective persistence/composition seam.
 
-ORCH-000169 attempted composition-first recovery and fresh host `000027`; preparation failed before intent creation and an expired worker-delivery lease remained active after ambiguous reconciliation.
+ORCH-000169 attempted composition-first recovery and left an expired worker-delivery lease after preparation failure.
 
-ORCH-000170 diagnosed preparation as `COMPOSITION_ADAPTER_DEFECT`: the disposable composition omitted accepted `workerDeliveryId`.
+ORCH-000170 diagnosed the preparation composition defect as missing accepted `workerDeliveryId`.
 
-ORCH-000171/172 isolated the expired-lease create/readback ambiguity. ORCH-000173 then closed that lease under one instrumented accepted reconciliation: revision `000002` became durable `EXPIRED`, index advanced `369→370`, and active leases became zero.
+ORCH-000171/172 isolated expired-lease create/readback ambiguity; ORCH-000173 then closed that lease. Revision `000002` became durable `EXPIRED`, index advanced `369→370`, active leases became zero.
 
-## ORCH-000174 / ORCH-000175 — acquisition ambiguity isolated
+## ORCH-000174 through ORCH-000176 — acquisition ambiguity isolation
 
-ORCH-000174 attempted the zero-browser preparation preflight but its single worker-delivery lease acquisition returned `AMBIGUOUS` before preparation. No delivery `000014` or active lease resulted.
+ORCH-000174 attempted the zero-browser preparation preflight but its one lease acquisition returned `AMBIGUOUS` before preparation.
 
-ORCH-000175 read-only diagnosis proved there was no orphan immutable candidate and no index CAS. Classification: `ERROR_PROPAGATION_ONLY_GAP`; the disposable launcher had discarded lower request/reconciliation details.
+ORCH-000175 proved no orphan candidate or index CAS existed; the lower request diagnostics had been discarded.
 
-## ORCH-000176 — instrumented acquisition still BLOCKED
+ORCH-000176 added instrumentation, but the trace remained only in process memory and was lost when the launcher exited on `LEASE_AMBIGUOUS`.
 
-Architect authorized one fresh instrumented acquisition from the unchanged clean boundary.
+## ORCH-000177 — concrete acquisition adapter defect found
 
-Execution again returned `AMBIGUOUS`. Durable readback proved:
+ORCH-000177 first qualified durable trace flush on a harmless read-only probe, then performed one acquisition call.
 
-- no candidate revision;
-- no index CAS;
-- index remains `370`;
-- next epoch remains `186`;
-- active leases remain zero;
-- preparation calls `0`;
-- delivery `000014` absent;
-- no browser/host/trigger/source side effect.
+The durable trace established the exact cause:
 
-The new evidence identified why instrumentation still failed operationally: the wrapper accumulated its trace only in process memory and the launcher exited on `LEASE_AMBIGUOUS` before the trace or reconciliation descriptor was flushed durably.
+- candidate precheck GET returned actual HTTP `404`;
+- `gh` process exit code was `1`;
+- disposable adapter supplied status `1` to the accepted client instead of preserving HTTP `404` semantics;
+- accepted NOT_FOUND predicate therefore failed;
+- `createJson` returned `CREATE_PRECHECK_FAILED`;
+- runtime returned `AMBIGUOUS` before any candidate PUT or index CAS.
+
+Durable state remained clean: index revision `370`, next epoch `186`, active leases `0`, delivery `000014` absent, browser/host/trigger/source effects zero.
 
 Architect classified:
 
-`GH-DEC-176-WORKER-DELIVERY-INSTRUMENTED-ACQUISITION-TRACE-PERSISTENCE-BLOCKED`.
+`GH-DEC-177-WORKER-DELIVERY-ACQUISITION-HTTP-STATUS-ADAPTER-BLOCKED`.
 
-## ORCH-000177 — current durable-trace preflight
+No tracked source repair is required by current evidence.
 
-Before any acquisition, ORCH-000177 must prove the same disposable wrapper can synchronously append+flush+read back safe diagnostics on a harmless read-only GitHub request.
+## ORCH-000178 — current status-preserving preflight
 
-Only then may one acquisition run. If it succeeds, the milestone may continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, PREPARED intent, zero-browser PROVEN_NOT_SENT result, and normal lease release.
+The next milestone changes only the disposable request adapter so HTTP semantic status and process exit code remain separate.
 
-If acquisition remains ambiguous, the already-flushed diagnostics and safe reconciliation descriptor must survive process exit and become Architect evidence. No retry is allowed.
+A read-only missing-path probe must first prove actual HTTP `404` is recognized by the accepted client as NOT_FOUND while `ghExitCode=1` is retained only as diagnostics.
+
+Only then may one acquisition run. If it succeeds durably, the milestone may continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, PREPARED intent, zero-browser PROVEN_NOT_SENT result, and normal lease release.
 
 ## Current target
 
