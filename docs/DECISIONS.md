@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000177 and canonical ORCH-000178
+Documentation sync boundary: through Architect-classified ORCH-000178 and canonical ORCH-000179
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -26,42 +26,49 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - ORCH-000163 — exactly-once Architect wake.
 - ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
 - ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000170 — preparation requires exact disposable worker-delivery ID.
+- ORCH-000170 — explicit worker-delivery ID requirement diagnosed.
 - ORCH-000173 — expired ORCH-000169 lease closed.
-- ORCH-000175 — no orphan candidate/index mutation after ambiguous acquisition.
 
-## ORCH-000177 — BLOCKED
-
-Decision:
+## ORCH-000177 — BLOCKED, adapter cause identified
 
 `GH-DEC-177-WORKER-DELIVERY-ACQUISITION-HTTP-STATUS-ADAPTER-BLOCKED`
 
+The disposable adapter overwrote actual HTTP `404` with `ghExitCode=1`; no mutation occurred.
+
+## ORCH-000178 — BLOCKED only at continuation
+
+Decision:
+
+`GH-DEC-178-WORKER-DELIVERY-LEASE-ACQUISITION-ACCEPTED-CONTINUATION-BLOCKED`
+
 Reviewed publication:
 
-`GH-PUB-177-WORKER-DELIVERY-DURABLE-TRACE-FLUSH-ACQUISITION-BLOCKED-000001`
+`GH-PUB-178-WORKER-DELIVERY-HTTP-STATUS-PRESERVING-PREFLIGHT-INCOMPLETE-000001`
 
-Architect verified:
+Architect independently verified:
 
-- durable trace qualification passed;
-- one lease-acquisition call only;
-- candidate precheck returned HTTP `404` with `ghExitCode=1`;
-- disposable adapter supplied semantic status `1` rather than HTTP `404`;
-- accepted `notFound()` predicate returned false;
-- client normalized to `CREATE_PRECHECK_FAILED`;
-- runtime returned `AMBIGUOUS` before candidate PUT or index CAS;
-- index remains revision `370`, next epoch `186`, active leases `0`;
-- no preparation, delivery `000014`, browser, host, trigger, or source mutation occurred.
+- corrected disposable adapter preserves HTTP `404` independently from `ghExitCode=1`;
+- one accepted worker-delivery lease acquisition succeeded;
+- immutable revision `000001` is ACTIVE at epoch `186` with exact ORCH-000178 lineage/envelope;
+- temporary launcher terminated before preparation, so preparation count remained `0` and delivery `000014` is absent;
+- one accepted normal release succeeded;
+- immutable revision `000002` is RELEASED with exact previous-record binding;
+- final index revision `372`, next epoch `187`, active leases `0`;
+- latest delivery remains `000013/SENT`;
+- browser/host/trigger/source side effects zero.
 
 Decision rationale:
 
-`DISPOSABLE_ADAPTER_OVERWROTE_HTTP_404_SEMANTICS_WITH_GH_EXIT_CODE_1_SO_ACCEPTED_CREATE_PRECHECK_REJECTED_NORMAL_ABSENT_CANDIDATE_BEFORE_ANY_MUTATION`.
+`HTTP_STATUS_PRESERVING_ADAPTER_AND_ACCEPTED_LEASE_ACQUIRE_RELEASE_PATHS_ARE_PROVEN_BUT_TEMPORARY_LAUNCHER_TERMINATED_AFTER_ACQUISITION_BEFORE_PREPARE_WORKER_DELIVERY_INTENT`.
 
-Architect decision: no tracked source patch. Correct only the disposable adapter so HTTP semantic status and process exit code are separate, then authorize one fresh acquisition from the unchanged clean boundary.
+Architect decision: do not reopen HTTP-status/acquisition diagnostics. The next proof must keep successful acquisition and preparation in the same disposable process/control flow.
 
-## Current next authority — ORCH-000178
+## Current next authority — ORCH-000179
 
-ORCH-000178 must prove on a harmless read-only missing path that an actual HTTP `404` is presented to the accepted client as `404`/NOT_FOUND while `ghExitCode=1` remains diagnostic metadata.
+ORCH-000179 requires exactly one successful-path sequence:
 
-Only after that qualification may one acquisition run. If acquisition becomes durably ACTIVE, the milestone may continue to explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, PREPARED intent, zero-browser PROVEN_NOT_SENT result, and normal lease release.
+`ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE`.
 
-Any ambiguity stops without retry and must preserve already-flushed diagnostics.
+A successful acquisition must not trigger process exit or early cleanup. The same process must retain the returned lease binding and immediately call preparation with `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+
+No browser, host, Architect-trigger, tracked-source, or protected-resource mutation is authorized.
