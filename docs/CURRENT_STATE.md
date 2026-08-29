@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000176 and canonical ORCH-000177
+Documentation sync boundary: through Architect-classified ORCH-000177 and canonical ORCH-000178
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -18,48 +18,46 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000166: persistent host `000026` safely armed/idle.
 - ORCH-000167: automatic newer-dispatch observation proved.
 - ORCH-000170: preparation defect classified `COMPOSITION_ADAPTER_DEFECT`.
-- ORCH-000173: prior expired lease closed; current clean index baseline `370 / nextEpoch 186 / activeLeases=[]`.
-- ORCH-000175: ORCH-000174 acquisition ambiguity left no candidate revision or index mutation; `ERROR_PROPAGATION_ONLY_GAP`.
+- ORCH-000173: prior expired lease closed; clean baseline `370 / nextEpoch 186 / activeLeases=[]`.
+- ORCH-000175: no orphan candidate after ambiguous acquisition.
 
-## 3. ORCH-000176 — BLOCKED
+## 3. ORCH-000177 — BLOCKED with exact cause
 
 Decision:
 
-`GH-DEC-176-WORKER-DELIVERY-INSTRUMENTED-ACQUISITION-TRACE-PERSISTENCE-BLOCKED`
+`GH-DEC-177-WORKER-DELIVERY-ACQUISITION-HTTP-STATUS-ADAPTER-BLOCKED`
 
 Publication:
 
-`GH-PUB-176-WORKER-DELIVERY-INSTRUMENTED-LEASE-ACQUISITION-PREFLIGHT-BLOCKED-000001`
+`GH-PUB-177-WORKER-DELIVERY-DURABLE-TRACE-FLUSH-ACQUISITION-BLOCKED-000001`
 
 Verified facts:
 
-- clean preconditions passed;
-- one instrumented lease acquisition call ran;
+- durable trace-flush qualification passed;
+- one acquisition call ran;
+- candidate precheck GET returned HTTP `404` and `ghExitCode=1`;
+- disposable adapter supplied semantic status `1` instead of HTTP `404`;
+- accepted NOT_FOUND predicate rejected the response;
+- `createJson` returned `CREATE_PRECHECK_FAILED`;
 - acquisition returned `AMBIGUOUS`;
-- no candidate revision exists/read back;
-- no lease-index CAS occurred;
-- index remains revision `370`, next epoch `186`, active lease count `0`;
-- wrapper collected diagnostics in process memory but launcher exited before flushing them;
-- reconciliation descriptor was not persisted;
-- preparation call count `0`;
-- delivery `000014` intent/result absent;
-- `LATEST_DELIVERY=000013/SENT`;
-- browser contact/send `0/0`;
-- no host, trigger, tracked-source, AFFOTECH, Drive, deployment, or private-data side effect.
+- no candidate PUT, no index CAS, no active lease;
+- index remains `370`, next epoch `186`, active leases `0`;
+- preparation calls `0`;
+- delivery `000014` absent;
+- latest delivery `000013/SENT`;
+- browser/host/trigger/source/protected-resource side effects zero.
 
-The explicit worker-delivery ID preparation fix is still unproven because acquisition never became durable.
+No tracked source repair is currently required.
 
-## 4. Current authority — ORCH-000177
+## 4. Current authority — ORCH-000178
 
 Milestone:
 
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.DURABLE.TRACE.FLUSH.INSTRUMENTED.ACQUISITION.EXPLICIT.ID.PREFLIGHT.1A`
+`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.HTTP.STATUS.PRESERVING.ACQUISITION.EXPLICIT.ID.PREFLIGHT.1A`
 
-Before any mutation, ORCH-000177 must prove a disposable diagnostic sink can append, flush, and read back a safe trace for a harmless read-only request through the same wrapper.
+ORCH-000178 corrects only the disposable adapter status mapping. For an actual GitHub 404, the accepted client must receive HTTP/status `404` or an accepted NOT_FOUND equivalent; `ghExitCode=1` must remain separate diagnostics and must never overwrite HTTP semantic status.
 
-Only after that qualification may it call `acquireMutationLease` once.
-
-If acquisition succeeds durably, it may continue to:
+After a read-only qualification, exactly one fresh lease acquisition is permitted. If and only if that lease is durably ACTIVE/indexed, the milestone may continue to:
 
 - exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
 - one durable PREPARED intent;
@@ -68,7 +66,7 @@ If acquisition succeeds durably, it may continue to:
 - final `activeLeases=[]`;
 - `LATEST_DELIVERY` remains `000013/SENT`.
 
-Any ambiguity stops without retry; the already-flushed safe diagnostics and reconciliation descriptor must be published.
+No host process action or Architect trigger is authorized.
 
 ## 5. Current transport baseline
 
