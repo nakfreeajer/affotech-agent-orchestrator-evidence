@@ -1,0 +1,19 @@
+{
+  "schemaVersion":"1.0",
+  "publicationId":"GH-PUB-178-WORKER-DELIVERY-HTTP-STATUS-PRESERVING-PREFLIGHT-INCOMPLETE-000001",
+  "recordType":"EXECUTOR_TERMINAL_PUBLICATION",
+  "classification":"WORKER_DELIVERY_000014_HTTP_STATUS_PRESERVING_PREFLIGHT_INCOMPLETE",
+  "status":"BLOCKED",
+  "messageId":"ORCH-000178",
+  "dispatchId":"DISPATCH-000178",
+  "milestone":"ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.HTTP.STATUS.PRESERVING.ACQUISITION.EXPLICIT.ID.PREFLIGHT.1A",
+  "architectDecisionId":"GH-DEC-177-WORKER-DELIVERY-ACQUISITION-HTTP-STATUS-ADAPTER-BLOCKED",
+  "acceptedSourcePublicationId":"GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256":"1f36c31bdc59da0185e3d8cf0768e430671eee3a457cd16b404790952d0a7651",
+  "authorityRef":"001dbe621f9ecdb805ecccf4e322d0da9a8a5521",
+  "qualification":{"trace404SemanticStatus":404,"trace404GhExitCode":1,"traceFlushPassed":true,"leaseAcquireCount":1,"leaseAcquireOutcome":"ACQUIRED","leaseEpoch":186,"leaseId":"MUTATION-LEASE-HOST-553f5ff7a8db44a8bf8bbf091309bb19","preparationCount":0,"delivery000014IntentExists":false,"delivery000014ResultExists":false,"browserContactCount":0,"browserSendCount":0,"leaseReleaseCount":1,"leaseReleaseOutcome":"RELEASED","releaseRevision":2,"finalIndexRevision":372,"finalNextLeaseEpoch":187,"finalActiveLeaseCount":0,"latestDelivery":"WORKER-DELIVERY-EXECUTOR-000013/SENT"},
+  "incompleteReason":"The corrected adapter qualified and the single lease acquisition became ACTIVE and indexed, but the temporary launcher terminated before the continuation could invoke preparation. The exact lease was then released normally; no second acquisition or preparation retry was performed.",
+  "mutationAccounting":{"leaseAcquireCalls":1,"leaseRevisionCreateCount":2,"leaseIndexCasCount":2,"leaseReleaseCount":1,"workerDeliveryIntentCount":0,"workerDeliveryResultCount":0,"browserContactCount":0,"browserSendCount":0,"hostProcessMutation":0,"architectTriggerMutation":0,"trackedSourceMutation":0,"testMutation":0,"configMutation":0,"documentationMutation":0,"governanceMutation":0,"acceptedSourcePointerMutation":0,"affotechAccess":0,"driveAccess":0,"deploymentAccess":0,"privateBusinessDataAccess":0,"protectedPortContactCount":0,"assistantMessageTextRead":false,"responseDomRead":false,"localGitRuntimePersistence":0},
+  "retryAuthorized":false,
+  "requiresArchitectDecision":true
+}
