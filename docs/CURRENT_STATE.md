@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
+Documentation sync boundary: through Rony fixed documentation-semantic-test directive and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -21,22 +21,39 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 The Orchestrator independently executes accepted deterministic routing/state rules. It does not classify work, author documentation/ideas, or infer semantic authority.
 
-## 3. Documentation and future-idea continuity — permanent rule
+## 3. Documentation decision model — fixed semantic test
 
-Governance files are now:
+Current governing files:
 
 - `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
+- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
 
-After every Architect review/material Rony discussion, Architect independently classifies:
+After every Architect review/material Rony directive, Architect must classify:
 
 ```text
 documentationImpact = NONE | STATE | FULL
 futureIdeaImpact    = NONE | CAPTURE | PROMOTE
 ```
 
-For `STATE` or `FULL`, every materially affected canonical current-truth document must be updated and durably read back before Architect publishes the next mutating implementation dispatch.
+Documentation impact is **not** chosen from intuition or milestone status. Architect must apply the fixed semantic procedure:
+
+1. `TEST-1`: would leaving all current-truth documents unchanged make any canonical document false, materially incomplete/stale, or likely to mislead a fresh Architect/Executor into misunderstanding current truth, repeating a solved problem, or taking the wrong/illegal next action? If NO → `NONE`.
+2. `TEST-2`: if YES, is the change only current operational/recovery position with no lasting accepted capability/contract/governance/reusable truth? If YES → `STATE`.
+3. `TEST-3`: otherwise identify the lasting project truth that changed; accepted architecture/contract/governance/capability/production/security/business-rule/root-cause/lesson/current-requirement changes produce `FULL`.
+4. For `STATE` or `FULL`, each plausible document is tested independently. Update a file only when leaving that file unchanged would make it false, materially incomplete, obsolete, misleading, hide a lesson it is responsible for, or materially endanger cold-start/recovery/implementation.
+
+Therefore:
+
+- `ACCEPTED` does not automatically mean documentation update;
+- `BLOCKED` does not automatically mean no update;
+- `FULL` does not mean rewrite every Markdown file;
+- activity such as tests/retries/process starts does not by itself constitute project-truth change.
+
+For required `STATE`/`FULL` changes, write/readback must complete before Architect publishes the next mutating implementation dispatch.
+
+## 4. Future-idea continuity
 
 For `CAPTURE` or `PROMOTE`, Architect preserves/promotes future intent through:
 
@@ -49,19 +66,11 @@ Idea lifecycle:
 
 Future-intent records create zero implementation authority and do not change current accepted behavior. Only independently accepted implementation can move an idea to `IMPLEMENTED` and promote its resulting truth into Current State/Architecture/History.
 
-No Curator terminal is required. The current source does not yet require dedicated machine documentation-closure or idea-index markers; Architect ordering/direct write-readback is the immediate governing enforcement mechanism.
+Current adopted future item:
 
-## 4. Current adopted future idea
+`IDEA-0001 — Deterministic Architect documentation-closure marker` = `ADOPTED_FOR_FUTURE`.
 
-`IDEA-0001 — Deterministic Architect documentation-closure marker`
-
-Lifecycle: `ADOPTED_FOR_FUTURE`
-
-It proposes a later machine-readable Architect documentation-closure contract so persistent Orchestrator can mechanically check closure marker identity/existence before routing a later mutating dispatch.
-
-It is intentionally deferred until the core unattended Orchestrator transport reaches production-candidate qualification and creates no implementation authority today.
-
-See `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`.
+It is intentionally deferred until the core unattended Orchestrator transport reaches production-candidate qualification.
 
 ## 5. Proven transport foundations
 
@@ -130,7 +139,7 @@ No preparation retry is legal until this recovery is accepted and the lease inde
 
 ## 8. Documentation ownership
 
-Policy: `ARCHITECT_DIRECT` with mandatory current-truth and future-intent continuity:
+Policy: `ARCHITECT_DIRECT` with mandatory fixed semantic classification and future-intent continuity:
 
-- `documentationImpact = NONE | STATE | FULL`
+- `documentationImpact = NONE | STATE | FULL` via `ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`
 - `futureIdeaImpact = NONE | CAPTURE | PROMOTE`
