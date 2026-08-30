@@ -7,7 +7,7 @@ This repository is the machine-authoritative control/evidence plane for `affotec
 ```text
 Rony (final human authority)
   ↕
-Architect AI — think / govern / verify / decide / document — port 9333
+Architect AI — think / govern / verify / decide / document / preserve future intent — port 9333
   ↓ durable authority/dispatch
 Persistent deterministic Orchestrator — independent control-plane service
   ↓ exact lease + durable intent + exact delivery
@@ -20,25 +20,48 @@ Architect AI
 
 There is **no active Curator role**. Historical Curator evidence remains valid history, but no Curator terminal, relay, cursor, browser session, or approval hop is required.
 
-## Documentation closure
+## Documentation and future-idea continuity
 
 Documentation ownership is `ARCHITECT_DIRECT`.
 
-After every Architect review or material Rony directive, Architect classifies documentation impact:
+After every Architect review or material Rony directive, Architect independently classifies:
+
+```text
+documentationImpact = NONE | STATE | FULL
+futureIdeaImpact    = NONE | CAPTURE | PROMOTE
+```
+
+Documentation impact:
 
 - `NONE` — no lasting human-readable project truth changed;
 - `STATE` — current operational/recovery boundary materially changed;
 - `FULL` — accepted capability, architecture, governance, contract, production behavior, or reusable lesson materially changed.
 
-For `STATE` or `FULL`, Architect must update every materially affected canonical document and read it back successfully **before publishing the next mutating implementation dispatch**.
+For `STATE` or `FULL`, Architect updates every materially affected canonical document and reads it back successfully **before publishing the next mutating implementation dispatch**.
 
-This is a governance invariant, not a Curator workflow. The Orchestrator does not decide document meaning and does not author documentation. A future accepted machine contract may let it enforce a documentation-closure marker mechanically, but semantic ownership remains Architect.
+Future-idea impact:
+
+- `NONE` — nothing materially worth preserving for future work;
+- `CAPTURE` — preserve a distinct useful future concept in `docs/IDEA_INBOX.md`;
+- `PROMOTE` — advance an idea through `PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED` and update `docs/ROADMAP.md` or current project truth as appropriate.
+
+Idea and roadmap records create **zero implementation authority** and never prove that a capability exists.
+
+Semantic separation:
+
+- `docs/CURRENT_STATE.md` = true/current operational state;
+- `docs/ARCHITECTURE.md` = accepted system design;
+- `docs/IDEA_INBOX.md` = useful future concepts not yet scheduled/implemented;
+- `docs/ROADMAP.md` = adopted/scheduled intended future work;
+- canonical `ORCH-* / DISPATCH-*` = work authorized now.
+
+The Orchestrator does not decide document/idea meaning and does not author documentation. A future accepted machine contract may let it enforce closure/index markers mechanically, but semantic ownership remains Architect.
 
 Canonical governance:
 
-- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.2
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.2
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.2
+- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
 
 ## Current accepted source
 
@@ -72,6 +95,12 @@ Expected recovery:
 `revision 000002 = EXPIRED → index 377→378 → nextLeaseEpoch remains 190 → activeLeases=[]`
 
 No new lease, preparation, delivery `000014`, browser contact, host activity, Architect trigger, tracked source mutation, AFFOTECH, Drive, deployment, tenant, or private-data access is authorized in ORCH-000182.
+
+## Current adopted future idea
+
+`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` and is recorded in `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`.
+
+It is intentionally deferred until the core unattended Orchestrator transport reaches production-candidate qualification. It creates no implementation authority today.
 
 ## Protected boundary
 
