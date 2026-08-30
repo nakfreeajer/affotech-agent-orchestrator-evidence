@@ -22,46 +22,23 @@ There is **no active Curator role**. Historical Curator evidence remains valid h
 
 ## Documentation and future-idea continuity
 
-Documentation ownership is `ARCHITECT_DIRECT`.
-
-After every Architect review or material Rony directive, Architect independently classifies:
+Architect independently classifies after every review/material Rony directive:
 
 ```text
 documentationImpact = NONE | STATE | FULL
 futureIdeaImpact    = NONE | CAPTURE | PROMOTE
 ```
 
-Documentation impact:
+Documentation impact is decided by the mandatory fixed procedure in `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`, not by milestone status or intuition. For `STATE`/`FULL`, only documents that fail the per-document semantic test are updated/read back before the next mutating implementation dispatch.
 
-- `NONE` — no lasting human-readable project truth changed;
-- `STATE` — current operational/recovery boundary materially changed;
-- `FULL` — accepted capability, architecture, governance, contract, production behavior, or reusable lesson materially changed.
-
-For `STATE` or `FULL`, Architect updates every materially affected canonical document and reads it back successfully **before publishing the next mutating implementation dispatch**.
-
-Future-idea impact:
-
-- `NONE` — nothing materially worth preserving for future work;
-- `CAPTURE` — preserve a distinct useful future concept in `docs/IDEA_INBOX.md`;
-- `PROMOTE` — advance an idea through `PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED` and update `docs/ROADMAP.md` or current project truth as appropriate.
-
-Idea and roadmap records create **zero implementation authority** and never prove that a capability exists.
-
-Semantic separation:
-
-- `docs/CURRENT_STATE.md` = true/current operational state;
-- `docs/ARCHITECTURE.md` = accepted system design;
-- `docs/IDEA_INBOX.md` = useful future concepts not yet scheduled/implemented;
-- `docs/ROADMAP.md` = adopted/scheduled intended future work;
-- canonical `ORCH-* / DISPATCH-*` = work authorized now.
-
-The Orchestrator does not decide document/idea meaning and does not author documentation. A future accepted machine contract may let it enforce closure/index markers mechanically, but semantic ownership remains Architect.
+Future ideas are preserved separately through `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`; they create zero implementation authority.
 
 Canonical governance:
 
 - `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
+- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
 
 ## Current accepted source
 
@@ -75,32 +52,34 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005/SENT`.
 - ORCH-000166: persistent host `000026` safely armed/idle.
 - ORCH-000167: persistent host automatically detected a newer Architect dispatch.
-- ORCH-000170: preparation needs explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
-- ORCH-000173: prior expired lease durably closed.
-- ORCH-000177/178: disposable HTTP-status mapping fixed; accepted lease acquisition and normal release proven.
-- ORCH-000179: continuous preflight reached preparation and proved the transient transport authorization must contain `actionKind=WORKER_DELIVERY`.
+- ORCH-000173: an expired worker-delivery lease was successfully reconciled using bounded request-level instrumentation.
+- ORCH-000177/178: HTTP semantic status handling and accepted lease acquire/release were proven.
+- ORCH-000179: preparation was reached and proved transient `actionKind=WORKER_DELIVERY` is required.
 
-## Current recovery — ORCH-000182
+## ORCH-000182 — BLOCKED after independent no-effect reconciliation
 
-ORCH-000181 acquired and indexed epoch `189` and constructed transient `actionKind=WORKER_DELIVERY`, but its process terminated before `prepareWorkerDeliveryIntent`. Preparation count remained `0`; delivery `000014` was not created; browser contact/send remained `0/0`.
+ORCH-000182 made exactly one authorized `reconcileExpiredMutationLease` call, but its disposable launcher produced no observable completion output. Executor published `INCONCLUSIVE`.
 
-The epoch-189 lease expired while still indexed ACTIVE at lease-index revision `377`. Architect classified ORCH-000181 BLOCKED and published recovery-only `ORCH-000182 / DISPATCH-000182`.
+Architect independently reconciled the durable GitHub namespace and proved the attempted recovery produced **no durable side effect**:
 
-ORCH-000182 authorizes exactly one expired-lease reconciliation for:
+- target lease remains `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`;
+- revision `000002` remains absent;
+- lease index remains revision `377`;
+- `nextLeaseEpoch=190`;
+- exactly one ACTIVE indexed lease remains;
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- browser/host/source/protected-resource side effects remain zero.
 
-`MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`
+Architect decision:
 
-Expected recovery:
+`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
 
-`revision 000002 = EXPIRED → index 377→378 → nextLeaseEpoch remains 190 → activeLeases=[]`
-
-No new lease, preparation, delivery `000014`, browser contact, host activity, Architect trigger, tracked source mutation, AFFOTECH, Drive, deployment, tenant, or private-data access is authorized in ORCH-000182.
+This is not permission for blind retry. The prior mutation effect was first proven absent read-only. The next legal recovery is one new instrumented reconciliation attempt using the already successful ORCH-000173 request-trace pattern and durable readback as authority, not stdout.
 
 ## Current adopted future idea
 
-`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` and is recorded in `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`.
-
-It is intentionally deferred until the core unattended Orchestrator transport reaches production-candidate qualification. It creates no implementation authority today.
+`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE`. It is deferred until the core unattended transport reaches production-candidate qualification and creates no implementation authority today.
 
 ## Protected boundary
 
