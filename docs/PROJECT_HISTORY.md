@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
+Documentation sync boundary: through ORCH-000182 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -17,118 +17,58 @@ Key accepted milestones:
 
 ## ORCH-000166 through ORCH-000173
 
-ORCH-000166 safely armed persistent host `000026`. ORCH-000167 proved automatic newer-dispatch observation. ORCH-000168/169/170 isolated preparation composition and the explicit worker-delivery ID requirement. ORCH-000171/172/173 isolated and then closed an expired-lease ambiguity.
+ORCH-000166 safely armed persistent host `000026`. ORCH-000167 proved automatic newer-dispatch observation. ORCH-000168/169/170 isolated preparation composition and the explicit worker-delivery ID requirement. ORCH-000171/172/173 isolated and then closed an expired-lease ambiguity; ORCH-000173 proved an instrumented expired-lease revision create/readback plus index CAS/readback can close the lease.
 
-## ORCH-000174 through ORCH-000178
+## ORCH-000174 through ORCH-000179
 
-Repeated bounded preflights isolated the disposable GitHub adapter defect: actual HTTP `404` had been overwritten by `ghExitCode=1`. ORCH-000178 corrected that boundary and proved accepted worker-delivery lease acquisition and normal release durably.
+Bounded preflights isolated the disposable GitHub adapter defect: actual HTTP `404` had been overwritten by `ghExitCode=1`. ORCH-000178 corrected that boundary and proved accepted worker-delivery lease acquisition and normal release. ORCH-000179 reached preparation and proved the transient authorization must include `actionKind=WORKER_DELIVERY`.
 
-## ORCH-000179 — preparation reached
+## ORCH-000180 / ORCH-000181
 
-ORCH-000179 acquired epoch `187` and reached `prepareWorkerDeliveryIntent`. Preparation failed closed with `HOST_AUTHORIZATION_INVALID` because the disposable continuation passed the persisted lease directly instead of the accepted runner-equivalent transient authorization containing `actionKind=WORKER_DELIVERY`. The lease was normally released and state returned clean.
+ORCH-000180 acquired/released epoch `188` but stopped before preparation. ORCH-000181 acquired/indexed epoch `189` and constructed `actionKind=WORKER_DELIVERY`, but again terminated before preparation; the lease expired while still indexed ACTIVE at revision `377`.
 
-## ORCH-000180 — action-kind attempt stopped before preparation
+Architect classified ORCH-000181 BLOCKED and authorized exact expired-lease recovery as ORCH-000182.
 
-ORCH-000180 intended to reproduce transient action-kind enrichment. It acquired epoch `188` successfully, but its bounded process stopped before issuing any preparation request. The exact lease was normally released. Final state was index revision `376`, next epoch `189`, active leases `0`, delivery `000014` absent, and zero browser/host/trigger/source side effects.
+## ORCH-000182 — reconciliation attempt produced no durable effect
 
-Architect classified:
+ORCH-000182 invoked `reconcileExpiredMutationLease` exactly once. The disposable launcher returned no observable completion output, so Executor published:
 
-`GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED`.
+`GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001`.
 
-## ORCH-000181 — in-process attempt leaves expired ACTIVE lease
+Architect independently reconciled the GitHub namespace:
 
-ORCH-000181 removed the explicit child-process boundary. The single attempt acquired and indexed epoch `189` and constructed transient `actionKind=WORKER_DELIVERY`, but the process still terminated before `prepareWorkerDeliveryIntent` was called.
+- target revision `000002` still absent;
+- index still revision `377`;
+- `nextLeaseEpoch=190`;
+- the same epoch-189 lease still indexed ACTIVE;
+- latest delivery and Architect trigger unchanged;
+- no browser/host/source/protected-resource side effects.
 
-Consequences:
+Because both authorized durable mutation effects are absent, Architect classified the milestone:
 
-- preparation call count `0`;
-- delivery `000014` intent/result absent;
-- browser contact/send `0/0`;
-- the lease expired before normal release;
-- index remained revision `377` with the expired epoch-189 lease still indexed ACTIVE;
-- no blind retry or expiry reconciliation occurred.
+`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`.
 
-Architect classified:
+The prior effect was reconciled before any further attempt, preserving the no-blind-retry invariant. Next recovery direction is one separately authorized instrumented reconciliation attempt using the ORCH-000173 proven request-trace pattern and durable GitHub readback instead of stdout.
 
-`GH-DEC-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-EXPIRED-LEASE-BLOCKED`.
+`LATEST_MILESTONE` remained stale on ORCH-000181 after the ORCH-000182 terminal publication; later normal terminal publication must supersede that convenience pointer without rewriting historical evidence.
 
-## ORCH-000182 — current exact recovery
+## Documentation-governance evolution — 2026-08-30/31
 
-ORCH-000182 authorizes only one expired-lease reconciliation for the exact ORCH-000181 lease:
+Rony eliminated Curator from the active model and made Architect directly responsible for canonical documentation. Governance then added:
 
-`MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`
+- `documentationImpact = NONE | STATE | FULL` with write/readback closure before the next mutating implementation dispatch;
+- `futureIdeaImpact = NONE | CAPTURE | PROMOTE` with separate `IDEA_INBOX`/`ROADMAP` surfaces;
+- the fixed semantic documentation procedure `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0 so Architect must decide by current-truth/state/lasting-truth questions and per-document testing rather than status or intuition.
 
-Expected recovery is immutable revision `000002=EXPIRED`, lease-index `377→378`, `nextLeaseEpoch=190`, and final `activeLeases=[]`. No preparation retry, new lease, delivery mutation, browser, host, trigger, source, or protected-resource work is authorized in this milestone.
+Current governing versions:
 
-## Rony documentation-governance directive — 2026-08-30
-
-Rony clarified the long-term role model:
-
-- Architect sees and interprets the complete governed process and is therefore the most accurate owner of canonical project documentation.
-- Curator terminal/relay adds an unnecessary second interpretation layer and is eliminated from the active model.
-- Architect documentation maintenance must nevertheless become persistent and non-optional so Rony does not need to remind Architect.
-
-Architect promoted this directive into governance and human-readable project state.
-
-Governance revisions:
-
-- `ORCHESTRATOR_BOOTSTRAP.md` v1.1 → v1.2;
-- `PROJECT_ORCHESTRATION_POLICY.md` v1.1 → v1.2;
-- `PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.1 → v1.2.
-
-New permanent invariant:
-
-After every Architect review/material Rony directive, Architect classifies documentation impact as `NONE`, `STATE`, or `FULL`. For `STATE` or `FULL`, every materially affected canonical document must be written and durably read back before the next mutating implementation dispatch is published.
-
-Curator is no longer required for closure. Historical Curator evidence remains valid history. Orchestrator remains independent deterministic infrastructure and does not author/interpret documentation.
-
-## Rony future-idea continuity directive — 2026-08-31
-
-Rony then asked how Architect should decide whether a newly discovered idea must be preserved for future implementation, and approved the proposed separation between current truth and future intent.
-
-Architect promoted the proposal into governance rather than relying on conversational memory.
-
-Governance revisions:
-
-- `ORCHESTRATOR_BOOTSTRAP.md` v1.2 → v1.3;
-- `PROJECT_ORCHESTRATION_POLICY.md` v1.2 → v1.3;
-- `PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.2 → v1.3.
-
-New independent classification:
-
-```text
-documentationImpact = NONE | STATE | FULL
-futureIdeaImpact    = NONE | CAPTURE | PROMOTE
-```
-
-Future-idea lifecycle:
-
-`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
-
-Two dedicated future-intent surfaces were created:
-
-- `docs/IDEA_INBOX.md`
-- `docs/ROADMAP.md`
-
-Permanent semantic boundary:
-
-- Current State = what is true now;
-- Architecture = accepted system design;
-- Idea Inbox = useful future concepts not yet scheduled/implemented;
-- Roadmap = adopted/scheduled intended future work;
-- Dispatch = what is actually authorized now.
-
-Idea and roadmap records create zero implementation authority. Only independently accepted implementation can promote an idea into current truth.
-
-The first adopted future item is:
-
-`IDEA-0001 — Deterministic Architect documentation-closure marker` = `ADOPTED_FOR_FUTURE`.
-
-It is deliberately deferred until the core unattended Orchestrator transport reaches production-candidate qualification.
+- bootstrap v1.3;
+- project policy v1.4;
+- memory policy v1.4.
 
 ## Current target
 
-After ORCH-000182 restores a clean lease index, close the preparation proof without recreating unnecessary disposable harness layers, then arm a fresh persistent host and prove the full unattended chain:
+Close the still-expired epoch-189 lease using the reconciled, instrumented recovery path. Only after a clean lease index is accepted may the project return to the worker-delivery preparation proof, fresh persistent-host arm, and full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
