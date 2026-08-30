@@ -56,26 +56,21 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000177/178: HTTP semantic status handling and accepted lease acquire/release were proven.
 - ORCH-000179: preparation was reached and proved transient `actionKind=WORKER_DELIVERY` is required.
 
-## ORCH-000182 — BLOCKED after independent no-effect reconciliation
+## Current recovery summary
 
-ORCH-000182 made exactly one authorized `reconcileExpiredMutationLease` call, but its disposable launcher produced no observable completion output. Executor published `INCONCLUSIVE`.
+ORCH-000183 made one authorized expired-lease reconciliation call for the epoch-189 lease. The accepted path returned deterministically:
 
-Architect independently reconciled the durable GitHub namespace and proved the attempted recovery produced **no durable side effect**:
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
 
-- target lease remains `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`;
-- revision `000002` remains absent;
-- lease index remains revision `377`;
-- `nextLeaseEpoch=190`;
-- exactly one ACTIVE indexed lease remains;
-- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
-- browser/host/source/protected-resource side effects remain zero.
+No durable mutation occurred: revision `000002` remains absent, the lease index remains revision `377`, `nextLeaseEpoch=190`, and the same expired lease remains indexed ACTIVE. Delivery `000013/SENT` and Architect trigger `000005/SENT` remain unchanged; browser/host/source/protected-resource side effects are zero.
 
 Architect decision:
 
-`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
+`GH-DEC-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-INVALID-BLOCKED`
 
-This is not permission for blind retry. The prior mutation effect was first proven absent read-only. The next legal recovery is one new instrumented reconciliation attempt using the already successful ORCH-000173 request-trace pattern and durable readback as authority, not stdout.
+The next legal action is read-only diagnosis of the projection/call-shape contract against accepted source ORCH-000165 and the proven ORCH-000173 reconciliation path. No further reconciliation attempt, new lease, preparation, browser, or host work is legal until that diagnostic identifies the exact failure condition.
+
+For the detailed live boundary and next authority, use `docs/CURRENT_STATE.md`; README intentionally avoids duplicating every transient recovery field.
 
 ## Current adopted future idea
 
