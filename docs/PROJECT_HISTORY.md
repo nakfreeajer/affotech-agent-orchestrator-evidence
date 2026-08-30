@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony documentation-governance directive and canonical ORCH-000182
+Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -81,6 +81,50 @@ New permanent invariant:
 After every Architect review/material Rony directive, Architect classifies documentation impact as `NONE`, `STATE`, or `FULL`. For `STATE` or `FULL`, every materially affected canonical document must be written and durably read back before the next mutating implementation dispatch is published.
 
 Curator is no longer required for closure. Historical Curator evidence remains valid history. Orchestrator remains independent deterministic infrastructure and does not author/interpret documentation.
+
+## Rony future-idea continuity directive — 2026-08-31
+
+Rony then asked how Architect should decide whether a newly discovered idea must be preserved for future implementation, and approved the proposed separation between current truth and future intent.
+
+Architect promoted the proposal into governance rather than relying on conversational memory.
+
+Governance revisions:
+
+- `ORCHESTRATOR_BOOTSTRAP.md` v1.2 → v1.3;
+- `PROJECT_ORCHESTRATION_POLICY.md` v1.2 → v1.3;
+- `PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.2 → v1.3.
+
+New independent classification:
+
+```text
+documentationImpact = NONE | STATE | FULL
+futureIdeaImpact    = NONE | CAPTURE | PROMOTE
+```
+
+Future-idea lifecycle:
+
+`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
+
+Two dedicated future-intent surfaces were created:
+
+- `docs/IDEA_INBOX.md`
+- `docs/ROADMAP.md`
+
+Permanent semantic boundary:
+
+- Current State = what is true now;
+- Architecture = accepted system design;
+- Idea Inbox = useful future concepts not yet scheduled/implemented;
+- Roadmap = adopted/scheduled intended future work;
+- Dispatch = what is actually authorized now.
+
+Idea and roadmap records create zero implementation authority. Only independently accepted implementation can promote an idea into current truth.
+
+The first adopted future item is:
+
+`IDEA-0001 — Deterministic Architect documentation-closure marker` = `ADOPTED_FOR_FUTURE`.
+
+It is deliberately deferred until the core unattended Orchestrator transport reaches production-candidate qualification.
 
 ## Current target
 
