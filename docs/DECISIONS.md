@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony fixed documentation-semantic-test directive and canonical ORCH-000182
+Documentation sync boundary: through ORCH-000182 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -16,95 +16,23 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - GitHub durable evidence is machine authority.
 - No blind retry after ambiguous external mutation.
 - Historical evidence is immutable in meaning.
-- Local git commit/push is not runtime persistence.
 - AFFOTECH and protected resources remain separate until explicitly authorized.
 
-## Rony directive — Architect-direct documentation closure
+## Documentation and future-intent governance
 
-Rony directed that Architect is aware of the complete governed process and should therefore maintain all relevant project documentation directly rather than relying on a Curator terminal that reconstructs Architect meaning second-hand.
+Curator is eliminated from the active project model. Architect owns documentation directly.
 
-Permanent policy:
+Documentation impact is decided through `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0 under project/memory policy v1.4:
 
-- Curator is eliminated from the active project model.
-- No Curator terminal, relay, browser registration, cursor, or approval hop is required.
-- Historical Curator evidence remains valid history.
-- Architect owns semantic and physical maintenance of canonical documentation.
-- Required documentation closure precedes the next mutating implementation dispatch.
+`TEST-1 current-truth change → TEST-2 state-only? → TEST-3 lasting truth? → per-document selection test`.
 
-## Rony directive — fixed semantic test for documentation decisions
+Milestone status alone never determines documentation impact. `FULL` does not mean rewrite every Markdown file.
 
-Rony asked how Architect will decide, consistently and without relying on memory, whether documentation actually needs to be updated.
-
-Architect adopted a fixed governing semantic procedure:
-
-`governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
-
-The rule is now mandatory under `PROJECT_ORCHESTRATION_POLICY.md` v1.4 and `PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4.
-
-Architect must apply the decision in this order:
-
-1. **TEST-1 — did current project truth materially change?** If leaving all current-truth docs unchanged would not make any canonical file false, materially incomplete/stale, or likely to mislead cold-start/recovery/implementation, classify `documentationImpact=NONE`.
-2. **TEST-2 — is the change only current operational/recovery state?** If the only material change is blocker/reconciliation/lease/recovery/next-legal-action state and no lasting accepted capability/contract/governance/reusable truth changed, classify `STATE`.
-3. **TEST-3 — did lasting project truth change?** A material change to governance/authority, accepted architecture/interface/contract, accepted capability/behavior, production/deployment model, security/privacy boundary, accepted business/product rule, permanent root cause/countermeasure/reusable lesson, accepted current requirement, or equivalent lasting truth is `FULL`.
-4. **Per-document test.** For every plausible document ask whether leaving that specific file unchanged would make it false, materially incomplete, obsolete, misleading, hide a lesson it is responsible for preserving, or materially endanger cold-start/recovery/implementation. Update only files for which the answer is YES.
-
-Permanent interpretation rules:
-
-- milestone status alone never determines documentation impact;
-- `ACCEPTED` may be `NONE` when nothing materially new became true;
-- `BLOCKED` may be `NONE`, `STATE`, or `FULL` depending on what truth changed;
-- `FULL` does not mean rewrite every Markdown file;
-- tests, retries, diagnostics, process starts/stops, and repeated confirmations are activity, not documentation-worthy truth by themselves.
-
-For `STATE` or `FULL`, selected documents must be written and durably read back before the next mutating implementation dispatch.
-
-## Rony directive — preserve future ideas separately from current truth
-
-Rony asked how Architect will avoid losing new ideas that are useful for future implementation. Architect proposed and Rony approved a separate future-intent continuity model.
-
-Permanent decision:
-
-```text
-documentationImpact = NONE | STATE | FULL
-futureIdeaImpact    = NONE | CAPTURE | PROMOTE
-```
-
-These are independent decisions.
-
-Future-idea lifecycle:
-
-`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
-
-Canonical future-intent surfaces:
-
-- `docs/IDEA_INBOX.md` — useful future concepts not yet scheduled/implemented;
-- `docs/ROADMAP.md` — adopted/scheduled future work and promotion conditions.
-
-Hard boundaries:
-
-- idea/roadmap entries create zero implementation authority;
-- they do not describe current accepted behavior or accepted architecture;
-- only canonical Architect dispatches authorize work;
-- only independently accepted implementation may promote an idea to `IMPLEMENTED` and move resulting truth into Current State/Architecture/History;
-- Rony-stated future direction must be durably preserved when materially intended;
-- casual brainstorming, trivial alternatives, and duplicates should not be persisted.
+Architect independently also classifies `futureIdeaImpact=NONE|CAPTURE|PROMOTE`; idea/roadmap records create zero implementation authority.
 
 Current adopted future item:
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` = `ADOPTED_FOR_FUTURE`.
-
-It is deliberately deferred until the core unattended Orchestrator transport reaches production-candidate qualification and creates no implementation authority today.
-
-## Governing documentation set
-
-Current documentation-governance set:
-
-- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
-- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
-- `docs/IDEA_INBOX.md`
-- `docs/ROADMAP.md`
 
 ## Proven foundations relevant to current transport seam
 
@@ -112,7 +40,7 @@ Current documentation-governance set:
 - ORCH-000163 — exactly-once Architect wake.
 - ORCH-000165 — accepted source, `817/817` deterministic suite.
 - ORCH-000166/167 — persistent-host idle and automatic newer-dispatch observation.
-- ORCH-000173 — prior expired lease closed.
+- ORCH-000173 — expired worker-delivery lease reconciliation succeeded with bounded request instrumentation.
 - ORCH-000177/178 — corrected HTTP status mapping and accepted lease acquire/release proven.
 - ORCH-000179 — preparation reached and proved transient `actionKind=WORKER_DELIVERY` requirement.
 
@@ -122,38 +50,47 @@ Decision:
 
 `GH-DEC-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-EXPIRED-LEASE-BLOCKED`
 
-Architect verified:
+Epoch `189` was acquired/indexed and transient `actionKind=WORKER_DELIVERY` constructed, but preparation was never called and the lease expired while still indexed ACTIVE at revision `377`.
 
-- one epoch-189 worker-delivery lease was acquired and indexed;
-- transient `actionKind=WORKER_DELIVERY` was constructed;
-- preparation call count remained `0` because the process terminated first;
-- delivery `000014` remains absent;
-- browser contact/send `0/0`;
-- lease expired before normal release;
-- lease remains indexed ACTIVE at revision `377`;
-- target revision `000002` is absent;
-- no blind retry or expiry reconciliation occurred;
-- accepted source remains unchanged.
+## ORCH-000182 — BLOCKED after independent reconciliation
 
-Decision rationale:
+Executor terminal:
 
-`IN_PROCESS_ATTEMPT_ACQUIRED_AND_INDEXED_EPOCH_189_AND_CONSTRUCTED_ACTION_KIND_WORKER_DELIVERY_BUT_TERMINATED_BEFORE_PREPARATION_AND_LEFT_THE_EXPIRED_LEASE_ACTIVE_IN_INDEX_REVISION_377`.
+`GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001`
 
-## Current next authority — ORCH-000182
+Executor classified its run `INCONCLUSIVE`: one authorized `reconcileExpiredMutationLease` call was launched, but the disposable process yielded no observable completion output.
 
-ORCH-000182 is recovery-only. It authorizes exactly one expired-lease reconciliation for:
+Architect independently read the exact external namespace and found:
 
-`MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`
+- revision `000002` absent;
+- lease index unchanged at revision `377`;
+- `nextLeaseEpoch=190`;
+- the same single epoch-189 lease remains indexed ACTIVE;
+- latest delivery `000013/SENT` unchanged;
+- latest Architect trigger `000005/SENT` unchanged;
+- browser/host/source/protected-resource side effects zero.
 
-Expected closure:
+Therefore Architect final classification is:
 
-`revision 000002=EXPIRED → index 377→378 → nextLeaseEpoch=190 → activeLeases=[]`
+`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
 
-No new lease, preparation, delivery mutation, browser, host, Architect trigger, tracked source, or protected-resource activity is authorized.
+Rationale:
 
-After ORCH-000182 is reviewed, Architect must independently apply both:
+The ORCH-000182 attempt did not durably mutate either authorized external resource. Its internal completion remains unobservable, but the mutation effect is independently proven absent. A new attempt may therefore be separately authorized after this read-only reconciliation; that is not a blind retry.
 
-- the fixed documentation semantic test → `NONE | STATE | FULL`;
-- the future-idea test → `NONE | CAPTURE | PROMOTE`;
+Documentation decision:
 
-before any next mutating implementation dispatch.
+- `documentationImpact=STATE` — TEST-1 YES, TEST-2 YES; current recovery/next-legal-action changed, no lasting accepted capability/contract changed.
+- `futureIdeaImpact=NONE`.
+
+## Next recovery direction
+
+The next recovery must make one new instrumented expired-lease reconciliation attempt from the unchanged revision-377 boundary, using the ORCH-000173 proven request-level trace pattern.
+
+It must not rely on stdout as authority. Durable GitHub revision/index readback determines outcome.
+
+Success remains:
+
+`revision 000002=EXPIRED → index 377→378 → nextLeaseEpoch=190 → activeLeases=[]`.
+
+No preparation, new lease, delivery, browser, host, Architect trigger, tracked source, or protected-resource activity is authorized until the expired lease is closed.
