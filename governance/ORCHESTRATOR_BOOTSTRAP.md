@@ -1,10 +1,11 @@
 # Universal Governed Orchestrator Bootstrap
 
 **File:** `ORCHESTRATOR_BOOTSTRAP.md`  
-**Version:** 1.1  
+**Version:** 1.2  
 **Status:** Canonical universal governance kernel  
 **Scope:** Project-independent  
-**Authority model:** Human Final Authority → Architect → Executor → Architect; Documentation Curator only when explicitly required and Architect-dispatched.
+**Authority model:** Human Final Authority → Architect → Executor → Architect  
+**Documentation model:** Architect-direct; documentation closure is part of Architect milestone closure.
 
 ## 1. Purpose
 
@@ -30,11 +31,9 @@ The default authority chain is:
 
 The Architect is the central orchestration decision authority below the Human Final Authority. Workers do not authorize workers.
 
-A Documentation Curator is **optional/on-demand**. When substantial repository-documentation work benefits from a separate bounded worker, the Architect may use:
+The Architect owns interpretation of project truth, verification, acceptance decisions, next-action authority, and canonical human-readable documentation projection.
 
-`Architect → Curator → Architect`
-
-Executor MUST NOT authorize Curator. Curator MUST NOT authorize Executor. Neither role self-accepts.
+A Documentation Curator is **not part of the default authority chain and is not required for project continuity**. Historical Curator evidence remains valid historical evidence. A project may reintroduce a Curator only through an explicit Human Final Authority directive and project-policy change defining its bounded role. Curator never replaces Architect semantic ownership or acceptance authority.
 
 Architect classifications are exactly:
 
@@ -60,8 +59,9 @@ Unless a project defines stricter controls, precedence is:
 1. explicit current Human Final Authority instruction;
 2. this bootstrap's mandatory controls;
 3. `PROJECT_ORCHESTRATION_POLICY.md`;
-4. Architect milestone prompt/dispatch;
-5. worker-local implementation choices.
+4. durable Architect decision/current control state;
+5. Architect milestone prompt/dispatch;
+6. worker-local implementation choices.
 
 A lower layer MUST NOT silently weaken a higher layer. Unresolved conflict fails closed and returns to Architect.
 
@@ -78,7 +78,7 @@ Before dispatch 1, every governed project MUST have durable project registration
 - Human Final Authority;
 - Architect identity;
 - Executor identity;
-- Curator policy (`ON_DEMAND` by default);
+- documentation policy (`ARCHITECT_DIRECT` by default);
 - protocol family;
 - protected resources and external systems;
 - control-plane identity.
@@ -91,13 +91,13 @@ Every governed application project MUST contain or durably pin:
 
 - `ORCHESTRATOR_BOOTSTRAP.md` — a versioned/pinned snapshot or reference to this universal kernel;
 - `PROJECT_ORCHESTRATION_POLICY.md` — the project-specific extension;
-- `AGENTS.md` — worker-facing operational instructions;
+- `AGENTS.md` — worker-facing operational instructions where applicable;
 - a machine-readable project profile;
 - a machine-readable protected-resource inventory or equivalent.
 
 A project copy of this bootstrap MUST declare its upstream version/reference/hash. Local edits that change semantics require explicit governance review; projects must not silently fork the kernel.
 
-`PROJECT_ORCHESTRATION_POLICY.md` MUST state `Inherits: ORCHESTRATOR_BOOTSTRAP.md` and define project-specific identities, resources, role policy, protocol family, evidence authority, validation, external systems, mutation rules, privacy boundaries, and any stronger controls.
+`PROJECT_ORCHESTRATION_POLICY.md` MUST state `Inherits: ORCHESTRATOR_BOOTSTRAP.md` and define project-specific identities, resources, roles, documentation-closure policy, protocol family, evidence authority, validation, external systems, mutation rules, privacy boundaries, and any stronger controls.
 
 ## 8. Identity gate
 
@@ -145,7 +145,9 @@ Every worker receiving mutation authority MUST be registered. Registration SHOUL
 
 Registration alone never grants mutation authority. Active dispatch, current control state, mutation envelope, and any required lease/human authority remain separate gates.
 
-Architect MUST NOT treat worker `PASS` as acceptance. Executor performs bounded implementation/runtime/test work. Curator, when used, performs bounded documentation work only. Architect verifies and decides.
+Architect MUST NOT treat worker `PASS` as acceptance. Executor performs bounded implementation/runtime/test work. Architect verifies and decides.
+
+Canonical documentation is Architect-owned unless an explicit project policy and bounded Architect dispatch authorize another worker for a specific documentation mutation. Such delegation does not transfer semantic ownership or acceptance authority.
 
 ## 11. Mutation envelope and protected resources
 
@@ -220,27 +222,43 @@ A project MAY map `PAUSED_BY_HUMAN` to a named human state such as `PAUSED_BY_RO
 
 Every governed milestone MUST be reconstructable from durable/versioned evidence.
 
-Canonical conceptual chain:
+Canonical conceptual chain for documentation-relevant work is:
 
-`Architect prompt → dispatch → worker execution → terminal result → Architect verification/decision → preservation → next dispatch`
+`Architect prompt → dispatch → worker execution → terminal result → Architect verification/decision → source/evidence preservation → Architect documentation sync/readback when required → next mutating dispatch`
 
-Terminal result and Architect acceptance are distinct.
+Terminal result and Architect acceptance are distinct. Documentation sync is also distinct from acceptance: it records the human-readable projection of already-established durable truth.
 
-Evidence SHOULD preserve:
-
-- authorization and lineage;
-- starting/ending identity;
-- exact changed paths/resources;
-- validation;
-- side effects and mutation accounting;
-- blockers/ambiguity;
-- reconciliation evidence;
-- Architect decision;
-- preservation status.
+Evidence SHOULD preserve authorization/lineage, starting/ending identity, exact changed paths/resources, validation, side effects/mutation accounting, blockers/ambiguity, reconciliation evidence, Architect decision, preservation status, and documentation-sync boundary where applicable.
 
 Published history is immutable/append-only in meaning. Corrections supersede; they do not rewrite history. Current pointers are convenience indexes and must not replace immutable history as authority.
 
-## 17. Protocol-family and schema compatibility
+## 17. Architect documentation closure
+
+Documentation completeness is a governance invariant, not a memory preference.
+
+After every Architect review or material Human Final Authority directive, Architect MUST determine documentation impact before publishing the next mutating implementation dispatch.
+
+Minimum documentation-impact classes are:
+
+- `NONE` — no durable human-readable truth changed; no documentation mutation required;
+- `STATE` — current recovery/operational state materially changed; update the smallest current-state/handover/recovery surface required;
+- `FULL` — accepted capability, architecture, governance, contract, production behavior, significant reusable lesson, or other durable project truth changed; update every materially affected canonical document.
+
+For `STATE` or `FULL`, Architect MUST:
+
+1. resolve the latest durable evidence and accepted boundary;
+2. update all materially affected canonical human-readable documents directly;
+3. write and read back those documents successfully;
+4. ensure stale documentation would not mislead cold-start/recovery;
+5. only then publish the next mutating implementation dispatch.
+
+A separate Curator terminal is not required. Architect remains the semantic and physical owner of the project documentation projection.
+
+The Orchestrator MUST NOT decide document meaning or author documentation. Where an accepted machine schema later exposes a documentation-closure marker, the Orchestrator MAY deterministically gate dispatch eligibility on that marker. Until such a schema is accepted, the Architect's mandatory update/readback-before-next-mutation ordering is the governing closure mechanism.
+
+If documentation write/readback fails for a `STATE` or `FULL` impact, Architect MUST NOT silently proceed as if documentation were closed. It must either repair the documentation boundary or explicitly record/handle the exception under higher authority.
+
+## 18. Protocol-family and schema compatibility
 
 Every project MUST declare its native orchestration protocol family and supported schema versions.
 
@@ -252,7 +270,7 @@ Identifier prefixes alone do not establish semantic compatibility. A project-spe
 
 Future schema upgrades must fail closed rather than silently interpreting older/unknown records.
 
-## 18. Source and evidence preservation
+## 19. Source and evidence preservation
 
 Accepted source MUST receive durable external preservation before the next implementation milestone unless Human Final Authority/Architect explicitly handles an exception.
 
@@ -260,13 +278,13 @@ Preferred preservation is verified commit/push/readback to the authoritative sou
 
 Do not force-push/rewrite history as routine recovery.
 
-## 19. Privacy and secrets
+## 20. Privacy and secrets
 
 Private customer/business/financial data, credentials, tokens, OAuth material, private filenames/paths/IDs when sensitive, and protected artifact contents MUST NOT be copied into general prompts, logs, repositories, or evidence merely for convenience.
 
 Evidence should prefer structural facts, hashes, counts, classifications, and redacted references. Tool availability or credential presence never grants mutation authority.
 
-## 20. External systems and browser/relay adapters
+## 21. External systems and browser/relay adapters
 
 Before mutating any external system, the project policy MUST register the system and define identity, allowed operations, authority, mutation limits, reconciliation method, and rollback/compensation where available.
 
@@ -274,13 +292,13 @@ Browser/relay automation requires project-specific policy for endpoints/ports, r
 
 No browser authority is implied by this universal bootstrap.
 
-## 21. Cross-project isolation
+## 22. Cross-project isolation
 
 A dispatch for PROJECT-A does not authorize access, mutation, evidence consumption, worktree reuse, lease reuse, browser use, or external-resource use belonging to PROJECT-B.
 
 Cross-project confusion is a fail-closed/circuit condition.
 
-## 22. Project-specific policy contract
+## 23. Project-specific policy contract
 
 `PROJECT_ORCHESTRATION_POLICY.md` is mandatory for governed application projects using this bootstrap, either as a tracked file or an explicitly pinned durable reference.
 
@@ -288,7 +306,7 @@ It MUST define at minimum:
 
 - project identity/repositories/roots/branches;
 - Human Final Authority;
-- roles and Curator policy;
+- roles and documentation-ownership/closure policy;
 - evidence authority;
 - protocol family/schema policy;
 - protected resources/worktrees;
@@ -305,7 +323,7 @@ It MUST define at minimum:
 
 Project policy may strengthen this bootstrap but not silently weaken it.
 
-## 23. New-project readiness gate
+## 24. New-project readiness gate
 
 Before the first feature implementation, require:
 
@@ -314,12 +332,13 @@ Before the first feature implementation, require:
 - project registration complete;
 - `ORCHESTRATOR_BOOTSTRAP.md` pinned;
 - `PROJECT_ORCHESTRATION_POLICY.md` established;
-- `AGENTS.md` established;
+- `AGENTS.md` established where applicable;
 - project profile/protected resources established;
 - protocol family/schema policy declared;
 - Human Final Authority defined;
 - Architect and Executor defined/registered as required;
-- Curator policy explicitly `ON_DEMAND` or stronger;
+- documentation policy explicitly `ARCHITECT_DIRECT` unless Human Final Authority approves a project-specific alternative;
+- documentation-impact and closure rules established;
 - accepted baseline established and externally durable;
 - test/validation baseline established;
 - mutation-envelope policy ready;
@@ -331,18 +350,20 @@ Before the first feature implementation, require:
 
 Do not fabricate initial accepted evidence. Bootstrap acceptance is an Architect decision after independent verification.
 
-## 24. Productivity rule
+## 25. Productivity rule
 
 Governance exists to make productive work reliable, not to replace productive work.
 
-Once identity, authority, protection, and mutation/reconciliation boundaries are established, execute the bounded product milestone, validate it, publish terminal evidence, and return to Architect. Do not create transport/documentation/governance milestones that provide no material safety or reconstruction value.
+Once identity, authority, protection, mutation/reconciliation, preservation, and required documentation-closure boundaries are established, execute the bounded product milestone, validate it, publish terminal evidence, and return to Architect.
+
+Do not create documentation relay/Curator milestones merely to satisfy process ceremony. Architect should update only documents materially affected by durable truth. Transient diagnostics with no lasting knowledge change should normally be `documentationImpact=NONE`.
 
 Business/product status and orchestration status should remain visibly distinct.
 
-## 25. Universal invariants
+## 26. Universal invariants
 
 - Human Final Authority remains final authority.
-- Architect is the central orchestration decision-maker.
+- Architect is the central orchestration decision-maker and canonical documentation owner.
 - Workers do not authorize workers or self-accept.
 - Control plane and work plane remain separated.
 - Identity is verified before mutation.
@@ -353,19 +374,19 @@ Business/product status and orchestration status should remain visibly distinct.
 - Durable correlation identity precedes any ambiguity-prone external mutation that may need later reconciliation.
 - Worker `PASS` is not Architect acceptance.
 - Accepted source is externally preserved before the next implementation milestone.
+- For material documentation impact, Architect completes documentation sync/readback before the next mutating implementation dispatch.
 - Evidence chronology is reconstructable and historical ambiguity is preserved.
 - Private data/secrets remain protected.
 - Cross-project authority leakage is prohibited.
 - Unknown schemas/protocol families fail closed.
 - Project-specific policy may strengthen but not silently weaken this bootstrap.
-- Curator is optional/on-demand unless a project explicitly requires it.
+- Curator is not required by the default model; historical Curator evidence remains historical evidence.
 
-## 26. Final rule
+## 27. Final rule
 
 **BOOTSTRAP PROVIDES THE GOVERNANCE KERNEL.**  
 **PROJECT POLICY PROVIDES PROJECT-SPECIFIC GOVERNANCE.**  
-**ARCHITECT PROVIDES BOUNDED TECHNICAL AUTHORITY.**  
-**ORCHESTRATOR ENFORCES CONTROL-PLANE STATE.**  
-**EXECUTOR PERFORMS BOUNDED WORK.**  
-**CURATOR MAINTAINS REPOSITORY DOCUMENTATION ONLY WHEN REQUIRED.**  
+**ARCHITECT PROVIDES BOUNDED TECHNICAL AUTHORITY, INTERPRETS PROJECT TRUTH, AND MAINTAINS THE CANONICAL DOCUMENTATION PROJECTION.**  
+**ORCHESTRATOR INDEPENDENTLY ENFORCES DETERMINISTIC CONTROL-PLANE STATE AND TRANSPORT; IT DOES NOT AUTHOR OR INTERPRET DOCUMENTATION.**  
+**EXECUTOR PERFORMS BOUNDED WORK AND PUBLISHES FIRST-HAND EXECUTION EVIDENCE.**  
 **HUMAN FINAL AUTHORITY REMAINS IN CONTROL.**
