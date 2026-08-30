@@ -1,11 +1,11 @@
 # Universal Governed Orchestrator Bootstrap
 
 **File:** `ORCHESTRATOR_BOOTSTRAP.md`  
-**Version:** 1.2  
+**Version:** 1.3  
 **Status:** Canonical universal governance kernel  
 **Scope:** Project-independent  
 **Authority model:** Human Final Authority → Architect → Executor → Architect  
-**Documentation model:** Architect-direct; documentation closure is part of Architect milestone closure.
+**Documentation model:** Architect-direct; documentation closure and future-idea continuity are Architect responsibilities.
 
 ## 1. Purpose
 
@@ -31,7 +31,7 @@ The default authority chain is:
 
 The Architect is the central orchestration decision authority below the Human Final Authority. Workers do not authorize workers.
 
-The Architect owns interpretation of project truth, verification, acceptance decisions, next-action authority, and canonical human-readable documentation projection.
+The Architect owns interpretation of project truth, verification, acceptance decisions, next-action authority, canonical human-readable documentation projection, and preservation of material future intent.
 
 A Documentation Curator is **not part of the default authority chain and is not required for project continuity**. Historical Curator evidence remains valid historical evidence. A project may reintroduce a Curator only through an explicit Human Final Authority directive and project-policy change defining its bounded role. Curator never replaces Architect semantic ownership or acceptance authority.
 
@@ -79,6 +79,7 @@ Before dispatch 1, every governed project MUST have durable project registration
 - Architect identity;
 - Executor identity;
 - documentation policy (`ARCHITECT_DIRECT` by default);
+- future-idea persistence policy;
 - protocol family;
 - protected resources and external systems;
 - control-plane identity.
@@ -97,7 +98,7 @@ Every governed application project MUST contain or durably pin:
 
 A project copy of this bootstrap MUST declare its upstream version/reference/hash. Local edits that change semantics require explicit governance review; projects must not silently fork the kernel.
 
-`PROJECT_ORCHESTRATION_POLICY.md` MUST state `Inherits: ORCHESTRATOR_BOOTSTRAP.md` and define project-specific identities, resources, roles, documentation-closure policy, protocol family, evidence authority, validation, external systems, mutation rules, privacy boundaries, and any stronger controls.
+`PROJECT_ORCHESTRATION_POLICY.md` MUST state `Inherits: ORCHESTRATOR_BOOTSTRAP.md` and define project-specific identities, resources, roles, documentation-closure policy, future-idea persistence policy, protocol family, evidence authority, validation, external systems, mutation rules, privacy boundaries, and any stronger controls.
 
 ## 8. Identity gate
 
@@ -258,6 +259,52 @@ The Orchestrator MUST NOT decide document meaning or author documentation. Where
 
 If documentation write/readback fails for a `STATE` or `FULL` impact, Architect MUST NOT silently proceed as if documentation were closed. It must either repair the documentation boundary or explicitly record/handle the exception under higher authority.
 
+## 17A. Architect future-idea continuity
+
+Future ideas are not current project truth and MUST be preserved separately from accepted/current-state documentation.
+
+After every Architect review and every material Human Final Authority discussion/directive, Architect MUST independently determine `futureIdeaImpact` in addition to `documentationImpact`:
+
+- `NONE` — no future concept is sufficiently material to preserve;
+- `CAPTURE` — a useful distinct future concept would be costly to lose at cold start; preserve it in the project idea surface without granting implementation authority;
+- `PROMOTE` — an existing/new idea has been explicitly adopted for future direction or scheduled into intended work; update its lifecycle state and roadmap placement.
+
+Minimum idea lifecycle states are:
+
+- `PROPOSED` — worth remembering, not yet adopted as project direction;
+- `ADOPTED_FOR_FUTURE` — Human Final Authority/Architect has deliberately retained it as intended future direction, but it is not current authority;
+- `SCHEDULED` — placed into an intended implementation sequence/roadmap, still not implementation authority;
+- `IMPLEMENTED` — implementation has been independently accepted and the idea is promoted into normal current-state/architecture/history documentation as applicable.
+
+Architect MUST capture a future idea when any of these are true:
+
+- the Human Final Authority explicitly states it as future direction;
+- it solves or materially reduces a known future risk/problem;
+- it creates a meaningful future capability or architectural simplification;
+- a fresh Architect after cold start would reasonably regret losing it;
+- a milestone/root-cause analysis reveals a distinct improvement that is not appropriate for the current bounded implementation.
+
+Architect SHOULD NOT capture routine brainstorming that has not been adopted, trivial alternatives, duplicates, or ideas with no material future value.
+
+Every preserved idea MUST clearly identify its status, origin, problem/opportunity, concept, current non-authority boundary, and promotion/revisit condition when known.
+
+Idea records and roadmap entries create **zero implementation authority**. They MUST NOT be interpreted as current accepted behavior, accepted architecture, or permission to mutate. Only a canonical Architect dispatch can authorize implementation.
+
+Projects SHOULD maintain separate human-readable surfaces equivalent to:
+
+- `IDEA_INBOX` — useful future concepts not yet scheduled or implemented;
+- `ROADMAP` — adopted/scheduled future work and promotion conditions.
+
+A project may use different filenames, but it MUST preserve the semantic separation:
+
+`CURRENT_STATE = true now`  
+`ARCHITECTURE = accepted system design`  
+`IDEA_INBOX = may build later`  
+`ROADMAP = intend/plan to build later`  
+`DISPATCH = authorized to work now`
+
+`documentationImpact` and `futureIdeaImpact` are independent. A diagnostic may legitimately be `documentationImpact=NONE` and `futureIdeaImpact=CAPTURE`.
+
 ## 18. Protocol-family and schema compatibility
 
 Every project MUST declare its native orchestration protocol family and supported schema versions.
@@ -307,6 +354,7 @@ It MUST define at minimum:
 - project identity/repositories/roots/branches;
 - Human Final Authority;
 - roles and documentation-ownership/closure policy;
+- future-idea persistence/lifecycle policy;
 - evidence authority;
 - protocol family/schema policy;
 - protected resources/worktrees;
@@ -339,6 +387,7 @@ Before the first feature implementation, require:
 - Architect and Executor defined/registered as required;
 - documentation policy explicitly `ARCHITECT_DIRECT` unless Human Final Authority approves a project-specific alternative;
 - documentation-impact and closure rules established;
+- future-idea capture/promotion rules and idea/roadmap surfaces established;
 - accepted baseline established and externally durable;
 - test/validation baseline established;
 - mutation-envelope policy ready;
@@ -358,12 +407,14 @@ Once identity, authority, protection, mutation/reconciliation, preservation, and
 
 Do not create documentation relay/Curator milestones merely to satisfy process ceremony. Architect should update only documents materially affected by durable truth. Transient diagnostics with no lasting knowledge change should normally be `documentationImpact=NONE`.
 
+Future-idea capture also must not become ceremony. Preserve ideas only when losing them would materially harm future design, safety, capability, or implementation continuity.
+
 Business/product status and orchestration status should remain visibly distinct.
 
 ## 26. Universal invariants
 
 - Human Final Authority remains final authority.
-- Architect is the central orchestration decision-maker and canonical documentation owner.
+- Architect is the central orchestration decision-maker, canonical documentation owner, and semantic owner of future-intent preservation.
 - Workers do not authorize workers or self-accept.
 - Control plane and work plane remain separated.
 - Identity is verified before mutation.
@@ -375,6 +426,8 @@ Business/product status and orchestration status should remain visibly distinct.
 - Worker `PASS` is not Architect acceptance.
 - Accepted source is externally preserved before the next implementation milestone.
 - For material documentation impact, Architect completes documentation sync/readback before the next mutating implementation dispatch.
+- Material future ideas survive cold start through separate idea/roadmap surfaces.
+- Idea/roadmap records never create implementation authority or current accepted truth.
 - Evidence chronology is reconstructable and historical ambiguity is preserved.
 - Private data/secrets remain protected.
 - Cross-project authority leakage is prohibited.
@@ -386,7 +439,7 @@ Business/product status and orchestration status should remain visibly distinct.
 
 **BOOTSTRAP PROVIDES THE GOVERNANCE KERNEL.**  
 **PROJECT POLICY PROVIDES PROJECT-SPECIFIC GOVERNANCE.**  
-**ARCHITECT PROVIDES BOUNDED TECHNICAL AUTHORITY, INTERPRETS PROJECT TRUTH, AND MAINTAINS THE CANONICAL DOCUMENTATION PROJECTION.**  
-**ORCHESTRATOR INDEPENDENTLY ENFORCES DETERMINISTIC CONTROL-PLANE STATE AND TRANSPORT; IT DOES NOT AUTHOR OR INTERPRET DOCUMENTATION.**  
+**ARCHITECT PROVIDES BOUNDED TECHNICAL AUTHORITY, INTERPRETS PROJECT TRUTH, MAINTAINS THE CANONICAL DOCUMENTATION PROJECTION, AND PRESERVES MATERIAL FUTURE INTENT SEPARATELY FROM CURRENT TRUTH.**  
+**ORCHESTRATOR INDEPENDENTLY ENFORCES DETERMINISTIC CONTROL-PLANE STATE AND TRANSPORT; IT DOES NOT AUTHOR OR INTERPRET DOCUMENTATION OR IDEAS.**  
 **EXECUTOR PERFORMS BOUNDED WORK AND PUBLISHES FIRST-HAND EXECUTION EVIDENCE.**  
 **HUMAN FINAL AUTHORITY REMAINS IN CONTROL.**
