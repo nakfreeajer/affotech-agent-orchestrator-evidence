@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
+Documentation sync boundary: through ORCH-000182 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,108 +11,80 @@ Machine authority: durable GitHub evidence and Architect decisions
 - Never blind-retry an ambiguous external mutation; reconcile read-only first.
 - Historical evidence remains immutable in meaning.
 - Architect owns canonical documentation directly under `ARCHITECT_DIRECT`.
-- Architect also owns material future-intent preservation separately from current truth.
 - Curator is eliminated from the active model; historical Curator evidence remains history only.
-- Orchestrator is independent deterministic transport/state infrastructure; it never reads Architect assistant decisions for authority or interprets documentation/idea semantics.
-- Local git commit/push is not runtime state transport.
+- Orchestrator is independent deterministic transport/state infrastructure and never interprets documentation/idea semantics.
 
-## Documentation persistence lesson
+## Documentation decision lesson
 
-A correct documentation owner is insufficient if documentation completeness depends on that owner's memory.
-
-Rony identified the failure mode: Architect has the richest project context and therefore produces more accurate documentation than a downstream Curator, but Architect can still omit documentation unless closure is a protocol invariant.
+Documentation completeness must not depend on Architect memory, and document mutation must not be triggered by status/activity alone.
 
 Permanent countermeasure:
 
-- every Architect review/material Rony directive receives documentation impact `NONE`, `STATE`, or `FULL`;
-- `NONE` avoids unnecessary document churn;
-- `STATE` updates the smallest current-state/recovery projection needed to prevent misleading continuation;
-- `FULL` updates all materially affected governance/architecture/current-state/decision/history/lesson/entrypoint material;
-- required `STATE`/`FULL` documents must be written and read back before the next mutating implementation dispatch is published;
-- documentation write/readback failure cannot be silently ignored;
-- no Curator terminal is required;
-- future Orchestrator enforcement may check a machine closure marker only after an accepted schema exists; Orchestrator still does not decide prose meaning.
+- apply `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`;
+- TEST-1 asks whether current truth would become false/incomplete/stale/misleading if docs stayed unchanged;
+- TEST-2 separates state-only recovery changes (`STATE`);
+- TEST-3 identifies lasting truth (`FULL`);
+- then test each candidate file independently;
+- `FULL` never means rewrite every Markdown file;
+- `STATE`/`FULL` selected files must be written/read back before the next mutating implementation dispatch.
 
 ## Future-idea persistence lesson
 
-Correct current-state documentation is not enough if useful future ideas can disappear with Architect/session cold start.
+Useful future intent is preserved separately from current truth:
 
-The opposite failure is also dangerous: placing unimplemented ideas into Current State or Architecture makes future intent look like accepted behavior.
+`futureIdeaImpact = NONE | CAPTURE | PROMOTE`
 
-Permanent countermeasure under governance v1.3:
+with lifecycle:
 
-```text
-documentationImpact = NONE | STATE | FULL
-futureIdeaImpact    = NONE | CAPTURE | PROMOTE
-```
+`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`.
 
-These decisions are independent.
-
-Architect captures/promotes future ideas only when they have material continuity value, such as explicit Rony future direction, meaningful risk reduction/capability, architectural simplification, a useful improvement revealed outside the current bounded milestone, or something a cold-start Architect would materially regret losing.
-
-Do not persist casual brainstorming, trivial alternatives, or duplicates.
-
-Lifecycle:
-
-`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
-
-Semantic separation:
-
-- `CURRENT_STATE` = true/current now;
-- `ARCHITECTURE` = accepted system design;
-- `IDEA_INBOX` = useful future concepts;
-- `ROADMAP` = adopted/scheduled future intent;
-- `DISPATCH` = authorized work now.
-
-Idea/roadmap entries create zero implementation authority. A future idea becomes current truth only after independent implementation acceptance.
-
-This rule is durable in bootstrap/project/memory policy v1.3 and in `docs/IDEA_INBOX.md` / `docs/ROADMAP.md`, so future Architect sessions do not depend on chat memory.
+`IDEA_INBOX`/`ROADMAP` create zero implementation authority.
 
 ## Preparation composition lessons
 
-Accepted worker-delivery preparation currently requires both:
+Accepted worker-delivery preparation requires both:
 
-- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in disposable composition;
-- transient BrowserRelay transport authorization with `actionKind=WORKER_DELIVERY`.
+- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in qualification composition;
+- transient BrowserRelay authorization with `actionKind=WORKER_DELIVERY`.
 
-The durable mutation lease itself remains immutable; `actionKind` belongs to the transient authorization used for preparation.
+The durable mutation lease remains immutable; `actionKind` belongs to transient authorization.
 
 ## Transport-status lesson
 
-Process exit code and HTTP semantic status are different fields. ORCH-000177/178 proved an actual GitHub HTTP `404` must remain semantic `404`/NOT_FOUND while `ghExitCode=1` remains diagnostics only.
+Process exit code and HTTP semantic status are different fields. Actual GitHub HTTP `404` must remain semantic 404/NOT_FOUND while `ghExitCode=1` remains diagnostic only.
 
-## Process timeout is not semantic failure
+## Expired-lease recovery lesson
 
-ORCH-000180 acquired epoch `188` successfully but stopped before any preparation request. Therefore it supplied no evidence against the action-kind fix. The lease was normally released and state returned clean.
+ORCH-000173 proved the accepted expired-lease reconciliation path can succeed when request-level transport is instrumented and durable revision/index readback determines the outcome.
 
-Lesson: a process-level termination before a function call provides no evidence about that function's corrected semantic contract.
+ORCH-000182 later invoked the same logical reconciliation once for epoch `189`, but its disposable launcher produced no observable completion output. Executor therefore reported INCONCLUSIVE.
 
-## ORCH-000181 — expired lease after pre-preparation termination
+Architect then independently read GitHub and proved both authorized durable side effects were absent:
 
-ORCH-000181 acquired/indexed epoch `189` and constructed transient `actionKind=WORKER_DELIVERY`, but again terminated before preparation call count advanced above `0`.
+- revision `000002` did not exist;
+- lease index remained revision `377` with the same target lease ACTIVE.
 
-Unlike ORCH-000180, the lease expired before normal release. Accepted release semantics correctly did not attempt a normal release after expiry.
+Lesson:
 
-Current durable state before ORCH-000182 recovery:
+**unobservable launcher/process completion is not itself proof of external mutation ambiguity when the complete authorized durable mutation surface can be independently read back and both effects are proven absent.**
 
-- index revision `377`;
-- next epoch `190`;
-- one indexed ACTIVE lease, already expired;
-- target revision `000002` absent;
-- delivery `000014` absent;
-- browser contact/send `0/0`.
+After that read-only reconciliation, a separately authorized new attempt is not a blind retry. It must still be exactly once under new authority.
 
-Lesson: once an active lease expires, do not force normal release or acquire another lease. Reconcile that exact expired lease under separately bounded authority first.
+The next attempt should reuse the ORCH-000173 proven request instrumentation and must not rely on stdout as the authoritative success signal; durable GitHub state is authority.
+
+## Pointer lesson
+
+ORCH-000182 advanced `LATEST_EXECUTOR_TERMINAL` but left `LATEST_MILESTONE` on ORCH-000181. Convenience pointers can therefore diverge even when immutable terminal evidence exists. Verification must always read the mandatory pointer set and underlying immutable evidence rather than trusting one pointer alone. Later normal terminal publication should supersede the stale milestone pointer; historical evidence must not be rewritten merely to make pointers look cleaner.
 
 ## Recovery ordering
 
-1. ORCH-000182 exactly reconciles the expired epoch-189 lease;
-2. Architect verifies recovery and applies both v1.3 impact decisions;
-3. return to preparation proof from a clean lease index;
-4. avoid multiplying disposable launcher layers if the failure is harness-only;
+1. perform one newly authorized instrumented expired-lease reconciliation from index revision `377` after fresh pre-state verification;
+2. require durable `revision 000002=EXPIRED` and index `377→378`, leaving `nextLeaseEpoch=190` and `activeLeases=[]`;
+3. Architect verifies recovery and applies the fixed documentation/future-idea tests;
+4. return to preparation proof from the clean lease index;
 5. once PREPARED + zero-browser PROVEN_NOT_SENT is accepted, arm a fresh persistent host;
 6. prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle;
-7. after core production-candidate qualification, revisit adopted future `IDEA-0001` rather than implementing it prematurely.
+7. after core production-candidate qualification, revisit adopted future `IDEA-0001`.
 
 ## Current success criterion
 
