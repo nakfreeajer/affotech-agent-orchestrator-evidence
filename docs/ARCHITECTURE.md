@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
+Documentation sync boundary: through ORCH-000182 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -39,8 +39,6 @@ Orchestrator never becomes a governor: it does not decide ACCEPTED/BLOCKED/INCON
 
 ## 4. Knowledge-plane separation
 
-The project intentionally separates five semantic surfaces:
-
 ```text
 CURRENT_STATE = what is true/current now
 ARCHITECTURE  = accepted system design/contracts
@@ -49,36 +47,20 @@ ROADMAP       = adopted/scheduled intended future work
 DISPATCH      = what is authorized to execute now
 ```
 
-This prevents future ideas from contaminating accepted/current architecture.
-
-`docs/IDEA_INBOX.md` and `docs/ROADMAP.md` are Architect-owned future-intent projections. They create zero implementation authority and never prove that a capability exists.
-
-Only accepted implementation may promote an idea into this Architecture document.
+Idea/roadmap entries create zero implementation authority. Only accepted implementation may promote an idea into accepted architecture/current truth.
 
 ## 5. Architect documentation and future-idea closure
 
-Governance is v1.3:
+Governing set:
 
 - `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
+- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
 
-After every Architect review/material Rony discussion, Architect independently classifies:
+Architect must apply the fixed semantic test before deciding `documentationImpact=NONE|STATE|FULL`; milestone status alone is never the documentation decision. For `STATE`/`FULL`, each plausible file is independently tested and only stale/misleading files are updated/read back before the next mutating implementation dispatch.
 
-```text
-documentationImpact = NONE | STATE | FULL
-futureIdeaImpact    = NONE | CAPTURE | PROMOTE
-```
-
-For `STATE`/`FULL`, required documentation is updated/read back before the next mutating implementation dispatch.
-
-For `CAPTURE`/`PROMOTE`, future intent is preserved separately through the idea/roadmap lifecycle:
-
-`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
-
-Promotion to `IMPLEMENTED` requires independently accepted implementation evidence; it is not achieved merely by being placed on the roadmap.
-
-The current source does not yet require machine documentation-closure or idea-index records. A future accepted source milestone may introduce deterministic marker/index contracts, but Orchestrator must still never interpret prose or decide which ideas/documents matter.
+Future intent is independently classified `NONE|CAPTURE|PROMOTE` and remains separate from current truth.
 
 ## 6. Accepted source
 
@@ -94,49 +76,48 @@ Accepted target order:
 
 For zero-browser preflight, send is replaced by accepted PROVEN_NOT_SENT reconciliation.
 
-Known disposable composition requirements:
+Known composition requirements:
 
-- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
+- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in the qualification composition;
 - transient transport authorization `actionKind=WORKER_DELIVERY` while leaving the durable lease record unchanged.
 
-## 8. Proven lease and adapter seams
+## 8. Proven lease/reconciliation seams
 
-ORCH-000177/178 proved the corrected disposable GitHub adapter preserves HTTP semantic status separately from `ghExitCode`, and accepted worker-delivery lease acquire/release works durably.
+ORCH-000173 proved the accepted expired-lease path can close an expired worker-delivery lease with bounded request-level instrumentation: revision create/readback followed by one lease-index CAS/readback.
 
-ORCH-000179 reached preparation and failed closed because the disposable continuation omitted transient `actionKind=WORKER_DELIVERY`.
+ORCH-000177/178 proved HTTP semantic status must remain separate from `ghExitCode`, plus normal worker-delivery lease acquisition/release.
 
-ORCH-000180 acquired/released cleanly but stopped before preparation; it provided no negative evidence about action-kind enrichment.
+ORCH-000179 reached preparation and proved the transient action-kind requirement.
 
-ORCH-000181 acquired epoch `189` and constructed actionKind, but terminated before the preparation call. The lease expired while indexed ACTIVE.
+ORCH-000181 left epoch `189` expired while still indexed ACTIVE.
 
-## 9. Current authority — ORCH-000182
+ORCH-000182 invoked the expired-lease reconciliation path once, but its disposable launcher produced no observable completion output. Independent Architect readback proves revision `000002` is absent and index revision `377` is unchanged, so the attempt produced zero durable recovery effect.
 
-ORCH-000182 is recovery-only.
+## 9. Current recovery boundary after ORCH-000182
 
-Target lease:
+Architect decision:
 
-`MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`
+`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
 
-Current boundary:
+Current durable boundary:
 
+- target lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0`;
+- epoch `189`, revision `1`, state `ACTIVE` but expired;
+- revision `000002` absent;
 - lease-index revision `377`;
 - `nextLeaseEpoch=190`;
-- exactly one indexed ACTIVE lease, now expired;
+- exactly one indexed active lease;
 - delivery `000014` absent;
 - latest delivery `000013/SENT`;
 - latest Architect trigger `000005/SENT`.
 
-Authorized recovery is exactly one expired-lease reconciliation. Expected final boundary is index revision `378`, next epoch `190`, active leases `0`, immutable revision `000002=EXPIRED`.
+The prior ORCH-000182 side effect was read-only reconciled as durably absent, so a new separately authorized reconciliation attempt is not a blind retry. The next recovery must reuse the proven ORCH-000173 request-level instrumentation pattern and determine outcome from durable GitHub readback rather than stdout.
 
-No preparation retry or new lease is authorized until this recovery closes.
+No preparation/new lease/browser/host work is legal until this expired lease is actually closed.
 
 ## 10. Adopted future architecture idea
 
-`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` only.
-
-It proposes a future machine-readable closure contract so Orchestrator can mechanically gate later mutating dispatches on an Architect closure marker after the core unattended transport is production-candidate qualified.
-
-It is **not part of accepted architecture today** and is therefore documented here only as a cross-reference to future intent, not as an implemented component. Authoritative future-intent details live in `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`.
+`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` only. It is not part of accepted architecture today.
 
 ## 11. Protected boundaries
 
