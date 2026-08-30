@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony documentation-governance directive and canonical ORCH-000182
+Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -14,28 +14,56 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 ## 2. Active role model
 
 - Rony = final human authority.
-- Architect = verification, governance, decisions, architecture, next bounded authority, and canonical documentation ownership.
+- Architect = verification, governance, decisions, architecture, next bounded authority, canonical documentation ownership, and material future-intent preservation.
 - Executor = bounded implementation/runtime/test/validation work.
 - Orchestrator = independent persistent deterministic control-plane service once qualified.
 - Curator = eliminated from the active model; historical Curator evidence remains history only.
 
-The Orchestrator independently executes accepted deterministic routing/state rules. It does not classify work, author documentation, or infer semantic authority.
+The Orchestrator independently executes accepted deterministic routing/state rules. It does not classify work, author documentation/ideas, or infer semantic authority.
 
-## 3. Documentation closure — permanent rule
+## 3. Documentation and future-idea continuity — permanent rule
 
 Governance files are now:
 
-- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.2
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.2
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.2
+- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
 
-After every Architect review or material Rony directive, Architect must classify documentation impact as `NONE`, `STATE`, or `FULL`.
+After every Architect review/material Rony discussion, Architect independently classifies:
 
-For `STATE` or `FULL`, every materially affected canonical document must be updated and durably read back before Architect publishes the next mutating implementation dispatch.
+```text
+documentationImpact = NONE | STATE | FULL
+futureIdeaImpact    = NONE | CAPTURE | PROMOTE
+```
 
-No Curator terminal is required. The current source does not yet require a dedicated machine documentation-closure marker; Architect ordering is the immediate governing enforcement mechanism.
+For `STATE` or `FULL`, every materially affected canonical current-truth document must be updated and durably read back before Architect publishes the next mutating implementation dispatch.
 
-## 4. Proven transport foundations
+For `CAPTURE` or `PROMOTE`, Architect preserves/promotes future intent through:
+
+- `docs/IDEA_INBOX.md`
+- `docs/ROADMAP.md`
+
+Idea lifecycle:
+
+`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
+
+Future-intent records create zero implementation authority and do not change current accepted behavior. Only independently accepted implementation can move an idea to `IMPLEMENTED` and promote its resulting truth into Current State/Architecture/History.
+
+No Curator terminal is required. The current source does not yet require dedicated machine documentation-closure or idea-index markers; Architect ordering/direct write-readback is the immediate governing enforcement mechanism.
+
+## 4. Current adopted future idea
+
+`IDEA-0001 — Deterministic Architect documentation-closure marker`
+
+Lifecycle: `ADOPTED_FOR_FUTURE`
+
+It proposes a later machine-readable Architect documentation-closure contract so persistent Orchestrator can mechanically check closure marker identity/existence before routing a later mutating dispatch.
+
+It is intentionally deferred until the core unattended Orchestrator transport reaches production-candidate qualification and creates no implementation authority today.
+
+See `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`.
+
+## 5. Proven transport foundations
 
 - ORCH-000153: forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` exactly once.
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once.
@@ -46,7 +74,7 @@ No Curator terminal is required. The current source does not yet require a dedic
 - ORCH-000177/178: HTTP-status adapter and accepted lease acquire/release proven.
 - ORCH-000179: preparation reached; transient BrowserRelay authorization requires `actionKind=WORKER_DELIVERY`.
 
-## 5. ORCH-000181 — BLOCKED with expired ACTIVE lease
+## 6. ORCH-000181 — BLOCKED with expired ACTIVE lease
 
 Decision:
 
@@ -71,7 +99,7 @@ Verified facts:
 - active lease count `1`;
 - source/host/trigger/protected-resource mutation remained zero.
 
-## 6. Current authority — ORCH-000182
+## 7. Current authority — ORCH-000182
 
 Milestone:
 
@@ -100,6 +128,9 @@ Required success:
 
 No preparation retry is legal until this recovery is accepted and the lease index is clean.
 
-## 7. Documentation ownership
+## 8. Documentation ownership
 
-Policy: `ARCHITECT_DIRECT` with mandatory `NONE`/`STATE`/`FULL` impact classification and pre-next-mutation documentation closure.
+Policy: `ARCHITECT_DIRECT` with mandatory current-truth and future-intent continuity:
+
+- `documentationImpact = NONE | STATE | FULL`
+- `futureIdeaImpact = NONE | CAPTURE | PROMOTE`
