@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
+Documentation sync boundary: through Rony fixed documentation-semantic-test directive and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -23,17 +23,40 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 
 Rony directed that Architect is aware of the complete governed process and should therefore maintain all relevant project documentation directly rather than relying on a Curator terminal that reconstructs Architect meaning second-hand.
 
-Adopted permanent policy:
+Permanent policy:
 
 - Curator is eliminated from the active project model.
 - No Curator terminal, relay, browser registration, cursor, or approval hop is required.
 - Historical Curator evidence remains valid history.
-- Architect must classify documentation impact after every review/material Rony directive as `NONE`, `STATE`, or `FULL`.
-- `STATE` or `FULL` requires Architect to update and durably read back every materially affected canonical document before publishing the next mutating implementation dispatch.
-- `NONE` avoids ceremonial documentation churn.
-- Documentation failure must not be silently ignored.
-- Orchestrator does not decide documentation semantics or author prose.
-- A future accepted machine contract may allow Orchestrator to gate on an Architect documentation-closure marker, but semantic ownership remains Architect.
+- Architect owns semantic and physical maintenance of canonical documentation.
+- Required documentation closure precedes the next mutating implementation dispatch.
+
+## Rony directive — fixed semantic test for documentation decisions
+
+Rony asked how Architect will decide, consistently and without relying on memory, whether documentation actually needs to be updated.
+
+Architect adopted a fixed governing semantic procedure:
+
+`governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
+
+The rule is now mandatory under `PROJECT_ORCHESTRATION_POLICY.md` v1.4 and `PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4.
+
+Architect must apply the decision in this order:
+
+1. **TEST-1 — did current project truth materially change?** If leaving all current-truth docs unchanged would not make any canonical file false, materially incomplete/stale, or likely to mislead cold-start/recovery/implementation, classify `documentationImpact=NONE`.
+2. **TEST-2 — is the change only current operational/recovery state?** If the only material change is blocker/reconciliation/lease/recovery/next-legal-action state and no lasting accepted capability/contract/governance/reusable truth changed, classify `STATE`.
+3. **TEST-3 — did lasting project truth change?** A material change to governance/authority, accepted architecture/interface/contract, accepted capability/behavior, production/deployment model, security/privacy boundary, accepted business/product rule, permanent root cause/countermeasure/reusable lesson, accepted current requirement, or equivalent lasting truth is `FULL`.
+4. **Per-document test.** For every plausible document ask whether leaving that specific file unchanged would make it false, materially incomplete, obsolete, misleading, hide a lesson it is responsible for preserving, or materially endanger cold-start/recovery/implementation. Update only files for which the answer is YES.
+
+Permanent interpretation rules:
+
+- milestone status alone never determines documentation impact;
+- `ACCEPTED` may be `NONE` when nothing materially new became true;
+- `BLOCKED` may be `NONE`, `STATE`, or `FULL` depending on what truth changed;
+- `FULL` does not mean rewrite every Markdown file;
+- tests, retries, diagnostics, process starts/stops, and repeated confirmations are activity, not documentation-worthy truth by themselves.
+
+For `STATE` or `FULL`, selected documents must be written and durably read back before the next mutating implementation dispatch.
 
 ## Rony directive — preserve future ideas separately from current truth
 
@@ -66,17 +89,22 @@ Hard boundaries:
 - Rony-stated future direction must be durably preserved when materially intended;
 - casual brainstorming, trivial alternatives, and duplicates should not be persisted.
 
-Governing files implementing both documentation and future-intent directives:
-
-- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
-
 Current adopted future item:
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` = `ADOPTED_FOR_FUTURE`.
 
 It is deliberately deferred until the core unattended Orchestrator transport reaches production-candidate qualification and creates no implementation authority today.
+
+## Governing documentation set
+
+Current documentation-governance set:
+
+- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
+- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
+- `docs/IDEA_INBOX.md`
+- `docs/ROADMAP.md`
 
 ## Proven foundations relevant to current transport seam
 
@@ -123,4 +151,9 @@ Expected closure:
 
 No new lease, preparation, delivery mutation, browser, host, Architect trigger, tracked source, or protected-resource activity is authorized.
 
-After ORCH-000182 is reviewed, Architect must independently classify both documentation impact and future-idea impact under governance v1.3 before any next mutating implementation dispatch.
+After ORCH-000182 is reviewed, Architect must independently apply both:
+
+- the fixed documentation semantic test → `NONE | STATE | FULL`;
+- the future-idea test → `NONE | CAPTURE | PROMOTE`;
+
+before any next mutating implementation dispatch.
