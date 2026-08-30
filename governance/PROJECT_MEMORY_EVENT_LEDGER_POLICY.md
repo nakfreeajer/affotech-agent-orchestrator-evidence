@@ -1,20 +1,22 @@
 # AFFOTECH Agent Orchestrator Project Memory and Documentation Projection Policy
 
-**Version:** 1.3  
+**Version:** 1.4  
 **Status:** Rony-approved governing project addendum  
 **Project:** `affotech-agent-orchestrator`  
-**Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3 and `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3  
+**Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3 and `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4  
 **Human Final Authority:** Rony Finster
 
 ## 1. Purpose
 
-This addendum hardens project memory, documentation continuity, and future-idea continuity without changing the permanent authority chain:
+This addendum hardens project memory, documentation continuity, future-idea continuity, and the repeatability of Architect documentation decisions without changing the permanent authority chain:
 
 `Rony → Architect → Executor → Architect`
 
 For this project, documentation and future-intent projection are **Architect-direct**. A separate Documentation Curator is not required for normal project continuity, project closure, documentation catch-up, future-idea preservation, or cold-start recovery.
 
 The durable GitHub evidence plane is project memory. Human-readable documentation is an Architect-maintained projection of durable accepted/project truth. Future ideas are maintained in separate Architect-owned surfaces so intended future work cannot be confused with current truth or implementation authority.
+
+Documentation-impact classification must be repeatable. Architect therefore uses the mandatory fixed semantic procedure in `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` rather than deciding from intuition, milestone status, or memory.
 
 ## 2. Separation of truth, memory, work, documentation, and future intent
 
@@ -38,7 +40,7 @@ Minimum producer ownership:
 - Reconciliation component/worker: reconciliation started/resolved/inconclusive evidence for the operation it reconciles;
 - GitHub/CI/release adapter where later authorized: commit/PR/merge/CI/release/deployment observations that the adapter directly observes.
 
-Architect MUST NOT duplicate Executor facts as Architect-authored execution events. Architect instead publishes the Architect decision that interprets those facts, determines documentation impact and future-idea impact, and updates affected human-readable surfaces from durable evidence.
+Architect MUST NOT duplicate Executor facts as Architect-authored execution events. Architect instead publishes the Architect decision that interprets those facts, applies the fixed documentation semantic test, determines future-idea impact, and updates affected human-readable surfaces from durable evidence.
 
 Historical Curator records remain immutable and must not be rewritten.
 
@@ -128,15 +130,36 @@ The producer owns the factual assertion and referenced authoritative evidence.
 
 Exact duplicate publication may be idempotent only when readback proves byte/semantic identity. A conflicting event at the same immutable identity fails closed. No hidden retry after ambiguous GitHub mutation; reconcile read-only first.
 
-## 8. Architect documentation-impact contract
+## 8. Architect fixed documentation-impact contract
 
 After every Architect review and every material Rony directive, Architect MUST determine documentation impact before publishing the next mutating implementation dispatch.
 
-Canonical impact classes:
+Canonical impact classes remain:
 
 - `NONE` — no durable project truth changed in a way that requires human-readable projection;
 - `STATE` — current operational/recovery boundary materially changed and stale current-state/handover/recovery material could mislead continuation;
 - `FULL` — accepted capability, architecture, governance, interface/contract, production behavior, significant reusable lesson, or other durable project truth materially changed.
+
+The classification mechanism is fixed and mandatory:
+
+`governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`
+
+Architect MUST apply it in order:
+
+1. **TEST-1 — material current-truth change:** ask whether leaving all current-truth docs unchanged would make any canonical document false, materially incomplete/stale, or likely to cause a fresh Architect/Executor to misunderstand current truth, repeat a solved problem, or take the wrong/illegal next action. If NO → `NONE`.
+2. **TEST-2 — state-only change:** if TEST-1 is YES, ask whether the change is limited to current blocker/reconciliation/lease/recovery/next-legal-action state and establishes no lasting accepted capability/contract/governance/reusable truth. If YES → `STATE`.
+3. **TEST-3 — lasting-truth change:** otherwise identify the lasting category that changed: governance/authority, accepted architecture/interface/contract, accepted source/runtime/user-visible behavior, production/deployment model, security/privacy/protected-resource rule, accepted business/product rule, permanent root cause/countermeasure/reusable lesson, accepted current scope/requirement, or equivalent lasting truth. If a lasting category changed → `FULL`.
+4. **Per-document selection test:** for every plausible document, ask whether leaving that specific file unchanged would make it false, materially incomplete, obsolete, misleading, hide a lesson it is responsible for preserving, or materially endanger cold-start/recovery/implementation. Update only files for which the answer is YES.
+
+Architect MUST NOT infer impact from status alone. Examples:
+
+- `ACCEPTED` + repeated validation/no new lasting truth → `NONE`;
+- `BLOCKED` + clean state/no lasting lesson → normally `NONE`;
+- `BLOCKED` + changed next legal recovery action → `STATE`;
+- `BLOCKED` + permanent root cause/countermeasure → `FULL`;
+- `ACCEPTED` + new capability/contract/architecture/governance truth → `FULL`.
+
+Activity is not truth. Tests, retries, diagnostics, process start/stop, and repeated confirmations do not by themselves require documentation mutation.
 
 This classification is Architect semantic work. Orchestrator does not infer it from prose and Executor does not self-declare documentation truth.
 
@@ -167,15 +190,15 @@ Every idea must clearly state that it creates zero implementation authority and 
 
 ## 9. Architect documentation-sync contract
 
-For `STATE` or `FULL`, Architect directly updates every materially affected document in the same closure cycle when connected write authority exists.
+For `STATE` or `FULL`, Architect directly updates every materially affected document selected by the fixed per-document semantic test in the same closure cycle when connected write authority exists.
 
 Required sequence:
 
 1. resolve current durable project authority and accepted evidence boundary;
 2. independently verify the reviewed milestone/directive;
-3. classify documentation impact;
-4. determine which human-readable documents are materially affected;
-5. update only those documents whose truth changed or whose stale projection would mislead recovery/continuation;
+3. apply `ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` and classify documentation impact;
+4. determine which human-readable documents fail the fixed per-document test;
+5. update only those documents;
 6. preserve machine-authoritative evidence references and accepted-source boundaries;
 7. preserve historical failed/ambiguous paths as history/lessons where useful;
 8. ensure current-state documentation describes accepted/current operational truth rather than obsolete attempts;
@@ -221,6 +244,8 @@ Architect routing policy:
 - adopted/scheduled future direction → `ROADMAP` plus idea lifecycle promotion;
 - accepted implementation of a prior idea → current state/architecture/history and mark idea `IMPLEMENTED`.
 
+Routing hints never override the fixed semantic test. `FULL` does not mean every Markdown file is rewritten; only files that fail the per-document test are changed.
+
 `CURRENT_STATE`-class documentation may change canonical implementation truth only from Architect-accepted evidence or verified current operational/reconciliation state, never from Executor PASS or future-intent records alone.
 
 Significant failed paths that produce reusable engineering knowledge remain in history/lessons even after a later repair is accepted. Current-state docs describe accepted/current state without presenting obsolete attempts or future ideas as current behavior.
@@ -253,19 +278,28 @@ The Orchestrator remains focused on deterministic transport/state execution betw
 
 If a future accepted machine schema introduces a documentation-closure or idea-index marker, Orchestrator may deterministically check marker identity/existence when explicitly governed. It must not decide which documents/ideas should change or whether prose is semantically sufficient.
 
-Until such schemas are accepted, enforcement is Architect ordering and direct write/readback.
+Until such schemas are accepted, enforcement is Architect application of the fixed semantic test, Architect ordering, and direct write/readback.
 
 ## 14. Cold-start persistence rule
 
-A fresh Architect session must recover both documentation and future-idea duties without relying on chat memory.
+A fresh Architect session must recover documentation, fixed semantic-test, and future-idea duties without relying on chat memory.
 
-Therefore bootstrap/project policy/current documentation must make these rules explicit:
+Required cold-start reading includes:
+
+- `governance/ORCHESTRATOR_BOOTSTRAP.md`;
+- `governance/PROJECT_ORCHESTRATION_POLICY.md`;
+- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`;
+- this memory policy;
+- current durable authority plus relevant current-state/future-intent surfaces.
+
+A fresh Architect must remember:
 
 - Curator is not active;
 - Architect owns project documentation and future-intent surfaces directly;
-- every review/material Rony directive receives a `NONE`/`STATE`/`FULL` documentation-impact decision;
-- every review/material future discussion receives a `NONE`/`CAPTURE`/`PROMOTE` future-idea-impact decision;
+- every review/material Rony directive receives `NONE`/`STATE`/`FULL` **only after the fixed semantic test**;
+- milestone status alone never decides documentation;
 - `STATE`/`FULL` requires direct documentation write/readback before the next mutating implementation dispatch;
+- every review/material future discussion receives `NONE`/`CAPTURE`/`PROMOTE` future-idea-impact classification;
 - `IDEA_INBOX` and `ROADMAP` are separate from current truth and create no implementation authority;
 - machine evidence remains authority and Markdown remains projection;
 - historical Curator evidence remains readable but creates no current workflow requirement.
@@ -291,9 +325,10 @@ Documentation/future-intent projection failure never creates source mutation, re
 - Human directives that materially change project truth are promoted by Architect.
 - Human future directions that are materially intended are preserved separately from current truth.
 - Architect directly updates all relevant human-readable project documents and future-intent surfaces.
-- Every Architect review/material Rony directive receives documentation-impact classification.
-- Every Architect review/material future discussion receives future-idea-impact classification.
+- Every Architect review/material Rony directive receives documentation-impact classification through the mandatory fixed semantic test.
+- Status alone never determines documentation impact.
 - `STATE`/`FULL` documentation sync/readback precedes the next mutating implementation dispatch.
+- `FULL` does not mean update every document; every candidate file is independently tested for semantic staleness/misleading content.
 - `NONE` avoids unnecessary documentation churn.
 - `CAPTURE`/`PROMOTE` preserves material future intent without creating implementation authority.
 - `IDEA_INBOX` and `ROADMAP` never directly change canonical current-state truth.
