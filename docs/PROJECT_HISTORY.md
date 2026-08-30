@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000182 Architect review
+Documentation sync boundary: through ORCH-000183 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -31,26 +31,39 @@ Architect classified ORCH-000181 BLOCKED and authorized exact expired-lease reco
 
 ## ORCH-000182 — reconciliation attempt produced no durable effect
 
-ORCH-000182 invoked `reconcileExpiredMutationLease` exactly once. The disposable launcher returned no observable completion output, so Executor published:
+ORCH-000182 invoked `reconcileExpiredMutationLease` exactly once. The disposable launcher returned no observable completion output, so Executor published `INCONCLUSIVE`.
 
-`GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001`.
-
-Architect independently reconciled the GitHub namespace:
-
-- target revision `000002` still absent;
-- index still revision `377`;
-- `nextLeaseEpoch=190`;
-- the same epoch-189 lease still indexed ACTIVE;
-- latest delivery and Architect trigger unchanged;
-- no browser/host/source/protected-resource side effects.
-
-Because both authorized durable mutation effects are absent, Architect classified the milestone:
+Architect independently reconciled the GitHub namespace and proved target revision `000002` absent and index revision `377` unchanged. Because both authorized durable mutation effects were absent, Architect classified:
 
 `GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`.
 
-The prior effect was reconciled before any further attempt, preserving the no-blind-retry invariant. Next recovery direction is one separately authorized instrumented reconciliation attempt using the ORCH-000173 proven request-trace pattern and durable GitHub readback instead of stdout.
+This preserved the no-blind-retry invariant and allowed one new separately authorized instrumented attempt.
 
-`LATEST_MILESTONE` remained stale on ORCH-000181 after the ORCH-000182 terminal publication; later normal terminal publication must supersede that convenience pointer without rewriting historical evidence.
+## ORCH-000183 — accepted reconciliation denies projected transition
+
+ORCH-000183 used the new separately authorized attempt after exact pre-state verification.
+
+The accepted `reconcileExpiredMutationLease` path was invoked exactly once and returned deterministically:
+
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`.
+
+Durable post-state remained unchanged:
+
+- revision `000002` absent;
+- lease index revision `377`;
+- `nextLeaseEpoch=190`;
+- the same epoch-189 lease remains indexed ACTIVE;
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- zero browser/host/source/protected-resource effects.
+
+Unlike ORCH-000182, terminal and `LATEST_MILESTONE` convenience pointers advanced normally to ORCH-000183.
+
+Architect classified:
+
+`GH-DEC-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-INVALID-BLOCKED`.
+
+The next legal action is read-only projection-contract diagnosis against accepted source ORCH-000165 and proven-successful ORCH-000173. No further reconciliation attempt is authorized until the exact invalid projection condition is identified.
 
 ## Documentation-governance evolution — 2026-08-30/31
 
@@ -68,7 +81,7 @@ Current governing versions:
 
 ## Current target
 
-Close the still-expired epoch-189 lease using the reconciled, instrumented recovery path. Only after a clean lease index is accepted may the project return to the worker-delivery preparation proof, fresh persistent-host arm, and full unattended canary:
+Diagnose and then safely close the still-expired epoch-189 lease. Only after a clean lease index is accepted may the project return to the worker-delivery preparation proof, fresh persistent-host arm, and full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
