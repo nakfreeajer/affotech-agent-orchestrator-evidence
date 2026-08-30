@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony documentation-governance directive and canonical ORCH-000182
+Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -10,7 +10,7 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 ## Permanent authority decisions
 
 - Rony is final human authority.
-- Architect governs, verifies, decides, defines next bounded authority, and owns canonical human-readable documentation.
+- Architect governs, verifies, decides, defines next bounded authority, owns canonical human-readable documentation, and preserves material future intent separately from current truth.
 - Executor performs bounded implementation/runtime/validation work and publishes first-hand evidence.
 - Orchestrator is independent persistent deterministic control-plane infrastructure once qualified; it routes/enforces accepted state-machine rules but does not interpret project semantics.
 - GitHub durable evidence is machine authority.
@@ -35,11 +35,48 @@ Adopted permanent policy:
 - Orchestrator does not decide documentation semantics or author prose.
 - A future accepted machine contract may allow Orchestrator to gate on an Architect documentation-closure marker, but semantic ownership remains Architect.
 
-Governing files implementing this directive:
+## Rony directive — preserve future ideas separately from current truth
 
-- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.2
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.2
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.2
+Rony asked how Architect will avoid losing new ideas that are useful for future implementation. Architect proposed and Rony approved a separate future-intent continuity model.
+
+Permanent decision:
+
+```text
+documentationImpact = NONE | STATE | FULL
+futureIdeaImpact    = NONE | CAPTURE | PROMOTE
+```
+
+These are independent decisions.
+
+Future-idea lifecycle:
+
+`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
+
+Canonical future-intent surfaces:
+
+- `docs/IDEA_INBOX.md` — useful future concepts not yet scheduled/implemented;
+- `docs/ROADMAP.md` — adopted/scheduled future work and promotion conditions.
+
+Hard boundaries:
+
+- idea/roadmap entries create zero implementation authority;
+- they do not describe current accepted behavior or accepted architecture;
+- only canonical Architect dispatches authorize work;
+- only independently accepted implementation may promote an idea to `IMPLEMENTED` and move resulting truth into Current State/Architecture/History;
+- Rony-stated future direction must be durably preserved when materially intended;
+- casual brainstorming, trivial alternatives, and duplicates should not be persisted.
+
+Governing files implementing both documentation and future-intent directives:
+
+- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
+
+Current adopted future item:
+
+`IDEA-0001 — Deterministic Architect documentation-closure marker` = `ADOPTED_FOR_FUTURE`.
+
+It is deliberately deferred until the core unattended Orchestrator transport reaches production-candidate qualification and creates no implementation authority today.
 
 ## Proven foundations relevant to current transport seam
 
@@ -86,4 +123,4 @@ Expected closure:
 
 No new lease, preparation, delivery mutation, browser, host, Architect trigger, tracked source, or protected-resource activity is authorized.
 
-After ORCH-000182 is reviewed, Architect must again classify documentation impact and satisfy the v1.2 documentation-closure invariant before any next mutating implementation dispatch.
+After ORCH-000182 is reviewed, Architect must independently classify both documentation impact and future-idea impact under governance v1.3 before any next mutating implementation dispatch.
