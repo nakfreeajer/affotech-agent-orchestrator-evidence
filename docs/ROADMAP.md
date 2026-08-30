@@ -11,31 +11,32 @@ This roadmap records adopted or scheduled future work so intended direction surv
 
 A roadmap entry creates **zero implementation authority**. Only a canonical Architect dispatch may authorize Executor work or mutation.
 
-Current truth remains in `docs/CURRENT_STATE.md` and accepted architecture in `docs/ARCHITECTURE.md`.
-
 ## Current governed sequence
 
-### 1. Restore clean lease boundary
+### 1. Close the expired epoch-189 lease
 
-Current authority remains ORCH-000182 recovery-only.
+ORCH-000182 attempted the reconciliation once but produced no durable effect. Architect independently proved revision `000002` absent and lease index unchanged at revision `377`.
 
-Goal:
+The next legal recovery is one separately authorized instrumented reconciliation attempt using the ORCH-000173 proven request-level trace pattern.
 
-- reconcile the expired ORCH-000181 epoch-189 lease;
-- return the mutation-lease index to zero active leases;
-- preserve `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT` and zero unauthorized side effects.
+Required success:
 
-This item is governed by current machine authority, not by this roadmap.
+- target revision `000002=EXPIRED` durable/read back;
+- index `377→378` exactly once;
+- `nextLeaseEpoch=190`;
+- `activeLeases=[]`;
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- no preparation/browser/host/trigger/source/protected-resource side effects.
+
+This item is governed by machine authority, not by this roadmap.
 
 ### 2. Close worker-delivery preparation proof
 
-After clean recovery is independently accepted, return to the unresolved preparation seam from a clean boundary.
-
-Required proof remains:
+After clean lease recovery is independently accepted, return to:
 
 `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → durable PREPARED intent → zero-browser PROVEN_NOT_SENT → RELEASE`
 
-Avoid creating additional disposable launcher layers unless new evidence proves they are necessary.
+Avoid adding disposable launcher layers unless new evidence proves they are necessary.
 
 ### 3. Arm a fresh persistent Orchestrator host
 
@@ -43,7 +44,7 @@ After preparation composition is accepted, arm a fresh persistent host using the
 
 ### 4. Full unattended canary
 
-Publish a strictly newer canary dispatch and prove the complete automatic cycle without manual forwarding:
+Publish a strictly newer canary dispatch and prove:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`
 
@@ -56,7 +57,7 @@ This is the core production-candidate threshold for the transport loop.
 **Lifecycle:** `ADOPTED_FOR_FUTURE`  
 **Source:** `docs/IDEA_INBOX.md#idea-0001--deterministic-architect-documentation-closure-marker`
 
-After the core unattended transport reaches production-candidate qualification, define and implement a machine-readable Architect documentation-closure contract so the Orchestrator may deterministically gate a later mutating dispatch on closure-marker identity/existence.
+After core unattended transport reaches production-candidate qualification, define and implement a machine-readable Architect documentation-closure contract so the Orchestrator may deterministically gate a later mutating dispatch on closure-marker identity/existence.
 
 The Orchestrator must not interpret documentation semantics or author documentation.
 
@@ -68,4 +69,4 @@ Promotion to `SCHEDULED` requires an Architect decision that places this work in
 - `SCHEDULED` means intended sequence, not authorization.
 - `IMPLEMENTED` means accepted implementation; resulting truth is then reflected in normal current-state/architecture/history documentation.
 
-Roadmap entries must never be used as substitutes for canonical prompts, dispatches, mutation envelopes, human authority, leases, or accepted evidence.
+Roadmap entries must never substitute for canonical prompts, dispatches, mutation envelopes, human authority, leases, or accepted evidence.
