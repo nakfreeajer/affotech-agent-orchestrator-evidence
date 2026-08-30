@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000182 Architect review
+Documentation sync boundary: through ORCH-000183 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -54,43 +54,53 @@ Epoch `189` was acquired/indexed and transient `actionKind=WORKER_DELIVERY` cons
 
 ## ORCH-000182 — BLOCKED after independent reconciliation
 
-Executor terminal:
-
-`GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001`
-
-Executor classified its run `INCONCLUSIVE`: one authorized `reconcileExpiredMutationLease` call was launched, but the disposable process yielded no observable completion output.
-
-Architect independently read the exact external namespace and found:
-
-- revision `000002` absent;
-- lease index unchanged at revision `377`;
-- `nextLeaseEpoch=190`;
-- the same single epoch-189 lease remains indexed ACTIVE;
-- latest delivery `000013/SENT` unchanged;
-- latest Architect trigger `000005/SENT` unchanged;
-- browser/host/source/protected-resource side effects zero.
-
-Therefore Architect final classification is:
+Decision:
 
 `GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
 
+The single reconciliation launcher had unobservable completion, but Architect independently proved revision `000002` absent and index revision `377` unchanged. Therefore the authorized mutation effect was durably absent and one new separately authorized attempt could be made without violating no-blind-retry.
+
+## ORCH-000183 — BLOCKED at projection validation
+
+Executor terminal:
+
+`GH-PUB-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-BLOCKED-000001`
+
+Architect verified:
+
+- required pre-state passed;
+- exactly one accepted `reconcileExpiredMutationLease` call;
+- deterministic result `DENIED`;
+- reason `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`;
+- target revision `000002` absent;
+- index remains revision `377` with the epoch-189 lease ACTIVE;
+- `nextLeaseEpoch=190`;
+- latest delivery `000013/SENT` unchanged;
+- Architect trigger `000005/SENT` unchanged;
+- zero browser/host/source/protected-resource side effects;
+- terminal and milestone convenience pointers advanced normally.
+
+Architect classification:
+
+`GH-DEC-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-INVALID-BLOCKED`
+
 Rationale:
 
-The ORCH-000182 attempt did not durably mutate either authorized external resource. Its internal completion remains unobservable, but the mutation effect is independently proven absent. A new attempt may therefore be separately authorized after this read-only reconciliation; that is not a blind retry.
+The recovery is no longer externally ambiguous: accepted reconciliation validation denied the projected expired-lease transition before revision/index mutation. The exact validation condition is not yet known, so another reconciliation attempt would be premature.
 
 Documentation decision:
 
-- `documentationImpact=STATE` — TEST-1 YES, TEST-2 YES; current recovery/next-legal-action changed, no lasting accepted capability/contract changed.
+- `documentationImpact=STATE` — TEST-1 YES because next legal recovery action changed; TEST-2 YES because no lasting accepted capability/contract/root cause is established yet.
 - `futureIdeaImpact=NONE`.
 
 ## Next recovery direction
 
-The next recovery must make one new instrumented expired-lease reconciliation attempt from the unchanged revision-377 boundary, using the ORCH-000173 proven request-level trace pattern.
+ORCH-000184 must be read-only. It must compare the ORCH-000183 projection/call shape with accepted ORCH-000165 source and the proven-successful ORCH-000173 reconciliation path, identify the exact field/condition behind `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`, and recommend the smallest safe repair.
 
-It must not rely on stdout as authority. Durable GitHub revision/index readback determines outcome.
+Until that diagnosis is accepted:
 
-Success remains:
-
-`revision 000002=EXPIRED → index 377→378 → nextLeaseEpoch=190 → activeLeases=[]`.
-
-No preparation, new lease, delivery, browser, host, Architect trigger, tracked source, or protected-resource activity is authorized until the expired lease is closed.
+- no further expired-lease reconciliation call;
+- no new lease;
+- no preparation/delivery `000014`;
+- no browser/host/trigger/source mutation;
+- lease index remains `377`, next epoch `190`, one expired indexed ACTIVE lease.
