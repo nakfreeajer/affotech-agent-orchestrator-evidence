@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001",
+  "messageId": "ORCH-000182",
+  "dispatchId": "DISPATCH-000182",
+  "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.WORKER.DELIVERY.LEASE.EXACT.RECONCILIATION.2A",
+  "status": "INCONCLUSIVE",
+  "requiresArchitectDecision": true,
+  "classification": "EXPIRED_WORKER_DELIVERY_LEASE_RECONCILIATION_INCONCLUSIVE",
+  "summary": "The single authorized reconciliation launcher produced no observable completion output and durable read-back remains at the exact required pre-state. No retry was made; mutation outcome cannot be proven.",
+  "reconcileExpiredMutationLeaseCallCount": 1,
+  "preStateReadBack": {
+    "indexRevision": 377,
+    "nextLeaseEpoch": 190,
+    "activeLeaseCount": 1,
+    "targetLeaseRevision": 1,
+    "targetRevision000002Exists": false,
+    "latestDelivery": "WORKER-DELIVERY-EXECUTOR-000013/SENT"
+  },
+  "targetLeaseId": "MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0",
+  "targetLeaseEpoch": 189,
+  "targetExpectedNextLeaseRevision": 2,
+  "finalIndexRevision": null,
+  "finalActiveLeaseCount": null,
+  "deliveryIntentResultMutations": 0,
+  "browserContactCount": 0,
+  "browserSendCount": 0,
+  "hostProcessMutationCount": 0,
+  "architectTriggerMutationCount": 0,
+  "sourceMutation": 0,
+  "driveMutation": 0,
+  "affotechAccess": 0,
+  "assistantMessageTextRead": false,
+  "launchCommand": "node C:\\Users\\nitro\\AppData\\Local\\Temp\\orch-000182-reconcile.mjs",
+  "error": {
+    "code": "RECONCILIATION_OUTCOME_UNOBSERVABLE",
+    "message": "Temporary launcher completed without stdout and current GitHub read-back shows no revision 000002 or index change."
+  }
+}

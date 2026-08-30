@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001",
+  "messageId": "ORCH-000182",
+  "dispatchId": "DISPATCH-000182",
+  "status": "INCONCLUSIVE",
+  "reconcileExpiredMutationLeaseCallCount": 1,
+  "delivery000014Created": false,
+  "sourceMutation": 0,
+  "browserContactCount": 0,
+  "browserSendCount": 0
+}
