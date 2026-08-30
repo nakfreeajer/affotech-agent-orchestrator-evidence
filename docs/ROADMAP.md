@@ -13,24 +13,37 @@ A roadmap entry creates **zero implementation authority**. Only a canonical Arch
 
 ## Current governed sequence
 
-### 1. Close the expired epoch-189 lease
+### 1. Diagnose the epoch-189 expired-lease projection denial
 
-ORCH-000182 attempted the reconciliation once but produced no durable effect. Architect independently proved revision `000002` absent and lease index unchanged at revision `377`.
+ORCH-000183 made one accepted reconciliation call and received:
 
-The next legal recovery is one separately authorized instrumented reconciliation attempt using the ORCH-000173 proven request-level trace pattern.
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
 
-Required success:
+No durable mutation occurred; revision `000002` is absent and index remains revision `377` with the same expired ACTIVE lease.
+
+The next legal step is read-only diagnosis comparing:
+
+- accepted ORCH-000165 reconciliation/projection source contract;
+- successful ORCH-000173 reconciliation input/call semantics;
+- ORCH-000183 disposable call shape;
+- the exact epoch-189 lease/index/time/lineage/scope/envelope projection.
+
+No further reconciliation attempt is authorized until the exact invalid field/condition is identified.
+
+### 2. Close the expired epoch-189 lease
+
+After the diagnostic is independently accepted, apply only the smallest safe repair/reconciliation path it justifies.
+
+Required eventual closure remains:
 
 - target revision `000002=EXPIRED` durable/read back;
-- index `377→378` exactly once;
-- `nextLeaseEpoch=190`;
+- lease index advances from `377` to the accepted next revision removing only the target;
+- `nextLeaseEpoch=190` unless a separately accepted contract says otherwise;
 - `activeLeases=[]`;
-- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- no preparation/browser/host/trigger/source/protected-resource side effects.
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT` during recovery;
+- no unauthorized preparation/browser/host/trigger/source/protected-resource side effects.
 
-This item is governed by machine authority, not by this roadmap.
-
-### 2. Close worker-delivery preparation proof
+### 3. Close worker-delivery preparation proof
 
 After clean lease recovery is independently accepted, return to:
 
@@ -38,11 +51,11 @@ After clean lease recovery is independently accepted, return to:
 
 Avoid adding disposable launcher layers unless new evidence proves they are necessary.
 
-### 3. Arm a fresh persistent Orchestrator host
+### 4. Arm a fresh persistent Orchestrator host
 
 After preparation composition is accepted, arm a fresh persistent host using the proven composition and prove clean idle/bootstrap behavior without forwarding its own bootstrap dispatch.
 
-### 4. Full unattended canary
+### 5. Full unattended canary
 
 Publish a strictly newer canary dispatch and prove:
 
