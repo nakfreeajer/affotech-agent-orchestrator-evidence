@@ -1,9 +1,9 @@
 # AFFOTECH Agent Orchestrator Project Orchestration Policy
 
 **File:** `PROJECT_ORCHESTRATION_POLICY.md`  
-**Version:** 1.2  
+**Version:** 1.3  
 **Status:** Governing project-specific extension  
-**Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.2  
+**Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3  
 **Project:** `affotech-agent-orchestrator`  
 **Human Final Authority:** Rony Finster
 
@@ -47,6 +47,7 @@ Architect owns both semantic interpretation and physical maintenance of canonica
 - project history;
 - reusable bugs/lessons;
 - README/entrypoint documentation;
+- future-idea and roadmap documentation;
 - handover/recovery material if later introduced.
 
 Documentation Curator is **eliminated from the active project model**. No Curator terminal, approval hop, relay, browser registration, cursor, or transport proof is required for project continuity or closure. Historical Curator evidence remains valid historical evidence and must not be rewritten. A Curator may return only after a future explicit Rony directive and corresponding policy change.
@@ -87,6 +88,62 @@ If required documentation write/readback fails, Architect must not silently proc
 
 The current accepted source does not need to contain a dedicated machine `DOCUMENTATION_CLOSURE` record before this governance rule is effective. The immediate enforcement mechanism is Architect ordering: required document updates/readbacks precede the next mutating implementation dispatch. A future accepted source milestone may add a deterministic closure marker/gate; the Orchestrator may then enforce presence/identity of that marker but must never decide documentation meaning or author documentation.
 
+## 4A. Architect future-idea continuity invariant
+
+Future ideas are a separate knowledge class from current project truth.
+
+After every Architect review and every material Rony discussion/directive, Architect MUST independently classify:
+
+`futureIdeaImpact = NONE | CAPTURE | PROMOTE`
+
+Definitions:
+
+- `NONE` — no distinct future concept is materially worth preserving;
+- `CAPTURE` — a distinct useful future concept would be costly to lose after cold start and must be preserved in `docs/IDEA_INBOX.md`;
+- `PROMOTE` — an idea has been explicitly adopted as future direction, placed into intended sequence, or completed and must advance lifecycle/roadmap state.
+
+Canonical idea lifecycle:
+
+1. `PROPOSED` — worth remembering; not yet adopted as project direction;
+2. `ADOPTED_FOR_FUTURE` — Rony/Architect has deliberately retained it as intended future direction; not current implementation authority;
+3. `SCHEDULED` — deliberately placed into a future implementation sequence in `docs/ROADMAP.md`; still not implementation authority;
+4. `IMPLEMENTED` — implementation has been independently accepted; promote the resulting truth into `CURRENT_STATE`, `ARCHITECTURE`, `PROJECT_HISTORY`, and other materially affected canonical documents.
+
+Architect MUST capture an idea when at least one material criterion applies:
+
+- Rony explicitly states it as intended future direction;
+- it solves/reduces a known future problem or risk;
+- it creates a meaningful future capability or architectural simplification;
+- a fresh Architect would reasonably regret losing it after cold start;
+- current milestone/root-cause work exposes a distinct improvement that does not belong in the current bounded mutation.
+
+Architect SHOULD NOT persist casual brainstorming, trivial alternatives, low-value speculation, or duplicates of an existing idea/roadmap item.
+
+Before creating a new idea, Architect must check existing `IDEA_INBOX`/`ROADMAP` for a materially equivalent item. If equivalent, update/promote the existing entry instead of duplicating it.
+
+Every idea entry must state at minimum:
+
+- stable idea ID/title;
+- lifecycle status;
+- origin/authority context;
+- problem or opportunity;
+- proposed concept;
+- explicit statement that it creates no implementation authority/current accepted truth;
+- revisit/promotion condition when known;
+- relationship to existing roadmap/decision/evidence where materially useful.
+
+Canonical semantic separation for this project:
+
+- `docs/CURRENT_STATE.md` = accepted/current operational truth;
+- `docs/ARCHITECTURE.md` = accepted system architecture/contract;
+- `docs/IDEA_INBOX.md` = useful future concepts not yet scheduled/implemented;
+- `docs/ROADMAP.md` = adopted/scheduled intended future work;
+- canonical `ORCH-* / DISPATCH-*` = what is authorized to execute now.
+
+Idea and roadmap records create **zero implementation authority**. They cannot authorize Executor, mutation, deployment, or production work and must never be cited as proof that a capability already exists.
+
+`documentationImpact` and `futureIdeaImpact` are independent. Example: a failed diagnostic may be `documentationImpact=NONE` while a distinct improvement is `futureIdeaImpact=CAPTURE`.
+
 ## 5. GitHub evidence authority
 
 GitHub durable evidence is machine authority for the Orchestrator workflow.
@@ -108,7 +165,7 @@ Current pointers are convenience indexes. Immutable prompts, dispatches, decisio
 
 Browser-visible assistant text, terminal screen output, or human-readable Markdown is not machine authority.
 
-Human-readable documentation is an Architect-maintained projection of durable accepted/project truth.
+Human-readable documentation is an Architect-maintained projection of durable accepted/project truth. `IDEA_INBOX` and `ROADMAP` are durable future-intent projections but are not machine authority or mutation authority.
 
 ## 6. Protocol-family separation
 
@@ -161,11 +218,12 @@ It MUST NOT:
 - classify Executor work as `ACCEPTED`, `BLOCKED`, or `INCONCLUSIVE`;
 - invent new work or broaden mutation scope;
 - interpret business/technical semantics;
-- decide what documentation means or which prose should be written;
+- decide what documentation or future ideas mean;
+- author documentation, ideas, or roadmap content;
 - scrape Architect assistant response text/DOM for authority;
 - replace Rony or Architect decision authority.
 
-Architect governs **what is authorized and what evidence means**. Orchestrator independently executes **how accepted deterministic state/transport rules advance**.
+Architect governs **what is authorized and what evidence/future intent means**. Orchestrator independently executes **how accepted deterministic state/transport rules advance**.
 
 ## 9. Protected AFFOTECH resources
 
@@ -213,7 +271,7 @@ Before command 1 and before the first mutation of every mutating Executor milest
 
 Failure stops before project mutation and must still produce terminal governance evidence when the publication path is available.
 
-Architect documentation/control-plane writes use connected Architect authority and must independently read current durable evidence before changing canonical human-readable project truth.
+Architect documentation/control-plane writes use connected Architect authority and must independently read current durable evidence before changing canonical human-readable project truth or future-intent projection.
 
 ## 12. Mutation envelope and role boundaries
 
@@ -223,7 +281,7 @@ Anything not explicitly authorized is denied.
 
 Source/test implementation work is Executor-owned. Architect does not silently become Executor.
 
-Architect directly owns governance/architecture/current-state/history/decision-summary/lessons/README documentation and may write those control-plane/human-readable records within connected Architect authority. This is not Executor implementation work and requires no Curator handoff.
+Architect directly owns governance/architecture/current-state/history/decision-summary/lessons/README/idea/roadmap documentation and may write those control-plane/human-readable records within connected Architect authority. This is not Executor implementation work and requires no Curator handoff.
 
 Destructive cleanup is default-deny. Never rewrite historical ambiguous evidence to make it appear successful.
 
@@ -285,7 +343,7 @@ Unknown record types, unsupported major versions, ambiguous protocol family, or 
 
 No automatic schema migration/normalization is allowed at an authority boundary unless a separately authorized migration contract exists.
 
-## 19. Evidence, acceptance, preservation, and documentation closure
+## 19. Evidence, acceptance, preservation, documentation, and idea continuity
 
 Executor terminal result is evidence, not acceptance.
 
@@ -295,20 +353,26 @@ Accepted source must be durably externally preserved before another implementati
 
 Historical states remain immutable in meaning. An `AMBIGUOUS` delivery may later have a separate reconciliation proving `SENT`; the old record remains `AMBIGUOUS`.
 
-After an accepted milestone, material blocker/recovery boundary, or material Rony directive, Architect determines documentation impact and performs required documentation closure under section 4.
+After an accepted milestone, material blocker/recovery boundary, or material Rony directive, Architect independently determines both:
 
-For `STATE` or `FULL`, **the next mutating implementation dispatch must not be published before required documentation changes are written and read back**.
+- `documentationImpact = NONE | STATE | FULL`
+- `futureIdeaImpact = NONE | CAPTURE | PROMOTE`
+
+For `STATE` or `FULL`, the next mutating implementation dispatch must not be published before required documentation changes are written and read back.
+
+For `CAPTURE` or `PROMOTE`, Architect updates the appropriate future-intent surface without implying current implementation authority.
 
 ## 20. Business/product state vs orchestration state
 
-Keep product progress separate from orchestration mechanics.
+Keep product progress separate from orchestration mechanics and future intent.
 
 Examples:
 
 - product/business: feature NOT STARTED / IN TESTING / COMPLETED / DEPLOYED
 - orchestration: Executor running / awaiting Architect / BLOCKED / reconciliation required / human authority required
+- future intent: PROPOSED / ADOPTED_FOR_FUTURE / SCHEDULED / IMPLEMENTED
 
-A transport/governance milestone passing does not imply application/business work is complete.
+A transport/governance milestone passing does not imply application/business work is complete. An idea/roadmap entry does not imply work is authorized or implemented.
 
 ## 21. Cold start and recovery
 
@@ -319,13 +383,15 @@ A fresh Architect/Executor environment must reconstruct the next legal action fr
 At cold start Architect MUST read the bootstrap/project policy and recognize:
 
 - Curator is not an active role;
-- Architect owns canonical documentation directly;
+- Architect owns canonical documentation and future-intent projection directly;
 - every review/directive requires a documentation-impact decision;
+- every review/material future discussion requires a future-idea-impact decision;
 - `STATE`/`FULL` documentation closure precedes the next mutating implementation dispatch;
+- `IDEA_INBOX` and `ROADMAP` are future-intent surfaces, not authority/current truth;
 - machine evidence remains authority over Markdown;
 - unfinished intent or uncertain external side effects enter reconciliation before retry.
 
-Human-readable docs must make the current accepted operational picture understandable, but they never replace the durable evidence chain.
+Human-readable docs must make the current accepted operational picture and preserved future intent understandable without confusing them, but they never replace the durable evidence chain.
 
 ## 22. Future AFFOTECH integration boundary
 
@@ -348,9 +414,10 @@ This Orchestrator owns the canonical universal bootstrap. New governed applicati
 - pinned `ORCHESTRATOR_BOOTSTRAP.md` snapshot/reference with upstream version/hash;
 - project-owned `PROJECT_ORCHESTRATION_POLICY.md` stating inheritance;
 - `AGENTS.md` referencing both rather than duplicating the entire governance kernel where applicable;
-- `config/project-profile.json` (or equivalent) binding bootstrap version/hash, project-policy path/hash, protocol family, repositories, roles, documentation policy, and protected resources.
+- `config/project-profile.json` (or equivalent) binding bootstrap version/hash, project-policy path/hash, protocol family, repositories, roles, documentation policy, future-idea policy, and protected resources;
+- dedicated human-readable future-intent surfaces equivalent to `IDEA_INBOX` and `ROADMAP` when the project has nontrivial future work.
 
-The universal default is Architect-direct documentation. A downstream project may choose a different documentation worker arrangement only by explicit Human Final Authority/project-policy decision; it must not silently weaken Architect semantic ownership or documentation closure.
+The universal default is Architect-direct documentation/future-intent ownership. A downstream project may choose a different documentation worker arrangement only by explicit Human Final Authority/project-policy decision; it must not silently weaken Architect semantic ownership or closure.
 
 ## 24. Document precedence inside this project
 
@@ -363,7 +430,9 @@ For the Orchestrator project:
 5. canonical Architect prompt/dispatch;
 6. worker-local choices.
 
-Human-readable docs remain detailed project specifications and projections. Where a true conflict exists between an older document and newer explicit Rony-approved governing evidence/policy, Architect must reconcile the documentation directly rather than guessing or delegating the conflict away.
+Human-readable docs remain detailed project specifications and projections. `IDEA_INBOX` and `ROADMAP` are lower-authority future-intent projections and never override machine evidence, accepted architecture/current state, or dispatch authority.
+
+Where a true conflict exists between an older document and newer explicit Rony-approved governing evidence/policy, Architect must reconcile the documentation directly rather than guessing or delegating the conflict away.
 
 ## 25. Current project posture
 
@@ -371,11 +440,13 @@ Current governing posture:
 
 - Orchestrator control/evidence work continues under canonical GitHub authority;
 - persistent Orchestrator is intended to operate independently as deterministic infrastructure once qualified;
-- Architect directly and persistently maintains all relevant project documentation;
+- Architect directly and persistently maintains all relevant project documentation and future-intent surfaces;
 - documentation impact is classified `NONE`, `STATE`, or `FULL` after each review/material Rony directive;
+- future idea impact is independently classified `NONE`, `CAPTURE`, or `PROMOTE`;
 - required `STATE`/`FULL` documentation sync/readback precedes the next mutating implementation dispatch;
+- material future ideas are captured/promoted through `docs/IDEA_INBOX.md` and `docs/ROADMAP.md` without creating implementation authority;
 - Curator is eliminated from the active model; no Curator terminal or transport proof is required;
 - protocol-family separation and durable correlation identity remain mandatory;
 - AFFOTECH integration/access remains unauthorized;
 - accepted source remains separately governed from runtime qualification;
-- productive Orchestrator work should continue without documentation-relay milestones that provide no material safety or reconstruction value.
+- productive Orchestrator work should continue without documentation-relay or idea-capture ceremony that provides no material continuity value.
