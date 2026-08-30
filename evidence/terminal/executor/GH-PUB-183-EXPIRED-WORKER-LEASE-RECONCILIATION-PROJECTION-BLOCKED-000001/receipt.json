@@ -1,0 +1,13 @@
+{
+  "schemaVersion":"1.0",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-BLOCKED-000001",
+  "messageId":"ORCH-000183",
+  "dispatchId":"DISPATCH-000183",
+  "status":"BLOCKED",
+  "reconcileExpiredMutationLeaseCallCount":1,
+  "reasonCode":"EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID",
+  "sourceMutation":0,
+  "browserContactCount":0,
+  "browserSendCount":0
+}
