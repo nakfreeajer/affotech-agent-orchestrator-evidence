@@ -1,0 +1,19 @@
+{
+  "schemaVersion":"1.0",
+  "publicationId":"GH-PUB-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-BLOCKED-000001",
+  "recordType":"EXECUTOR_TERMINAL_PUBLICATION",
+  "classification":"WORKER_DELIVERY_000014_IN_PROCESS_PREFLIGHT_BLOCKED",
+  "status":"BLOCKED",
+  "messageId":"ORCH-000181",
+  "dispatchId":"DISPATCH-000181",
+  "milestone":"ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.IN.PROCESS.ACTION.KIND.ENRICHED.PREFLIGHT.1A",
+  "architectDecisionId":"GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED",
+  "acceptedSourcePublicationId":"GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256":"c6d24bbaa4564a8f4534f8aa16233ef4de2ff1192ce29438cc0f20b58767167d",
+  "authorityRef":"b2530c1c23d2759811c1df9dbf3dd7af46db295a",
+  "preflight":{"traceFlushProbePassed":true,"leaseAcquireCount":1,"leaseAcquireOutcome":"ACQUIRED","leaseId":"MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0","leaseEpoch":189,"leaseActiveRevisionReadBack":true,"transientActionKind":"WORKER_DELIVERY","preparationCallCount":0,"delivery000014IntentExists":false,"delivery000014ResultExists":false,"browserContactCount":0,"browserSendCount":0,"launcherProcessStillRunning":false,"leaseExpired":true,"leaseReleaseCount":0,"leaseReleaseOutcome":"NOT_ATTEMPTED_AFTER_EXPIRY","indexRevision":377,"nextLeaseEpoch":190,"activeLeaseCount":1,"latestDelivery":"WORKER-DELIVERY-EXECUTOR-000013/SENT"},
+  "diagnosis":{"classification":"DISPOSABLE_IN_PROCESS_LAUNCHER_TERMINATED_BEFORE_PREPARATION","reason":"The single in-process attempt acquired and indexed epoch 189 and constructed transient actionKind=WORKER_DELIVERY, but the process terminated before issuing prepareWorkerDeliveryIntent. No delivery mutation or browser contact occurred. By read-back time the lease was expired; normal release was not attempted because accepted release semantics no longer authorize it. Expiry reconciliation is left for Architect-authorized recovery."},
+  "mutationAccounting":{"leaseAcquireCalls":1,"leaseRevisionCreateCount":1,"leaseIndexCasCount":1,"leaseReleaseCount":0,"workerDeliveryIntentCount":0,"workerDeliveryResultCount":0,"browserContactCount":0,"browserSendCount":0,"hostProcessMutation":0,"architectTriggerMutation":0,"trackedSourceMutation":0,"testMutation":0,"configMutation":0,"documentationMutation":0,"governanceMutation":0,"acceptedSourcePointerMutation":0,"affotechAccess":0,"driveAccess":0,"deploymentAccess":0,"privateBusinessDataAccess":0,"protectedPortContactCount":0,"assistantMessageTextRead":false,"responseDomRead":false,"localGitRuntimePersistence":0},
+  "retryAuthorized":false,
+  "requiresArchitectDecision":true
+}

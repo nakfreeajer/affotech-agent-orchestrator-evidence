@@ -1,0 +1,21 @@
+{
+  "schemaVersion":"1.0",
+  "receiptType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-BLOCKED-000001",
+  "messageId":"ORCH-000181",
+  "dispatchId":"DISPATCH-000181",
+  "status":"BLOCKED",
+  "classification":"DISPOSABLE_IN_PROCESS_LAUNCHER_TERMINATED_BEFORE_PREPARATION",
+  "leaseAcquireCount":1,
+  "leaseEpoch":189,
+  "preparationCallCount":0,
+  "delivery000014Exists":false,
+  "leaseExpired":true,
+  "leaseReleaseCount":0,
+  "indexRevision":377,
+  "activeLeaseCount":1,
+  "browserContactCount":0,
+  "browserSendCount":0,
+  "sourceMutation":0,
+  "requiresArchitectDecision":true
+}
