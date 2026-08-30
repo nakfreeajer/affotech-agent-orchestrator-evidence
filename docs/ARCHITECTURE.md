@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony documentation-governance directive and canonical ORCH-000182
+Documentation sync boundary: through Rony future-idea governance directive and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -14,7 +14,7 @@ AFFOTECH Agent Orchestrator is a governed deterministic message-routing and dura
 ```text
 Rony — final human authority
   ↕
-Architect 9333 — think / govern / verify / decide / document
+Architect 9333 — think / govern / verify / decide / document / preserve future intent
   ↓ durable dispatch
 Persistent deterministic Orchestrator — independent control-plane service
   ↓ exact lease + durable worker intent + exact delivery
@@ -30,36 +30,63 @@ The Orchestrator is operationally independent once qualified. Architect does not
 ## 3. Role boundaries
 
 - **Rony:** final human authority.
-- **Architect:** project truth, verification, classification, architecture, bounded next authority, and canonical documentation projection.
+- **Architect:** project truth, verification, classification, architecture, bounded next authority, canonical documentation projection, and future-intent preservation/promotion.
 - **Executor:** bounded source/runtime/test/validation work and first-hand terminal evidence.
 - **Orchestrator:** deterministic observation, eligibility, lease/intent/result transport, duplicate suppression, reconciliation routing, and role wake-up.
 - **Curator:** not part of the active model. Historical Curator evidence remains history only.
 
-Orchestrator never becomes a governor: it does not decide ACCEPTED/BLOCKED/INCONCLUSIVE, broaden scope, author documentation, or infer project meaning.
+Orchestrator never becomes a governor: it does not decide ACCEPTED/BLOCKED/INCONCLUSIVE, broaden scope, author documentation/ideas, or infer project meaning.
 
-## 4. Architect documentation closure
+## 4. Knowledge-plane separation
 
-Documentation policy is `ARCHITECT_DIRECT` under bootstrap/project policy v1.2.
+The project intentionally separates five semantic surfaces:
 
-After every Architect review or material Rony directive, Architect classifies documentation impact:
+```text
+CURRENT_STATE = what is true/current now
+ARCHITECTURE  = accepted system design/contracts
+IDEA_INBOX    = useful future concepts that may be built later
+ROADMAP       = adopted/scheduled intended future work
+DISPATCH      = what is authorized to execute now
+```
 
-`NONE | STATE | FULL`
+This prevents future ideas from contaminating accepted/current architecture.
 
-For `STATE` or `FULL`, the sequence is:
+`docs/IDEA_INBOX.md` and `docs/ROADMAP.md` are Architect-owned future-intent projections. They create zero implementation authority and never prove that a capability exists.
 
-`durable evidence → Architect verification/decision → documentation impact → update affected docs → durable write/readback → next mutating implementation dispatch`
+Only accepted implementation may promote an idea into this Architecture document.
 
-Therefore documentation correctness no longer depends on a separate Curator terminal and must not depend on Architect remembering informally. The duty is a governing closure invariant.
+## 5. Architect documentation and future-idea closure
 
-The current source does not yet require a dedicated machine `DOCUMENTATION_CLOSURE` record. A future accepted source milestone may add a deterministic marker so Orchestrator can enforce marker presence/identity; Orchestrator still must not interpret prose or choose documents.
+Governance is v1.3:
 
-## 5. Accepted source
+- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.3
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.3
+
+After every Architect review/material Rony discussion, Architect independently classifies:
+
+```text
+documentationImpact = NONE | STATE | FULL
+futureIdeaImpact    = NONE | CAPTURE | PROMOTE
+```
+
+For `STATE`/`FULL`, required documentation is updated/read back before the next mutating implementation dispatch.
+
+For `CAPTURE`/`PROMOTE`, future intent is preserved separately through the idea/roadmap lifecycle:
+
+`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`
+
+Promotion to `IMPLEMENTED` requires independently accepted implementation evidence; it is not achieved merely by being placed on the roadmap.
+
+The current source does not yet require machine documentation-closure or idea-index records. A future accepted source milestone may introduce deterministic marker/index contracts, but Orchestrator must still never interpret prose or decide which ideas/documents matter.
+
+## 6. Accepted source
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-## 6. Worker-delivery chain
+## 7. Worker-delivery chain
 
 Accepted target order:
 
@@ -72,7 +99,7 @@ Known disposable composition requirements:
 - explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
 - transient transport authorization `actionKind=WORKER_DELIVERY` while leaving the durable lease record unchanged.
 
-## 7. Proven lease and adapter seams
+## 8. Proven lease and adapter seams
 
 ORCH-000177/178 proved the corrected disposable GitHub adapter preserves HTTP semantic status separately from `ghExitCode`, and accepted worker-delivery lease acquire/release works durably.
 
@@ -82,7 +109,7 @@ ORCH-000180 acquired/released cleanly but stopped before preparation; it provide
 
 ORCH-000181 acquired epoch `189` and constructed actionKind, but terminated before the preparation call. The lease expired while indexed ACTIVE.
 
-## 8. Current authority — ORCH-000182
+## 9. Current authority — ORCH-000182
 
 ORCH-000182 is recovery-only.
 
@@ -103,6 +130,14 @@ Authorized recovery is exactly one expired-lease reconciliation. Expected final 
 
 No preparation retry or new lease is authorized until this recovery closes.
 
-## 9. Protected boundaries
+## 10. Adopted future architecture idea
+
+`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` only.
+
+It proposes a future machine-readable closure contract so Orchestrator can mechanically gate later mutating dispatches on an Architect closure marker after the core unattended transport is production-candidate qualified.
+
+It is **not part of accepted architecture today** and is therefore documented here only as a cross-reference to future intent, not as an implemented component. Authoritative future-intent details live in `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`.
+
+## 11. Protected boundaries
 
 Architect session `9333`; Executor session `9444`; AFFOTECH protected ports `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
