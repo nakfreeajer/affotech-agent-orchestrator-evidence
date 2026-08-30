@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000180 and canonical ORCH-000181
+Documentation sync boundary: through Architect-classified ORCH-000181 and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -39,40 +39,45 @@ Accepted target order:
 
 For zero-browser preflight, send is replaced by accepted PROVEN_NOT_SENT reconciliation.
 
-Two disposable composition requirements are now known:
+Known disposable composition requirements remain:
 
 - factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`;
-- transient transport authorization `actionKind=WORKER_DELIVERY` while leaving the durable lease record unchanged.
+- transient transport authorization `actionKind=WORKER_DELIVERY` while leaving the durable lease record immutable.
 
 ## 5. Proven lease and adapter seams
 
-ORCH-000177/178 proved the corrected disposable GitHub adapter preserves HTTP semantic status separately from `ghExitCode`, and the accepted acquire/release paths work durably.
+ORCH-000177/178 proved HTTP semantic status must remain separate from `ghExitCode`, and proved accepted lease acquisition plus normal release durably.
 
-ORCH-000179 reached preparation and failed only because its direct disposable continuation omitted the runner-equivalent transient `actionKind=WORKER_DELIVERY` binding.
+ORCH-000179 reached preparation and failed closed only because the disposable continuation omitted transient `actionKind=WORKER_DELIVERY`.
 
-## 6. ORCH-000180 — operational execution boundary
+## 6. ORCH-000181 — process terminated before preparation
 
-ORCH-000180 intended to test the action-kind-enriched preparation path. It acquired epoch `188` and read back the ACTIVE lease, but the bounded disposable process stopped before any preparation request was issued.
+ORCH-000181 acquired and indexed epoch `189` and constructed transient `actionKind=WORKER_DELIVERY`, but the in-process execution terminated before `prepareWorkerDeliveryIntent` was invoked.
 
-It then released the lease normally. Final state:
+Therefore ORCH-000181 does not test whether the corrected action-kind-enriched preparation succeeds.
 
-- index revision `376`;
-- next epoch `189`;
-- active leases `0`;
+Durable post-state is fail-closed:
+
+- index revision `377`;
+- next epoch `190`;
+- one active indexed lease, epoch `189`;
+- the lease is expired;
+- immutable revision `000001=ACTIVE` exists;
+- revision `000002` is absent;
 - delivery `000014` absent;
 - browser contact/send `0/0`.
 
-Architectural conclusion: ORCH-000180 provides no negative evidence about the action-kind fix. The remaining problem is the disposable execution boundary between successful acquisition and preparation.
+## 7. Current authority — ORCH-000182
 
-## 7. Current authority — ORCH-000181
+Before any further preparation attempt, ORCH-000182 must reconcile only the exact expired ORCH-000181 lease through accepted `reconcileExpiredMutationLease` semantics.
 
-ORCH-000181 requires one in-process state-machine execution:
+Required success:
 
-`ACQUIRE → actionKind enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+`revision 000002=EXPIRED → exact readback → one index CAS 377→378 → nextEpoch remains 190 → activeLeases=[]`.
 
-No child process, shell timeout, polling wrapper, or external bounded launcher may exist between ACTIVE readback and preparation. The same process must immediately construct the transient authorization and call `prepareWorkerDeliveryIntent` once using explicit delivery ID `000014`.
+No new lease, preparation, delivery, browser, host, Architect trigger, or source mutation is authorized in this recovery milestone.
 
-Success requires durable PREPARED intent, zero browser contact, durable PROVEN_NOT_SENT/NOT_SENT result, normal release, final active leases zero, and latest delivery still `000013/SENT`.
+After recovery is independently accepted, the next preparation qualification should avoid creating another bespoke execution boundary that can terminate between ACTIVE readback and the already-known preparation call.
 
 ## 8. Protected boundaries
 
