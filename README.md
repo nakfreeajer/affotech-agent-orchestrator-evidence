@@ -30,42 +30,44 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 - ORCH-000153: exactly-once Executor forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005/SENT`.
-- ORCH-000166: persistent host `000026` safely armed/idle.
-- ORCH-000167: persistent host automatically detected a newer Architect dispatch.
+- ORCH-000166/167: persistent host idle and automatic newer-dispatch observation proven.
 - ORCH-000170: preparation needs explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
-- ORCH-000173: prior expired lease durably closed.
-- ORCH-000177/178: disposable HTTP-status mapping fixed; accepted lease acquisition and normal release proven.
-- ORCH-000179: continuous preflight reached preparation and proved the transient transport authorization must contain `actionKind=WORKER_DELIVERY`.
+- ORCH-000173: prior expired lease durably reconciled.
+- ORCH-000177/178: HTTP-status mapping corrected; accepted lease acquisition and normal release proven.
+- ORCH-000179: preparation reached and proved transient transport authorization requires `actionKind=WORKER_DELIVERY`.
 
-## ORCH-000180 — BLOCKED before preparation
+## ORCH-000181 — BLOCKED with expired active lease
 
 Decision:
 
-`GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED`
+`GH-DEC-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-EXPIRED-LEASE-BLOCKED`
 
-ORCH-000180 acquired epoch-188 lease `MUTATION-LEASE-HOST-45c37592c9ad9e65788ea26e50d0fa9b` exactly once and read it back ACTIVE, but its bounded disposable process stopped before any preparation request was issued. Therefore the action-kind-enriched preparation fix was not actually tested.
+The in-process attempt acquired and indexed epoch-189 lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0` and constructed transient `actionKind=WORKER_DELIVERY`, but the process terminated before `prepareWorkerDeliveryIntent` was called.
 
-The lease was released exactly once through the accepted normal path. Final durable state is clean:
+No delivery `000014` intent/result or browser contact occurred. By durable readback the lease had expired, so normal release was correctly not attempted.
 
-- lease index revision `376`;
-- `nextLeaseEpoch=189`;
-- `activeLeases=[]`;
-- delivery `000014` absent;
-- latest delivery `000013/SENT`;
-- Architect trigger `000005/SENT`;
-- browser/host/source side effects zero.
+Current durable boundary:
 
-## Current next — ORCH-000181
+- lease index revision `377`;
+- `nextLeaseEpoch=190`;
+- exactly one indexed ACTIVE lease: the expired ORCH-000181 epoch-189 lease;
+- target revision `000001=ACTIVE` exists;
+- target revision `000002` is absent;
+- latest delivery remains `000013/SENT`;
+- Architect trigger remains `000005/SENT`;
+- source unchanged.
 
-`DISPATCH-000181` removes only the artificial execution boundary. One in-process state machine must perform:
+The action-kind-enriched preparation remains untested because preparation call count was `0`.
 
-`ACQUIRE → transient actionKind=WORKER_DELIVERY enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`
+## Current next — ORCH-000182
 
-No child process, shell timeout, polling wrapper, or external bounded launcher may intervene between ACTIVE readback and `prepareWorkerDeliveryIntent`.
+`DISPATCH-000182` is recovery-only. It authorizes exactly one accepted `reconcileExpiredMutationLease` call against the exact ORCH-000181 lease binding and index revision `377`.
 
-Preparation uses exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`. Success requires a durable PREPARED intent, zero browser contact, a durable PROVEN_NOT_SENT/NOT_SENT result, normal release, final `activeLeases=[]`, and `LATEST_DELIVERY=000013/SENT`.
+Success requires target revision `000002=EXPIRED`, one index CAS `377→378`, `nextLeaseEpoch=190`, and `activeLeases=[]`.
 
-No host process, browser send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data activity is authorized.
+No new lease, preparation, delivery `000014`, browser, host, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data activity is authorized.
+
+Only after this exact lease is closed may Architect authorize another preparation proof.
 
 ## Protected boundary
 
