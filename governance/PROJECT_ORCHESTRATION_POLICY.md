@@ -1,7 +1,7 @@
 # AFFOTECH Agent Orchestrator Project Orchestration Policy
 
 **File:** `PROJECT_ORCHESTRATION_POLICY.md`  
-**Version:** 1.3  
+**Version:** 1.4  
 **Status:** Governing project-specific extension  
 **Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3  
 **Project:** `affotech-agent-orchestrator`  
@@ -71,10 +71,24 @@ After every Architect review and every material Rony directive, Architect MUST c
 - `STATE` — current operational/recovery boundary materially changed and stale current-state/recovery documentation could mislead continuation;
 - `FULL` — accepted capability, architecture, governance, contract, production behavior, significant reusable lesson, or other durable project truth materially changed.
 
+Architect MUST NOT choose these classes by intuition alone. It MUST apply the fixed semantic decision procedure in:
+
+`governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`
+
+That procedure is governing project policy and requires, in order:
+
+1. `TEST-1`: determine whether leaving all current-truth documentation unchanged would make any canonical document false, materially incomplete/stale, or likely to cause a cold-start Architect/Executor to misunderstand current truth, repeat a solved problem, or take the wrong/illegal next action;
+2. if TEST-1 is NO, classify `NONE`;
+3. if TEST-1 is YES, `TEST-2`: determine whether the change is only current operational/recovery position without lasting accepted capability/contract/governance truth; if yes classify `STATE`;
+4. otherwise `TEST-3`: identify the lasting project truth that changed; if a lasting category changed classify `FULL`;
+5. for `STATE`/`FULL`, apply the fixed per-document selection test to every plausible document and update only documents that would otherwise be false, materially incomplete, obsolete, misleading, or unsafe for cold-start/recovery/implementation.
+
+Milestone status alone is never the documentation decision. `ACCEPTED` may still be `NONE`; `BLOCKED` may be `NONE`, `STATE`, or `FULL` depending on the semantic test.
+
 For `STATE` or `FULL`, Architect MUST in the same closure cycle:
 
 1. fresh-read the durable machine authority and relevant evidence;
-2. determine every human-readable document whose truth is materially affected;
+2. determine every human-readable document whose truth is materially affected using the fixed per-document test;
 3. update those documents directly;
 4. durably write and read back the updates;
 5. ensure current-state material distinguishes accepted present truth from historical failed/ambiguous paths;
@@ -355,8 +369,8 @@ Historical states remain immutable in meaning. An `AMBIGUOUS` delivery may later
 
 After an accepted milestone, material blocker/recovery boundary, or material Rony directive, Architect independently determines both:
 
-- `documentationImpact = NONE | STATE | FULL`
-- `futureIdeaImpact = NONE | CAPTURE | PROMOTE`
+- `documentationImpact = NONE | STATE | FULL` using the fixed semantic test;
+- `futureIdeaImpact = NONE | CAPTURE | PROMOTE`.
 
 For `STATE` or `FULL`, the next mutating implementation dispatch must not be published before required documentation changes are written and read back.
 
@@ -380,11 +394,19 @@ Correctness-critical authority must not exist only in process memory, browser me
 
 A fresh Architect/Executor environment must reconstruct the next legal action from durable GitHub evidence plus the bootstrap, project policy, accepted source/profile records, and canonical human-readable project projection.
 
-At cold start Architect MUST read the bootstrap/project policy and recognize:
+At cold start Architect MUST read:
+
+- `governance/ORCHESTRATOR_BOOTSTRAP.md`;
+- `governance/PROJECT_ORCHESTRATION_POLICY.md`;
+- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`;
+- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md`;
+- current durable authority and relevant current-state/future-intent surfaces.
+
+A cold-start Architect must recognize:
 
 - Curator is not an active role;
 - Architect owns canonical documentation and future-intent projection directly;
-- every review/directive requires a documentation-impact decision;
+- every review/directive requires a documentation-impact decision using the fixed semantic test, not intuition or milestone status alone;
 - every review/material future discussion requires a future-idea-impact decision;
 - `STATE`/`FULL` documentation closure precedes the next mutating implementation dispatch;
 - `IDEA_INBOX` and `ROADMAP` are future-intent surfaces, not authority/current truth;
@@ -413,6 +435,7 @@ This Orchestrator owns the canonical universal bootstrap. New governed applicati
 
 - pinned `ORCHESTRATOR_BOOTSTRAP.md` snapshot/reference with upstream version/hash;
 - project-owned `PROJECT_ORCHESTRATION_POLICY.md` stating inheritance;
+- a fixed Architect documentation semantic-test procedure equivalent to `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`;
 - `AGENTS.md` referencing both rather than duplicating the entire governance kernel where applicable;
 - `config/project-profile.json` (or equivalent) binding bootstrap version/hash, project-policy path/hash, protocol family, repositories, roles, documentation policy, future-idea policy, and protected resources;
 - dedicated human-readable future-intent surfaces equivalent to `IDEA_INBOX` and `ROADMAP` when the project has nontrivial future work.
@@ -425,7 +448,7 @@ For the Orchestrator project:
 
 1. Rony's explicit current instruction;
 2. `governance/ORCHESTRATOR_BOOTSTRAP.md`;
-3. this `governance/PROJECT_ORCHESTRATION_POLICY.md`;
+3. this `governance/PROJECT_ORCHESTRATION_POLICY.md` plus its required fixed semantic-test procedure;
 4. durable Architect decision/current control state;
 5. canonical Architect prompt/dispatch;
 6. worker-local choices.
@@ -441,7 +464,7 @@ Current governing posture:
 - Orchestrator control/evidence work continues under canonical GitHub authority;
 - persistent Orchestrator is intended to operate independently as deterministic infrastructure once qualified;
 - Architect directly and persistently maintains all relevant project documentation and future-intent surfaces;
-- documentation impact is classified `NONE`, `STATE`, or `FULL` after each review/material Rony directive;
+- documentation impact is classified `NONE`, `STATE`, or `FULL` after each review/material Rony directive using `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`;
 - future idea impact is independently classified `NONE`, `CAPTURE`, or `PROMOTE`;
 - required `STATE`/`FULL` documentation sync/readback precedes the next mutating implementation dispatch;
 - material future ideas are captured/promoted through `docs/IDEA_INBOX.md` and `docs/ROADMAP.md` without creating implementation authority;
