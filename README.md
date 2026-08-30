@@ -31,42 +31,39 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000153: exactly-once Executor forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005/SENT`.
 - ORCH-000166: persistent host `000026` safely armed/idle.
-- ORCH-000167: persistent host automatically detected a newer Architect dispatch without manual forwarding.
-- ORCH-000170: preparation requires explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`; no tracked source repair is required for that seam.
-- ORCH-000173: prior expired lease durably closed.
-- ORCH-000177: exact disposable HTTP-status mapping defect identified.
+- ORCH-000167: automatic newer-dispatch observation proved.
+- ORCH-000170: preparation requires explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+- ORCH-000173: prior expired lease closed.
+- ORCH-000177: disposable HTTP-status mapping defect identified.
+- ORCH-000178: corrected adapter plus accepted lease ACQUIRE/RELEASE lifecycle proven.
 
-## ORCH-000178 — BLOCKED only at continuation
+## ORCH-000179 — BLOCKED at transport authorization binding
 
 Decision:
 
-`GH-DEC-178-WORKER-DELIVERY-LEASE-ACQUISITION-ACCEPTED-CONTINUATION-BLOCKED`
+`GH-DEC-179-WORKER-DELIVERY-PREPARATION-LEASE-ACTION-KIND-BINDING-BLOCKED`
 
-ORCH-000178 corrected the disposable adapter so actual GitHub HTTP `404` remained semantic status `404` while `ghExitCode=1` remained diagnostics. The read-only qualification passed.
+ORCH-000179 successfully ran one continuous launcher far enough to:
 
-The accepted lease path then succeeded:
+- acquire one epoch-187 worker-delivery lease;
+- read the ACTIVE revision back;
+- call `prepareWorkerDeliveryIntent` exactly once.
 
-- one acquisition became durable `ACTIVE` at epoch `186`;
-- lease `MUTATION-LEASE-HOST-553f5ff7a8db44a8bf8bbf091309bb19` revision `000001` reads back `ACTIVE`;
-- the lease was released exactly once through the accepted normal path;
-- revision `000002` reads back `RELEASED`;
-- index advanced to revision `372`;
-- `nextLeaseEpoch=187`;
-- `activeLeases=[]`.
+Preparation failed closed with `HOST_AUTHORIZATION_INVALID` because the disposable continuation passed the persisted lease record directly. The accepted persistent runner enriches the preparation-only transport authorization with `actionKind=WORKER_DELIVERY`; the persisted lease itself does not carry that transient field.
 
-The milestone remained BLOCKED because the temporary launcher terminated after successful acquisition instead of continuing to `prepareWorkerDeliveryIntent`. Preparation count stayed `0`; delivery `000014` remains absent; browser contact/send remained `0/0`; latest delivery remains `000013/SENT`.
+No delivery `000014` intent/result was created and browser contact/send remained `0/0`. The exact lease was normally released. Final lease index is revision `374`, next epoch `188`, `activeLeases=[]`, and `LATEST_DELIVERY` remains `000013/SENT`.
 
 No tracked-source repair is indicated.
 
-## Current next — ORCH-000179
+## Current next — ORCH-000180
 
-`DISPATCH-000179` uses one continuous disposable launcher for:
+`DISPATCH-000180` keeps the proven adapter, continuous control flow, lease acquisition/release, and explicit delivery ID. After durable acquisition it creates a transient transport authorization from the exact lease plus:
 
-`ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE`
+`actionKind=WORKER_DELIVERY`
 
-It starts from the clean boundary `index=372 / nextEpoch=187 / activeLeases=[]`, reuses the proven HTTP-status-preserving adapter, acquires exactly one worker-delivery lease, and must continue immediately after successful acquisition into exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` preparation.
+The durable lease must not be rewritten merely to add this transient field.
 
-Success requires one durable PREPARED intent, zero browser contact, one durable PROVEN_NOT_SENT/NOT_SENT result, one normal lease release, final `activeLeases=[]`, and `LATEST_DELIVERY=000013/SENT`.
+Success requires one durable PREPARED intent for delivery `000014`, zero-browser PROVEN_NOT_SENT/NOT_SENT reconciliation, normal release, final `activeLeases=[]`, and `LATEST_DELIVERY=000013/SENT`.
 
 No host process, browser send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data activity is authorized.
 
