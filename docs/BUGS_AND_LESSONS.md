@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000179 and canonical ORCH-000180
+Documentation sync boundary: through Architect-classified ORCH-000180 and canonical ORCH-000181
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -14,66 +14,73 @@ Machine authority: durable GitHub evidence and Architect decisions
 - Orchestrator is deterministic transport only; it never reads assistant decisions for authority.
 - Local git commit/push is not runtime state transport.
 
-## Proven worker-delivery prerequisites
+## Preparation composition lessons
 
-The zero-browser preparation path has now independently proven:
+Accepted preparation needs both:
 
-- disposable GitHub HTTP `404` semantic mapping separate from `ghExitCode`;
-- accepted lease acquisition and ACTIVE readback/index activation;
-- accepted normal release and RELEASED readback/index removal;
-- continuous successful-path control flow from acquisition into preparation;
-- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` requirement.
+- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in disposable composition;
+- transient BrowserRelay transport authorization with `actionKind=WORKER_DELIVERY`.
 
-## ORCH-000179 — durable lease is not the complete transport authorization
+The durable lease itself must remain immutable; actionKind belongs to the transient authorization object used for the preparation call.
 
-ORCH-000179 acquired a valid epoch-187 lease and called preparation once. Preparation failed `HOST_AUTHORIZATION_INVALID` before intent creation because the disposable launcher passed the persisted lease directly.
+## Transport-status lesson
 
-The accepted persistent runner enriches the preparation-only transport authorization with:
+Process exit code and HTTP semantic status are different fields. ORCH-000177/178 proved an actual GitHub HTTP `404` must remain semantic `404`/NOT_FOUND while `ghExitCode=1` remains diagnostics only.
 
-`actionKind=WORKER_DELIVERY`.
+## ORCH-000180 — do not confuse execution timeout with semantic failure
 
-Lesson: **the durable mutation lease and the transient action-specific transport authorization are related but not identical representations**.
+ORCH-000180 acquired epoch `188` successfully and read back its ACTIVE lease, but the bounded disposable process stopped before any preparation request. Preparation call count was `0` and the trace contained no delivery-record request.
 
-Do not rewrite the immutable lease merely to add runtime-only authorization context. Instead:
+The lease was then normally released and the index returned to:
 
-`durable ACTIVE lease → derive transient transport object → add actionKind=WORKER_DELIVERY → validate all other bindings unchanged → call preparation`.
-
-This preserves immutable lease lineage while satisfying the action-specific BrowserRelay authorization contract.
-
-## Stage-specific safety remained intact
-
-ORCH-000179 recorded:
-
-- acquisition `1 / ACQUIRED`;
-- preparation `1 / FAILED_BEFORE_SEND`;
-- reason `HOST_AUTHORIZATION_INVALID`;
-- delivery `000014` intent/result absent;
-- browser contact/send `0/0`;
-- normal release `1 / RELEASED`;
-- final index revision `374`;
-- next epoch `188`;
+- revision `376`;
+- next epoch `189`;
 - active leases `0`.
 
-No source patch or lease recovery is needed from this result.
+Lesson: **a process-level timeout before a function call provides no evidence about whether that function's corrected semantic binding is valid**.
 
-## ORCH-000180 rule
+Do not reopen actionKind/source diagnosis from ORCH-000180. Remove the artificial execution boundary first.
 
-Start at index `374`, epoch `188`, active leases `0`.
+## In-process continuation rule
 
-Use one continuous process:
+For the current preflight, successful-path control flow must remain in one process:
 
-`ACQUIRE → derive transient actionKind=WORKER_DELIVERY authorization → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+`acquire returns ACQUIRED → ACTIVE readback → immediately construct transient actionKind=WORKER_DELIVERY authorization → immediately call prepareWorkerDeliveryIntent → reconcile PROVEN_NOT_SENT → release`.
 
-Preparation uses explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`. The durable lease remains unchanged. After PREPARED readback, reconcile delivery `000014` as PROVEN_NOT_SENT/NOT_SENT with browser contact/send `0/0`, then release normally.
+Do not put a child process, shell timeout, polling wrapper, or generic external wait between ACTIVE readback and preparation.
+
+## Stage-specific proof now available
+
+Proven:
+
+- HTTP 404 semantic mapping;
+- accepted lease acquisition;
+- durable ACTIVE readback/index activation;
+- accepted normal release;
+- durable RELEASED readback/index removal;
+- accepted preparation is reached under continuous control flow;
+- missing transient actionKind fails closed as HOST_AUTHORIZATION_INVALID.
+
+Still unproven:
+
+- action-kind-enriched preparation with explicit delivery ID;
+- durable PREPARED intent for delivery `000014`;
+- zero-browser PROVEN_NOT_SENT reconciliation for that intent.
+
+## ORCH-000181 rule
+
+Start from index revision `376`, next epoch `189`, active leases `0`. Acquire once. In the same process, enrich only the transient transport authorization with `actionKind=WORKER_DELIVERY` and immediately call preparation once using explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+
+After durable PREPARED readback, reconcile delivery `000014` as PROVEN_NOT_SENT/NOT_SENT with browser contact/send `0/0`, then release the lease normally.
 
 Any ambiguity stops without retry and preserves exact durable state.
 
 ## Recovery ordering
 
-1. complete action-kind-enriched continuous preparation preflight;
-2. independently accept the PREPARED + PROVEN_NOT_SENT proof;
-3. arm a fresh persistent host using the now-proven composition;
-4. publish a strictly newer automatic canary without manual forwarding;
+1. complete in-process action-kind-enriched preparation preflight;
+2. independently accept the preparation proof;
+3. arm a fresh persistent host using the proven composition;
+4. publish a strictly newer automatic canary dispatch without manual forwarding;
 5. prove Executor delivery, terminal observation, and Architect wake end-to-end.
 
 ## Current success criterion
