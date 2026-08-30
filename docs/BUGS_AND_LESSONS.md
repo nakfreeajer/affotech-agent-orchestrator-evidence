@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000182 Architect review
+Documentation sync boundary: through ORCH-000183 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -53,38 +53,38 @@ The durable mutation lease remains immutable; `actionKind` belongs to transient 
 
 Process exit code and HTTP semantic status are different fields. Actual GitHub HTTP `404` must remain semantic 404/NOT_FOUND while `ghExitCode=1` remains diagnostic only.
 
-## Expired-lease recovery lesson
+## Expired-lease recovery lessons
 
 ORCH-000173 proved the accepted expired-lease reconciliation path can succeed when request-level transport is instrumented and durable revision/index readback determines the outcome.
 
-ORCH-000182 later invoked the same logical reconciliation once for epoch `189`, but its disposable launcher produced no observable completion output. Executor therefore reported INCONCLUSIVE.
+ORCH-000182 later invoked the same logical reconciliation once for epoch `189`, but its disposable launcher produced no observable completion output. Architect independently proved both authorized durable effects absent. This established that unobservable process completion is not itself external-mutation ambiguity when the complete durable mutation surface can be read back and shown unchanged.
 
-Architect then independently read GitHub and proved both authorized durable side effects were absent:
+ORCH-000183 then made one new separately authorized attempt. This time the accepted call returned deterministically before mutation:
 
-- revision `000002` did not exist;
-- lease index remained revision `377` with the same target lease ACTIVE.
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`.
 
-Lesson:
+Revision `000002` remained absent and index revision `377` unchanged.
 
-**unobservable launcher/process completion is not itself proof of external mutation ambiguity when the complete authorized durable mutation surface can be independently read back and both effects are proven absent.**
+No permanent root cause is recorded yet. The reason code identifies the validation stage, not the exact invalid field/condition. Therefore the correct next step is read-only comparison of the ORCH-000183 projection/call shape with accepted ORCH-000165 source and successful ORCH-000173 input semantics before authorizing another reconciliation attempt.
 
-After that read-only reconciliation, a separately authorized new attempt is not a blind retry. It must still be exactly once under new authority.
+Permanent recovery rule remains:
 
-The next attempt should reuse the ORCH-000173 proven request instrumentation and must not rely on stdout as the authoritative success signal; durable GitHub state is authority.
+**when an accepted mutation path denies its projected transition before mutation, diagnose the exact projection contract first; do not convert a stable denial into repeated mutation attempts.**
 
 ## Pointer lesson
 
-ORCH-000182 advanced `LATEST_EXECUTOR_TERMINAL` but left `LATEST_MILESTONE` on ORCH-000181. Convenience pointers can therefore diverge even when immutable terminal evidence exists. Verification must always read the mandatory pointer set and underlying immutable evidence rather than trusting one pointer alone. Later normal terminal publication should supersede the stale milestone pointer; historical evidence must not be rewritten merely to make pointers look cleaner.
+ORCH-000182 advanced `LATEST_EXECUTOR_TERMINAL` but left `LATEST_MILESTONE` on ORCH-000181. ORCH-000183 restored normal terminal/milestone pointer advancement. Verification must always read the complete mandatory pointer set and underlying immutable evidence rather than trusting one convenience pointer alone.
 
 ## Recovery ordering
 
-1. perform one newly authorized instrumented expired-lease reconciliation from index revision `377` after fresh pre-state verification;
-2. require durable `revision 000002=EXPIRED` and index `377→378`, leaving `nextLeaseEpoch=190` and `activeLeases=[]`;
-3. Architect verifies recovery and applies the fixed documentation/future-idea tests;
-4. return to preparation proof from the clean lease index;
-5. once PREPARED + zero-browser PROVEN_NOT_SENT is accepted, arm a fresh persistent host;
-6. prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle;
-7. after core production-candidate qualification, revisit adopted future `IDEA-0001`.
+1. read-only diagnose `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` by comparing accepted source, successful ORCH-000173 reconciliation semantics, ORCH-000183 call shape, and the exact epoch-189 lease/index projection;
+2. Architect verifies the exact cause and applies the fixed documentation/future-idea tests;
+3. only then authorize the smallest safe repair/reconciliation path;
+4. require the epoch-189 lease to close durably before any new worker-delivery lease/preparation;
+5. return to PREPARED + zero-browser PROVEN_NOT_SENT proof;
+6. arm a fresh persistent host;
+7. prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle;
+8. after core production-candidate qualification, revisit adopted future `IDEA-0001`.
 
 ## Current success criterion
 
