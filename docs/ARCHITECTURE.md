@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000182 Architect review
+Documentation sync boundary: through ORCH-000183 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -89,36 +89,16 @@ ORCH-000177/178 proved HTTP semantic status must remain separate from `ghExitCod
 
 ORCH-000179 reached preparation and proved the transient action-kind requirement.
 
-ORCH-000181 left epoch `189` expired while still indexed ACTIVE.
+ORCH-000181 left epoch `189` expired while still indexed ACTIVE. ORCH-000182 produced no durable reconciliation effect. ORCH-000183 then reached a deterministic accepted-path denial before mutation: `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`.
 
-ORCH-000182 invoked the expired-lease reconciliation path once, but its disposable launcher produced no observable completion output. Independent Architect readback proves revision `000002` is absent and index revision `377` is unchanged, so the attempt produced zero durable recovery effect.
+No lasting architectural conclusion is drawn from that reason code until the exact projection validation condition is diagnosed. The architecture invariant remains: an expired indexed lease must be reconciled/closed before any new conflicting lease or worker-delivery preparation is allowed.
 
-## 9. Current recovery boundary after ORCH-000182
+Live recovery details and the next legal action belong in `docs/CURRENT_STATE.md`, not in Architecture; this avoids treating transient recovery state as accepted system architecture.
 
-Architect decision:
-
-`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
-
-Current durable boundary:
-
-- target lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0`;
-- epoch `189`, revision `1`, state `ACTIVE` but expired;
-- revision `000002` absent;
-- lease-index revision `377`;
-- `nextLeaseEpoch=190`;
-- exactly one indexed active lease;
-- delivery `000014` absent;
-- latest delivery `000013/SENT`;
-- latest Architect trigger `000005/SENT`.
-
-The prior ORCH-000182 side effect was read-only reconciled as durably absent, so a new separately authorized reconciliation attempt is not a blind retry. The next recovery must reuse the proven ORCH-000173 request-level instrumentation pattern and determine outcome from durable GitHub readback rather than stdout.
-
-No preparation/new lease/browser/host work is legal until this expired lease is actually closed.
-
-## 10. Adopted future architecture idea
+## 9. Adopted future architecture idea
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` only. It is not part of accepted architecture today.
 
-## 11. Protected boundaries
+## 10. Protected boundaries
 
 Architect session `9333`; Executor session `9444`; AFFOTECH protected ports `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
