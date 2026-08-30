@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000179 and canonical ORCH-000180
+Documentation sync boundary: through Architect-classified ORCH-000180 and canonical ORCH-000181
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -19,45 +19,42 @@ Documentation ownership is `ARCHITECT_DIRECT`.
 
 ## ORCH-000166 through ORCH-000173
 
-ORCH-000166 safely armed persistent host `000026`.
+ORCH-000166 safely armed persistent host `000026`. ORCH-000167 proved automatic newer-dispatch observation. ORCH-000168/169/170 isolated preparation composition and the explicit worker-delivery ID requirement. ORCH-000171/172/173 isolated and then closed the expired-lease ambiguity.
 
-ORCH-000167 proved automatic observation of a newer Architect dispatch but stopped before durable worker-intent preparation.
+## ORCH-000174 through ORCH-000178
 
-ORCH-000168/169/170 isolated worker preparation composition and diagnosed the missing explicit worker-delivery ID.
+Repeated bounded preflights isolated the disposable GitHub adapter defect: HTTP `404` had been overwritten by `ghExitCode=1`. ORCH-000178 corrected that boundary and proved accepted worker-delivery lease acquisition and normal release durably.
 
-ORCH-000171/172/173 isolated and closed the expired-lease GitHub reconciliation ambiguity.
+## ORCH-000179 — preparation reached
 
-## ORCH-000174 through ORCH-000178 — acquisition path closed
+ORCH-000179 kept acquisition and preparation in one continuous attempt. It acquired epoch `187`, then preparation failed closed with `HOST_AUTHORIZATION_INVALID` because the disposable continuation passed the persisted lease directly instead of the accepted runner-equivalent transient authorization containing `actionKind=WORKER_DELIVERY`. The lease was normally released and state returned clean.
 
-ORCH-000174/176 hit ambiguous lease acquisition. ORCH-000175 proved no orphan candidate. ORCH-000177 captured the concrete disposable adapter error: HTTP `404` had been replaced by `ghExitCode=1`.
+## ORCH-000180 — action-kind attempt stopped before preparation
 
-ORCH-000178 corrected that disposable mapping. One epoch-186 lease became durable ACTIVE/indexed and was later normally RELEASED. Final index reached revision `372`, next epoch `187`, active leases `0`. The only remaining issue was that the temporary launcher stopped before preparation.
+ORCH-000180 intended to reproduce the transient action-kind enrichment. It acquired epoch `188` successfully, but its bounded disposable process stopped before issuing any preparation request. The flushed trace contained acquisition and no delivery-record request.
 
-## ORCH-000179 — continuous launcher reached preparation
+The exact lease was normally released. Final state:
 
-ORCH-000179 started at the clean revision-372 boundary and successfully:
-
-- acquired one epoch-187 worker-delivery lease;
-- read back its ACTIVE revision;
-- continued into `prepareWorkerDeliveryIntent` exactly once.
-
-Preparation failed closed as `HOST_AUTHORIZATION_INVALID`. The direct disposable continuation passed the persisted lease record unchanged, while the accepted persistent runner adds transient `actionKind=WORKER_DELIVERY` to the transport authorization before worker-delivery preparation.
-
-No delivery `000014` intent/result was created and no browser was contacted. The exact lease was normally released. Final index revision became `374`, next epoch `188`, active leases `0`, and latest delivery remained `000013/SENT`.
+- index revision `376`;
+- next epoch `189`;
+- active leases `0`;
+- delivery `000014` absent;
+- latest delivery `000013/SENT`;
+- browser/host/trigger/source side effects zero.
 
 Architect classified:
 
-`GH-DEC-179-WORKER-DELIVERY-PREPARATION-LEASE-ACTION-KIND-BINDING-BLOCKED`.
+`GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED`.
 
-No tracked source repair is indicated.
+This does not disprove the action-kind fix because preparation call count was zero.
 
-## ORCH-000180 — current action-kind-enriched preflight
+## ORCH-000181 — current in-process preflight
 
-The next milestone preserves all proven seams and changes only the preparation transport authorization.
+ORCH-000181 removes the external process boundary. One in-process state machine must execute:
 
-After one epoch-188 lease is durably ACTIVE, the launcher must keep the durable lease immutable and derive a transient transport object with exact same binding plus `actionKind=WORKER_DELIVERY`.
+`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`.
 
-It then calls preparation once with `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, requires durable PREPARED intent, reconciles as PROVEN_NOT_SENT/NOT_SENT with zero browser contact, and normally releases the lease.
+Preparation uses explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`; no browser contact is permitted. Success requires durable PREPARED intent, durable PROVEN_NOT_SENT/NOT_SENT result, normal release, final active leases zero, and latest delivery still `000013/SENT`.
 
 Only after this preparation proof is accepted should Architect arm a fresh persistent host and resume unattended full-cycle qualification.
 
