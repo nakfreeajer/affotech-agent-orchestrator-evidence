@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000182 Architect review
+Documentation sync boundary: through ORCH-000183 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -30,7 +30,7 @@ Current governing files:
 
 Architect must apply the fixed semantic test to classify `documentationImpact=NONE|STATE|FULL`, then independently classify `futureIdeaImpact=NONE|CAPTURE|PROMOTE`.
 
-This ORCH-000182 review is `documentationImpact=STATE`: TEST-1 is YES because the recovery/next-legal-action boundary changed; TEST-2 is YES because no lasting accepted capability/contract/governance truth changed. `futureIdeaImpact=NONE`.
+This ORCH-000183 review is `documentationImpact=STATE`: TEST-1 is YES because the next legal recovery action changed; TEST-2 is YES because no lasting accepted capability, contract, governance rule, or permanent root cause has yet been established. `futureIdeaImpact=NONE`.
 
 ## 4. Proven transport foundations
 
@@ -42,50 +42,49 @@ This ORCH-000182 review is `documentationImpact=STATE`: TEST-1 is YES because th
 - ORCH-000177/178: HTTP-status adapter and accepted lease acquire/release proven.
 - ORCH-000179: preparation reached; transient BrowserRelay authorization requires `actionKind=WORKER_DELIVERY`.
 
-## 5. ORCH-000182 — BLOCKED
+## 5. ORCH-000183 — BLOCKED
 
 Executor terminal:
 
-`GH-PUB-182-EXPIRED-WORKER-LEASE-RECONCILIATION-INCONCLUSIVE-000001`
+`GH-PUB-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-BLOCKED-000001`
 
-Executor reported `INCONCLUSIVE` because its single authorized reconciliation launcher produced no observable completion output.
+Verified facts:
 
-Architect independently read back GitHub and proved the attempted mutation had **zero durable effect**:
-
-- reconciliation call count `1`;
-- target lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0`;
-- epoch `189`;
-- revision `000002` absent;
-- lease-index revision still `377`;
+- required pre-state passed;
+- exactly one `reconcileExpiredMutationLease` call was made;
+- accepted path returned `DENIED`;
+- reason code `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`;
+- revision `000002` remains absent;
+- lease-index revision remains `377`;
 - `nextLeaseEpoch=190`;
-- exactly one indexed ACTIVE lease remains;
+- exactly one indexed ACTIVE lease remains: `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0 / epoch 189 / revision 1`;
 - latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
 - latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
-- browser/send/host/source/protected-resource side effects remain zero.
+- browser/send/host/source/AFFOTECH/Drive side effects remain zero;
+- ORCH-000183 terminal and `LATEST_MILESTONE` convenience pointers both advanced normally.
 
 Architect decision:
 
-`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`
+`GH-DEC-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-INVALID-BLOCKED`
 
-`LATEST_MILESTONE` remains stale on ORCH-000181 even though `LATEST_EXECUTOR_TERMINAL` advanced to ORCH-000182; future terminal publication must restore normal pointer advancement rather than rewriting historical terminal evidence.
+The denial occurred before durable reconciliation mutation. There is no partial revision/index mutation and no ambiguity requiring cleanup.
 
-## 6. Next legal action
+## 6. Next legal action — ORCH-000184 diagnostic
 
-Before any preparation/new-lease/host/browser work, perform one newly authorized expired-lease reconciliation attempt from this exact unchanged boundary.
+Do **not** call `reconcileExpiredMutationLease` again yet.
 
-This is **not a blind retry**: Architect first reconciled the prior attempt read-only and proved both possible durable side effects absent (`revision 000002` absent; index unchanged).
+The next milestone must be read-only and identify the exact projection-contract validation condition that produced `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`.
 
-The next attempt must:
+Required diagnostic comparison:
 
-- reuse the already successful ORCH-000173 request-level instrumentation pattern;
-- preserve actual HTTP semantic status separately from `ghExitCode`;
-- not depend on child-process/stdout output as proof of mutation outcome;
-- determine success/failure from durable revision/index readback;
-- invoke `reconcileExpiredMutationLease` at most once under the new dispatch;
-- on success create/read back revision `000002=EXPIRED` and CAS index `377→378`, leaving `nextLeaseEpoch=190` and `activeLeases=[]`;
-- keep preparation/delivery/browser/host/trigger/source/protected-resource mutations at zero.
+- accepted ORCH-000165 source implementation of expired-lease projection/validation/reconciliation;
+- proven-successful ORCH-000173 reconciliation input/call shape;
+- ORCH-000183 disposable launcher/call shape and exact epoch-189 lease/index projection;
+- time/expiry binding, project/holder/lineage, revision/previous-record binding, resource scope/hash, mutation-envelope hash, index projection, and any required reconciliation metadata.
 
-No preparation retry is legal until this lease recovery is accepted and the index is clean.
+No GitHub lease/index mutation, new lease, preparation, delivery `000014`, browser contact, host mutation, Architect trigger, source patch, AFFOTECH, Drive, deployment, tenant, or private-data work is legal in this diagnostic.
+
+The diagnostic must classify the exact cause and smallest next repair before another reconciliation attempt is authorized.
 
 ## 7. Future intent
 
