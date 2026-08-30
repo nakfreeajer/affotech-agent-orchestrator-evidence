@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000178 and canonical ORCH-000179
+Documentation sync boundary: through Architect-classified ORCH-000179 and canonical ORCH-000180
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,7 +7,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## 1. Core purpose
 
-AFFOTECH Agent Orchestrator is a governed deterministic message-routing and durable-state layer. AI roles think; the Orchestrator carries exact governed envelopes and observes durable state. It does not approve work, interpret business semantics, scrape assistant decisions, or synthesize authority from browser text.
+AFFOTECH Agent Orchestrator is a governed deterministic message-routing and durable-state layer. AI roles think; the Orchestrator carries exact governed envelopes and observes durable state. It does not approve work, scrape assistant decisions, or synthesize authority from browser text.
 
 ## 2. Active topology
 
@@ -33,45 +33,50 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## 4. Worker-delivery chain
 
-Accepted target order:
+Target order:
 
-`observe dispatch → acquire exact WORKER_DELIVERY lease → prepareWorkerDeliveryIntent → durable PREPARED intent/readback → send/reconcile result → release/reconcile lease`.
+`observe dispatch → acquire WORKER_DELIVERY lease → construct transient transport authorization → prepareWorkerDeliveryIntent → durable PREPARED intent → send/reconcile result → release lease`.
 
-For the zero-browser preflight, the send step is replaced by accepted PROVEN_NOT_SENT reconciliation.
+For zero-browser qualification, the send step is replaced by PROVEN_NOT_SENT reconciliation.
 
-ORCH-000170 proved preparation needs exact disposable factory option `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` when no accepted fresh-delivery ID is otherwise supplied.
+The disposable GitHub HTTP-status adapter, accepted lease acquisition, ACTIVE readback/index activation, normal release, and RELEASED readback/index removal are already proven by ORCH-000178.
 
-## 5. Disposable GitHub adapter contract is now proven for acquisition
+## 5. Preparation bindings now isolated
 
-ORCH-000177 identified that `ghExitCode=1` had overwritten actual GitHub HTTP `404` semantics. ORCH-000178 corrected only that disposable boundary.
+ORCH-000170 proved preparation requires explicit disposable factory option:
 
-Proven behavior:
+`workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
 
-- actual GitHub 404 reaches the accepted client as semantic status `404`/NOT_FOUND;
-- `ghExitCode=1` remains separate diagnostics;
-- accepted candidate precheck succeeds as normal absence;
-- accepted acquisition can create/read back an ACTIVE lease and activate it in the index;
-- accepted normal release can create/read back RELEASED revision and remove the lease from the index.
+ORCH-000179 reached preparation exactly once and exposed the remaining authorization shape. Passing the persisted lease record directly produced `HOST_AUTHORIZATION_INVALID`.
 
-ORCH-000178 lease `MUTATION-LEASE-HOST-553f5ff7a8db44a8bf8bbf091309bb19` proves revision `000001=ACTIVE`, revision `000002=RELEASED`, epoch `186`.
+The accepted persistent runner adds transient:
 
-Final clean boundary is index revision `372`, next epoch `187`, active leases `0`.
+`actionKind=WORKER_DELIVERY`
 
-## 6. ORCH-000178 remaining defect — launcher continuation
+to the transport lease/authorization used for worker-delivery preparation. This is a runtime transport-binding field, not a durable mutation-lease revision field.
 
-ORCH-000178 did not reach preparation. The temporary launcher treated successful acquisition as the end of its active work and terminated before invoking `prepareWorkerDeliveryIntent`, then released the lease normally.
+## 6. ORCH-000179 result
 
-This is a disposable control-flow defect, not evidence of an accepted acquisition or source-contract defect.
+- epoch-187 lease ACQUIRED and ACTIVE readback succeeded;
+- preparation call count `1`;
+- preparation failed `FAILED_BEFORE_SEND / HOST_AUTHORIZATION_INVALID`;
+- delivery `000014` absent;
+- browser contact/send `0/0`;
+- one normal release succeeded;
+- final index revision `374`;
+- next epoch `188`;
+- active leases `0`;
+- latest delivery `000013/SENT`.
 
-## 7. Current authority — ORCH-000179
+Conclusion: the remaining defect is disposable continuation composition, not accepted lease/source behavior.
 
-ORCH-000179 uses one continuous disposable launcher/process with required successful-path order:
+## 7. Current authority — ORCH-000180
 
-`ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+ORCH-000180 starts from `374 / nextEpoch 188 / activeLeases=[]` and runs one continuous zero-browser path.
 
-A successful acquisition is explicitly not a terminal condition. The exact returned lease binding must stay in the same process and the launcher must immediately call preparation with `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+After durable ACQUIRED readback it must keep the persisted lease immutable and derive a preparation-only transport authorization with the exact same binding plus `actionKind=WORKER_DELIVERY`.
 
-Success requires durable PREPARED intent, zero browser contact, durable PROVEN_NOT_SENT/NOT_SENT result, normal release before expiry, final active leases `0`, and latest delivery still `000013/SENT`.
+It then calls preparation once with explicit delivery ID `000014`, requires durable PREPARED readback, reconciles as PROVEN_NOT_SENT/NOT_SENT with zero browser contact, and normally releases the lease.
 
 No tracked source patch, host process, browser, Architect trigger, or protected-resource mutation is authorized.
 
