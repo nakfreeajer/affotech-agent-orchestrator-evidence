@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000180 and canonical ORCH-000181
+Documentation sync boundary: through Architect-classified ORCH-000181 and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -25,43 +25,42 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - ORCH-000165 — accepted source, `817/817`.
 - ORCH-000173 — prior expired lease closed.
 - ORCH-000177/178 — corrected HTTP semantic status mapping and accepted lease acquire/release proven.
-- ORCH-000179 — preparation reached and proved transient transport authorization requires `actionKind=WORKER_DELIVERY`.
+- ORCH-000179 — preparation requires transient `actionKind=WORKER_DELIVERY` binding.
 
-## ORCH-000180 — BLOCKED
+## ORCH-000181 — BLOCKED
 
 Decision:
 
-`GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED`
+`GH-DEC-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-EXPIRED-LEASE-BLOCKED`
 
 Reviewed publication:
 
-`GH-PUB-180-WORKER-DELIVERY-ACTION-KIND-ENRICHED-PREFLIGHT-BLOCKED-000001`
+`GH-PUB-181-WORKER-DELIVERY-IN-PROCESS-PREFLIGHT-BLOCKED-000001`
 
 Architect verified:
 
-- one epoch-188 lease acquisition succeeded and ACTIVE readback passed;
-- bounded disposable process stopped before preparation;
-- preparation call count remained `0`;
-- action-kind-enriched preparation was not actually tested;
-- no delivery `000014` intent/result exists;
-- browser contact/send remained `0/0`;
-- exact lease was normally released once;
-- final index revision `376`, next epoch `189`, active leases `0`;
-- latest delivery remains `000013/SENT`;
-- no source/host/trigger/protected-resource mutation occurred.
+- one epoch-189 lease was acquired and indexed;
+- transient `actionKind=WORKER_DELIVERY` was constructed;
+- process terminated before preparation, so preparation call count stayed `0`;
+- delivery `000014` intent/result absent;
+- browser contact/send `0/0`;
+- lease expired before recovery readback;
+- normal release was not attempted after expiry;
+- index remains revision `377`, next epoch `190`, with exactly one active indexed lease;
+- target immutable revision `000002` is absent;
+- latest delivery and Architect trigger remain `000013/SENT` and `000005/SENT`;
+- source unchanged.
 
 Decision rationale:
 
-`ACTION_KIND_ENRICHED_PREFLIGHT_ACQUIRED_AND_RELEASED_CLEANLY_BUT_BOUNDED_DISPOSABLE_PROCESS_STOPPED_BEFORE_ANY_PREPARATION_REQUEST_SO_ACTION_KIND_FIX_REMAINS_UNTESTED`.
+`IN_PROCESS_ATTEMPT_ACQUIRED_AND_INDEXED_EPOCH_189_AND_CONSTRUCTED_ACTION_KIND_WORKER_DELIVERY_BUT_TERMINATED_BEFORE_PREPARATION_AND_LEFT_THE_EXPIRED_LEASE_ACTIVE_IN_INDEX_REVISION_377`.
 
-Architect decision: do not reinterpret ORCH-000180 as an action-kind or source failure. Remove only the external process boundary and run acquisition plus immediate preparation in one process.
+Architect decision: no new lease or preparation retry while the expired epoch-189 lease remains indexed. Recover it exactly once first.
 
-## Current next authority — ORCH-000181
+## Current next authority — ORCH-000182
 
-ORCH-000181 requires exactly one in-process successful-path sequence:
+ORCH-000182 authorizes one exact `reconcileExpiredMutationLease` call against the immutable ORCH-000181 lease binding.
 
-`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+Success requires revision `000002=EXPIRED`, index `377→378`, next epoch unchanged at `190`, and `activeLeases=[]`.
 
-No child process, shell timeout, or polling wrapper may intervene between ACTIVE readback and preparation. Preparation uses explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
-
-No browser, host, Architect-trigger, tracked-source, or protected-resource mutation is authorized.
+No new lease, preparation, delivery, browser, host, Architect-trigger, tracked-source, or protected-resource mutation is authorized.
