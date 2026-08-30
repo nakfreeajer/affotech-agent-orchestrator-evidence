@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000178 and canonical ORCH-000179
+Documentation sync boundary: through Architect-classified ORCH-000179 and canonical ORCH-000180
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -17,63 +17,61 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once.
 - ORCH-000166: persistent host `000026` safely armed/idle.
 - ORCH-000167: automatic newer-dispatch observation proved.
-- ORCH-000170: preparation needs explicit disposable worker-delivery ID.
+- ORCH-000170: explicit worker-delivery ID requirement diagnosed.
 - ORCH-000173: prior expired lease closed.
 - ORCH-000177: exact HTTP-status/gh-exit adapter defect isolated.
+- ORCH-000178: corrected adapter and accepted lease acquire/release path proven.
 
-## 3. ORCH-000178 — BLOCKED after successful acquisition
+## 3. ORCH-000179 — BLOCKED at preparation authorization
 
 Decision:
 
-`GH-DEC-178-WORKER-DELIVERY-LEASE-ACQUISITION-ACCEPTED-CONTINUATION-BLOCKED`
+`GH-DEC-179-WORKER-DELIVERY-PREPARATION-LEASE-ACTION-KIND-BINDING-BLOCKED`
 
 Publication:
 
-`GH-PUB-178-WORKER-DELIVERY-HTTP-STATUS-PRESERVING-PREFLIGHT-INCOMPLETE-000001`
+`GH-PUB-179-WORKER-DELIVERY-CONTINUOUS-PREFLIGHT-BLOCKED-000001`
 
 Verified facts:
 
-- corrected adapter preserved actual HTTP `404` separately from `ghExitCode=1`;
-- read-only status qualification passed;
-- one lease acquisition succeeded and became durably ACTIVE/indexed at epoch `186`;
-- lease ID `MUTATION-LEASE-HOST-553f5ff7a8db44a8bf8bbf091309bb19`;
-- revision `000001` reads back `ACTIVE`;
-- temporary launcher terminated before preparation;
-- preparation count `0`;
+- one epoch-187 worker-delivery lease acquired successfully;
+- ACTIVE lease readback succeeded;
+- continuous launcher reached preparation;
+- preparation called exactly once;
+- result `FAILED_BEFORE_SEND` with reason `HOST_AUTHORIZATION_INVALID`;
+- disposable continuation passed persisted lease directly;
+- accepted runner normally adds transient `actionKind=WORKER_DELIVERY` before preparation;
 - delivery `000014` intent/result absent;
-- lease was released exactly once through normal accepted release;
-- revision `000002` reads back `RELEASED`;
-- final index revision `372`;
-- next lease epoch `187`;
-- active lease count `0`;
-- latest delivery `000013/SENT`;
 - browser contact/send `0/0`;
-- no host, trigger, source, or protected-resource mutation.
+- exact lease normally released once;
+- final index revision `374`;
+- nextLeaseEpoch `188`;
+- `activeLeases=[]`;
+- latest delivery remains `000013/SENT`;
+- Architect trigger remains `000005/SENT`;
+- source unchanged.
 
-No source patch is required by current evidence.
-
-## 4. Current authority — ORCH-000179
+## 4. Current authority — ORCH-000180
 
 Milestone:
 
-`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.CONTINUOUS.ACQUIRE.PREPARE.PROVEN.NOT.SENT.RELEASE.PREFLIGHT.1A`
+`ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.TRANSPORT.LEASE.ACTION.KIND.ENRICHED.CONTINUOUS.PREFLIGHT.1A`
 
-ORCH-000179 begins from:
+Start boundary:
 
-- index revision `372`;
-- nextLeaseEpoch `187`;
-- `activeLeases=[]`;
+- lease index `374`;
+- next epoch `188`;
+- active leases `0`;
 - delivery `000014` absent;
-- latest delivery `000013/SENT`;
-- trigger `000005/SENT`.
+- latest delivery `000013/SENT`.
 
-One disposable launcher must execute the successful path continuously:
+One continuous process must:
 
-`ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+`ACQUIRE → transient actionKind=WORKER_DELIVERY enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`.
 
-It may acquire one epoch-187 worker-delivery lease, must immediately continue to exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, require one durable PREPARED intent, reconcile it as PROVEN_NOT_SENT/NOT_SENT without browser contact, and normally release the lease.
+The durable lease stays immutable. Preparation uses explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` and the transient action-kind-enriched transport authorization. Success requires durable PREPARED intent, zero-browser PROVEN_NOT_SENT/NOT_SENT result, normal release, final active leases `0`, and latest delivery still `000013/SENT`.
 
-Success requires final active leases `0`, latest delivery still `000013/SENT`, browser contact/send `0/0`, and source unchanged.
+No host process action, browser contact/send, Architect trigger, tracked-source patch, AFFOTECH, Drive, deployment, tenant, or private-resource mutation is authorized.
 
 ## 5. Documentation ownership
 
