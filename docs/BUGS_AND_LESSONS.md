@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000180 and canonical ORCH-000181
+Documentation sync boundary: through Architect-classified ORCH-000181 and canonical ORCH-000182
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -21,33 +21,42 @@ Accepted preparation needs both:
 - explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in disposable composition;
 - transient BrowserRelay transport authorization with `actionKind=WORKER_DELIVERY`.
 
-The durable lease itself must remain immutable; actionKind belongs to the transient authorization object used for the preparation call.
+The durable lease itself remains immutable; actionKind belongs only to the transient authorization object used for preparation.
 
 ## Transport-status lesson
 
 Process exit code and HTTP semantic status are different fields. ORCH-000177/178 proved an actual GitHub HTTP `404` must remain semantic `404`/NOT_FOUND while `ghExitCode=1` remains diagnostics only.
 
-## ORCH-000180 — do not confuse execution timeout with semantic failure
+## ORCH-000181 — an in-process label does not prove continuous execution
 
-ORCH-000180 acquired epoch `188` successfully and read back its ACTIVE lease, but the bounded disposable process stopped before any preparation request. Preparation call count was `0` and the trace contained no delivery-record request.
+ORCH-000181 acquired and indexed epoch `189` and constructed the correct transient actionKind, but the process still terminated before `prepareWorkerDeliveryIntent` was invoked.
 
-The lease was then normally released and the index returned to:
+Preparation call count remained `0`; therefore the action-kind fix is still not negatively tested.
 
-- revision `376`;
-- next epoch `189`;
-- active leases `0`.
+The lease expired before recovery readback and remains indexed ACTIVE at revision `377`.
 
-Lesson: **a process-level timeout before a function call provides no evidence about whether that function's corrected semantic binding is valid**.
+Lesson: **the qualification harness must prove the actual next function call occurred, not merely that the code path was intended to be in-process**.
 
-Do not reopen actionKind/source diagnosis from ORCH-000180. Remove the artificial execution boundary first.
+Stage accounting must distinguish:
 
-## In-process continuation rule
+`lease acquired → transient authorization constructed → preparation call actually issued → durable intent created`.
 
-For the current preflight, successful-path control flow must remain in one process:
+Stopping between the second and third steps provides no evidence about preparation semantics and can consume the lease expiry window.
 
-`acquire returns ACQUIRED → ACTIVE readback → immediately construct transient actionKind=WORKER_DELIVERY authorization → immediately call prepareWorkerDeliveryIntent → reconcile PROVEN_NOT_SENT → release`.
+## Expired lease recovery rule
 
-Do not put a child process, shell timeout, polling wrapper, or generic external wait between ACTIVE readback and preparation.
+Once a lease is expired, do not call normal release and do not acquire another lease over it. Use one Architect-authorized exact `reconcileExpiredMutationLease` call with immutable binding verification and no blind retry.
+
+Current ORCH-000181 target:
+
+- lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0`;
+- epoch `189`;
+- revision `000001=ACTIVE`;
+- index revision `377`;
+- next epoch `190`;
+- revision `000002` absent.
+
+ORCH-000182 success is revision `000002=EXPIRED`, index `377→378`, and `activeLeases=[]`.
 
 ## Stage-specific proof now available
 
@@ -58,30 +67,23 @@ Proven:
 - durable ACTIVE readback/index activation;
 - accepted normal release;
 - durable RELEASED readback/index removal;
-- accepted preparation is reached under continuous control flow;
-- missing transient actionKind fails closed as HOST_AUTHORIZATION_INVALID.
+- accepted preparation is reached under a prior continuous flow;
+- missing transient actionKind fails closed as HOST_AUTHORIZATION_INVALID;
+- transient actionKind can be constructed from an exact durable lease without rewriting that lease.
 
 Still unproven:
 
-- action-kind-enriched preparation with explicit delivery ID;
+- an actual preparation call using the action-kind-enriched transient authorization plus explicit delivery ID;
 - durable PREPARED intent for delivery `000014`;
 - zero-browser PROVEN_NOT_SENT reconciliation for that intent.
 
-## ORCH-000181 rule
-
-Start from index revision `376`, next epoch `189`, active leases `0`. Acquire once. In the same process, enrich only the transient transport authorization with `actionKind=WORKER_DELIVERY` and immediately call preparation once using explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
-
-After durable PREPARED readback, reconcile delivery `000014` as PROVEN_NOT_SENT/NOT_SENT with browser contact/send `0/0`, then release the lease normally.
-
-Any ambiguity stops without retry and preserves exact durable state.
-
 ## Recovery ordering
 
-1. complete in-process action-kind-enriched preparation preflight;
-2. independently accept the preparation proof;
-3. arm a fresh persistent host using the proven composition;
-4. publish a strictly newer automatic canary dispatch without manual forwarding;
-5. prove Executor delivery, terminal observation, and Architect wake end-to-end.
+1. reconcile the expired ORCH-000181 lease exactly once;
+2. independently accept clean `activeLeases=[]`;
+3. exercise preparation without another artificial process termination boundary;
+4. once PREPARED/PROVEN_NOT_SENT is proven, arm a fresh persistent host;
+5. run a strictly newer unattended full-cycle canary.
 
 ## Current success criterion
 
