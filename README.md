@@ -31,39 +31,39 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 - ORCH-000153: exactly-once Executor forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005/SENT`.
 - ORCH-000166: persistent host `000026` safely armed/idle.
-- ORCH-000167: automatic newer-dispatch observation proved.
-- ORCH-000170: preparation requires explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
-- ORCH-000173: prior expired lease closed.
-- ORCH-000177: disposable HTTP-status mapping defect identified.
-- ORCH-000178: corrected adapter plus accepted lease ACQUIRE/RELEASE lifecycle proven.
+- ORCH-000167: persistent host automatically detected a newer Architect dispatch.
+- ORCH-000170: preparation needs explicit disposable `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+- ORCH-000173: prior expired lease durably closed.
+- ORCH-000177/178: disposable HTTP-status mapping fixed; accepted lease acquisition and normal release proven.
+- ORCH-000179: continuous preflight reached preparation and proved the transient transport authorization must contain `actionKind=WORKER_DELIVERY`.
 
-## ORCH-000179 — BLOCKED at transport authorization binding
+## ORCH-000180 — BLOCKED before preparation
 
 Decision:
 
-`GH-DEC-179-WORKER-DELIVERY-PREPARATION-LEASE-ACTION-KIND-BINDING-BLOCKED`
+`GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED`
 
-ORCH-000179 successfully ran one continuous launcher far enough to:
+ORCH-000180 acquired epoch-188 lease `MUTATION-LEASE-HOST-45c37592c9ad9e65788ea26e50d0fa9b` exactly once and read it back ACTIVE, but its bounded disposable process stopped before any preparation request was issued. Therefore the action-kind-enriched preparation fix was not actually tested.
 
-- acquire one epoch-187 worker-delivery lease;
-- read the ACTIVE revision back;
-- call `prepareWorkerDeliveryIntent` exactly once.
+The lease was released exactly once through the accepted normal path. Final durable state is clean:
 
-Preparation failed closed with `HOST_AUTHORIZATION_INVALID` because the disposable continuation passed the persisted lease record directly. The accepted persistent runner enriches the preparation-only transport authorization with `actionKind=WORKER_DELIVERY`; the persisted lease itself does not carry that transient field.
+- lease index revision `376`;
+- `nextLeaseEpoch=189`;
+- `activeLeases=[]`;
+- delivery `000014` absent;
+- latest delivery `000013/SENT`;
+- Architect trigger `000005/SENT`;
+- browser/host/source side effects zero.
 
-No delivery `000014` intent/result was created and browser contact/send remained `0/0`. The exact lease was normally released. Final lease index is revision `374`, next epoch `188`, `activeLeases=[]`, and `LATEST_DELIVERY` remains `000013/SENT`.
+## Current next — ORCH-000181
 
-No tracked-source repair is indicated.
+`DISPATCH-000181` removes only the artificial execution boundary. One in-process state machine must perform:
 
-## Current next — ORCH-000180
+`ACQUIRE → transient actionKind=WORKER_DELIVERY enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`
 
-`DISPATCH-000180` keeps the proven adapter, continuous control flow, lease acquisition/release, and explicit delivery ID. After durable acquisition it creates a transient transport authorization from the exact lease plus:
+No child process, shell timeout, polling wrapper, or external bounded launcher may intervene between ACTIVE readback and `prepareWorkerDeliveryIntent`.
 
-`actionKind=WORKER_DELIVERY`
-
-The durable lease must not be rewritten merely to add this transient field.
-
-Success requires one durable PREPARED intent for delivery `000014`, zero-browser PROVEN_NOT_SENT/NOT_SENT reconciliation, normal release, final `activeLeases=[]`, and `LATEST_DELIVERY=000013/SENT`.
+Preparation uses exact `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`. Success requires a durable PREPARED intent, zero browser contact, a durable PROVEN_NOT_SENT/NOT_SENT result, normal release, final `activeLeases=[]`, and `LATEST_DELIVERY=000013/SENT`.
 
 No host process, browser send, Architect trigger, tracked source patch, AFFOTECH, Drive, deployment, tenant, or private-data activity is authorized.
 
