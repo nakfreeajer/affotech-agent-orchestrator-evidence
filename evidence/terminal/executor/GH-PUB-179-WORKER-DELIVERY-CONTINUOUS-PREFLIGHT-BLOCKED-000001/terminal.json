@@ -1,0 +1,19 @@
+{
+  "schemaVersion":"1.0",
+  "publicationId":"GH-PUB-179-WORKER-DELIVERY-CONTINUOUS-PREFLIGHT-BLOCKED-000001",
+  "recordType":"EXECUTOR_TERMINAL_PUBLICATION",
+  "classification":"WORKER_DELIVERY_000014_CONTINUOUS_PREFLIGHT_BLOCKED",
+  "status":"BLOCKED",
+  "messageId":"ORCH-000179",
+  "dispatchId":"DISPATCH-000179",
+  "milestone":"ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.CONTINUOUS.ACQUIRE.PREPARE.PROVEN.NOT.SENT.RELEASE.PREFLIGHT.1A",
+  "architectDecisionId":"GH-DEC-178-WORKER-DELIVERY-LEASE-ACQUISITION-ACCEPTED-CONTINUATION-BLOCKED",
+  "acceptedSourcePublicationId":"GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
+  "canonicalPromptSha256":"162f6d8557bb2994c5cf975e810b656fde9f879c0b33fd49b0f9c246131ab48d",
+  "authorityRef":"fac8f38c34d9471af4020c6f4ad6bc9745341597",
+  "preflight":{"traceFlushProbePassed":true,"leaseAcquireCount":1,"leaseAcquireOutcome":"ACQUIRED","leaseId":"MUTATION-LEASE-HOST-e46a90e337916b47b422cfb3db19188f","leaseEpoch":187,"leaseActiveRevisionReadBack":true,"preparationCallCount":1,"preparationOutcome":"FAILED_BEFORE_SEND","preparationReason":"HOST_AUTHORIZATION_INVALID","delivery000014IntentExists":false,"delivery000014ResultExists":false,"browserContactCount":0,"browserSendCount":0,"leaseReleaseCount":1,"leaseReleaseOutcome":"RELEASED","leaseReleasedRevision":2,"finalIndexRevision":374,"finalNextLeaseEpoch":188,"finalActiveLeaseCount":0,"latestDelivery":"WORKER-DELIVERY-EXECUTOR-000013/SENT"},
+  "diagnosis":{"classification":"DISPOSABLE_CONTINUATION_LEASE_BINDING_DEFECT","failingPath":"disposable direct continuation -> createBrowserRelayTransportPorts.prepareWorkerDeliveryIntent","reason":"The accepted persistent runner adds actionKind=WORKER_DELIVERY to the transport lease before calling preparation. The disposable continuation passed the persisted lease record directly, which has no actionKind, so the accepted BrowserRelay binding rejected it as HOST_AUTHORIZATION_INVALID. No intent was written."},
+  "mutationAccounting":{"leaseAcquireCalls":1,"leaseRevisionCreateCount":2,"leaseIndexCasCount":2,"leaseReleaseCount":1,"workerDeliveryIntentCount":0,"workerDeliveryResultCount":0,"browserContactCount":0,"browserSendCount":0,"hostProcessMutation":0,"architectTriggerMutation":0,"trackedSourceMutation":0,"testMutation":0,"configMutation":0,"documentationMutation":0,"governanceMutation":0,"acceptedSourcePointerMutation":0,"affotechAccess":0,"driveAccess":0,"deploymentAccess":0,"privateBusinessDataAccess":0,"protectedPortContactCount":0,"assistantMessageTextRead":false,"responseDomRead":false,"localGitRuntimePersistence":0},
+  "retryAuthorized":false,
+  "requiresArchitectDecision":true
+}

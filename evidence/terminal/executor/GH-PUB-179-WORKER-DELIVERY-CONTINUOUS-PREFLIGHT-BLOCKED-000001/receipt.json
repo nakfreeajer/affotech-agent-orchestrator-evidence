@@ -1,0 +1,22 @@
+{
+  "schemaVersion":"1.0",
+  "receiptType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-179-WORKER-DELIVERY-CONTINUOUS-PREFLIGHT-BLOCKED-000001",
+  "messageId":"ORCH-000179",
+  "dispatchId":"DISPATCH-000179",
+  "status":"BLOCKED",
+  "classification":"DISPOSABLE_CONTINUATION_LEASE_BINDING_DEFECT",
+  "leaseAcquireCount":1,
+  "preparationCallCount":1,
+  "preparationOutcome":"FAILED_BEFORE_SEND",
+  "leaseReleaseCount":1,
+  "leaseReleaseOutcome":"RELEASED",
+  "indexRevision":374,
+  "activeLeaseCount":0,
+  "delivery000014Exists":false,
+  "latestDelivery":"WORKER-DELIVERY-EXECUTOR-000013/SENT",
+  "browserContactCount":0,
+  "browserSendCount":0,
+  "sourceMutation":0,
+  "requiresArchitectDecision":true
+}
