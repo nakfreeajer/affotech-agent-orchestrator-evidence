@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Architect-classified ORCH-000179 and canonical ORCH-000180
+Documentation sync boundary: through Architect-classified ORCH-000180 and canonical ORCH-000181
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: immutable Architect decisions under `evidence/decisions/architect/`
 
@@ -20,46 +20,48 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - AFFOTECH and protected resources remain separate.
 - Documentation policy is `ARCHITECT_DIRECT`.
 
-## Accepted foundations
+## Proven foundations relevant to current seam
 
-- ORCH-000153 — exactly-once Executor forward delivery.
-- ORCH-000163 — exactly-once Architect wake.
-- ORCH-000165 — accepted lineage-compatibility source repair, `817/817`.
-- ORCH-000166 — persistent host `000026` safely armed/idle.
-- ORCH-000170 — explicit delivery-ID preparation requirement diagnosed.
-- ORCH-000173 — expired ORCH-000169 lease closed.
-- ORCH-000178 — corrected HTTP adapter plus accepted lease ACQUIRE/RELEASE lifecycle proven.
+- ORCH-000165 — accepted source, `817/817`.
+- ORCH-000173 — prior expired lease closed.
+- ORCH-000177/178 — corrected HTTP semantic status mapping and accepted lease acquire/release proven.
+- ORCH-000179 — preparation reached and proved transient transport authorization requires `actionKind=WORKER_DELIVERY`.
 
-## ORCH-000179 — BLOCKED at transient transport authorization
+## ORCH-000180 — BLOCKED
 
 Decision:
 
-`GH-DEC-179-WORKER-DELIVERY-PREPARATION-LEASE-ACTION-KIND-BINDING-BLOCKED`
+`GH-DEC-180-WORKER-DELIVERY-ACTION-KIND-PREFLIGHT-OPERATIONAL-TIMEOUT-BLOCKED`
 
 Reviewed publication:
 
-`GH-PUB-179-WORKER-DELIVERY-CONTINUOUS-PREFLIGHT-BLOCKED-000001`
+`GH-PUB-180-WORKER-DELIVERY-ACTION-KIND-ENRICHED-PREFLIGHT-BLOCKED-000001`
 
 Architect verified:
 
-- one epoch-187 lease acquisition succeeded and ACTIVE readback passed;
-- one preparation call was made;
-- preparation failed before send with `HOST_AUTHORIZATION_INVALID`;
-- no delivery `000014` intent/result was written;
-- browser contact/send stayed `0/0`;
-- one normal release succeeded;
-- final index revision `374`, next epoch `188`, active leases `0`;
-- latest delivery remained `000013/SENT`;
-- source unchanged.
+- one epoch-188 lease acquisition succeeded and ACTIVE readback passed;
+- bounded disposable process stopped before preparation;
+- preparation call count remained `0`;
+- action-kind-enriched preparation was not actually tested;
+- no delivery `000014` intent/result exists;
+- browser contact/send remained `0/0`;
+- exact lease was normally released once;
+- final index revision `376`, next epoch `189`, active leases `0`;
+- latest delivery remains `000013/SENT`;
+- no source/host/trigger/protected-resource mutation occurred.
 
-Cause: the disposable continuation passed the persisted lease directly. The accepted persistent runner enriches the preparation-only transport authorization with `actionKind=WORKER_DELIVERY`.
+Decision rationale:
 
-Decision: no tracked source patch and no lease-format rewrite. The next preflight must preserve the durable lease exactly and add `actionKind=WORKER_DELIVERY` only to the transient transport authorization object passed to preparation.
+`ACTION_KIND_ENRICHED_PREFLIGHT_ACQUIRED_AND_RELEASED_CLEANLY_BUT_BOUNDED_DISPOSABLE_PROCESS_STOPPED_BEFORE_ANY_PREPARATION_REQUEST_SO_ACTION_KIND_FIX_REMAINS_UNTESTED`.
 
-## Current next authority — ORCH-000180
+Architect decision: do not reinterpret ORCH-000180 as an action-kind or source failure. Remove only the external process boundary and run acquisition plus immediate preparation in one process.
 
-ORCH-000180 runs one continuous sequence:
+## Current next authority — ORCH-000181
 
-`ACQUIRE → transient actionKind enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+ORCH-000181 requires exactly one in-process successful-path sequence:
 
-It starts from index `374`, epoch `188`, zero active leases. Preparation uses explicit delivery ID `000014` plus the exact transient action-kind binding. No browser, host, Architect-trigger, tracked-source, or protected-resource mutation is authorized.
+`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+
+No child process, shell timeout, or polling wrapper may intervene between ACTIVE readback and preparation. Preparation uses explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`.
+
+No browser, host, Architect-trigger, tracked-source, or protected-resource mutation is authorized.
