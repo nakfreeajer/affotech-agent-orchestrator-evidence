@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"1.0",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-187-CALLER-OBSERVABILITY-CAPTURE-DIAGNOSTIC-000001",
+  "messageId":"ORCH-000187",
+  "dispatchId":"DISPATCH-000187",
+  "status":"READY_FOR_ARCHITECT_REVIEW",
+  "launcher_found":false,
+  "projector_input_captured":true,
+  "await_resolution_captured":true,
+  "reconcileExpiredMutationLease_real_calls":0,
+  "lease_mutations":0,
+  "source_mutations":0,
+  "browser_calls":0
+}
