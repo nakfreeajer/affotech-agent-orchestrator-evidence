@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0",
+  "publicationId": "GH-PUB-185-EXPIRED-LEASE-RECONCILIATION-PRE-MUTATION-DENIED-000001",
+  "recordType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "classification": "INVOCATION_REACHED_PREMUTATION_FAILURE",
+  "status": "READY_FOR_ARCHITECT_REVIEW",
+  "messageId": "ORCH-000185",
+  "dispatchId": "DISPATCH-000185",
+  "parentMessageId": "ORCH-000184",
+  "milestone": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.WORKER.DELIVERY.LEASE.FULL.IMMUTABLE.HYDRATED.RECONCILIATION.2D",
+  "requiresArchitectDecision": true,
+  "targetLeaseId": "MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0",
+  "targetLeaseEpoch": 189,
+  "targetCurrentRevision": 1,
+  "expectedNextRevision": 2,
+  "preMutation": {
+    "indexRevision": 377,
+    "nextLeaseEpoch": 190,
+    "activeLeaseCount": 1,
+    "targetRevision000002Exists": false,
+    "latestDelivery": "WORKER-DELIVERY-EXECUTOR-000013/SENT"
+  },
+  "attempt": {
+    "callCount": 1,
+    "status": "DENIED",
+    "reasonCode": "EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID",
+    "externalMutationBoundaryReached": false
+  },
+  "safeSingleRetry": true,
+  "mutationAccounting": {
+    "reconcileExpiredMutationLeaseCalls": 1,
+    "leaseRevisionWrites": 0,
+    "leaseIndexCasWrites": 0,
+    "newLeaseAcquisition": 0,
+    "normalLeaseRelease": 0,
+    "workerDeliveryMutations": 0,
+    "browserCalls": 0,
+    "hostProcessMutations": 0,
+    "architectTriggerMutations": 0,
+    "sourceMutations": 0,
+    "affotechMutations": 0,
+    "driveMutations": 0
+  },
+  "pointerKind": "EXECUTOR_TERMINAL"
+}
