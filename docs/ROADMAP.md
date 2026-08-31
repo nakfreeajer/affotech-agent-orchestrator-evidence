@@ -13,37 +13,28 @@ A roadmap entry creates **zero implementation authority**. Only a canonical Arch
 
 ## Current governed sequence
 
-### 1. Diagnose the epoch-189 expired-lease projection denial
+### 1. Close the expired epoch-189 lease with the corrected caller contract
 
-ORCH-000183 made one accepted reconciliation call and received:
+ORCH-000184 accepted the root cause of ORCH-000183's projection denial:
 
-`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
+`CALLER_ARGUMENT_DEFECT`
 
-No durable mutation occurred; revision `000002` is absent and index remains revision `377` with the same expired ACTIVE lease.
+The reduced `activeLeases` index entry was passed where expiry reconciliation requires the full immutable `MUTATION_LEASE` revision. Accepted source does not require a patch.
 
-The next legal step is read-only diagnosis comparing:
+The next bounded recovery must:
 
-- accepted ORCH-000165 reconciliation/projection source contract;
-- successful ORCH-000173 reconciliation input/call semantics;
-- ORCH-000183 disposable call shape;
-- the exact epoch-189 lease/index/time/lineage/scope/envelope projection.
+- require lease-index revision `377`, `nextLeaseEpoch=190`, exactly the epoch-189 target entry, and revision `000002` absent;
+- hydrate the exact immutable revision `000001` from the target entry's canonical `recordPath`;
+- verify identity/revision/hash/holder/lineage/scope/envelope/expiry bindings;
+- pure-project and validate the EXPIRED transition before external mutation;
+- invoke accepted `reconcileExpiredMutationLease` exactly once with the full immutable lease record;
+- require durable revision `000002=EXPIRED` and index `377→378` removing only the target;
+- require `nextLeaseEpoch=190` and `activeLeases=[]`;
+- keep new lease/preparation/delivery/browser/host/trigger/source/protected-resource side effects zero.
 
-No further reconciliation attempt is authorized until the exact invalid field/condition is identified.
+This roadmap item is not the mutation authority; the canonical ORCH-000185 dispatch governs execution.
 
-### 2. Close the expired epoch-189 lease
-
-After the diagnostic is independently accepted, apply only the smallest safe repair/reconciliation path it justifies.
-
-Required eventual closure remains:
-
-- target revision `000002=EXPIRED` durable/read back;
-- lease index advances from `377` to the accepted next revision removing only the target;
-- `nextLeaseEpoch=190` unless a separately accepted contract says otherwise;
-- `activeLeases=[]`;
-- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT` during recovery;
-- no unauthorized preparation/browser/host/trigger/source/protected-resource side effects.
-
-### 3. Close worker-delivery preparation proof
+### 2. Close worker-delivery preparation proof
 
 After clean lease recovery is independently accepted, return to:
 
@@ -51,11 +42,11 @@ After clean lease recovery is independently accepted, return to:
 
 Avoid adding disposable launcher layers unless new evidence proves they are necessary.
 
-### 4. Arm a fresh persistent Orchestrator host
+### 3. Arm a fresh persistent Orchestrator host
 
 After preparation composition is accepted, arm a fresh persistent host using the proven composition and prove clean idle/bootstrap behavior without forwarding its own bootstrap dispatch.
 
-### 5. Full unattended canary
+### 4. Full unattended canary
 
 Publish a strictly newer canary dispatch and prove:
 
