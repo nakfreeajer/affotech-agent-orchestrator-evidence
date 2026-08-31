@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000184 Architect review
+Documentation sync boundary: through ORCH-000187 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -25,19 +25,9 @@ Persistent deterministic Orchestrator
 Architect 9333
 ```
 
-The Orchestrator is operationally independent once qualified. Architect does not manually direct each transport step; it publishes durable authority and later interprets evidence. Orchestrator independently executes accepted deterministic routing/state-machine rules.
+Curator is not part of the active model. Historical Curator evidence remains history only.
 
-## 3. Role boundaries
-
-- **Rony:** final human authority.
-- **Architect:** project truth, verification, classification, architecture, bounded next authority, canonical documentation projection, and future-intent preservation/promotion.
-- **Executor:** bounded source/runtime/test/validation work and first-hand terminal evidence.
-- **Orchestrator:** deterministic observation, eligibility, lease/intent/result transport, duplicate suppression, reconciliation routing, and role wake-up.
-- **Curator:** not part of the active model. Historical Curator evidence remains history only.
-
-Orchestrator never becomes a governor: it does not decide ACCEPTED/BLOCKED/INCONCLUSIVE, broaden scope, author documentation/ideas, or infer project meaning.
-
-## 4. Knowledge-plane separation
+## 3. Knowledge-plane separation
 
 ```text
 CURRENT_STATE = what is true/current now
@@ -47,78 +37,92 @@ ROADMAP       = adopted/scheduled intended future work
 DISPATCH      = what is authorized to execute now
 ```
 
-Idea/roadmap entries create zero implementation authority. Only accepted implementation may promote an idea into accepted architecture/current truth.
+Idea/roadmap entries create zero implementation authority.
 
-## 5. Architect documentation and future-idea closure
-
-Governing set:
-
-- `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
-- `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
-- `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
-
-Architect must apply the fixed semantic test before deciding `documentationImpact=NONE|STATE|FULL`; milestone status alone is never the documentation decision. For `STATE`/`FULL`, each plausible file is independently tested and only stale/misleading files are updated/read back before the next mutating implementation dispatch.
-
-Future intent is independently classified `NONE|CAPTURE|PROMOTE` and remains separate from current truth.
-
-## 6. Accepted source
+## 4. Accepted source
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-## 7. Worker-delivery chain
+## 5. Worker-delivery chain
 
 Accepted target order:
 
 `observe dispatch → acquire WORKER_DELIVERY lease → construct transient action-specific authorization → prepareWorkerDeliveryIntent → durable PREPARED intent/readback → send/reconcile result → release/reconcile lease`
 
-For zero-browser preflight, send is replaced by accepted PROVEN_NOT_SENT reconciliation.
+Known qualification composition requirements include explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` and transient `actionKind=WORKER_DELIVERY` while leaving the durable lease record unchanged.
 
-Known composition requirements:
+## 6. Mutation-lease index vs immutable lease contract
 
-- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in the qualification composition;
-- transient transport authorization `actionKind=WORKER_DELIVERY` while leaving the durable lease record unchanged.
+The mutation-lease index and immutable mutation-lease records are different representations.
 
-## 8. Mutation-lease index vs immutable lease contract
-
-The mutation-lease index and immutable mutation-lease records are different representations with different purposes.
-
-The `activeLeases` entry in the index is a **reduced locator/projection**. It may identify lease ID/epoch/revision, record path/hash, holder, lineage, scope/hash, envelope hash, expiry, and state, but it is not itself the canonical full `MUTATION_LEASE` revision.
-
-The immutable revision under:
+The `activeLeases` entry in the index is a reduced locator/projection. The immutable revision under:
 
 `evidence/host-runtime/mutation-leases/<leaseId>/revisions/<revision>.json`
 
-is the full lease record and includes the complete schema required by `validateMutationLease`, including lifecycle fields such as `acquiredAt`, `releasedAt`, `previousRecordSha256`, and `releasedBy`.
+is the complete canonical `MUTATION_LEASE` record.
 
 Permanent caller rule accepted at ORCH-000184:
 
-> When an operation such as `reconcileExpiredMutationLease` / `projectMutationLeaseExpiryReconciliation` requires a `validateMutationLease`-compatible lease argument, the caller MUST hydrate the exact immutable revision referenced by the index, verify its identity/revision/hash/lineage against the index and authority, and pass that full record. A reduced index entry MUST NOT be substituted for the immutable record.
+> When validation/projection/reconciliation requires a complete lease, use the index entry only to locate the canonical immutable revision, verify identity/revision/hash/lineage/scope/envelope binding, and pass the full immutable record. A reduced index entry must not substitute for the immutable record.
 
-ORCH-000184 diagnosed ORCH-000183's `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` as a `CALLER_ARGUMENT_DEFECT`: the reduced active-index entry was passed directly and failed `validateMutationLease` with `RECORD_FIELDS_INVALID` before EXPIRED projection construction. Accepted source does not require a patch.
+## 7. Proven expired-lease reconciliation caller contract
 
-The historical ORCH-000169/ORCH-000173 control confirms the correct shape: a full immutable ACTIVE revision was projected into a full immutable EXPIRED revision while preserving lease identity/lineage and lifecycle fields.
+ORCH-000187 adds a durable, reusable recovery contract on top of ORCH-000184.
+
+A mutation-disabled reproduction proved the accepted reconciliation runtime succeeds through validation and expiry projection when called with one object containing:
+
+- `lease`: the full immutable current revision;
+- `reconciliationBinding`: the exact identity/holder/message/dispatch/milestone/scope/envelope binding expected by the accepted runtime;
+- `nowMs`: an integer current time.
+
+For epoch 189, the captured lease argument semantically equaled immutable revision `000001` and had SHA-256:
+
+`320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`
+
+The accepted runtime then:
+
+1. validated the full immutable lease;
+2. constructed a valid `leaseRevision=2 / state=EXPIRED` projection;
+3. awaited the reconciliation path correctly; and
+4. reached the first external mutation boundary: creation of immutable revision `000002`.
+
+Therefore accepted source is not shown to require a patch for this recovery path.
+
+A future real reconciliation retry must preserve this proven caller shape and bounded observability around caller input, projector output, awaited resolution/rejection, first external mutation, and durable readback.
+
+## 8. Historical-causation boundary
+
+The historical ORCH-000185 launcher no longer exists. Durable evidence is insufficient to prove its exact caller arguments field-by-field.
+
+Permanent rule:
+
+> Do not convert a successful corrected reproduction into an invented historical root cause. Preserve the distinction between what the corrected caller proves and what the missing historical launcher prevents us from proving.
+
+The accepted conclusion is that the corrected caller shape works through projection; the exact ORCH-000185 mismatch remains unproven.
 
 ## 9. Expired-lease recovery invariant
 
 An expired indexed lease must be reconciled/closed before any new conflicting worker-delivery lease or preparation is allowed.
 
-A corrected recovery caller should:
+A bounded recovery caller must:
 
 1. read the reduced index entry;
-2. hydrate the exact immutable current revision from `recordPath`;
-3. verify the immutable record matches the index binding and expected content hash/lineage;
-4. run pure projection/validation before external mutation when practical;
-5. invoke the accepted reconciliation path at most once under bounded authority;
-6. determine outcome from durable revision/index readback, not process stdout alone.
+2. hydrate the exact immutable current revision;
+3. verify exact immutable/index/authority binding;
+4. use the ORCH-000187-proven caller shape;
+5. preserve caller/projector/await mutation-boundary observability;
+6. invoke real reconciliation at most once under explicit authority; and
+7. determine outcome from durable revision/index readback, not stdout alone.
 
-Live recovery details and the next legal action belong in `docs/CURRENT_STATE.md`, not in Architecture.
+If result or completion is ambiguous, no blind retry is allowed.
 
-## 10. Adopted future architecture idea
+## 10. Documentation governance
 
-`IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` only. It is not part of accepted architecture today.
+Architect directly owns canonical human-readable documentation. `documentationImpact=NONE|STATE|FULL` is decided under `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`; future intent is separately classified `NONE|CAPTURE|PROMOTE`.
+
+ORCH-000187 is `documentationImpact=FULL` because it established a reusable caller/observability contract and permanent historical-causation boundary.
 
 ## 11. Protected boundaries
 
