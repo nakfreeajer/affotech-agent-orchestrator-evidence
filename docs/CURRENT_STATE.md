@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000184 Architect review
+Documentation sync boundary: through ORCH-000185 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -21,81 +21,77 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## 3. Documentation decision model
 
-Current governing files:
+Governing files:
 
 - `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
 - `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
 - `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
 - `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
 
-ORCH-000184 is `documentationImpact=FULL`: TEST-1 is YES, TEST-2 is NO, and TEST-3 is YES because a permanent root cause/caller contract was established. `futureIdeaImpact=NONE`.
+ORCH-000184 was `documentationImpact=FULL` because it established a permanent caller/root-cause contract. ORCH-000185 is `documentationImpact=STATE`: the next legal recovery action changed, but no additional permanent root cause or accepted-source contract is established yet. `futureIdeaImpact=NONE`.
 
-## 4. Proven transport foundations
+## 4. Permanent caller contract from ORCH-000184
 
-- ORCH-000153: forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` exactly once.
-- ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once.
-- ORCH-000166/167: persistent-host idle/bootstrap and automatic newer-dispatch observation proved.
-- ORCH-000173: expired worker-delivery lease reconciliation succeeded using the full immutable lease record with bounded request-level instrumentation.
-- ORCH-000177/178: HTTP-status adapter and accepted lease acquire/release proven.
-- ORCH-000179: preparation reached; transient BrowserRelay authorization requires `actionKind=WORKER_DELIVERY`.
+Mutation-lease `activeLeases` index entries are reduced locator/projection records. They are not substitutes for the canonical full immutable `MUTATION_LEASE` revision when an operation requires `validateMutationLease`-compatible input.
 
-## 5. ORCH-000184 — ACCEPTED caller-argument diagnosis
+Caller rule:
+
+`index entry → hydrate exact immutable revision → verify exact binding → pass full immutable record`
+
+Accepted source patch for this contract: not required.
+
+## 5. ORCH-000185 — BLOCKED pre-mutation
 
 Executor terminal:
 
-`GH-PUB-184-EXPIRED-LEASE-PROJECTION-INVALID-DIAGNOSTIC-000001`
+`GH-PUB-185-EXPIRED-LEASE-RECONCILIATION-PRE-MUTATION-DENIED-000001`
 
-Architect accepted the diagnostic under:
+Architect decision:
 
-`GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`
+`GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`
 
-Verified diagnosis:
+Verified facts:
 
-- target immutable epoch-189 revision `000001` is a valid full `MUTATION_LEASE` record;
-- the `activeLeases` entry in mutation-lease index revision `377` is a reduced projection/locator;
-- ORCH-000183 supplied that reduced index entry directly to the expiry projection/reconciliation path;
-- `validateMutationLease` rejected the reduced object with `RECORD_FIELDS_INVALID`;
-- failure occurred before projected EXPIRED revision construction;
-- historical ORCH-000169/ORCH-000173 control succeeded using the full immutable lease record;
-- classification = `CALLER_ARGUMENT_DEFECT`;
-- accepted source patch required = false.
-
-Permanent caller contract:
-
-Mutation-lease index entries are not substitutes for immutable lease revisions when the called operation requires `validateMutationLease`-compatible input. The caller must hydrate the exact immutable revision referenced by `recordPath`, verify identity/revision/hash/lineage, and pass the full record.
-
-The earlier activated ORCH-000184 decision that labelled documentation impact `STATE` is superseded by the current Architect decision because the fixed semantic test requires `FULL` for this permanent root-cause/contract change. Historical records are not rewritten.
-
-## 6. Current durable recovery boundary
-
-The lease state itself remains unchanged:
-
-- target lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0`;
-- epoch `189`, immutable revision `000001`, state ACTIVE but expired;
-- target revision `000002` absent;
-- mutation-lease index revision `377`;
+- corrected ORCH-000185 prompt/immutable dispatch existed before terminal publication;
+- full immutable epoch-189 revision `000001` was hydrated and validated;
+- `reconcileExpiredMutationLease` was invoked exactly once;
+- result remained `DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`;
+- external mutation boundary was not reached;
+- lease revision writes `0`;
+- lease-index CAS writes `0`;
+- revision `000002` absent;
+- mutation-lease index remains revision `377`;
 - `nextLeaseEpoch=190`;
-- exactly one active-index entry, the target lease;
-- latest delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
-- ORCH-000184 reconciliation calls `0` and lease/source/browser/host/AFFOTECH/Drive mutations `0`.
+- exactly one indexed ACTIVE-but-expired epoch-189 lease remains;
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- browser/host/source/AFFOTECH/Drive effects remain zero.
 
-## 7. Next legal action — ORCH-000185 corrected reconciliation
+ORCH-000184's full-record contract remains accepted, but hydration alone did not eliminate the denial. Another invocation/projection input or async boundary remains unresolved.
 
-After this FULL documentation closure is durably read back, Architect may authorize one new corrected expired-lease reconciliation attempt.
+## 6. Next legal action — ORCH-000186 read-only invocation parity diagnostic
 
-Required caller behavior:
+Do **not** call reconciliation again yet.
 
-1. fresh-read index revision `377` and require exactly the target entry;
-2. hydrate the exact immutable `revision 000001` from its canonical `recordPath`;
-3. verify lease ID/epoch/revision, content-hash binding, holder, message/dispatch/milestone lineage, resource scope/hash, mutation-envelope hash, state ACTIVE, and expiry;
-4. before external mutation, run the accepted pure expiry projection/validator against the hydrated full record and require a valid EXPIRED revision projection;
-5. only if that preflight passes, call accepted `reconcileExpiredMutationLease` exactly once with the full immutable record;
-6. require durable `revision 000002=EXPIRED` and lease-index `377→378`, `nextLeaseEpoch=190`, `activeLeases=[]`;
-7. no new lease, preparation, delivery `000014`, browser, governed host, Architect trigger, source patch, AFFOTECH, Drive, deployment, tenant, or private-data mutation.
+The next diagnostic must compare the pure/pre-mutation projection path and actual `reconcileExpiredMutationLease` call field-for-field and identify the first deterministic difference or failure condition.
 
-No worker-delivery preparation is legal until this lease recovery is independently accepted.
+Required inspection includes:
 
-## 8. Future intent
+- exact accepted function signature and arguments;
+- hydrated lease object identity/content;
+- `nowMs` / expiry time used by preflight versus actual call;
+- releaser / `releasedBy` / operation-reference inputs;
+- previous-record SHA binding;
+- lease-index binding/CAS preconditions;
+- project/holder/message/dispatch/milestone/scope/envelope arguments;
+- whether the pure projection gate actually executed and what exact object it validated;
+- Promise return type, `await` behavior, synchronous throw vs async rejection, and serialization of returned/caught error details;
+- exact source branch that emits `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` in the actual invocation.
+
+ORCH-000186 must be read-only: reconciliation calls `0`, lease/index mutation `0`, new lease `0`, delivery/browser/host/trigger/source/protected-resource mutation `0`.
+
+It must classify the exact remaining cause before another reconciliation attempt is authorized.
+
+## 7. Future intent
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification. It creates no implementation authority.
