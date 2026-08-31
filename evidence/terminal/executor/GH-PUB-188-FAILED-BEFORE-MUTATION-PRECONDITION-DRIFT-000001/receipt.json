@@ -1,10 +1,13 @@
 {
   "schemaVersion":"1.0",
-  "pointerKind":"LATEST_MILESTONE",
-  "milestone":"ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.WORKER.DELIVERY.LEASE.CORRECTED.CALLER.INSTRUMENTED.RECONCILIATION.2G",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
   "publicationId":"GH-PUB-188-FAILED-BEFORE-MUTATION-PRECONDITION-DRIFT-000001",
   "messageId":"ORCH-000188",
   "dispatchId":"DISPATCH-000188",
   "status":"FAILED_BEFORE_MUTATION_PRECONDITION_DRIFT",
-  "requiresArchitectDecision":true
+  "reconcileExpiredMutationLease_call_count":0,
+  "precall_snapshot_published":false,
+  "lease_mutations":0,
+  "source_mutations":0,
+  "browser_calls":0
 }
