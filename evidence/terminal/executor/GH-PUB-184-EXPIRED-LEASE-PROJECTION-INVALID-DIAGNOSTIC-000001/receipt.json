@@ -1,10 +1,12 @@
 {
   "schemaVersion":"1.0",
-  "pointerKind":"LATEST_MILESTONE",
-  "milestone":"ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.EXPIRED.WORKER.DELIVERY.LEASE.RECONCILIATION.PROJECTION.INVALID.DIAGNOSTIC.2C",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
   "publicationId":"GH-PUB-184-EXPIRED-LEASE-PROJECTION-INVALID-DIAGNOSTIC-000001",
   "messageId":"ORCH-000184",
   "dispatchId":"DISPATCH-000184",
   "status":"READY_FOR_ARCHITECT_REVIEW",
-  "requiresArchitectDecision":true
+  "reconcileExpiredMutationLease_calls":0,
+  "lease_mutations":0,
+  "source_mutations":0,
+  "browser_calls":0
 }
