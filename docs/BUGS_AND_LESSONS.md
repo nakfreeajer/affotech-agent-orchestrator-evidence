@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000185 Architect review
+Documentation sync boundary: through ORCH-000187 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,90 +7,75 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## Permanent governance lessons
 
-- Executor PASS is evidence, never acceptance.
-- Never blind-retry an ambiguous external mutation; reconcile read-only first.
+- Executor PASS/READY is evidence, never Architect acceptance.
+- Never blind-retry an ambiguous external mutation; reconcile durable state first.
 - Historical evidence remains immutable in meaning.
-- Architect owns canonical documentation directly under `ARCHITECT_DIRECT`.
-- Curator is eliminated from the active model; historical Curator evidence remains history only.
-- Orchestrator is independent deterministic transport/state infrastructure and never interprets documentation/idea semantics.
+- Architect owns canonical documentation directly.
+- Curator is eliminated from the active model.
+- Orchestrator is deterministic transport/state infrastructure and never interprets project semantics.
 
 ## Documentation decision lesson
 
-Documentation completeness must not depend on Architect memory, and document mutation must not be triggered by status/activity alone.
+Use `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` to classify `documentationImpact=NONE|STATE|FULL`. `FULL` means lasting truth changed, not that every Markdown file must be rewritten. Every selected STATE/FULL document must be durably written/read back before the next mutating dispatch.
+
+## Mutation-lease projection vs immutable-record lesson — ORCH-000184
+
+The `activeLeases` index entry is a reduced locator/projection. The canonical immutable revision is the full `MUTATION_LEASE` record. When a full-schema validator/projector/reconciliation path is called:
+
+`index locator → hydrate immutable revision → verify exact binding → pass full immutable record`.
+
+A reduced index entry must not substitute for the immutable record.
+
+## ORCH-000185 / ORCH-000186 lesson
+
+ORCH-000185 showed that merely reporting full-record hydration was not enough to prove why the real reconciliation still returned `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`. ORCH-000186 proved the pure projector itself succeeds with the exact immutable lease, but durable ORCH-000185 evidence did not preserve the actual call field-by-field.
+
+Lesson:
+
+> When a corrected call still fails before mutation, preserve exact invocation arguments, projector input/output, Promise resolution/rejection, and innermost reason before considering another retry.
+
+## Corrected-caller reproduction lesson — ORCH-000187
+
+ORCH-000187 closed the observability gap far enough to prove the corrected runtime path without performing external mutation.
+
+The accepted mutation-disabled reproduction used one object containing:
+
+- full immutable lease revision `000001`;
+- exact `reconciliationBinding`;
+- integer `nowMs`.
+
+The captured lease SHA-256 was `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` and semantically equaled immutable revision `000001`.
+
+The accepted runtime validated the lease, constructed a valid EXPIRED revision `000002` projection, awaited the path, and reached the first would-be external mutation:
+
+`createJson(.../revisions/000002.json)`.
+
+The deterministic stub stopped there; therefore real reconciliation calls and lease/index mutations remained zero.
 
 Permanent countermeasure:
 
-- apply `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`;
-- TEST-1 asks whether current truth would become false/incomplete/stale/misleading if docs stayed unchanged;
-- TEST-2 separates state-only recovery changes (`STATE`);
-- TEST-3 identifies lasting truth (`FULL`);
-- then test each candidate file independently;
-- `FULL` never means rewrite every Markdown file;
-- `STATE`/`FULL` selected files must be written/read back before the next mutating implementation dispatch.
+> Before a real retry, preserve the ORCH-000187-proven full-immutable one-object caller shape and bounded observability around caller input, projection result, await outcome, first external mutation, and durable post-state.
 
-ORCH-000184 provided a live enforcement example: a first decision marked the review `STATE`, but the accepted diagnosis established a permanent root cause/caller contract. The fixed semantic test therefore required a superseding `FULL` decision. The earlier durable record was preserved rather than rewritten.
+Accepted source patch remains unnecessary for this recovery path.
 
-## Mutation-lease projection vs immutable-record lesson
+## Historical evidence limitation lesson
 
-ORCH-000184 established a permanent contract:
+The historical `orch-000185-reconcile.mjs` launcher is absent. Its exact arguments cannot be reconstructed.
 
-1. the `activeLeases` entry in `MUTATION_LEASE_INDEX.json` is a reduced locator/projection; and
-2. the canonical immutable revision under `mutation-leases/<leaseId>/revisions/<revision>.json` is the full `MUTATION_LEASE` record.
+Do not infer an exact ORCH-000185 root cause from ORCH-000187's successful corrected reproduction. The valid conclusion is narrower: the corrected caller shape succeeds through projection and reaches the mutation boundary.
 
-A reduced index entry may locate and bind the immutable record, but must not substitute for it when a validator/projector/reconciliation path requires the full lease schema. Hydrate, verify, then pass the immutable record.
-
-Accepted source patch was not required for that defect.
-
-## ORCH-000185 — full hydration did not fully resolve the denial
-
-ORCH-000185 used the corrected authority and full immutable epoch-189 lease record. The terminal reports the full record was hydrated/validated and accepted reconciliation was invoked exactly once, yet it still returned:
-
-`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
-
-before the external mutation boundary.
-
-Durable post-state proves zero side effects: revision `000002` absent, index `377`, one expired ACTIVE target, no lease/index writes, no delivery/browser/host/trigger/source/AFFOTECH/Drive mutation.
-
-Lesson at this stage:
-
-**a proven correction to one caller argument does not justify assuming it was the only defect. When the corrected call still fails before mutation, preserve the accepted contract and diagnose the remaining invocation/projector inputs rather than repeating the mutation.**
-
-No new permanent root cause beyond the ORCH-000184 full-record contract has yet been accepted. Therefore ORCH-000185 is a `STATE` documentation change, not a new architecture/source conclusion.
-
-The Executor suggestion `safeSingleRetry=true` does not authorize retry. Architect authority remains required.
-
-## Async/invocation diagnostic requirement
-
-The next read-only diagnostic must distinguish pure projection/preflight semantics from the actual asynchronous reconciliation invocation. It must inspect:
-
-- exact function signature/argument shape;
-- full lease object equality;
-- `nowMs` / expiry time;
-- releaser / releasedBy / operationReference;
-- previous-record hash;
-- index/CAS binding;
-- project/lineage/scope/envelope fields;
-- whether the pure projection gate actually ran and its exact result;
-- sync throw vs Promise rejection/resolve;
-- whether the caller awaited the Promise;
-- exact caught error/inner reason before outer reason-code normalization.
-
-Do not authorize another reconciliation call until the first deterministic difference is identified.
-
-## Pointer lesson
-
-ORCH-000182 temporarily left terminal/milestone convenience pointers divergent. ORCH-000183 onward restored normal advancement. Verification must still read the complete mandatory pointer set and underlying immutable evidence.
+This distinction is permanent because missing historical evidence cannot be recreated honestly.
 
 ## Recovery ordering
 
-1. read-only diagnose ORCH-000185 invocation/projection parity with reconciliation calls `0`;
-2. Architect verifies the exact remaining cause and applies the fixed documentation/future-idea tests;
-3. only then authorize the smallest safe correction and one bounded recovery attempt if justified;
-4. require epoch-189 lease closure before any new worker-delivery lease/preparation;
-5. return to PREPARED + zero-browser PROVEN_NOT_SENT proof;
-6. arm a fresh persistent host;
-7. prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle;
-8. after core production-candidate qualification, revisit adopted future `IDEA-0001`.
+1. accept the proven corrected caller contract;
+2. authorize at most one real reconciliation under a precise mutation envelope;
+3. preserve field-level caller/projector/await observability;
+4. determine success only from durable revision/index readback;
+5. if ambiguous, stop with no retry;
+6. require epoch-189 lease closure before any new worker-delivery lease/preparation;
+7. resume PREPARED + zero-browser PROVEN_NOT_SENT qualification;
+8. arm a fresh persistent host and prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle.
 
 ## Current success criterion
 
