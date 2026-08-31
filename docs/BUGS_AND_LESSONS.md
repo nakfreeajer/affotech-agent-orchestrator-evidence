@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000184 Architect review
+Documentation sync boundary: through ORCH-000185 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -30,75 +30,64 @@ Permanent countermeasure:
 
 ORCH-000184 provided a live enforcement example: a first decision marked the review `STATE`, but the accepted diagnosis established a permanent root cause/caller contract. The fixed semantic test therefore required a superseding `FULL` decision. The earlier durable record was preserved rather than rewritten.
 
-## Future-idea persistence lesson
-
-Useful future intent is preserved separately from current truth:
-
-`futureIdeaImpact = NONE | CAPTURE | PROMOTE`
-
-with lifecycle:
-
-`PROPOSED → ADOPTED_FOR_FUTURE → SCHEDULED → IMPLEMENTED`.
-
-`IDEA_INBOX`/`ROADMAP` create zero implementation authority.
-
-## Preparation composition lessons
-
-Accepted worker-delivery preparation requires both:
-
-- explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in qualification composition;
-- transient BrowserRelay authorization with `actionKind=WORKER_DELIVERY`.
-
-The durable mutation lease remains immutable; `actionKind` belongs to transient authorization.
-
-## Transport-status lesson
-
-Process exit code and HTTP semantic status are different fields. Actual GitHub HTTP `404` must remain semantic 404/NOT_FOUND while `ghExitCode=1` remains diagnostic only.
-
 ## Mutation-lease projection vs immutable-record lesson
 
-ORCH-000184 established the exact root cause of ORCH-000183's `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` denial.
+ORCH-000184 established a permanent contract:
 
-There are two different lease representations:
+1. the `activeLeases` entry in `MUTATION_LEASE_INDEX.json` is a reduced locator/projection; and
+2. the canonical immutable revision under `mutation-leases/<leaseId>/revisions/<revision>.json` is the full `MUTATION_LEASE` record.
 
-1. the `activeLeases` entry in `MUTATION_LEASE_INDEX.json`, which is a reduced locator/projection; and
-2. the canonical immutable `MUTATION_LEASE` revision stored under the lease's `revisions/<revision>.json` path.
+A reduced index entry may locate and bind the immutable record, but must not substitute for it when a validator/projector/reconciliation path requires the full lease schema. Hydrate, verify, then pass the immutable record.
 
-The reduced index entry does not contain the full lifecycle schema required by `validateMutationLease`. In the epoch-189 case the full immutable revision contains fields such as `acquiredAt`, `releasedAt`, `previousRecordSha256`, and `releasedBy`; the reduced index entry does not.
+Accepted source patch was not required for that defect.
 
-ORCH-000183 passed the reduced index entry directly to the expiry projection/reconciliation path. `validateMutationLease` therefore returned `RECORD_FIELDS_INVALID` before any EXPIRED projection was constructed.
+## ORCH-000185 — full hydration did not fully resolve the denial
 
-Historical ORCH-000169/ORCH-000173 proved the correct pattern: use the full immutable ACTIVE revision and project it to a full EXPIRED revision preserving identity, lineage, scope/envelope bindings, lifecycle fields, and previous-record binding.
+ORCH-000185 used the corrected authority and full immutable epoch-189 lease record. The terminal reports the full record was hydrated/validated and accepted reconciliation was invoked exactly once, yet it still returned:
 
-Permanent rule:
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
 
-**an index entry may locate and bind an immutable lease record, but it must not substitute for that record when a downstream validator/projector requires the full lease schema. Hydrate, verify, then pass the immutable record.**
+before the external mutation boundary.
 
-Accepted source patch is not required for this defect. The repair belongs to caller/composition.
+Durable post-state proves zero side effects: revision `000002` absent, index `377`, one expired ACTIVE target, no lease/index writes, no delivery/browser/host/trigger/source/AFFOTECH/Drive mutation.
 
-## Expired-lease recovery lessons
+Lesson at this stage:
 
-ORCH-000173 proved the accepted expired-lease reconciliation path can succeed when request-level transport is instrumented and durable revision/index readback determines the outcome.
+**a proven correction to one caller argument does not justify assuming it was the only defect. When the corrected call still fails before mutation, preserve the accepted contract and diagnose the remaining invocation/projector inputs rather than repeating the mutation.**
 
-ORCH-000182 later invoked the same logical reconciliation once for epoch `189`, but its disposable launcher produced no observable completion output. Architect independently proved both authorized durable effects absent. This established that unobservable process completion is not itself external-mutation ambiguity when the complete durable mutation surface can be read back and shown unchanged.
+No new permanent root cause beyond the ORCH-000184 full-record contract has yet been accepted. Therefore ORCH-000185 is a `STATE` documentation change, not a new architecture/source conclusion.
 
-ORCH-000183 made one new separately authorized attempt and was deterministically denied before mutation because of the caller-argument defect described above.
+The Executor suggestion `safeSingleRetry=true` does not authorize retry. Architect authority remains required.
 
-Permanent recovery rule:
+## Async/invocation diagnostic requirement
 
-**when an accepted mutation path denies its transition before mutation, diagnose the exact contract first; once a caller defect is proven, correct the caller and re-authorize one bounded attempt rather than patching accepted source without evidence.**
+The next read-only diagnostic must distinguish pure projection/preflight semantics from the actual asynchronous reconciliation invocation. It must inspect:
+
+- exact function signature/argument shape;
+- full lease object equality;
+- `nowMs` / expiry time;
+- releaser / releasedBy / operationReference;
+- previous-record hash;
+- index/CAS binding;
+- project/lineage/scope/envelope fields;
+- whether the pure projection gate actually ran and its exact result;
+- sync throw vs Promise rejection/resolve;
+- whether the caller awaited the Promise;
+- exact caught error/inner reason before outer reason-code normalization.
+
+Do not authorize another reconciliation call until the first deterministic difference is identified.
 
 ## Pointer lesson
 
-ORCH-000182 advanced `LATEST_EXECUTOR_TERMINAL` but left `LATEST_MILESTONE` on ORCH-000181. ORCH-000183 and ORCH-000184 restored normal terminal/milestone pointer advancement. Verification must always read the complete mandatory pointer set and underlying immutable evidence rather than trusting one convenience pointer alone.
+ORCH-000182 temporarily left terminal/milestone convenience pointers divergent. ORCH-000183 onward restored normal advancement. Verification must still read the complete mandatory pointer set and underlying immutable evidence.
 
 ## Recovery ordering
 
-1. close documentation for the accepted ORCH-000184 caller-contract/root-cause diagnosis;
-2. authorize one corrected reconciliation from index revision `377` using a hydrated, verified full immutable epoch-189 revision `000001`;
-3. require pure EXPIRED projection/validation to pass before external mutation;
-4. call accepted reconciliation exactly once and require durable `revision 000002=EXPIRED`, index `377→378`, `nextLeaseEpoch=190`, `activeLeases=[]`;
-5. only after Architect accepts clean lease recovery return to PREPARED + zero-browser PROVEN_NOT_SENT proof;
+1. read-only diagnose ORCH-000185 invocation/projection parity with reconciliation calls `0`;
+2. Architect verifies the exact remaining cause and applies the fixed documentation/future-idea tests;
+3. only then authorize the smallest safe correction and one bounded recovery attempt if justified;
+4. require epoch-189 lease closure before any new worker-delivery lease/preparation;
+5. return to PREPARED + zero-browser PROVEN_NOT_SENT proof;
 6. arm a fresh persistent host;
 7. prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle;
 8. after core production-candidate qualification, revisit adopted future `IDEA-0001`.
