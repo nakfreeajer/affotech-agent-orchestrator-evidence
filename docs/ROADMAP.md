@@ -13,28 +13,34 @@ A roadmap entry creates **zero implementation authority**. Only a canonical Arch
 
 ## Current governed sequence
 
-### 1. Close the expired epoch-189 lease with the corrected caller contract
+### 1. Diagnose the remaining epoch-189 reconciliation invocation mismatch
 
-ORCH-000184 accepted the root cause of ORCH-000183's projection denial:
+ORCH-000184 accepted the permanent full-record caller contract. ORCH-000185 then hydrated and validated the full immutable epoch-189 revision but accepted reconciliation still returned:
 
-`CALLER_ARGUMENT_DEFECT`
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
 
-The reduced `activeLeases` index entry was passed where expiry reconciliation requires the full immutable `MUTATION_LEASE` revision. Accepted source does not require a patch.
+before any external write.
 
-The next bounded recovery must:
+Durable state remains unchanged: revision `000002` absent, index revision `377`, `nextLeaseEpoch=190`, same sole expired ACTIVE target lease, delivery `000013/SENT`, Architect trigger `000005/SENT`.
 
-- require lease-index revision `377`, `nextLeaseEpoch=190`, exactly the epoch-189 target entry, and revision `000002` absent;
-- hydrate the exact immutable revision `000001` from the target entry's canonical `recordPath`;
-- verify identity/revision/hash/holder/lineage/scope/envelope/expiry bindings;
-- pure-project and validate the EXPIRED transition before external mutation;
-- invoke accepted `reconcileExpiredMutationLease` exactly once with the full immutable lease record;
-- require durable revision `000002=EXPIRED` and index `377→378` removing only the target;
-- require `nextLeaseEpoch=190` and `activeLeases=[]`;
-- keep new lease/preparation/delivery/browser/host/trigger/source/protected-resource side effects zero.
+The next legal milestone is read-only ORCH-000186. It must compare the pure/preflight projection path with the actual reconciliation invocation field-for-field, including function arguments, time/releaser/previous-record/index bindings and Promise/await/error serialization behavior.
 
-This roadmap item is not the mutation authority; the canonical ORCH-000185 dispatch governs execution.
+No reconciliation call is authorized in this diagnostic.
 
-### 2. Close worker-delivery preparation proof
+### 2. Close the expired epoch-189 lease
+
+Only after the invocation-parity diagnostic is independently accepted may Architect authorize the smallest justified correction and one bounded recovery attempt.
+
+Eventual closure remains:
+
+- target revision `000002=EXPIRED` durable/read back;
+- index advances from `377` to the accepted next revision removing only the target;
+- `nextLeaseEpoch=190` unless a separately accepted contract says otherwise;
+- `activeLeases=[]`;
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT` during recovery;
+- no unauthorized preparation/browser/host/trigger/source/protected-resource side effects.
+
+### 3. Close worker-delivery preparation proof
 
 After clean lease recovery is independently accepted, return to:
 
@@ -42,11 +48,11 @@ After clean lease recovery is independently accepted, return to:
 
 Avoid adding disposable launcher layers unless new evidence proves they are necessary.
 
-### 3. Arm a fresh persistent Orchestrator host
+### 4. Arm a fresh persistent Orchestrator host
 
 After preparation composition is accepted, arm a fresh persistent host using the proven composition and prove clean idle/bootstrap behavior without forwarding its own bootstrap dispatch.
 
-### 4. Full unattended canary
+### 5. Full unattended canary
 
 Publish a strictly newer canary dispatch and prove:
 
@@ -58,8 +64,7 @@ This is the core production-candidate threshold for the transport loop.
 
 ### IDEA-0001 — Deterministic Architect documentation-closure marker
 
-**Lifecycle:** `ADOPTED_FOR_FUTURE`  
-**Source:** `docs/IDEA_INBOX.md#idea-0001--deterministic-architect-documentation-closure-marker`
+**Lifecycle:** `ADOPTED_FOR_FUTURE`
 
 After core unattended transport reaches production-candidate qualification, define and implement a machine-readable Architect documentation-closure contract so the Orchestrator may deterministically gate a later mutating dispatch on closure-marker identity/existence.
 
