@@ -1,0 +1,14 @@
+{
+  "schemaVersion":"1.0",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-186-EXPIRED-LEASE-INVOCATION-PARITY-DIAGNOSTIC-000001",
+  "messageId":"ORCH-000186",
+  "dispatchId":"DISPATCH-000186",
+  "status":"READY_FOR_ARCHITECT_REVIEW",
+  "pure_projection_gate_executed":true,
+  "actual_reconcile_invocation_reconstructed":false,
+  "reconcileExpiredMutationLease_real_calls":0,
+  "lease_mutations":0,
+  "source_mutations":0,
+  "browser_calls":0
+}
