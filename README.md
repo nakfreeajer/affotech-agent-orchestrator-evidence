@@ -29,7 +29,7 @@ documentationImpact = NONE | STATE | FULL
 futureIdeaImpact    = NONE | CAPTURE | PROMOTE
 ```
 
-Documentation impact is decided by the mandatory procedure in `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`, not by milestone status or intuition. For `STATE`/`FULL`, only documents that fail the per-document semantic test are updated/read back before the next mutating implementation dispatch.
+Documentation impact is decided by `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`, not by milestone status or intuition. For `STATE`/`FULL`, only documents that fail the per-document semantic test are updated/read back before the next mutating implementation dispatch.
 
 Future ideas are preserved separately through `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`; they create zero implementation authority.
 
@@ -57,21 +57,21 @@ Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; Browser
 
 ## Current recovery summary
 
-ORCH-000184 is **ACCEPTED** as a read-only root-cause diagnostic.
+ORCH-000184 remains **ACCEPTED** and established the permanent caller contract: mutation-lease index entries are reduced locator/projection records, while expiry reconciliation requires the hydrated full immutable `MUTATION_LEASE` revision when `validateMutationLease`-compatible input is expected.
 
-It proved the epoch-189 lease itself is valid and accepted reconciliation source does not require a patch. The ORCH-000183 caller passed the reduced `activeLeases` index entry where the reconciliation projection requires a full immutable `MUTATION_LEASE` revision. The reduced entry therefore failed `validateMutationLease` with `RECORD_FIELDS_INVALID` before an EXPIRED revision could be constructed.
+ORCH-000185 then hydrated and validated the full epoch-189 immutable revision and invoked accepted `reconcileExpiredMutationLease` exactly once. The call still returned:
 
-Permanent caller contract:
+`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
 
-> Mutation-lease index entries are locator/projection records. When expiry reconciliation requires a `validateMutationLease`-compatible lease argument, the caller must hydrate, verify, and pass the full immutable lease revision from its canonical `recordPath` rather than the reduced index entry.
+before the first external write. Durable state remains unchanged: revision `000002` absent; index revision `377`; `nextLeaseEpoch=190`; one expired epoch-189 lease indexed ACTIVE; latest delivery `000013/SENT`; Architect trigger `000005/SENT`; protected side effects zero.
 
-Current durable lease state remains unchanged: index revision `377`, `nextLeaseEpoch=190`, one expired epoch-189 lease indexed ACTIVE, revision `000002` absent, latest delivery `000013/SENT`, and Architect trigger `000005/SENT`.
+Architect decision:
 
-Current Architect decision:
+`GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`
 
-`GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`
+The ORCH-000184 full-record contract is still valid, but it was not the entire cause. Another reconciliation attempt is not authorized yet.
 
-The next legal recovery is one separately authorized corrected reconciliation attempt: hydrate and verify the exact immutable revision `000001`, prove the EXPIRED projection validates before mutation, then invoke the accepted reconciliation path exactly once and determine outcome from durable revision/index readback.
+The next legal action is a read-only ORCH-000186 diagnostic comparing the successful/pure preflight semantics with the actual reconciliation invocation field-for-field, including time/releaser/previous-record/index bindings and async Promise/await/error serialization behavior.
 
 For detailed live state and exact next authority, use `docs/CURRENT_STATE.md`.
 
