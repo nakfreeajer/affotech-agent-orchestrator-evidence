@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000185 Architect review
+Documentation sync boundary: through ORCH-000186 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -73,9 +73,33 @@ Architect classified:
 
 `GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`.
 
-The ORCH-000184 full-record contract remains accepted, but a second invocation/projection mismatch remains unresolved. Executor's suggestion that a future single retry is safe is not authorization.
+The ORCH-000184 full-record contract remains accepted, but a second invocation/projection mismatch remained unresolved. Executor's suggestion that a future single retry is safe was not authorization.
 
-The next action is read-only ORCH-000186 invocation-parity diagnosis before any additional reconciliation call.
+## ORCH-000186 — invocation parity diagnostic accepted
+
+ORCH-000186 was a strictly read-only, mutation-disabled diagnostic intended to determine whether the accepted pure projection path itself was defective or whether durable ORCH-000185 evidence was insufficient to reconstruct the actual call.
+
+Executor terminal:
+
+`GH-PUB-186-EXPIRED-LEASE-INVOCATION-PARITY-DIAGNOSTIC-000001`
+
+Architect decision:
+
+`GH-DEC-186-INVOCATION-PARITY-OBSERVABILITY-INSUFFICIENT-ACCEPTED`
+
+Accepted findings:
+
+- the full immutable epoch-189 revision `000001` validated in the pure harness;
+- the accepted pure projector produced a valid revision `000002` projection with `state=EXPIRED` when supplied the expected previous-record SHA, integer `nowMs`, and canonical EXPIRED releaser;
+- therefore the accepted schema/projector is not shown defective;
+- the actual ORCH-000185 reconciliation invocation could not be reconstructed field-by-field from durable evidence;
+- unpreserved details include the exact lease argument, previous-record hash, `nowMs`, releaser, await resolution, and inner failure;
+- classification `OBSERVABILITY_INSUFFICIENT`;
+- accepted source patch required `false`;
+- safe reconciliation retry remains `false`;
+- ORCH-000186 made zero real reconciliation calls and zero lease/browser/host/source/AFFOTECH/Drive mutations.
+
+The recovery problem therefore narrowed from "projection invalid" to a bounded caller-observability gap. No source defect and no retry authority were established.
 
 ## Documentation-governance evolution — 2026-08-30/31
 
@@ -88,9 +112,15 @@ Rony eliminated Curator from the active model and made Architect directly respon
 
 ORCH-000184 was a live example of fixed-test enforcement: an earlier STATE classification was superseded by FULL because a permanent caller contract/root cause had been established.
 
+ORCH-000186 is `documentationImpact=STATE`: the legal recovery boundary advanced, but no additional lasting architecture/contract/capability/root cause was accepted.
+
 ## Current target
 
-Diagnose the remaining pre-mutation invocation mismatch, then safely close epoch `189`. Only after a clean lease index is accepted may the project return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
+The next legal milestone is ORCH-000187 / DISPATCH-000187, a read-only caller-observability capture diagnostic. It must reproduce the ORCH-000185 caller composition under deterministic mutation-disabled stubs, capture the exact reconciliation arguments/projector path/await result and first would-be external mutation boundary, and identify the first deterministic mismatch if possible.
+
+No real reconciliation retry is authorized yet. Epoch `189` remains ACTIVE-but-expired at index revision `377`, revision `000002` remains absent, and accepted source remains ORCH-000165.
+
+Only after the exact mismatch is proven and a later Architect decision explicitly authorizes retry may the project safely close epoch `189`. After clean lease recovery is accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
