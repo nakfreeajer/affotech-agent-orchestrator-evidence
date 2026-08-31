@@ -1,142 +1,103 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000186 Architect review
+Documentation sync boundary: through ORCH-000187 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
 # Architect Decisions
 
-Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO NEW REPORT`. Executor PASS/COMPLETED is evidence only.
+Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO NEW REPORT`. Executor PASS/COMPLETED/READY is evidence only.
 
 ## Permanent authority decisions
 
 - Rony is final human authority.
-- Architect governs, verifies, decides, defines next bounded authority, owns canonical human-readable documentation, and preserves material future intent separately from current truth.
+- Architect governs, verifies, decides, defines next bounded authority, owns canonical documentation, and preserves material future intent separately from current truth.
 - Executor performs bounded implementation/runtime/validation work and publishes first-hand evidence.
-- Orchestrator is independent persistent deterministic control-plane infrastructure once qualified; it routes/enforces accepted state-machine rules but does not interpret project semantics.
+- Orchestrator is independent deterministic control-plane infrastructure once qualified.
 - GitHub durable evidence is machine authority.
 - No blind retry after ambiguous external mutation.
 - Historical evidence is immutable in meaning.
 - AFFOTECH and protected resources remain separate until explicitly authorized.
 
-## Documentation and future-intent governance
+## ORCH-000184 — ACCEPTED permanent full-lease caller contract
 
-Curator is eliminated from the active project model. Architect owns documentation directly.
-
-Documentation impact is decided through `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0:
-
-`TEST-1 current-truth change → TEST-2 state-only? → TEST-3 lasting truth? → per-document selection test`.
-
-Architect independently classifies `futureIdeaImpact=NONE|CAPTURE|PROMOTE`; idea/roadmap records create zero implementation authority.
-
-## ORCH-000184 — ACCEPTED permanent caller contract
-
-Current accepted decision:
+Decision:
 
 `GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`
 
-ORCH-000184 established the permanent contract that mutation-lease index entries are reduced locator/projection records and cannot substitute for the canonical full immutable `MUTATION_LEASE` revision when an operation requires `validateMutationLease`-compatible input.
+The mutation-lease index entry is a reduced locator/projection and cannot substitute for the canonical complete immutable `MUTATION_LEASE` record when validation/projection/reconciliation requires the full schema.
 
-The correct caller sequence is:
+Permanent sequence:
 
 `index locator → hydrate exact immutable revision → verify binding → pass full immutable record`.
 
-Accepted source patch required: `false`.
-
-ORCH-000184 was correctly classified `documentationImpact=FULL` because it established a permanent root cause/caller contract.
+`sourcePatchRequired=false`.
 
 ## ORCH-000185 — BLOCKED before external mutation
 
-Executor terminal:
-
-`GH-PUB-185-EXPIRED-LEASE-RECONCILIATION-PRE-MUTATION-DENIED-000001`
-
-Architect decision:
+Decision:
 
 `GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`
 
-Verified facts:
-
-- the corrected ORCH-000185 canonical prompt/immutable dispatch existed before terminal publication;
-- the full immutable epoch-189 revision `000001` was hydrated and validated;
-- accepted `reconcileExpiredMutationLease` was invoked exactly once;
-- the call still returned `DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`;
-- the external mutation boundary was not reached;
-- lease revision writes `0`;
-- lease-index CAS writes `0`;
-- target revision `000002` remained absent;
-- index remained revision `377`, `nextLeaseEpoch=190`, exactly one expired ACTIVE target lease;
-- latest delivery remained `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- latest Architect trigger remained `ARCH-TRIGGER-9333-000005/SENT`;
-- browser/host/source/AFFOTECH/Drive mutations remained zero.
-
-Interpretation:
-
-ORCH-000184's full-record caller contract remained accepted, but full-record hydration alone did not eliminate the denial. An additional mismatch remained between the required/preflight projection semantics and the actual reconciliation invocation or its async/error boundary.
-
-Architect set `retryAuthorized=false` pending read-only diagnosis.
-
-Documentation decision:
-
-- `documentationImpact=STATE`;
-- `futureIdeaImpact=NONE`.
+The full immutable target was reportedly hydrated and reconciliation invoked once, but the call still returned `DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`. Durable state remained unchanged. No additional retry was authorized.
 
 ## ORCH-000186 — ACCEPTED bounded diagnostic; observability insufficient
 
-Executor terminal:
-
-`GH-PUB-186-EXPIRED-LEASE-INVOCATION-PARITY-DIAGNOSTIC-000001`
-
-Architect decision:
+Decision:
 
 `GH-DEC-186-INVOCATION-PARITY-OBSERVABILITY-INSUFFICIENT-ACCEPTED`
 
-Architect classification: `ACCEPTED`.
+The pure projection path was proven valid with the full immutable lease. However, durable ORCH-000185 evidence did not preserve the actual invocation field-by-field, so exact historical mismatch remained unproven. `sourcePatchRequired=false`; retry remained unauthorized.
 
-This acceptance applies to the bounded read-only diagnostic contract, not to lease recovery itself.
+## ORCH-000187 — ACCEPTED corrected caller reaches mutation boundary
+
+Executor terminal:
+
+`GH-PUB-187-CALLER-OBSERVABILITY-CAPTURE-DIAGNOSTIC-000001`
+
+Architect decision:
+
+`GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`
+
+Architect classification: `ACCEPTED` for the bounded read-only diagnostic.
 
 Verified/accepted findings:
 
-- the mutation-disabled pure projection gate executed against the full immutable epoch-189 revision `000001`;
-- the full immutable target validated;
-- the accepted projector produced a valid `leaseRevision=2 / state=EXPIRED` projection when supplied the expected previous-record SHA, integer `nowMs`, and canonical EXPIRED releaser;
-- therefore the accepted schema/projector is not shown defective;
-- the actual ORCH-000185 reconciliation invocation cannot be reconstructed field-by-field from durable evidence;
-- the preserved ORCH-000185 evidence omits the exact lease argument, previous-record hash, `nowMs`, releaser, awaited Promise outcome, and innermost failure;
-- Executor classification `OBSERVABILITY_INSUFFICIENT` is accepted for ORCH-000186;
+- the historical ORCH-000185 launcher is absent and its exact arguments cannot be reconstructed;
+- the corrected mutation-disabled caller used one object containing the full immutable lease, exact reconciliation binding, and integer `nowMs`;
+- captured lease SHA-256 `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` semantically equals immutable revision `000001`;
+- full lease validation succeeded;
+- expiry projection produced a valid `leaseRevision=2 / state=EXPIRED` object;
+- awaited execution reached the first would-be external mutation at creation of revision `000002`;
+- the stub intercepted that write, so real reconciliation calls and lease/index mutations remained zero;
+- classification `PROJECTION_SUCCEEDS_WITH_STUBBED_REAL_CALLER` is accepted;
+- `correctedCallShapeProven=true`;
 - `sourcePatchRequired=false`;
-- `safeReconciliationRetry=false`;
-- `retryAuthorized=false`;
-- real reconciliation calls in ORCH-000186 `0`;
-- lease mutations `0`;
-- current lease index remains revision `377`, `nextLeaseEpoch=190`, exactly one active epoch-189 target lease;
-- revision `000002` remains absent;
-- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- accepted source remains `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`.
+- accepted source remains GH-PUB-165.
+
+Historical-causation boundary:
+
+> Do not infer the exact ORCH-000185 mismatch. The accepted durable conclusion is that the corrected caller shape succeeds through validation/projection and reaches the first mutation boundary.
 
 Documentation decision:
 
-- `documentationImpact=STATE` — TEST-1 YES because the current legal recovery position advanced; TEST-2 YES because no new lasting architecture, interface, capability, contract, permanent root cause, or reusable engineering rule beyond ORCH-000184 was accepted;
+- `documentationImpact=FULL` — TEST-1 YES, TEST-2 NO, TEST-3 YES because ORCH-000187 established a reusable caller/observability contract and a permanent historical-evidence boundary;
 - `futureIdeaImpact=NONE`.
+
+Retry decision:
+
+Architect authorizes exactly **one** instrumented real expired-lease reconciliation attempt under ORCH-000188, using the ORCH-000187-proven caller shape. This is not authorization for any further retry.
 
 ## Next legal action
 
-Canonical ORCH-000187 / DISPATCH-000187 authority is a strictly read-only caller-observability capture diagnostic bound to `GH-DEC-186-INVOCATION-PARITY-OBSERVABILITY-INSUFFICIENT-ACCEPTED`.
+ORCH-000188 must:
 
-It must, under deterministic mutation-disabled stubs:
+- require the exact pre-state: index `377`, next epoch `190`, one ACTIVE-but-expired epoch-189 target, revision `000002` absent;
+- hydrate and verify immutable revision `000001`;
+- use the proven one-object caller shape with full lease, exact reconciliation binding, and integer `nowMs`;
+- preserve bounded caller/projector/await/request observability;
+- invoke real `reconcileExpiredMutationLease` at most once;
+- determine outcome from durable GitHub readback;
+- on success require immutable revision `000002` EXPIRED and exactly one index CAS `377 → 378`, leaving `activeLeases=[]` and `nextLeaseEpoch=190`;
+- on ambiguity or failure, make no second call and return to Architect.
 
-- recover/read the ORCH-000185 launcher if still available without modifying it;
-- reproduce the same caller composition to the maximum deterministically recoverable extent;
-- capture the exact reconciliation call signature and full lease argument content/hash;
-- capture previous-record SHA, `nowMs`, releaser/releasedBy, operation reference, identity/scope/envelope/index bindings;
-- instrument caller → reconciliation → projector → validator → first would-be external mutation boundary;
-- capture synchronous throw vs Promise rejection/resolution and awaited result;
-- prove semantic equality or mismatch between the captured lease argument and immutable revision `000001`;
-- identify the first deterministic mismatch versus successful ORCH-000169/173 invocation semantics, if possible.
-
-Until a later Architect decision explicitly authorizes retry:
-
-- real reconciliation calls `0`;
-- no lease/index mutation;
-- no new lease;
-- no preparation/delivery `000014`;
-- no browser/host/trigger/source/protected-resource mutation.
+No worker preparation/delivery, new lease, browser, governed host, Architect trigger, source/test/config/package, docs-by-Executor, accepted-source, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
