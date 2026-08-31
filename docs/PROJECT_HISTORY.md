@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000184 Architect review
+Documentation sync boundary: through ORCH-000185 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -15,81 +15,82 @@ Key accepted milestones:
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once.
 - ORCH-000165: lineage compatibility repair accepted with full deterministic `817/817`.
 
-## ORCH-000166 through ORCH-000173
+## ORCH-000166 through ORCH-000179
 
-ORCH-000166 safely armed persistent host `000026`. ORCH-000167 proved automatic newer-dispatch observation. ORCH-000168/169/170 isolated preparation composition and the explicit worker-delivery ID requirement. ORCH-000171/172/173 isolated and then closed an expired-lease ambiguity; ORCH-000173 proved an instrumented expired-lease revision create/readback plus index CAS/readback can close the lease when the full immutable lease record is used.
-
-## ORCH-000174 through ORCH-000179
-
-Bounded preflights isolated the disposable GitHub adapter defect: actual HTTP `404` had been overwritten by `ghExitCode=1`. ORCH-000178 corrected that boundary and proved accepted worker-delivery lease acquisition and normal release. ORCH-000179 reached preparation and proved the transient authorization must include `actionKind=WORKER_DELIVERY`.
+ORCH-000166/167 established persistent-host idle/bootstrap and automatic newer-dispatch observation. ORCH-000173 proved instrumented expired-lease reconciliation can close a lease. ORCH-000177/178 proved correct HTTP semantic-status handling and lease acquire/release. ORCH-000179 reached worker-delivery preparation and proved transient `actionKind=WORKER_DELIVERY` is required.
 
 ## ORCH-000180 / ORCH-000181
 
-ORCH-000180 acquired/released epoch `188` but stopped before preparation. ORCH-000181 acquired/indexed epoch `189` and constructed `actionKind=WORKER_DELIVERY`, but again terminated before preparation; the lease expired while still indexed ACTIVE at revision `377`.
+ORCH-000180 acquired/released epoch `188` but stopped before preparation. ORCH-000181 acquired/indexed epoch `189` and constructed `actionKind=WORKER_DELIVERY`, but terminated before preparation; the lease expired while still indexed ACTIVE at revision `377`.
 
-## ORCH-000182 — no durable reconciliation effect
+## ORCH-000182 / ORCH-000183
 
-ORCH-000182 invoked `reconcileExpiredMutationLease` exactly once. The disposable launcher returned no observable completion output. Architect independently reconciled the GitHub namespace and proved target revision `000002` absent and index revision `377` unchanged, so the authorized mutation effect was durably absent.
+ORCH-000182 invoked expiry reconciliation once but produced unobservable launcher completion. Architect independently proved revision `000002` absent and index `377` unchanged, so no durable side effect occurred.
 
-Architect decision:
+ORCH-000183 made one separately authorized instrumented attempt. Accepted reconciliation returned `DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` before mutation, leaving durable state unchanged.
 
-`GH-DEC-182-EXPIRED-WORKER-LEASE-RECONCILIATION-NO-DURABLE-EFFECT-BLOCKED`.
+## ORCH-000184 — caller argument contract accepted
 
-## ORCH-000183 — deterministic projection denial
-
-ORCH-000183 used one separately authorized instrumented reconciliation attempt after exact pre-state verification. The accepted path returned:
-
-`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
-
-before any durable mutation. Revision `000002` remained absent, lease index remained `377`, next epoch remained `190`, and protected side effects remained zero.
-
-Architect decision:
-
-`GH-DEC-183-EXPIRED-WORKER-LEASE-RECONCILIATION-PROJECTION-INVALID-BLOCKED`.
-
-The next legal action became read-only root-cause diagnosis.
-
-## ORCH-000184 — caller argument defect identified and accepted
-
-ORCH-000184 performed zero reconciliation and zero lease/source/browser/host mutation.
-
-It compared the epoch-189 target and ORCH-000183 call shape with accepted source and the successful ORCH-000169/ORCH-000173 control.
-
-Diagnosis:
+ORCH-000184 diagnosed the ORCH-000183 denial as `CALLER_ARGUMENT_DEFECT`:
 
 - immutable epoch-189 revision `000001` is a valid full `MUTATION_LEASE`;
-- the mutation-lease index stores a reduced `activeLeases` projection/locator;
-- ORCH-000183 passed that reduced index entry where the expiry projection requires a full `validateMutationLease`-compatible lease record;
-- the reduced object failed `validateMutationLease` with `RECORD_FIELDS_INVALID` before EXPIRED projection construction;
+- the lease index stores a reduced `activeLeases` locator/projection;
+- ORCH-000183 passed the reduced index entry where expiry projection required full `validateMutationLease`-compatible input;
+- the reduced entry failed with `RECORD_FIELDS_INVALID` before EXPIRED projection construction;
 - historical ORCH-000169/173 succeeded using the full immutable lease record;
-- classification `CALLER_ARGUMENT_DEFECT`;
 - accepted source patch required `false`.
 
-Architect accepted the diagnosis under:
+Architect accepted the permanent caller contract under:
 
 `GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`.
 
-Permanent contract established: index entries are locators/projections, not substitutes for full immutable lease records when reconciliation/projector validation requires the complete lease schema.
+Permanent rule: hydrate and verify the exact immutable lease revision referenced by the index before passing it to a full-schema validator/projector/reconciliation operation.
 
-A prior activated ORCH-000184 decision recorded documentation impact `STATE`. Because the fixed semantic test requires `FULL` when a permanent root cause/contract is established, Architect published a superseding decision with `documentationImpact=FULL`. Historical records were preserved rather than rewritten.
+## ORCH-000185 — full immutable input still denied before mutation
+
+ORCH-000185 was published with the corrected ORCH-000184 authority and required full immutable lease hydration plus a pre-mutation pure projection gate.
+
+Commit chronology proves the corrected ORCH-000185 prompt and immutable dispatch existed before the terminal publication.
+
+Executor terminal:
+
+`GH-PUB-185-EXPIRED-LEASE-RECONCILIATION-PRE-MUTATION-DENIED-000001`
+
+Reported/verified outcome:
+
+- full immutable epoch-189 revision `000001` hydrated and validated;
+- accepted reconciliation invoked exactly once;
+- result remained `DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`;
+- external mutation boundary not reached;
+- lease revision writes `0`;
+- index CAS writes `0`;
+- revision `000002` absent;
+- index revision `377`, `nextLeaseEpoch=190`, same sole expired ACTIVE lease;
+- latest delivery `000013/SENT` and Architect trigger `000005/SENT` unchanged;
+- no browser/host/source/AFFOTECH/Drive effects.
+
+Architect classified:
+
+`GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`.
+
+The ORCH-000184 full-record contract remains accepted, but a second invocation/projection mismatch remains unresolved. Executor's suggestion that a future single retry is safe is not authorization.
+
+The next action is read-only ORCH-000186 invocation-parity diagnosis before any additional reconciliation call.
 
 ## Documentation-governance evolution — 2026-08-30/31
 
-Rony eliminated Curator from the active model and made Architect directly responsible for canonical documentation. Governance then added:
+Rony eliminated Curator from the active model and made Architect directly responsible for canonical documentation. Governance now includes:
 
-- `documentationImpact = NONE | STATE | FULL` with write/readback closure before the next mutating implementation dispatch;
-- `futureIdeaImpact = NONE | CAPTURE | PROMOTE` with separate `IDEA_INBOX`/`ROADMAP` surfaces;
-- the fixed semantic documentation procedure `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0 so Architect must decide by current-truth/state/lasting-truth questions and per-document testing rather than status or intuition.
+- `documentationImpact = NONE | STATE | FULL`;
+- `futureIdeaImpact = NONE | CAPTURE | PROMOTE`;
+- mandatory fixed semantic test `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0;
+- documentation write/readback closure before the next mutating implementation dispatch when required.
 
-Current governing versions:
-
-- bootstrap v1.3;
-- project policy v1.4;
-- memory policy v1.4.
+ORCH-000184 was a live example of fixed-test enforcement: an earlier STATE classification was superseded by FULL because a permanent caller contract/root cause had been established.
 
 ## Current target
 
-Close the still-expired epoch-189 lease through a corrected caller/composition that hydrates and verifies the full immutable revision before reconciliation. Only after a clean lease index is accepted may the project return to the worker-delivery preparation proof, fresh persistent-host arm, and full unattended canary:
+Diagnose the remaining pre-mutation invocation mismatch, then safely close epoch `189`. Only after a clean lease index is accepted may the project return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
