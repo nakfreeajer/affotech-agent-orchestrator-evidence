@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000183 Architect review
+Documentation sync boundary: through ORCH-000184 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -81,24 +81,45 @@ Known composition requirements:
 - explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014` in the qualification composition;
 - transient transport authorization `actionKind=WORKER_DELIVERY` while leaving the durable lease record unchanged.
 
-## 8. Proven lease/reconciliation seams
+## 8. Mutation-lease index vs immutable lease contract
 
-ORCH-000173 proved the accepted expired-lease path can close an expired worker-delivery lease with bounded request-level instrumentation: revision create/readback followed by one lease-index CAS/readback.
+The mutation-lease index and immutable mutation-lease records are different representations with different purposes.
 
-ORCH-000177/178 proved HTTP semantic status must remain separate from `ghExitCode`, plus normal worker-delivery lease acquisition/release.
+The `activeLeases` entry in the index is a **reduced locator/projection**. It may identify lease ID/epoch/revision, record path/hash, holder, lineage, scope/hash, envelope hash, expiry, and state, but it is not itself the canonical full `MUTATION_LEASE` revision.
 
-ORCH-000179 reached preparation and proved the transient action-kind requirement.
+The immutable revision under:
 
-ORCH-000181 left epoch `189` expired while still indexed ACTIVE. ORCH-000182 produced no durable reconciliation effect. ORCH-000183 then reached a deterministic accepted-path denial before mutation: `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`.
+`evidence/host-runtime/mutation-leases/<leaseId>/revisions/<revision>.json`
 
-No lasting architectural conclusion is drawn from that reason code until the exact projection validation condition is diagnosed. The architecture invariant remains: an expired indexed lease must be reconciled/closed before any new conflicting lease or worker-delivery preparation is allowed.
+is the full lease record and includes the complete schema required by `validateMutationLease`, including lifecycle fields such as `acquiredAt`, `releasedAt`, `previousRecordSha256`, and `releasedBy`.
 
-Live recovery details and the next legal action belong in `docs/CURRENT_STATE.md`, not in Architecture; this avoids treating transient recovery state as accepted system architecture.
+Permanent caller rule accepted at ORCH-000184:
 
-## 9. Adopted future architecture idea
+> When an operation such as `reconcileExpiredMutationLease` / `projectMutationLeaseExpiryReconciliation` requires a `validateMutationLease`-compatible lease argument, the caller MUST hydrate the exact immutable revision referenced by the index, verify its identity/revision/hash/lineage against the index and authority, and pass that full record. A reduced index entry MUST NOT be substituted for the immutable record.
+
+ORCH-000184 diagnosed ORCH-000183's `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` as a `CALLER_ARGUMENT_DEFECT`: the reduced active-index entry was passed directly and failed `validateMutationLease` with `RECORD_FIELDS_INVALID` before EXPIRED projection construction. Accepted source does not require a patch.
+
+The historical ORCH-000169/ORCH-000173 control confirms the correct shape: a full immutable ACTIVE revision was projected into a full immutable EXPIRED revision while preserving lease identity/lineage and lifecycle fields.
+
+## 9. Expired-lease recovery invariant
+
+An expired indexed lease must be reconciled/closed before any new conflicting worker-delivery lease or preparation is allowed.
+
+A corrected recovery caller should:
+
+1. read the reduced index entry;
+2. hydrate the exact immutable current revision from `recordPath`;
+3. verify the immutable record matches the index binding and expected content hash/lineage;
+4. run pure projection/validation before external mutation when practical;
+5. invoke the accepted reconciliation path at most once under bounded authority;
+6. determine outcome from durable revision/index readback, not process stdout alone.
+
+Live recovery details and the next legal action belong in `docs/CURRENT_STATE.md`, not in Architecture.
+
+## 10. Adopted future architecture idea
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` is `ADOPTED_FOR_FUTURE` only. It is not part of accepted architecture today.
 
-## 10. Protected boundaries
+## 11. Protected boundaries
 
 Architect session `9333`; Executor session `9444`; AFFOTECH protected ports `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
