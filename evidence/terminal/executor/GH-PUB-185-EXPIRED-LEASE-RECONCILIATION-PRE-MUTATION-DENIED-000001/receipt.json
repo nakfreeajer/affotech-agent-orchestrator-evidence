@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-185-EXPIRED-LEASE-RECONCILIATION-PRE-MUTATION-DENIED-000001",
+  "messageId": "ORCH-000185",
+  "dispatchId": "DISPATCH-000185",
+  "status": "READY_FOR_ARCHITECT_REVIEW",
+  "classification": "INVOCATION_REACHED_PREMUTATION_FAILURE",
+  "reconcileExpiredMutationLeaseCallCount": 1,
+  "leaseRevisionMutationCount": 0,
+  "leaseIndexMutationCount": 0,
+  "workerDeliveryMutationCount": 0,
+  "browserContactCount": 0,
+  "hostProcessMutationCount": 0,
+  "sourceMutation": 0,
+  "testMutation": 0,
+  "documentationMutation": 0,
+  "affotechMutationCount": 0,
+  "driveMutationCount": 0,
+  "requiresArchitectDecision": true
+}
