@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000194 Architect review
+Documentation sync boundary: through ORCH-000195 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -15,78 +15,62 @@ Key accepted foundations:
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once;
 - ORCH-000165: lineage compatibility repair accepted with full deterministic `817/817`.
 
-## ORCH-000166 through ORCH-000181
+## ORCH-000166 through ORCH-000193 — persistent-host work and epoch-189 recovery
 
-Persistent-host bootstrap and dispatch observation were established. Lease acquire/release and HTTP semantic-status handling were qualified. ORCH-000181 acquired epoch `189` but terminated before delivery preparation; the lease expired while indexed ACTIVE at revision `377`.
+Persistent-host bootstrap and dispatch observation were established. The recovery chain then established full immutable lease hydration, typed hash identities, corrected reconciliation caller shape, exact `createJson` readback semantics, and semantic GitHub `404 → NOT_FOUND` handling.
 
-## ORCH-000182 through ORCH-000193 — epoch-189 recovery
+ORCH-000193 reconciled epoch 189 to immutable revision 2 / `EXPIRED` and advanced the lease index to `378` with no active leases.
 
-The recovery chain established, in order:
+## ORCH-000194 — zero-browser delivery preflight accepted
 
-- index entries are reduced locators and full immutable lease hydration is required;
-- canonical SHA-256 and Git blob SHA are separate typed identities;
-- the corrected reconciliation caller shape is full immutable lease + exact binding + integer `nowMs`;
-- `createJson` uses precheck → at most one PUT → exact post-write readback;
-- separate prerequisite evidence writes must not become ambiguity blockers;
-- disposable GitHub read adapters must preserve semantic HTTP status and map `404 → NOT_FOUND`.
+ORCH-000194 proved one in-process sequence:
 
-ORCH-000193 finally reconciled epoch 189 to immutable revision 2 / `EXPIRED` and advanced the lease index `377 → 378` with zero active leases.
+`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`
+
+for `WORKER-DELIVERY-EXECUTOR-000014`, with browser contact/send `0/0`.
+
+The lease index closed at `380`, next epoch `191`, zero active leases, and `LATEST_DELIVERY` remained `000013/SENT`.
 
 Architect decision:
 
-`GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`.
-
-## ORCH-000194 — worker-delivery 000014 zero-browser preflight accepted
-
-ORCH-000194 resumed the worker-delivery path after recovery using one in-process sequence.
-
-Executor terminal:
-
-`GH-PUB-194-WORKER-DELIVERY-000014-PREFLIGHT-COMPLETE-000001`
-
-Verified sequence:
-
-- status-preserving adapter gate passed;
-- one epoch-190 lease acquired;
-- index `378 → 379`, next epoch `190 → 191`;
-- transient authorization added `actionKind=WORKER_DELIVERY` without durable lease rewrite;
-- preparation returned `PREPARED` for fresh `WORKER-DELIVERY-EXECUTOR-000014`;
-- immutable ARMED intent was durably recorded/read back;
-- browser contact/send remained `0/0`;
-- one durable `PROVEN_NOT_SENT` result recorded attempted/confirmed sends `0/0`;
-- one normal release completed;
-- final index `379 → 380`, `nextLeaseEpoch=191`, `activeLeases=[]`;
-- `LATEST_DELIVERY` remained `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- no unrelated protected mutation occurred.
-
-Architect accepted the milestone under:
-
 `GH-DEC-194-WORKER-DELIVERY-000014-PREFLIGHT-ACCEPTED`.
 
-This closes the post-recovery zero-browser preflight qualification. Delivery `000014` remains terminal `PROVEN_NOT_SENT` evidence and is not a live-send candidate.
+## ORCH-000195 — live delivery stopped at unavailable Executor relay
 
-`documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+ORCH-000195 attempted the fresh exactly-once live qualification for `WORKER-DELIVERY-EXECUTOR-000015`.
+
+Observed sequence:
+
+- canonical preconditions passed;
+- status-preserving GitHub gates passed;
+- epoch-191 lease acquired once;
+- lease index advanced `380 → 381`;
+- local registered endpoint `127.0.0.1:9444` refused the connection;
+- no delivery `000015` intent/result was created;
+- browser contact/send and attempted/confirmed sends remained `0`;
+- no retry occurred;
+- the exact lease was normally released once;
+- final index advanced `381 → 382`;
+- `nextLeaseEpoch=192`;
+- `activeLeases=[]`;
+- `LATEST_DELIVERY` remained `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
+
+Architect decision:
+
+`GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`.
+
+Classification: `INCONCLUSIVE`.
+
+The worker registration itself remains durable ACTIVE and still binds the Executor conversation to relay port `9444`; the live endpoint was unavailable during ORCH-000195.
+
+`documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-The next legal milestone is ORCH-000195: one separately bounded live exactly-once Executor-browser delivery qualification using fresh identity:
+The next legal milestone is ORCH-000196: a read-only/no-mutation diagnosis of the Executor relay/session availability boundary.
 
-`WORKER-DELIVERY-EXECUTOR-000015`.
+It must determine why port `9444` has no accepting listener and identify the smallest safe restoration action without launching/stopping processes, mutating registration, acquiring a lease, creating delivery evidence, or sending to a browser.
 
-Pre-state:
-
-- lease index revision `380`;
-- `nextLeaseEpoch=191`;
-- `activeLeases=[]`;
-- latest successful delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- `WORKER-DELIVERY-EXECUTOR-000014/PROVEN_NOT_SENT` preserved;
-- Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
-- accepted source GH-PUB-165.
-
-The live qualification must durably prepare `000015` before browser contact, send at most one exact USER message to the registered Executor target on port `9444`, record/read back `SENT` only on confirmed send, advance `LATEST_DELIVERY` only after result readback, release the lease normally, and prove duplicate replay sends nothing a second time.
-
-After that delivery qualification is independently accepted, the project may arm a fresh persistent host and prove the full unattended canary:
-
-`Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
+Only after that diagnosis is independently accepted may the project authorize relay restoration and/or a fresh live exactly-once delivery attempt.
 
 AFFOTECH remains separate/protected until later explicit Rony-authorized integration.
