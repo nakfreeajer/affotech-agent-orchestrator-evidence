@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "WORKER_DELIVERY_RESULT",
+  "deliveryId": "WORKER-DELIVERY-EXECUTOR-000014",
+  "intentSha256": "3c4db360e51e3bd816f0f7c0953f3d9b203ca635a04e6cc46cba7a688e5cb121",
+  "workerRole": "executor",
+  "outcome": "PROVEN_NOT_SENT",
+  "attemptedSendCount": 0,
+  "confirmedSendCount": 0,
+  "browserDisconnected": false,
+  "responseDomRead": false,
+  "reconciliationKind": "PROVEN_NOT_SENT",
+  "reconciliationEvidence": {
+    "classification": "PROVEN_NOT_SENT",
+    "deliveryId": "WORKER-DELIVERY-EXECUTOR-000014",
+    "workerRole": "executor",
+    "messageId": "ORCH-000194",
+    "dispatchId": "DISPATCH-000194",
+    "canonicalPromptSha256": "00517d126af237eda88912b67e24dd10b1f3eaf666ac1b95c71ff33c24a084ac",
+    "transportPhase": "PRE_SEND_OBSERVATION",
+    "transportReasonCode": "WORKER_PRE_SEND_OBSERVATION_FAILED",
+    "exactProbeOccurrenceCount": 0,
+    "sendInvocationEvidencePresent": false,
+    "sendCompletionEvidencePresent": false,
+    "resultAbsent": true,
+    "reconciledAt": 1788280325036
+  },
+  "resultRecordedAt": 1788280325036,
+  "resultSha256": "5a9255e8e3edc8a5a110309f08106b544d452567c91e77f767c16567dbd0b0dd",
+  "messageId": "ORCH-000194",
+  "dispatchId": "DISPATCH-000194"
+}
