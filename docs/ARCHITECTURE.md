@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000190 Architect review
+Documentation sync boundary: through ORCH-000192 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -80,36 +80,45 @@ Permanent rule from ORCH-000188:
 
 > Never compare a Git blob SHA directly to a project canonical SHA-256. Canonical SHA-256 binds immutable record semantics to the Orchestrator index; Git blob SHA is used only for GitHub object identity/CAS semantics.
 
-## 8. `createJson` mutation reconciliation semantics — ORCH-000190
+## 8. `createJson` mutation reconciliation semantics
 
-ORCH-000190 established the accepted GitHub Contents runtime behavior for `createJson`:
+Accepted `createJson` semantics from ORCH-000190 are:
 
 1. read/precheck the target path;
 2. issue at most one PUT create request;
 3. perform an exact current-ref post-write readback;
 4. decide durable creation from that readback, not from the PUT response body alone.
 
-A missing/throwing/non-success PUT response can still normalize to `CREATED` if exact readback proves the expected object exists. Conversely, when the post-write readback is absent, the runtime can return:
-
-`AMBIGUOUS / POST_MUTATION_ABSENT`
-
-for more than one live transport branch.
-
-Therefore `AMBIGUOUS / POST_MUTATION_ABSENT` is a conservative transport classification, not proof that a write occurred. Durable readback remains authoritative.
-
-ORCH-000189 did not preserve the live adapter throw/status/readback details, so its exact ambiguity branch is permanently unprovable from existing evidence. Accepted source is not shown defective.
+A missing/throwing/non-success PUT response can still normalize to `CREATED` if exact readback proves the expected object exists. An absent post-write readback can normalize to `AMBIGUOUS / POST_MUTATION_ABSENT` for multiple transport branches.
 
 Permanent observability rule:
 
-> For bounded external writes whose transport result may normalize to AMBIGUOUS, capture non-sensitive adapter outcome/status/await diagnostics in the same execution context and always reconcile from durable readback. Do not add a separate prerequisite external evidence write when that evidence write can itself become the blocking ambiguous mutation.
+> Buffer bounded non-sensitive adapter/projector/await diagnostics in the same execution context and reconcile outcome from durable target-state readback. Do not add a separate prerequisite external evidence write whose own ambiguity can block the target operation.
 
-## 9. Historical-causation boundary
+## 9. GitHub contents read-adapter semantic-status contract — ORCH-000192
+
+ORCH-000192 established a permanent boundary for disposable/read-only GitHub Contents adapters used by governed recovery flows.
+
+Observed control probes:
+
+- existing immutable revision `000001` → HTTP `200`, parseable JSON;
+- absent revision `000002` → HTTP `404`, parseable JSON error.
+
+The ORCH-000191 disposable `gh` subprocess surfaced only process exit code `1`, not the semantic HTTP `404`, and therefore normalized an expected absent path to `GITHUB_API_ERROR`. Accepted `createJson` then failed closed with `CREATE_PRECHECK_FAILED` before any PUT.
+
+Corrected adapter contract:
+
+> Use an awaited HTTP-capable GitHub Contents request path that preserves semantic HTTP status. Map `404` to `NOT_FOUND`, preserve successful `200` JSON reads as existing content, and keep transport/auth failures distinct from semantic absence.
+
+The accepted client already normalizes a status-preserving absent-path result correctly as `NOT_FOUND`; no accepted-source patch is required. The defect belonged to the disposable adapter composition.
+
+## 10. Historical-causation boundary
 
 The historical ORCH-000185 launcher no longer exists. Do not convert later corrected reproductions into an invented exact ORCH-000185 root cause.
 
-Likewise, the exact live adapter branch behind ORCH-000189 cannot be recreated after the fact because those request/response details were not durably preserved.
+Likewise, the exact live transport branch behind ORCH-000189 cannot be recreated after the fact because those request/response details were not preserved.
 
-## 10. Expired-lease recovery invariant
+## 11. Expired-lease recovery invariant
 
 An expired indexed lease must be reconciled/closed before any new conflicting worker-delivery lease or preparation is allowed.
 
@@ -118,17 +127,18 @@ A bounded recovery caller must:
 1. hydrate and verify the exact immutable lease;
 2. keep canonical SHA-256 and Git blob SHA separately typed;
 3. use the ORCH-000187-proven caller shape;
-4. capture bounded adapter/projector/await diagnostics in memory without a separate pre-call external evidence write;
-5. invoke real reconciliation at most once under explicit authority;
-6. determine outcome from durable revision/index readback;
-7. if result or completion is ambiguous, make no second call.
+4. use a status-preserving GitHub read adapter that maps semantic `404 → NOT_FOUND`;
+5. capture bounded adapter/projector/await diagnostics in memory without a separate pre-call external evidence write;
+6. invoke real reconciliation at most once under explicit authority;
+7. determine outcome from durable revision/index readback;
+8. if result or completion is ambiguous, make no second call under the same authority.
 
-## 11. Documentation governance
+## 12. Documentation governance
 
 Architect directly owns canonical human-readable documentation. `documentationImpact=NONE|STATE|FULL` is decided under `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`; future intent is separately classified `NONE|CAPTURE|PROMOTE`.
 
-ORCH-000190 is `documentationImpact=FULL` because it established reusable `createJson` reconciliation/ambiguity semantics and an observability countermeasure.
+ORCH-000192 is `documentationImpact=FULL` because it established the exact disposable-adapter root cause and reusable semantic-status preservation contract.
 
-## 12. Protected boundaries
+## 13. Protected boundaries
 
 Architect session `9333`; Executor session `9444`; AFFOTECH protected ports `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
