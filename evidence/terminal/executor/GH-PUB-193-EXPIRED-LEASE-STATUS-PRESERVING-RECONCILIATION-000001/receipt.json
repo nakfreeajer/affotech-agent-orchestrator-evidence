@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-193-EXPIRED-LEASE-STATUS-PRESERVING-RECONCILIATION-000001",
+  "messageId": "ORCH-000193",
+  "dispatchId": "DISPATCH-000193",
+  "status": "READY_FOR_ARCHITECT_REVIEW",
+  "reconcileExpiredMutationLease_call_count": 1,
+  "revision000002_exists": true,
+  "index_after_revision": 378,
+  "lease_mutations": 2,
+  "source_mutations": 0,
+  "browser_calls": 0
+}
