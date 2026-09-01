@@ -1,114 +1,104 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000193 Architect review
+Documentation sync boundary: through ORCH-000194 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
 # Architect Decisions
 
-Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO NEW REPORT`. Executor PASS/COMPLETED/READY is evidence only.
+Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO NEW REPORT`. Executor PASS/READY is evidence only.
 
 ## Permanent authority decisions
 
 - Rony is final human authority.
-- Architect governs, verifies, decides, defines next bounded authority, owns canonical documentation, and preserves material future intent separately from current truth.
-- Executor performs bounded implementation/runtime/validation work and publishes first-hand evidence.
-- Orchestrator is deterministic control-plane infrastructure and never becomes semantic authority.
+- Architect governs, verifies, decides, defines next bounded authority, and owns canonical documentation.
+- Executor performs bounded runtime/source/validation work and publishes first-hand evidence.
+- Orchestrator is deterministic transport/state infrastructure, never semantic authority.
 - GitHub durable evidence is machine authority.
-- No blind retry after ambiguous external mutation.
+- No blind retry after ambiguous external mutation or browser send.
 - Historical evidence is immutable in meaning.
 - AFFOTECH and protected resources remain separate until explicitly authorized.
 
-## ORCH-000184 — ACCEPTED full immutable caller contract
+## Recovery decisions
 
-Decision: `GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`.
+### ORCH-000184 — ACCEPTED
+`GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`
 
-Index locator/projection records cannot substitute for the full immutable `MUTATION_LEASE` when full-schema validation/projection/reconciliation is required.
+Reduced index entries cannot substitute for full immutable `MUTATION_LEASE` records when full-schema validation/projection/reconciliation is required.
 
-## ORCH-000187 — ACCEPTED corrected caller through mutation boundary
+### ORCH-000187 — ACCEPTED
+`GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`
 
-Decision: `GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`.
+Full immutable lease + exact reconciliation binding + integer `nowMs` is the proven reconciliation caller shape.
 
-The corrected mutation-disabled caller using the full immutable lease, exact reconciliation binding, and integer `nowMs` validates/projects correctly and reaches creation of revision `000002`. The exact historical ORCH-000185 mismatch remains unproven.
+### ORCH-000188 — BLOCKED
+`GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`
 
-## ORCH-000188 — BLOCKED hash-namespace mismatch
+Canonical semantic SHA-256 and Git blob SHA are separate typed values.
 
-Decision: `GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`.
+### ORCH-000190 — ACCEPTED
+`GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`
 
-Permanent contract: canonical semantic/content SHA-256 and Git blob SHA are separately typed values and must never be compared directly.
+Accepted `createJson` uses precheck, at most one PUT, and exact post-write readback; durable readback is final authority.
 
-## ORCH-000189 — INCONCLUSIVE pre-call evidence write ambiguity
+### ORCH-000192 — ACCEPTED
+`GH-DEC-192-DISPOSABLE-ADAPTER-404-MAPPING-DEFECT-ACCEPTED`
 
-Decision: `GH-DEC-189-PRECALL-EVIDENCE-WRITE-AMBIGUOUS-INCONCLUSIVE`.
+GitHub Contents read adapters must preserve semantic HTTP status and map `404 → NOT_FOUND`; accepted source required no patch.
 
-Typed hash and pure projection gates passed, but the prerequisite pre-call `createJson` returned `AMBIGUOUS`; exact path was absent on readback. Real reconciliation calls remained `0` and durable lease state remained unchanged.
+### ORCH-000193 — ACCEPTED
+`GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`
 
-## ORCH-000190 — ACCEPTED createJson transport ambiguity diagnostic
+Epoch-189 stale lease was reconciled to immutable revision 2 / `EXPIRED`; index advanced `377 → 378`; `activeLeases=[]`.
 
-Decision: `GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`.
-
-Accepted `createJson` semantics are precheck → at most one PUT → exact post-write readback, with durable readback as final authority. A separate prerequisite evidence write must not itself become the blocking ambiguous mutation.
-
-## ORCH-000191 — INCONCLUSIVE revision precheck transport classification
-
-Decision: `GH-DEC-191-REVISION-PRECHECK-TRANSPORT-INCONCLUSIVE`.
-
-The one authorized real reconciliation call was consumed but stopped before target mutation because the disposable GitHub read adapter normalized an expected absent revision precheck as `GITHUB_API_ERROR / CREATE_PRECHECK_FAILED`. Revision PUT and index CAS remained `0`; durable state remained unchanged.
-
-## ORCH-000192 — ACCEPTED disposable adapter 404 mapping diagnosis
-
-Decision: `GH-DEC-192-DISPOSABLE-ADAPTER-404-MAPPING-DEFECT-ACCEPTED`.
-
-The bounded GET-only diagnostic proved:
-
-- existing revision `000001` returns HTTP `200`;
-- absent revision `000002` returns HTTP `404`;
-- the ORCH-000191 disposable `gh` subprocess lost semantic `404` and collapsed it into process/API failure;
-- a direct awaited GitHub Contents adapter preserves status and maps `404 → NOT_FOUND`;
-- accepted client normalization is correct;
-- `sourcePatchRequired=false`;
-- minimal repair scope is the disposable read adapter only.
-
-Permanent contract: GitHub Contents read adapters used for governed recovery must preserve semantic HTTP status and must not collapse expected `404 / NOT_FOUND` into generic transport failure.
-
-## ORCH-000193 — ACCEPTED epoch-189 lease recovery
+## ORCH-000194 — ACCEPTED worker-delivery 000014 zero-browser preflight
 
 Executor terminal:
 
-`GH-PUB-193-EXPIRED-LEASE-STATUS-PRESERVING-RECONCILIATION-000001`
+`GH-PUB-194-WORKER-DELIVERY-000014-PREFLIGHT-COMPLETE-000001`
 
 Architect decision:
 
-`GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`
+`GH-DEC-194-WORKER-DELIVERY-000014-PREFLIGHT-ACCEPTED`
 
 Architect classification: `ACCEPTED`.
 
 Verified facts:
 
-- status-preserving read-adapter gate passed (`200 / EXISTING_JSON` for revision `000001`, `404 / NOT_FOUND` for absent revision `000002`);
-- typed-hash and pure-projection gates passed;
-- accepted `reconcileExpiredMutationLease` was invoked exactly once;
-- runtime outcome was `EXPIRED_RECONCILED`;
-- immutable revision `000002` exists, is valid `leaseRevision=2`, and has `state=EXPIRED`;
-- `previousRecordSha256` matches the canonical revision-`000001` SHA-256 exactly;
-- lease index advanced exactly `377 → 378`;
-- `activeLeases=[]`;
-- `nextLeaseEpoch=190` remained unchanged;
-- latest worker delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
-- no retry, new lease, browser, host-process, worker-delivery, Architect-trigger, source, AFFOTECH, or Drive mutation occurred beyond the authorized revision-create and index-CAS lease-state writes;
-- accepted source remains GH-PUB-165.
+- status-preserving read gate passed;
+- one epoch-190 WORKER_DELIVERY lease acquisition succeeded;
+- index advanced `378 → 379` and next epoch `190 → 191`;
+- transient `actionKind=WORKER_DELIVERY` was used without rewriting the durable lease;
+- accepted preparation returned `PREPARED` for `WORKER-DELIVERY-EXECUTOR-000014`;
+- immutable intent exists/readback and uses canonical persistent state `ARMED`;
+- browser contact/send remained `0/0`;
+- durable result is `PROVEN_NOT_SENT` with attempted/confirmed sends `0/0`;
+- normal release occurred exactly once;
+- final index advanced `379 → 380`, `nextLeaseEpoch=191`, `activeLeases=[]`;
+- `LATEST_DELIVERY` remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- source, host-process, Architect-trigger, AFFOTECH, and Drive mutations remained zero.
 
-Epoch-189 recovery is complete and no longer blocks the worker-delivery qualification chain.
+Capability decision:
+
+The current recovered system has accepted proof of the complete zero-browser preflight:
+
+`ACQUIRE → transient actionKind enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+
+Delivery `000014` is terminal `PROVEN_NOT_SENT` evidence and must not be reused for a live send.
 
 Documentation decision:
 
-- `documentationImpact=STATE` — current operational state advanced from blocked lease recovery to clean lease-free continuation, with no new source/governance contract;
+- `documentationImpact=FULL` — the current accepted worker-delivery preflight capability is now proven after recovery;
 - `futureIdeaImpact=NONE`.
 
 ## Next legal action
 
-ORCH-000194 should resume the worker-delivery qualification path at a **durable PREPARED / provably not sent** boundary for `WORKER-DELIVERY-EXECUTOR-000014`.
+ORCH-000195 may perform one separately bounded live exactly-once Executor-browser delivery qualification with fresh identity `WORKER-DELIVERY-EXECUTOR-000015`.
 
-It must require index revision `378`, next epoch `190`, zero active leases, and unchanged delivery/trigger pointers before any mutation. It may acquire at most one new `WORKER_DELIVERY` lease; construct transient action-specific authorization with `actionKind=WORKER_DELIVERY` and explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`; call accepted preparation at most once; and require exact durable PREPARED intent readback.
+Required order:
 
-Browser contact/send, worker-delivery result publication, Architect-trigger mutation, AFFOTECH, Drive, deployment, tenant/business/private-data access, and unrelated source/test/config/package mutation remain unauthorized. The milestone must not continue to delivery/send in the same dispatch.
+`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → pre-send observation → at most one USER send to Executor port 9444 → durable SENT result/readback → LATEST_DELIVERY advance → normal RELEASE → duplicate-suppression replay`.
+
+Success requires attempted/confirmed sends `1/1`, `LATEST_DELIVERY=000015/SENT`, second-send count `0`, clean final lease state, and no Architect-browser contact/trigger or unrelated source/AFFOTECH/Drive mutation.
+
+No synthetic `SENT`, no blind retry, and no second browser send are authorized under ambiguity.
