@@ -2,35 +2,8 @@
   "schemaVersion": "1.0",
   "pointerKind": "HOST_MUTATION_LEASE_INDEX",
   "projectId": "affotech-agent-orchestrator",
-  "indexRevision": 377,
+  "indexRevision": 378,
   "nextLeaseEpoch": 190,
-  "activeLeases": [
-    {
-      "leaseId": "MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0",
-      "leaseEpoch": 189,
-      "leaseRevision": 1,
-      "revision": 1,
-      "currentRevision": 1,
-      "recordPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0/revisions/000001.json",
-      "recordSha256": "320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069",
-      "immutableRecordPath": "evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0/revisions/000001.json",
-      "immutableRecordSha256": "320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069",
-      "projectId": "affotech-agent-orchestrator",
-      "holder": {
-        "registrationId": "WORKER-REG-EXECUTOR-000001",
-        "workerRole": "executor"
-      },
-      "messageId": "ORCH-000181",
-      "dispatchId": "DISPATCH-000181",
-      "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.IN.PROCESS.ACTION.KIND.ENRICHED.PREFLIGHT.1A",
-      "resourceScope": [
-        "worker-delivery"
-      ],
-      "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
-      "mutationEnvelopeSha256": "9f8d8c55f13c1d6d557557ecc7df11bfc26d49cf462f140aa6cfd7b1b3ae232b",
-      "expiresAt": 1788058981849,
-      "state": "ACTIVE"
-    }
-  ],
-  "updatedAt": 1788058921849
+  "activeLeases": [],
+  "updatedAt": 1788279567852
 }
