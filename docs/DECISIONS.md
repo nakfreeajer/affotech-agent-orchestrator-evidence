@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000192 Architect review
+Documentation sync boundary: through ORCH-000193 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -56,57 +56,59 @@ The one authorized real reconciliation call was consumed but stopped before targ
 
 ## ORCH-000192 — ACCEPTED disposable adapter 404 mapping diagnosis
 
+Decision: `GH-DEC-192-DISPOSABLE-ADAPTER-404-MAPPING-DEFECT-ACCEPTED`.
+
+The bounded GET-only diagnostic proved:
+
+- existing revision `000001` returns HTTP `200`;
+- absent revision `000002` returns HTTP `404`;
+- the ORCH-000191 disposable `gh` subprocess lost semantic `404` and collapsed it into process/API failure;
+- a direct awaited GitHub Contents adapter preserves status and maps `404 → NOT_FOUND`;
+- accepted client normalization is correct;
+- `sourcePatchRequired=false`;
+- minimal repair scope is the disposable read adapter only.
+
+Permanent contract: GitHub Contents read adapters used for governed recovery must preserve semantic HTTP status and must not collapse expected `404 / NOT_FOUND` into generic transport failure.
+
+## ORCH-000193 — ACCEPTED epoch-189 lease recovery
+
 Executor terminal:
 
-`GH-PUB-192-REVISION-PRECHECK-GITHUB-READ-ADAPTER-DIAGNOSTIC-000001`
+`GH-PUB-193-EXPIRED-LEASE-STATUS-PRESERVING-RECONCILIATION-000001`
 
 Architect decision:
 
-`GH-DEC-192-DISPOSABLE-ADAPTER-404-MAPPING-DEFECT-ACCEPTED`
+`GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`
 
-Architect classification: `ACCEPTED` for the bounded read-only diagnostic, not for lease recovery.
+Architect classification: `ACCEPTED`.
 
-Verified/accepted findings:
+Verified facts:
 
-- known-existing revision `000001` returns HTTP `200` with parseable JSON;
-- known-absent revision `000002` returns HTTP `404` with parseable JSON error;
-- the recovered ORCH-000191 disposable `gh` subprocess shape does not expose semantic HTTP `404` and instead surfaces only process exit code `1`;
-- that adapter therefore emitted `GITHUB_API_ERROR`, causing accepted `createJson` to return `CREATE_PRECHECK_FAILED` before any PUT;
-- a direct awaited GitHub Contents GET preserves HTTP status and proves `404 → NOT_FOUND` mapping;
-- accepted client normalization handles existing content as `EXISTING_JSON` and absent content as `NOT_FOUND`;
-- classification `DISPOSABLE_ADAPTER_404_MAPPING_DEFECT` is accepted;
-- `correctedReadAdapterShapeProven=true`;
-- `sourcePatchRequired=false`;
-- minimal repair scope = disposable read adapter only;
-- ORCH-000192 made zero real reconciliation calls and zero external mutation requests;
-- lease/index state remains unchanged at revision `377`, next epoch `190`, one expired ACTIVE epoch-189 lease, revision `000002` absent;
+- status-preserving read-adapter gate passed (`200 / EXISTING_JSON` for revision `000001`, `404 / NOT_FOUND` for absent revision `000002`);
+- typed-hash and pure-projection gates passed;
+- accepted `reconcileExpiredMutationLease` was invoked exactly once;
+- runtime outcome was `EXPIRED_RECONCILED`;
+- immutable revision `000002` exists, is valid `leaseRevision=2`, and has `state=EXPIRED`;
+- `previousRecordSha256` matches the canonical revision-`000001` SHA-256 exactly;
+- lease index advanced exactly `377 → 378`;
+- `activeLeases=[]`;
+- `nextLeaseEpoch=190` remained unchanged;
+- latest worker delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- no retry, new lease, browser, host-process, worker-delivery, Architect-trigger, source, AFFOTECH, or Drive mutation occurred beyond the authorized revision-create and index-CAS lease-state writes;
 - accepted source remains GH-PUB-165.
 
-Permanent contract:
-
-> Recovery/read adapters that depend on GitHub Contents absence semantics must preserve semantic HTTP status. Map `404 → NOT_FOUND`; do not collapse semantic absence into a generic subprocess/API failure. Keep authentication, transport, and other non-success failures separate.
+Epoch-189 recovery is complete and no longer blocks the worker-delivery qualification chain.
 
 Documentation decision:
 
-- `documentationImpact=FULL` — exact root cause and a reusable status-preserving read-adapter countermeasure were established;
+- `documentationImpact=STATE` — current operational state advanced from blocked lease recovery to clean lease-free continuation, with no new source/governance contract;
 - `futureIdeaImpact=NONE`.
-
-Retry decision:
-
-The ORCH-000191 one-call budget is consumed. Architect separately authorizes ORCH-000193 to make at most **one new real** epoch-189 reconciliation call after a read-only gate proves the corrected status-preserving adapter returns existing content for revision `000001` and semantic `NOT_FOUND` for absent revision `000002`.
 
 ## Next legal action
 
-ORCH-000193 must:
+ORCH-000194 should resume the worker-delivery qualification path at a **durable PREPARED / provably not sent** boundary for `WORKER-DELIVERY-EXECUTOR-000014`.
 
-- require unchanged pre-state: index `377`, next epoch `190`, one expired ACTIVE epoch-189 target, revision `000002` absent;
-- prove the corrected adapter using GET-only existing/absent probes before mutation;
-- hydrate and verify immutable revision `000001` and typed hashes;
-- pass the pure projection gate;
-- use the ORCH-000187-proven caller and corrected status-preserving adapter;
-- invoke real `reconcileExpiredMutationLease` exactly once;
-- fresh-read revision `000002` and index regardless of returned status;
-- accept success only if durable state proves valid EXPIRED revision `000002` plus index CAS `377 → 378`, `activeLeases=[]`, `nextLeaseEpoch=190`;
-- on ambiguity/failure/unobservable completion, make no second call and return to Architect.
+It must require index revision `378`, next epoch `190`, zero active leases, and unchanged delivery/trigger pointers before any mutation. It may acquire at most one new `WORKER_DELIVERY` lease; construct transient action-specific authorization with `actionKind=WORKER_DELIVERY` and explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`; call accepted preparation at most once; and require exact durable PREPARED intent readback.
 
-No new lease, worker delivery, browser, governed host, Architect trigger, source/test/config/package mutation, docs-by-Executor, accepted-source, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
+Browser contact/send, worker-delivery result publication, Architect-trigger mutation, AFFOTECH, Drive, deployment, tenant/business/private-data access, and unrelated source/test/config/package mutation remain unauthorized. The milestone must not continue to delivery/send in the same dispatch.
