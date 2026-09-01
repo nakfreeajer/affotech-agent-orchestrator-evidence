@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000187 Architect review
+Documentation sync boundary: through ORCH-000188 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -50,54 +50,71 @@ The pure projection path was proven valid with the full immutable lease. However
 
 ## ORCH-000187 — ACCEPTED corrected caller reaches mutation boundary
 
-Executor terminal:
-
-`GH-PUB-187-CALLER-OBSERVABILITY-CAPTURE-DIAGNOSTIC-000001`
-
-Architect decision:
+Decision:
 
 `GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`
 
-Architect classification: `ACCEPTED` for the bounded read-only diagnostic.
+The corrected mutation-disabled caller used one object containing the full immutable lease, exact reconciliation binding, and integer `nowMs`; validation/projection succeeded and awaited execution reached creation of revision `000002`. The historical ORCH-000185 launcher is absent, so its exact historical mismatch remains unproven.
 
-Verified/accepted findings:
+`documentationImpact=FULL`; `futureIdeaImpact=NONE`; accepted source unchanged.
 
-- the historical ORCH-000185 launcher is absent and its exact arguments cannot be reconstructed;
-- the corrected mutation-disabled caller used one object containing the full immutable lease, exact reconciliation binding, and integer `nowMs`;
-- captured lease SHA-256 `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` semantically equals immutable revision `000001`;
-- full lease validation succeeded;
-- expiry projection produced a valid `leaseRevision=2 / state=EXPIRED` object;
-- awaited execution reached the first would-be external mutation at creation of revision `000002`;
-- the stub intercepted that write, so real reconciliation calls and lease/index mutations remained zero;
-- classification `PROJECTION_SUCCEEDS_WITH_STUBBED_REAL_CALLER` is accepted;
-- `correctedCallShapeProven=true`;
-- `sourcePatchRequired=false`;
+## ORCH-000188 — BLOCKED by hash-namespace precondition mismatch
+
+Executor terminal:
+
+`GH-PUB-188-FAILED-BEFORE-MUTATION-PRECONDITION-DRIFT-000001`
+
+Architect decision:
+
+`GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`
+
+Architect classification: `BLOCKED`.
+
+Verified facts:
+
+- ORCH-000188 failed closed before pure projection, pre-call snapshot, and real reconciliation;
+- `reconcileExpiredMutationLease` real call count = `0`;
+- lease/index mutations = `0`;
+- index remains `377`, `nextLeaseEpoch=190`, one ACTIVE-but-expired epoch-189 target;
+- revision `000002` remains absent;
+- delivery and Architect-trigger pointers are unchanged;
 - accepted source remains GH-PUB-165.
 
-Historical-causation boundary:
+The Executor reported expected immutable lease SHA `320a5ba0...d83069` but observed `514e37fd...26c28`. Architect independently established that these values belong to different hash namespaces:
 
-> Do not infer the exact ORCH-000185 mismatch. The accepted durable conclusion is that the corrected caller shape succeeds through validation/projection and reaches the first mutation boundary.
+- `320a5ba0...d83069` is the protocol canonical SHA-256 of the parsed lease under compact accepted serialization and matches the index/ORCH-000187 semantic binding;
+- `514e37fd...26c28` is the GitHub Contents API / Git blob SHA.
+
+Therefore real state drift is **not** proven. The blocker is a precondition-comparator defect caused by comparing Git blob identity to canonical SHA-256.
+
+Permanent typed-hash contract:
+
+> Carry canonical semantic/content SHA-256 and Git blob SHA as separate named values. Never compare them directly. Canonical SHA-256 binds immutable record semantics to the Orchestrator index; Git blob SHA is used only for GitHub object identity/CAS semantics.
+
+`sourcePatchRequired=false` because the accepted runtime reconciliation path is not shown defective; the repair belongs to bounded Executor caller/precondition composition.
 
 Documentation decision:
 
-- `documentationImpact=FULL` — TEST-1 YES, TEST-2 NO, TEST-3 YES because ORCH-000187 established a reusable caller/observability contract and a permanent historical-evidence boundary;
+- `documentationImpact=FULL` — lasting hash identity/countermeasure contract established;
 - `futureIdeaImpact=NONE`.
 
 Retry decision:
 
-Architect authorizes exactly **one** instrumented real expired-lease reconciliation attempt under ORCH-000188, using the ORCH-000187-proven caller shape. This is not authorization for any further retry.
+The one-real-call recovery budget authorized after ORCH-000187 is unconsumed because ORCH-000188 made zero real reconciliation calls. Architect authorizes ORCH-000189 to perform at most one real reconciliation after the hash precondition is corrected.
 
 ## Next legal action
 
-ORCH-000188 must:
+ORCH-000189 must:
 
-- require the exact pre-state: index `377`, next epoch `190`, one ACTIVE-but-expired epoch-189 target, revision `000002` absent;
-- hydrate and verify immutable revision `000001`;
-- use the proven one-object caller shape with full lease, exact reconciliation binding, and integer `nowMs`;
-- preserve bounded caller/projector/await/request observability;
-- invoke real `reconcileExpiredMutationLease` at most once;
-- determine outcome from durable GitHub readback;
-- on success require immutable revision `000002` EXPIRED and exactly one index CAS `377 → 378`, leaving `activeLeases=[]` and `nextLeaseEpoch=190`;
-- on ambiguity or failure, make no second call and return to Architect.
+- require current decision `GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`;
+- require pre-state index `377`, next epoch `190`, one ACTIVE-but-expired epoch-189 target, revision `000002` absent;
+- fetch immutable revision `000001` and record the returned GitHub `sha` explicitly as `gitBlobSha`;
+- parse the immutable lease and compute `canonicalLeaseSha256=SHA256(JSON.stringify(parsedLease))` under the accepted stored-field-order compact representation;
+- require canonical SHA-256 exactly `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` and equality to index `recordSha256`/`immutableRecordSha256`;
+- treat Git blob SHA separately and never compare it to the canonical SHA-256;
+- preserve the ORCH-000187-proven caller shape and bounded pre-call/request/CAS observability;
+- invoke real reconciliation at most once;
+- require durable success as revision `000002` EXPIRED plus index CAS `377 → 378`, `activeLeases=[]`, `nextLeaseEpoch=190`;
+- on ambiguity/failure, perform no second call and return to Architect.
 
-No worker preparation/delivery, new lease, browser, governed host, Architect trigger, source/test/config/package, docs-by-Executor, accepted-source, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
+No new lease, worker delivery, browser, host, Architect trigger, source/test/config/package, docs-by-Executor, accepted-source, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
