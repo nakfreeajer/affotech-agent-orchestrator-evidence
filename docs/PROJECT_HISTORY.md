@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000191 Architect review
+Documentation sync boundary: through ORCH-000192 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -31,63 +31,74 @@ ORCH-000188 stopped before reconciliation because a precondition compared projec
 
 Decision: `GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`.
 
-## ORCH-000189 — pre-call evidence write ambiguity
+## ORCH-000189 / ORCH-000190 — pre-call evidence ambiguity and accepted semantics
 
-ORCH-000189 correctly separated the hash namespaces and passed pure projection. Before reconciliation, its mandatory pre-call `createJson` evidence publication returned `AMBIGUOUS`; fresh readback found that path absent. Real reconciliation was therefore not invoked.
+ORCH-000189 passed typed-hash and pure-projection gates but its separate pre-call `createJson` evidence write returned `AMBIGUOUS`; fresh readback showed that path absent, so real reconciliation was not invoked.
 
-Decision: `GH-DEC-189-PRECALL-EVIDENCE-WRITE-AMBIGUOUS-INCONCLUSIVE`.
+ORCH-000190 then established accepted `createJson` semantics as `precheck → at most one PUT → exact post-write readback`, and the permanent countermeasure to avoid separate prerequisite evidence writes that can themselves become ambiguity blockers.
 
-## ORCH-000190 — createJson ambiguity semantics accepted
-
-ORCH-000190 ran strictly mutation-disabled and established that accepted `createJson` is `precheck → one PUT → exact post-write readback`, with durable readback as final creation authority. It also established that a separate prerequisite external evidence write can itself become an unnecessary ambiguity blocker.
-
-Architect accepted the diagnostic under:
-
-`GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`.
-
-The next real attempt therefore moved diagnostics into the same execution context and removed the separate pre-call evidence publication.
+Decision: `GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`.
 
 ## ORCH-000191 — one real call consumed; revision precheck failed before mutation
 
-ORCH-000191 passed preconditions, typed-hash validation, and pure projection, then invoked accepted `reconcileExpiredMutationLease` exactly once.
+ORCH-000191 moved diagnostics in-memory and invoked accepted `reconcileExpiredMutationLease` exactly once after passing preconditions, typed-hash validation, and pure projection.
+
+The revision-`000002` precheck used a disposable `gh` subprocess that surfaced process exit code `1` without semantic HTTP status. The adapter normalized the expected absent contents path to `GITHUB_API_ERROR`; accepted `createJson` therefore returned `CREATE_PRECHECK_FAILED`. No revision PUT or index CAS occurred.
+
+Decision: `GH-DEC-191-REVISION-PRECHECK-TRANSPORT-INCONCLUSIVE`.
+
+The ORCH-000191 real-call budget was consumed, but durable lease/index state remained unchanged.
+
+## ORCH-000192 — disposable adapter 404 mapping defect accepted
+
+ORCH-000192 ran strictly read-only and compared the same known-existing/known-absent GitHub Contents paths.
 
 Executor terminal:
 
-`GH-PUB-191-EXPIRED-LEASE-IN-MEMORY-RECONCILIATION-INCONCLUSIVE-000001`
+`GH-PUB-192-REVISION-PRECHECK-GITHUB-READ-ADAPTER-DIAGNOSTIC-000001`
 
-Observed sequence:
+Proven observations:
 
-- the real reconciliation call count reached `1`;
-- during revision-`000002` `createJson` precheck, the disposable GitHub read adapter returned `gh` exit code `1` without a surfaced semantic HTTP status;
-- the adapter normalized that result to `GITHUB_API_ERROR` instead of semantic `NOT_FOUND`;
-- accepted `createJson` therefore returned `CREATE_PRECHECK_FAILED`;
-- no revision PUT occurred;
-- no index CAS occurred;
-- revision `000002` remained absent;
-- lease index remained revision `377`, `nextLeaseEpoch=190`, one ACTIVE-but-expired epoch-189 lease;
-- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` remained unchanged;
-- Architect trigger `ARCH-TRIGGER-9333-000005/SENT` remained unchanged;
-- protected side effects remained zero.
+- revision `000001` GET → HTTP `200`, parseable JSON;
+- absent revision `000002` GET → HTTP `404`, parseable JSON error;
+- the recovered ORCH-000191 `gh` subprocess shape does not expose the semantic `404`;
+- the corrected direct awaited GitHub Contents request preserves HTTP status and maps `404 → NOT_FOUND`;
+- accepted client then normalizes existing content as `EXISTING_JSON` and absent content as `NOT_FOUND`;
+- classification `DISPOSABLE_ADAPTER_404_MAPPING_DEFECT`;
+- corrected read-adapter shape proven `true`;
+- `sourcePatchRequired=false`;
+- minimal repair scope is the disposable read adapter only;
+- ORCH-000192 made zero external mutation requests and zero reconciliation calls.
 
-Architect decision:
+Architect accepted the diagnosis under:
 
-`GH-DEC-191-REVISION-PRECHECK-TRANSPORT-INCONCLUSIVE`.
+`GH-DEC-192-DISPOSABLE-ADAPTER-404-MAPPING-DEFECT-ACCEPTED`.
 
-Classification: `INCONCLUSIVE`.
+Permanent rule: preserve semantic HTTP status in GitHub Contents read adapters; map `404` to `NOT_FOUND` rather than collapsing it into generic subprocess/API failure.
 
-The single real-call budget is consumed. No further real reconciliation is authorized until the read-adapter semantic classification gap is diagnosed and a later Architect decision explicitly permits any repaired attempt.
-
-`documentationImpact=STATE`; `futureIdeaImpact=NONE`.
+`documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-The next legal milestone is ORCH-000192 / DISPATCH-000192, a strictly read-only diagnostic of the ORCH-000191 GitHub contents read adapter.
+The next legal milestone is ORCH-000193: one new separately authorized epoch-189 reconciliation attempt using the ORCH-000187-proven caller and the ORCH-000192-proven status-preserving read adapter.
 
-It must compare a known-existing immutable revision with the known-absent revision `000002`, capture bounded exit/status/error/body/normalization evidence, determine why absent content became `GITHUB_API_ERROR` instead of semantic `NOT_FOUND`, and prove the smallest corrected read-adapter shape if possible.
+Before mutation it must prove with GET-only gates that revision `000001` normalizes as existing content and absent revision `000002` normalizes as `NOT_FOUND`. Then it may call real reconciliation exactly once.
 
-No PUT, real reconciliation, lease/index mutation, new lease, worker delivery, browser, governed-host process change, Architect trigger, tracked source/test/config/package mutation, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
+Pre-state remains:
 
-After epoch-189 recovery is eventually accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
+- index revision `377`;
+- `nextLeaseEpoch=190`;
+- one ACTIVE-but-expired epoch-189 lease;
+- revision `000002` absent;
+- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
+- accepted source GH-PUB-165.
+
+Success requires valid EXPIRED revision `000002` plus index CAS `377 → 378`, `activeLeases=[]`, `nextLeaseEpoch=190`.
+
+If the real result is ambiguous, failed, or process completion is unobservable, no second real call is authorized under ORCH-000193.
+
+After clean epoch-189 recovery is independently accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
