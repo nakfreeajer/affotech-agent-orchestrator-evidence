@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000192 Architect review
+Documentation sync boundary: through ORCH-000193 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -25,80 +25,83 @@ ORCH-000182/183 attempted recovery but durable state remained unchanged. ORCH-00
 
 ORCH-000187 then proved a corrected mutation-disabled caller using the full immutable lease, exact reconciliation binding, and integer `nowMs`; validation/projector succeeded and execution reached the first would-be creation of revision `000002`. Decision: `GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`.
 
-## ORCH-000188 — typed-hash correction
+## ORCH-000188 through ORCH-000190 — precondition and evidence-transport repairs
 
-ORCH-000188 stopped before reconciliation because a precondition compared project canonical SHA-256 with Git blob SHA. Architect proved there was no lease drift and established the permanent typed-hash rule.
+ORCH-000188 stopped before reconciliation because a precondition compared project canonical SHA-256 with Git blob SHA. Architect established the permanent typed-hash rule.
 
-Decision: `GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`.
+ORCH-000189 then passed typed-hash and pure-projection gates but its separate pre-call `createJson` evidence write returned `AMBIGUOUS`; fresh readback showed that path absent, so real reconciliation was not invoked.
 
-## ORCH-000189 / ORCH-000190 — pre-call evidence ambiguity and accepted semantics
-
-ORCH-000189 passed typed-hash and pure-projection gates but its separate pre-call `createJson` evidence write returned `AMBIGUOUS`; fresh readback showed that path absent, so real reconciliation was not invoked.
-
-ORCH-000190 then established accepted `createJson` semantics as `precheck → at most one PUT → exact post-write readback`, and the permanent countermeasure to avoid separate prerequisite evidence writes that can themselves become ambiguity blockers.
+ORCH-000190 established accepted `createJson` semantics as `precheck → at most one PUT → exact post-write readback`, with durable readback as final authority, and removed the separate prerequisite evidence write from the next real attempt.
 
 Decision: `GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`.
 
-## ORCH-000191 — one real call consumed; revision precheck failed before mutation
+## ORCH-000191 / ORCH-000192 — disposable read-adapter diagnosis
 
-ORCH-000191 moved diagnostics in-memory and invoked accepted `reconcileExpiredMutationLease` exactly once after passing preconditions, typed-hash validation, and pure projection.
-
-The revision-`000002` precheck used a disposable `gh` subprocess that surfaced process exit code `1` without semantic HTTP status. The adapter normalized the expected absent contents path to `GITHUB_API_ERROR`; accepted `createJson` therefore returned `CREATE_PRECHECK_FAILED`. No revision PUT or index CAS occurred.
+ORCH-000191 moved diagnostics in-memory and invoked accepted `reconcileExpiredMutationLease` once, but the revision-`000002` precheck used a disposable `gh` subprocess that surfaced process exit code `1` without semantic HTTP status. The adapter normalized the expected absent path to `GITHUB_API_ERROR`, so accepted `createJson` returned `CREATE_PRECHECK_FAILED`. No revision PUT or index CAS occurred.
 
 Decision: `GH-DEC-191-REVISION-PRECHECK-TRANSPORT-INCONCLUSIVE`.
 
-The ORCH-000191 real-call budget was consumed, but durable lease/index state remained unchanged.
+ORCH-000192 ran strictly read-only and proved:
 
-## ORCH-000192 — disposable adapter 404 mapping defect accepted
-
-ORCH-000192 ran strictly read-only and compared the same known-existing/known-absent GitHub Contents paths.
-
-Executor terminal:
-
-`GH-PUB-192-REVISION-PRECHECK-GITHUB-READ-ADAPTER-DIAGNOSTIC-000001`
-
-Proven observations:
-
-- revision `000001` GET → HTTP `200`, parseable JSON;
-- absent revision `000002` GET → HTTP `404`, parseable JSON error;
-- the recovered ORCH-000191 `gh` subprocess shape does not expose the semantic `404`;
-- the corrected direct awaited GitHub Contents request preserves HTTP status and maps `404 → NOT_FOUND`;
-- accepted client then normalizes existing content as `EXISTING_JSON` and absent content as `NOT_FOUND`;
-- classification `DISPOSABLE_ADAPTER_404_MAPPING_DEFECT`;
-- corrected read-adapter shape proven `true`;
+- revision `000001` GET → HTTP `200`;
+- absent revision `000002` GET → HTTP `404`;
+- the recovered ORCH-000191 subprocess shape does not expose the semantic `404`;
+- a direct awaited GitHub Contents request preserves status and maps `404 → NOT_FOUND`;
+- accepted client normalization is correct;
 - `sourcePatchRequired=false`;
-- minimal repair scope is the disposable read adapter only;
-- ORCH-000192 made zero external mutation requests and zero reconciliation calls.
+- repair scope is the disposable adapter only.
 
 Architect accepted the diagnosis under:
 
 `GH-DEC-192-DISPOSABLE-ADAPTER-404-MAPPING-DEFECT-ACCEPTED`.
 
-Permanent rule: preserve semantic HTTP status in GitHub Contents read adapters; map `404` to `NOT_FOUND` rather than collapsing it into generic subprocess/API failure.
+## ORCH-000193 — epoch-189 lease recovery completed
 
-`documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+ORCH-000193 used the proven status-preserving read adapter and the ORCH-000187 caller shape.
+
+Executor terminal:
+
+`GH-PUB-193-EXPIRED-LEASE-STATUS-PRESERVING-RECONCILIATION-000001`
+
+Verified sequence:
+
+- existing/absent adapter gate passed as `200 / EXISTING_JSON` and `404 / NOT_FOUND`;
+- typed-hash gate passed;
+- pure projection gate passed;
+- accepted `reconcileExpiredMutationLease` was called exactly once;
+- runtime returned `EXPIRED_RECONCILED`;
+- immutable revision `000002` was created as valid `leaseRevision=2 / state=EXPIRED`;
+- `previousRecordSha256` linked exactly to canonical revision `000001`;
+- lease index advanced exactly `377 → 378`;
+- `activeLeases=[]`;
+- `nextLeaseEpoch=190` remained unchanged;
+- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` and Architect trigger `ARCH-TRIGGER-9333-000005/SENT` remained unchanged;
+- no retry or unrelated protected mutation occurred.
+
+Architect accepted the recovery under:
+
+`GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`.
+
+The ORCH-000181 stale lease incident is closed. `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-The next legal milestone is ORCH-000193: one new separately authorized epoch-189 reconciliation attempt using the ORCH-000187-proven caller and the ORCH-000192-proven status-preserving read adapter.
+The next legal milestone is ORCH-000194: resume worker-delivery qualification at a **durable PREPARED, provably not sent** boundary for `WORKER-DELIVERY-EXECUTOR-000014`.
 
-Before mutation it must prove with GET-only gates that revision `000001` normalizes as existing content and absent revision `000002` normalizes as `NOT_FOUND`. Then it may call real reconciliation exactly once.
+Pre-state:
 
-Pre-state remains:
-
-- index revision `377`;
+- lease index revision `378`;
 - `nextLeaseEpoch=190`;
-- one ACTIVE-but-expired epoch-189 lease;
-- revision `000002` absent;
-- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
-- accepted source GH-PUB-165.
+- `activeLeases=[]`;
+- latest delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- latest Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- accepted source remains GH-PUB-165.
 
-Success requires valid EXPIRED revision `000002` plus index CAS `377 → 378`, `activeLeases=[]`, `nextLeaseEpoch=190`.
+The milestone may acquire one new `WORKER_DELIVERY` lease, construct the required transient action-specific authorization with `actionKind=WORKER_DELIVERY` and explicit `workerDeliveryId=WORKER-DELIVERY-EXECUTOR-000014`, and prepare the new durable intent exactly once. It must prove the intent is `PREPARED` while browser contact/send and result publication remain zero.
 
-If the real result is ambiguous, failed, or process completion is unobservable, no second real call is authorized under ORCH-000193.
+It must not continue to actual delivery/send in the same dispatch.
 
-After clean epoch-189 recovery is independently accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
+After PREPARED + zero-browser `PROVEN_NOT_SENT` qualification is independently accepted, the project may proceed to the separately bounded delivery qualification and then to a fresh persistent-host full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
