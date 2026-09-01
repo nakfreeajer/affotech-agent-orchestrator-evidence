@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"1.0",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-191-EXPIRED-LEASE-IN-MEMORY-RECONCILIATION-INCONCLUSIVE-000001",
+  "messageId":"ORCH-000191",
+  "dispatchId":"DISPATCH-000191",
+  "status":"INCONCLUSIVE",
+  "reconcileExpiredMutationLease_call_count":1,
+  "revision000002_exists":false,
+  "index_before_revision":377,
+  "index_after_revision":377,
+  "lease_mutations":0,
+  "browser_calls":0,
+  "source_mutations":0
+}
