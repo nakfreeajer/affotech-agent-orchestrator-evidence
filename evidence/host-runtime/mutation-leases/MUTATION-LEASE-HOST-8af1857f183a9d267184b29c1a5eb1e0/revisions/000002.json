@@ -1,0 +1,34 @@
+{
+  "recordType": "MUTATION_LEASE",
+  "schemaVersion": "1.0",
+  "protocolFamily": "ORCHESTRATOR_GITHUB",
+  "leaseId": "MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0",
+  "leaseRevision": 2,
+  "leaseEpoch": 189,
+  "projectId": "affotech-agent-orchestrator",
+  "resourceScope": [
+    "worker-delivery"
+  ],
+  "resourceScopeSha256": "07b6820b70fd4b1378b8f8b515a8845c2758fa2f8b109e2b290a701e695768f8",
+  "mutationEnvelopeSha256": "9f8d8c55f13c1d6d557557ecc7df11bfc26d49cf462f140aa6cfd7b1b3ae232b",
+  "holder": {
+    "registrationId": "WORKER-REG-EXECUTOR-000001",
+    "workerRole": "executor"
+  },
+  "messageId": "ORCH-000181",
+  "dispatchId": "DISPATCH-000181",
+  "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.IN.PROCESS.ACTION.KIND.ENRICHED.PREFLIGHT.1A",
+  "state": "EXPIRED",
+  "acquiredAt": 1788058921849,
+  "expiresAt": 1788058981849,
+  "releasedAt": 1788279567852,
+  "previousRecordSha256": "320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069",
+  "releasedBy": {
+    "registrationId": "WORKER-REG-EXECUTOR-000001",
+    "workerRole": "executor",
+    "messageId": "ORCH-000181",
+    "dispatchId": "DISPATCH-000181",
+    "milestoneId": "ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.WORKER.DELIVERY.IN.PROCESS.ACTION.KIND.ENRICHED.PREFLIGHT.1A",
+    "operationReference": "EXPIRED_LEASE_RECONCILIATION"
+  }
+}
