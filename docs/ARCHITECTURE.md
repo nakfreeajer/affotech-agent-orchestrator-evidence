@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000187 Architect review
+Documentation sync boundary: through ORCH-000188 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -69,40 +69,51 @@ Permanent caller rule accepted at ORCH-000184:
 
 ## 7. Proven expired-lease reconciliation caller contract
 
-ORCH-000187 adds a durable, reusable recovery contract on top of ORCH-000184.
+ORCH-000187 adds a reusable recovery contract on top of ORCH-000184.
 
 A mutation-disabled reproduction proved the accepted reconciliation runtime succeeds through validation and expiry projection when called with one object containing:
 
 - `lease`: the full immutable current revision;
-- `reconciliationBinding`: the exact identity/holder/message/dispatch/milestone/scope/envelope binding expected by the accepted runtime;
-- `nowMs`: an integer current time.
+- `reconciliationBinding`: exact accepted identity/holder/message/dispatch/milestone/scope/envelope binding;
+- `nowMs`: integer current time.
 
-For epoch 189, the captured lease argument semantically equaled immutable revision `000001` and had SHA-256:
+For epoch 189 the canonical lease SHA-256 is:
 
 `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`
 
-The accepted runtime then:
+The accepted runtime validated the lease, constructed a valid `leaseRevision=2 / state=EXPIRED` projection, awaited the path correctly, and reached the first external mutation boundary: creation of immutable revision `000002`.
 
-1. validated the full immutable lease;
-2. constructed a valid `leaseRevision=2 / state=EXPIRED` projection;
-3. awaited the reconciliation path correctly; and
-4. reached the first external mutation boundary: creation of immutable revision `000002`.
+Accepted source is not shown to require a patch for this recovery path.
 
-Therefore accepted source is not shown to require a patch for this recovery path.
+## 8. Typed hash identity contract — ORCH-000188
 
-A future real reconciliation retry must preserve this proven caller shape and bounded observability around caller input, projector output, awaited resolution/rejection, first external mutation, and durable readback.
+GitHub-backed immutable records have multiple independent hash identities that must remain explicitly typed.
 
-## 8. Historical-causation boundary
+For an immutable JSON lease:
+
+- **canonical semantic/content SHA-256** is the project protocol hash, computed from the parsed record using compact JSON serialization in the accepted/stored field order, equivalent to `SHA256(JSON.stringify(parsedRecord))` for the accepted runtime object;
+- **Git blob SHA** is the GitHub Contents API `sha` / Git object identity and is not the project canonical SHA-256.
+
+For epoch-189 revision `000001`:
+
+- canonical lease SHA-256 = `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`;
+- Git blob SHA = `514e37fddd80cfceae87d260e73acebd34526c28`.
+
+Permanent rule:
+
+> Never compare a Git blob SHA directly to a project canonical SHA-256. Carry and label them as separate typed values. Use canonical SHA-256 for immutable record/index semantic binding; use Git blob SHA only where GitHub object identity/CAS semantics require it.
+
+ORCH-000188 falsely reported lease drift because those namespaces were conflated. The failure happened before mutation, so no recovery call was consumed and accepted source remains unchanged.
+
+## 9. Historical-causation boundary
 
 The historical ORCH-000185 launcher no longer exists. Durable evidence is insufficient to prove its exact caller arguments field-by-field.
 
 Permanent rule:
 
-> Do not convert a successful corrected reproduction into an invented historical root cause. Preserve the distinction between what the corrected caller proves and what the missing historical launcher prevents us from proving.
+> Do not convert a successful corrected reproduction into an invented historical root cause. Preserve the distinction between what the corrected caller proves and what missing historical evidence prevents us from proving.
 
-The accepted conclusion is that the corrected caller shape works through projection; the exact ORCH-000185 mismatch remains unproven.
-
-## 9. Expired-lease recovery invariant
+## 10. Expired-lease recovery invariant
 
 An expired indexed lease must be reconciled/closed before any new conflicting worker-delivery lease or preparation is allowed.
 
@@ -110,20 +121,21 @@ A bounded recovery caller must:
 
 1. read the reduced index entry;
 2. hydrate the exact immutable current revision;
-3. verify exact immutable/index/authority binding;
-4. use the ORCH-000187-proven caller shape;
-5. preserve caller/projector/await mutation-boundary observability;
-6. invoke real reconciliation at most once under explicit authority; and
-7. determine outcome from durable revision/index readback, not stdout alone.
+3. verify canonical SHA-256 and Git blob SHA as separate typed values;
+4. verify exact immutable/index/authority binding;
+5. use the ORCH-000187-proven caller shape;
+6. preserve caller/projector/await/request mutation-boundary observability;
+7. invoke real reconciliation at most once under explicit authority; and
+8. determine outcome from durable revision/index readback, not stdout alone.
 
 If result or completion is ambiguous, no blind retry is allowed.
 
-## 10. Documentation governance
+## 11. Documentation governance
 
 Architect directly owns canonical human-readable documentation. `documentationImpact=NONE|STATE|FULL` is decided under `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`; future intent is separately classified `NONE|CAPTURE|PROMOTE`.
 
-ORCH-000187 is `documentationImpact=FULL` because it established a reusable caller/observability contract and permanent historical-causation boundary.
+ORCH-000188 is `documentationImpact=FULL` because it established the reusable typed-hash identity contract and countermeasure.
 
-## 11. Protected boundaries
+## 12. Protected boundaries
 
 Architect session `9333`; Executor session `9444`; AFFOTECH protected ports `9222/9223`. AFFOTECH source/worktrees, relay, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit Rony authority.
