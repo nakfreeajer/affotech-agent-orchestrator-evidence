@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000187 Architect review
+Documentation sync boundary: through ORCH-000188 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -39,11 +39,9 @@ Decision: `GH-DEC-184-EXPIRED-LEASE-CALLER-ARGUMENT-CONTRACT-ACCEPTED`.
 
 ## ORCH-000185 — full immutable input still denied
 
-ORCH-000185 used the corrected authority and reportedly hydrated/validated full immutable epoch-189 revision `000001`, but the real reconciliation still returned `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` before external mutation.
+ORCH-000185 used corrected authority and reportedly hydrated/validated full immutable epoch-189 revision `000001`, but real reconciliation still returned `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` before external mutation.
 
-Durable state remained unchanged: no revision `000002`, index `377`, `nextLeaseEpoch=190`, one expired ACTIVE target lease, no delivery/browser/host/source/AFFOTECH/Drive effects.
-
-Decision: `GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`.
+Durable state remained unchanged. Decision: `GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`.
 
 ## ORCH-000186 — pure projection valid, historical invocation unobservable
 
@@ -57,30 +55,58 @@ Decision: `GH-DEC-186-INVOCATION-PARITY-OBSERVABILITY-INSUFFICIENT-ACCEPTED`.
 
 ORCH-000187 ran a mutation-disabled reproduction with deterministic external-write stubs.
 
-Executor terminal:
-
-`GH-PUB-187-CALLER-OBSERVABILITY-CAPTURE-DIAGNOSTIC-000001`
-
 Accepted findings:
 
-- the historical `orch-000185-reconcile.mjs` launcher is absent, so its exact caller arguments cannot be recovered;
-- the corrected runtime call used one object containing full immutable revision `000001`, exact reconciliation binding, and integer `nowMs`;
-- captured lease SHA-256 `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` semantically equaled revision `000001`;
+- historical `orch-000185-reconcile.mjs` launcher absent;
+- corrected runtime call used full immutable revision `000001`, exact reconciliation binding, and integer `nowMs`;
+- captured canonical lease SHA-256 `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` semantically equaled revision `000001`;
 - validation succeeded;
-- the projector produced a valid EXPIRED revision `000002` projection;
+- projector produced a valid EXPIRED revision `000002` projection;
 - awaited execution reached the first would-be external mutation: creation of immutable revision `000002`;
-- the stub intercepted that write and real reconciliation/lease/index mutations remained zero;
+- stub intercepted that write and real reconciliation/lease/index mutations remained zero;
 - classification `PROJECTION_SUCCEEDS_WITH_STUBBED_REAL_CALLER`;
-- `correctedCallShapeProven=true`;
 - `sourcePatchRequired=false`.
 
-Architect accepted ORCH-000187 under:
+Architect accepted ORCH-000187 under `GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED` and authorized one instrumented real reconciliation call.
 
-`GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`.
+## ORCH-000188 — false precondition drift from hash namespace mismatch
 
-The permanent lesson is twofold: preserve the proven full-immutable caller/observability shape for any real retry, and do not invent the exact historical ORCH-000185 cause because its launcher is absent.
+ORCH-000188 was the one-shot real-reconciliation milestone, but it stopped before the pure projection gate, pre-call snapshot, and real reconciliation because the Executor believed immutable revision `000001` had changed.
 
-ORCH-000187 is `documentationImpact=FULL`, `futureIdeaImpact=NONE`.
+Executor terminal:
+
+`GH-PUB-188-FAILED-BEFORE-MUTATION-PRECONDITION-DRIFT-000001`
+
+Reported values:
+
+- expected hash `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`;
+- observed GitHub `sha` `514e37fddd80cfceae87d260e73acebd34526c28`;
+- index still advertised `320a5ba0...d83069`.
+
+Architect independently verified that this was not lease drift. The values are different hash types:
+
+- `320a5ba0...d83069` = project canonical SHA-256 of the parsed immutable lease using compact accepted serialization in stored field order;
+- `514e37fd...26c28` = Git blob SHA returned by GitHub Contents API.
+
+The canonical SHA-256 recomputes exactly to the index/ORCH-000187 value. Therefore ORCH-000188's precondition comparator conflated hash namespaces.
+
+Architect classified ORCH-000188:
+
+`GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`.
+
+Durable safety was preserved:
+
+- real reconciliation calls `0`;
+- revision `000002` absent;
+- index `377` unchanged;
+- one expired ACTIVE epoch-189 lease remains;
+- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` unchanged;
+- Architect trigger `ARCH-TRIGGER-9333-000005/SENT` unchanged;
+- no source/browser/host/AFFOTECH/Drive mutation.
+
+ORCH-000188 established the permanent typed-hash rule: canonical SHA-256 and Git blob SHA are distinct protocol identities and must never be compared directly.
+
+`documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 ## Documentation-governance evolution
 
@@ -88,13 +114,18 @@ Curator was eliminated from the active model and Architect directly owns canonic
 
 ## Current target
 
-The next legal milestone is ORCH-000188: one instrumented real reconciliation attempt for epoch `189` using the ORCH-000187-proven caller shape.
+The next legal milestone is ORCH-000189: reissue the one-real-call epoch-189 reconciliation with the same ORCH-000187-proven caller shape but a corrected precondition that treats:
+
+- `canonicalLeaseSha256=320a5ba0...d83069` as the protocol/index semantic hash; and
+- `gitBlobSha=514e37fd...26c28` as the Git object identity.
+
+The one-real-call budget remains unconsumed because ORCH-000188 invoked reconciliation zero times.
 
 Pre-state remains index revision `377`, `nextLeaseEpoch=190`, one ACTIVE-but-expired epoch-189 target, revision `000002` absent, delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`, Architect trigger `ARCH-TRIGGER-9333-000005/SENT`, and accepted source GH-PUB-165.
 
 Success requires full immutable revision `000002` with `state=EXPIRED`, exact lineage to revision `000001`, and one index CAS `377 → 378` leaving `activeLeases=[]` and `nextLeaseEpoch=190`.
 
-No second reconciliation call is authorized if the first result is ambiguous or fails.
+No second reconciliation call is authorized if the real call is ambiguous or fails.
 
 After clean epoch-189 recovery is accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
 
