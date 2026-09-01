@@ -1,0 +1,23 @@
+{
+  "schemaVersion":"1.0",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-195-EXECUTOR-BROWSER-UNAVAILABLE-000001",
+  "messageId":"ORCH-000195",
+  "dispatchId":"DISPATCH-000195",
+  "status":"INCONCLUSIVE",
+  "classification":"EXECUTOR_BROWSER_SEND_BLOCKED_PORT_UNAVAILABLE",
+  "error":"ECONNREFUSED 127.0.0.1:9444",
+  "leaseAcquireCount":1,
+  "leaseReleaseCount":1,
+  "indexRevisionAfter":382,
+  "nextLeaseEpoch":192,
+  "activeLeaseCount":0,
+  "deliveryId":"WORKER-DELIVERY-EXECUTOR-000015",
+  "intentCreated":false,
+  "resultCreated":false,
+  "browserContactCount":0,
+  "browserSendCount":0,
+  "sourceMutation":0,
+  "affotechMutation":0,
+  "driveMutation":0
+}
