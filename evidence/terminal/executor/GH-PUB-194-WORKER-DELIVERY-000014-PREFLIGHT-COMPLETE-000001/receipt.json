@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-194-WORKER-DELIVERY-000014-PREFLIGHT-COMPLETE-000001",
+  "messageId": "ORCH-000194",
+  "dispatchId": "DISPATCH-000194",
+  "status": "READY_FOR_ARCHITECT_REVIEW",
+  "lease_acquisition_call_count": 1,
+  "preparation_status": "PREPARED",
+  "proven_not_sent_status": "PROVEN_NOT_SENT",
+  "release_call_count": 1,
+  "browser_calls": 0,
+  "browser_sends": 0,
+  "source_mutations": 0
+}
