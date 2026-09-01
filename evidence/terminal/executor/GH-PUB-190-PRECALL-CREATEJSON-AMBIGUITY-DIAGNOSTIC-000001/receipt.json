@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"1.0",
+  "recordType":"EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId":"GH-PUB-190-PRECALL-CREATEJSON-AMBIGUITY-DIAGNOSTIC-000001",
+  "messageId":"ORCH-000190",
+  "dispatchId":"DISPATCH-000190",
+  "status":"READY_FOR_ARCHITECT_REVIEW",
+  "preconditions_passed":true,
+  "precall_path_still_absent":true,
+  "reconcileExpiredMutationLease_real_calls":0,
+  "external_target_mutation_requests":0,
+  "lease_mutations":0,
+  "source_mutations":0,
+  "browser_calls":0
+}
