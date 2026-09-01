@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000188 Architect review
+Documentation sync boundary: through ORCH-000190 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -14,75 +14,53 @@ Machine authority: durable GitHub evidence and Architect decisions
 - Curator is eliminated from the active model.
 - Orchestrator is deterministic transport/state infrastructure and never interprets project semantics.
 
-## Documentation decision lesson
+## Full immutable lease lesson — ORCH-000184
 
-Use `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` to classify `documentationImpact=NONE|STATE|FULL`. `FULL` means lasting truth changed, not that every Markdown file must be rewritten. Every selected STATE/FULL document must be durably written/read back before the next mutating dispatch.
-
-## Mutation-lease projection vs immutable-record lesson — ORCH-000184
-
-The `activeLeases` index entry is a reduced locator/projection. The canonical immutable revision is the full `MUTATION_LEASE` record. When a full-schema validator/projector/reconciliation path is called:
+The `activeLeases` index entry is a reduced locator/projection. When a full-schema validator/projector/reconciliation path is called:
 
 `index locator → hydrate immutable revision → verify exact binding → pass full immutable record`.
 
 A reduced index entry must not substitute for the immutable record.
 
-## ORCH-000185 / ORCH-000186 lesson
+## Corrected caller / observability lesson — ORCH-000187
 
-ORCH-000185 showed that merely reporting full-record hydration was not enough to prove why the real reconciliation still returned `EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`. ORCH-000186 proved the pure projector itself succeeds with the exact immutable lease, but durable ORCH-000185 evidence did not preserve the actual call field-by-field.
+The proven reconciliation caller shape is one object containing the full immutable lease, exact `reconciliationBinding`, and integer `nowMs`. Preserve caller input, projection, await outcome, and mutation-boundary observability around any real attempt.
 
-Lesson:
+The historical ORCH-000185 launcher is absent. Do not infer an exact historical root cause from later successful corrected reproductions.
 
-> When a corrected call still fails before mutation, preserve exact invocation arguments, projector input/output, Promise resolution/rejection, and innermost reason before considering another retry.
+## Typed hash lesson — ORCH-000188
 
-## Corrected-caller reproduction lesson — ORCH-000187
+Treat every hash as a typed value. Never compare Git blob SHA to project canonical SHA-256 merely because both are named `sha`.
 
-ORCH-000187 proved the corrected runtime path without performing external mutation.
+- canonical SHA-256 = immutable semantic/content binding;
+- Git blob SHA = GitHub object identity/CAS metadata.
 
-The accepted mutation-disabled reproduction used one object containing the full immutable lease, exact `reconciliationBinding`, and integer `nowMs`. It validated the lease, produced a valid EXPIRED revision `000002` projection, awaited the path, and reached the first would-be external mutation:
+## Pre-call evidence transport lesson — ORCH-000189 / ORCH-000190
 
-`createJson(.../revisions/000002.json)`.
+ORCH-000189 passed typed hash and pure projection gates but its prerequisite pre-call `createJson` returned `AMBIGUOUS`; the exact target was absent on fresh readback, so the real reconciliation was not invoked.
 
-Permanent countermeasure:
+ORCH-000190 mutation-disabled diagnosis established accepted `createJson` semantics:
 
-> Before a real retry, preserve the ORCH-000187-proven full-immutable one-object caller shape and bounded observability around caller input, projection result, await outcome, first external mutation, and durable post-state.
+`precheck → one PUT → exact post-write readback → normalized result`
 
-Accepted source patch remains unnecessary for this recovery path.
+The PUT response body does not determine success. Exact durable readback does. A missing/throwing/non-success PUT can still end `CREATED` when readback matches; an absent post-write readback can normalize to `AMBIGUOUS / POST_MUTATION_ABSENT` for multiple transport branches.
 
-## Historical evidence limitation lesson
-
-The historical `orch-000185-reconcile.mjs` launcher is absent. Its exact arguments cannot be reconstructed.
-
-Do not infer an exact ORCH-000185 root cause from ORCH-000187's successful corrected reproduction. The valid conclusion is narrower: the corrected caller shape succeeds through projection and reaches the mutation boundary.
-
-## Hash namespace mismatch lesson — ORCH-000188
-
-ORCH-000188 failed closed before mutation because a precondition check compared unlike hash identities:
-
-- expected/index-advertised project canonical SHA-256: `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`;
-- observed GitHub Contents API blob SHA: `514e37fddd80cfceae87d260e73acebd34526c28`.
-
-The mismatch did **not** prove immutable-record drift. Independent verification of the parsed immutable revision using compact JSON serialization in its stored field order reproduces the canonical SHA-256 `320a5ba0...d83069` exactly.
+Because ORCH-000189 did not preserve the live adapter throw/status/readback details, its exact ambiguity branch remains unobservable. This does not establish a source defect.
 
 Permanent countermeasure:
 
-> Treat every hash as a typed value. Never compare a Git blob SHA to a project canonical SHA-256 merely because both are called `sha`. Use explicit names such as `canonicalLeaseSha256` and `gitBlobSha`, and verify each only against the authority belonging to that namespace.
-
-The 40-character Git blob SHA belongs to Git object identity/CAS semantics. The 64-character canonical SHA-256 belongs to immutable semantic/content binding in the Orchestrator protocol.
-
-Because ORCH-000188 stopped before the pure projection gate and real reconciliation, its real-call budget remains unconsumed.
+> Do not make a separate prerequisite external evidence write whose own ambiguity can block the target operation. For a one-shot authorized mutation, buffer bounded non-sensitive adapter/projector/await diagnostics in memory, execute the target operation at most once, and then reconcile outcome from durable target-state readback. If completion is ambiguous, do not issue a second target call.
 
 ## Recovery ordering
 
-1. preserve the ORCH-000187 corrected caller shape;
-2. verify canonical lease SHA-256 and Git blob SHA as separate typed values;
-3. publish/read back the bounded pre-call snapshot;
-4. authorize at most one real reconciliation under a precise mutation envelope;
-5. preserve field-level caller/projector/await/request observability;
-6. determine success only from durable revision/index readback;
-7. if ambiguous, stop with no second real call;
-8. require epoch-189 lease closure before any new worker-delivery lease/preparation;
-9. resume PREPARED + zero-browser PROVEN_NOT_SENT qualification;
-10. arm a fresh persistent host and prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle.
+1. preserve full immutable caller and typed-hash contracts;
+2. use in-memory bounded diagnostics rather than a prerequisite external pre-call snapshot;
+3. invoke real expired-lease reconciliation at most once under explicit authority;
+4. determine outcome from immutable revision/index readback;
+5. if ambiguous, stop with no second real call;
+6. require epoch-189 lease closure before any new worker-delivery lease/preparation;
+7. resume PREPARED + zero-browser PROVEN_NOT_SENT qualification;
+8. arm a fresh persistent host and prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle.
 
 ## Current success criterion
 
