@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000190 Architect review
+Documentation sync boundary: through ORCH-000191 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -37,55 +37,57 @@ ORCH-000189 correctly separated the hash namespaces and passed pure projection. 
 
 Decision: `GH-DEC-189-PRECALL-EVIDENCE-WRITE-AMBIGUOUS-INCONCLUSIVE`.
 
-Durable state remained index `377`, next epoch `190`, one expired ACTIVE epoch-189 lease, revision `000002` absent, delivery `000013/SENT`, trigger `000005/SENT`.
-
 ## ORCH-000190 — createJson ambiguity semantics accepted
 
-ORCH-000190 ran strictly mutation-disabled against accepted source and deterministic stubs.
-
-Executor terminal:
-
-`GH-PUB-190-PRECALL-CREATEJSON-AMBIGUITY-DIAGNOSTIC-000001`
-
-Accepted findings:
-
-- accepted `createJson` path is `precheck → one PUT → exact post-write readback`;
-- PUT response body is not final creation authority;
-- matching readback yields `CREATED` even if the immediate PUT result is missing/throws;
-- absent post-write readback may yield `AMBIGUOUS / POST_MUTATION_ABSENT` for multiple live transport branches;
-- ORCH-000189 did not preserve the live adapter throw/status/readback details, so its exact branch remains unobservable;
-- classification `PRECALL_CREATEJSON_TRANSPORT_AMBIGUITY_WITHOUT_DURABLE_EFFECT`;
-- `sourcePatchRequired=false`;
-- ORCH-000190 made zero external target mutations and zero real reconciliation calls;
-- the real reconciliation budget remains unconsumed.
+ORCH-000190 ran strictly mutation-disabled and established that accepted `createJson` is `precheck → one PUT → exact post-write readback`, with durable readback as final creation authority. It also established that a separate prerequisite external evidence write can itself become an unnecessary ambiguity blocker.
 
 Architect accepted the diagnostic under:
 
 `GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`.
 
-Permanent countermeasure: do not make a separate prerequisite external evidence write whose own ambiguity can block the target one-shot mutation. Buffer bounded adapter/projector/await diagnostics in the same execution context and determine mutation outcome from durable target-state readback.
+The next real attempt therefore moved diagnostics into the same execution context and removed the separate pre-call evidence publication.
 
-`documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+## ORCH-000191 — one real call consumed; revision precheck failed before mutation
+
+ORCH-000191 passed preconditions, typed-hash validation, and pure projection, then invoked accepted `reconcileExpiredMutationLease` exactly once.
+
+Executor terminal:
+
+`GH-PUB-191-EXPIRED-LEASE-IN-MEMORY-RECONCILIATION-INCONCLUSIVE-000001`
+
+Observed sequence:
+
+- the real reconciliation call count reached `1`;
+- during revision-`000002` `createJson` precheck, the disposable GitHub read adapter returned `gh` exit code `1` without a surfaced semantic HTTP status;
+- the adapter normalized that result to `GITHUB_API_ERROR` instead of semantic `NOT_FOUND`;
+- accepted `createJson` therefore returned `CREATE_PRECHECK_FAILED`;
+- no revision PUT occurred;
+- no index CAS occurred;
+- revision `000002` remained absent;
+- lease index remained revision `377`, `nextLeaseEpoch=190`, one ACTIVE-but-expired epoch-189 lease;
+- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` remained unchanged;
+- Architect trigger `ARCH-TRIGGER-9333-000005/SENT` remained unchanged;
+- protected side effects remained zero.
+
+Architect decision:
+
+`GH-DEC-191-REVISION-PRECHECK-TRANSPORT-INCONCLUSIVE`.
+
+Classification: `INCONCLUSIVE`.
+
+The single real-call budget is consumed. No further real reconciliation is authorized until the read-adapter semantic classification gap is diagnosed and a later Architect decision explicitly permits any repaired attempt.
+
+`documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-The next legal milestone is ORCH-000191: one real epoch-189 reconciliation using the ORCH-000187-proven caller shape, with no separate pre-call `createJson` evidence publication.
+The next legal milestone is ORCH-000192 / DISPATCH-000192, a strictly read-only diagnostic of the ORCH-000191 GitHub contents read adapter.
 
-Pre-state remains:
+It must compare a known-existing immutable revision with the known-absent revision `000002`, capture bounded exit/status/error/body/normalization evidence, determine why absent content became `GITHUB_API_ERROR` instead of semantic `NOT_FOUND`, and prove the smallest corrected read-adapter shape if possible.
 
-- index revision `377`;
-- `nextLeaseEpoch=190`;
-- one ACTIVE-but-expired epoch-189 lease;
-- revision `000002` absent;
-- delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
-- accepted source GH-PUB-165.
+No PUT, real reconciliation, lease/index mutation, new lease, worker delivery, browser, governed-host process change, Architect trigger, tracked source/test/config/package mutation, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
 
-ORCH-000191 may buffer bounded non-sensitive diagnostics in memory, call real reconciliation exactly once, and must then fresh-read revision `000002` and the lease index. Success requires valid EXPIRED revision `000002` plus index CAS `377 → 378`, `activeLeases=[]`, `nextLeaseEpoch=190`.
-
-If the real result is ambiguous, failed, or process completion is unobservable, no second real call is authorized.
-
-After clean epoch-189 recovery is independently accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
+After epoch-189 recovery is eventually accepted, the project may return to worker-delivery preparation, fresh persistent-host arm, and the full unattended canary:
 
 `Architect durable dispatch → persistent Orchestrator → durable worker intent → Executor exactly once → durable terminal → persistent Orchestrator → durable Architect trigger → Architect wake exactly once`.
 
