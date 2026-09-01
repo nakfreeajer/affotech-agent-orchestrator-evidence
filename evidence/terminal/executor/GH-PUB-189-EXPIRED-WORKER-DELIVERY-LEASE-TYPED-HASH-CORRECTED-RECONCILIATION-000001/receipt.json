@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-189-EXPIRED-WORKER-DELIVERY-LEASE-TYPED-HASH-CORRECTED-RECONCILIATION-000001",
+  "messageId": "ORCH-000189",
+  "dispatchId": "DISPATCH-000189",
+  "status": "FAILED_BEFORE_MUTATION_PRECONDITION_DRIFT",
+  "reconcileExpiredMutationLease_call_count": 0,
+  "precall_snapshot_published": false,
+  "precall_snapshot_readback_verified": false,
+  "lease_mutations": 0,
+  "source_mutations": 0,
+  "browser_calls": 0
+}
