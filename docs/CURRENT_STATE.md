@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000187 Architect review
+Documentation sync boundary: through ORCH-000188 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,7 +11,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000187.
+Accepted source did not change through ORCH-000188.
 
 ## 2. Active role model
 
@@ -29,73 +29,85 @@ Mutation-lease `activeLeases` index entries are reduced locator/projection recor
 
 A reduced index entry must not substitute for the immutable revision.
 
-## 4. ORCH-000185 / ORCH-000186 recovery findings
+## 4. Proven corrected reconciliation caller
 
-ORCH-000185 used a full immutable epoch-189 lease but still reported `DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID` before external mutation. Its historical launcher did not preserve enough durable caller-level observability to prove the exact mismatch.
+ORCH-000187 proved under mutation-disabled stubs that the accepted runtime reaches the external revision-create boundary when called with one object containing:
 
-ORCH-000186 was accepted as a read-only diagnostic: the full immutable lease and pure expiry projector are valid, but the actual ORCH-000185 call could not be reconstructed field-by-field. No source patch was justified and no retry was authorized at that stage.
+- `lease`: full immutable current revision;
+- `reconciliationBinding`: exact accepted identity/holder/lineage/scope/envelope binding;
+- `nowMs`: integer current time.
 
-## 5. ORCH-000187 — ACCEPTED corrected-caller proof
+For epoch 189 the canonical lease SHA-256 is:
+
+`320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`
+
+The historical ORCH-000185 launcher is absent, so its exact caller mismatch remains unproven and must not be invented.
+
+## 5. ORCH-000188 — BLOCKED before mutation by hash-namespace mismatch
 
 Executor terminal:
 
-`GH-PUB-187-CALLER-OBSERVABILITY-CAPTURE-DIAGNOSTIC-000001`
+`GH-PUB-188-FAILED-BEFORE-MUTATION-PRECONDITION-DRIFT-000001`
 
 Architect decision:
 
-`GH-DEC-187-CORRECTED-CALLER-PROJECTION-BOUNDARY-ACCEPTED`
+`GH-DEC-188-PRECONDITION-HASH-NAMESPACE-MISMATCH-BLOCKED`
 
-Accepted findings:
+ORCH-000188 correctly failed closed before the pure projection gate, pre-call snapshot, or real reconciliation call. The reported precondition drift was not real lease drift.
 
-- historical `orch-000185-reconcile.mjs` is absent; do not invent its exact caller arguments or a historical root cause beyond what durable evidence proves;
-- the mutation-disabled reproduction used the accepted runtime call shape with one object containing the full immutable revision `000001`, exact reconciliation binding, and integer `nowMs`;
-- the captured lease argument SHA-256 was `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` and semantically equaled immutable revision `000001`;
-- validation succeeded;
-- the accepted projector constructed a valid `leaseRevision=2 / state=EXPIRED` record;
-- awaited execution reached the first would-be external mutation boundary:
-  `createJson(evidence/host-runtime/mutation-leases/MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0/revisions/000002.json)`;
-- the stub blocked that mutation and the runtime normalized the harness rejection as `EXPIRED_LEASE_RECONCILIATION_RECORD_AMBIGUOUS`;
-- classification `PROJECTION_SUCCEEDS_WITH_STUBBED_REAL_CALLER` is accepted;
-- `correctedCallShapeProven=true`;
-- `sourcePatchRequired=false`;
-- ORCH-000187 made zero real reconciliation calls and zero lease/index/source/browser/host/AFFOTECH/Drive mutations.
+The failed comparison mixed two distinct typed hashes:
 
-Permanent recovery rule added by ORCH-000187: a real retry must preserve the proven full-immutable one-object caller shape and bounded caller/projector/await observability. Historical ORCH-000185 exact causation remains unknown because its launcher is absent.
+- project canonical semantic/content SHA-256: `320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069`;
+- GitHub Contents API blob SHA: `514e37fddd80cfceae87d260e73acebd34526c28`.
+
+The 64-hex canonical SHA-256 is recomputed from the parsed immutable lease using compact JSON serialization preserving its stored field order. It matches the lease index and ORCH-000187 evidence exactly. The 40-hex Git blob SHA is a different Git object identity and must never be compared directly to the canonical SHA-256.
+
+Therefore:
+
+- real state drift = false;
+- accepted source patch required = false;
+- real reconciliation call count = `0`;
+- lease/index mutations = `0`;
+- the one-real-call recovery budget remains unconsumed.
 
 ## 6. Current durable lease boundary
 
-Fresh verified state after ORCH-000187:
+Fresh verified state after ORCH-000188:
 
 - lease `MUTATION-LEASE-HOST-8af1857f183a9d267184b29c1a5eb1e0`;
 - epoch `189`;
-- immutable revision `000001` exists and remains `ACTIVE` but expired;
+- immutable revision `000001` remains `ACTIVE` but expired;
+- canonical SHA-256 `320a5ba0...d83069`;
+- Git blob SHA `514e37fd...26c28`;
 - revision `000002` absent;
 - mutation-lease index revision `377`;
 - `nextLeaseEpoch=190`;
-- exactly one active index entry = the epoch-189 target;
+- exactly one active index entry = epoch-189 target;
 - latest delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
 
-## 7. Next legal action — ORCH-000188
+## 7. Next legal action — ORCH-000189
 
-Architect has authorized exactly one instrumented real expired-lease reconciliation attempt using the ORCH-000187-proven caller shape.
+Reissue the same one-shot real reconciliation with a corrected typed hash precondition.
 
-Required success state:
+Before mutation, ORCH-000189 must independently verify both values without conflating them:
 
-- full immutable revision `000002` exists as `leaseRevision=2`, `leaseEpoch=189`, `state=EXPIRED`;
-- `previousRecordSha256` binds exactly to revision `000001`;
-- identity/holder/lineage/scope/envelope fields are preserved;
-- lease index performs exactly one CAS `377 → 378`;
-- final `nextLeaseEpoch=190`;
-- final `activeLeases=[]`;
-- no new lease, worker preparation/delivery, browser, host, trigger, source, docs-by-Executor, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation.
+1. fetch immutable revision `000001`;
+2. treat GitHub response `sha` as `gitBlobSha` only;
+3. parse the lease and compute `canonicalLeaseSha256 = SHA256(JSON.stringify(parsedLease))` using the accepted stored field order/compact serialization;
+4. require `canonicalLeaseSha256=320a5ba0e85ac77a5c0f6f6314b9d32d7aafb08b676688d316b4918fd2d83069` and equality with the index-advertised `recordSha256`/`immutableRecordSha256`;
+5. record `gitBlobSha=514e37fddd80cfceae87d260e73acebd34526c28` separately for GitHub object/CAS diagnostics only;
+6. preserve the ORCH-000187-proven caller shape and ORCH-000188 pre-call/request observability;
+7. invoke real reconciliation at most once.
 
-If the real call is ambiguous, errors, or process completion is unobservable, do not retry. Determine outcome only from durable GitHub readback and return to Architect.
+Success still requires immutable revision `000002` EXPIRED and exactly one index CAS `377 → 378`, leaving `activeLeases=[]` and `nextLeaseEpoch=190`.
+
+If any real result is ambiguous, no second real call is authorized.
 
 Only after epoch-189 recovery is independently accepted may worker-delivery preparation resume.
 
 ## 8. Documentation / future intent
 
-ORCH-000187: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+ORCH-000188: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification and creates no current implementation authority.
