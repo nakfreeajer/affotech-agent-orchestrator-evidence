@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_TERMINAL_RECEIPT",
+  "publicationId": "GH-PUB-192-REVISION-PRECHECK-GITHUB-READ-ADAPTER-DIAGNOSTIC-000001",
+  "messageId": "ORCH-000192",
+  "dispatchId": "DISPATCH-000192",
+  "status": "READY_FOR_ARCHITECT_REVIEW",
+  "preconditions_passed": true,
+  "corrected_read_adapter_shape_proven": true,
+  "real_reconciliation_budget_consumed": true,
+  "reconcileExpiredMutationLease_real_calls": 0,
+  "external_mutation_requests": 0,
+  "lease_mutations": 0,
+  "browser_calls": 0,
+  "source_mutations": 0
+}
