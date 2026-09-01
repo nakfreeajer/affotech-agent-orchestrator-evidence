@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000190 Architect review
+Documentation sync boundary: through ORCH-000191 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -44,57 +44,54 @@ Typed hash and pure projection gates passed, but the prerequisite pre-call `crea
 
 ## ORCH-000190 — ACCEPTED createJson transport ambiguity diagnostic
 
+Decision: `GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`.
+
+Accepted `createJson` semantics are precheck → at most one PUT → exact post-write readback, with durable readback as final authority. A separate prerequisite evidence write must not itself become the blocking ambiguous mutation. Accepted source remained unchanged.
+
+## ORCH-000191 — INCONCLUSIVE revision precheck transport classification
+
 Executor terminal:
 
-`GH-PUB-190-PRECALL-CREATEJSON-AMBIGUITY-DIAGNOSTIC-000001`
+`GH-PUB-191-EXPIRED-LEASE-IN-MEMORY-RECONCILIATION-INCONCLUSIVE-000001`
 
 Architect decision:
 
-`GH-DEC-190-PRECALL-CREATEJSON-TRANSPORT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`
+`GH-DEC-191-REVISION-PRECHECK-TRANSPORT-INCONCLUSIVE`
 
-Architect classification: `ACCEPTED` for the bounded mutation-disabled diagnostic, not for lease recovery.
+Architect classification: `INCONCLUSIVE`.
 
-Verified/accepted findings:
+Verified facts:
 
-- the ORCH-000190 prompt explicitly allowed `PRECALL_CREATEJSON_TRANSPORT_AMBIGUITY_WITHOUT_DURABLE_EFFECT` when the exact live branch could not be reconstructed;
-- accepted `createJson` performs a target precheck, at most one PUT, and exact post-write readback;
-- PUT response body is not the final success authority;
-- a missing/throwing/non-success PUT can still normalize to `CREATED` when exact readback proves the expected object exists;
-- absent post-write readback can normalize to `AMBIGUOUS / POST_MUTATION_ABSENT` for more than one live transport branch;
-- ORCH-000189 did not preserve its exact live adapter throw/status/readback detail, so that exact branch remains unobservable;
-- classification `PRECALL_CREATEJSON_TRANSPORT_AMBIGUITY_WITHOUT_DURABLE_EFFECT` is accepted;
-- `sourcePatchRequired=false`;
-- real reconciliation calls `0`;
-- external target mutation requests in ORCH-000190 `0`;
+- preconditions, typed-hash gate, and pure projection gate passed;
+- the one authorized real `reconcileExpiredMutationLease` call was invoked exactly once;
+- the ORCH-000191 real-call budget is therefore consumed;
+- revision-`000002` `createJson` pre-read returned `gh` exit code `1` without semantic HTTP status;
+- the disposable adapter normalized that read to `GITHUB_API_ERROR` instead of `NOT_FOUND`;
+- accepted `createJson` stopped with `CREATE_PRECHECK_FAILED`;
+- revision PUT `0`;
+- index CAS `0`;
+- revision `000002` absent;
 - index remains `377`, `nextLeaseEpoch=190`, one expired ACTIVE epoch-189 lease;
-- revision `000002` remains absent;
-- real reconciliation budget remains unconsumed;
+- protected side effects remained zero;
 - accepted source remains GH-PUB-165.
 
-Permanent observability decision:
+Interpretation:
 
-> A separate prerequisite external evidence write must not be required when that evidence write can itself become the blocking ambiguous mutation. For a one-shot authorized target mutation, bounded non-sensitive adapter/projector/await diagnostics may be buffered in memory during the same execution, while durable target-state readback remains the final outcome authority.
-
-Documentation decision:
-
-- `documentationImpact=FULL` — reusable `createJson` reconciliation/ambiguity semantics and a permanent observability countermeasure were established;
-- `futureIdeaImpact=NONE`.
+The real target mutation was never reached. The evidence narrows the failure to the disposable GitHub read adapter's semantic classification of an expected absent contents path. It does not yet prove an accepted-source defect.
 
 Retry decision:
 
-Architect authorizes ORCH-000191 to make at most **one** real epoch-189 expired-lease reconciliation call using the ORCH-000187-proven caller shape, with no separate pre-call `createJson` evidence publication. This is not authorization for a second real call under any outcome.
+`retryAuthorized=false`. Because the single real call has been consumed, no second reconciliation may occur unless a later Architect decision separately establishes a repaired authority after diagnosis.
+
+Documentation decision:
+
+- `documentationImpact=STATE` — the current recovery boundary advanced, but no new permanent root cause or accepted source contract has yet been established;
+- `futureIdeaImpact=NONE`.
 
 ## Next legal action
 
-ORCH-000191 must:
+ORCH-000192 / DISPATCH-000192 is strictly read-only. It must diagnose why the ORCH-000191 disposable GitHub read adapter failed to map the known-absent revision `000002` to semantic `NOT_FOUND`.
 
-- require index `377`, next epoch `190`, one ACTIVE-but-expired epoch-189 target, revision `000002` absent;
-- hydrate and verify immutable revision `000001` and typed hashes;
-- pass the pure projection gate;
-- buffer bounded adapter/caller/projector/await diagnostics in memory only;
-- invoke real `reconcileExpiredMutationLease` exactly once and await it completely;
-- fresh-read revision `000002` and index immediately afterward regardless of returned status;
-- accept success only if durable state proves valid EXPIRED revision `000002` and index CAS `377 → 378`, `activeLeases=[]`, `nextLeaseEpoch=190`;
-- on ambiguous/failure/unobservable completion, make no second call and return to Architect.
+It may perform bounded GET-only probes against one known-existing contents path and the known-absent target; capture non-sensitive exit/status/error/body/normalization details; and prove a corrected read-adapter shape if possible.
 
-No new lease, worker delivery, browser, governed host, Architect trigger, source/test/config/package, docs-by-Executor, accepted-source, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
+No PUT, real reconciliation, lease/index mutation, new lease, worker delivery, browser, host, Architect trigger, source/test/config/package mutation, AFFOTECH, Drive, deployment, tenant, business, or private-data mutation is authorized.
