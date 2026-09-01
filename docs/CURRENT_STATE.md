@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000194 Architect review
+Documentation sync boundary: through ORCH-000195 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,90 +11,76 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000194.
+Accepted source did not change through ORCH-000195.
 
-## 2. Closed epoch-189 recovery
+## 2. Closed recovery / preflight foundation
 
-ORCH-000193 was accepted under:
+- ORCH-000193 closed epoch-189 recovery: immutable revision `000002` is `EXPIRED`, lease index advanced to `378`, and the stale lease no longer blocks delivery.
+- ORCH-000194 proved the recovered zero-browser flow:
+  `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`.
+- `WORKER-DELIVERY-EXECUTOR-000014` remains immutable `PROVEN_NOT_SENT` evidence and must not be reused for a live send.
 
-`GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`
-
-Durable closure:
-
-- epoch-189 revision `000002` is valid `EXPIRED`;
-- lease index advanced `377 → 378`;
-- `activeLeases=[]`;
-- `nextLeaseEpoch=190`.
-
-Permanent contracts remain: hydrate full immutable leases; keep canonical SHA-256 and Git blob SHA typed separately; preserve GitHub semantic HTTP status including `404 → NOT_FOUND`; use durable readback as final mutation authority; never blind-retry an ambiguous mutation.
-
-## 3. ORCH-000194 — ACCEPTED zero-browser worker-delivery preflight
+## 3. ORCH-000195 — INCONCLUSIVE Executor relay unavailable
 
 Executor terminal:
 
-`GH-PUB-194-WORKER-DELIVERY-000014-PREFLIGHT-COMPLETE-000001`
+`GH-PUB-195-EXECUTOR-BROWSER-UNAVAILABLE-000001`
 
 Architect decision:
 
-`GH-DEC-194-WORKER-DELIVERY-000014-PREFLIGHT-ACCEPTED`
+`GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`
 
-Verified sequence:
+Verified facts:
 
-1. status-preserving read gate passed;
-2. one epoch-190 WORKER_DELIVERY lease was acquired;
-3. lease index advanced `378 → 379` and next epoch `190 → 191`;
-4. transient transport authorization added `actionKind=WORKER_DELIVERY` without rewriting the durable lease;
-5. accepted preparation returned `PREPARED` for `WORKER-DELIVERY-EXECUTOR-000014` and the immutable ARMED intent was durably read back;
-6. browser contact/send remained `0/0`;
-7. durable result `PROVEN_NOT_SENT` was created with attempted/confirmed sends `0/0`;
-8. the lease was normally released exactly once;
-9. final index advanced `379 → 380`, `nextLeaseEpoch=191`, `activeLeases=[]`;
-10. `LATEST_DELIVERY` correctly remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-11. Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
-12. source, host-process, Architect-trigger, AFFOTECH, and Drive mutations remained zero.
+- canonical preconditions and status-preserving GitHub gates passed;
+- one epoch-191 WORKER_DELIVERY lease was acquired;
+- lease index advanced `380 → 381`;
+- registered Executor endpoint `127.0.0.1:9444` returned `ECONNREFUSED`;
+- no delivery `WORKER-DELIVERY-EXECUTOR-000015` intent was created;
+- no delivery `000015` result was created;
+- attempted/confirmed sends remained `0/0`;
+- browser contact/send remained `0/0`;
+- no retry occurred;
+- the exact lease was normally released once;
+- final lease index advanced `381 → 382`;
+- `nextLeaseEpoch=192`;
+- `activeLeases=[]`;
+- `LATEST_DELIVERY` remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
+- accepted source, AFFOTECH, Drive, and tracked source/tests remained unchanged.
 
-This proves the recovered current system can complete the full zero-browser qualification path:
-
-`ACQUIRE → transient actionKind enrichment → PREPARE → PROVEN_NOT_SENT → RELEASE`
-
-in one in-process execution.
-
-Delivery `000014` is terminal evidence for the zero-send proof and must not be reused for a live send.
+The registered worker session remains durably ACTIVE as `WORKER-REG-EXECUTOR-000001`, bound to the existing Executor conversation and relay port `9444`. The live runtime endpoint was unavailable at ORCH-000195 execution time.
 
 ## 4. Current durable boundary
 
-- mutation-lease index revision `380`;
-- `nextLeaseEpoch=191`;
+- lease index revision `382`;
+- `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
 - latest successful worker delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- preflight delivery `WORKER-DELIVERY-EXECUTOR-000014/PROVEN_NOT_SENT` exists durably;
+- `WORKER-DELIVERY-EXECUTOR-000014/PROVEN_NOT_SENT` preserved;
+- `WORKER-DELIVERY-EXECUTOR-000015` intent/result absent;
+- Executor registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE and targets relay port `9444`;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
-- accepted source GH-PUB-165 unchanged.
+- accepted source remains GH-PUB-165.
 
-## 5. Next legal action — ORCH-000195
+## 5. Next legal action — ORCH-000196
 
-Run one separately bounded live Executor-browser delivery qualification using a fresh identity:
+Run a strictly non-mutating Executor relay/session availability diagnostic before any new live-delivery attempt.
 
-`WORKER-DELIVERY-EXECUTOR-000015`.
+The diagnostic must:
 
-The milestone must preserve the accepted ordering:
+1. require the ORCH-000195 durable boundary above;
+2. verify current worker authority and registration are still exact, ACTIVE, and bound to port `9444`;
+3. inspect local process/listener state for `127.0.0.1:9444` without launching or stopping anything;
+4. determine whether the missing listener is due to relay process absence, browser/session absence, stale registration, port conflict, or insufficient observability;
+5. inspect accepted runtime/operational composition only as needed to identify the exact safe restoration action;
+6. perform no lease acquisition, delivery intent/result creation, browser send, host launch/stop, source mutation, registration mutation, or Architect trigger mutation;
+7. return one exact classification and the smallest safe next step.
 
-`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE intent → pre-send observation → exactly one Executor browser send → durable SENT result → LATEST_DELIVERY advance → normal RELEASE → duplicate-suppression replay`
-
-Required boundaries:
-
-- use a fresh epoch-191 lease;
-- exactly one browser USER send to Executor port `9444` maximum;
-- attempted/confirmed sends must be `1/1` for success;
-- durable result must be `SENT` before advancing `LATEST_DELIVERY`;
-- duplicate replay must produce second send count `0`;
-- no Architect-browser contact or trigger;
-- no source/test/config/package/docs-by-Executor/AFFOTECH/Drive/deployment/private-data mutation.
-
-After this live delivery qualification is independently accepted, the next phase may arm a fresh persistent host and prove the full unattended delivery → terminal observation → Architect wake cycle.
+No live delivery retry is authorized until ORCH-000196 is independently reviewed.
 
 ## 6. Documentation / future intent
 
-ORCH-000194: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+ORCH-000195: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
