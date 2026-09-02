@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000201 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000203 Architect acceptance on 2026-09-03
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -8,7 +8,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 ## Permanent governance lessons
 
 - Executor PASS/READY is evidence, never Architect acceptance.
-- Never blind-retry an ambiguous external mutation, delivery or child-process boundary; reconcile durable state first.
+- Never blind-retry an ambiguous external mutation, delivery, durable-create, or child-process boundary; reconcile durable state first.
 - Historical evidence remains immutable in meaning.
 - Architect owns canonical documentation directly.
 - Curator is eliminated from the active model.
@@ -27,8 +27,6 @@ Permanent countermeasure:
 
 The installed Codex runtime already provided supported non-interactive `codex exec`.
 
-Permanent lesson:
-
 > Before inventing a browser bridge or custom relay for an AI worker, inspect the runtime's supported process/API surface and prefer it when it can be governed safely.
 
 ## ORCH-000200 — qualify process boundaries with durable correlation
@@ -46,50 +44,60 @@ Proven ordering:
 7. no retry on auth/nonzero/timeout/mismatch/ambiguity;
 8. clean only exact same-milestone disposable output after result readback.
 
-ORCH-000200 proved the child reused ChatGPT authentication and completed correctly.
-
 ## ORCH-000201 — transport success is not process success
 
-The direct-Codex adapter establishes an important permanent distinction:
+Permanent distinction:
 
 `child process success ≠ Executor terminal success ≠ Architect acceptance`
 
-A `codex exec` exit code of `0` is only process evidence. Direct transport success requires observing the exact durable Executor terminal for the expected message/dispatch lineage with `requiresArchitectDecision=true`. Architect acceptance remains a later independent decision.
-
-Permanent transport ordering:
-
-1. deterministic direct-Codex invocation identity;
-2. pre-read intent/result;
-3. if exact valid result exists, return it with zero spawn;
-4. if intent exists without result, reconciliation required and zero spawn;
-5. only absent intent+result may create/read back intent;
-6. only after exact intent readback may the child spawn;
-7. at most one child spawn;
-8. observe exact durable Executor terminal;
-9. persist/read back immutable transport result;
-10. duplicate replay must spawn zero children.
-
-## Namespace lesson
-
-`WORKER-DELIVERY-EXECUTOR-000015` belongs to the historical BrowserRelay delivery path.
+A `codex exec` exit `0` is only process evidence. Transport success requires the exact durable Executor terminal for expected message/dispatch lineage with `requiresArchitectDecision=true`.
 
 Direct Codex uses its own deterministic namespace:
 
 `CODEX-DIRECT-INVOCATION-EXECUTOR-<DISPATCH_ID>`
 
-Never repurpose a historical transport identity just because it was never sent.
+Never repurpose historical BrowserRelay delivery IDs such as `WORKER-DELIVERY-EXECUTOR-000015`.
 
-## Ambiguity lesson
+## ORCH-000202 — fail closed before spawn
 
-Intent-without-result is not permission to retry. It means the spawn boundary may already have been crossed and must fail closed into reconciliation-required state.
+The first live adapter qualification produced a durable `ARMED` intent but returned `INTENT_AMBIGUOUS` with child invocation count `0`.
 
-Likewise, child exit with no exact durable terminal is not success and must not trigger blind re-spawn.
+This validates an important safety property: an uncertain durable-create/readback boundary must stop before process spawn. A durable intent existing later does not retroactively prove which create/readback branch the caller observed.
+
+Do not infer that the child ran merely because an intent exists. First-hand boundary evidence matters.
+
+## ORCH-000203 — observability must survive ambiguity
+
+The read-only diagnostic could not reconstruct the exact ORCH-000202 root cause because durable evidence omitted the production `createJson` status/reason and exact post-write readback outcome.
+
+Accepted call chain:
+
+`send → createJson → readJsonCurrent → spawnChild`.
+
+Mutation-disabled reproduction showed:
+
+- ambiguous create return → `INTENT_AMBIGUOUS`, spawn `0`;
+- `CREATED` + exact readback → spawn boundary reachable.
+
+Permanent countermeasure:
+
+> Any durable create/readback boundary that controls an external process spawn must preserve typed observability for the create status, sanitized reason code, whether post-write readback was attempted, readback status/exception class, exact-value match, and the phase that caused ambiguity. A generic `AMBIGUOUS` outcome is not enough for later reconciliation.
+
+This complements the existing accepted create contract:
+
+`precheck → at most one PUT → exact post-write readback → normalized result`.
+
+PUT response alone is not final authority, and post-write existence alone does not explain what the caller observed.
+
+## Ambiguity and reconciliation lesson
+
+Intent-without-result is not permission to retry. It means the spawn boundary may be uncertain and requires reconciliation.
+
+For ORCH-000202, first-hand evidence specifically proves child invocation count `0`, but the stranded intent still must not be mutated or terminalized until Architect separately authorizes reconciliation after the observability repair.
 
 ## Dependency-injection lesson
 
-Transport adapters that cross process boundaries must be deterministic-testable without invoking the real worker. ORCH-000201 accepted fake/injected child launchers and host ports while keeping real child/model invocation at zero.
-
-Live qualification is a separate milestone from deterministic implementation acceptance.
+Transport adapters that cross process boundaries must be deterministic-testable without invoking the real worker. Source repair/diagnostic milestones must use injected/fake process and GitHub clients and keep live child/model invocation at zero unless explicitly authorized.
 
 ## Full immutable lease lesson — ORCH-000184
 
@@ -101,7 +109,7 @@ Canonical SHA-256 and Git blob SHA are different typed identities and must never
 
 ## Create/readback lesson — ORCH-000189 / ORCH-000190
 
-Accepted durable create is `precheck → at most one PUT → exact post-write readback → normalized result`. PUT response alone is not final authority.
+Accepted durable create is `precheck → at most one PUT → exact post-write readback → normalized result`. Durable readback, not PUT response alone, is final authority.
 
 ## Semantic GitHub 404 lesson — ORCH-000191 / ORCH-000192
 
@@ -111,10 +119,11 @@ Preserve semantic HTTP status. Map `404 → NOT_FOUND`; do not collapse expected
 
 1. preserve lease/hash/GitHub ambiguity contracts;
 2. preserve role/runtime/transport identity separation;
-3. preserve the current manual-to-Codex production path until replacement is live accepted;
-4. treat ORCH-000200 as accepted authenticated child primitive;
-5. treat ORCH-000201 as accepted governed direct-Codex implementation;
-6. live-qualify the adapter with one real child probe and zero second spawn;
-7. then qualify persistent-host automatic dispatch observation → direct Codex;
-8. only after replacement transport acceptance decide whether historical BrowserRelay registration should be superseded/retired;
-9. prove the unattended durable-terminal → Architect review/wake continuation chain.
+3. preserve manual-to-Codex production path until replacement is live accepted;
+4. preserve ORCH-000201 governed direct-Codex source acceptance;
+5. implement ORCH-000204 typed create/readback observability repair with zero live child execution;
+6. independently accept that source repair;
+7. separately reconcile the stranded ORCH-000202 intent using first-hand zero-spawn evidence;
+8. live-qualify a fresh direct-Codex invocation identity;
+9. qualify persistent-host automatic dispatch observation → direct Codex;
+10. only then consider retirement/supersession of historical BrowserRelay registration.
