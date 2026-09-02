@@ -4,7 +4,7 @@ This repository is the machine-authoritative control/evidence plane for `affotec
 
 ## Active authority model
 
-The currently **proven** execution path is:
+The currently proven execution path is:
 
 ```text
 Rony / Architect durable dispatch
@@ -20,7 +20,15 @@ Architect review
 
 There is **no active Curator role**.
 
-The remaining automation gap is the inbound edge: an unattended persistent-Orchestrator → Codex invocation mechanism is not yet proven.
+### Current unattended candidate
+
+ORCH-000199 accepted that the installed `codex-cli 0.151.0` exposes a supported non-interactive interface:
+
+`codex exec`
+
+It supports prompt argument/stdin input, working-directory control, model/profile/config and sandbox/approval controls, structured output and ephemeral execution. The current CLI reports `Logged in using ChatGPT`.
+
+The remaining proof is whether a separately spawned child `codex exec` reuses that authenticated ChatGPT session and returns clean machine-observable exit/output semantics. Until that one-shot qualification is accepted, manual user handoff remains the current inbound path.
 
 ### Critical identity rule
 
@@ -28,9 +36,7 @@ Never collapse these identities:
 
 `Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
 
-Historical evidence contains `WORKER-REG-EXECUTOR-000001`, an ACTIVE registration associated with a ChatGPT conversation and port `9444`. ORCH-000198 accepted that this is historical/legacy control-plane evidence relative to the proven current manual Codex path. It does **not** prove that Codex itself is browser-based, listens on `9444`, or requires BrowserRelay today.
-
-Before any transport repair/restart/restoration/retry, first prove the current runtime, intended transport, endpoint owner, continued necessity, and exact runtime↔transport binding.
+Historical `WORKER-REG-EXECUTOR-000001` remains associated with ChatGPT/port `9444`, but that BrowserRelay path is legacy relative to the proven current manual Codex path. Do not restore it merely because the registration remains ACTIVE.
 
 ## Canonical governance
 
@@ -52,7 +58,7 @@ futureIdeaImpact    = NONE | CAPTURE | PROMOTE
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source has not changed through ORCH-000198.
+Accepted source has not changed through ORCH-000199.
 
 ## Proven foundations
 
@@ -61,30 +67,15 @@ Accepted source has not changed through ORCH-000198.
 - ORCH-000193: epoch-189 expired worker lease recovery closed.
 - ORCH-000194: zero-browser ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE capability accepted.
 - ORCH-000198: current manual-to-Codex inbound path plus direct Codex→GitHub terminal publication accepted.
-
-## ORCH-000198 accepted topology
-
-Decision:
-
-`GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
-
-Accepted facts:
-
-- current Executor runtime: Codex terminal/runtime in VS Code;
-- current inbound: manual user locator/message;
-- current outbound: direct Codex GitHub evidence publication;
-- persistent automatic Codex bridge: not proven;
-- historical BrowserRelay `9444`: legacy relative to this proven current path;
-- delivery `000015`: absent and not authorized for retry;
-- lease state: index `382`, next epoch `192`, zero active leases.
+- ORCH-000199: direct non-interactive `codex exec` capability accepted; child auth reuse remains unproven.
 
 ## Current legal next boundary
 
-The next bounded technical step is read-only discovery of the **direct non-interactive Codex invocation contract** available on the installed runtime.
+The next bounded milestone is a single isolated `codex exec` authentication-reuse qualification.
 
-The investigation must determine whether the persistent Orchestrator can safely invoke Codex directly, how input/workdir/model/auth/result semantics work, and what smallest live qualification would be required.
+It may invoke at most one child Codex/model run with a harmless correlation prompt, read-only sandbox and ephemeral execution, and must capture exact exit/output evidence. It must not restore BrowserRelay, mutate the historical registration, reuse delivery `000015`, modify project/source/config, read credentials/secrets, or touch AFFOTECH/Drive.
 
-It must not invoke a second model run merely to test discovery, restore BrowserRelay, mutate the historical registration, acquire a worker-delivery lease, retry delivery `000015`, or touch AFFOTECH/Drive.
+Only after that qualification succeeds may Architect consider a dedicated governed direct-Codex adapter.
 
 For exact current state use `docs/CURRENT_STATE.md`.
 
