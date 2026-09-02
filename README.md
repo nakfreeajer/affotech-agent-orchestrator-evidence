@@ -4,21 +4,23 @@ This repository is the machine-authoritative control/evidence plane for `affotec
 
 ## Active authority model
 
+The currently **proven** execution path is:
+
 ```text
-Rony (final human authority)
-  ↕
-Architect AI — think / govern / verify / decide / document
-  ↓ durable authority/dispatch
-Persistent deterministic Orchestrator — independent control-plane service
-  ↓ proven current delivery path
-Codex Executor terminal/runtime in VS Code — bounded work
-  ↓ durable terminal/evidence
-Persistent deterministic Orchestrator
-  ↓ durable trigger/wake where qualified
-Architect AI
+Rony / Architect durable dispatch
+  ↓
+manual user locator/message
+  ↓
+Codex Executor terminal/runtime in VS Code
+  ↓ direct GitHub authority reads
+bounded work
+  ↓ direct GitHub terminal/report/receipt publication
+Architect review
 ```
 
 There is **no active Curator role**.
+
+The remaining automation gap is the inbound edge: an unattended persistent-Orchestrator → Codex invocation mechanism is not yet proven.
 
 ### Critical identity rule
 
@@ -26,27 +28,23 @@ Never collapse these identities:
 
 `Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
 
-Historical evidence contains an `executor` worker registration associated with a ChatGPT conversation and port `9444`. That proves a historical BrowserRelay delivery/control-plane target. It does **not** prove that Codex itself is browser-based, listens on `9444`, or still requires that BrowserRelay today.
+Historical evidence contains `WORKER-REG-EXECUTOR-000001`, an ACTIVE registration associated with a ChatGPT conversation and port `9444`. ORCH-000198 accepted that this is historical/legacy control-plane evidence relative to the proven current manual Codex path. It does **not** prove that Codex itself is browser-based, listens on `9444`, or requires BrowserRelay today.
 
 Before any transport repair/restart/restoration/retry, first prove the current runtime, intended transport, endpoint owner, continued necessity, and exact runtime↔transport binding.
 
-## Documentation and future-idea continuity
-
-Architect independently classifies after every review/material Rony directive:
-
-```text
-documentationImpact = NONE | STATE | FULL
-futureIdeaImpact    = NONE | CAPTURE | PROMOTE
-```
-
-Documentation impact is decided by `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`. For `STATE`/`FULL`, materially affected documents are updated/read back before the next mutating implementation dispatch.
-
-Canonical governance:
+## Canonical governance
 
 - `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
 - `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.5
 - `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
 - `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
+
+Architect independently classifies:
+
+```text
+documentationImpact = NONE | STATE | FULL
+futureIdeaImpact    = NONE | CAPTURE | PROMOTE
+```
 
 ## Current accepted source
 
@@ -54,7 +52,7 @@ Canonical governance:
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source has not changed through ORCH-000198 dispatch publication.
+Accepted source has not changed through ORCH-000198.
 
 ## Proven foundations
 
@@ -62,32 +60,31 @@ Accepted source has not changed through ORCH-000198 dispatch publication.
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005/SENT`.
 - ORCH-000193: epoch-189 expired worker lease recovery closed.
 - ORCH-000194: zero-browser ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE capability accepted.
+- ORCH-000198: current manual-to-Codex inbound path plus direct Codex→GitHub terminal publication accepted.
 
-## ORCH-000195 through ORCH-000197
+## ORCH-000198 accepted topology
 
-These milestones validly diagnosed the registered historical `9444` BrowserRelay path as unavailable. They did not mutate delivery `000015`; lease state closed cleanly at index `382`, next epoch `192`, zero active leases.
+Decision:
 
-The mistake was architectural: the project then assumed this historical BrowserRelay target was still the required route to the active Executor.
+`GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
 
-On 2026-09-02 Rony confirmed the operational Executor is the **Codex terminal in VS Code**. The project policy was corrected to v1.5. The old future-action instruction to restore an “Executor browser and relay 9444” is superseded for future action; historical evidence remains unchanged.
+Accepted facts:
 
-## Current legal next boundary — ORCH-000198
+- current Executor runtime: Codex terminal/runtime in VS Code;
+- current inbound: manual user locator/message;
+- current outbound: direct Codex GitHub evidence publication;
+- persistent automatic Codex bridge: not proven;
+- historical BrowserRelay `9444`: legacy relative to this proven current path;
+- delivery `000015`: absent and not authorized for retry;
+- lease state: index `382`, next epoch `192`, zero active leases.
 
-Current Architect decision:
+## Current legal next boundary
 
-`GH-DEC-198-NO-NEW-REPORT-CODEX-TOPOLOGY-RECONCILIATION-AUTHORIZED`
+The next bounded technical step is read-only discovery of the **direct non-interactive Codex invocation contract** available on the installed runtime.
 
-Current canonical dispatch:
+The investigation must determine whether the persistent Orchestrator can safely invoke Codex directly, how input/workdir/model/auth/result semantics work, and what smallest live qualification would be required.
 
-`DISPATCH-000198`
-
-ORCH-000198 is a strictly read-only reconciliation of the **actual current Codex delivery and return topology**. It must determine whether BrowserRelay is required, indirect, legacy, conflicting, or unprovable and must identify the real owner/purpose of every relevant endpoint before any restoration or retry.
-
-Manual Executor trigger:
-
-`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000198`
-
-Do not rerun `DISPATCH-000197`, do not restore/start Brave or BrowserRelay merely to satisfy `9444`, and do not retry `WORKER-DELIVERY-EXECUTOR-000015` before ORCH-000198 is independently reviewed.
+It must not invoke a second model run merely to test discovery, restore BrowserRelay, mutate the historical registration, acquire a worker-delivery lease, retry delivery `000015`, or touch AFFOTECH/Drive.
 
 For exact current state use `docs/CURRENT_STATE.md`.
 
