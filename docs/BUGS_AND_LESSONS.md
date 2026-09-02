@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000192 Architect review
+Documentation sync boundary: through Rony transport-identity correction on 2026-09-02; no new ORCH dispatch after ORCH-000197
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -13,6 +13,49 @@ Machine authority: durable GitHub evidence and Architect decisions
 - Architect owns canonical documentation directly.
 - Curator is eliminated from the active model.
 - Orchestrator is deterministic transport/state infrastructure and never interprets project semantics.
+- **Role identity, execution-runtime identity, transport identity, browser/session identity, and endpoint identity are distinct.**
+
+## Role/runtime/transport identity collapse — 2026-09-02
+
+### Failure
+
+The project had durable historical BrowserRelay records with `workerRole=executor`, a registered ChatGPT conversation, and relay endpoint `9444`. Architect treated that as proof that the current Executor itself was browser-based and that restoring `9444` was required.
+
+Rony corrected the actual operating reality: the Executor is the **Codex terminal/runtime in VS Code**.
+
+The BrowserRelay was a real historical transport component; the error was not that it never existed. The error was allowing a historical transport registration to substitute for a current architecture/topology proof.
+
+This led ORCH-000195 through ORCH-000197 to troubleshoot/restore a transport boundary before proving that the current Codex execution path still depended on it.
+
+### Root governance defect
+
+The project-specific policy literally described the registered `9444` session as “Executor browser/session authority,” collapsing:
+
+`role → runtime → browser/session → relay endpoint`
+
+into one identity.
+
+The universal bootstrap had already modeled worker runtime identity and transport endpoint as separate fields; the project specialization had weakened that distinction.
+
+### Permanent countermeasure
+
+> Never diagnose a missing port from the role label alone. Before repairing/restarting/restoring/retrying a worker transport, first prove what runtime actually executes the work, what transport is currently intended to reach it, who owns each endpoint, whether that transport is still required, and the exact binding between runtime and transport.
+
+Mandatory cold-start equation:
+
+`Executor role ≠ Codex runtime ≠ BrowserRelay ≠ ChatGPT conversation ≠ CDP/relay port`
+
+Additional rules:
+
+- `workerRole=executor` is not execution-runtime proof;
+- historical `ACTIVE` registration is not proof of current necessity;
+- a successful historical BrowserRelay milestone proves that historical path only;
+- do not invent a browser/CDP port from a relay port;
+- do not start Brave on a BrowserRelay port or a relay on a browser CDP port without explicit ownership evidence;
+- do not restore a missing component until its place in the current topology is proven;
+- when Rony's current operating reality conflicts with an older lower-precedence next-action assumption, preserve history but supersede the future action in governing/current documentation.
+
+Project policy v1.5 adds a mandatory runtime/transport topology reconciliation gate.
 
 ## Full immutable lease lesson — ORCH-000184
 
@@ -72,12 +115,16 @@ No accepted-source patch is required for this defect; the repair scope is the di
 4. invoke real expired-lease reconciliation at most once under each explicit bounded authority;
 5. determine outcome from immutable revision/index readback;
 6. if ambiguous, stop with no second real call under the same authority;
-7. require epoch-189 lease closure before any new worker-delivery lease/preparation;
-8. resume PREPARED + zero-browser PROVEN_NOT_SENT qualification;
-9. arm a fresh persistent host and prove the full unattended Executor-delivery → terminal-observation → Architect-wake cycle.
+7. require stale-lease closure before any new worker-delivery lease/preparation;
+8. prove current role/runtime/transport topology before any live delivery or transport restoration;
+9. only then qualify the actual active unattended Executor-delivery → terminal-observation → Architect-wake path.
 
 ## Current success criterion
 
-`Architect durable dispatch → persistent Orchestrator → durable intent → Executor exactly once → durable terminal → persistent Orchestrator → durable trigger → Architect wake exactly once`.
+The intended outcome remains:
+
+`Architect durable dispatch → persistent Orchestrator → proven current delivery path → Codex Executor exactly once → durable terminal → persistent Orchestrator → durable trigger → Architect wake exactly once`
+
+The phrase **proven current delivery path** is mandatory. Historical BrowserRelay qualification does not automatically satisfy it.
 
 AFFOTECH, Drive, deployment, tenant, and business/private-data mutation are not required to prove the transport loop.
