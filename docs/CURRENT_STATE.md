@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000195 Architect review
+Documentation sync boundary: through ORCH-000196 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,76 +11,79 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000195.
+Accepted source did not change through ORCH-000196.
 
-## 2. Closed recovery / preflight foundation
+## 2. Accepted recovery / delivery-preflight foundation
 
-- ORCH-000193 closed epoch-189 recovery: immutable revision `000002` is `EXPIRED`, lease index advanced to `378`, and the stale lease no longer blocks delivery.
-- ORCH-000194 proved the recovered zero-browser flow:
-  `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`.
-- `WORKER-DELIVERY-EXECUTOR-000014` remains immutable `PROVEN_NOT_SENT` evidence and must not be reused for a live send.
+- ORCH-000193 closed epoch-189 recovery.
+- ORCH-000194 proved `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE` for delivery `000014`, with zero browser contact/send.
+- `WORKER-DELIVERY-EXECUTOR-000014` is terminal `PROVEN_NOT_SENT` evidence and is not reusable for a live send.
 
-## 3. ORCH-000195 — INCONCLUSIVE Executor relay unavailable
+## 3. ORCH-000195 — INCONCLUSIVE live-delivery attempt
+
+ORCH-000195 targeted fresh `WORKER-DELIVERY-EXECUTOR-000015` but stopped before preparation because `127.0.0.1:9444` returned `ECONNREFUSED`.
+
+No delivery `000015` intent/result was created and no browser contact/send occurred. The epoch-191 lease was normally released. Final lease state: index `382`, `nextLeaseEpoch=192`, `activeLeases=[]`. `LATEST_DELIVERY` remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
+
+Decision:
+
+`GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`.
+
+## 4. ORCH-000196 — ACCEPTED relay/runtime availability diagnosis
 
 Executor terminal:
 
-`GH-PUB-195-EXECUTOR-BROWSER-UNAVAILABLE-000001`
+`GH-PUB-196-EXECUTOR-RELAY-9444-RUNTIME-DIAGNOSTIC-000001`
 
 Architect decision:
 
-`GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`
+`GH-DEC-196-EXECUTOR-RELAY-PROCESS-ABSENT-DIAGNOSTIC-ACCEPTED`
 
-Verified facts:
+Verified diagnostic result:
 
-- canonical preconditions and status-preserving GitHub gates passed;
-- one epoch-191 WORKER_DELIVERY lease was acquired;
-- lease index advanced `380 → 381`;
-- registered Executor endpoint `127.0.0.1:9444` returned `ECONNREFUSED`;
-- no delivery `WORKER-DELIVERY-EXECUTOR-000015` intent was created;
-- no delivery `000015` result was created;
-- attempted/confirmed sends remained `0/0`;
-- browser contact/send remained `0/0`;
-- no retry occurred;
-- the exact lease was normally released once;
-- final lease index advanced `381 → 382`;
-- `nextLeaseEpoch=192`;
-- `activeLeases=[]`;
-- `LATEST_DELIVERY` remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
-- accepted source, AFFOTECH, Drive, and tracked source/tests remained unchanged.
+- worker authority `WORKER-AUTH-EXECUTOR-000001` remains ACTIVE;
+- worker registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE, unsuperseded/unconsumed, and correctly targets the existing Executor conversation on relay port `9444`;
+- registration and authority bindings are valid;
+- `127.0.0.1:9444` has no listener;
+- no process owns port `9444`;
+- the dedicated Executor relay/runtime process is not running/present;
+- no registered Executor browser-session process was identified;
+- the separate Architect relay/browser on `9333` remains a different boundary;
+- `source_patch_required=false`;
+- `registration_refresh_required=false`;
+- `relay_process_launch_required=true`;
+- `browser_process_launch_required=true`;
+- `manual_user_action_required=true`;
+- safe live-delivery retry becomes true only after the existing registered Executor browser session and dedicated relay/runtime are restored.
 
-The registered worker session remains durably ACTIVE as `WORKER-REG-EXECUTOR-000001`, bound to the existing Executor conversation and relay port `9444`. The live runtime endpoint was unavailable at ORCH-000195 execution time.
+ORCH-000196 itself was strictly read-only: lease/delivery/browser/process/registration/source/AFFOTECH/Drive mutations were all zero.
 
-## 4. Current durable boundary
+## 5. Current durable boundary
 
 - lease index revision `382`;
 - `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
-- latest successful worker delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- `WORKER-DELIVERY-EXECUTOR-000014/PROVEN_NOT_SENT` preserved;
-- `WORKER-DELIVERY-EXECUTOR-000015` intent/result absent;
-- Executor registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE and targets relay port `9444`;
-- latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
+- `LATEST_DELIVERY=WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- delivery `000014/PROVEN_NOT_SENT` preserved;
+- delivery `000015` intent/result absent;
+- Executor registration remains the existing `WORKER-REG-EXECUTOR-000001` bound to the existing conversation and port `9444`;
 - accepted source remains GH-PUB-165.
 
-## 5. Next legal action — ORCH-000196
+## 6. Required human restoration + ORCH-000197
 
-Run a strictly non-mutating Executor relay/session availability diagnostic before any new live-delivery attempt.
+Before another live delivery, Rony must restore the **existing registered Executor runtime boundary**:
 
-The diagnostic must:
+1. restore/start the dedicated Executor browser session for the already-registered Executor conversation;
+2. restore/start its dedicated BrowserRelay/runtime owner so `127.0.0.1:9444` is listening;
+3. do not alter worker registration/authority unless the actual conversation/session identity changes;
+4. do not touch Architect port `9333` or protected AFFOTECH ports `9222/9223`.
 
-1. require the ORCH-000195 durable boundary above;
-2. verify current worker authority and registration are still exact, ACTIVE, and bound to port `9444`;
-3. inspect local process/listener state for `127.0.0.1:9444` without launching or stopping anything;
-4. determine whether the missing listener is due to relay process absence, browser/session absence, stale registration, port conflict, or insufficient observability;
-5. inspect accepted runtime/operational composition only as needed to identify the exact safe restoration action;
-6. perform no lease acquisition, delivery intent/result creation, browser send, host launch/stop, source mutation, registration mutation, or Architect trigger mutation;
-7. return one exact classification and the smallest safe next step.
+After restoration, run ORCH-000197: a strictly read-only readiness verification. It must prove a listener exists on `9444`, the listener/runtime corresponds to the registered Executor boundary, and the registered browser-session process is available, while making zero browser sends and zero durable mutations.
 
-No live delivery retry is authorized until ORCH-000196 is independently reviewed.
+Only after ORCH-000197 acceptance may a fresh live-delivery qualification be authorized.
 
-## 6. Documentation / future intent
+## 7. Documentation / future intent
 
-ORCH-000195: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
+ORCH-000196: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
