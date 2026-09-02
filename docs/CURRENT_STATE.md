@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000198 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000199 / DISPATCH-000199 publication on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,7 +11,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000198.
+Accepted source did not change through ORCH-000199 dispatch publication.
 
 ## 2. ORCH-000198 — ACCEPTED current Codex topology
 
@@ -38,13 +38,12 @@ Architect durable dispatch
 Accepted scope:
 
 - operational Executor runtime is `CODEX_TERMINAL_RUNTIME_IN_VSCODE`;
-- current inbound path is manual user-message/locator handoff and is proven by ORCH-000198 execution;
-- current outbound terminal path is direct Codex-side GitHub evidence publication and is proven by ORCH-000198 publication;
-- no persistent automatic GitHub/Orchestrator → Codex bridge was proven;
-- BrowserRelay `9444` is historical/legacy relative to this proven current path and is not required for the current manual Codex handoff;
-- the historical registration remains ACTIVE but is a change candidate only; no registration mutation has been authorized;
-- BrowserRelay restoration remains unauthorized;
-- delivery `000015` retry remains unauthorized.
+- current inbound path is manual user-message/locator handoff;
+- current outbound terminal path is direct Codex-side GitHub evidence publication;
+- no persistent automatic GitHub/Orchestrator → Codex bridge is yet proven;
+- historical BrowserRelay `9444` is legacy relative to the proven current manual Codex path;
+- historical worker registration remains ACTIVE but is a change candidate only;
+- BrowserRelay restoration and delivery `000015` retry remain unauthorized.
 
 ## 3. Durable state
 
@@ -57,46 +56,65 @@ Accepted scope:
 - worker registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE historical control-plane evidence;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
 
-## 4. Historical 9444 correction
-
-ORCH-000195 through ORCH-000197 remain valid historical diagnostics of the old BrowserRelay target. They do not define the current Codex execution path.
-
-Permanent rule:
+## 4. Permanent identity guard
 
 `Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
 
 Do not restore `9444` merely because the historical registration remains ACTIVE.
 
-## 5. Current blocker / missing capability
-
-The missing capability is no longer ambiguous:
+## 5. Current missing capability
 
 `UNATTENDED_DIRECT_CODEX_INVOCATION_CONTRACT_NOT_YET_PROVEN`
 
-The manual handoff works. The return publication works. What is missing is a proven supported mechanism for the persistent Orchestrator to invoke the Codex Executor directly without Rony manually forwarding the dispatch.
+The manual handoff works. The return publication works. What remains is a supported mechanism for the persistent Orchestrator to invoke Codex directly without Rony manually forwarding the dispatch.
 
-## 6. Required next action
+## 6. ORCH-000199 — current legal milestone
 
-The next legal technical milestone is read-only discovery/qualification of the installed Codex runtime's direct non-interactive invocation surface.
+Current canonical prompt/dispatch:
 
-It must determine without invoking a second model run or mutating runtime/source:
+- `ORCH-000199`
+- `DISPATCH-000199`
+- milestone `ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.CODEX.DIRECT.NONINTERACTIVE.INVOCATION.CAPABILITY.DISCOVERY.2R`
+- operation class `READ_ONLY_CODEX_INVOCATION_DISCOVERY`
+- dispatch state `MANUAL_TRIGGER_REQUIRED`
 
-1. which Codex executable/runtime is actually installed and active;
-2. whether a supported non-interactive command exists (for example an `exec`-class interface if present);
-3. how it accepts prompt/locator input, working directory, model/config, and exit/result semantics;
-4. whether the current authenticated user/session can use that interface without a separate API-key architecture;
-5. whether the persistent Orchestrator can safely spawn it under exactly-once intent/result governance;
-6. the smallest bounded live qualification needed afterward.
+ORCH-000199 must discover, without starting a second Codex/model execution:
 
-Until that discovery is accepted:
+1. the exact Codex executable/runtime identity and version;
+2. whether a supported non-interactive interface exists, including `codex exec` or equivalent if present;
+3. documented prompt/input, working-directory, model/config, sandbox/approval, output/result and exit semantics;
+4. sanitized authentication-reuse status without reading credentials;
+5. whether the accepted Orchestrator already has a suitable child-process abstraction or needs a bounded direct-Codex adapter;
+6. whether a separately authorized one-shot live direct-Codex qualification would be safe.
+
+It explicitly forbids:
+
+- any child/new Codex model invocation;
+- BrowserRelay/Brave restoration or contact;
+- delivery `000015` creation/retry;
+- lease/registration/source/docs mutation by Executor;
+- secret/credential reads;
+- AFFOTECH/Drive access.
+
+## 7. Current required action
+
+Run in the current Codex terminal:
+
+`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000199`
+
+After its terminal/report/receipt is published, return to Architect with `verify & next`.
+
+Until ORCH-000199 is independently reviewed:
 
 - manual user handoff remains current;
 - do not restore Brave/BrowserRelay `9444`;
 - do not mutate/supersede the historical registration;
 - do not create/retry delivery `000015`.
 
-## 7. Documentation / future intent
+## 8. Documentation / future intent
 
-ORCH-000198: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+ORCH-000198 acceptance: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+
+ORCH-000199 publication: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
