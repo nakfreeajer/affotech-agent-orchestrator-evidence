@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000195 Architect review
+Documentation sync boundary: through ORCH-000196 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -17,7 +17,7 @@ Key accepted foundations:
 
 ## ORCH-000166 through ORCH-000193 — persistent-host work and epoch-189 recovery
 
-Persistent-host bootstrap and dispatch observation were established. The recovery chain then established full immutable lease hydration, typed hash identities, corrected reconciliation caller shape, exact `createJson` readback semantics, and semantic GitHub `404 → NOT_FOUND` handling.
+Persistent-host bootstrap and dispatch observation were established. The recovery chain established full immutable lease hydration, typed hash identities, corrected reconciliation caller shape, exact `createJson` readback semantics, and semantic GitHub `404 → NOT_FOUND` handling.
 
 ORCH-000193 reconciled epoch 189 to immutable revision 2 / `EXPIRED` and advanced the lease index to `378` with no active leases.
 
@@ -27,50 +27,49 @@ ORCH-000194 proved one in-process sequence:
 
 `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`
 
-for `WORKER-DELIVERY-EXECUTOR-000014`, with browser contact/send `0/0`.
+for `WORKER-DELIVERY-EXECUTOR-000014`, with browser contact/send `0/0`. The lease index closed at `380`, next epoch `191`, and zero active leases.
 
-The lease index closed at `380`, next epoch `191`, zero active leases, and `LATEST_DELIVERY` remained `000013/SENT`.
-
-Architect decision:
+Decision:
 
 `GH-DEC-194-WORKER-DELIVERY-000014-PREFLIGHT-ACCEPTED`.
 
-## ORCH-000195 — live delivery stopped at unavailable Executor relay
+## ORCH-000195 — live delivery stopped before preparation
 
-ORCH-000195 attempted the fresh exactly-once live qualification for `WORKER-DELIVERY-EXECUTOR-000015`.
+Fresh delivery `WORKER-DELIVERY-EXECUTOR-000015` was attempted, but the registered endpoint `127.0.0.1:9444` returned `ECONNREFUSED` before delivery intent creation or browser contact.
 
-Observed sequence:
+The epoch-191 lease was released normally. Final state: index `382`, `nextLeaseEpoch=192`, zero active leases, delivery `000015` absent, latest successful delivery still `000013/SENT`.
 
-- canonical preconditions passed;
-- status-preserving GitHub gates passed;
-- epoch-191 lease acquired once;
-- lease index advanced `380 → 381`;
-- local registered endpoint `127.0.0.1:9444` refused the connection;
-- no delivery `000015` intent/result was created;
-- browser contact/send and attempted/confirmed sends remained `0`;
-- no retry occurred;
-- the exact lease was normally released once;
-- final index advanced `381 → 382`;
-- `nextLeaseEpoch=192`;
-- `activeLeases=[]`;
-- `LATEST_DELIVERY` remained `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
-
-Architect decision:
+Decision:
 
 `GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`.
 
-Classification: `INCONCLUSIVE`.
+## ORCH-000196 — Executor relay/runtime absence diagnosed
 
-The worker registration itself remains durable ACTIVE and still binds the Executor conversation to relay port `9444`; the live endpoint was unavailable during ORCH-000195.
+ORCH-000196 ran read-only and confirmed:
+
+- existing worker authority/registration remain valid and ACTIVE;
+- registration still correctly binds the existing Executor conversation to relay port `9444`;
+- no listener exists on `127.0.0.1:9444`;
+- no process owns the port;
+- the dedicated Executor relay/runtime is not running/present;
+- no registered Executor browser-session process was identified;
+- source patch and registration refresh are not required;
+- restoring the existing Executor browser session plus dedicated relay/runtime is required;
+- restoration requires manual user action;
+- no mutation occurred during the diagnostic.
+
+Architect accepted the diagnostic under:
+
+`GH-DEC-196-EXECUTOR-RELAY-PROCESS-ABSENT-DIAGNOSTIC-ACCEPTED`.
 
 `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-The next legal milestone is ORCH-000196: a read-only/no-mutation diagnosis of the Executor relay/session availability boundary.
+Rony must manually restore the **existing registered** Executor browser session and its dedicated BrowserRelay/runtime owner so `127.0.0.1:9444` listens again. Registration/authority must remain unchanged unless the actual session/conversation identity changes.
 
-It must determine why port `9444` has no accepting listener and identify the smallest safe restoration action without launching/stopping processes, mutating registration, acquiring a lease, creating delivery evidence, or sending to a browser.
+After manual restoration, ORCH-000197 performs a zero-mutation readiness verification of port `9444`, the relay owner, and the registered Executor browser-session process. No live delivery retry is authorized before ORCH-000197 acceptance.
 
-Only after that diagnosis is independently accepted may the project authorize relay restoration and/or a fresh live exactly-once delivery attempt.
+If ORCH-000197 is accepted, the next milestone may retry the fresh exactly-once delivery qualification using delivery `000015` because no intent/result/send was created by ORCH-000195.
 
 AFFOTECH remains separate/protected until later explicit Rony-authorized integration.
