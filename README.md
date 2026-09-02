@@ -54,7 +54,7 @@ Canonical governance:
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source has not changed through ORCH-000197 or the 2026-09-02 documentation/governance correction.
+Accepted source has not changed through ORCH-000198 dispatch publication.
 
 ## Proven foundations
 
@@ -71,13 +71,23 @@ The mistake was architectural: the project then assumed this historical BrowserR
 
 On 2026-09-02 Rony confirmed the operational Executor is the **Codex terminal in VS Code**. The project policy was corrected to v1.5. The old future-action instruction to restore an “Executor browser and relay 9444” is superseded for future action; historical evidence remains unchanged.
 
-## Current legal next boundary
+## Current legal next boundary — ORCH-000198
 
-There is **no current next dispatch**.
+Current Architect decision:
 
-Do not rerun `DISPATCH-000197`, do not restore/start Brave or BrowserRelay merely to satisfy `9444`, and do not retry `WORKER-DELIVERY-EXECUTOR-000015`.
+`GH-DEC-198-NO-NEW-REPORT-CODEX-TOPOLOGY-RECONCILIATION-AUTHORIZED`
 
-The next legal technical step, when separately authorized, is a **read-only current Codex-delivery topology reconciliation** to determine how the Orchestrator should reach the Codex terminal and whether BrowserRelay remains part of that path.
+Current canonical dispatch:
+
+`DISPATCH-000198`
+
+ORCH-000198 is a strictly read-only reconciliation of the **actual current Codex delivery and return topology**. It must determine whether BrowserRelay is required, indirect, legacy, conflicting, or unprovable and must identify the real owner/purpose of every relevant endpoint before any restoration or retry.
+
+Manual Executor trigger:
+
+`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000198`
+
+Do not rerun `DISPATCH-000197`, do not restore/start Brave or BrowserRelay merely to satisfy `9444`, and do not retry `WORKER-DELIVERY-EXECUTOR-000015` before ORCH-000198 is independently reviewed.
 
 For exact current state use `docs/CURRENT_STATE.md`.
 
