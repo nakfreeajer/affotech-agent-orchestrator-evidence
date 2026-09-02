@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000198 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000199 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and Architect decisions
 
@@ -9,9 +9,7 @@ Machine authority: durable GitHub evidence, governing policy, and Architect deci
 
 AFFOTECH Agent Orchestrator is a governed deterministic message-routing and durable-state layer. AI roles think; the Orchestrator carries exact governed envelopes and observes durable state. It does not approve work, infer authority from browser text, or interpret project semantics.
 
-## 2. Proven current authority topology
-
-ORCH-000198 accepted the currently proven execution path:
+## 2. Proven current execution topology
 
 ```text
 Rony / Architect durable dispatch
@@ -27,99 +25,78 @@ Durable Executor terminal
 Architect review
 ```
 
-The current Executor execution engine is the Codex terminal/runtime in VS Code.
+The Executor execution engine is the Codex terminal/runtime in VS Code. The current inbound edge is manual; the outbound durable evidence edge is direct Codex→GitHub.
 
-The inbound edge is currently manual. An unattended GitHub/Orchestrator → Codex invocation edge is **not yet proven**.
+## 3. Direct Codex non-interactive capability
 
-The outbound edge is direct Codex-side GitHub evidence publication and is proven by ORCH-000198 itself.
+ORCH-000199 accepted that the installed runtime exposes a supported non-interactive interface:
 
-## 3. Permanent identity-separation contract
+`codex exec`
 
-These identities are distinct:
+Accepted capability surface:
 
-- role identity: `executor`;
-- execution runtime: the process/session that performs bounded work;
-- transport adapter: e.g. BrowserRelay when actually required;
-- browser/session identity: a ChatGPT/browser conversation used by a transport;
-- network endpoint: listener/CDP/relay port owned by a particular component.
+- CLI version `codex-cli 0.151.0`;
+- prompt by argument or stdin;
+- working-directory control via `-C/--cd`;
+- model/profile/config controls;
+- sandbox and approval controls;
+- machine-observable output through JSONL, output-schema and last-message surfaces;
+- ephemeral/non-persistent execution support;
+- parent/current CLI reports `Logged in using ChatGPT`.
 
-Permanent rule:
+The architectural candidate for unattended inbound delivery is therefore **direct Orchestrator → child `codex exec`**, not BrowserRelay.
+
+However, child-process reuse of the current ChatGPT authentication is not yet proven. No production/direct Codex adapter is accepted yet.
+
+## 4. Permanent identity-separation contract
 
 `Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
 
 Before any transport repair/restart/restoration/retry, Architect must prove the current runtime, intended delivery path, endpoint ownership, continued necessity, and exact runtime↔transport binding.
 
-## 4. Historical BrowserRelay path
+## 5. Historical BrowserRelay path
 
 Historical accepted transport work remains valid evidence:
 
 - ORCH-000153 proved exactly-once worker forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` through the then-registered BrowserRelay path;
 - ORCH-000194 proved zero-browser preparation/reconciliation for delivery `000014`;
-- ORCH-000195 through ORCH-000197 investigated missing port `9444` under the then-assumption that the historical BrowserRelay target was still the active Executor path.
+- ORCH-000195 through ORCH-000197 diagnosed the missing historical `9444` path.
 
-The durable registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE and binds the historical ChatGPT control-plane target to port `9444`, but ORCH-000198 accepted that this registration is **legacy control-plane evidence not required by the proven current manual Codex path**.
+The durable historical registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE, but ORCH-000198 accepted that it is legacy relative to the proven current manual Codex path. ORCH-000199 further establishes a direct Codex CLI capability that makes BrowserRelay restoration unnecessary for the next qualification chain.
 
-Therefore BrowserRelay/9444 is not to be restored merely because the historical registration remains ACTIVE.
+Do not restore `9444` merely because the historical registration remains ACTIVE.
 
-## 5. Accepted source
+## 6. Accepted source
 
 `GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
 
 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source has not changed through ORCH-000198.
+Accepted source has not changed through ORCH-000199.
 
-## 6. Historical BrowserRelay exactly-once contract
+## 7. Direct-Codex qualification contract under development
 
-Accepted historical ordering:
+Before a persistent Orchestrator may spawn Codex unattended, the following must be proven separately:
 
-`observe dispatch → acquire WORKER_DELIVERY lease → construct transient action-specific authorization → prepareWorkerDeliveryIntent → durable intent readback → send/reconcile result → durable result readback → release/reconcile lease`
+1. a one-shot child `codex exec` can reuse the current authenticated ChatGPT session;
+2. the invocation is bounded to exactly one child process/model run;
+3. prompt correlation is durable and unique before invocation;
+4. working directory and sandbox are explicitly bound;
+5. exit status and bounded structured output are machine-observable;
+6. timeout/ambiguous/auth/output failure produces no blind retry;
+7. project/source/config/registration/protected-resource mutation remains zero during qualification;
+8. only after qualification may a dedicated direct-Codex adapter be implemented and tested.
 
-This contract remains valid for a BrowserRelay path when that path is explicitly selected and proven. It does **not** authorize applying delivery `000015` to the current Codex path.
+Historical delivery `000015` is not reused for this direct-Codex qualification because it belongs to the BrowserRelay delivery namespace/path.
 
-Delivery `000015` remains absent and retry is unauthorized.
+## 8. Durable state and protected boundaries
 
-## 7. Current unattended-transport gap
+Current lease state remains index `382`, `nextLeaseEpoch=192`, `activeLeases=[]`.
 
-The current missing capability is precise:
+Latest historical BrowserRelay delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`; delivery `000014/PROVEN_NOT_SENT` remains preserved; delivery `000015` remains absent.
 
-`durable Architect/Orchestrator dispatch → unattended direct Codex invocation`
+Architect BrowserRelay/session port `9333`, where used, remains separate from AFFOTECH protected ports `9222/9223`. AFFOTECH source/worktrees, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit authority.
 
-ORCH-000198 found no proven persistent automatic Codex bridge. The next architecture work must discover whether the installed Codex runtime exposes a safe, supported non-interactive invocation contract that can be called by the persistent Orchestrator without BrowserRelay.
+## 9. Documentation governance
 
-Until that contract is proven:
-
-- manual user message remains the inbound Codex handoff;
-- BrowserRelay restoration is unauthorized;
-- historical worker registration remains untouched;
-- delivery `000015` remains unsafe to retry.
-
-## 8. Lease and GitHub transport contracts
-
-- index `activeLeases` entries are reduced locators; full-schema work hydrates the exact immutable revision first;
-- canonical semantic SHA-256 and Git blob SHA remain separate typed identities;
-- GitHub Contents adapters preserve semantic HTTP status and map `404 → NOT_FOUND`;
-- accepted `createJson` uses `precheck → at most one PUT → exact post-write readback`;
-- durable readback is final mutation authority;
-- no blind retry after ambiguous external mutation or send.
-
-## 9. Current durable state
-
-- lease index `382`;
-- `nextLeaseEpoch=192`;
-- `activeLeases=[]`;
-- latest successful historical BrowserRelay delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- delivery `000014/PROVEN_NOT_SENT` preserved;
-- delivery `000015` absent;
-- latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
-- current accepted topology decision `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`.
-
-## 10. Documentation governance
-
-Architect directly owns canonical human-readable documentation. `documentationImpact=NONE|STATE|FULL`; future intent is separately classified `NONE|CAPTURE|PROMOTE`.
-
-ORCH-000198 is `documentationImpact=FULL` because it establishes lasting current architecture truth: manual inbound Codex handoff, direct GitHub outbound publication, and historical/legacy status of the 9444 BrowserRelay path relative to the proven current Codex route.
-
-## 11. Protected boundaries
-
-Architect BrowserRelay/session port `9333`, where used, remains separate from AFFOTECH protected ports `9222/9223`. Historical `9444` is not a Codex runtime/CDP identity. AFFOTECH source/worktrees, Drive, Apps Script, tenant resources, deployments, and business/private data remain unauthorized absent explicit authority.
+Architect directly owns canonical human-readable documentation. ORCH-000199 is `documentationImpact=FULL` because it establishes a lasting supported Codex invocation capability and changes the intended unattended transport direction from browser restoration to direct Codex qualification.
