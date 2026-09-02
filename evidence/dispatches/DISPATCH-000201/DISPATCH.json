@@ -19,7 +19,7 @@
   "acceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
   "expectedAcceptedSourcePublicationId": "GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001",
   "acceptedSourceFileCount": 101,
-  "acceptedSourceManifestSha256": "3a5f046056cf1b94b6ec168d3c18b754625727eb296f3a07df298f9732abf28",
+  "acceptedSourceManifestSha256": "3a5f046056cf1b94b6ec1685d3c18b754625727eb296f3a07df298f9732abf28",
   "acceptedSourceArchiveSha256": "e07ef7e0775de6e500568d3e813800a2750c5b4e0e56befb676ce3d259cd80ba",
   "candidateSourcePublicationId": "GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001",
   "governingProjectPolicyVersion": "1.5",

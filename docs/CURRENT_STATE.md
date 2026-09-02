@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000200 / DISPATCH-000200 publication on 2026-09-02
+Documentation sync boundary: through ORCH-000201 / DISPATCH-000201 publication on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,7 +11,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000200 dispatch publication.
+Accepted source has not changed through ORCH-000201 dispatch publication.
 
 ## 2. Accepted current Codex topology
 
@@ -19,98 +19,114 @@ ORCH-000198 remains accepted under:
 
 `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
 
-Proven current path:
+Current accepted production path remains:
 
 `Architect durable dispatch → manual user locator/message → Codex terminal/runtime in VS Code → direct GitHub authority reads/work → direct GitHub terminal publication → Architect review`.
 
-Historical BrowserRelay `9444` remains legacy relative to this proven path.
+Historical BrowserRelay `9444` remains legacy relative to this path.
 
-## 3. ORCH-000199 — ACCEPTED Codex non-interactive capability discovery
-
-Executor terminal:
-
-`GH-PUB-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-000001`
-
-Architect decision:
+## 3. ORCH-000199 — ACCEPTED capability discovery
 
 `GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
 
-Accepted facts:
+Installed `codex-cli 0.151.0` exposes supported non-interactive `codex exec` with prompt argument/stdin, explicit workdir, sandbox/approval controls, structured output and ephemeral execution.
 
-- installed runtime `codex-cli 0.151.0`;
-- supported non-interactive interface `codex exec`;
-- prompt by argument/stdin;
-- working-directory, model/profile/config, sandbox/approval and structured output controls;
-- ephemeral execution support;
-- current CLI reports `Logged in using ChatGPT`;
-- separately spawned child auth reuse remains unproven;
-- accepted source has no direct Codex spawn adapter yet;
-- BrowserRelay restoration is not required for the direct-Codex qualification chain.
+## 4. ORCH-000200 — ACCEPTED one-shot direct Codex qualification
 
-## 4. Durable state
+Executor terminal:
+
+`GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001`
+
+Architect decision:
+
+`GH-DEC-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-ACCEPTED`
+
+Verified:
+
+- durable intent ARMED before invocation;
+- exactly one child `codex exec` invocation;
+- current ChatGPT authentication successfully reused;
+- child exit code `0`;
+- timeout=false, termination count `0`;
+- exact correlation token matched;
+- retryAttempted=false;
+- durable result outcome `QUALIFIED`;
+- exact disposable temp output cleaned after result readback;
+- protected mutation counts zero.
+
+This proves a one-shot authenticated direct `codex exec` primitive. It does not yet make unattended dispatch production-ready.
+
+## 5. Durable state
 
 - lease index revision `382`;
 - `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
 - latest successful historical BrowserRelay delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
 - delivery `000014/PROVEN_NOT_SENT` preserved;
-- delivery `000015` intent/result absent and retry unauthorized;
-- historical worker registration remains ACTIVE but no mutation is authorized;
+- delivery `000015` intent/result absent and must not be reused for direct Codex;
+- historical worker registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE but no mutation is authorized;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
 
-## 5. Current missing proof
+## 6. Current implementation gap
 
-`CHILD_CODEX_EXEC_CHATGPT_AUTH_REUSE_AND_OBSERVABLE_EXIT_OUTPUT_NOT_YET_PROVEN`
+`GOVERNED_DIRECT_CODEX_ADAPTER_NOT_YET_IMPLEMENTED_OR_QUALIFIED`
 
-## 6. ORCH-000200 — current legal milestone
+The runtime primitive is proven. The remaining gap is the deterministic adapter that lets the persistent Orchestrator invoke Codex with durable pre-spawn intent, a fresh direct-Codex identity, at-most-once spawn, duplicate suppression, explicit workdir/sandbox, bounded terminal observation and output/exit reconciliation, distinct failure states, durable result, and no blind retry.
+
+## 7. Accepted source placement
+
+The GH-PUB-165 accepted source is preserved at:
+
+- `evidence/artifacts/orch-000165/manifest.json`
+- `evidence/artifacts/orch-000165/source.tar.gz`
+
+The manifest confirms actual project paths including:
+
+- `src/host/persistent-host-runner.js`
+- `src/host/automatic-dispatch-host.js`
+- `src/host/github-runtime-ports.js`
+- `src/recovery/exactly-once.js`
+- `src/evidence/publish-evidence.js`
+- corresponding `test/` paths.
+
+## 8. ORCH-000201 — current legal milestone
 
 Current canonical prompt/dispatch:
 
-- `ORCH-000200`
-- `DISPATCH-000200`
-- milestone `ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.CODEX.DIRECT.ONE.SHOT.AUTH.REUSE.QUALIFICATION.2S`
-- operation class `ONE_SHOT_CODEX_EXEC_AUTH_REUSE_QUALIFICATION`
-- dispatch state `MANUAL_TRIGGER_REQUIRED`
-- correlation token `ORCH200_OK_89F8188224F4F81CB444F1A3`
+- `ORCH-000201`
+- `DISPATCH-000201`
+- milestone `ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.CODEX.DIRECT.GOVERNED.ADAPTER.IMPLEMENTATION.2T`
+- operation class `SOURCE_MUTATION`
+- candidate publication `GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001`
+- dispatch state `MANUAL_TRIGGER_REQUIRED`.
 
-ORCH-000200 authorizes exactly one isolated child `codex exec` invocation solely to prove ChatGPT-auth reuse and machine-observable exit/output behavior.
+ORCH-000201 authorizes source/test implementation only within seven explicit tracked paths. It requires a fresh `CODEX-DIRECT-INVOCATION-*` namespace, durable intent before child spawn, at-most-once child spawn, duplicate suppression, exact durable Executor-terminal observation before transport success, persistent-host composition without BrowserRelay, and distinct fail-closed outcome classes.
 
-Before the child invocation it must create/read back one durable correlation intent. After the one invocation it must create/read back one durable qualification result. Timeout, auth failure, nonzero exit, output mismatch, or ambiguity must stop with **no retry**.
+ORCH-000201 explicitly forbids:
 
-Authorized child controls are bounded to the ORCH-000199-proven interface: read-only sandbox, ephemeral execution, explicit working directory and exact last-message output capture.
+- any real child Codex/model invocation;
+- BrowserRelay/Brave/ChatGPT browser contact;
+- host process start/stop;
+- historical registration mutation;
+- BrowserRelay delivery `000015` reuse/mutation;
+- lease mutation;
+- AFFOTECH/Drive access;
+- Executor docs/governance mutation.
 
-The child prompt is harmless and requires exactly one pre-bound token response; it contains no project implementation task.
-
-## 7. Current required action
+## 9. Current required action
 
 Run in the current Codex terminal:
 
-`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000200`
+`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000201`
 
-After its terminal/report/receipt is published, return to Architect with `verify & next`.
+After the candidate source terminal/report/receipt is published, return to Architect with `verify & next`.
 
-Until ORCH-000200 is independently reviewed:
+Implementation acceptance will not by itself authorize unattended production use. A separate live qualification is required afterward.
 
-- manual user handoff remains the current inbound execution path;
-- no production/direct Codex adapter is accepted;
-- do not restore Brave/BrowserRelay `9444`;
-- do not mutate/supersede the historical registration;
-- do not create/retry delivery `000015`.
+## 10. Documentation / future intent
 
-## 8. Protected zero for ORCH-000200
+ORCH-000200 acceptance: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
-- child `codex exec` invocation count ≤ 1;
-- child termination ≤ 1 and only on bounded timeout;
-- lease/worker-delivery/browser/registration/source/docs/AFFOTECH/Drive mutation = 0;
-- qualification intent create ≤ 1;
-- qualification result create ≤ 1;
-- one exact disposable temp last-message file may be created and deleted only within this milestone;
-- credential/secret read = 0.
-
-## 9. Documentation / future intent
-
-ORCH-000199 acceptance: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
-
-ORCH-000200 publication: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
+ORCH-000201 publication: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.

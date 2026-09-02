@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000199 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000200 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -8,7 +8,7 @@ Machine authority: durable GitHub evidence and Architect decisions
 ## Permanent governance lessons
 
 - Executor PASS/READY is evidence, never Architect acceptance.
-- Never blind-retry an ambiguous external mutation; reconcile durable state first.
+- Never blind-retry an ambiguous external mutation or child-process boundary; reconcile durable state first.
 - Historical evidence remains immutable in meaning.
 - Architect owns canonical documentation directly.
 - Curator is eliminated from the active model.
@@ -29,42 +29,46 @@ Mandatory cold-start equation:
 
 `Executor role ≠ Codex runtime ≠ BrowserRelay ≠ ChatGPT conversation ≠ CDP/relay port`
 
-## ORCH-000198 confirmation lesson — prove both directions
+## ORCH-000198 lesson — prove both directions
 
-ORCH-000198 proved that topology recovery must trace inbound and outbound paths independently.
-
-Accepted current facts:
-
-- inbound: manual user locator/message → Codex terminal;
-- authority resolution: Codex reads durable GitHub dispatch/prompt evidence;
-- outbound: Codex directly publishes terminal/report/receipt to GitHub;
-- historical `9444` BrowserRelay: legacy relative to this path;
-- automatic Orchestrator/GitHub → Codex invocation: not yet proven.
-
-A transport is not current merely because it is registered.
+Topology recovery must trace inbound and outbound paths independently. A transport is not current merely because it is registered.
 
 ## ORCH-000199 lesson — discover supported runtime surfaces before inventing transport
 
-ORCH-000199 read-only discovery proved that the installed Codex runtime already exposes a supported non-interactive interface: `codex exec`.
-
-Accepted facts include prompt argument/stdin input, working-directory control, model/profile/config controls, sandbox/approval controls, structured output surfaces and ephemeral execution. The current CLI reports ChatGPT login.
+The installed Codex runtime already exposes supported non-interactive `codex exec`.
 
 Permanent lesson:
 
-> Before designing a custom relay or browser bridge for an AI worker, inspect the worker runtime's supported non-interactive invocation surface. Prefer a directly supported process/API contract over an indirect browser transport when it can be governed and qualified safely.
+> Before designing a custom relay or browser bridge for an AI worker, inspect the worker runtime's supported non-interactive invocation surface. Prefer a directly supported process/API contract when it can be governed safely.
 
-But capability discovery is not execution qualification. Parent-session login status does not prove that a separately spawned child process reuses authentication. That must be proven with one separately authorized child invocation.
+Capability discovery alone was not enough: parent login status did not prove a separately spawned child reused authentication.
 
-For live child-process qualification:
+## ORCH-000200 lesson — qualify process boundaries with durable correlation
 
-- bind a unique correlation token before invocation;
-- allow at most one child/model run;
-- use a harmless deterministic prompt;
-- bind working directory and read-only sandbox explicitly;
-- prefer ephemeral/non-persistent session behavior;
-- capture machine-observable exit and bounded output;
-- no blind retry on timeout, ambiguous exit, auth failure or mismatch;
-- keep project/source/config/registration/protected-resource mutation at zero.
+ORCH-000200 proved the child-process boundary correctly:
+
+- write/read back immutable intent first;
+- bind a unique exact correlation token;
+- invoke at most one child;
+- bind workdir and read-only sandbox explicitly;
+- use ephemeral execution;
+- capture machine-observable exit/output;
+- require exact output correlation;
+- persist/read back immutable result;
+- do not retry on timeout/auth/nonzero/mismatch/ambiguity;
+- clean only the exact same-milestone disposable temp output after durable result readback.
+
+The child successfully reused ChatGPT authentication, exited `0`, matched the exact token, and required no retry.
+
+Permanent lesson:
+
+> A successful CLI capability is not a governed transport until intent precedes spawn, the spawn is at-most-once, outcome is durably reconciled, and ambiguous boundaries cannot trigger blind retries.
+
+Also preserve ordering semantics when interpreting counters: the immutable ORCH-000200 result recorded temp deletion `0` because cleanup happened after result readback; the later terminal/receipt correctly recorded one authorized deletion. Snapshot timing is part of evidence meaning.
+
+## Namespace lesson — do not reuse historical transport identities
+
+`WORKER-DELIVERY-EXECUTOR-000015` belongs to the historical BrowserRelay delivery path. A direct-Codex adapter must use a distinct invocation namespace/identity rather than repurposing a never-sent BrowserRelay delivery ID.
 
 ## Full immutable lease lesson — ORCH-000184
 
@@ -82,8 +86,6 @@ Treat every hash as a typed value. Never compare Git blob SHA to project canonic
 
 Accepted `createJson` is `precheck → at most one PUT → exact post-write readback → normalized result`. Durable readback, not PUT response alone, is final authority.
 
-Do not make a prerequisite external evidence write whose ambiguity can block the target operation.
-
 ## GitHub Contents semantic 404 lesson — ORCH-000191 / ORCH-000192
 
 Treat process failure and semantic HTTP absence as different states. Preserve HTTP status explicitly and map `404 → NOT_FOUND`.
@@ -92,9 +94,10 @@ Treat process failure and semantic HTTP absence as different states. Preserve HT
 
 1. preserve lease/hash/GitHub ambiguity contracts;
 2. preserve role/runtime/transport identity separation;
-3. treat ORCH-000198 manual-to-Codex/direct-GitHub topology as current accepted reality;
-4. treat ORCH-000199 `codex exec` support as accepted capability, not yet unattended execution;
-5. qualify exactly one isolated child `codex exec` for ChatGPT-auth reuse and machine-observable exit/output;
-6. if accepted, design/implement a dedicated governed direct-Codex adapter with durable correlation and exactly-once semantics;
-7. only after replacement/direct transport acceptance decide whether to supersede/retire the historical `9444` registration;
-8. prove the unattended Codex-delivery → durable-terminal → Architect-wake loop.
+3. preserve ORCH-000198 current manual-to-Codex/direct-GitHub topology until replacement is accepted;
+4. treat ORCH-000199 `codex exec` support as accepted capability;
+5. treat ORCH-000200 one-shot authenticated child invocation as accepted runtime primitive;
+6. implement/test a dedicated governed direct-Codex adapter with fresh identity, durable intent/result and exactly-once spawn semantics;
+7. live-qualify the implemented adapter end-to-end under a separate bounded milestone;
+8. only after replacement transport acceptance decide whether to supersede/retire historical `9444` registration;
+9. prove unattended Codex-delivery → durable-terminal → Architect-wake loop.

@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000199 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000200 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -43,53 +43,57 @@ Decision:
 
 Proven current path:
 
-```text
-Architect durable dispatch
-  → manual user locator/message
-  → Codex terminal/runtime in VS Code
-  → direct GitHub authority reads
-  → bounded Executor work
-  → direct GitHub terminal/report/receipt publication
-  → Architect review
-```
+`Architect durable dispatch → manual user locator/message → Codex terminal/runtime in VS Code → direct GitHub authority reads/work → direct GitHub terminal/report/receipt publication → Architect review`.
 
-BrowserRelay `9444` was accepted as legacy relative to this current manual path. No persistent automatic Orchestrator/GitHub → Codex bridge was found.
+BrowserRelay `9444` was accepted as legacy relative to this current manual path.
 
-## ORCH-000199 — non-interactive Codex capability discovered and accepted
+## ORCH-000199 — non-interactive Codex capability accepted
 
-Executor terminal:
-
-`GH-PUB-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-000001`
-
-Architect decision:
+Decision:
 
 `GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
 
-Read-only discovery proved:
+Read-only discovery proved the installed `codex-cli 0.151.0` exposes supported `codex exec` with prompt argument/stdin, workdir, model/profile/config, sandbox/approval, structured output and ephemeral controls. The current CLI reported ChatGPT login, but child reuse remained unproven because child invocation was prohibited.
 
-- installed CLI `codex-cli 0.151.0`;
-- executable binding through `C:\Users\nitro\AppData\Roaming\npm\codex.ps1`;
-- supported non-interactive `codex exec` interface;
-- prompt argument/stdin input;
-- working-directory/model/profile/config/sandbox/approval controls;
-- structured/machine-readable output surfaces;
-- ephemeral execution support;
-- current CLI reports `Logged in using ChatGPT`.
+## ORCH-000200 — direct Codex auth/output qualification accepted
 
-No child/model invocation occurred, so child `codex exec` reuse of the current ChatGPT login remains unproven. The accepted source has no direct Codex child-spawn adapter yet.
+Executor terminal:
 
-This milestone redirected the unattended architecture toward a direct Codex CLI path rather than BrowserRelay restoration.
+`GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001`
 
-No lease, worker delivery, browser, process, registration, source, AFFOTECH or Drive mutation occurred.
+Architect decision:
+
+`GH-DEC-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-ACCEPTED`
+
+A single isolated qualification was performed with a pre-bound correlation token and durable intent.
+
+Verified result:
+
+- intent durably ARMED before child invocation;
+- exactly one child `codex exec` run;
+- child successfully reused the existing ChatGPT-authenticated CLI session;
+- exit code `0`;
+- no timeout and no termination;
+- exact correlation output matched;
+- no retry;
+- durable result outcome `QUALIFIED`;
+- post-result disposable temp output cleaned once;
+- no lease/worker-delivery/browser/registration/source/AFFOTECH/Drive mutation.
+
+ORCH-000200 therefore proves a one-shot authenticated direct Codex child-process primitive. It does not yet prove the persistent unattended adapter.
 
 `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
+## Accepted source placement confirmed
+
+The accepted GH-PUB-165 source is preserved under `evidence/artifacts/orch-000165/` as `manifest.json` plus `source.tar.gz`. The manifest confirms canonical project paths including host, recovery, evidence and test trees.
+
 ## Current target
 
-The next bounded proof is ORCH-000200: exactly one isolated, read-only, ephemeral child `codex exec` invocation using a harmless deterministic correlation prompt, solely to prove authentication reuse plus observable exit/output semantics.
+The next bounded milestone is ORCH-000201: implement and test a governed direct-Codex adapter against the accepted source.
 
-No production adapter, BrowserRelay restoration, historical registration mutation, delivery `000015` retry or application implementation is authorized by that qualification.
+The adapter must provide durable pre-spawn intent, a fresh direct-Codex identity, at-most-once child spawn, duplicate suppression, explicit workdir/sandbox/ephemeral controls, bounded output/exit reconciliation, distinct failure states, durable result, and no blind retry.
 
-If ORCH-000200 succeeds, a later bounded milestone may design/implement a governed direct-Codex adapter with durable intent/result, exactly-once child invocation, timeout reconciliation and duplicate suppression.
+BrowserRelay `9444` remains outside this path. Historical registration remains untouched. Delivery `000015` must not be reused. AFFOTECH remains protected.
 
-AFFOTECH remains separate/protected until later explicit Rony-authorized integration.
+After implementation acceptance, a later bounded milestone must live-qualify the adapter end-to-end before unattended production operation is claimed.
