@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "CODEX_DIRECT_QUALIFICATION_INTENT",
+  "qualificationId": "ORCH-000200",
+  "messageId": "ORCH-000200",
+  "dispatchId": "DISPATCH-000200",
+  "correlationToken": "ORCH200_OK_89F8188224F4F81CB444F1A3",
+  "childPromptSha256": "1d79475860020a248a401ec78954b39fe2a62d241dad2bd3c685c5178eaf8a04",
+  "codexExecutableIdentity": "codex-cli 0.151.0",
+  "executable": "codex",
+  "workingDirectory": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator",
+  "sandbox": "read-only",
+  "ephemeral": true,
+  "outputPath": "C:\\Users\\nitro\\AppData\\Local\\Temp\\affotech-ORCH-000200-ORCH200_OK_89F8188224F4F81CB444F1A3-last-message.txt",
+  "maxChildInvocationCount": 1,
+  "timeoutMs": 180000,
+  "noRetry": true,
+  "invocationCommand": [
+    "codex",
+    "exec",
+    "--ephemeral",
+    "--sandbox",
+    "read-only",
+    "-C",
+    "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator",
+    "-o",
+    "C:\\Users\\nitro\\AppData\\Local\\Temp\\affotech-ORCH-000200-ORCH200_OK_89F8188224F4F81CB444F1A3-last-message.txt",
+    "-"
+  ],
+  "createdAt": 1788350984828,
+  "state": "ARMED",
+  "mutationCounts": {
+    "qualificationIntent": 1,
+    "qualificationResult": 0,
+    "tempCreate": 0,
+    "tempDelete": 0,
+    "browserContact": 0,
+    "lease": 0,
+    "workerDelivery": 0,
+    "source": 0
+  }
+}
