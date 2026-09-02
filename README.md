@@ -2,23 +2,33 @@
 
 This repository is the machine-authoritative control/evidence plane for `affotech-agent-orchestrator`. Durable prompts, dispatches, Architect decisions, Executor terminals, transport records, host/lease state, source snapshots, and current pointers are authority. Human-readable documentation is maintained directly by Architect and never overrides machine evidence.
 
-## Active model
+## Active authority model
 
 ```text
 Rony (final human authority)
   ↕
-Architect AI — think / govern / verify / decide / document / preserve future intent — port 9333
+Architect AI — think / govern / verify / decide / document
   ↓ durable authority/dispatch
 Persistent deterministic Orchestrator — independent control-plane service
-  ↓ exact lease + durable intent + exact delivery
-Executor AI — bounded work — port 9444
-  ↓ durable terminal
+  ↓ proven current delivery path
+Codex Executor terminal/runtime in VS Code — bounded work
+  ↓ durable terminal/evidence
 Persistent deterministic Orchestrator
-  ↓ durable trigger + exact wake
+  ↓ durable trigger/wake where qualified
 Architect AI
 ```
 
-There is **no active Curator role**. Historical Curator evidence remains valid history, but no Curator terminal, relay, cursor, browser session, or approval hop is required.
+There is **no active Curator role**.
+
+### Critical identity rule
+
+Never collapse these identities:
+
+`Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
+
+Historical evidence contains an `executor` worker registration associated with a ChatGPT conversation and port `9444`. That proves a historical BrowserRelay delivery/control-plane target. It does **not** prove that Codex itself is browser-based, listens on `9444`, or still requires that BrowserRelay today.
+
+Before any transport repair/restart/restoration/retry, first prove the current runtime, intended transport, endpoint owner, continued necessity, and exact runtime↔transport binding.
 
 ## Documentation and future-idea continuity
 
@@ -29,14 +39,12 @@ documentationImpact = NONE | STATE | FULL
 futureIdeaImpact    = NONE | CAPTURE | PROMOTE
 ```
 
-Documentation impact is decided by `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`, not by milestone status or intuition. For `STATE`/`FULL`, only documents that fail the per-document semantic test are updated/read back before the next mutating implementation dispatch.
-
-Future ideas are preserved separately through `docs/IDEA_INBOX.md` and `docs/ROADMAP.md`; they create zero implementation authority.
+Documentation impact is decided by `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md`. For `STATE`/`FULL`, materially affected documents are updated/read back before the next mutating implementation dispatch.
 
 Canonical governance:
 
 - `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3
-- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.4
+- `governance/PROJECT_ORCHESTRATION_POLICY.md` v1.5
 - `governance/ARCHITECT_DOCUMENTATION_SEMANTIC_TEST.md` v1.0
 - `governance/PROJECT_MEMORY_EVENT_LEDGER_POLICY.md` v1.4
 
@@ -46,38 +54,32 @@ Canonical governance:
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
+Accepted source has not changed through ORCH-000197 or the 2026-09-02 documentation/governance correction.
+
 ## Proven foundations
 
-- ORCH-000153: exactly-once Executor forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
+- ORCH-000153: exactly-once historical BrowserRelay forward delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
 - ORCH-000163: exactly-once Architect wake `ARCH-TRIGGER-9333-000005/SENT`.
-- ORCH-000166/167: persistent-host idle/bootstrap and automatic newer-dispatch observation.
-- ORCH-000173: expired worker-delivery lease reconciliation succeeded using the full immutable lease record plus bounded request-level instrumentation.
-- ORCH-000177/178: HTTP semantic-status handling and accepted lease acquire/release were proven.
-- ORCH-000179: preparation was reached and proved transient `actionKind=WORKER_DELIVERY` is required.
+- ORCH-000193: epoch-189 expired worker lease recovery closed.
+- ORCH-000194: zero-browser ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE capability accepted.
 
-## Current recovery summary
+## ORCH-000195 through ORCH-000197
 
-ORCH-000184 remains **ACCEPTED** and established the permanent caller contract: mutation-lease index entries are reduced locator/projection records, while expiry reconciliation requires the hydrated full immutable `MUTATION_LEASE` revision when `validateMutationLease`-compatible input is expected.
+These milestones validly diagnosed the registered historical `9444` BrowserRelay path as unavailable. They did not mutate delivery `000015`; lease state closed cleanly at index `382`, next epoch `192`, zero active leases.
 
-ORCH-000185 then hydrated and validated the full epoch-189 immutable revision and invoked accepted `reconcileExpiredMutationLease` exactly once. The call still returned:
+The mistake was architectural: the project then assumed this historical BrowserRelay target was still the required route to the active Executor.
 
-`DENIED / EXPIRED_LEASE_RECONCILIATION_PROJECTION_INVALID`
+On 2026-09-02 Rony confirmed the operational Executor is the **Codex terminal in VS Code**. The project policy was corrected to v1.5. The old future-action instruction to restore an “Executor browser and relay 9444” is superseded for future action; historical evidence remains unchanged.
 
-before the first external write. Durable state remains unchanged: revision `000002` absent; index revision `377`; `nextLeaseEpoch=190`; one expired epoch-189 lease indexed ACTIVE; latest delivery `000013/SENT`; Architect trigger `000005/SENT`; protected side effects zero.
+## Current legal next boundary
 
-Architect decision:
+There is **no current next dispatch**.
 
-`GH-DEC-185-FULL-IMMUTABLE-RECONCILIATION-PREMUTATION-DENIAL-BLOCKED`
+Do not rerun `DISPATCH-000197`, do not restore/start Brave or BrowserRelay merely to satisfy `9444`, and do not retry `WORKER-DELIVERY-EXECUTOR-000015`.
 
-The ORCH-000184 full-record contract is still valid, but it was not the entire cause. Another reconciliation attempt is not authorized yet.
+The next legal technical step, when separately authorized, is a **read-only current Codex-delivery topology reconciliation** to determine how the Orchestrator should reach the Codex terminal and whether BrowserRelay remains part of that path.
 
-The next legal action is a read-only ORCH-000186 diagnostic comparing the successful/pure preflight semantics with the actual reconciliation invocation field-for-field, including time/releaser/previous-record/index bindings and async Promise/await/error serialization behavior.
-
-For detailed live state and exact next authority, use `docs/CURRENT_STATE.md`.
-
-## Current adopted future idea
-
-`IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`. It is deferred until core unattended transport reaches production-candidate qualification and creates no implementation authority today.
+For exact current state use `docs/CURRENT_STATE.md`.
 
 ## Protected boundary
 
