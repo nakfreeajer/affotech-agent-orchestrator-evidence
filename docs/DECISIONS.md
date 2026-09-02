@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony transport-identity correction on 2026-09-02; no new ORCH dispatch after ORCH-000197
+Documentation sync boundary: through ORCH-000198 / DISPATCH-000198 publication on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, immutable Architect decisions, and explicit current Rony authority as defined by precedence
 
@@ -35,9 +35,9 @@ Consequences:
 - before repair/restart/restoration/retry of a missing endpoint, Architect must first prove the current execution runtime, intended delivery transport, endpoint owner, and continued necessity of that transport;
 - historical successful transport qualification proves that historical path only; it does not prove the path is still current.
 
-Project policy was therefore advanced from v1.4 to v1.5 with a mandatory runtime/transport topology reconciliation gate.
+Project policy advanced from v1.4 to v1.5 with a mandatory runtime/transport topology reconciliation gate.
 
-This is a `documentationImpact=FULL` correction and `futureIdeaImpact=NONE`.
+This correction was `documentationImpact=FULL` and `futureIdeaImpact=NONE`.
 
 ## Accepted recovery and preflight foundation
 
@@ -67,7 +67,7 @@ Decision:
 
 The diagnostic validly proved that the registered historical `9444` transport target had no listener/owner and that the expected browser/relay process was absent under the then-assumed topology.
 
-The diagnostic did **not** prove that this transport remained necessary to reach the current Codex Executor.
+It did **not** prove that this transport remained necessary to reach the current Codex Executor.
 
 ## ORCH-000197 — BLOCKED historical post-restoration readiness
 
@@ -92,19 +92,36 @@ Verified historical facts remain:
 - latest successful worker delivery remained `000013/SENT`;
 - no lease, delivery, browser, process, registration, source, AFFOTECH, or Drive mutation occurred.
 
-### Supersession of ORCH-000197 future action
+The ORCH-000197 future-action instruction to restore an “Executor browser and relay 9444” is superseded for future action by Rony's explicit 2026-09-02 clarification and project policy v1.5. Historical evidence and the old decision are not rewritten.
 
-The ORCH-000197 future-action instruction to restore an “Executor browser and relay 9444” is **superseded for future action** by Rony's explicit 2026-09-02 clarification and project policy v1.5.
+## GH-DEC-198 — NO NEW REPORT / topology reconciliation authorized
 
-Historical evidence and the old decision are not rewritten. What changes is the legal next action.
+Decision:
 
-Current legal boundary:
+`GH-DEC-198-NO-NEW-REPORT-CODEX-TOPOLOGY-RECONCILIATION-AUTHORIZED`
 
-- `liveDeliveryRetryAuthorized=false`;
-- do not acquire another worker-delivery lease;
-- do not create delivery `000015` evidence;
-- do not rerun `DISPATCH-000197`;
-- do not launch Brave/BrowserRelay merely to satisfy the historical registration;
-- first perform a separately authorized **read-only current Codex-delivery topology reconciliation**.
+Classification: `NO NEW REPORT`.
 
-Only after that reconciliation proves the active transport may Architect decide whether BrowserRelay should be restored, superseded, replaced, or removed from the active path.
+Fresh verification found no Executor terminal newer than GH-PUB-197. Accepted source remains GH-PUB-165; lease state remains index `382`, next epoch `192`, zero active leases; latest delivery remains `000013/SENT`; delivery `000015` remains absent.
+
+Rony's `next` directive after the v1.5 documentation correction authorizes the next legal step:
+
+- canonical message `ORCH-000198`;
+- dispatch `DISPATCH-000198`;
+- operation `READ_ONLY_TOPOLOGY_RECONCILIATION`;
+- target runtime `CODEX_TERMINAL_RUNTIME_IN_VSCODE`;
+- BrowserRelay/Brave restoration is explicitly not authorized;
+- browser contact/send is zero;
+- lease/delivery/registration/source mutation is zero;
+- delivery `000015` retry remains unauthorized.
+
+ORCH-000198 must establish the actual current inbound and outbound Codex execution topology, classify the historical BrowserRelay path as required/indirect/legacy/conflicting/unprovable from evidence, identify endpoint ownership, and recommend only the smallest next bounded step.
+
+Current manual trigger:
+
+`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000198`
+
+This publication changes current operational state only:
+
+- `documentationImpact=STATE`;
+- `futureIdeaImpact=NONE`.
