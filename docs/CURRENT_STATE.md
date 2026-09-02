@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000199 / DISPATCH-000199 publication on 2026-09-02
+Documentation sync boundary: through ORCH-000199 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -11,19 +11,15 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000199 dispatch publication.
+Accepted source did not change through ORCH-000199.
 
-## 2. ORCH-000198 — ACCEPTED current Codex topology
+## 2. Accepted current Codex topology
 
-Executor terminal:
-
-`GH-PUB-198-CODEX-TOPOLOGY-RECONCILIATION-000001`
-
-Architect decision:
+ORCH-000198 remains accepted under:
 
 `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
 
-Accepted current topology:
+Proven current path:
 
 ```text
 Architect durable dispatch
@@ -35,86 +31,84 @@ Architect durable dispatch
   → Architect review
 ```
 
-Accepted scope:
+Historical BrowserRelay `9444` remains legacy relative to this proven path and is not to be restored merely because its old registration remains ACTIVE.
 
-- operational Executor runtime is `CODEX_TERMINAL_RUNTIME_IN_VSCODE`;
-- current inbound path is manual user-message/locator handoff;
-- current outbound terminal path is direct Codex-side GitHub evidence publication;
-- no persistent automatic GitHub/Orchestrator → Codex bridge is yet proven;
-- historical BrowserRelay `9444` is legacy relative to the proven current manual Codex path;
-- historical worker registration remains ACTIVE but is a change candidate only;
-- BrowserRelay restoration and delivery `000015` retry remain unauthorized.
+## 3. ORCH-000199 — ACCEPTED Codex non-interactive capability discovery
 
-## 3. Durable state
+Executor terminal:
+
+`GH-PUB-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-000001`
+
+Architect decision:
+
+`GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
+
+Accepted facts:
+
+- installed runtime: `codex-cli 0.151.0`;
+- executable binding: `C:\Users\nitro\AppData\Roaming\npm\codex.ps1 -> codex-cli`;
+- supported non-interactive interface: `codex exec`;
+- prompt may be supplied as an argument or via stdin;
+- working directory is controllable with `-C/--cd`;
+- model/profile/config and sandbox/approval controls are exposed;
+- machine-observable output surfaces include JSONL, output schema and last-message output;
+- `--ephemeral` is available for non-persistent execution;
+- current CLI reports `Logged in using ChatGPT`;
+- whether a separately spawned child `codex exec` reuses that authenticated ChatGPT session remains unproven because ORCH-000199 correctly invoked no child/model run;
+- accepted Orchestrator source has no dedicated Codex child-process adapter yet;
+- BrowserRelay restoration remains unnecessary for this capability path.
+
+## 4. Durable state
 
 - lease index revision `382`;
 - `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
 - latest successful historical BrowserRelay delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
 - delivery `000014/PROVEN_NOT_SENT` preserved;
-- delivery `000015` intent/result absent;
-- worker registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE historical control-plane evidence;
+- delivery `000015` intent/result absent and retry unauthorized;
+- worker registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE historical control-plane evidence; no mutation authorized;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
 
-## 4. Permanent identity guard
+## 5. Permanent identity guard
 
 `Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
 
-Do not restore `9444` merely because the historical registration remains ACTIVE.
+Current Codex capability must be qualified directly; do not route this work back through `9444`.
 
-## 5. Current missing capability
+## 6. Current missing proof
 
-`UNATTENDED_DIRECT_CODEX_INVOCATION_CONTRACT_NOT_YET_PROVEN`
+The remaining narrow proof is:
 
-The manual handoff works. The return publication works. What remains is a supported mechanism for the persistent Orchestrator to invoke Codex directly without Rony manually forwarding the dispatch.
+`CHILD_CODEX_EXEC_CHATGPT_AUTH_REUSE_AND_OBSERVABLE_EXIT_OUTPUT_NOT_YET_PROVEN`
 
-## 6. ORCH-000199 — current legal milestone
+Discovery established the supported interface. It did not prove that a one-shot child `codex exec` launched by a parent process can reuse the current ChatGPT login and return a clean, correlatable success result.
 
-Current canonical prompt/dispatch:
+## 7. Required next action
 
-- `ORCH-000199`
-- `DISPATCH-000199`
-- milestone `ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.CODEX.DIRECT.NONINTERACTIVE.INVOCATION.CAPABILITY.DISCOVERY.2R`
-- operation class `READ_ONLY_CODEX_INVOCATION_DISCOVERY`
-- dispatch state `MANUAL_TRIGGER_REQUIRED`
+The next legal milestone is ORCH-000200: one isolated, exactly-once direct `codex exec` authentication-reuse qualification.
 
-ORCH-000199 must discover, without starting a second Codex/model execution:
+It must:
 
-1. the exact Codex executable/runtime identity and version;
-2. whether a supported non-interactive interface exists, including `codex exec` or equivalent if present;
-3. documented prompt/input, working-directory, model/config, sandbox/approval, output/result and exit semantics;
-4. sanitized authentication-reuse status without reading credentials;
-5. whether the accepted Orchestrator already has a suitable child-process abstraction or needs a bounded direct-Codex adapter;
-6. whether a separately authorized one-shot live direct-Codex qualification would be safe.
+1. execute at most one child `codex exec`;
+2. use a harmless deterministic prompt unrelated to project implementation;
+3. use read-only sandboxing and ephemeral/non-persistent execution where supported;
+4. bind an exact correlation token before invocation;
+5. capture exit code and bounded output without relying on human-visible terminal text;
+6. prove whether the child reused current ChatGPT authentication;
+7. perform zero project/source/config/registration/BrowserRelay/AFFOTECH/Drive mutation;
+8. stop without retry on timeout, ambiguous exit, auth failure, or output mismatch.
 
-It explicitly forbids:
+This qualification does not authorize a production Codex adapter or unattended implementation dispatch yet.
 
-- any child/new Codex model invocation;
-- BrowserRelay/Brave restoration or contact;
-- delivery `000015` creation/retry;
-- lease/registration/source/docs mutation by Executor;
-- secret/credential reads;
-- AFFOTECH/Drive access.
+Until ORCH-000200 is accepted:
 
-## 7. Current required action
-
-Run in the current Codex terminal:
-
-`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000199`
-
-After its terminal/report/receipt is published, return to Architect with `verify & next`.
-
-Until ORCH-000199 is independently reviewed:
-
-- manual user handoff remains current;
+- manual user handoff remains the current inbound execution path;
 - do not restore Brave/BrowserRelay `9444`;
 - do not mutate/supersede the historical registration;
 - do not create/retry delivery `000015`.
 
 ## 8. Documentation / future intent
 
-ORCH-000198 acceptance: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
-
-ORCH-000199 publication: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
+ORCH-000199: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
