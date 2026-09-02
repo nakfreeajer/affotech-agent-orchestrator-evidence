@@ -1,7 +1,7 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000197 Architect review
+Documentation sync boundary: through Rony transport-identity correction on 2026-09-02; no new ORCH dispatch after ORCH-000197
 Status: CURRENT HUMAN-READABLE PROJECTION
-Machine authority: durable GitHub evidence and Architect decisions
+Machine authority: durable GitHub evidence and Architect decisions; explicit current Rony instruction governs where it supersedes an older next-action assumption
 
 # Current State
 
@@ -11,99 +11,97 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
 
-Accepted source did not change through ORCH-000197.
+Accepted source did not change through ORCH-000197 or this documentation correction.
 
-## 2. Accepted recovery / delivery-preflight foundation
+## 2. Durable machine state
 
-- ORCH-000193 closed epoch-189 recovery.
-- ORCH-000194 proved `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE` for delivery `000014`, with zero browser contact/send.
-- `WORKER-DELIVERY-EXECUTOR-000014` is terminal `PROVEN_NOT_SENT` evidence and is not reusable for a live send.
-
-## 3. ORCH-000195 — INCONCLUSIVE live-delivery attempt
-
-ORCH-000195 targeted fresh `WORKER-DELIVERY-EXECUTOR-000015` but stopped before preparation because `127.0.0.1:9444` returned `ECONNREFUSED`.
-
-No delivery `000015` intent/result was created and no browser contact/send occurred. The epoch-191 lease was normally released. Final lease state: index `382`, `nextLeaseEpoch=192`, `activeLeases=[]`. `LATEST_DELIVERY` remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`.
-
-Decision:
-
-`GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`.
-
-## 4. ORCH-000196 — ACCEPTED relay/runtime availability diagnosis
-
-Decision:
-
-`GH-DEC-196-EXECUTOR-RELAY-PROCESS-ABSENT-DIAGNOSTIC-ACCEPTED`
-
-Verified diagnosis:
-
-- worker authority and registration remain valid and ACTIVE;
-- registration still correctly targets the existing Executor conversation on port `9444`;
-- `127.0.0.1:9444` has no listener and no owner process;
-- dedicated Executor relay/runtime and registered Executor browser-session process are absent;
-- source patch and registration refresh are not required while identity remains unchanged;
-- manual restoration of the existing Executor browser session plus relay/runtime is required.
-
-## 5. ORCH-000197 — BLOCKED post-restoration readiness
-
-Executor terminal:
+Latest Executor terminal remains:
 
 `GH-PUB-197-EXECUTOR-RELAY-STILL-NOT-RUNNING-000001`
 
-Architect decision:
+Latest historical Architect machine decision remains:
 
 `GH-DEC-197-EXECUTOR-RELAY-STILL-NOT-RUNNING-BLOCKED`
 
-The read-only readiness gate executed correctly, but the expected manual restoration had not occurred:
+Current durable state remains:
 
-- preconditions passed;
-- registration and authority bindings remain valid;
-- registered conversation/port binding still matches;
-- port `9444` still has `NO_LISTENER`;
-- owner process remains `NONE`;
-- Executor relay process remains `NOT_RUNNING_OR_NOT_PRESENT`;
-- registered Executor browser-session process remains unidentified/absent;
-- delivery `000015` remains absent;
-- lease index remains `382`, `nextLeaseEpoch=192`, `activeLeases=[]`;
-- `LATEST_DELIVERY` remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- no lease, delivery, browser, process, registration, source, AFFOTECH, or Drive mutation occurred.
-
-This is a deterministic operational blocker, not an ambiguous mutation state. A live-delivery retry is not authorized.
-
-## 6. Current durable boundary
-
-- accepted source: GH-PUB-165 unchanged;
 - lease index revision `382`;
 - `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
 - latest successful delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
 - delivery `000014/PROVEN_NOT_SENT` preserved;
 - delivery `000015` intent/result absent;
-- worker registration `WORKER-REG-EXECUTOR-000001` ACTIVE;
-- worker authority `WORKER-AUTH-EXECUTOR-000001` ACTIVE;
-- registered Executor relay port `9444`;
-- port `9444` currently has no listener;
-- latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
+- worker registration `WORKER-REG-EXECUTOR-000001` remains historical/current durable evidence marked ACTIVE;
+- latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`;
+- no new canonical dispatch after `DISPATCH-000197`.
 
-## 7. Required next action — human runtime restoration
+## 3. What ORCH-000195 through ORCH-000197 actually established
 
-No further dispatch is currently authorized.
+Those milestones investigated the historical BrowserRelay delivery boundary associated with port `9444`:
 
-Rony must first restore the **existing registered Executor runtime boundary**:
+- ORCH-000195 stopped before preparation because `127.0.0.1:9444` was unavailable;
+- ORCH-000196 diagnosed no listener/owner and no identified registered browser/relay runtime;
+- ORCH-000197 confirmed the expected manual restoration had not occurred.
 
-1. restore/start the dedicated Executor browser session for the already-registered Executor conversation;
-2. restore/start its dedicated BrowserRelay/runtime owner so `127.0.0.1:9444` is listening;
-3. preserve the current worker registration/authority unless the actual conversation/session identity changes;
-4. do not touch Architect port `9333` or protected AFFOTECH ports `9222/9223`.
+The evidence is valid history of that transport qualification. No browser contact/send or delivery `000015` intent/result was created.
 
-Historical live-delivery prompts treat port `9444` as an already-running registered BrowserRelay target; the evidence repository does not currently provide a canonical startup command for that relay/browser boundary. Do not invent a launch command from host-launch evidence.
+However, the milestones assumed that restoring the historical `9444` BrowserRelay target was necessary to reach the active Executor. That assumption has now been challenged by the actual operating topology.
 
-After restoration is actually completed, Architect may publish a **fresh** read-only readiness verification. Do not rerun DISPATCH-000197.
+## 4. 2026-09-02 Rony correction — Executor identity
 
-Only after that fresh readiness verification is accepted may the live exactly-once delivery qualification for delivery `000015` be retried.
+Rony explicitly confirmed that the operational Executor is the **Codex terminal/runtime in VS Code**.
+
+Therefore:
+
+- Codex Executor is not to be described as an “Executor browser”;
+- `workerRole=executor` does not prove the registered browser/relay session is the execution engine;
+- port `9444` is historical BrowserRelay delivery/control-plane evidence, not proof that Codex listens there;
+- no browser/CDP/relay port may be inferred from the Executor role name;
+- no missing transport may be restored until Architect first proves the current runtime↔transport topology and proves the transport is still required.
+
+The ORCH-000197 instruction to manually restore an “Executor browser and relay 9444” is **superseded for future action** by Rony's current higher-authority correction and project policy v1.5. Historical ORCH-000197 evidence is not rewritten.
+
+## 5. Current operational blocker
+
+The current blocker is **not** “port 9444 must be restored.”
+
+The blocker is:
+
+`CURRENT_CODEX_DELIVERY_TOPOLOGY_NOT_YET_RECONCILED`
+
+Before any new live-delivery work, Architect must determine read-only:
+
+1. how the current Orchestrator is intended to deliver a governed dispatch to the Codex terminal;
+2. whether BrowserRelay is still part of that path;
+3. if BrowserRelay is required, its exact browser/CDP/relay ownership and startup binding;
+4. if BrowserRelay is obsolete, what durable registration/state must later be superseded under bounded authority;
+5. how the Codex terminal publishes its durable terminal/result back into the Orchestrator evidence chain.
+
+## 6. Required next action
+
+No live delivery, BrowserRelay restoration, Brave launch, registration mutation, or new worker-delivery lease is currently authorized.
+
+The next legal technical action, when Architect publishes it, is a **read-only current-topology reconciliation**. It must inspect current project source/config/evidence and current user-confirmed runtime arrangement without mutating BrowserRelay, registration, worker delivery, source, AFFOTECH, or Drive.
+
+Do **not** rerun `DISPATCH-000197`.
+
+Do **not** start Brave on `9444` merely to satisfy historical evidence.
+
+Do **not** create or retry `WORKER-DELIVERY-EXECUTOR-000015` until topology reconciliation is accepted.
+
+## 7. Permanent cold-start guard
+
+A cold-start Architect must keep these identities separate:
+
+`Executor role ≠ Codex runtime ≠ BrowserRelay transport ≠ browser conversation ≠ CDP/relay port`
+
+Before troubleshooting a missing port, first answer: **what component owns this port, what role does it serve, and is that component still required by the current architecture?**
 
 ## 8. Documentation / future intent
 
-ORCH-000197: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
+2026-09-02 Rony transport-identity correction:
+
+- `documentationImpact=FULL`;
+- `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
