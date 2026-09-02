@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001/receipt.json",
-  "messageId": "ORCH-000200",
-  "dispatchId": "DISPATCH-000200",
+  "publicationId": "GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001/receipt.json",
+  "messageId": "ORCH-000201",
+  "dispatchId": "DISPATCH-000201",
   "status": "PASS",
-  "classification": "CODEX_CHILD_AUTH_REUSE_AND_OUTPUT_QUALIFIED",
+  "classification": "GOVERNED_DIRECT_CODEX_ADAPTER_READY_FOR_ARCHITECT_REVIEW",
   "requiresArchitectDecision": true
 }
