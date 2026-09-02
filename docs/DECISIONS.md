@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000196 Architect review
+Documentation sync boundary: through ORCH-000197 Architect review
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
 
@@ -38,44 +38,56 @@ The live qualification stopped before delivery preparation/browser contact becau
 
 ## ORCH-000196 — ACCEPTED Executor relay/runtime diagnosis
 
-Executor terminal:
-
-`GH-PUB-196-EXECUTOR-RELAY-9444-RUNTIME-DIAGNOSTIC-000001`
-
-Architect decision:
+Decision:
 
 `GH-DEC-196-EXECUTOR-RELAY-PROCESS-ABSENT-DIAGNOSTIC-ACCEPTED`
 
-Architect classification: `ACCEPTED` for the diagnostic milestone.
+The diagnostic proved that durable worker registration/authority remain correct and ACTIVE, while port `9444` has no listener or owner process and the dedicated Executor relay/browser runtime is absent. No source patch or registration refresh is required while identity remains unchanged. Manual runtime restoration is required before another live delivery.
+
+## ORCH-000197 — BLOCKED post-restoration readiness
+
+Executor terminal:
+
+`GH-PUB-197-EXECUTOR-RELAY-STILL-NOT-RUNNING-000001`
+
+Architect decision:
+
+`GH-DEC-197-EXECUTOR-RELAY-STILL-NOT-RUNNING-BLOCKED`
+
+Architect classification: `BLOCKED`.
 
 Verified facts:
 
-- durable Executor authority and registration bindings are valid and ACTIVE;
-- the existing registration still targets the existing Executor conversation on port `9444`;
-- port `9444` has no listener and no owning process;
-- the dedicated Executor relay/runtime is not running/present;
-- no registered Executor browser-session process was identified;
-- source patch is not required;
-- registration refresh is not required while identity remains unchanged;
-- relay and Executor browser-session restoration are required;
-- the restoration crosses a human session/authentication boundary and requires Rony manual action;
-- ORCH-000196 made zero lease, delivery, browser-send, process, registration, source, AFFOTECH, or Drive mutations.
+- ORCH-000197 preconditions passed;
+- registration/authority bindings remain valid and ACTIVE;
+- registered conversation/port binding still matches;
+- `127.0.0.1:9444` still has `NO_LISTENER` and no owner process;
+- Executor relay/runtime remains not running/present;
+- registered Executor browser-session process remains absent/unidentified;
+- delivery `000015` remains absent;
+- lease index remains `382`, `nextLeaseEpoch=192`, `activeLeases=[]`;
+- latest successful worker delivery remains `000013/SENT`;
+- no lease, delivery, browser, process, registration, source, AFFOTECH, or Drive mutation occurred.
 
 Interpretation:
 
-The first deterministic unavailable boundary is operational runtime absence, not worker registration, accepted source, lease semantics, or delivery semantics.
+The read-only readiness check itself was valid, but its success predicate was not met because the required manual restoration had not occurred. This is a deterministic operational blocker, not an ambiguous external mutation.
 
-Retry decision:
+Retry / dispatch decision:
 
-No new live-delivery attempt is authorized yet. After manual restoration, ORCH-000197 must verify the existing registered Executor browser/relay boundary read-only. Only an accepted readiness verification may unlock a fresh live-delivery dispatch.
+- `liveDeliveryRetryAuthorized=false`;
+- do not acquire another worker-delivery lease;
+- do not create delivery `000015` evidence;
+- do not rerun DISPATCH-000197 before restoration;
+- no next canonical dispatch is published while the required human runtime restoration remains outstanding.
+
+Human restoration boundary:
+
+Rony must restore the existing registered Executor browser session and dedicated BrowserRelay/runtime on port `9444`, preserving current worker registration/authority unless the actual conversation/session identity changes. Historical live-delivery prompts assume this BrowserRelay target is already running; they do not provide a canonical startup command, so host-launch evidence must not be misused as a relay/browser launcher.
+
+After restoration is actually complete, Architect may publish a fresh read-only readiness verification. Only accepted readiness may unlock a fresh live-delivery attempt.
 
 Documentation decision:
 
 - `documentationImpact=STATE`;
 - `futureIdeaImpact=NONE`.
-
-## Next legal action
-
-Rony manually restores the existing registered Executor browser session and its dedicated BrowserRelay/runtime owner on `127.0.0.1:9444` without changing registration unless identity changes.
-
-Then run ORCH-000197, a read-only readiness verification. It must not acquire a lease, create delivery evidence, send to a browser, mutate registration/source, or contact Architect/AFFOTECH boundaries.
