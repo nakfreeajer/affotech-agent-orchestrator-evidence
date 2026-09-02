@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000200 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000201 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -8,96 +8,113 @@ Machine authority: durable GitHub evidence and Architect decisions
 ## Permanent governance lessons
 
 - Executor PASS/READY is evidence, never Architect acceptance.
-- Never blind-retry an ambiguous external mutation or child-process boundary; reconcile durable state first.
+- Never blind-retry an ambiguous external mutation, delivery or child-process boundary; reconcile durable state first.
 - Historical evidence remains immutable in meaning.
 - Architect owns canonical documentation directly.
 - Curator is eliminated from the active model.
 - Orchestrator is deterministic transport/state infrastructure and never interprets project semantics.
-- **Role identity, execution-runtime identity, transport identity, browser/session identity, and endpoint identity are distinct.**
+- Role identity, execution-runtime identity, transport identity, browser/session identity and endpoint identity are distinct.
 
-## Role/runtime/transport identity collapse — 2026-09-02
+## Role/runtime/transport identity collapse
 
-Historical BrowserRelay records used `workerRole=executor`, a ChatGPT conversation and relay endpoint `9444`. Architect treated that as proof that the current Executor itself was browser-based and that restoring `9444` was required.
-
-Rony corrected the operating reality: the Executor is the **Codex terminal/runtime in VS Code**.
+Historical BrowserRelay records used an Executor role label, ChatGPT conversation and `9444` relay endpoint. That was incorrectly treated as proof that BrowserRelay remained the active Executor transport.
 
 Permanent countermeasure:
 
-> Never diagnose or restore a missing transport from the role label alone. First prove what runtime executes the work, what transport currently reaches it, who owns each endpoint, whether that transport is still required, and the exact runtime↔transport binding.
+> Prove runtime, transport, endpoint ownership, continued necessity and exact runtime↔transport binding independently. Never restore a historical transport merely because its registration remains durable.
 
-Mandatory cold-start equation:
+## ORCH-000199 — inspect supported runtime surfaces first
 
-`Executor role ≠ Codex runtime ≠ BrowserRelay ≠ ChatGPT conversation ≠ CDP/relay port`
-
-## ORCH-000198 lesson — prove both directions
-
-Topology recovery must trace inbound and outbound paths independently. A transport is not current merely because it is registered.
-
-## ORCH-000199 lesson — discover supported runtime surfaces before inventing transport
-
-The installed Codex runtime already exposes supported non-interactive `codex exec`.
+The installed Codex runtime already provided supported non-interactive `codex exec`.
 
 Permanent lesson:
 
-> Before designing a custom relay or browser bridge for an AI worker, inspect the worker runtime's supported non-interactive invocation surface. Prefer a directly supported process/API contract when it can be governed safely.
+> Before inventing a browser bridge or custom relay for an AI worker, inspect the runtime's supported process/API surface and prefer it when it can be governed safely.
 
-Capability discovery alone was not enough: parent login status did not prove a separately spawned child reused authentication.
+## ORCH-000200 — qualify process boundaries with durable correlation
 
-## ORCH-000200 lesson — qualify process boundaries with durable correlation
+A child process is not qualified merely because a parent CLI is authenticated.
 
-ORCH-000200 proved the child-process boundary correctly:
+Proven ordering:
 
-- write/read back immutable intent first;
-- bind a unique exact correlation token;
-- invoke at most one child;
-- bind workdir and read-only sandbox explicitly;
-- use ephemeral execution;
-- capture machine-observable exit/output;
-- require exact output correlation;
-- persist/read back immutable result;
-- do not retry on timeout/auth/nonzero/mismatch/ambiguity;
-- clean only the exact same-milestone disposable temp output after durable result readback.
+1. create/read back immutable intent;
+2. bind unique correlation;
+3. invoke at most one child;
+4. bind explicit workdir/read-only sandbox/ephemeral mode;
+5. capture exit/output;
+6. persist/read back result;
+7. no retry on auth/nonzero/timeout/mismatch/ambiguity;
+8. clean only exact same-milestone disposable output after result readback.
 
-The child successfully reused ChatGPT authentication, exited `0`, matched the exact token, and required no retry.
+ORCH-000200 proved the child reused ChatGPT authentication and completed correctly.
 
-Permanent lesson:
+## ORCH-000201 — transport success is not process success
 
-> A successful CLI capability is not a governed transport until intent precedes spawn, the spawn is at-most-once, outcome is durably reconciled, and ambiguous boundaries cannot trigger blind retries.
+The direct-Codex adapter establishes an important permanent distinction:
 
-Also preserve ordering semantics when interpreting counters: the immutable ORCH-000200 result recorded temp deletion `0` because cleanup happened after result readback; the later terminal/receipt correctly recorded one authorized deletion. Snapshot timing is part of evidence meaning.
+`child process success ≠ Executor terminal success ≠ Architect acceptance`
 
-## Namespace lesson — do not reuse historical transport identities
+A `codex exec` exit code of `0` is only process evidence. Direct transport success requires observing the exact durable Executor terminal for the expected message/dispatch lineage with `requiresArchitectDecision=true`. Architect acceptance remains a later independent decision.
 
-`WORKER-DELIVERY-EXECUTOR-000015` belongs to the historical BrowserRelay delivery path. A direct-Codex adapter must use a distinct invocation namespace/identity rather than repurposing a never-sent BrowserRelay delivery ID.
+Permanent transport ordering:
+
+1. deterministic direct-Codex invocation identity;
+2. pre-read intent/result;
+3. if exact valid result exists, return it with zero spawn;
+4. if intent exists without result, reconciliation required and zero spawn;
+5. only absent intent+result may create/read back intent;
+6. only after exact intent readback may the child spawn;
+7. at most one child spawn;
+8. observe exact durable Executor terminal;
+9. persist/read back immutable transport result;
+10. duplicate replay must spawn zero children.
+
+## Namespace lesson
+
+`WORKER-DELIVERY-EXECUTOR-000015` belongs to the historical BrowserRelay delivery path.
+
+Direct Codex uses its own deterministic namespace:
+
+`CODEX-DIRECT-INVOCATION-EXECUTOR-<DISPATCH_ID>`
+
+Never repurpose a historical transport identity just because it was never sent.
+
+## Ambiguity lesson
+
+Intent-without-result is not permission to retry. It means the spawn boundary may already have been crossed and must fail closed into reconciliation-required state.
+
+Likewise, child exit with no exact durable terminal is not success and must not trigger blind re-spawn.
+
+## Dependency-injection lesson
+
+Transport adapters that cross process boundaries must be deterministic-testable without invoking the real worker. ORCH-000201 accepted fake/injected child launchers and host ports while keeping real child/model invocation at zero.
+
+Live qualification is a separate milestone from deterministic implementation acceptance.
 
 ## Full immutable lease lesson — ORCH-000184
 
-The `activeLeases` index entry is a reduced locator/projection. Full-schema work must hydrate the exact immutable revision first.
-
-## Corrected caller / observability lesson — ORCH-000187
-
-The proven reconciliation caller shape is full immutable lease + exact binding + integer `nowMs`; preserve caller/projection/await/mutation-boundary observability.
+The active-leases index is a locator/projection. Full-schema work hydrates the exact immutable revision first.
 
 ## Typed hash lesson — ORCH-000188
 
-Treat every hash as a typed value. Never compare Git blob SHA to project canonical SHA-256 merely because both are named `sha`.
+Canonical SHA-256 and Git blob SHA are different typed identities and must never be compared merely because both are named `sha`.
 
-## Pre-call evidence transport lesson — ORCH-000189 / ORCH-000190
+## Create/readback lesson — ORCH-000189 / ORCH-000190
 
-Accepted `createJson` is `precheck → at most one PUT → exact post-write readback → normalized result`. Durable readback, not PUT response alone, is final authority.
+Accepted durable create is `precheck → at most one PUT → exact post-write readback → normalized result`. PUT response alone is not final authority.
 
-## GitHub Contents semantic 404 lesson — ORCH-000191 / ORCH-000192
+## Semantic GitHub 404 lesson — ORCH-000191 / ORCH-000192
 
-Treat process failure and semantic HTTP absence as different states. Preserve HTTP status explicitly and map `404 → NOT_FOUND`.
+Preserve semantic HTTP status. Map `404 → NOT_FOUND`; do not collapse expected absence into generic subprocess/API failure.
 
 ## Current development ordering
 
 1. preserve lease/hash/GitHub ambiguity contracts;
 2. preserve role/runtime/transport identity separation;
-3. preserve ORCH-000198 current manual-to-Codex/direct-GitHub topology until replacement is accepted;
-4. treat ORCH-000199 `codex exec` support as accepted capability;
-5. treat ORCH-000200 one-shot authenticated child invocation as accepted runtime primitive;
-6. implement/test a dedicated governed direct-Codex adapter with fresh identity, durable intent/result and exactly-once spawn semantics;
-7. live-qualify the implemented adapter end-to-end under a separate bounded milestone;
-8. only after replacement transport acceptance decide whether to supersede/retire historical `9444` registration;
-9. prove unattended Codex-delivery → durable-terminal → Architect-wake loop.
+3. preserve the current manual-to-Codex production path until replacement is live accepted;
+4. treat ORCH-000200 as accepted authenticated child primitive;
+5. treat ORCH-000201 as accepted governed direct-Codex implementation;
+6. live-qualify the adapter with one real child probe and zero second spawn;
+7. then qualify persistent-host automatic dispatch observation → direct Codex;
+8. only after replacement transport acceptance decide whether historical BrowserRelay registration should be superseded/retired;
+9. prove the unattended durable-terminal → Architect review/wake continuation chain.
