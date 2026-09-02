@@ -1,7 +1,7 @@
 # AFFOTECH Agent Orchestrator Project Orchestration Policy
 
 **File:** `PROJECT_ORCHESTRATION_POLICY.md`  
-**Version:** 1.4  
+**Version:** 1.5  
 **Status:** Governing project-specific extension  
 **Inherits:** `governance/ORCHESTRATOR_BOOTSTRAP.md` v1.3  
 **Project:** `affotech-agent-orchestrator`  
@@ -202,13 +202,37 @@ Compatibility code may identify a foreign family for rejection/observability onl
 
 Do not access `nakfreeajer/affotech-agent-relay` under current authority.
 
-## 7. Current role/session registrations
+## 7. Role, runtime, session, and transport identity
 
-Architect browser/session authority is the registered dedicated Architect session on CDP port `9333` under current durable registration/authority evidence.
+These identities are distinct and MUST NOT be collapsed:
 
-Executor browser/session authority is the registered dedicated Executor session on CDP port `9444` under current durable worker registration/authority evidence.
+- **role identity** — for example `executor`;
+- **execution runtime identity** — the process/session that actually performs bounded work, currently the Codex terminal/runtime in VS Code unless a later durable authority explicitly replaces it;
+- **transport identity** — an adapter used to carry a governed message, such as BrowserRelay;
+- **browser/session identity** — a ChatGPT/browser conversation used by a transport where applicable;
+- **network endpoint identity** — a listener/CDP/relay port owned by a specific component.
 
-These endpoints are project-specific control-plane resources. Their exact durable authority/registration IDs must be read from current evidence rather than guessed.
+Architect browser/session authority is the registered dedicated Architect session on port `9333` under current durable registration/authority evidence where that BrowserRelay path is in use.
+
+Historical durable evidence also contains an `executor` worker registration bound to a ChatGPT conversation and port `9444`. That registration proves a **BrowserRelay delivery/control-plane target used by historical qualification**. It does **not** by itself prove that the Codex Executor runs in a browser, that Codex listens on `9444`, that `9444` is a Brave CDP port, or that the BrowserRelay remains required by the current execution topology.
+
+A worker registration whose `workerRole` is `executor` MUST NOT be treated as proof of Executor execution-runtime identity. Role labels are insufficient.
+
+### 7A. Runtime/transport topology reconciliation gate
+
+Before Architect authorizes repair, restart, restoration, retry, or replacement of a missing worker transport/session/port, Architect MUST first prove from current evidence and current human-confirmed operating topology:
+
+1. what process/runtime actually performs the Executor work;
+2. what transport, if any, is currently intended to deliver the dispatch to that runtime;
+3. which component owns each relevant port;
+4. whether the transport is still required rather than historical/stale;
+5. the exact durable binding between execution runtime and transport when such a binding exists.
+
+A historical ACTIVE registration, historical successful BrowserRelay delivery, or a missing listener is not sufficient by itself to authorize restoration.
+
+Do not invent a browser/CDP port, BrowserRelay launcher, or runtime launcher from role names or historical prompts.
+
+On 2026-09-02 Rony explicitly confirmed that the operational Executor is the Codex terminal in VS Code and challenged the assumption that the historical `9444` BrowserRelay target was the Executor itself. Therefore the ORCH-000195 through ORCH-000197 evidence remains valid history of the attempted BrowserRelay qualification, but the ORCH-000197 future-action instruction to restore an “Executor browser” on `9444` is **superseded for future action**. No further `9444` restoration or live-delivery retry is authorized until the current Codex-delivery topology is reconciled.
 
 No Curator browser/session registration exists or is required under `ARCHITECT_DIRECT`.
 
@@ -277,9 +301,10 @@ Before command 1 and before the first mutation of every mutating Executor milest
 - exact canonical prompt and SHA-256;
 - dispatch/message identity and lineage;
 - target role and current registration;
+- **actual execution-runtime identity and its proven relationship to any transport/session/endpoint being used**;
 - accepted source anchor/snapshot/manifests when specified;
 - current Architect decision authorizes this milestone;
-- relay/control state permits work;
+- relay/control state permits work where that relay/control path is actually part of the proven current topology;
 - mutation envelope and protected resources;
 - required human authority and lease state where applicable.
 
@@ -327,7 +352,7 @@ For every important external side effect:
 
 No blind retry.
 
-This principle currently governs BrowserRelay transport and GitHub host-runtime mutation and must be generalized before future API/spreadsheet/push/deployment/business-data integrations.
+This principle currently governs BrowserRelay transport where BrowserRelay is actually part of the proven current topology, and GitHub host-runtime mutation, and must be generalized before future API/spreadsheet/push/deployment/business-data integrations.
 
 ## 16. Durable correlation identity
 
@@ -341,13 +366,15 @@ Missing unique correlation after an ambiguous attempt stays fail-closed and does
 
 ## 17. BrowserRelay boundary
 
-BrowserRelay is a transport adapter, never Architect authority.
+BrowserRelay is a **transport adapter**, never Architect authority and never the Executor execution engine merely because its registration uses `workerRole=executor`.
 
 Worker dispatch transport may send only the compact governed locator/envelope defined by the active protocol. The worker must resolve canonical GitHub authority independently.
 
 Architect BrowserRelay is a one-way doorbell. It may send only the governed wake text for normal review and must not parse Architect assistant responses, scrape decisions, copy next prompts, or derive authority from DOM text.
 
-Browser transport must preserve exactly-once intent/result/reconciliation semantics and current session identity gates.
+Browser transport must preserve exactly-once intent/result/reconciliation semantics and current session identity gates when BrowserRelay is part of the proven current topology.
+
+A BrowserRelay/CDP port MUST be attributed to its owning component before troubleshooting. Never start Brave on a relay port or start a relay on a browser CDP port merely because the same number appears in historical worker evidence.
 
 ## 18. Schema compatibility
 
@@ -411,6 +438,8 @@ A cold-start Architect must recognize:
 - `STATE`/`FULL` documentation closure precedes the next mutating implementation dispatch;
 - `IDEA_INBOX` and `ROADMAP` are future-intent surfaces, not authority/current truth;
 - machine evidence remains authority over Markdown;
+- **Executor role identity, execution-runtime identity, browser/session identity, transport identity, and network endpoint identity are separate and must be reconciled before transport restoration/retry**;
+- an historical ACTIVE BrowserRelay registration does not prove the current Executor is browser-based or that the relay is still required;
 - unfinished intent or uncertain external side effects enter reconciliation before retry.
 
 Human-readable docs must make the current accepted operational picture and preserved future intent understandable without confusing them, but they never replace the durable evidence chain.
@@ -469,6 +498,9 @@ Current governing posture:
 - required `STATE`/`FULL` documentation sync/readback precedes the next mutating implementation dispatch;
 - material future ideas are captured/promoted through `docs/IDEA_INBOX.md` and `docs/ROADMAP.md` without creating implementation authority;
 - Curator is eliminated from the active model; no Curator terminal or transport proof is required;
+- role/runtime/transport/session/endpoint identities are separate; topology must be proved before repair/restoration/retry;
+- the current operational Executor is the Codex terminal/runtime in VS Code; historical BrowserRelay evidence must not be mistaken for the execution engine;
+- no further `9444` BrowserRelay restoration or live-delivery retry is authorized until the Codex-delivery topology is reconciled;
 - protocol-family separation and durable correlation identity remain mandatory;
 - AFFOTECH integration/access remains unauthorized;
 - accepted source remains separately governed from runtime qualification;
