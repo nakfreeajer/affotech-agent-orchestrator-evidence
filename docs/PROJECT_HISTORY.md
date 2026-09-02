@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000198 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000199 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -15,45 +15,29 @@ Key accepted foundations:
 - ORCH-000163: Architect wake `ARCH-TRIGGER-9333-000005/SENT` exactly once;
 - ORCH-000165: lineage compatibility repair accepted with full deterministic `817/817`.
 
-## ORCH-000166 through ORCH-000193 — persistent-host work and epoch-189 recovery
+## ORCH-000166 through ORCH-000194 — persistent-host recovery foundation
 
-Persistent-host bootstrap and dispatch observation were established. The recovery chain established full immutable lease hydration, typed hash identities, corrected reconciliation caller shape, exact `createJson` readback semantics, and semantic GitHub `404 → NOT_FOUND` handling.
-
-ORCH-000193 reconciled epoch 189 to immutable revision 2 / `EXPIRED` and advanced the lease index to `378` with no active leases.
-
-## ORCH-000194 — zero-browser delivery preflight accepted
-
-ORCH-000194 proved:
-
-`ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`
-
-for delivery `000014`, with browser contact/send `0/0`.
+Persistent-host bootstrap, dispatch observation, full immutable lease hydration, typed hash identities, exact create/readback semantics and semantic GitHub `404 → NOT_FOUND` handling were established. ORCH-000193 closed the stale epoch-189 lease; ORCH-000194 proved zero-browser ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE.
 
 ## ORCH-000195 through ORCH-000197 — historical 9444 recovery branch
 
-ORCH-000195 attempted fresh delivery `000015` against registered endpoint `127.0.0.1:9444`; the endpoint was unavailable before delivery preparation/contact. The lease closed cleanly at index `382`, next epoch `192`, zero active leases.
+ORCH-000195 found registered endpoint `9444` unavailable before delivery `000015` preparation. ORCH-000196 diagnosed no listener/owner and ORCH-000197 confirmed the expected restoration had not occurred. The branch remained mutation-clean.
 
-ORCH-000196 diagnosed no listener/owner and no identified expected browser/relay runtime. ORCH-000197 verified that the expected manual restoration had still not occurred.
-
-At that time the project assumed the registered BrowserRelay target was the active path to the Executor.
+At that time the project incorrectly assumed the historical BrowserRelay registration represented the active Executor runtime path.
 
 ## 2026-09-02 — runtime/transport identity correction
 
-Rony challenged the premise and confirmed that the operational Executor is the **Codex terminal/runtime in VS Code**, not a browser-based Executor.
-
-This exposed a governance/documentation defect: historical `workerRole=executor` BrowserRelay registration had been allowed to substitute for proof of current execution topology.
+Rony confirmed that the operational Executor is the Codex terminal/runtime in VS Code, exposing the governance defect of collapsing role/runtime/transport/browser/endpoint identity.
 
 Permanent correction:
 
 `role ≠ runtime ≠ transport ≠ browser/session ≠ endpoint`
 
-Project policy advanced to v1.5. The ORCH-000197 future-action instruction to restore an “Executor browser and relay 9444” was superseded for future action while historical evidence remained unchanged.
+Project policy advanced to v1.5 and the `9444` restoration instruction was superseded for future action.
 
-## ORCH-000198 — current Codex topology reconciled and accepted
+## ORCH-000198 — current Codex topology accepted
 
-ORCH-000198 executed from the Codex terminal/runtime in VS Code and traced both directions read-only.
-
-Accepted result:
+Decision:
 
 `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
 
@@ -69,18 +53,43 @@ Architect durable dispatch
   → Architect review
 ```
 
-The run found no proven persistent automatic GitHub/Orchestrator → Codex bridge. The historical registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE and bound to ChatGPT/port `9444`, but that path is legacy relative to the proven current manual Codex route and is not required for it.
+BrowserRelay `9444` was accepted as legacy relative to this current manual path. No persistent automatic Orchestrator/GitHub → Codex bridge was found.
 
-No BrowserRelay restoration, registration mutation, delivery `000015` retry, lease mutation, source mutation, AFFOTECH access, or Drive mutation occurred.
+## ORCH-000199 — non-interactive Codex capability discovered and accepted
+
+Executor terminal:
+
+`GH-PUB-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-000001`
+
+Architect decision:
+
+`GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
+
+Read-only discovery proved:
+
+- installed CLI `codex-cli 0.151.0`;
+- executable binding through `C:\Users\nitro\AppData\Roaming\npm\codex.ps1`;
+- supported non-interactive `codex exec` interface;
+- prompt argument/stdin input;
+- working-directory/model/profile/config/sandbox/approval controls;
+- structured/machine-readable output surfaces;
+- ephemeral execution support;
+- current CLI reports `Logged in using ChatGPT`.
+
+No child/model invocation occurred, so child `codex exec` reuse of the current ChatGPT login remains unproven. The accepted source has no direct Codex child-spawn adapter yet.
+
+This milestone redirected the unattended architecture toward a direct Codex CLI path rather than BrowserRelay restoration.
+
+No lease, worker delivery, browser, process, registration, source, AFFOTECH or Drive mutation occurred.
 
 `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-The manual inbound handoff and direct GitHub outbound publication are now understood. The remaining orchestration gap is unattended **direct Codex invocation**.
+The next bounded proof is ORCH-000200: exactly one isolated, read-only, ephemeral child `codex exec` invocation using a harmless deterministic correlation prompt, solely to prove authentication reuse plus observable exit/output semantics.
 
-The next bounded work is read-only discovery of the installed Codex runtime's supported non-interactive invocation surface, authentication mode, input/output semantics, and suitability for persistent-Orchestrator spawning under governed exactly-once intent/result rules.
+No production adapter, BrowserRelay restoration, historical registration mutation, delivery `000015` retry or application implementation is authorized by that qualification.
 
-Do not restore `9444`, mutate the historical worker registration, or retry delivery `000015` before that direct Codex contract is understood and separately qualified.
+If ORCH-000200 succeeds, a later bounded milestone may design/implement a governed direct-Codex adapter with durable intent/result, exactly-once child invocation, timeout reconciliation and duplicate suppression.
 
 AFFOTECH remains separate/protected until later explicit Rony-authorized integration.
