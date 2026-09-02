@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through Rony transport-identity correction on 2026-09-02; no new ORCH dispatch after ORCH-000197
+Documentation sync boundary: through ORCH-000198 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -23,89 +23,64 @@ ORCH-000193 reconciled epoch 189 to immutable revision 2 / `EXPIRED` and advance
 
 ## ORCH-000194 — zero-browser delivery preflight accepted
 
-ORCH-000194 proved one in-process sequence:
+ORCH-000194 proved:
 
 `ACQUIRE → transient actionKind=WORKER_DELIVERY → PREPARE → PROVEN_NOT_SENT → RELEASE`
 
-for `WORKER-DELIVERY-EXECUTOR-000014`, with browser contact/send `0/0`. The lease index closed at `380`, next epoch `191`, and zero active leases.
+for delivery `000014`, with browser contact/send `0/0`.
 
-Decision:
+## ORCH-000195 through ORCH-000197 — historical 9444 recovery branch
 
-`GH-DEC-194-WORKER-DELIVERY-000014-PREFLIGHT-ACCEPTED`.
+ORCH-000195 attempted fresh delivery `000015` against registered endpoint `127.0.0.1:9444`; the endpoint was unavailable before delivery preparation/contact. The lease closed cleanly at index `382`, next epoch `192`, zero active leases.
 
-## ORCH-000195 — historical live delivery stopped before preparation
+ORCH-000196 diagnosed no listener/owner and no identified expected browser/relay runtime. ORCH-000197 verified that the expected manual restoration had still not occurred.
 
-Fresh delivery `WORKER-DELIVERY-EXECUTOR-000015` was attempted against the registered endpoint `127.0.0.1:9444`, but it returned `ECONNREFUSED` before delivery intent creation or browser contact.
+At that time the project assumed the registered BrowserRelay target was the active path to the Executor.
 
-The epoch-191 lease was released normally. Final state: index `382`, `nextLeaseEpoch=192`, zero active leases, delivery `000015` absent, latest successful delivery still `000013/SENT`.
+## 2026-09-02 — runtime/transport identity correction
 
-Decision:
+Rony challenged the premise and confirmed that the operational Executor is the **Codex terminal/runtime in VS Code**, not a browser-based Executor.
 
-`GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`.
-
-## ORCH-000196 — historical BrowserRelay absence diagnosed
-
-ORCH-000196 ran read-only and confirmed the historical worker registration/authority remained marked ACTIVE while port `9444` had no listener/owner and the expected browser/relay runtime was absent.
-
-Architect accepted the diagnostic under:
-
-`GH-DEC-196-EXECUTOR-RELAY-PROCESS-ABSENT-DIAGNOSTIC-ACCEPTED`.
-
-At this point the project assumed that the registered BrowserRelay target was still the active route to the Executor.
-
-## ORCH-000197 — historical post-restoration readiness blocked
-
-ORCH-000197 was a read-only readiness verification intended to run after manual restoration. It confirmed restoration had not occurred and preserved clean durable state:
-
-- port `9444` no listener;
-- no owner process;
-- no delivery `000015` intent/result;
-- lease index `382`, `nextLeaseEpoch=192`, zero active leases;
-- latest successful delivery `000013/SENT`;
-- no lease/delivery/browser/process/registration/source/AFFOTECH/Drive mutation.
-
-Architect decision:
-
-`GH-DEC-197-EXECUTOR-RELAY-STILL-NOT-RUNNING-BLOCKED`.
-
-Classification: `BLOCKED`.
-
-The then-documented next action was to manually restore the “Executor browser” and BrowserRelay on `9444`.
-
-## 2026-09-02 — Executor runtime/transport identity correction
-
-During manual troubleshooting, Rony challenged the premise: the actual operational Executor is the **Codex terminal in VS Code**, not a browser-based Executor.
-
-This exposed a documentation/governance defect rather than a new runtime failure. The project had collapsed several different identities because a historical BrowserRelay registration used `workerRole=executor`:
-
-- Executor role;
-- Codex execution runtime;
-- BrowserRelay transport;
-- ChatGPT browser conversation;
-- network/CDP/relay port.
-
-That collapse caused Architect to spend ORCH-000195 through ORCH-000197 trying to restore a historical transport component before proving it was still required by the current Codex topology.
-
-The BrowserRelay history was real and those milestones remain valid historical evidence. The mistake was treating historical transport registration as proof of current execution architecture.
-
-Rony directed that documentation be corrected so this mistake cannot recur.
+This exposed a governance/documentation defect: historical `workerRole=executor` BrowserRelay registration had been allowed to substitute for proof of current execution topology.
 
 Permanent correction:
 
 `role ≠ runtime ≠ transport ≠ browser/session ≠ endpoint`
 
-Project policy advanced to v1.5. Before future transport repair/restoration/retry, Architect must first prove the current execution runtime, intended transport, endpoint owner, continued necessity, and exact runtime↔transport binding.
+Project policy advanced to v1.5. The ORCH-000197 future-action instruction to restore an “Executor browser and relay 9444” was superseded for future action while historical evidence remained unchanged.
 
-The ORCH-000197 future-action instruction to restore an “Executor browser and relay 9444” is superseded for future action. Historical evidence remains untouched.
+## ORCH-000198 — current Codex topology reconciled and accepted
+
+ORCH-000198 executed from the Codex terminal/runtime in VS Code and traced both directions read-only.
+
+Accepted result:
+
+`GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
+
+Proven current path:
+
+```text
+Architect durable dispatch
+  → manual user locator/message
+  → Codex terminal/runtime in VS Code
+  → direct GitHub authority reads
+  → bounded Executor work
+  → direct GitHub terminal/report/receipt publication
+  → Architect review
+```
+
+The run found no proven persistent automatic GitHub/Orchestrator → Codex bridge. The historical registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE and bound to ChatGPT/port `9444`, but that path is legacy relative to the proven current manual Codex route and is not required for it.
+
+No BrowserRelay restoration, registration mutation, delivery `000015` retry, lease mutation, source mutation, AFFOTECH access, or Drive mutation occurred.
 
 `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-There is **no current next dispatch**.
+The manual inbound handoff and direct GitHub outbound publication are now understood. The remaining orchestration gap is unattended **direct Codex invocation**.
 
-Do not rerun `DISPATCH-000197`, do not restore `9444` merely because the historical registration exists, and do not retry delivery `000015`.
+The next bounded work is read-only discovery of the installed Codex runtime's supported non-interactive invocation surface, authentication mode, input/output semantics, and suitability for persistent-Orchestrator spawning under governed exactly-once intent/result rules.
 
-The next legal technical step, when separately authorized, is a read-only current-topology reconciliation answering how the Orchestrator is supposed to deliver a governed dispatch to the Codex terminal and whether BrowserRelay remains part of that path.
+Do not restore `9444`, mutate the historical worker registration, or retry delivery `000015` before that direct Codex contract is understood and separately qualified.
 
 AFFOTECH remains separate/protected until later explicit Rony-authorized integration.
