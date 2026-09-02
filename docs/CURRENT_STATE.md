@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000201 / DISPATCH-000201 publication on 2026-09-02
+Documentation sync boundary: through ORCH-000201 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -7,126 +7,105 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 ## 1. Accepted source
 
-`GH-PUB-165-WORKER-DELIVERY-LEGACY-LINEAGE-HYDRATION-REPAIR-READY-000001`
+Current accepted source:
 
-Qualification: 101 files; focused `65/65`; GitHub runtime ports `43/43`; BrowserRelay transport ports `22/22`; full deterministic `817/817`.
+`GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001`
 
-Accepted source has not changed through ORCH-000201 dispatch publication.
+Qualification:
 
-## 2. Accepted current Codex topology
-
-ORCH-000198 remains accepted under:
-
-`GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
-
-Current accepted production path remains:
-
-`Architect durable dispatch → manual user locator/message → Codex terminal/runtime in VS Code → direct GitHub authority reads/work → direct GitHub terminal publication → Architect review`.
-
-Historical BrowserRelay `9444` remains legacy relative to this path.
-
-## 3. ORCH-000199 — ACCEPTED capability discovery
-
-`GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
-
-Installed `codex-cli 0.151.0` exposes supported non-interactive `codex exec` with prompt argument/stdin, explicit workdir, sandbox/approval controls, structured output and ephemeral execution.
-
-## 4. ORCH-000200 — ACCEPTED one-shot direct Codex qualification
-
-Executor terminal:
-
-`GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001`
+- 103 files;
+- focused tests `95/95`;
+- full deterministic suite `833/833`, 0 failed, 0 skipped/cancelled;
+- manifest SHA-256 `42f37c4fcd4b291e2edf4c14725b03287dc0150e9e2e4cca614d0f56ea2239b8`;
+- archive SHA-256 `b6d87a5a041be0615a143965bb2cc8c5c35080633c74d70e4600d636a4503878`.
 
 Architect decision:
 
-`GH-DEC-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-ACCEPTED`
+`GH-DEC-201-GOVERNED-DIRECT-CODEX-ADAPTER-ACCEPTED`
 
-Verified:
+Accepted changed paths:
 
-- durable intent ARMED before invocation;
-- exactly one child `codex exec` invocation;
-- current ChatGPT authentication successfully reused;
-- child exit code `0`;
-- timeout=false, termination count `0`;
-- exact correlation token matched;
-- retryAttempted=false;
-- durable result outcome `QUALIFIED`;
-- exact disposable temp output cleaned after result readback;
-- protected mutation counts zero.
+- `src/host/codex-direct-transport.js`;
+- `src/host/persistent-host-runner.js`;
+- `src/host/github-runtime-ports.js`;
+- `test/codex-direct-transport.test.js`.
 
-This proves a one-shot authenticated direct `codex exec` primitive. It does not yet make unattended dispatch production-ready.
+Previous GH-PUB-165 remains historical accepted evidence but is no longer the current accepted source pointer.
 
-## 5. Durable state
+## 2. Current production topology
 
-- lease index revision `382`;
+The currently proven production path remains manual inbound:
+
+`Architect durable dispatch → manual user locator/message → Codex terminal/runtime in VS Code → direct GitHub authority reads/work → direct GitHub terminal publication → Architect review`.
+
+Do not claim unattended production operation yet.
+
+## 3. Proven direct Codex chain
+
+ORCH-000199 accepted supported non-interactive `codex exec` capability.
+
+ORCH-000200 accepted one-shot authenticated child execution with durable correlation, exit/output observability and no retry.
+
+ORCH-000201 accepted the governed direct-Codex adapter implementation with:
+
+- deterministic `CODEX-DIRECT-INVOCATION-EXECUTOR-<DISPATCH_ID>` identities;
+- compact canonical GitHub dispatch locator;
+- durable intent readback before spawn;
+- at-most-one child spawn;
+- duplicate suppression;
+- fail-closed reconciliation when intent exists without result;
+- explicit workdir/sandbox/ephemeral controls;
+- exact durable Executor-terminal observation before transport success;
+- durable result readback;
+- distinct auth/timeout/nonzero/process/terminal/lineage/ambiguity states;
+- persistent-host direct-Codex route that does not require BrowserRelay.
+
+ORCH-000201 itself used fake/injected child launchers only. Real child Codex/model invocation count was `0`.
+
+## 4. Durable state
+
+- mutation-lease index revision `382`;
 - `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
-- latest successful historical BrowserRelay delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
+- latest historical BrowserRelay delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
 - delivery `000014/PROVEN_NOT_SENT` preserved;
-- delivery `000015` intent/result absent and must not be reused for direct Codex;
-- historical worker registration `WORKER-REG-EXECUTOR-000001` remains ACTIVE but no mutation is authorized;
+- delivery `000015` intent/result absent and must not be reused by direct Codex;
+- historical worker registration remains unchanged;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
 
-## 6. Current implementation gap
+## 5. Current missing proof
 
-`GOVERNED_DIRECT_CODEX_ADAPTER_NOT_YET_IMPLEMENTED_OR_QUALIFIED`
+`GOVERNED_DIRECT_CODEX_ADAPTER_LIVE_END_TO_END_QUALIFICATION_NOT_YET_PROVEN`
 
-The runtime primitive is proven. The remaining gap is the deterministic adapter that lets the persistent Orchestrator invoke Codex with durable pre-spawn intent, a fresh direct-Codex identity, at-most-once spawn, duplicate suppression, explicit workdir/sandbox, bounded terminal observation and output/exit reconciliation, distinct failure states, durable result, and no blind retry.
+Source implementation and deterministic semantics are accepted, but one real adapter-driven child invocation has not yet been performed.
 
-## 7. Accepted source placement
+## 6. Next legal milestone
 
-The GH-PUB-165 accepted source is preserved at:
+The next bounded milestone is ORCH-000202: one live adapter qualification with a dedicated harmless child probe dispatch.
 
-- `evidence/artifacts/orch-000165/manifest.json`
-- `evidence/artifacts/orch-000165/source.tar.gz`
+Required proof:
 
-The manifest confirms actual project paths including:
+1. fresh direct-Codex invocation identity, not a BrowserRelay delivery ID;
+2. immutable intent durably read back before child spawn;
+3. exactly one real authenticated child `codex exec` invocation;
+4. child receives only the canonical GitHub locator for a bounded probe dispatch;
+5. child publishes an exact durable Executor probe terminal with `requiresArchitectDecision=true`;
+6. parent adapter observes the exact terminal lineage;
+7. adapter persists/readbacks a terminalized transport result;
+8. one bounded duplicate replay produces zero second child spawn;
+9. no blind retry on ambiguity/failure;
+10. BrowserRelay, worker delivery `000015`, registration, lease state, AFFOTECH and Drive remain untouched.
 
-- `src/host/persistent-host-runner.js`
-- `src/host/automatic-dispatch-host.js`
-- `src/host/github-runtime-ports.js`
-- `src/recovery/exactly-once.js`
-- `src/evidence/publish-evidence.js`
-- corresponding `test/` paths.
+This live qualification must not start the persistent host. Persistent-host automatic dispatch observation is a later separate proof.
 
-## 8. ORCH-000201 — current legal milestone
+## 7. Protected boundary
 
-Current canonical prompt/dispatch:
+AFFOTECH System V2 Hybrid, ports `9222/9223`, Drive/business/private data, deployment, tenant resources and unrelated worktrees remain unauthorized.
 
-- `ORCH-000201`
-- `DISPATCH-000201`
-- milestone `ORCH.P0.SANDBOX.OPERATIONAL.UNATTENDED.CYCLE.CODEX.DIRECT.GOVERNED.ADAPTER.IMPLEMENTATION.2T`
-- operation class `SOURCE_MUTATION`
-- candidate publication `GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001`
-- dispatch state `MANUAL_TRIGGER_REQUIRED`.
+BrowserRelay `9444` restoration is not part of the direct-Codex path.
 
-ORCH-000201 authorizes source/test implementation only within seven explicit tracked paths. It requires a fresh `CODEX-DIRECT-INVOCATION-*` namespace, durable intent before child spawn, at-most-once child spawn, duplicate suppression, exact durable Executor-terminal observation before transport success, persistent-host composition without BrowserRelay, and distinct fail-closed outcome classes.
+## 8. Documentation / future intent
 
-ORCH-000201 explicitly forbids:
-
-- any real child Codex/model invocation;
-- BrowserRelay/Brave/ChatGPT browser contact;
-- host process start/stop;
-- historical registration mutation;
-- BrowserRelay delivery `000015` reuse/mutation;
-- lease mutation;
-- AFFOTECH/Drive access;
-- Executor docs/governance mutation.
-
-## 9. Current required action
-
-Run in the current Codex terminal:
-
-`execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000201`
-
-After the candidate source terminal/report/receipt is published, return to Architect with `verify & next`.
-
-Implementation acceptance will not by itself authorize unattended production use. A separate live qualification is required afterward.
-
-## 10. Documentation / future intent
-
-ORCH-000200 acceptance: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
-
-ORCH-000201 publication: `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
+ORCH-000201: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
