@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000199 Architect acceptance on 2026-09-02
+Documentation sync boundary: through ORCH-000200 Architect acceptance on 2026-09-02
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, immutable Architect decisions, and explicit current Rony authority as defined by precedence
 
@@ -21,8 +21,6 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 
 ## Permanent identity-separation decision — 2026-09-02
 
-Permanent rule:
-
 `role identity ≠ execution runtime ≠ transport adapter ≠ browser/session identity ≠ network endpoint`
 
 A historical BrowserRelay registration labeled `executor` is not proof that BrowserRelay is the current Codex execution transport. Current topology requires first-hand proof.
@@ -43,65 +41,78 @@ These milestones validly diagnosed the old `9444` BrowserRelay target but did no
 
 ## ORCH-000198 — ACCEPTED current Codex topology
 
-Decision:
-
 `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED`
 
 Accepted current path:
 
 `Architect durable dispatch → manual user locator/message → Codex terminal/runtime → direct GitHub terminal publication → Architect review`
 
-No persistent automatic Orchestrator/GitHub → Codex invocation edge was proven. BrowserRelay `9444` is legacy relative to this current manual path.
+BrowserRelay `9444` is legacy relative to this current manual path.
 
 ## ORCH-000199 — ACCEPTED Codex non-interactive capability discovery
 
+`GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
+
+Accepted: `codex-cli 0.151.0` exposes supported non-interactive `codex exec` with prompt, workdir, sandbox/approval, structured output and ephemeral controls. Child authentication reuse remained unproven at that stage.
+
+## ORCH-000200 — ACCEPTED one-shot direct Codex qualification
+
 Decision:
 
-`GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED`
+`GH-DEC-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-ACCEPTED`
 
 Executor terminal:
 
-`GH-PUB-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-000001`
+`GH-PUB-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-000001`
 
 Architect classification: `ACCEPTED`.
 
-Accepted facts:
+Independently verified facts:
 
-- current installed CLI is `codex-cli 0.151.0`;
-- non-interactive execution is supported through `codex exec`;
-- prompt input supports argument or stdin;
-- working directory, model/profile/config, sandbox/approval and structured output surfaces are exposed;
-- ephemeral execution is supported;
-- current CLI reports `Logged in using ChatGPT`;
-- child `codex exec` authentication reuse is **not yet proven** because no child/model invocation was authorized in ORCH-000199;
-- accepted Orchestrator source has no direct Codex spawn adapter yet;
-- BrowserRelay restoration is not required for this direct-Codex capability path;
-- lease index remains `382`, next epoch `192`, zero active leases;
-- delivery `000015` remains absent and unauthorized;
-- source/browser/registration/AFFOTECH/Drive mutations were zero.
+- preconditions passed;
+- immutable qualification intent was durably ARMED before child invocation;
+- correlation token `ORCH200_OK_89F8188224F4F81CB444F1A3` was bound before invocation;
+- child `codex exec` invocation count exactly `1`;
+- child exit code `0`;
+- `timedOut=false`;
+- child termination count `0`;
+- exact bounded output matched the correlation token;
+- child reuse of the current ChatGPT authentication is proven;
+- retryAttempted=false;
+- durable qualification result outcome `QUALIFIED` was written/read back;
+- one authorized disposable temp last-message file was deleted only after result readback;
+- lease state stayed `382 / 192 / 0`;
+- latest historical BrowserRelay delivery stayed `000013/SENT`;
+- delivery `000015` remained absent;
+- BrowserRelay/registration/source/AFFOTECH/Drive mutations were zero.
 
-This acceptance proves the supported capability surface only. It does not yet prove unattended Codex execution.
+The result snapshot itself records temp deletion count `0` because that immutable result precedes cleanup; the terminal/receipt record one authorized post-result deletion. This matches the authorized ordering and is not contradictory.
 
-## Next decision boundary — ORCH-000200
+This acceptance proves a one-shot authenticated direct-Codex runtime primitive. It does not yet accept a production unattended adapter.
 
-Architect authorizes one separately bounded **one-shot direct `codex exec` authentication-reuse qualification**.
+## Next decision boundary — ORCH-000201
 
-Constraints:
+Architect may authorize bounded source/test implementation of a governed direct-Codex adapter against the GH-PUB-165 accepted source layout.
 
-- at most one child Codex invocation;
-- harmless deterministic prompt with pre-bound correlation token;
-- read-only sandbox and ephemeral execution where supported;
-- no implementation/source/config mutation;
-- no BrowserRelay/Brave;
-- no historical registration mutation;
-- no delivery `000015` reuse;
-- no credential/secret reads;
-- exact exit/output correlation required;
-- no retry on timeout, ambiguous outcome, auth failure, or mismatch.
+Required properties:
 
-Only successful qualification may justify a later direct-Codex adapter implementation/qualification milestone.
+- new direct-Codex invocation namespace/identity; do not reuse BrowserRelay delivery `000015`;
+- durable intent before child spawn;
+- at-most-one spawn per invocation identity;
+- duplicate suppression;
+- explicit canonical dispatch/prompt correlation;
+- explicit workdir, sandbox/approval and ephemeral controls;
+- machine-observable exit/output;
+- durable result readback;
+- separate timeout/auth/nonzero/output-mismatch/ambiguous outcomes;
+- no blind retry;
+- persistent-host integration without BrowserRelay;
+- historical worker registration remains untouched;
+- AFFOTECH/Drive remain protected.
 
-Documentation decision for ORCH-000199:
+ORCH-000201 implementation must be independently tested and reviewed before any live unattended production qualification.
+
+Documentation decision for ORCH-000200:
 
 - `documentationImpact=FULL`;
 - `futureIdeaImpact=NONE`.
