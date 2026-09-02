@@ -6,7 +6,7 @@
   "messageId": "ORCH-000201",
   "parentMessageId": "ORCH-000200",
   "canonicalPromptPath": "evidence/prompts/ORCH-000201.md",
-  "canonicalPromptSha256": "3929691a92b643b92086178a6a2b7bb2a8767940b6e73c89352372bc1b91c181",
+  "canonicalPromptSha256": "73235398a43db1b2708e12ea29a477d109e356fdd98f73c12f265c591f6f5550",
   "targetRole": "executor",
   "targetExecutionRuntime": "CODEX_TERMINAL_RUNTIME_IN_VSCODE",
   "protocolFamily": "ORCHESTRATOR_GITHUB",
