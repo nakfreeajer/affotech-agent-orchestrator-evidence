@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-202-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-202-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-202-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-202-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001/receipt.json",
-  "messageId": "ORCH-000202",
-  "dispatchId": "DISPATCH-000202",
-  "status": "INCONCLUSIVE",
-  "classification": "DIRECT_CODEX_ADAPTER_LIVE_INTENT_OR_RESULT_AMBIGUOUS",
+  "publicationId": "GH-PUB-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-000001/receipt.json",
+  "messageId": "ORCH-000203",
+  "dispatchId": "DISPATCH-000203",
+  "status": "PASS",
+  "classification": "DIRECT_CODEX_INTENT_AMBIGUITY_OBSERVABILITY_INSUFFICIENT",
   "requiresArchitectDecision": true
 }
