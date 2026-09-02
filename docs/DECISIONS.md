@@ -1,7 +1,7 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000197 Architect review
+Documentation sync boundary: through Rony transport-identity correction on 2026-09-02; no new ORCH dispatch after ORCH-000197
 Status: CURRENT HUMAN-READABLE PROJECTION
-Machine authority: durable GitHub evidence, governing policy, and immutable Architect decisions
+Machine authority: durable GitHub evidence, governing policy, immutable Architect decisions, and explicit current Rony authority as defined by precedence
 
 # Architect Decisions
 
@@ -12,11 +12,32 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - Rony is final human authority.
 - Architect governs, verifies, decides, defines next bounded authority, and owns canonical documentation.
 - Executor performs bounded runtime/source/validation work and publishes first-hand evidence.
+- The operational Executor execution runtime is currently the Codex terminal/runtime in VS Code unless later durable authority explicitly replaces it.
 - Orchestrator is deterministic transport/state infrastructure, never semantic authority.
 - GitHub durable evidence is machine authority.
-- No blind retry after ambiguous external mutation or browser send.
+- No blind retry after ambiguous external mutation or send.
 - Historical evidence is immutable in meaning.
 - AFFOTECH and protected resources remain separate until explicitly authorized.
+
+## Permanent identity-separation decision — 2026-09-02
+
+Rony identified a governance/architecture defect: the project-specific documentation had conflated a historical BrowserRelay worker registration labeled `executor` with the actual Executor execution runtime.
+
+Permanent rule:
+
+`role identity ≠ execution runtime ≠ transport adapter ≠ browser/session identity ≠ network endpoint`
+
+Consequences:
+
+- `workerRole=executor` is not proof that a browser conversation is the Executor execution engine;
+- a registered BrowserRelay endpoint is not proof that Codex runs on that port;
+- `9444` historical evidence must not be described as a Codex CDP/runtime port without an explicit proven binding;
+- before repair/restart/restoration/retry of a missing endpoint, Architect must first prove the current execution runtime, intended delivery transport, endpoint owner, and continued necessity of that transport;
+- historical successful transport qualification proves that historical path only; it does not prove the path is still current.
+
+Project policy was therefore advanced from v1.4 to v1.5 with a mandatory runtime/transport topology reconciliation gate.
+
+This is a `documentationImpact=FULL` correction and `futureIdeaImpact=NONE`.
 
 ## Accepted recovery and preflight foundation
 
@@ -28,23 +49,27 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - `GH-DEC-193-EXPIRED-WORKER-LEASE-RECOVERY-ACCEPTED`: epoch-189 stale lease closed.
 - `GH-DEC-194-WORKER-DELIVERY-000014-PREFLIGHT-ACCEPTED`: zero-browser ACQUIRE → PREPARE → PROVEN_NOT_SENT → RELEASE capability proven after recovery.
 
-## ORCH-000195 — INCONCLUSIVE live delivery blocked by unavailable relay
+## ORCH-000195 — INCONCLUSIVE historical live-delivery attempt
 
 Decision:
 
 `GH-DEC-195-EXECUTOR-RELAY-PORT-UNAVAILABLE-INCONCLUSIVE`
 
-The live qualification stopped before delivery preparation/browser contact because `127.0.0.1:9444` returned `ECONNREFUSED`. Delivery `000015` remained absent, send counts remained zero, and the epoch-191 lease was normally released to index `382 / nextEpoch 192 / activeLeases=[]`.
+The live qualification stopped before delivery preparation/contact because `127.0.0.1:9444` returned `ECONNREFUSED`. Delivery `000015` remained absent, send counts remained zero, and the epoch-191 lease was normally released to index `382 / nextEpoch 192 / activeLeases=[]`.
 
-## ORCH-000196 — ACCEPTED Executor relay/runtime diagnosis
+This remains valid evidence about the then-targeted BrowserRelay path.
+
+## ORCH-000196 — ACCEPTED historical relay/runtime diagnosis
 
 Decision:
 
 `GH-DEC-196-EXECUTOR-RELAY-PROCESS-ABSENT-DIAGNOSTIC-ACCEPTED`
 
-The diagnostic proved that durable worker registration/authority remain correct and ACTIVE, while port `9444` has no listener or owner process and the dedicated Executor relay/browser runtime is absent. No source patch or registration refresh is required while identity remains unchanged. Manual runtime restoration is required before another live delivery.
+The diagnostic validly proved that the registered historical `9444` transport target had no listener/owner and that the expected browser/relay process was absent under the then-assumed topology.
 
-## ORCH-000197 — BLOCKED post-restoration readiness
+The diagnostic did **not** prove that this transport remained necessary to reach the current Codex Executor.
+
+## ORCH-000197 — BLOCKED historical post-restoration readiness
 
 Executor terminal:
 
@@ -54,40 +79,32 @@ Architect decision:
 
 `GH-DEC-197-EXECUTOR-RELAY-STILL-NOT-RUNNING-BLOCKED`
 
-Architect classification: `BLOCKED`.
+Architect classification at that time: `BLOCKED`.
 
-Verified facts:
+Verified historical facts remain:
 
 - ORCH-000197 preconditions passed;
-- registration/authority bindings remain valid and ACTIVE;
-- registered conversation/port binding still matches;
-- `127.0.0.1:9444` still has `NO_LISTENER` and no owner process;
-- Executor relay/runtime remains not running/present;
-- registered Executor browser-session process remains absent/unidentified;
-- delivery `000015` remains absent;
-- lease index remains `382`, `nextLeaseEpoch=192`, `activeLeases=[]`;
-- latest successful worker delivery remains `000013/SENT`;
+- the historical registration/authority bindings were valid and ACTIVE;
+- `127.0.0.1:9444` had `NO_LISTENER` and no owner process;
+- the expected browser/relay runtime was not running/present;
+- delivery `000015` remained absent;
+- lease index remained `382`, `nextLeaseEpoch=192`, `activeLeases=[]`;
+- latest successful worker delivery remained `000013/SENT`;
 - no lease, delivery, browser, process, registration, source, AFFOTECH, or Drive mutation occurred.
 
-Interpretation:
+### Supersession of ORCH-000197 future action
 
-The read-only readiness check itself was valid, but its success predicate was not met because the required manual restoration had not occurred. This is a deterministic operational blocker, not an ambiguous external mutation.
+The ORCH-000197 future-action instruction to restore an “Executor browser and relay 9444” is **superseded for future action** by Rony's explicit 2026-09-02 clarification and project policy v1.5.
 
-Retry / dispatch decision:
+Historical evidence and the old decision are not rewritten. What changes is the legal next action.
+
+Current legal boundary:
 
 - `liveDeliveryRetryAuthorized=false`;
 - do not acquire another worker-delivery lease;
 - do not create delivery `000015` evidence;
-- do not rerun DISPATCH-000197 before restoration;
-- no next canonical dispatch is published while the required human runtime restoration remains outstanding.
+- do not rerun `DISPATCH-000197`;
+- do not launch Brave/BrowserRelay merely to satisfy the historical registration;
+- first perform a separately authorized **read-only current Codex-delivery topology reconciliation**.
 
-Human restoration boundary:
-
-Rony must restore the existing registered Executor browser session and dedicated BrowserRelay/runtime on port `9444`, preserving current worker registration/authority unless the actual conversation/session identity changes. Historical live-delivery prompts assume this BrowserRelay target is already running; they do not provide a canonical startup command, so host-launch evidence must not be misused as a relay/browser launcher.
-
-After restoration is actually complete, Architect may publish a fresh read-only readiness verification. Only accepted readiness may unlock a fresh live-delivery attempt.
-
-Documentation decision:
-
-- `documentationImpact=STATE`;
-- `futureIdeaImpact=NONE`.
+Only after that reconciliation proves the active transport may Architect decide whether BrowserRelay should be restored, superseded, replaced, or removed from the active path.
