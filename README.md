@@ -25,10 +25,11 @@ Manual inbound remains production authority until direct-Codex transport is live
 - ORCH-000199: supported non-interactive `codex exec` accepted.
 - ORCH-000200: authenticated one-shot child primitive accepted.
 - ORCH-000201: governed direct-Codex adapter and persistent-host direct route source accepted.
-- ORCH-000202: first live adapter qualification **INCONCLUSIVE** before child spawn.
-- ORCH-000203: create/readback ambiguity diagnostic **ACCEPTED**.
-- ORCH-000204: typed pre-spawn create/readback observability repair **ACCEPTED**.
-- ORCH-000205: abandoned ORCH-000202 invocation zero-spawn reconciliation **ACCEPTED**.
+- ORCH-000202: first live adapter qualification INCONCLUSIVE before child spawn.
+- ORCH-000203: create/readback ambiguity diagnostic ACCEPTED.
+- ORCH-000204: typed pre-spawn create/readback observability repair ACCEPTED.
+- ORCH-000205: abandoned ORCH-000202 identity zero-spawn reconciliation ACCEPTED.
+- ORCH-000206: fresh live child launch BLOCKED because the required durable child probe terminal was not observed.
 
 ## Current accepted source
 
@@ -38,29 +39,19 @@ Decision:
 
 `GH-DEC-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-ACCEPTED`
 
-Qualification:
+Qualification: 103 files; focused/relevant `142/142`; full deterministic `844/844`; manifest `ee7aca2665853e8ebb9d0e0de99b510d84b7fa41282ebed88a1fa6b3c49bf3bf`; archive `34c4dd17b3475932de7513a4f0f395b0cb285229413128b357a6566da0134521`.
 
-- 103 files;
-- focused/relevant `142/142`;
-- full deterministic `844/844`;
-- manifest SHA-256 `ee7aca2665853e8ebb9d0e0de99b510d84b7fa41282ebed88a1fa6b3c49bf3bf`;
-- archive SHA-256 `34c4dd17b3475932de7513a4f0f395b0cb285229413128b357a6566da0134521`.
+## Current live blocker
 
-## Durable create/readback rule
+ORCH-000206 successfully passed direct-Codex intent create/readback and launched exactly one real child `codex exec`. The child exited `0` without timeout, but `GH-PUB-206-DIRECT-CODEX-LIVE-PROBE-000001` was never published/observed.
 
-The governing contract is:
+The direct-Codex result is durably `TERMINAL_NOT_OBSERVED` with retry disabled. This fresh invocation must not be retried or reused.
 
-`precheck → at most one PUT → exact post-write readback → normalized result`
+Permanent distinction:
 
-ORCH-000204 adds durable typed observability for create status/reason/HTTP status, readback attempted/status/reason/match, and exact ambiguity phase. This does not weaken fail-closed behavior and does not authorize blind retry.
+`child exit 0 ≠ child dispatch execution ≠ durable probe terminal publication ≠ transport success ≠ Architect acceptance`.
 
-## Reconciled historical invocation
-
-`CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001` is now durably closed for reuse under:
-
-`GH-DEC-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILIATION-ACCEPTED`
-
-Its immutable intent remains unchanged. Its result records `RECONCILIATION_REQUIRED`, zero child spawn, no terminal observation and no retry. ORCH-000202 remains historically INCONCLUSIVE; reconciliation is not successful execution.
+The next problem is specifically the child/publication capability boundary, not BrowserRelay and not pre-spawn create/readback.
 
 ## Critical identity rule
 
@@ -77,11 +68,9 @@ Historical `WORKER-REG-EXECUTOR-000001` and relay port `9444` remain historical 
 
 ## Current legal next boundary
 
-ORCH-000206 is the next bounded milestone: a fresh live direct-Codex adapter qualification with a new probe dispatch and new invocation identity.
+ORCH-000207 is the next bounded read-only diagnostic of the completed ORCH-000206 child/publication boundary.
 
-It must prove exactly one real authenticated child on first-call success, typed create/readback observability, exact durable probe terminal observation, exact result readback, and duplicate replay with zero second spawn. It must not start the persistent host yet.
-
-Only after ORCH-000206 acceptance may the project qualify automatic persistent-host dispatch observation → direct Codex.
+It must run zero new Codex/model children, perform no retry, and inspect only narrowly correlated accepted command construction and existing local child session/output evidence. It must determine whether the child received/interpreted the dispatch locator, had a GitHub publication mechanism/network/tooling available, or merely exited successfully with text output. If that evidence is not recoverable, it must identify the minimum bounded child-output-capture repair before any fresh live attempt.
 
 For exact state use `docs/CURRENT_STATE.md`.
 
