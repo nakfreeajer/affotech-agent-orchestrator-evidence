@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000202 Architect review on 2026-09-02
+Documentation sync boundary: through ORCH-000203 Architect acceptance on 2026-09-03
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence, governing policy, immutable Architect decisions, and explicit current Rony authority as defined by precedence
 
@@ -15,7 +15,7 @@ Architect classifications are exactly `ACCEPTED`, `BLOCKED`, `INCONCLUSIVE`, `NO
 - The operational Executor runtime is the Codex terminal/runtime in VS Code unless later durable authority explicitly replaces it.
 - Orchestrator is deterministic transport/state infrastructure, never semantic authority.
 - GitHub durable evidence is machine authority.
-- No blind retry after ambiguous external mutation, delivery, or child-process boundary.
+- No blind retry after ambiguous external mutation, delivery, create/readback, or child-process boundary.
 - Historical evidence is immutable in meaning.
 - AFFOTECH and protected resources remain separate until explicitly authorized.
 
@@ -27,7 +27,7 @@ Historical BrowserRelay registration is not proof of current Codex transport aut
 
 ## Accepted direct-Codex chain
 
-- `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED` — current manual-to-Codex/direct-GitHub production topology accepted.
+- `GH-DEC-198-CODEX-DIRECT-MANUAL-TOPOLOGY-ACCEPTED` — current manual-to-Codex/direct-GitHub topology accepted.
 - `GH-DEC-199-CODEX-NONINTERACTIVE-CAPABILITY-DISCOVERY-ACCEPTED` — supported `codex exec` capability accepted.
 - `GH-DEC-200-CODEX-DIRECT-AUTH-REUSE-QUALIFICATION-ACCEPTED` — one authenticated child primitive accepted.
 - `GH-DEC-201-GOVERNED-DIRECT-CODEX-ADAPTER-ACCEPTED` — governed direct-Codex adapter source accepted.
@@ -44,51 +44,69 @@ Decision:
 
 `GH-DEC-202-DIRECT-CODEX-LIVE-INTENT-AMBIGUOUS-INCONCLUSIVE`
 
+Verified: the direct invocation intent exists as `ARMED`, result is absent, expected probe terminal is absent, child/model invocation count is `0`, duplicate replay count is `0`, and no retry is authorized. ORCH-000202 must not be rerun.
+
+## ORCH-000203 — ACCEPTED observability diagnostic
+
+Decision:
+
+`GH-DEC-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`
+
 Executor terminal:
 
-`GH-PUB-202-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001`
+`GH-PUB-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-000001`
 
-Architect classification: `INCONCLUSIVE`.
+Architect classification: `ACCEPTED`.
 
-Verified facts:
+Accepted facts:
 
-- direct invocation ID `CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001`;
-- immutable intent exists as `ARMED`;
-- direct-Codex result is absent;
-- expected child probe terminal is absent;
-- first adapter outcome `INTENT_AMBIGUOUS`;
-- child invocation count `0`;
-- total real child/model invocation count `0`;
-- duplicate replay count `0`;
-- second spawn count `0`;
-- no retry attempted or authorized;
-- lease state remains `382 / 192 / 0`;
-- historical BrowserRelay delivery remains `WORKER-DELIVERY-EXECUTOR-000013/SENT`;
-- Architect trigger remains `ARCH-TRIGGER-9333-000005/SENT`;
-- BrowserRelay, registration, source, AFFOTECH and Drive mutations remain zero.
+- stranded ORCH-000202 intent remains exact `ARMED`;
+- result absent;
+- expected probe terminal absent;
+- child-spawn boundary not reached;
+- child/model invocation count `0`;
+- accepted call chain is `createCodexDirectTransport.send → client.createJson → client.readJsonCurrent → spawnChild`;
+- only `CREATED`, `IDEMPOTENT`, or `OK` create statuses advance to exact readback;
+- durable ORCH-000202 evidence recorded only the normalized `INTENT_AMBIGUOUS` outcome and did not preserve the production `createJson` status/reason or exact post-write readback outcome;
+- mutation-disabled reproduction confirms an ambiguous create response yields `INTENT_AMBIGUOUS` with zero spawn while exact created+readback proceeds to the spawn boundary.
 
-The live adapter is therefore not qualified. The evidence proves the adapter stopped before child spawn, but it does not yet explain why production intent create/readback was classified ambiguous despite the durable ARMED intent now being present.
+Therefore the exact original root cause is not reconstructible from current durable evidence. The diagnostic itself is accepted; a root-cause claim is not.
 
-Do not rerun ORCH-000202. Do not mutate or terminalize the stranded intent without a separately authorized reconciliation after root-cause diagnosis.
+Permanent create/readback observability requirement:
 
-## Next decision boundary — ORCH-000203
+> A process-spawn decision that depends on durable create/readback must preserve the normalized create status, sanitized reason code, whether exact post-write readback was attempted, the readback status/exception class, exact-value match, and the ambiguity phase. This evidence must be available without requiring a retry.
 
-Architect authorizes a read-only diagnostic of the accepted direct-Codex adapter plus production GitHub runtime intent create/readback contract.
+The existing durable-create governance contract remains authoritative:
 
-ORCH-000203 may inspect accepted source, durable ORCH-000202 evidence and the stranded intent, and may use mutation-disabled/pure dependency-injected reproduction.
+`precheck → at most one PUT → exact post-write readback → normalized result`.
 
-It may not:
+## Stranded invocation decision
 
-- mutate the stranded intent or create its result;
-- spawn a child Codex/model process;
-- retry ORCH-000202;
-- start the persistent host;
-- touch BrowserRelay, historical registration, worker delivery `000015`, leases, AFFOTECH or Drive;
-- mutate accepted source/tests/docs/governance.
+For `CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001`:
 
-The diagnostic must identify the exact cause or classify observability insufficient, then name the minimum later repair/reconciliation boundary.
+- do not mutate/overwrite/delete the intent;
+- do not synthesize a result;
+- do not invoke a child;
+- do not replay ORCH-000202;
+- do not reconcile until separately authorized after source observability repair.
 
-Documentation decision for ORCH-000202:
+## Next decision boundary — ORCH-000204
 
-- `documentationImpact=STATE`;
+Architect authorizes bounded source/test implementation of the direct-Codex pre-spawn create/readback observability repair.
+
+Required properties:
+
+- preserve typed create status and sanitized reason;
+- preserve exact readback attempted/status/match information;
+- preserve an explicit ambiguity phase;
+- keep all existing fail-closed and no-blind-retry behavior;
+- deterministic tests only; no live Codex/model invocation;
+- no stranded ORCH-000202 intent/result mutation;
+- no host start, BrowserRelay, worker-delivery, registration, lease, AFFOTECH, or Drive activity.
+
+Only after ORCH-000204 implementation is independently accepted may Architect authorize a separate reconciliation of the stranded invocation and a later fresh live qualification.
+
+Documentation decision for ORCH-000203:
+
+- `documentationImpact=FULL`;
 - `futureIdeaImpact=NONE`.
