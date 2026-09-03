@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "CODEX_DIRECT_INVOCATION_INTENT",
+  "invocationId": "CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000206-PROBE-000001",
+  "workerRole": "executor",
+  "projectId": "affotech-agent-orchestrator",
+  "messageId": "ORCH-000206-PROBE-000001",
+  "dispatchId": "DISPATCH-000206-PROBE-000001",
+  "locator": "execute github dispatch nakfreeajer/affotech-agent-orchestrator-evidence DISPATCH-000206-PROBE-000001",
+  "locatorSha256": "52af079822e8a17d1e93aa2d918f3eb704f6570ce1322c95872091dba59e5207",
+  "acceptedSourcePublicationId": "GH-PUB-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-READY-000001",
+  "workingDirectory": "C:/Users/nitro/Projects/affotech-agent-orchestrator",
+  "sandbox": "read-only",
+  "ephemeral": true,
+  "maxChildInvocationCount": 1,
+  "timeoutMs": 300000,
+  "noRetry": true,
+  "state": "ARMED"
+}
