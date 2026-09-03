@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000205 Architect acceptance on 2026-09-03
+Documentation sync boundary: through ORCH-000206 Architect review on 2026-09-04
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -21,7 +21,7 @@ Persistent-host bootstrap, dispatch observation, immutable lease hydration, type
 
 ## ORCH-000195 through ORCH-000197 — historical 9444 branch
 
-The old BrowserRelay endpoint `9444` was found unavailable. That branch remained mutation-clean but was later superseded as the active transport direction after runtime identity was corrected.
+The old BrowserRelay endpoint `9444` was found unavailable. That branch was later superseded as the active transport direction after runtime identity was corrected.
 
 ## 2026-09-02 — runtime/transport identity correction
 
@@ -31,8 +31,6 @@ Permanent correction:
 
 `role ≠ runtime ≠ transport ≠ browser/session ≠ endpoint`
 
-BrowserRelay registration is historical evidence, not proof of current runtime transport.
-
 ## ORCH-000198 through ORCH-000200 — direct Codex primitive established
 
 - ORCH-000198 accepted the current manual-to-Codex/direct-GitHub topology.
@@ -41,98 +39,50 @@ BrowserRelay registration is historical evidence, not proof of current runtime t
 
 ## ORCH-000201 — governed direct-Codex adapter accepted
 
-Decision:
-
-`GH-DEC-201-GOVERNED-DIRECT-CODEX-ADAPTER-ACCEPTED`
-
 Accepted source became `GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001` with 103 files, focused `95/95`, and full deterministic `833/833`.
-
-The accepted adapter introduced deterministic direct-Codex identities, durable intent before spawn, at-most-once child spawn, duplicate suppression, reconciliation-required intent-without-result handling, explicit workdir/sandbox/ephemeral/timeout controls, exact durable Executor-terminal observation, durable result readback, distinct failure classes, and no BrowserRelay dependency.
 
 ## ORCH-000202 — first live adapter qualification INCONCLUSIVE
 
-Decision:
+The first live attempt created an `ARMED` intent but stopped before child spawn. Child/model invocation count was `0`. ORCH-000202 remained historically INCONCLUSIVE.
 
-`GH-DEC-202-DIRECT-CODEX-LIVE-INTENT-AMBIGUOUS-INCONCLUSIVE`
+## ORCH-000203 / ORCH-000204 — observability diagnosis and repair
 
-The first live call created an immutable `ARMED` intent for `CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001` but returned `INTENT_AMBIGUOUS` before child spawn.
-
-Verified historical final state before reconciliation:
-
-- result absent;
-- old probe terminal absent;
-- child/model invocation count `0`;
-- replay count `0`;
-- no retry authorized.
-
-ORCH-000202 remains historically INCONCLUSIVE.
-
-## ORCH-000203 — ambiguity observability diagnostic accepted
-
-Decision:
-
-`GH-DEC-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`
-
-The read-only diagnostic proved the original live evidence could not distinguish an ambiguous create/transport result from exact readback normalization/observation failure. It established the permanent requirement for typed pre-spawn create/readback observability.
-
-## ORCH-000204 — create/readback observability repair accepted
-
-Executor terminal:
-
-`GH-PUB-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-READY-000001`
-
-Architect decision:
-
-`GH-DEC-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-ACCEPTED`
+ORCH-000203 proved the original create/readback ambiguity lacked sufficient typed evidence. ORCH-000204 implemented and accepted typed create/readback observability while preserving fail-closed and no-retry semantics.
 
 Accepted source became:
 
 `GH-PUB-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-READY-000001`
 
-Source facts:
+Qualification: 103 files; focused/relevant `142/142`; full deterministic `844/844`; manifest `ee7aca2665853e8ebb9d0e0de99b510d84b7fa41282ebed88a1fa6b3c49bf3bf`; archive `34c4dd17b3475932de7513a4f0f395b0cb285229413128b357a6566da0134521`.
 
-- 103 files;
-- focused/relevant `142/142`;
-- full deterministic `844/844`;
-- manifest `ee7aca2665853e8ebb9d0e0de99b510d84b7fa41282ebed88a1fa6b3c49bf3bf`;
-- archive `34c4dd17b3475932de7513a4f0f395b0cb285229413128b357a6566da0134521`.
+## ORCH-000205 — abandoned ORCH-000202 identity reconciled
 
-The repair added typed create status/reason/HTTP status, exact readback attempted/status/reason/match, and explicit ambiguity phase while preserving fail-closed one-PUT/exact-readback/no-blind-retry behavior.
+The old invocation was durably closed using existing `RECONCILIATION_REQUIRED` result semantics with zero child spawn, no terminal observation, retry disabled, immutable intent unchanged, and duplicate suppression proven. This did not convert ORCH-000202 into PASS.
 
-## ORCH-000205 — stranded ORCH-000202 identity reconciled
+## ORCH-000206 — fresh live child ran, durable probe terminal missing
 
 Executor terminal:
 
-`GH-PUB-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILED-000001`
+`GH-PUB-206-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001`
 
 Architect decision:
 
-`GH-DEC-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILIATION-ACCEPTED`
+`GH-DEC-206-DIRECT-CODEX-FRESH-TERMINAL-NOT-OBSERVED-BLOCKED`
 
-The accepted GH-PUB-204 result schema safely supported terminal non-spawn closure using existing `RECONCILIATION_REQUIRED` semantics.
+Fresh invocation:
 
-Exactly one durable result was created for the old invocation with:
+`CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000206-PROBE-000001`
 
-- `childStarted=false`;
-- `childInvocationCount=0`;
-- `terminalObserved=false`;
-- `terminalPublicationId=null`;
-- `retryAttempted=false`;
-- `retryAuthorized=false`;
-- `outcome=RECONCILIATION_REQUIRED`.
+The repaired pre-spawn boundary succeeded with ambiguity phase `NONE`, then exactly one real child `codex exec` ran and exited `0` without timeout. However, the required durable child probe terminal `GH-PUB-206-DIRECT-CODEX-LIVE-PROBE-000001` was never published/observed.
 
-The immutable intent blob remained unchanged. The old probe terminal remained absent. One injected duplicate-suppression replay produced spawn `0` with no second mutation. Real child/model invocation remained `0`.
+The adapter correctly persisted `TERMINAL_NOT_OBSERVED`, disabled retry, and performed no duplicate replay or second spawn. No source, host, BrowserRelay, worker-delivery, registration, lease, trigger, AFFOTECH, or Drive mutation occurred.
 
-This closes the abandoned invocation identity for reuse without changing ORCH-000202's historical INCONCLUSIVE classification.
+Permanent distinction reinforced:
+
+`process exit 0 ≠ dispatch execution ≠ durable terminal publication ≠ transport success`.
 
 `documentationImpact=STATE`; `futureIdeaImpact=NONE`.
 
 ## Current target
 
-ORCH-000206 is the next fresh live direct-Codex adapter qualification.
-
-It must use a new probe dispatch and invocation identity, exactly one real authenticated child on first-call success, ORCH-000204 typed create/readback observability, exact durable child terminal observation, exact result readback, and one duplicate replay with second spawn `0`.
-
-It must not touch the reconciled ORCH-000202 identity, start the persistent host, use BrowserRelay, reuse worker delivery `000015`, or access AFFOTECH/Drive.
-
-Only ORCH-000206 acceptance may authorize the later persistent-host automatic dispatch → direct Codex qualification.
+ORCH-000207 is the next read-only forensic diagnostic of the completed ORCH-000206 child/publication boundary. It must use zero new model invocations and determine, if recoverable, what the child actually received/emitted and whether GitHub publication tooling/network/auth was available. If exact completed-child evidence is unavailable, it must stop at observability insufficiency and define the minimum bounded child-output capture repair before any new live attempt.
