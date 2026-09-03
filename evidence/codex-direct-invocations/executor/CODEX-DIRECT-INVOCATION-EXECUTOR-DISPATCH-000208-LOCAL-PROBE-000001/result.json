@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "CODEX_DIRECT_INVOCATION_RESULT",
+  "invocationId": "CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000208-LOCAL-PROBE-000001",
+  "intentPath": "evidence/codex-direct-invocations/executor/CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000208-LOCAL-PROBE-000001/intent.json",
+  "intentSha256": "c388e75456b8ce2545dfe8fa8029900fc361ac130bc6c9c418b7e28bed5fd1de",
+  "messageId": "ORCH-000208-LOCAL-PROBE-000001",
+  "dispatchId": "DISPATCH-000208-LOCAL-PROBE-000001",
+  "childStarted": true,
+  "childInvocationCount": 1,
+  "timedOut": false,
+  "terminationAttemptCount": 0,
+  "exitCode": 1,
+  "failureClass": "CHILD_EXIT_NONZERO",
+  "terminalObserved": false,
+  "terminalPublicationId": null,
+  "retryAttempted": false,
+  "retryAuthorized": false,
+  "outcome": "CHILD_EXIT_NONZERO",
+  "completedAt": 1788478599167,
+  "intentCreate": {
+    "createStatus": 201,
+    "createReasonCode": null,
+    "createHttpStatus": 201,
+    "createAcceptedForReadback": true,
+    "readbackAttempted": true,
+    "readbackStatus": 200,
+    "readbackReasonCode": null,
+    "readbackMatched": true,
+    "ambiguityPhase": "CREATE"
+  },
+  "intentReadback": {
+    "attempted": true,
+    "matched": true,
+    "status": 200
+  },
+  "parentOwnedOutput": true,
+  "capturedOutput": "",
+  "capturedOutputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
