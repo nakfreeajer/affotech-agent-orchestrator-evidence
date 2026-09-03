@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000203 Architect acceptance on 2026-09-03
+Documentation sync boundary: through ORCH-000204 Architect acceptance on 2026-09-03
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -8,10 +8,9 @@ Machine authority: durable GitHub evidence and Architect decisions
 ## Permanent governance lessons
 
 - Executor PASS/READY is evidence, never Architect acceptance.
-- Never blind-retry an ambiguous external mutation, delivery, durable-create, or child-process boundary; reconcile durable state first.
+- Never blind-retry an ambiguous external mutation, delivery, durable-create, readback, or child-process boundary; reconcile durable state first.
 - Historical evidence remains immutable in meaning.
 - Architect owns canonical documentation directly.
-- Curator is eliminated from the active model.
 - Orchestrator is deterministic transport/state infrastructure and never interprets project semantics.
 - Role identity, execution-runtime identity, transport identity, browser/session identity and endpoint identity are distinct.
 
@@ -23,77 +22,69 @@ Permanent countermeasure:
 
 > Prove runtime, transport, endpoint ownership, continued necessity and exact runtime↔transport binding independently. Never restore a historical transport merely because its registration remains durable.
 
-## ORCH-000199 — inspect supported runtime surfaces first
+## Direct-Codex runtime lesson — ORCH-000199 / ORCH-000200
 
-The installed Codex runtime already provided supported non-interactive `codex exec`.
+Before inventing a browser bridge or custom relay for an AI worker, inspect the runtime's supported process/API surface and prefer it when it can be governed safely.
 
-> Before inventing a browser bridge or custom relay for an AI worker, inspect the runtime's supported process/API surface and prefer it when it can be governed safely.
+A child process is not qualified merely because a parent CLI is authenticated. Durable correlation, explicit sandbox/workdir, exit/output capture, no retry, and exact result readback are required.
 
-## ORCH-000200 — qualify process boundaries with durable correlation
-
-A child process is not qualified merely because a parent CLI is authenticated.
-
-Proven ordering:
-
-1. create/read back immutable intent;
-2. bind unique correlation;
-3. invoke at most one child;
-4. bind explicit workdir/read-only sandbox/ephemeral mode;
-5. capture exit/output;
-6. persist/read back result;
-7. no retry on auth/nonzero/timeout/mismatch/ambiguity;
-8. clean only exact same-milestone disposable output after result readback.
-
-## ORCH-000201 — transport success is not process success
+## Transport-success lesson — ORCH-000201
 
 Permanent distinction:
 
 `child process success ≠ Executor terminal success ≠ Architect acceptance`
 
-A `codex exec` exit `0` is only process evidence. Transport success requires the exact durable Executor terminal for expected message/dispatch lineage with `requiresArchitectDecision=true`.
+A `codex exec` exit `0` is process evidence only. Transport success requires the exact durable Executor terminal for expected message/dispatch lineage with `requiresArchitectDecision=true`.
 
-Direct Codex uses its own deterministic namespace:
+Direct Codex uses:
 
 `CODEX-DIRECT-INVOCATION-EXECUTOR-<DISPATCH_ID>`
 
 Never repurpose historical BrowserRelay delivery IDs such as `WORKER-DELIVERY-EXECUTOR-000015`.
 
-## ORCH-000202 — fail closed before spawn
+## Fail closed before spawn — ORCH-000202
 
 The first live adapter qualification produced a durable `ARMED` intent but returned `INTENT_AMBIGUOUS` with child invocation count `0`.
 
-This validates an important safety property: an uncertain durable-create/readback boundary must stop before process spawn. A durable intent existing later does not retroactively prove which create/readback branch the caller observed.
+This proves a safety property: uncertainty at a durable-create/readback boundary must stop before process spawn. A durable intent existing later does not retroactively prove which create/readback branch the caller observed.
 
 Do not infer that the child ran merely because an intent exists. First-hand boundary evidence matters.
 
-## ORCH-000203 — observability must survive ambiguity
+## Observability must survive ambiguity — ORCH-000203
 
-The read-only diagnostic could not reconstruct the exact ORCH-000202 root cause because durable evidence omitted the production `createJson` status/reason and exact post-write readback outcome.
-
-Accepted call chain:
-
-`send → createJson → readJsonCurrent → spawnChild`.
-
-Mutation-disabled reproduction showed:
-
-- ambiguous create return → `INTENT_AMBIGUOUS`, spawn `0`;
-- `CREATED` + exact readback → spawn boundary reachable.
+The original live evidence omitted the production `createJson` status/reason and exact post-write readback outcome, so the specific create-vs-readback root cause was not reconstructible without guessing.
 
 Permanent countermeasure:
 
-> Any durable create/readback boundary that controls an external process spawn must preserve typed observability for the create status, sanitized reason code, whether post-write readback was attempted, readback status/exception class, exact-value match, and the phase that caused ambiguity. A generic `AMBIGUOUS` outcome is not enough for later reconciliation.
+> Any durable create/readback boundary that controls an external process spawn must preserve typed create status, sanitized reason code, available HTTP status, whether exact readback was attempted, readback status/failure class, exact-value match, and the phase that caused ambiguity.
 
-This complements the existing accepted create contract:
+A generic `AMBIGUOUS` outcome is not sufficient for later reconciliation.
+
+## Typed pre-spawn observability repair — ORCH-000204
+
+ORCH-000204 made that countermeasure part of accepted source.
+
+The accepted adapter/runtime client now preserve typed create/readback evidence and explicit ambiguity phase while retaining:
 
 `precheck → at most one PUT → exact post-write readback → normalized result`.
 
-PUT response alone is not final authority, and post-write existence alone does not explain what the caller observed.
+Permanent safety rules:
 
-## Ambiguity and reconciliation lesson
+- PUT response alone is not final authority;
+- non-authoritative create status means zero spawn;
+- missing/exceptional/malformed/mismatched readback means zero spawn;
+- intent-without-result remains reconciliation-required and zero spawn;
+- no second PUT and no blind retry;
+- eventual durable existence must not be rewritten into an originally observed success;
+- semantic HTTP status and `404 → NOT_FOUND` behavior must be preserved.
 
-Intent-without-result is not permission to retry. It means the spawn boundary may be uncertain and requires reconciliation.
+## Reconciliation lesson
 
-For ORCH-000202, first-hand evidence specifically proves child invocation count `0`, but the stranded intent still must not be mutated or terminalized until Architect separately authorizes reconciliation after the observability repair.
+Intent-without-result is not permission to retry.
+
+For ORCH-000202, first-hand evidence proves the child/model invocation count was `0`, but the immutable intent still must not be modified or erased. The abandoned identity must be durably reconciled under separate authority before a fresh live probe uses a new invocation identity.
+
+A reconciliation result must never convert an inconclusive live attempt into a PASS. It records closure of an abandoned transport identity, not successful execution.
 
 ## Dependency-injection lesson
 
@@ -107,7 +98,7 @@ The active-leases index is a locator/projection. Full-schema work hydrates the e
 
 Canonical SHA-256 and Git blob SHA are different typed identities and must never be compared merely because both are named `sha`.
 
-## Create/readback lesson — ORCH-000189 / ORCH-000190
+## Durable create/readback lesson — ORCH-000189 / ORCH-000190
 
 Accepted durable create is `precheck → at most one PUT → exact post-write readback → normalized result`. Durable readback, not PUT response alone, is final authority.
 
@@ -117,13 +108,12 @@ Preserve semantic HTTP status. Map `404 → NOT_FOUND`; do not collapse expected
 
 ## Current development ordering
 
-1. preserve lease/hash/GitHub ambiguity contracts;
-2. preserve role/runtime/transport identity separation;
+1. preserve role/runtime/transport identity separation;
+2. preserve lease/hash/GitHub ambiguity contracts;
 3. preserve manual-to-Codex production path until replacement is live accepted;
-4. preserve ORCH-000201 governed direct-Codex source acceptance;
-5. implement ORCH-000204 typed create/readback observability repair with zero live child execution;
-6. independently accept that source repair;
-7. separately reconcile the stranded ORCH-000202 intent using first-hand zero-spawn evidence;
-8. live-qualify a fresh direct-Codex invocation identity;
-9. qualify persistent-host automatic dispatch observation → direct Codex;
-10. only then consider retirement/supersession of historical BrowserRelay registration.
+4. treat GH-PUB-204 as the accepted direct-Codex source baseline;
+5. reconcile the stranded ORCH-000202 identity with zero child execution;
+6. independently accept reconciliation;
+7. live-qualify a fresh direct-Codex invocation identity with typed observability active;
+8. qualify persistent-host automatic dispatch observation → direct Codex;
+9. only then consider retirement/supersession of historical BrowserRelay registration.
