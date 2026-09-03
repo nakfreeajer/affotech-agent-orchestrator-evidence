@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILED-000001/receipt.json",
-  "messageId": "ORCH-000205",
-  "dispatchId": "DISPATCH-000205",
-  "status": "PASS",
-  "classification": "DIRECT_CODEX_STRANDED_INVOCATION_RECONCILED_ZERO_SPAWN",
+  "publicationId": "GH-PUB-206-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-206-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-206-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-206-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001/receipt.json",
+  "messageId": "ORCH-000206",
+  "dispatchId": "DISPATCH-000206",
+  "status": "BLOCKED",
+  "classification": "DIRECT_CODEX_ADAPTER_FRESH_TERMINAL_NOT_OBSERVED",
   "requiresArchitectDecision": true
 }
