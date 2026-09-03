@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "CODEX_DIRECT_INVOCATION_RESULT",
+  "invocationId": "CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001",
+  "intentPath": "evidence/codex-direct-invocations/executor/CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001/intent.json",
+  "intentSha256": "993698cc41d93421e3ca4176967aae82045067e0c931d1836166374ddf26f5db",
+  "messageId": "ORCH-000202-PROBE-000001",
+  "dispatchId": "DISPATCH-000202-PROBE-000001",
+  "childStarted": false,
+  "childInvocationCount": 0,
+  "timedOut": false,
+  "terminationAttemptCount": 0,
+  "exitCode": null,
+  "failureClass": "RECONCILIATION_REQUIRED",
+  "terminalObserved": false,
+  "terminalPublicationId": null,
+  "retryAttempted": false,
+  "retryAuthorized": false,
+  "outcome": "RECONCILIATION_REQUIRED",
+  "completedAt": 1788397300354,
+  "reconciliationEvidence": {
+    "sourcePublicationId": "GH-PUB-202-GOVERNED-DIRECT-CODEX-ADAPTER-LIVE-QUALIFIED-000001",
+    "sourceClassification": "DIRECT_CODEX_ADAPTER_LIVE_INTENT_OR_RESULT_AMBIGUOUS",
+    "zeroSpawnProven": true,
+    "probeTerminalPublicationId": null,
+    "retryAuthorized": false
+  }
+}
