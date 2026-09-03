@@ -18,7 +18,7 @@ bounded work
 Architect review
 ```
 
-There is no active Curator role. Manual inbound remains production authority until direct-Codex transport is live-qualified.
+Manual inbound remains production authority until direct-Codex transport is live-qualified.
 
 ## Direct Codex status
 
@@ -26,27 +26,42 @@ There is no active Curator role. Manual inbound remains production authority unt
 - ORCH-000200: authenticated one-shot child primitive accepted.
 - ORCH-000201: governed direct-Codex adapter and persistent-host direct route source accepted.
 - ORCH-000202: first live adapter qualification **INCONCLUSIVE** before child spawn.
-- ORCH-000203: read-only create/readback ambiguity diagnostic **ACCEPTED**.
+- ORCH-000203: create/readback ambiguity diagnostic **ACCEPTED**.
+- ORCH-000204: typed pre-spawn create/readback observability repair **ACCEPTED**.
 
-Current accepted source:
+## Current accepted source
 
-`GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001`
+`GH-PUB-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-READY-000001`
 
-Qualification: 103 files; focused `95/95`; full deterministic `833/833`; manifest `42f37c4fcd4b291e2edf4c14725b03287dc0150e9e2e4cca614d0f56ea2239b8`; archive `b6d87a5a041be0615a143965bb2cc8c5c35080633c74d70e4600d636a4503878`.
+Decision:
+
+`GH-DEC-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-ACCEPTED`
+
+Qualification:
+
+- 103 files;
+- focused/relevant `142/142`;
+- full deterministic `844/844`;
+- manifest SHA-256 `ee7aca2665853e8ebb9d0e0de99b510d84b7fa41282ebed88a1fa6b3c49bf3bf`;
+- archive SHA-256 `34c4dd17b3475932de7513a4f0f395b0cb285229413128b357a6566da0134521`.
+
+## Durable create/readback rule
+
+The governing contract is:
+
+`precheck → at most one PUT → exact post-write readback → normalized result`
+
+ORCH-000204 adds durable typed observability for create status/reason/HTTP status, readback attempted/status/reason/match, and exact ambiguity phase. This does not weaken fail-closed behavior and does not authorize blind retry.
 
 ## Current live blocker
 
-ORCH-000202 left a direct-Codex invocation intent durably `ARMED` but created no result, published no probe terminal, and spawned no child/model process.
+ORCH-000202 left:
 
-The accepted ORCH-000203 diagnosis found that the durable parent evidence did not preserve the production `createJson` status/reason or the exact post-write readback outcome, so the original ambiguity cannot be assigned to a specific create-vs-readback phase without guessing.
+`CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001`
 
-Permanent rule:
+with immutable intent `ARMED`, result absent, probe terminal absent, and first-hand child/model invocation count `0`.
 
-> Durable create/readback boundaries that control process spawn must preserve typed create status, sanitized reason code, readback attempted/status, exact-value match, and ambiguity phase. Generic `AMBIGUOUS` evidence is insufficient for safe later reconciliation.
-
-The existing create contract remains:
-
-`precheck → at most one PUT → exact post-write readback → normalized result`.
+The old invocation must not be retried or reused. It must be durably reconciled under separate authority before a fresh live qualification uses a new direct-Codex identity.
 
 ## Critical identity rule
 
@@ -63,14 +78,14 @@ Historical `WORKER-REG-EXECUTOR-000001` and relay port `9444` remain historical 
 
 ## Current legal next boundary
 
-The next bounded milestone is ORCH-000204: source/test repair of direct-Codex pre-spawn create/readback observability.
+The next bounded milestone is ORCH-000205: reconcile and terminalize the stranded ORCH-000202 direct-Codex invocation with **zero child/model execution**.
 
-It must keep live child/model invocation at zero, preserve fail-closed/no-retry semantics, and leave the stranded ORCH-000202 intent/result namespace untouched.
+It may create one reconciliation result only if the accepted GH-PUB-204 result schema safely supports a terminal non-spawn outcome. The immutable intent must remain unchanged. A fresh live probe is not authorized in ORCH-000205.
 
-Only after that source repair is independently accepted may Architect separately authorize stranded-invocation reconciliation and a fresh live qualification.
+Only after reconciliation is independently accepted may Architect authorize a new live qualification with a fresh direct-Codex invocation identity.
 
 For exact state use `docs/CURRENT_STATE.md`.
 
 ## Protected boundary
 
-AFFOTECH System V2 Hybrid, ports `9222/9223`, Drive/business/private data, deployments, tenant resources, historical BrowserRelay state, and unrelated protected project resources remain unauthorized absent explicit later authority.
+AFFOTECH System V2 Hybrid, ports `9222/9223`, Drive/business/private data, deployments, tenant resources, historical BrowserRelay state, and unrelated protected resources remain unauthorized absent explicit later authority.
