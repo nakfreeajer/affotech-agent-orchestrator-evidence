@@ -28,6 +28,7 @@ Manual inbound remains production authority until direct-Codex transport is live
 - ORCH-000202: first live adapter qualification **INCONCLUSIVE** before child spawn.
 - ORCH-000203: create/readback ambiguity diagnostic **ACCEPTED**.
 - ORCH-000204: typed pre-spawn create/readback observability repair **ACCEPTED**.
+- ORCH-000205: abandoned ORCH-000202 invocation zero-spawn reconciliation **ACCEPTED**.
 
 ## Current accepted source
 
@@ -53,15 +54,13 @@ The governing contract is:
 
 ORCH-000204 adds durable typed observability for create status/reason/HTTP status, readback attempted/status/reason/match, and exact ambiguity phase. This does not weaken fail-closed behavior and does not authorize blind retry.
 
-## Current live blocker
+## Reconciled historical invocation
 
-ORCH-000202 left:
+`CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001` is now durably closed for reuse under:
 
-`CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001`
+`GH-DEC-205-DIRECT-CODEX-STRANDED-INVOCATION-RECONCILIATION-ACCEPTED`
 
-with immutable intent `ARMED`, result absent, probe terminal absent, and first-hand child/model invocation count `0`.
-
-The old invocation must not be retried or reused. It must be durably reconciled under separate authority before a fresh live qualification uses a new direct-Codex identity.
+Its immutable intent remains unchanged. Its result records `RECONCILIATION_REQUIRED`, zero child spawn, no terminal observation and no retry. ORCH-000202 remains historically INCONCLUSIVE; reconciliation is not successful execution.
 
 ## Critical identity rule
 
@@ -78,11 +77,11 @@ Historical `WORKER-REG-EXECUTOR-000001` and relay port `9444` remain historical 
 
 ## Current legal next boundary
 
-The next bounded milestone is ORCH-000205: reconcile and terminalize the stranded ORCH-000202 direct-Codex invocation with **zero child/model execution**.
+ORCH-000206 is the next bounded milestone: a fresh live direct-Codex adapter qualification with a new probe dispatch and new invocation identity.
 
-It may create one reconciliation result only if the accepted GH-PUB-204 result schema safely supports a terminal non-spawn outcome. The immutable intent must remain unchanged. A fresh live probe is not authorized in ORCH-000205.
+It must prove exactly one real authenticated child on first-call success, typed create/readback observability, exact durable probe terminal observation, exact result readback, and duplicate replay with zero second spawn. It must not start the persistent host yet.
 
-Only after reconciliation is independently accepted may Architect authorize a new live qualification with a fresh direct-Codex invocation identity.
+Only after ORCH-000206 acceptance may the project qualify automatic persistent-host dispatch observation → direct Codex.
 
 For exact state use `docs/CURRENT_STATE.md`.
 

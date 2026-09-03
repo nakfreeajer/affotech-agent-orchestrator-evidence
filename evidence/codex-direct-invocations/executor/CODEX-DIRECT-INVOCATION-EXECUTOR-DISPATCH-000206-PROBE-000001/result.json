@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "CODEX_DIRECT_INVOCATION_RESULT",
+  "invocationId": "CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000206-PROBE-000001",
+  "intentPath": "evidence/codex-direct-invocations/executor/CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000206-PROBE-000001/intent.json",
+  "intentSha256": "6730eae0cd272b83cfc86979cac872370ad114f99aa4a4166993b87da4d0262e",
+  "messageId": "ORCH-000206-PROBE-000001",
+  "dispatchId": "DISPATCH-000206-PROBE-000001",
+  "childStarted": true,
+  "childInvocationCount": 1,
+  "timedOut": false,
+  "terminationAttemptCount": 0,
+  "exitCode": 0,
+  "failureClass": "TERMINAL_NOT_OBSERVED",
+  "terminalObserved": false,
+  "terminalPublicationId": null,
+  "retryAttempted": false,
+  "retryAuthorized": false,
+  "outcome": "TERMINAL_NOT_OBSERVED",
+  "completedAt": 1788457262383
+}
