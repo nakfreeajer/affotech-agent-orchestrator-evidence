@@ -1,5 +1,5 @@
 Project: affotech-agent-orchestrator
-Documentation sync boundary: through ORCH-000203 Architect acceptance on 2026-09-03
+Documentation sync boundary: through ORCH-000204 Architect acceptance on 2026-09-03
 Status: CURRENT HUMAN-READABLE PROJECTION
 Machine authority: durable GitHub evidence and Architect decisions
 
@@ -9,19 +9,25 @@ Machine authority: durable GitHub evidence and Architect decisions
 
 Current accepted source:
 
-`GH-PUB-201-GOVERNED-DIRECT-CODEX-ADAPTER-READY-000001`
+`GH-PUB-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-READY-000001`
+
+Architect decision:
+
+`GH-DEC-204-DIRECT-CODEX-INTENT-OBSERVABILITY-REPAIR-ACCEPTED`
 
 Qualification:
 
 - 103 files;
-- focused tests `95/95`;
-- full deterministic suite `833/833`, 0 failed, 0 skipped/cancelled;
-- manifest SHA-256 `42f37c4fcd4b291e2edf4c14725b03287dc0150e9e2e4cca614d0f56ea2239b8`;
-- archive SHA-256 `b6d87a5a041be0615a143965bb2cc8c5c35080633c74d70e4600d636a4503878`.
+- focused/relevant tests `142/142`;
+- full deterministic suite `844/844`, 0 failed/skipped/cancelled;
+- manifest SHA-256 `ee7aca2665853e8ebb9d0e0de99b510d84b7fa41282ebed88a1fa6b3c49bf3bf`;
+- archive SHA-256 `34c4dd17b3475932de7513a4f0f395b0cb285229413128b357a6566da0134521`.
 
-Architect source decision:
+Accepted changed paths:
 
-`GH-DEC-201-GOVERNED-DIRECT-CODEX-ADAPTER-ACCEPTED`
+- `src/host/codex-direct-transport.js`;
+- `src/host/github-contents-runtime-client.js`;
+- `test/codex-direct-transport.test.js`.
 
 ## 2. Current production topology
 
@@ -29,109 +35,82 @@ The proven production path remains manual inbound:
 
 `Architect durable dispatch → manual user locator/message → Codex terminal/runtime in VS Code → direct GitHub authority reads/work → direct GitHub terminal publication → Architect review`.
 
-The direct-Codex adapter is source-accepted but is not yet live-qualified for unattended production use.
+Direct-Codex transport is not yet live-qualified for unattended production use.
 
-## 3. ORCH-000202 — INCONCLUSIVE live qualification
+## 3. Accepted direct-Codex chain
+
+- ORCH-000199: supported `codex exec` capability accepted.
+- ORCH-000200: one-shot authenticated child primitive accepted.
+- ORCH-000201: governed direct-Codex adapter and persistent-host direct route source accepted.
+- ORCH-000203: create/readback ambiguity observability diagnostic accepted.
+- ORCH-000204: typed pre-spawn create/readback observability repair accepted.
+
+The ORCH-000204 repair preserves create status/reason/HTTP status, exact readback attempted/status/reason/match information, and a typed ambiguity phase while retaining fail-closed/no-retry semantics.
+
+## 4. ORCH-000202 — historical INCONCLUSIVE live attempt
 
 Decision:
 
 `GH-DEC-202-DIRECT-CODEX-LIVE-INTENT-AMBIGUOUS-INCONCLUSIVE`
 
-Verified:
+Stranded invocation:
 
-- invocation `CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001`;
-- intent exists, state `ARMED`;
+`CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001`
+
+Verified facts:
+
+- immutable intent exists and is `ARMED`;
 - result absent;
-- probe terminal absent;
-- first adapter outcome `INTENT_AMBIGUOUS`;
-- child/model invocation count `0`;
+- expected probe terminal absent;
+- first-hand child/model invocation count `0`;
+- child-spawn boundary not crossed;
 - duplicate replay count `0`;
-- second spawn count `0`;
 - retry attempted/authorized `false`.
 
-ORCH-000202 must not be rerun.
+ORCH-000202 must not be rerun and this invocation must not be reused for a fresh live qualification.
 
-## 4. ORCH-000203 — ACCEPTED diagnostic
-
-Executor terminal:
-
-`GH-PUB-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-000001`
-
-Architect decision:
-
-`GH-DEC-203-DIRECT-CODEX-INTENT-AMBIGUITY-DIAGNOSTIC-ACCEPTED`
-
-Accepted diagnostic facts:
-
-- stranded intent remains exact `ARMED`;
-- result absent;
-- probe terminal absent;
-- child spawn boundary not reached;
-- child/model invocation `0`;
-- accepted production call chain is `send → createJson → readJsonCurrent → spawnChild`;
-- ORCH-000202 durable evidence did not preserve the production create status/reason or exact post-write readback outcome;
-- mutation-disabled reproduction proves ambiguous create can yield `INTENT_AMBIGUOUS` with zero spawn while exact `CREATED` + exact readback reaches the spawn boundary.
-
-Root cause is **not yet proven** because the original production return shape was not durably captured.
-
-## 5. Current missing capability
-
-`DIRECT_CODEX_PRESPAWN_CREATE_READBACK_OBSERVABILITY_REPAIR_NOT_YET_IMPLEMENTED`
-
-The next source repair must preserve typed create/readback evidence while keeping fail-closed behavior unchanged.
-
-Required observable fields include:
-
-- create status;
-- sanitized create reason code;
-- whether post-write readback was attempted;
-- readback status/exception class;
-- exact intent-match boolean;
-- exact ambiguity phase.
-
-## 6. Stranded ORCH-000202 intent
-
-Path:
-
-`evidence/codex-direct-invocations/executor/CODEX-DIRECT-INVOCATION-EXECUTOR-DISPATCH-000202-PROBE-000001/intent.json`
-
-State is `ARMED`. Result and probe terminal are absent. First-hand ORCH-000202 evidence records child invocation count `0`.
-
-Nevertheless:
-
-- do not delete/overwrite/normalize the intent;
-- do not synthesize a result;
-- do not retry the child;
-- do not reconcile until separately authorized after the observability repair is accepted.
-
-## 7. Durable protected state
+## 5. Durable protected state
 
 - mutation-lease index revision `382`;
 - `nextLeaseEpoch=192`;
 - `activeLeases=[]`;
 - historical BrowserRelay delivery `WORKER-DELIVERY-EXECUTOR-000013/SENT` unchanged;
-- delivery `000015` remains outside direct-Codex namespace;
+- historical delivery `000015` remains outside the direct-Codex namespace;
 - historical worker registration unchanged;
 - latest Architect trigger `ARCH-TRIGGER-9333-000005/SENT`.
 
-## 8. Next legal milestone
+## 6. Current missing action
 
-The next bounded milestone is ORCH-000204: source/test repair of direct-Codex pre-spawn create/readback observability.
+`STRANDED_ORCH_000202_DIRECT_CODEX_INVOCATION_NOT_YET_DURABLY_RECONCILED`
 
-ORCH-000204 must:
+The source repair is accepted, but the abandoned ORCH-000202 invocation identity remains open because its intent exists without a result.
 
-- use accepted source GH-PUB-201 as baseline;
-- mutate only explicitly authorized adapter/GitHub-client/test paths;
-- add deterministic tests for typed create/readback phase reporting;
-- preserve exact fail-closed semantics and no blind retry;
-- perform **zero** real child Codex/model invocations;
-- perform **zero** mutation of the stranded ORCH-000202 intent/result namespace;
-- perform **zero** host start, BrowserRelay, worker-delivery, registration, lease, AFFOTECH, or Drive activity.
+The next milestone must close this identity using the first-hand zero-spawn evidence without modifying the immutable intent and without invoking Codex.
 
-A later separately authorized milestone will decide reconciliation of the stranded intent and whether/how to perform a fresh live probe.
+## 7. Next legal milestone
+
+ORCH-000205 is the next bounded reconciliation milestone.
+
+It must:
+
+- use accepted source GH-PUB-204 as authority;
+- re-verify the exact stranded intent and result absence;
+- re-verify ORCH-000202 first-hand terminal evidence proving child invocation count `0` and probe terminal absence;
+- preserve the immutable intent unchanged;
+- perform zero child/model invocation;
+- perform zero BrowserRelay/host/worker-delivery/registration/lease/trigger/AFFOTECH/Drive activity;
+- create at most one durable reconciliation result only if the accepted result schema safely supports a terminal non-spawn reconciliation outcome;
+- read that result back exactly and prove duplicate reuse/spawn suppression without spawning a child;
+- otherwise stop before mutation and report the exact unsupported schema boundary.
+
+ORCH-000205 does **not** authorize a fresh live probe. A new live identity may be authorized only after reconciliation is independently accepted.
+
+## 8. Protected boundary
+
+AFFOTECH System V2 Hybrid, ports `9222/9223`, Drive/business/private data, deployment, tenant resources, BrowserRelay `9444`, and unrelated worktrees remain unauthorized.
 
 ## 9. Documentation / future intent
 
-ORCH-000203: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
+ORCH-000204: `documentationImpact=FULL`; `futureIdeaImpact=NONE`.
 
 `IDEA-0001 — Deterministic Architect documentation-closure marker` remains `ADOPTED_FOR_FUTURE`, deferred until core unattended transport reaches production-candidate qualification.
