@@ -5,7 +5,11 @@
   "publicationId": "GH-PUB-214-LOCAL-PYTHON-WATCHER-CODEX-LAUNCHER-QUALIFIED-000001",
   "messageId": "ORCH-000214",
   "dispatchId": "DISPATCH-000214",
-  "status": "PASS",
+  "status": "ACCEPTED",
   "classification": "LOCAL_PYTHON_WATCHER_FINAL_LIVE_ROUNDTRIP_QUALIFIED",
-  "requiresArchitectDecision": true
+  "architectDecisionId": "GH-DEC-214-LOCAL-PYTHON-WATCHER-MVP-ACCEPTED",
+  "orchestratorMvpAccepted": true,
+  "orchestratorDevelopmentClosed": true,
+  "nextAction": "START_LOCAL_PYTHON_WATCHER_AND_RETURN_CODEX_TO_AFFOTECH_EXECUTOR_ROLE",
+  "requiresArchitectDecision": false
 }
