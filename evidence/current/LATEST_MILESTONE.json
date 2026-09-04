@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_MILESTONE",
-  "milestone": "ORCH.P0.LOCAL.PYTHON.WATCHER.BOOTSTRAP.1A",
-  "publicationId": "GH-PUB-209-LOCAL-PYTHON-WATCHER-BOOTSTRAP-000001",
-  "messageId": "ORCH-000209",
-  "dispatchId": "DISPATCH-000209",
+  "milestone": "ORCH.P0.LOCAL.PYTHON.WATCHER.PLAYWRIGHT.DEPENDENCY.AND.LIVE.PROBE.REPAIR.1B",
+  "publicationId": "GH-PUB-210-LOCAL-PYTHON-WATCHER-PLAYWRIGHT-REPAIR-000001",
+  "messageId": "ORCH-000210",
+  "dispatchId": "DISPATCH-000210",
   "status": "BLOCKED",
-  "classification": "LOCAL_PYTHON_WATCHER_PLAYWRIGHT_UNAVAILABLE",
+  "classification": "LOCAL_PYTHON_WATCHER_LIVE_PROBE_ARCHITECT_RESPONSE_NOT_READY",
   "requiresArchitectDecision": true
 }
