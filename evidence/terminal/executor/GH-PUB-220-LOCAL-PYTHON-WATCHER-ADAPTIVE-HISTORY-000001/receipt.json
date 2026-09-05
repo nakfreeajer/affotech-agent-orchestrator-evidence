@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-220-LOCAL-PYTHON-WATCHER-ADAPTIVE-HISTORY-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_ADAPTIVE_HISTORY_ENVELOPE_REPAIR",
+  "focusedPythonTests": "23/23/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "historyHardCapSteps": 64,
+  "historyTimeEnvelopeSeconds": 90,
+  "liveTerminationReason": "TOP_REACHED",
+  "liveHistorySteps": 12,
+  "pendingAffotechOcrExecuted": false,
+  "liveCodexChildInvocationCount": 0,
+  "architectMessagesSent": 0,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
