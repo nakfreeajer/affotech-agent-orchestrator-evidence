@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL_DIAGNOSTIC",
+  "publicationId": "GH-PUB-222-LOCAL-PYTHON-WATCHER-ATOMIC-SNAPSHOT-000001",
+  "authorityContext": "ORCH-000215",
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_VIRTUALIZED_DOM_SNAPSHOT_RACE_REPAIR",
+  "changedPaths": ["local_orchestrator_watcher.py", "test_local_orchestrator_watcher.py"],
+  "focusedPythonTests": {"tests": 25, "passed": 25, "failed": 0},
+  "relevantNodeTests": {"tests": 157, "passed": 157, "failed": 0},
+  "pythonCompile": "PASS",
+  "atomicAssistantSnapshot": true,
+  "snapshotRetryLimit": 3,
+  "liveStartup": {
+    "architectPort": 9333,
+    "historySteps": 64,
+    "terminationReason": "SAFETY_CAP",
+    "intermediateAssistantWindowChanges": true,
+    "locatorTimeout": false,
+    "pendingPromptDiscovered": false
+  },
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "architectMessagesSent": 0,
+  "browserRelay9444ContactCount": 0,
+  "affotechMutation": 0,
+  "driveAccess": 0,
+  "deploymentAccess": 0,
+  "protectedPortAccessCount": 0,
+  "durablePointerMutation": 0,
+  "requiresArchitectDecision": true
+}
