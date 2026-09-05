@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-221-LOCAL-PYTHON-WATCHER-DOM-SNAPSHOT-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_VIRTUALIZED_DOM_SNAPSHOT_RACE_REPAIR",
+  "focusedPythonTests": "25/25/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "atomicAssistantSnapshot": true,
+  "snapshotRetryLimit": 3,
+  "liveTerminationReason": "TOP_REACHED",
+  "liveHistorySteps": 22,
+  "locatorTimeout": false,
+  "pendingAffotechOcrExecuted": false,
+  "liveCodexChildInvocationCount": 0,
+  "architectMessagesSent": 0,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
