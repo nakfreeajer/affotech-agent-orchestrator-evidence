@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-219-LOCAL-PYTHON-WATCHER-STARTUP-WIRING-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STARTUP_HISTORY_WIRING_REPAIR",
+  "focusedPythonTests": "22/22/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "liveHistoryDiagnostics": "8 container + 8 step",
+  "historyExhaustedSteps": 8,
+  "pendingAffotechOcrExecuted": false,
+  "liveCodexChildInvocationCount": 0,
+  "architectMessagesSent": 0,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
