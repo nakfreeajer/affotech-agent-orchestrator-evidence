@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-217-LOCAL-PYTHON-WATCHER-HISTORY-RETRIEVAL-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STARTUP_HISTORY_RETRIEVAL_REPAIR",
+  "focusedPythonTests": "19/19/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "boundedHistoryLoader": true,
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "affotechMutation": 0,
+  "architectBrowserContact": 0,
+  "browserRelay9444Contact": 0,
+  "requiresArchitectDecision": true
+}
