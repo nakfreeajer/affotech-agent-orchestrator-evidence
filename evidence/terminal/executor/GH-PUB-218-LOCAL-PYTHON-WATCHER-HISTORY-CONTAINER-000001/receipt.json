@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-218-LOCAL-PYTHON-WATCHER-HISTORY-CONTAINER-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_HISTORY_CONTAINER_SELECTION_REPAIR",
+  "focusedPythonTests": "21/21/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "selectedLiveContainer": "group/scroll-root",
+  "scrollMoved": true,
+  "olderIdsAppeared": false,
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "architectMessagesSent": 0,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
