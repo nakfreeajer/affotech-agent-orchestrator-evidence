@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-226-LOCAL-PYTHON-WATCHER-CODEX-ACCOUNTING-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_CODEX_CHILD_COMPLETION_ACCOUNTING_REPAIR",
+  "focusedPythonTests": "33/33/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "liveCodexPid": 22548,
+  "liveCodexExitCode": 0,
+  "liveCodexTimedOut": false,
+  "exactSentinelResult": true,
+  "productionGenerationVisibleAtomic": true,
+  "steadyStateLocatorCount": 0,
+  "pendingLocatorTaskOnShutdown": false,
+  "pendingAffotechOcrExecuted": false,
+  "affotechMutation": 0,
+  "architectMessagesSent": 0,
+  "requiresArchitectDecision": true
+}

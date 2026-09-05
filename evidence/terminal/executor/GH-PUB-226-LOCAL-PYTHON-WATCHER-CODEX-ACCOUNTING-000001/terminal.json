@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL_DIAGNOSTIC",
+  "publicationId": "GH-PUB-226-LOCAL-PYTHON-WATCHER-CODEX-ACCOUNTING-000001",
+  "authorityContext": "ORCH-000215",
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_CODEX_CHILD_COMPLETION_ACCOUNTING_REPAIR",
+  "changedPaths": ["local_orchestrator_watcher.py", "test_local_orchestrator_watcher.py"],
+  "focusedPythonTests": {"tests": 33, "passed": 33, "failed": 0},
+  "relevantNodeTests": {"tests": 157, "passed": 157, "failed": 0},
+  "pythonCompile": "PASS",
+  "liveCodexChild": {
+    "pid": 22548,
+    "runningObserved": true,
+    "returnCode": 0,
+    "timedOut": false,
+    "exactSentinelResult": true,
+    "resultSubmissionBeforeTermination": false
+  },
+  "productionGenerationVisibleAtomic": true,
+  "steadyStateLocatorCount": 0,
+  "pendingLocatorTaskOnShutdown": false,
+  "pendingAffotechOcrExecuted": false,
+  "architectMessagesSent": 0,
+  "browserRelay9444ContactCount": 0,
+  "affotechMutation": 0,
+  "driveAccess": 0,
+  "deploymentAccess": 0,
+  "protectedPortAccessCount": 0,
+  "durablePointerMutation": 0,
+  "requiresArchitectDecision": true
+}
