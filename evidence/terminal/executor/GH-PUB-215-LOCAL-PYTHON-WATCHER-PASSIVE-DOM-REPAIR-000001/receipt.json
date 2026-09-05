@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "publicationId": "GH-PUB-215-LOCAL-PYTHON-WATCHER-PASSIVE-DOM-REPAIR-000001",
+  "messageId": "ORCH-000215",
+  "dispatchId": "DISPATCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STEADY_STATE_PASSIVE_DOM_REPAIR",
+  "focusedTests": "13/13/0",
+  "liveDomDefectConfirmed": true,
+  "persistentIdleLoop": true,
+  "externalResponseObservation": true,
+  "codexChildInvocationCount": 0,
+  "affotechMutation": 0,
+  "browserRelay9444Contact": 0,
+  "workerMutation": 0,
+  "registrationMutation": 0,
+  "leaseMutation": 0,
+  "githubLiveRelayDependency": false,
+  "requiresArchitectDecision": true
+}
