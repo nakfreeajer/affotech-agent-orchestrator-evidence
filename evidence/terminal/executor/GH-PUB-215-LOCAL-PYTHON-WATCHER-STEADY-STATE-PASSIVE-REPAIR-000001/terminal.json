@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "pointerKind": "EXECUTOR_TERMINAL",
+  "pointerState": "CURRENT",
+  "publicationId": "GH-PUB-215-LOCAL-PYTHON-WATCHER-STEADY-STATE-PASSIVE-REPAIR-000001",
+  "messageId": "ORCH-000215",
+  "dispatchId": "DISPATCH-000215",
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STEADY_STATE_PASSIVE_PROMPT_REPAIR",
+  "milestone": "ORCH.P0.LOCAL.PYTHON.WATCHER.STEADY_STATE.PASSIVE.ARCHITECT.PROMPT.OBSERVATION.REPAIR.1G",
+  "role": "one_time_orchestrator_production_activation_repair_executor",
+  "workerLifecycle": "COMPLETED",
+  "workerOutcome": "PASS",
+  "requiresArchitectDecision": true,
+  "changedPaths": [
+    "local_orchestrator_watcher.py",
+    "test_local_orchestrator_watcher.py"
+  ],
+  "focusedTests": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "relevantDeterministicTests": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "startupBaselineBehavior": "PASS",
+  "passiveExternalResponseObservation": "PASS",
+  "persistentIdleLoop": "YES",
+  "visibleStatusTransitions": "YES",
+  "liveCodexChildInvocationCount": 0,
+  "affotechMutation": 0,
+  "browserRelay9444ContactCount": 0,
+  "workerMutationCount": 0,
+  "registrationMutationCount": 0,
+  "leaseMutationCount": 0,
+  "githubLiveRelayDependency": false,
+  "sourceCommits": 0,
+  "sourcePushes": 0,
+  "claspCommands": 0,
+  "browserContacts": 0,
+  "pythonCompile": "PASS",
+  "testHarnessCodexChildInvocationCount": 0
+}

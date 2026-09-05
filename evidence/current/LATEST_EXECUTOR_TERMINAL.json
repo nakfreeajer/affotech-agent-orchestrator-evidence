@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-214-LOCAL-PYTHON-WATCHER-CODEX-LAUNCHER-QUALIFIED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-214-LOCAL-PYTHON-WATCHER-CODEX-LAUNCHER-QUALIFIED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-214-LOCAL-PYTHON-WATCHER-CODEX-LAUNCHER-QUALIFIED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-214-LOCAL-PYTHON-WATCHER-CODEX-LAUNCHER-QUALIFIED-000001/receipt.json",
-  "messageId": "ORCH-000214",
-  "dispatchId": "DISPATCH-000214",
+  "publicationId": "GH-PUB-215-LOCAL-PYTHON-WATCHER-STEADY-STATE-PASSIVE-REPAIR-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-215-LOCAL-PYTHON-WATCHER-STEADY-STATE-PASSIVE-REPAIR-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-215-LOCAL-PYTHON-WATCHER-STEADY-STATE-PASSIVE-REPAIR-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-215-LOCAL-PYTHON-WATCHER-STEADY-STATE-PASSIVE-REPAIR-000001/receipt.json",
+  "messageId": "ORCH-000215",
+  "dispatchId": "DISPATCH-000215",
   "status": "PASS",
-  "classification": "LOCAL_PYTHON_WATCHER_FINAL_LIVE_ROUNDTRIP_QUALIFIED",
+  "classification": "LOCAL_PYTHON_WATCHER_STEADY_STATE_PASSIVE_PROMPT_REPAIR",
   "requiresArchitectDecision": true
 }
