@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-225-LOCAL-PYTHON-WATCHER-GENERATION-VISIBLE-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_PRODUCTION_GENERATION_VISIBLE_ATOMIC_REPAIR",
+  "focusedPythonTests": "29/29/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "productionGenerationVisibleAtomic": true,
+  "steadyStateLocatorCount": 0,
+  "liveArchitectNewResponse": true,
+  "liveExecutorPromptReady": true,
+  "pendingLocatorTaskOnShutdown": false,
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "architectMessagesSent": 1,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
