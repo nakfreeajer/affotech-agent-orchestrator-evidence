@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-223-LOCAL-PYTHON-WATCHER-LIVE-BOTTOM-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_LIVE_BOTTOM_RESTORE_REPAIR",
+  "focusedPythonTests": "26/26/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "liveHistoryTermination": "TOP_REACHED",
+  "liveHistorySteps": 1,
+  "liveBottomRestore": "0 -> 50381.6",
+  "liveBottomReadyAssistantCount": 6,
+  "pendingAffotechOcrExecuted": false,
+  "liveCodexChildInvocationCount": 0,
+  "architectMessagesSent": 0,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
