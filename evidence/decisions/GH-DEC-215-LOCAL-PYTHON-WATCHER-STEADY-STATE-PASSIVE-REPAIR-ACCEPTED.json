@@ -9,8 +9,15 @@
   "dispatchId": "DISPATCH-000215",
   "executorTerminalStatus": "PASS",
   "executorClassification": "LOCAL_PYTHON_WATCHER_STEADY_STATE_PASSIVE_PROMPT_REPAIR",
+  "changedPaths": [
+    "local_orchestrator_watcher.py",
+    "test_local_orchestrator_watcher.py"
+  ],
   "focusedTestsPassed": 12,
+  "focusedTestsFailed": 0,
   "relevantDeterministicTestsPassed": 12,
+  "relevantDeterministicTestsFailed": 0,
+  "pythonCompile": "PASS",
   "startupBaselineBehavior": "PASS",
   "passiveExternalResponseObservation": "PASS",
   "persistentIdleLoop": true,
@@ -22,6 +29,7 @@
   "registrationMutationCount": 0,
   "leaseMutationCount": 0,
   "githubLiveRelayDependency": false,
+  "automaticRetry": false,
   "documentationImpact": "STATE",
   "futureIdeaImpact": "NONE",
   "nextAction": "RESTART_LOCAL_PYTHON_WATCHER_THEN_RUN_ONE_HARMLESS_PASSIVE_SENTINEL_ACTIVATION_TEST",

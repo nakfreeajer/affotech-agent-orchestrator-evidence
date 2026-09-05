@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "publicationId": "GH-PUB-215-LOCAL-PYTHON-WATCHER-STEADY-STATE-PASSIVE-REPAIR-000001",
+  "messageId": "ORCH-000215",
+  "dispatchId": "DISPATCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STEADY_STATE_PASSIVE_PROMPT_REPAIR",
+  "focusedTests": "12/12/0",
+  "relevantDeterministicTests": "12/12/0",
+  "persistentIdleLoop": true,
+  "externalResponseObservation": true,
+  "visibleStatusTransitions": true,
+  "codexChildInvocationCount": 0,
+  "affotechMutation": 0,
+  "browserRelay9444Contact": 0,
+  "workerMutation": 0,
+  "registrationMutation": 0,
+  "leaseMutation": 0,
+  "githubLiveRelayDependency": false,
+  "requiresArchitectDecision": true
+}

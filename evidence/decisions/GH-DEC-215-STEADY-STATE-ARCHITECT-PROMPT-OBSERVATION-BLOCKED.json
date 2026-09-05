@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "decisionId": "GH-DEC-215-STEADY-STATE-ARCHITECT-PROMPT-OBSERVATION-BLOCKED",
+  "decision": "BLOCKED",
+  "observedAfterAcceptedMilestone": "ORCH.P0.LOCAL.PYTHON.WATCHER.CODEX.WINDOWS.LAUNCHER.RESOLUTION.AND.FINAL.LIVE.ROUNDTRIP.1F",
+  "acceptedPublicationId": "GH-PUB-214-LOCAL-PYTHON-WATCHER-CODEX-LAUNCHER-QUALIFIED-000001",
+  "messageId": "ORCH-000215",
+  "operationalObservation": "python local_orchestrator_watcher.py remained alive while the current Architect browser on port 9333 produced a fresh assistant response containing a valid EXECUTOR_PROMPT block, but no Codex child was launched",
+  "pythonWatcherAlive": true,
+  "architectPort": 9333,
+  "currentArchitectConversationVerified": true,
+  "currentArchitectConversationUrl": "https://chatgpt.com/c/6a99fc7d-5614-83ec-95a4-73a1b8b6fb1c",
+  "codexChildObserved": false,
+  "rootCauseDirection": "STEADY_STATE_PASSIVE_NEW_ARCHITECT_RESPONSE_OBSERVATION_OR_IDLE_LOOP_ACTIVATION_MISSING_OR_INACTIVE",
+  "nextCanonicalMessageId": "ORCH-000215",
+  "documentationImpact": "STATE",
+  "futureIdeaImpact": "NONE",
+  "requiresArchitectDecision": false,
+  "pointerKind": "ARCHITECT_DECISION",
+  "pointerState": "BLOCKED"
+}
