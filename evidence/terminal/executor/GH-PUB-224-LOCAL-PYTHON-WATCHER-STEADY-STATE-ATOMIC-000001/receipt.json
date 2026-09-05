@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-224-LOCAL-PYTHON-WATCHER-STEADY-STATE-ATOMIC-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STEADY_STATE_ATOMIC_POLLING_REPAIR",
+  "focusedPythonTests": "28/28/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "steadyStateAtomicSnapshot": true,
+  "steadyStateLocatorCount": 0,
+  "freshResponseObserved": true,
+  "executorPromptReadyIntercepted": true,
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "architectMessagesSent": 1,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
