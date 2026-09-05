@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-216-LOCAL-PYTHON-WATCHER-STARTUP-SCAN-000001",
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STARTUP_PENDING_PROMPT_SCAN_REPAIR",
+  "changedPaths": ["local_orchestrator_watcher.py", "test_local_orchestrator_watcher.py"],
+  "focusedPythonTests": {"tests": 17, "passed": 17, "failed": 0},
+  "relevantNodeTests": {"tests": 157, "passed": 157, "failed": 0},
+  "pythonCompile": "PASS",
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "architectBrowserContactCount": 0,
+  "browserRelay9444ContactCount": 0,
+  "affotechMutation": 0,
+  "driveAccess": 0,
+  "deploymentAccess": 0,
+  "protectedPortAccessCount": 0,
+  "durablePointerMutation": 0,
+  "requiresArchitectDecision": true
+}

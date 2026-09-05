@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_PUBLICATION",
+  "publicationId": "GH-PUB-216-LOCAL-PYTHON-WATCHER-STARTUP-SCAN-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_PYTHON_WATCHER_STARTUP_PENDING_PROMPT_SCAN_REPAIR",
+  "focusedPythonTests": "17/17/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "affotechMutation": 0,
+  "architectBrowserContact": 0,
+  "browserRelay9444Contact": 0,
+  "requiresArchitectDecision": true
+}
