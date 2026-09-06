@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-236-INVALID-PUBLICATION-DEDUPE-REPAIR-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_INVALID_PUBLICATION_DEDUPE_REPAIRED",
+  "correctedPublicationAuthority": "PASS",
+  "correctedPublicationPreviouslySuppressed": false,
+  "codexChildLaunchCountForCorrectedPublication": 0,
+  "pythonTests": "60/60/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayMutation": 0,
+  "requiresArchitectDecision": true
+}
