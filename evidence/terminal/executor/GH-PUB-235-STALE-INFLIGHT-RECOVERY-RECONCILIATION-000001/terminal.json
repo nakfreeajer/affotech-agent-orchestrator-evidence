@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL_DIAGNOSTIC",
+  "publicationId": "GH-PUB-235-STALE-INFLIGHT-RECOVERY-RECONCILIATION-000001",
+  "authorityContext": "ORCH.RELAY.STALE.INFLIGHT.RECOVERY.RECONCILIATION.1A",
+  "status": "PASS",
+  "classification": "ORCH_STALE_INFLIGHT_RECOVERY_RECONCILED",
+  "publication": "PUB-7b95fc3b8a8345d69474a97dffdd15c7",
+  "previousState": "RECOVERY_REQUIRED",
+  "newState": "SUPERSEDED_UNRECOVERABLE",
+  "resultRecovered": false,
+  "resultFabricated": false,
+  "executorRerun": 0,
+  "relayPromptMutation": 0,
+  "affotechMutation": 0,
+  "newPromptObservationPreserved": "PASS",
+  "restartRecovery": "PASS",
+  "pythonTests": {"tests": 59, "passed": 59, "failed": 0},
+  "nodeTests": {"tests": 158, "passed": 158, "failed": 0},
+  "pythonCompile": "PASS",
+  "requiresArchitectDecision": true
+}

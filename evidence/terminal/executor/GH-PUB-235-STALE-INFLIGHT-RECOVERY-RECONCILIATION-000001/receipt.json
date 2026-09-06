@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-235-STALE-INFLIGHT-RECOVERY-RECONCILIATION-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_STALE_INFLIGHT_RECOVERY_RECONCILED",
+  "resultRecovered": false,
+  "resultFabricated": false,
+  "executorRerun": 0,
+  "newPromptObservationPreserved": "PASS",
+  "restartRecovery": "PASS",
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
