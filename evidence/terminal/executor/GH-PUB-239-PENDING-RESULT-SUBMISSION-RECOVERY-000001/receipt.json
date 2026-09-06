@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-239-PENDING-RESULT-SUBMISSION-RECOVERY-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_PENDING_RESULT_SUBMISSION_REPAIRED",
+  "publication": "PUB-f205043013714e48b709df60d4aef048",
+  "resultPreserved": "PASS",
+  "restartRecovery": "PASS",
+  "submissionRetryOnly": "PASS",
+  "duplicateCodexPrevention": "PASS",
+  "resultSubmittedDuringRepair": false,
+  "pythonTests": "61/61/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayPromptMutation": 0,
+  "requiresArchitectDecision": true
+}
