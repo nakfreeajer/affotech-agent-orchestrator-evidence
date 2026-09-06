@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-229-WINDOWS-VISIBLE-EXECUTOR-CONSOLE-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "WINDOWS_VISIBLE_EXECUTOR_CONSOLE_LIVE_SENTINEL_MISMATCH",
+  "visibleExecutorConsole": true,
+  "realCodexChild": true,
+  "realCodexPid": 8700,
+  "realExitCode": 0,
+  "sentinelReceivedExactly": false,
+  "resultCaptured": true,
+  "orchestratorReturnedToIdle": true,
+  "focusedPythonTests": "40/40/0",
+  "nodeTests": "157/157/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
