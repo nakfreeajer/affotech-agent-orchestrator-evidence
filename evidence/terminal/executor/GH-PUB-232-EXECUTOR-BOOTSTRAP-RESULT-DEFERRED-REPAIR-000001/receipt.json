@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-232-EXECUTOR-BOOTSTRAP-RESULT-DEFERRED-REPAIR-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "EXECUTOR_BOOTSTRAP_RESULT_DEFERRED_REPAIR_RECOVERY_REQUIRED",
+  "bootstrapLoaded": true,
+  "currentInvariantRequired": true,
+  "exactTaskPreserved": true,
+  "resultPersistenceBeforeSubmission": true,
+  "composerTimeoutNonFatal": true,
+  "restartPendingResultRecovery": true,
+  "currentPublicationReexecuted": false,
+  "pythonTests": "47/47/0",
+  "nodeTests": "157/157/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
