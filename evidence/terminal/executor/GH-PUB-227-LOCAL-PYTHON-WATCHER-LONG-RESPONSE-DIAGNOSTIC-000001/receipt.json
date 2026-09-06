@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-227-LOCAL-PYTHON-WATCHER-LONG-RESPONSE-DIAGNOSTIC-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "LOCAL_PYTHON_WATCHER_LONG_RESPONSE_LIVE_VALIDATION_NOT_CONFIRMED",
+  "focusedPythonTests": "36/36/0",
+  "relevantNodeTests": "157/157/0",
+  "pythonCompile": true,
+  "productionLengthResponseSupported": true,
+  "assistantSnapshotTruncation": false,
+  "longResponseArchitectNewResponse": false,
+  "longResponseExecutorPromptReady": false,
+  "shortResponseRegression": true,
+  "liveCodexChildInvocationCount": 0,
+  "pendingAffotechOcrExecuted": false,
+  "affotechMutation": 0,
+  "architectMessagesSent": 1,
+  "requiresArchitectDecision": true
+}
