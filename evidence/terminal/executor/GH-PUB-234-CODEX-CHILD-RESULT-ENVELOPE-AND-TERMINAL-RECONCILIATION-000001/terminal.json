@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL_DIAGNOSTIC",
+  "publicationId": "GH-PUB-234-CODEX-CHILD-RESULT-ENVELOPE-AND-TERMINAL-RECONCILIATION-000001",
+  "authorityContext": "ORCH.CODEX.CHILD.RESULT.ENVELOPE.AND.TERMINAL.RECONCILIATION.1A",
+  "status": "PASS",
+  "classification": "ORCH_CODEX_CHILD_RESULT_CONTRACT_IMPLEMENTED",
+  "machineResultEnvelope": "PASS",
+  "proseParsingRequired": false,
+  "pointerStaleDetection": "PASS",
+  "automaticPointerAdvance": "PASS",
+  "missingResultFailClosed": "PASS",
+  "invalidResultFailClosed": "PASS",
+  "noNewReportReconciliation": "PASS",
+  "automaticExecutorRerun": 0,
+  "pythonTests": {"tests": 57, "passed": 57, "failed": 0},
+  "nodeTests": {"tests": 158, "passed": 158, "failed": 0},
+  "pythonCompile": "PASS",
+  "architectSessionPreserved": true,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
