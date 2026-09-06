@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-236-INVALID-PUBLICATION-DEDUPE-REPAIR-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-236-INVALID-PUBLICATION-DEDUPE-REPAIR-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-236-INVALID-PUBLICATION-DEDUPE-REPAIR-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-236-INVALID-PUBLICATION-DEDUPE-REPAIR-000001/receipt.json",
+  "publicationId": "GH-PUB-237-VISIBLE-CODEX-LAUNCH-NAMEERROR-REPAIR-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-237-VISIBLE-CODEX-LAUNCH-NAMEERROR-REPAIR-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-237-VISIBLE-CODEX-LAUNCH-NAMEERROR-REPAIR-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-237-VISIBLE-CODEX-LAUNCH-NAMEERROR-REPAIR-000001/receipt.json",
   "status": "PASS",
-  "classification": "ORCH_INVALID_PUBLICATION_DEDUPE_REPAIRED",
+  "classification": "ORCH_VISIBLE_CODEX_LAUNCH_NAMEERROR_REPAIRED",
   "requiresArchitectDecision": true
 }

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-237-VISIBLE-CODEX-LAUNCH-NAMEERROR-REPAIR-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_VISIBLE_CODEX_LAUNCH_NAMEERROR_REPAIRED",
+  "pubF205EligibleAfterRepair": true,
+  "pubF205LaunchCountDuringRepair": 0,
+  "duplicateRiskReconciled": "PASS",
+  "pythonTests": "60/60/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayMutation": 0,
+  "requiresArchitectDecision": true
+}
