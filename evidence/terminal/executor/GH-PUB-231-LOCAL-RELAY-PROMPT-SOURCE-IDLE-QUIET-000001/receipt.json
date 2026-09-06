@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-231-LOCAL-RELAY-PROMPT-SOURCE-IDLE-QUIET-000001",
+  "authorityContext": "ORCH-000215",
+  "durable": true,
+  "status": "PASS",
+  "classification": "LOCAL_RELAY_PROMPT_SOURCE_QUALIFIED",
+  "relayPromptSource": true,
+  "chatgptDomPromptDiscovery": false,
+  "pollInterval": 7,
+  "currentPublicationDetected": true,
+  "manifestValidated": true,
+  "exactPromptPrepared": true,
+  "visibleExecutorLauncherPreserved": true,
+  "liveCodexChildInvocationCount": 0,
+  "currentPublicationConsumed": false,
+  "focusedPythonTests": "45/45/0",
+  "nodeTests": "157/157/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "requiresArchitectDecision": true
+}
