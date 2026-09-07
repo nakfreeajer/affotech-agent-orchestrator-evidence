@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-244-ARCHITECT-COMPOSER-INPUT-ACCEPTANCE-REPAIR-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_ARCHITECT_COMPOSER_INPUT_ACCEPTANCE_REPAIRED",
+  "composerInputAcceptance": "PASS",
+  "liveQualification": "BLOCKED_CDP_ATTACHMENT_TIMEOUT_BEFORE_COMPOSER_MUTATION",
+  "pubF205CodexLaunchCount": 1,
+  "pubF205CodexRerunCount": 0,
+  "resultPreserved": "PASS",
+  "resultSubmittedDuringRepair": false,
+  "pythonTests": "65/65/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayPromptMutation": 0,
+  "requiresArchitectDecision": true
+}
