@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-241-ARCHITECT-COMPOSER-CDP-TIMEOUT-REPAIR-000001",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "ORCH_ARCHITECT_COMPOSER_CDP_READ_REPAIRED",
+  "targetConversationId": "6a9d6645-eebc-83ec-8367-d193f1cb18e9",
+  "targetUrlMatch": "PASS",
+  "previousTimeoutStage": "CDP_WEBSOCKET_ATTACHMENT",
+  "pubF205CodexLaunchCount": 1,
+  "pubF205CodexRerunCount": 0,
+  "resultPreserved": "PASS",
+  "resultSubmittedDuringRepair": false,
+  "pythonTests": "61/61/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayPromptMutation": 0,
+  "requiresArchitectDecision": true
+}
