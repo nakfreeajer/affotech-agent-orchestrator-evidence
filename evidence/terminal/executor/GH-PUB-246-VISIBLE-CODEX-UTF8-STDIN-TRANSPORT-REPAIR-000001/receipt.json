@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-246-VISIBLE-CODEX-UTF8-STDIN-TRANSPORT-REPAIR-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_VISIBLE_CODEX_UTF8_STDIN_TRANSPORT_REPAIRED",
+  "utf8PromptTransport": "PASS",
+  "promptRoundTripExact": "PASS",
+  "cp1252Dependency": false,
+  "idleUnchangedPublicationBrowserAttachCount": 0,
+  "pub78ExecutedDuringRepair": false,
+  "pythonTests": "67/67/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayPromptMutation": 0,
+  "requiresArchitectDecision": true
+}
