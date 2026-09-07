@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-241-ARCHITECT-COMPOSER-CDP-TIMEOUT-REPAIR-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-241-ARCHITECT-COMPOSER-CDP-TIMEOUT-REPAIR-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-241-ARCHITECT-COMPOSER-CDP-TIMEOUT-REPAIR-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-241-ARCHITECT-COMPOSER-CDP-TIMEOUT-REPAIR-000001/receipt.json",
+  "publicationId": "GH-PUB-242-ARCHITECT-CDP-WEBSOCKET-ATTACHMENT-REPAIR-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-242-ARCHITECT-CDP-WEBSOCKET-ATTACHMENT-REPAIR-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-242-ARCHITECT-CDP-WEBSOCKET-ATTACHMENT-REPAIR-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-242-ARCHITECT-CDP-WEBSOCKET-ATTACHMENT-REPAIR-000001/receipt.json",
   "status": "BLOCKED",
-  "classification": "ORCH_ARCHITECT_COMPOSER_CDP_READ_REPAIRED",
+  "classification": "ORCH_ARCHITECT_CDP_WEBSOCKET_ATTACHMENT_REPAIRED",
   "requiresArchitectDecision": true
 }
