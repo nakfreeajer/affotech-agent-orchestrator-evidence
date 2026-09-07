@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-243-ARCHITECT-RESULT-SUBMIT-STAGE-REPAIR-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_ARCHITECT_RESULT_SUBMIT_STAGE_REPAIRED",
+  "currentArchitectConversationId": "6a9d6645-eebc-83ec-8367-d193f1cb18e9",
+  "typedSubmissionStages": true,
+  "pubF205CodexLaunchCount": 1,
+  "pubF205CodexRerunCount": 0,
+  "resultPreserved": "PASS",
+  "resultSubmittedDuringRepair": false,
+  "pythonTests": "64/64/0",
+  "nodeTests": "158/158/0",
+  "pythonCompile": true,
+  "affotechMutation": 0,
+  "relayPromptMutation": 0,
+  "requiresArchitectDecision": true
+}
