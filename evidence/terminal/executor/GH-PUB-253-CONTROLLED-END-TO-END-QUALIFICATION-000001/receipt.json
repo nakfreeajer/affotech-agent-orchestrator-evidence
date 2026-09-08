@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-253-CONTROLLED-END-TO-END-QUALIFICATION-000001",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "ORCH_AFFOTECH_CONTROLLED_END_TO_END_QUALIFICATION_BLOCKED",
+  "firstBlocker": "RELAY_CONTENT_HASH_MISMATCH",
+  "publicationExecutionCount": 0,
+  "controlledWatcherStopped": true,
+  "realAffotechCodexExecutionCount": 0,
+  "affotechMutation": 0,
+  "terminalResult": "RELAY_CONTENT_HASH_MISMATCH"
+}
