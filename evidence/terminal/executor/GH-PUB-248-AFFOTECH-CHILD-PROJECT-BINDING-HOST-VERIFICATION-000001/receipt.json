@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-248-AFFOTECH-CHILD-PROJECT-BINDING-HOST-VERIFICATION-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "AFFOTECH_CHILD_PROJECT_BINDING_PATH_MISMATCH",
+  "configuredPathExists": false,
+  "configuredPathMatchesActualRepository": false,
+  "codexChildLaunchCount": 0,
+  "orchestratorSourceMutation": 0,
+  "orchestratorTestMutation": 0,
+  "affotechMutation": 0,
+  "relayMutation": 0,
+  "terminalResult": "AFFOTECH_CHILD_PROJECT_BINDING_PATH_MISMATCH",
+  "requiresArchitectDecision": true
+}
