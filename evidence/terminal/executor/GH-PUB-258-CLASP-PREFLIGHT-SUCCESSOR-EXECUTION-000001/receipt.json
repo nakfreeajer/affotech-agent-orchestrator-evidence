@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-258-CLASP-PREFLIGHT-SUCCESSOR-EXECUTION-000001",
+  "terminalResult": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "requestedPublicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+  "fetchedCurrentPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+  "requestedManifestPresent": false,
+  "successorPublicationExecutionCount": 1,
+  "codexRerunCount": 0,
+  "resultSubmissionState": "RESULT_PENDING",
+  "affotechMutation": 0,
+  "relayMutation": 0
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-258-CLASP-PREFLIGHT-SUCCESSOR-EXECUTION-000001",
+  "milestone": "ORCH.AFFOTECH.CLASP.PREFLIGHT.SUCCESSOR.EXECUTION.1A",
+  "status": "BLOCKED",
+  "classification": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "authorityContext": {
+    "requestedPublicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+    "requestedContentSha256": "e180e27e4630a7154850195139547db6bef152d72b73cd8b6844c287ebd193eb",
+    "fetchedRelayHead": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+    "fetchedCurrentPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+    "requestedManifestPresent": false,
+    "requestedPublicationExecutionAllowed": false
+  },
+  "parent": {
+    "publicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+    "manualReviewReconciled": true,
+    "resendCount": 0,
+    "rerunCount": 0
+  },
+  "execution": {
+    "successorPublicationExecutionCount": 1,
+    "codexPid": 17496,
+    "codexExitCode": 0,
+    "codexRerunCount": 0,
+    "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+    "resumeUsed": true,
+    "completedOwnedCodexProcessesRemaining": 0,
+    "completedOwnedConsoleHostsRemaining": 0
+  },
+  "result": {
+    "affotechExecutorTerminalResult": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+    "deploymentCount": 0,
+    "businessWrites": 0
+  },
+  "delivery": {
+    "resultSubmissionAttemptCount": 1,
+    "resultSubmissionState": "RESULT_PENDING",
+    "resultSubmissionFailure": "ARCHITECT_COMPOSER_POPULATE_OPERATION_TIMEOUT:TimeoutError"
+  },
+  "safety": {
+    "supersededPublicationExecutionCount": 0,
+    "oldPublicationRerunCount": 0,
+    "businessWrites": 0,
+    "affotechMutation": 0,
+    "relayMutation": 0,
+    "controlledWatcherStopped": true
+  },
+  "requiresArchitectDecision": true
+}
