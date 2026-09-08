@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-254-RELAY-HASH-CONTRACT-CONTROLLED-RETRY-000001",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "RELAY_DECLARED_CONTENT_HASH_INVALID",
+  "cleanPublicationId": "PUB-91e4a6c8b2d547f0a3e5c7d9b1f24680",
+  "controlledRetryPerformed": false,
+  "publicationExecutionCount": 0,
+  "realAffotechCodexExecutionCount": 0,
+  "affotechMutation": 0,
+  "terminalResult": "RELAY_DECLARED_CONTENT_HASH_INVALID"
+}
