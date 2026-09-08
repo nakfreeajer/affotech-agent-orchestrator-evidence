@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-259-RELAY-REMOTE-COMMIT-CONSISTENT-READ-REPAIR-000001",
+  "terminalResult": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "repairCommit": "b32caa1122500256ae92334bafb35e6985b44a4a",
+  "relayAuthoritySingleSnapshot": true,
+  "pub713ExecutionState": "NOT_EXECUTED",
+  "controlledContinuationPerformed": false,
+  "codexLaunchCountThisContinuation": 0,
+  "affotechMutation": 0,
+  "relayMutation": 0
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-259-RELAY-REMOTE-COMMIT-CONSISTENT-READ-REPAIR-000001",
+  "milestone": "ORCH.RELAY.REMOTE.COMMIT.CONSISTENT.READ.REPAIR.1A",
+  "status": "BLOCKED",
+  "classification": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "rootCause": "Relay reads must be pinned explicitly to refs/remotes/origin/main; local working-tree files can remain stale after fetch.",
+  "repair": {
+    "implementation": "fetch origin/main, resolve refs/remotes/origin/main, read pointer/manifest/prompt.md with git show from that single SHA",
+    "singleSnapshot": true,
+    "commit": "b32caa1122500256ae92334bafb35e6985b44a4a",
+    "pythonTestsPassed": 83,
+    "pythonTestsFailed": 0,
+    "nodeTestsPassed": 158,
+    "nodeTestsFailed": 0,
+    "compileValidation": "PASS"
+  },
+  "fixture": {
+    "snapshotCommit": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+    "publicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+    "manifestPresent": true,
+    "contentSha256": "e180e27e4630a7154850195139547db6bef152d72b73cd8b6844c287ebd193eb",
+    "identityVerified": true
+  },
+  "pub258": {
+    "manualReviewReconciled": true,
+    "resultResendCount": 0
+  },
+  "reconciliation": {
+    "pub713ExecutionAttemptCountBeforeRepair": 1,
+    "pub713AuthoritativePromptDeliveredBeforeRepair": false,
+    "pub713AffotechTaskStartedBeforeRepair": false,
+    "pub713ClaspDryRunAttemptCountBeforeRepair": 0,
+    "pub713ExecutionState": "NOT_EXECUTED",
+    "controlledContinuationPerformed": false,
+    "currentFetchedPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+    "currentFetchedRelayHead": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+    "reason": "Requested PUB-713 was not the current pointer in the fresh authority read; no continuation was authorized from stale prompt input."
+  },
+  "safety": {
+    "codexLaunchCountThisContinuation": 0,
+    "affotechMutation": 0,
+    "relayMutation": 0,
+    "businessWrites": 0,
+    "controlledWatcherStopped": true
+  },
+  "requiresArchitectDecision": true
+}
