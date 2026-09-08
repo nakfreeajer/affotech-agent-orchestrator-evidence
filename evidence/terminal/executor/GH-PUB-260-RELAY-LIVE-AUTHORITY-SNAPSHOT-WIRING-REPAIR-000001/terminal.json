@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-260-RELAY-LIVE-AUTHORITY-SNAPSHOT-WIRING-REPAIR-000001",
+  "milestone": "ORCH.RELAY.LIVE.AUTHORITY.SNAPSHOT.WIRING.REPAIR.1A",
+  "status": "BLOCKED",
+  "classification": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "rootCause": "The high-level path was not proven to use one fetched immutable relay snapshot; stale cached/working-tree authority could diverge from the fetched remote object.",
+  "repair": {
+    "implementation": "RelayPromptSource pins authority reads to refs/remotes/origin/main and verifies pointer, manifest, and raw prompt artifact from that snapshot; high-level test exercises run_relay_once.",
+    "snapshotEqualityWrapperChild": true,
+    "repairCommits": ["b32caa1122500256ae92334bafb35e6985b44a4a", "5d64da6bfb61fee93667e9e7290c418a72543ad8"],
+    "pythonTestsPassed": 83,
+    "pythonTestsFailed": 0,
+    "nodeTestsPassed": 158,
+    "nodeTestsFailed": 0,
+    "compileValidation": "PASS"
+  },
+  "fixture": {
+    "snapshotCommit": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+    "publicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+    "manifestPresent": true,
+    "contentSha256": "e180e27e4630a7154850195139547db6bef152d72b73cd8b6844c287ebd193eb",
+    "identityVerified": true,
+    "highLevelPath": "PASS"
+  },
+  "pub259": {"manualReviewReconciled": true, "resultResendCount": 0},
+  "reconciliation": {
+    "pub713ExecutionAttemptCountBeforeRepair": 1,
+    "pub713AuthoritativePromptDeliveredBeforeRepair": false,
+    "pub713AffotechTaskStartedBeforeRepair": false,
+    "pub713ClaspDryRunAttemptCountBeforeRepair": 0,
+    "pub713ExecutionStateBeforeContinuation": "NOT_EXECUTED",
+    "controlledContinuationPerformed": false,
+    "currentFetchedPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+    "currentFetchedRelayHead": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7"
+  },
+  "safety": {"codexLaunchCountThisContinuation": 0, "affotechMutation": 0, "relayMutation": 0, "businessWrites": 0, "controlledWatcherStopped": true},
+  "requiresArchitectDecision": true
+}
