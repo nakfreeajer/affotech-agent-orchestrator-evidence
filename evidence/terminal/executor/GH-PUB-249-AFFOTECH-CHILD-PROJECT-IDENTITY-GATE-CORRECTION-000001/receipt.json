@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-249-AFFOTECH-CHILD-PROJECT-IDENTITY-GATE-CORRECTION-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_AFFOTECH_CHILD_PROJECT_IDENTITY_GATE_CORRECTED",
+  "configuredPathMatchesActualRepository": true,
+  "codexChildLaunchCount": 0,
+  "orchestratorSourceMutation": 1,
+  "orchestratorTestMutation": 1,
+  "affotechMutation": 0,
+  "relayMutation": 0,
+  "terminalResult": "ORCH_AFFOTECH_CHILD_PROJECT_IDENTITY_GATE_CORRECTED"
+}
