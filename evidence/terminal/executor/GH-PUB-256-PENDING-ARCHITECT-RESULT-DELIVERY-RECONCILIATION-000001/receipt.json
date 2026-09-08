@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-256-PENDING-ARCHITECT-RESULT-DELIVERY-RECONCILIATION-000001",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "ARCHITECT_RESULT_DELIVERY_STILL_BLOCKED",
+  "publicationIdUnderRecovery": "PUB-de931a22cb6f457da9fe071e1cf308d8",
+  "resultSubmissionAttemptCountThisMilestone": 1,
+  "publicationRerunCount": 0,
+  "codexLaunchCountThisMilestone": 0,
+  "finalResultSubmissionState": "RESULT_PENDING",
+  "affotechMutation": 0,
+  "terminalResult": "ARCHITECT_RESULT_DELIVERY_STILL_BLOCKED"
+}

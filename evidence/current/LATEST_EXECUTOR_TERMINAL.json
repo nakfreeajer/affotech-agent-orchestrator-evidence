@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-255-CONTROLLED-END-TO-END-RETRY-1B",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-255-CONTROLLED-END-TO-END-RETRY-1B/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-255-CONTROLLED-END-TO-END-RETRY-1B/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-255-CONTROLLED-END-TO-END-RETRY-1B/receipt.json",
+  "publicationId": "GH-PUB-256-PENDING-ARCHITECT-RESULT-DELIVERY-RECONCILIATION-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-256-PENDING-ARCHITECT-RESULT-DELIVERY-RECONCILIATION-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-256-PENDING-ARCHITECT-RESULT-DELIVERY-RECONCILIATION-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-256-PENDING-ARCHITECT-RESULT-DELIVERY-RECONCILIATION-000001/receipt.json",
   "status": "BLOCKED",
-  "classification": "WORKTREE_STATE_INCONCLUSIVE",
+  "classification": "ARCHITECT_RESULT_DELIVERY_STILL_BLOCKED",
   "requiresArchitectDecision": false
 }
