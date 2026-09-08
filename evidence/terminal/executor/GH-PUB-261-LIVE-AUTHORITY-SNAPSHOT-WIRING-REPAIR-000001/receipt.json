@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-261-LIVE-AUTHORITY-SNAPSHOT-WIRING-REPAIR-000001",
+  "terminalResult": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "repairCommit": "ba0e417e1822c5233f2202893a4e3caf0efee25d",
+  "wrapperSnapshotCommit": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+  "wrapperPublicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+  "childPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+  "pub713AuthoritativeExecutionCount": 1,
+  "codexRerunCount": 0,
+  "affotechMutation": 0,
+  "relayMutation": 0
+}

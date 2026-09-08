@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-261-LIVE-AUTHORITY-SNAPSHOT-WIRING-REPAIR-000001",
+  "milestone": "ORCH.RELAY.LIVE.AUTHORITY.SNAPSHOT.WIRING.REPAIR.1A",
+  "status": "BLOCKED",
+  "classification": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+  "rootCause": "The wrapper validated one relay observation, but the resumed child independently read stale relay working-tree files instead of inheriting the validated snapshot.",
+  "repair": {
+    "implementation": "The validated observation is now passed through run_relay_once into CodexRunner and serialized as snapshot/publication/hash execution context.",
+    "validatedRelaySnapshotEqualsChildSnapshot": false,
+    "commit": "ba0e417e1822c5233f2202893a4e3caf0efee25d",
+    "pythonTestsPassed": 83,
+    "pythonTestsFailed": 0,
+    "nodeTestsPassed": 158,
+    "nodeTestsFailed": 0,
+    "compileValidation": "PASS"
+  },
+  "pub259": {"manualReviewReconciled": true, "resultResendCount": 0},
+  "execution": {
+    "pub713ExecutionStateBefore": "NOT_EXECUTED",
+    "pub713AuthoritativeExecutionCount": 1,
+    "wrapperSnapshotCommit": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+    "wrapperPublicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+    "childSnapshotCommit": "0acd5f719fe5c361d3d27dea3e608fa5345b7ae7",
+    "childPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+    "codexPid": 16424,
+    "codexExitCode": 0,
+    "resumeUsed": true,
+    "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+    "completedOwnedCodexProcessesRemaining": 0,
+    "completedOwnedConsoleHostsRemaining": 0
+  },
+  "result": {
+    "affotechExecutorTerminalResult": "RELAY_CURRENT_TASK_NOT_DURABLY_RESOLVED",
+    "claspDryRunAttemptCount": 0,
+    "claspPushCount": 0,
+    "businessWrites": 0
+  },
+  "delivery": {
+    "resultSubmissionState": "RESULT_PENDING",
+    "resultSubmissionAttemptCount": 1,
+    "resultSubmissionFailure": "ARCHITECT_SEND_ACTION_FAILED:TimeoutError"
+  },
+  "safety": {"codexRerunCount": 0, "affotechMutation": 0, "relayMutation": 0, "controlledWatcherStopped": true},
+  "requiresArchitectDecision": true
+}
