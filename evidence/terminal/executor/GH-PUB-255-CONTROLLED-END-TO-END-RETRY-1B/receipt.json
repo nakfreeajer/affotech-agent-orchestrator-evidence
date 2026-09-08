@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-255-CONTROLLED-END-TO-END-RETRY-1B",
+  "durable": true,
+  "status": "BLOCKED",
+  "classification": "WORKTREE_STATE_INCONCLUSIVE",
+  "cleanPublicationId": "PUB-de931a22cb6f457da9fe071e1cf308d8",
+  "publicationExecutionCount": 1,
+  "resumeUsed": true,
+  "codexExitConfirmed": true,
+  "resultSubmissionState": "RESULT_PENDING",
+  "automaticRerunCount": 0,
+  "realAffotechCodexExecutionCount": 1,
+  "affotechMutation": 0,
+  "terminalResult": "WORKTREE_STATE_INCONCLUSIVE"
+}
