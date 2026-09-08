@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-252-DOCUMENTATION-ACCEPTED-STATE-AUTO-TRIGGER-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_DOCUMENTATION_ACCEPTED_STATE_AUTO_TRIGGER_IMPLEMENTED",
+  "acceptanceSource": "structured accepted publication/evidence record",
+  "docTriggerKeyFormat": "milestoneId:acceptedPublicationId",
+  "documentationTriggerCountPerAcceptedMilestone": 1,
+  "curatorNotInvokedDirectlyByOrchestrator": "PASS",
+  "realAffotechCodexExecutionCount": 0,
+  "affotechMutation": 0,
+  "terminalResult": "ORCH_DOCUMENTATION_ACCEPTED_STATE_AUTO_TRIGGER_IMPLEMENTED"
+}
