@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-250-ARCHITECT-MEMORY-THRESHOLD-ROLLOVER-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_ARCHITECT_MEMORY_THRESHOLD_ROLLOVER_IMPLEMENTED",
+  "memoryThresholdBytes": 1073741824,
+  "primaryRolloverTrigger": "MEMORY_THRESHOLD",
+  "fallbackRolloverTrigger": "30_COMPLETED_ARCHITECT_RESPONSES",
+  "handoverRequestCountPerRollover": 1,
+  "replacementArchitectCountPerRollover": 1,
+  "realAffotechCodexExecutionCount": 0,
+  "affotechMutation": 0,
+  "terminalResult": "ORCH_ARCHITECT_MEMORY_THRESHOLD_ROLLOVER_IMPLEMENTED"
+}
