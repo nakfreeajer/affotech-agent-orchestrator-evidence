@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-257-AFFOTECH-MANUAL-RESULT-ACK-AND-SUCCESSOR-EXECUTION-000001",
+  "milestone": "ORCH.AFFOTECH.MANUAL.RESULT.ACK.AND.SUCCESSOR.EXECUTION.1A",
+  "status": "BLOCKED",
+  "classification": "SUCCESSOR_EXECUTED_RESULT_DELIVERY_PENDING",
+  "authorityContext": {
+    "oldPublicationId": "PUB-de931a22cb6f457da9fe071e1cf308d8",
+    "oldArchitectClassification": "BLOCKED",
+    "oldResultManualReviewReconciled": true,
+    "successorPublicationId": "PUB-eef93d85ae1449cfb566b905e65b9b03",
+    "successorContentSha256": "871d408d67524a2eebcab09f2f0a092f6169c36495fcf38c87f4e92867250a9e",
+    "subjectSourceCommit": "2c51c855ef344ee21951a9f42bdb5c73a4c9eb61",
+    "projectCwd": "C:\\Users\\nitro\\affotech-system-v2-hybrid",
+    "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+    "resumeUsed": true
+  },
+  "execution": {
+    "oldPublicationRerunCount": 0,
+    "oldResultResendCount": 0,
+    "successorPublicationExecutionCount": 1,
+    "codexPid": 14092,
+    "codexExitCode": 0,
+    "completedOwnedCodexProcessesRemaining": 0,
+    "completedOwnedConsoleHostsRemaining": 0
+  },
+  "result": {
+    "affotechExecutorTerminalResult": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_PREFLIGHT_INCONCLUSIVE",
+    "resultFile": "C:\\Users\\nitro\\AppData\\Local\\Temp\\codex-last-message-hfe77ds1.txt",
+    "deploymentCount": 0,
+    "businessWrites": 0
+  },
+  "delivery": {
+    "resultSubmissionAttemptCount": 1,
+    "resultSubmissionState": "RESULT_PENDING",
+    "resultSubmissionFailure": "ARCHITECT_SEND_ACTION_FAILED:TimeoutError",
+    "controlledWatcherStopped": true
+  },
+  "safety": {
+    "supersededPubD55Executed": false,
+    "pub7b95Executed": false,
+    "affotechMutation": 0,
+    "relayMutation": 0
+  },
+  "requiresArchitectDecision": false
+}

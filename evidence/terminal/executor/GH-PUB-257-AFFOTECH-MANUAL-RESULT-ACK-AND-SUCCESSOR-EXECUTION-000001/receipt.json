@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-257-AFFOTECH-MANUAL-RESULT-ACK-AND-SUCCESSOR-EXECUTION-000001",
+  "terminalResult": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_PREFLIGHT_INCONCLUSIVE",
+  "successorPublicationExecutionCount": 1,
+  "oldPublicationRerunCount": 0,
+  "resultSubmissionState": "RESULT_PENDING",
+  "resultSubmissionFailure": "ARCHITECT_SEND_ACTION_FAILED:TimeoutError",
+  "codexLaunchCount": 1,
+  "codexRerunCount": 0,
+  "affotechMutation": 0,
+  "controlledWatcherStopped": true
+}
