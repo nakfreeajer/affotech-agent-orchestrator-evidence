@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-262-AFFOTECH-TRANSPORT-REPAIRED-SUCCESSOR-EXECUTION-000001",
+  "terminalResult": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_DRY_RUN_PREFLIGHT_INCONCLUSIVE",
+  "publicationIdExecuted": "PUB-0647a421381b47baa479149cb2f7a9f5",
+  "publicationExecutionCount": 1,
+  "claspDryRunAttemptCount": 1,
+  "claspPushCount": 0,
+  "resultSubmissionState": "RESULT_PENDING",
+  "codexRerunCount": 0,
+  "affotechMutation": 0,
+  "controlledWatcherStopped": true
+}

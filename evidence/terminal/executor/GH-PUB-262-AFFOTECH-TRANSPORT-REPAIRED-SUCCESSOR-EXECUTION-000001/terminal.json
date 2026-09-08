@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-262-AFFOTECH-TRANSPORT-REPAIRED-SUCCESSOR-EXECUTION-000001",
+  "milestone": "ORCH.AFFOTECH.TRANSPORT.REPAIRED.SUCCESSOR.EXECUTION.1A",
+  "status": "BLOCKED",
+  "classification": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_DRY_RUN_PREFLIGHT_INCONCLUSIVE",
+  "authorityContext": {
+    "publicationId": "PUB-0647a421381b47baa479149cb2f7a9f5",
+    "snapshotCommit": "99b2e8f8af34090da60125e96a8fc67e5f5632cf",
+    "contentSha256": "82923b6b0a56619b24a06c1e78b09c47377b2476c3acd03a503d61a7ced0fa19",
+    "parentPublicationId": "PUB-7138664991624a2a9f5d6259a14507fd",
+    "subjectSourceCommit": "2c51c855ef344ee21951a9f42bdb5c73a4c9eb61",
+    "wrapperChildSnapshotContext": true,
+    "projectIdentity": "PASS"
+  },
+  "execution": {
+    "publicationExecutionCount": 1,
+    "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+    "resumeUsed": true,
+    "codexPid": 1380,
+    "codexExitCode": 0,
+    "completedOwnedCodexProcessesRemaining": 0,
+    "completedOwnedConsoleHostsRemaining": 0
+  },
+  "affotech": {
+    "rootCauseClass": "COMPLETION_HANDOFF_MISSING",
+    "worktreeStateReconciled": true,
+    "worktreeFilesChanged": "04_LoginPage.js, 51_ApiLayer.html, index.html, tests/auth-popup-persistent-session.test.js, tests/auth-popup-session-frontend.test.js",
+    "claspDryRunAttemptCount": 1,
+    "claspDryRunResult": "TIMEOUT_INCONCLUSIVE",
+    "claspPushCount": 0,
+    "commitSha": "2c51c855ef344ee21951a9f42bdb5c73a4c9eb61",
+    "tag": "none",
+    "gitPushCount": 0,
+    "remoteCommitVerified": "not performed",
+    "remoteTagVerified": "not performed",
+    "deploymentReconciled": false,
+    "manualOAuthActions": 0,
+    "browserContacts": 0,
+    "businessWrites": 0,
+    "docsEdits": 0,
+    "ocrMutations": 0,
+    "canonicalDirtyCheckoutTouched": false
+  },
+  "delivery": {
+    "resultSubmissionState": "RESULT_PENDING",
+    "resultSubmissionAttemptCount": 1,
+    "resultSubmissionFailure": "ARCHITECT_COMPOSER_POPULATE_OPERATION_TIMEOUT:TimeoutError"
+  },
+  "safety": {"parentRerunCount": 0, "codexRerunCount": 0, "affotechMutation": 0, "relayMutation": 0, "controlledWatcherStopped": true},
+  "requiresArchitectDecision": false
+}
