@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "receiptType": "EXECUTOR_TERMINAL_DIAGNOSTIC_PUBLICATION",
+  "publicationId": "GH-PUB-251-AFFOTECH-EXECUTOR-PERSISTENT-CODEX-SESSION-RESUME-000001",
+  "durable": true,
+  "status": "PASS",
+  "classification": "ORCH_AFFOTECH_EXECUTOR_PERSISTENT_CODEX_SESSION_RESUME_IMPLEMENTED",
+  "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+  "resumeFailureFreshSessionFallbackCount": 0,
+  "maximumConcurrentWritersForAffotechSession": 1,
+  "liveResumeQualificationPerformed": false,
+  "affotechMutation": 0,
+  "terminalResult": "ORCH_AFFOTECH_EXECUTOR_PERSISTENT_CODEX_SESSION_RESUME_IMPLEMENTED"
+}
