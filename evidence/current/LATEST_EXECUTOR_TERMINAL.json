@@ -7,5 +7,5 @@
   "receiptPath": "evidence/terminal/executor/GH-PUB-269-DURABLE-TERMINAL-BEFORE-BROWSER-REPAIR-000001/receipt.json",
   "status": "PASS",
   "classification": "DURABLE_TERMINAL_BEFORE_BROWSER_DEPENDENCY_REPAIRED",
-  "requiresArchitectDecision": true
+  "requiresArchitectDecision": false
 }
