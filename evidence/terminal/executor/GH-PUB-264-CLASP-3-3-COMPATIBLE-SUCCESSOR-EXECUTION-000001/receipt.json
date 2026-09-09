@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-264-CLASP-3-3-COMPATIBLE-SUCCESSOR-EXECUTION-000001",
+  "terminalResult": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_PUSH_AMBIGUOUS",
+  "executedPublicationId": "PUB-f09228ac50144463bc80659b7b963393",
+  "publicationExecutionCount": 1,
+  "localPushSetPreflightResult": "PASS",
+  "remoteAuthPreflightResult": "PASS",
+  "claspPushCount": 1,
+  "claspPushResult": "INCONCLUSIVE_TIMEOUT",
+  "resultSubmissionState": "RESULT_PENDING",
+  "codexRerunCount": 0,
+  "affotechMutation": 0,
+  "controlledWatcherStopped": true
+}
