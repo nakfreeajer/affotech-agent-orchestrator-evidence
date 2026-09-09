@@ -7,5 +7,5 @@
   "receiptPath": "evidence/terminal/executor/GH-PUB-268-PRODUCTION-WATCHER-LEGACY-INFLIGHT-MIGRATED-000001/receipt.json",
   "status": "PASS",
   "classification": "ORCH_PRODUCTION_WATCHER_LEGACY_INFLIGHT_STATE_MIGRATED",
-  "requiresArchitectDecision": true
+  "requiresArchitectDecision": false
 }
