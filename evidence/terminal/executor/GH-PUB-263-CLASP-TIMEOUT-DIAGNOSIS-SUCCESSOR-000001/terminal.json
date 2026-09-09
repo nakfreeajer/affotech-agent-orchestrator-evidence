@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-263-CLASP-TIMEOUT-DIAGNOSIS-SUCCESSOR-000001",
+  "milestone": "ORCH.AFFOTECH.CLASP.TIMEOUT.DIAGNOSIS.SUCCESSOR.1A",
+  "status": "BLOCKED",
+  "classification": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_DRY_RUN_PREFLIGHT_INCONCLUSIVE",
+  "authorityContext": {
+    "publicationId": "PUB-8734ec111b7747b3b6cc66ef7cb4d721",
+    "snapshotCommit": "5a5b503c166218ec2cf8a286bcadc67bceb9b411",
+    "contentSha256": "a805d7f05ee3d2de1581172ba35b4fa3b98d597ed544ab55cfbf4fdfbf0cb1bb",
+    "parentPublicationId": "PUB-0647a421381b47baa479149cb2f7a9f5",
+    "hashVerified": true,
+    "identityVerified": true
+  },
+  "execution": {
+    "publicationExecutionCount": 1,
+    "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+    "resumeUsed": true,
+    "codexPid": 17332,
+    "codexExitCode": 0,
+    "completedOwnedCodexProcessesRemaining": 0,
+    "completedOwnedConsoleHostsRemaining": 0
+  },
+  "affotech": {
+    "rootCauseClass": "COMPLETION_HANDOFF_MISSING",
+    "worktreeStateReconciled": true,
+    "worktreeFilesChanged": "04_LoginPage.js, 51_ApiLayer.html, index.html, tests/auth-popup-persistent-session.test.js, tests/auth-popup-session-frontend.test.js",
+    "claspTimeoutRootCauseClassification": "CLASP_COMMAND_WRAPPER_OR_PROCESS_HANG",
+    "safeDiagnosisEvidence": "clasp.ps1 hangs on --version; existing clasp.cmd 3.3.0 runs",
+    "conditionalRecoveryApplied": "selected existing clasp.cmd",
+    "claspDryRunAttemptCount": 1,
+    "claspDryRunResult": "EXIT_0_UNKNOWN_OPTION_--dry-run",
+    "commitSha": "2c51c855ef344ee21951a9f42bdb5c73a4c9eb61",
+    "tag": "none",
+    "gitPushCount": 0,
+    "remoteCommitVerified": "not performed",
+    "remoteTagVerified": "not performed",
+    "claspPushCount": 0,
+    "deploymentReconciled": false,
+    "manualOAuthActions": 0,
+    "browserContacts": 0,
+    "businessWrites": 0,
+    "docsEdits": 0,
+    "ocrMutations": 0,
+    "canonicalDirtyCheckoutTouched": false
+  },
+  "delivery": {
+    "resultSubmissionState": "RESULT_PENDING",
+    "resultSubmissionAttemptCount": 1,
+    "resultSubmissionFailure": "ARCHITECT_SEND_ACTION_FAILED:TimeoutError"
+  },
+  "safety": {"parentRerunCount": 0, "codexRerunCount": 0, "affotechMutation": 0, "relayMutation": 0, "controlledWatcherStopped": true},
+  "requiresArchitectDecision": false
+}

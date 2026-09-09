@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-263-CLASP-TIMEOUT-DIAGNOSIS-SUCCESSOR-000001",
+  "terminalResult": "PERSISTENT_SESSION_HANDOFF_REPAIR_DEPLOYMENT_BLOCKED_CLASP_DRY_RUN_PREFLIGHT_INCONCLUSIVE",
+  "executedPublicationId": "PUB-8734ec111b7747b3b6cc66ef7cb4d721",
+  "publicationExecutionCount": 1,
+  "claspDryRunAttemptCount": 1,
+  "claspDryRunResult": "EXIT_0_UNKNOWN_OPTION_--dry-run",
+  "claspPushCount": 0,
+  "codexRerunCount": 0,
+  "affotechMutation": 0,
+  "controlledWatcherStopped": true
+}
