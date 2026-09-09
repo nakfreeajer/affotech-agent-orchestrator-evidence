@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-268-PRODUCTION-WATCHER-LEGACY-INFLIGHT-MIGRATED-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-268-PRODUCTION-WATCHER-LEGACY-INFLIGHT-MIGRATED-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-268-PRODUCTION-WATCHER-LEGACY-INFLIGHT-MIGRATED-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-268-PRODUCTION-WATCHER-LEGACY-INFLIGHT-MIGRATED-000001/receipt.json",
+  "publicationId": "GH-PUB-269-DURABLE-TERMINAL-BEFORE-BROWSER-REPAIR-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-269-DURABLE-TERMINAL-BEFORE-BROWSER-REPAIR-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-269-DURABLE-TERMINAL-BEFORE-BROWSER-REPAIR-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-269-DURABLE-TERMINAL-BEFORE-BROWSER-REPAIR-000001/receipt.json",
   "status": "PASS",
-  "classification": "ORCH_PRODUCTION_WATCHER_LEGACY_INFLIGHT_STATE_MIGRATED",
-  "requiresArchitectDecision": false
+  "classification": "DURABLE_TERMINAL_BEFORE_BROWSER_DEPENDENCY_REPAIRED",
+  "requiresArchitectDecision": true
 }

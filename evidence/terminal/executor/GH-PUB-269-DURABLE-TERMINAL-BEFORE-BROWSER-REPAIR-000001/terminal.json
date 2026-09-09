@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-269-DURABLE-TERMINAL-BEFORE-BROWSER-REPAIR-000001",
+  "milestone": "ORCH.PRODUCTION.WATCHER.DURABLE.TERMINAL.PUBLICATION.REPAIR.1A",
+  "status": "PASS",
+  "classification": "DURABLE_TERMINAL_BEFORE_BROWSER_DEPENDENCY_REPAIRED",
+  "implementationCommit": "a859de52f4efb37b151c71ed85c6acce4d26e922",
+  "changedFiles": ["local_orchestrator_watcher.py", "test_local_orchestrator_watcher.py"],
+  "rootCause": "Completed results were retired only after browser submission; no durable terminal publication/read-back preceded that dependency.",
+  "contract": {"durableTerminalBeforeBrowserDependency": true, "exactlyOncePreserved": true, "restartRecoveryPreserved": true, "browserNotificationIndependent": true},
+  "heartbeat": {"existingHistoricalResultUsedReadOnly": true, "heartbeatRerunCount": 0, "newHeartbeatPublicationCount": 0},
+  "validation": {"focusedTestsPassed": 91, "focusedTestsFailed": 0, "nodeTestsPassed": 158, "nodeTestsFailed": 0, "pythonCompile": "PASS"},
+  "safety": {"affotechMutation": 0, "relayMutation": 0, "browserAutomation": 0, "codexLaunchCount": 0, "watcherRestarted": false}
+}
