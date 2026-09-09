@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "pointerKind": "LATEST_EXECUTOR_TERMINAL",
-  "publicationId": "GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001",
-  "terminalPath": "evidence/terminal/executor/GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001/terminal.json",
-  "reportPath": "evidence/terminal/executor/GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001/report.md",
-  "receiptPath": "evidence/terminal/executor/GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001/receipt.json",
-  "status": "BLOCKED",
-  "classification": "CLASP_PUSH_RECONCILED_NOT_APPLIED_OR_DIVERGED",
+  "publicationId": "GH-PUB-266-LOCAL-WATCHER-DURABLE-DECISION-RECOVERY-RECONCILIATION-000001",
+  "terminalPath": "evidence/terminal/executor/GH-PUB-266-LOCAL-WATCHER-DURABLE-DECISION-RECOVERY-RECONCILIATION-000001/terminal.json",
+  "reportPath": "evidence/terminal/executor/GH-PUB-266-LOCAL-WATCHER-DURABLE-DECISION-RECOVERY-RECONCILIATION-000001/report.md",
+  "receiptPath": "evidence/terminal/executor/GH-PUB-266-LOCAL-WATCHER-DURABLE-DECISION-RECOVERY-RECONCILIATION-000001/receipt.json",
+  "status": "PASS",
+  "classification": "ORCH_LOCAL_WATCHER_DURABLE_DECISION_RECOVERY_RECONCILIATION_REPAIRED",
   "requiresArchitectDecision": true
 }

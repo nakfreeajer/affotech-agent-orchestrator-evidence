@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-266-LOCAL-WATCHER-DURABLE-DECISION-RECOVERY-RECONCILIATION-000001",
+  "milestone": "ORCH.LOCAL.WATCHER.RECOVERY.DURABLE.DECISION.RECONCILIATION.1A",
+  "status": "PASS",
+  "classification": "ORCH_LOCAL_WATCHER_DURABLE_DECISION_RECOVERY_RECONCILIATION_REPAIRED",
+  "authority": {"matchingTerminalPublication": "GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001", "matchingArchitectDecision": "GH-DEC-265-AFFOTECH-PERSISTENT-SESSION-HANDOFF-REPAIR-ACCEPTED", "decisionPublicationMatch": true, "decisionRequiresArchitectDecision": false, "acceptedPointerMatches": true},
+  "recovery": {"localRecoveryStateBefore": "RECOVERY_REQUIRED", "localRecoveryStateAfter": "ARCHITECT_REVIEWED", "recoveryReconciled": true, "historicalPublicationRerunCount": 0, "documentationTriggerPreserved": true},
+  "implementation": {"commitSha": "e58cc7a168064ef166e48a6c7a36677bd8dcf024", "changedPaths": ["local_orchestrator_watcher.py", "test_local_orchestrator_watcher.py"], "rootCauseClassification": "LOCAL_RECOVERY_STATE_NOT_RECONCILED_WITH_DURABLE_ARCHITECT_DECISION"},
+  "validation": {"focusedTestsPassed": 86, "focusedTestsFailed": 0, "regressionTestsPassed": 158, "regressionTestsFailed": 0, "pythonCompile": "PASS", "liveQualificationPerformed": true, "liveQualificationFinalState": "IDLE"},
+  "safety": {"affotechMutation": 0, "relayPublicationMutation": 0, "codexChildLaunchCount": 0, "controlledWatcherStarted": false}
+}
