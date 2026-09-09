@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-268-PRODUCTION-WATCHER-LEGACY-INFLIGHT-MIGRATED-000001",
+  "milestone": "ORCH.PRODUCTION.WATCHER.LEGACY.INFLIGHT.STATE.MIGRATION.1A",
+  "status": "PASS",
+  "classification": "ORCH_PRODUCTION_WATCHER_LEGACY_INFLIGHT_STATE_MIGRATED",
+  "production": {
+    "root": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator",
+    "head": "02d246b5bac8d0401159f8dd9c0338497d83e55e",
+    "commandExecuted": true,
+    "outputState": "IDLE",
+    "recoveryRequiredAfterMigration": false
+  },
+  "state": {
+    "stateFilePath": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator\\orchestrator-state.json",
+    "backupPath": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator\\orchestrator-state.json.pre-legacy-migration.bak",
+    "backupHashVerified": true,
+    "legacyPublicationId": "PUB-d55dc9d565ab46a5a4f1430b902bc531",
+    "legacyState": "IN_FLIGHT_LEGACY",
+    "legacyExecutionStarted": true,
+    "legacyChildPidPresent": false,
+    "legacyResultPresent": false,
+    "legacyTerminalPublicationId": null,
+    "legacyRecoveryMarker": "SUPERSEDED_UNRECOVERABLE",
+    "migrationApplied": true,
+    "migrationResolution": "SUPERSEDED_WITHOUT_RETRY",
+    "legacyPublicationExecutionAuthorizedAfterMigration": false,
+    "legacyHistoricalRecordPreserved": true,
+    "unrelatedRecoveryMarkerPreserved": true
+  },
+  "supersession": {
+    "proven": true,
+    "decisionPublicationId": "PUB-4b7a2c9e1d6f40a8b3c5e7f901234567",
+    "replacementPublicationId": "PUB-91e4a6c8b2d547f0a3e5c7d9b1f24680",
+    "currentRelayPublicationId": "PUB-20281b540a6049d0bfb25bf977877b63",
+    "currentPublicationExecutedAndReviewed": true,
+    "currentEvidenceTerminal": "GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001",
+    "currentEvidenceDecision": "GH-DEC-265-AFFOTECH-PERSISTENT-SESSION-HANDOFF-REPAIR-ACCEPTED"
+  },
+  "validation": {"focusedTestsPassed": 88, "focusedTestsFailed": 0, "nodeTestsPassed": 158, "nodeTestsFailed": 0, "pythonCompile": "PASS"},
+  "safety": {"historicalPubD55RerunCount": 0, "historicalPub20281RerunCount": 0, "codexChildLaunchCount": 0, "affotechMutation": 0, "relayPublicationMutation": 0, "claspCount": 0, "watcherStopped": true}
+}
