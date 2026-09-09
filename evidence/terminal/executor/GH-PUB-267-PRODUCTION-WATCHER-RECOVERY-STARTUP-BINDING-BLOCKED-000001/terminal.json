@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-267-PRODUCTION-WATCHER-RECOVERY-STARTUP-BINDING-BLOCKED-000001",
+  "milestone": "ORCH.PRODUCTION.WATCHER.RECOVERY.STARTUP.BINDING.1A",
+  "status": "BLOCKED",
+  "classification": "PRODUCTION_LOCAL_STATE_SCHEMA_NOT_RECONCILED",
+  "rootCause": "The actual production state contains an in-flight PUB-d55 record and no explicit recovery terminal publication ID, so GH-PUB-265 cannot be safely associated with it.",
+  "production": {
+    "root": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator",
+    "entrypoint": "C:\\Users\\nitro\\Projects\\affotech-agent-orchestrator\\local_orchestrator_watcher.py",
+    "headBefore": "e58cc7a168064ef166e48a6c7a36677bd8dcf024",
+    "headAfter": "e58cc7a168064ef166e48a6c7a36677bd8dcf024",
+    "e58CommitPresentBefore": true,
+    "e58AncestorOfProductionHeadBefore": true,
+    "actualOutputState": "RECOVERY_REQUIRED",
+    "actualRecoveryRequiredAfterRepair": true,
+    "localRecoveryBefore": "RECOVERY_REQUIRED",
+    "localRecoveryAfter": "RECOVERY_REQUIRED",
+    "matchingDecisionRecognized": false,
+    "latestTerminalSeenByRealProcess": "UNRESOLVED_LOCAL_PUB-d55_RECORD",
+    "latestDecisionSeenByRealProcess": "NOT_ASSOCIABLE_TO_PUB-d55",
+    "latestAcceptedSeenByRealProcess": "NOT_ASSOCIABLE_TO_PUB-d55",
+    "persistedRecoveryTerminalId": null,
+    "relayPublicationSeen": "PUB-20281b540a6049d0bfb25bf977877b63"
+  },
+  "safety": {"historicalPublicationRerunCount": 0, "codexChildLaunchCount": 0, "affotechMutation": 0, "relayPublicationMutation": 0, "watcherStopped": true},
+  "validation": {"focusedTestsPassed": 86, "focusedTestsFailed": 0, "nodeTestsPassed": 158, "nodeTestsFailed": 0, "pythonCompile": "PASS", "actualProductionCommandExecuted": true}
+}

@@ -1,0 +1,1 @@
+{"schemaVersion":"1.0","recordType":"EXECUTOR_RECEIPT","publicationId":"GH-PUB-267-PRODUCTION-WATCHER-RECOVERY-STARTUP-BINDING-BLOCKED-000001","terminalResult":"PRODUCTION_LOCAL_STATE_SCHEMA_NOT_RECONCILED","actualProductionCommandExecuted":true,"actualProductionOutputState":"RECOVERY_REQUIRED","historicalPublicationRerunCount":0,"codexChildLaunchCount":0,"affotechMutation":0}
