@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "recordType": "EXECUTOR_RECEIPT",
+  "publicationId": "GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001",
+  "terminalResult": "CLASP_PUSH_RECONCILED_NOT_APPLIED_OR_DIVERGED",
+  "executedPublicationId": "PUB-20281b540a6049d0bfb25bf977877b63",
+  "snapshotCommit": "4033eb9db3efd0a40b0f195a57a9c5713905ecfa",
+  "publicationExecutionCount": 1,
+  "claspPushCountParent": 1,
+  "claspPushCountThisPublication": 0,
+  "remotePulledFileCount": 88,
+  "remoteMismatchCount": 1,
+  "resultSubmissionState": "RESULT_PENDING",
+  "codexRerunCount": 0,
+  "affotechMutation": 0,
+  "controlledWatcherStopped": true
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceProject": "affotech-agent-orchestrator",
+  "recordType": "EXECUTOR_TERMINAL",
+  "publicationId": "GH-PUB-265-AFFOTECH-READONLY-RECONCILIATION-EXECUTION-000001",
+  "milestone": "ORCH.AFFOTECH.CONTROLLED.CURRENT.PUBLICATION.CYCLE.1A",
+  "status": "BLOCKED",
+  "classification": "CLASP_PUSH_RECONCILED_NOT_APPLIED_OR_DIVERGED",
+  "authorityContext": {
+    "publicationId": "PUB-20281b540a6049d0bfb25bf977877b63",
+    "snapshotCommit": "4033eb9db3efd0a40b0f195a57a9c5713905ecfa",
+    "contentSha256": "3991549bac0b09c4d06f61444d8042e4fbb57fde78135351a7abd9e7611e1ceb",
+    "parentPublicationId": "PUB-f09228ac50144463bc80659b7b963393",
+    "hashVerified": true,
+    "identityVerified": true
+  },
+  "execution": {
+    "publicationExecutionCount": 1,
+    "wrapperPublicationId": "PUB-20281b540a6049d0bfb25bf977877b63",
+    "childPublicationId": "PUB-20281b540a6049d0bfb25bf977877b63",
+    "wrapperSnapshotCommit": "4033eb9db3efd0a40b0f195a57a9c5713905ecfa",
+    "childSnapshotCommit": "4033eb9db3efd0a40b0f195a57a9c5713905ecfa",
+    "validatedRelaySnapshotEqualsChildSnapshot": true,
+    "dedicatedSessionId": "019f842e-98bc-7672-a619-51441d91be00",
+    "resumeUsed": true,
+    "codexPid": 5476,
+    "codexExitCode": 0,
+    "completedOwnedCodexProcessesRemaining": 0,
+    "completedOwnedConsoleHostsRemaining": 0
+  },
+  "affotech": {
+    "sourceAuthority": "2c51c855ef344ee21951a9f42bdb5c73a4c9eb61",
+    "stableTag": "auth-persistent-session-handoff-repair-1a-stable",
+    "stableTagResolvedCommit": "2c51c855ef344ee21951a9f42bdb5c73a4c9eb61",
+    "repairCommitFiveFileScopeVerified": true,
+    "expectedPushSetCount": 88,
+    "remotePulledFileCount": 88,
+    "remoteComparisonClassification": "CLASP_PUSH_RECONCILED_NOT_APPLIED_OR_DIVERGED",
+    "remoteMismatchCount": 1,
+    "remoteMismatchPaths": ["04_LoginSplash.html"],
+    "claspPushCountParent": 1,
+    "claspPushCountThisPublication": 0,
+    "deploymentReconciled": false,
+    "manualOAuthActions": 0,
+    "browserContacts": 0,
+    "businessWrites": 0,
+    "docsEdits": 0,
+    "ocrMutations": 0,
+    "canonicalDirtyCheckoutTouched": false,
+    "preservedRepairWorktreeTouched": false,
+    "cleanupPerformed": true,
+    "cleanupSkipped": false
+  },
+  "delivery": {
+    "resultSubmissionState": "RESULT_PENDING",
+    "resultSubmissionAttemptCount": 0,
+    "resultSubmissionFailure": "ARCHITECT_BRIDGE_UNAVAILABLE"
+  },
+  "safety": {
+    "supersededPubF092RerunCount": 0,
+    "codexRerunCount": 0,
+    "controlledWatcherStopped": true
+  },
+  "requiresArchitectDecision": true
+}
